@@ -3556,7 +3556,7 @@ af_face_globals_get_metrics.exit.i:               ; preds = %92
   %146 = getelementptr inbounds i8, ptr %12, i64 72
   %147 = getelementptr inbounds i8, ptr %28, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, ptr noundef nonnull align 8 dereferenceable(16) %147, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %144, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %145, i64 32, i1 false)
   %148 = call i32 @FT_Matrix_Invert(ptr noundef nonnull %8) #20
   %.not201.i = icmp eq i32 %148, 0
   br i1 %.not201.i, label %149, label %150

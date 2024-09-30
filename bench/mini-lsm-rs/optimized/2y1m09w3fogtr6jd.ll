@@ -1243,7 +1243,7 @@ define hidden noundef { ptr, ptr } @"_ZN18crossbeam_skiplist4base21SkipList$LT$K
 21:                                               ; preds = %16
   %22 = getelementptr inbounds i8, ptr %20, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %23 = ptrtoint ptr %20 to i64
   tail call fastcc void @_ZN15crossbeam_epoch6atomic14ensure_aligned17h46891d9d5f07e2e6E(i64 noundef %23)
   unreachable

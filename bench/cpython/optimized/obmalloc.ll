@@ -12438,8 +12438,8 @@ if.end:                                           ; preds = %mi_heap_get_backing
   %random = getelementptr inbounds i8, ptr %10, i64 2888
   %random5 = getelementptr inbounds i8, ptr %call4.i.i.i, i64 2888
   %14 = ptrtoint ptr %random5 to i64
-  %15 = getelementptr inbounds i8, ptr %call4.i.i.i, i64 2936
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %15, i8 0, i64 88, i1 false)
+  %15 = getelementptr i8, ptr %call4.i.i.i, i64 2936
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %15, i8 0, i64 88, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %random5, ptr noundef nonnull readonly align 1 dereferenceable(64) %random, i64 48, i1 false)
   %conv.i.i = trunc i64 %14 to i32
   %arrayidx7.i.i = getelementptr i8, ptr %call4.i.i.i, i64 2944

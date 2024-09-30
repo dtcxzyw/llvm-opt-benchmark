@@ -4236,20 +4236,14 @@ while.end:                                        ; preds = %while.body, %if.end
   %inc52 = add i64 %8, 1
   store i64 %inc52, ptr %arrayidx51, align 8
   %9 = load i64, ptr %maxChainLen, align 8
-  %cmp53 = icmp ugt i64 %inc43, %9
-  br i1 %cmp53, label %if.then55, label %if.end57
-
-if.then55:                                        ; preds = %while.end
-  store i64 %inc43, ptr %maxChainLen, align 8
-  br label %if.end57
-
-if.end57:                                         ; preds = %if.then55, %while.end
+  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %inc43, i64 %9)
+  store i64 %spec.store.select, ptr %maxChainLen, align 8
   %10 = load i64, ptr %totalChainLen, align 8
   %add = add i64 %10, %inc43
   store i64 %add, ptr %totalChainLen, align 8
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end57, %if.then34
+for.inc:                                          ; preds = %while.end, %if.then34
   %inc58 = add nuw i64 %i.037, 1
   %exitcond.not = icmp eq i64 %inc58, %shl
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !39

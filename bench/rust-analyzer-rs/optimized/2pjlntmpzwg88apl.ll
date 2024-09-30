@@ -68705,8 +68705,8 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8indexmap3map4
   %26 = load ptr, ptr %4, align 8, !alias.scope !15572, !nonnull !10, !align !58, !noundef !10
   %27 = getelementptr inbounds i8, ptr %4, i64 32
   %28 = load i64, ptr %27, align 8, !alias.scope !15572, !noundef !10
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %29, i64 24, i1 false)
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
   %30 = call noundef i64 @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13insert_unique17h84ba393961902c8dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %26, i64 noundef %28, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %24)
   %31 = getelementptr inbounds i8, ptr %26, i64 16
   %32 = load i64, ptr %31, align 8, !noalias !15572, !noundef !10
@@ -68819,7 +68819,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8indexmap3map4
   %27 = load ptr, ptr %26, align 8, !alias.scope !15584, !nonnull !10, !align !58, !noundef !10
   %28 = getelementptr inbounds i8, ptr %4, i64 32
   %29 = load i64, ptr %28, align 8, !alias.scope !15584, !noundef !10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %30 = call noundef i64 @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13insert_unique17h46e5d845dbf5833aE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %27, i64 noundef %29, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %24)
   %31 = getelementptr inbounds i8, ptr %27, i64 16
   %32 = load i64, ptr %31, align 8, !noalias !15584, !noundef !10
@@ -69155,8 +69155,8 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8indexmap3map4
   %26 = load ptr, ptr %4, align 8, !alias.scope !15641, !nonnull !10, !align !58, !noundef !10
   %27 = getelementptr inbounds i8, ptr %4, i64 32
   %28 = load i64, ptr %27, align 8, !alias.scope !15641, !noundef !10
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %29, i64 24, i1 false)
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
   %30 = call noundef i64 @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13insert_unique17h00704d5e134e065dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %26, i64 noundef %28, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %24)
   %31 = getelementptr inbounds i8, ptr %26, i64 16
   %32 = load i64, ptr %31, align 8, !noalias !15641, !noundef !10
@@ -69418,8 +69418,8 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8indexmap3map4
   %26 = load ptr, ptr %4, align 8, !alias.scope !15683, !nonnull !10, !align !58, !noundef !10
   %27 = getelementptr inbounds i8, ptr %4, i64 40
   %28 = load i64, ptr %27, align 8, !alias.scope !15683, !noundef !10
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %29, i64 32, i1 false)
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 32, i1 false)
   %30 = call noundef i64 @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13insert_unique17h597aaa31625fed14E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %26, i64 noundef %28, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %24)
   %31 = getelementptr inbounds i8, ptr %26, i64 16
   %32 = load i64, ptr %31, align 8, !noalias !15683, !noundef !10
@@ -69531,7 +69531,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8indexmap3map4
   %27 = load ptr, ptr %26, align 8, !alias.scope !15695, !nonnull !10, !align !58, !noundef !10
   %28 = getelementptr inbounds i8, ptr %4, i64 32
   %29 = load i64, ptr %28, align 8, !alias.scope !15695, !noundef !10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %30 = call noundef i64 @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13insert_unique17hfbbaafbfba1f02a3E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %27, i64 noundef %29, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %24)
   %31 = getelementptr inbounds i8, ptr %27, i64 16
   %32 = load i64, ptr %31, align 8, !noalias !15695, !noundef !10
@@ -69643,7 +69643,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8indexmap3map4
   %27 = load ptr, ptr %26, align 8, !alias.scope !15707, !nonnull !10, !align !58, !noundef !10
   %28 = getelementptr inbounds i8, ptr %4, i64 56
   %29 = load i64, ptr %28, align 8, !alias.scope !15707, !noundef !10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull readonly align 8 dereferenceable(48) %4, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
   %30 = call noundef i64 @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13insert_unique17h8bb8d72fd751fbe1E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %27, i64 noundef %29, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %24)
   %31 = getelementptr inbounds i8, ptr %27, i64 16
   %32 = load i64, ptr %31, align 8, !noalias !15707, !noundef !10
@@ -70051,8 +70051,8 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8indexmap3map4
   %26 = load ptr, ptr %4, align 8, !alias.scope !15779, !nonnull !10, !align !58, !noundef !10
   %27 = getelementptr inbounds i8, ptr %4, i64 24
   %28 = load i64, ptr %27, align 8, !alias.scope !15779, !noundef !10
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %29, i64 16, i1 false)
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
   %30 = call noundef i64 @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13insert_unique17h156954d08f01c973E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %26, i64 noundef %28, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %24)
   %31 = getelementptr inbounds i8, ptr %26, i64 16
   %32 = load i64, ptr %31, align 8, !noalias !15779, !noundef !10
@@ -70241,7 +70241,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8indexmap3map4
   %27 = load ptr, ptr %26, align 8, !alias.scope !15806, !nonnull !10, !align !58, !noundef !10
   %28 = getelementptr inbounds i8, ptr %4, i64 32
   %29 = load i64, ptr %28, align 8, !alias.scope !15806, !noundef !10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %30 = call noundef i64 @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13insert_unique17haa181254390f88a3E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %27, i64 noundef %29, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %24)
   %31 = getelementptr inbounds i8, ptr %27, i64 16
   %32 = load i64, ptr %31, align 8, !noalias !15806, !noundef !10

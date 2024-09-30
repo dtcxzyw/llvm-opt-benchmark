@@ -992,6 +992,9 @@ _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit: ; preds = %
   br label %233
 
 191:                                              ; preds = %187
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  %.sroa.740.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %.sroa.740.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(19) %.sroa.7, i64 19, i1 false)
   call void @llvm.lifetime.start.p0(i64 4984, ptr nonnull %5)
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %5, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
   %192 = getelementptr inbounds i8, ptr %11, i64 64
@@ -1006,15 +1009,12 @@ _ZL23find_initial_Java_frameP10JavaThreadP5frameS2_PP6MethodPi.exit: ; preds = %
   store ptr %196, ptr %197, align 8
   %198 = getelementptr inbounds i8, ptr %11, i64 5088
   store i8 0, ptr %198, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
   %.sroa.437.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %.sroa.4.053, ptr %.sroa.437.0..sroa_idx, align 8
   %.sroa.538.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 32
   store i32 %.sroa.5.052, ptr %.sroa.538.0..sroa_idx, align 8
   %.sroa.639.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 36
   store i8 %.sroa.6.051, ptr %.sroa.639.0..sroa_idx, align 4
-  %.sroa.740.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %.sroa.740.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(19) %.sroa.7, i64 19, i1 false)
   %199 = call noundef zeroext i1 @_ZN18vframeStreamCommon15fill_from_frameEv(ptr noundef nonnull align 8 dereferenceable(5104) %11)
   call void @llvm.lifetime.end.p0(i64 4984, ptr nonnull %5)
   %200 = getelementptr inbounds i8, ptr %11, i64 5048

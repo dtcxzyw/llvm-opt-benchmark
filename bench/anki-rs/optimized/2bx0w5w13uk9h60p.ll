@@ -17,48 +17,47 @@ define hidden void @"_ZN83_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$snaf
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !9
-  store ptr %1, ptr %5, align 8, !noalias !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !7
+  store ptr %1, ptr %5, align 8, !noalias !7
   %9 = getelementptr inbounds i8, ptr %6, i64 32
-  %10 = load ptr, ptr %9, align 8, !alias.scope !7, !noalias !4, !nonnull !10, !align !11, !noundef !10
+  %10 = load ptr, ptr %9, align 8, !alias.scope !4, !noalias !9, !nonnull !10, !align !11, !noundef !10
   %11 = getelementptr inbounds i8, ptr %6, i64 40
-  %12 = load i64, ptr %11, align 8, !alias.scope !7, !noalias !4, !noundef !10
+  %12 = load i64, ptr %11, align 8, !alias.scope !4, !noalias !9, !noundef !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i.i), !noalias !12
   invoke void @_ZN3std3sys4unix6os_str5Slice8to_owned17h2ca8b8fae4b3b09dE(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %.sroa.0.i.i.i, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12)
-          to label %21 unwind label %13, !noalias !9
+          to label %21 unwind label %13, !noalias !7
 
 13:                                               ; preds = %8
   %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #5
-          to label %17 unwind label %15, !noalias !9
+          to label %17 unwind label %15, !noalias !7
 
 15:                                               ; preds = %19, %13
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #6, !noalias !4
+  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #6, !noalias !9
   unreachable
 
 "_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854.exit.i": ; preds = %19, %17
   resume { ptr, i32 } %14
 
 17:                                               ; preds = %13
-  %18 = load i64, ptr %6, align 8, !range !19, !alias.scope !20, !noalias !4, !noundef !10
+  %18 = load i64, ptr %6, align 8, !range !19, !alias.scope !20, !noalias !9, !noundef !10
   %cond.i.i = icmp eq i64 %18, 5
   br i1 %cond.i.i, label %19, label %"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854.exit.i"
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %6, i64 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h78ad274784ac1635E.llvm.469525117986682804"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20)
-          to label %"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854.exit.i" unwind label %15, !noalias !4
+          to label %"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854.exit.i" unwind label %15, !noalias !9
 
 21:                                               ; preds = %8
   %.sroa.0.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.32..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i, i64 24, i1 false), !noalias !7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.32..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i, i64 24, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i.i.i), !noalias !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !alias.scope !9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !7
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0, i64 56, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
@@ -98,48 +97,47 @@ define hidden void @"_ZN83_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$snaf
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !33
-  store ptr %10, ptr %5, align 8, !noalias !33
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !31
+  store ptr %10, ptr %5, align 8, !noalias !31
   %11 = getelementptr inbounds i8, ptr %6, i64 32
-  %12 = load ptr, ptr %11, align 8, !alias.scope !31, !noalias !28, !nonnull !10, !align !11, !noundef !10
+  %12 = load ptr, ptr %11, align 8, !alias.scope !28, !noalias !33, !nonnull !10, !align !11, !noundef !10
   %13 = getelementptr inbounds i8, ptr %6, i64 40
-  %14 = load i64, ptr %13, align 8, !alias.scope !31, !noalias !28, !noundef !10
+  %14 = load i64, ptr %13, align 8, !alias.scope !28, !noalias !33, !noundef !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i.i), !noalias !34
   invoke void @_ZN3std3sys4unix6os_str5Slice8to_owned17h2ca8b8fae4b3b09dE(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %.sroa.0.i.i.i, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %14)
-          to label %.thread unwind label %15, !noalias !33
+          to label %.thread unwind label %15, !noalias !31
 
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #5
-          to label %19 unwind label %17, !noalias !33
+          to label %19 unwind label %17, !noalias !31
 
 17:                                               ; preds = %21, %15
   %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #6, !noalias !28
+  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #6, !noalias !33
   unreachable
 
 "_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854.exit.i": ; preds = %21, %19
   resume { ptr, i32 } %16
 
 19:                                               ; preds = %15
-  %20 = load i64, ptr %6, align 8, !range !19, !alias.scope !41, !noalias !28, !noundef !10
+  %20 = load i64, ptr %6, align 8, !range !19, !alias.scope !41, !noalias !33, !noundef !10
   %cond.i.i = icmp eq i64 %20, 5
   br i1 %cond.i.i, label %21, label %"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854.exit.i"
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %6, i64 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h78ad274784ac1635E.llvm.469525117986682804"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
-          to label %"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854.exit.i" unwind label %17, !noalias !28
+          to label %"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854.exit.i" unwind label %17, !noalias !33
 
 .thread:                                          ; preds = %8
   %.sroa.0.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.32..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i, i64 24, i1 false), !noalias !31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.32..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i, i64 24, i1 false), !noalias !28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i.i.i), !noalias !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !alias.scope !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !31
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0, i64 56, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
@@ -245,48 +243,47 @@ define hidden void @"_ZN83_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$snaf
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !63
-  store ptr %10, ptr %5, align 8, !noalias !63
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !61
+  store ptr %10, ptr %5, align 8, !noalias !61
   %11 = getelementptr inbounds i8, ptr %6, i64 32
-  %12 = load ptr, ptr %11, align 8, !alias.scope !61, !noalias !58, !nonnull !10, !align !11, !noundef !10
+  %12 = load ptr, ptr %11, align 8, !alias.scope !58, !noalias !63, !nonnull !10, !align !11, !noundef !10
   %13 = getelementptr inbounds i8, ptr %6, i64 40
-  %14 = load i64, ptr %13, align 8, !alias.scope !61, !noalias !58, !noundef !10
+  %14 = load i64, ptr %13, align 8, !alias.scope !58, !noalias !63, !noundef !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i.i), !noalias !64
   invoke void @_ZN3std3sys4unix6os_str5Slice8to_owned17h2ca8b8fae4b3b09dE(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %.sroa.0.i.i.i, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %14)
-          to label %.thread unwind label %15, !noalias !63
+          to label %.thread unwind label %15, !noalias !61
 
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #5
-          to label %19 unwind label %17, !noalias !63
+          to label %19 unwind label %17, !noalias !61
 
 17:                                               ; preds = %21, %15
   %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #6, !noalias !58
+  call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #6, !noalias !63
   unreachable
 
 "_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854.exit.i": ; preds = %21, %19
   resume { ptr, i32 } %16
 
 19:                                               ; preds = %15
-  %20 = load i64, ptr %6, align 8, !range !19, !alias.scope !71, !noalias !58, !noundef !10
+  %20 = load i64, ptr %6, align 8, !range !19, !alias.scope !71, !noalias !63, !noundef !10
   %cond.i.i = icmp eq i64 %20, 5
   br i1 %cond.i.i, label %21, label %"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854.exit.i"
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %6, i64 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h78ad274784ac1635E.llvm.469525117986682804"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
-          to label %"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854.exit.i" unwind label %17, !noalias !58
+          to label %"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854.exit.i" unwind label %17, !noalias !63
 
 .thread:                                          ; preds = %8
   %.sroa.0.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.32..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i, i64 24, i1 false), !noalias !61
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.32..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i, i64 24, i1 false), !noalias !58
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i.i.i), !noalias !64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !alias.scope !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !61
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0, i64 56, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
@@ -356,14 +353,14 @@ attributes #6 = { cold noreturn nounwind }
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.75.0 (82e1608df 2023-12-21)"}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN118_$LT$anki_io..error..FileIoSnafu$LT$__T0$C$__T1$GT$$u20$as$u20$snafu..IntoError$LT$anki_io..error..FileIoError$GT$$GT$10into_error17ha4a59d537ff23d29E: argument 0"}
+!5 = distinct !{!5, !6, !"_ZN118_$LT$anki_io..error..FileIoSnafu$LT$__T0$C$__T1$GT$$u20$as$u20$snafu..IntoError$LT$anki_io..error..FileIoError$GT$$GT$10into_error17ha4a59d537ff23d29E: argument 1"}
 !6 = distinct !{!6, !"_ZN118_$LT$anki_io..error..FileIoSnafu$LT$__T0$C$__T1$GT$$u20$as$u20$snafu..IntoError$LT$anki_io..error..FileIoError$GT$$GT$10into_error17ha4a59d537ff23d29E"}
-!7 = !{!8}
-!8 = distinct !{!8, !6, !"_ZN118_$LT$anki_io..error..FileIoSnafu$LT$__T0$C$__T1$GT$$u20$as$u20$snafu..IntoError$LT$anki_io..error..FileIoError$GT$$GT$10into_error17ha4a59d537ff23d29E: argument 1"}
-!9 = !{!5, !8}
+!7 = !{!8, !5}
+!8 = distinct !{!8, !6, !"_ZN118_$LT$anki_io..error..FileIoSnafu$LT$__T0$C$__T1$GT$$u20$as$u20$snafu..IntoError$LT$anki_io..error..FileIoError$GT$$GT$10into_error17ha4a59d537ff23d29E: argument 0"}
+!9 = !{!8}
 !10 = !{}
 !11 = !{i64 1}
-!12 = !{!13, !15, !16, !18, !5, !8}
+!12 = !{!13, !15, !16, !18, !8, !5}
 !13 = distinct !{!13, !14, !"_ZN71_$LT$std..path..PathBuf$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17h9def1ed682f50de1E.llvm.14975624700125130854: argument 0"}
 !14 = distinct !{!14, !"_ZN71_$LT$std..path..PathBuf$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17h9def1ed682f50de1E.llvm.14975624700125130854"}
 !15 = distinct !{!15, !14, !"_ZN71_$LT$std..path..PathBuf$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17h9def1ed682f50de1E.llvm.14975624700125130854: argument 1"}
@@ -371,7 +368,7 @@ attributes #6 = { cold noreturn nounwind }
 !17 = distinct !{!17, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h53aa819ddb6e8379E.llvm.14975624700125130854"}
 !18 = distinct !{!18, !17, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h53aa819ddb6e8379E.llvm.14975624700125130854: argument 1"}
 !19 = !{i64 0, i64 11}
-!20 = !{!21, !8}
+!20 = !{!21, !5}
 !21 = distinct !{!21, !22, !"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854: argument 0"}
 !22 = distinct !{!22, !"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854"}
 !23 = !{!24, !26}
@@ -380,19 +377,19 @@ attributes #6 = { cold noreturn nounwind }
 !26 = distinct !{!26, !27, !"_ZN4core3ptr100drop_in_place$LT$anki_io..error..FileIoSnafu$LT$$RF$std..path..Path$C$anki_io..error..FileOp$GT$$GT$17h211c0ca3f21d52b6E: argument 0"}
 !27 = distinct !{!27, !"_ZN4core3ptr100drop_in_place$LT$anki_io..error..FileIoSnafu$LT$$RF$std..path..Path$C$anki_io..error..FileOp$GT$$GT$17h211c0ca3f21d52b6E"}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN118_$LT$anki_io..error..FileIoSnafu$LT$__T0$C$__T1$GT$$u20$as$u20$snafu..IntoError$LT$anki_io..error..FileIoError$GT$$GT$10into_error17ha4a59d537ff23d29E: argument 0"}
+!29 = distinct !{!29, !30, !"_ZN118_$LT$anki_io..error..FileIoSnafu$LT$__T0$C$__T1$GT$$u20$as$u20$snafu..IntoError$LT$anki_io..error..FileIoError$GT$$GT$10into_error17ha4a59d537ff23d29E: argument 1"}
 !30 = distinct !{!30, !"_ZN118_$LT$anki_io..error..FileIoSnafu$LT$__T0$C$__T1$GT$$u20$as$u20$snafu..IntoError$LT$anki_io..error..FileIoError$GT$$GT$10into_error17ha4a59d537ff23d29E"}
-!31 = !{!32}
-!32 = distinct !{!32, !30, !"_ZN118_$LT$anki_io..error..FileIoSnafu$LT$__T0$C$__T1$GT$$u20$as$u20$snafu..IntoError$LT$anki_io..error..FileIoError$GT$$GT$10into_error17ha4a59d537ff23d29E: argument 1"}
-!33 = !{!29, !32}
-!34 = !{!35, !37, !38, !40, !29, !32}
+!31 = !{!32, !29}
+!32 = distinct !{!32, !30, !"_ZN118_$LT$anki_io..error..FileIoSnafu$LT$__T0$C$__T1$GT$$u20$as$u20$snafu..IntoError$LT$anki_io..error..FileIoError$GT$$GT$10into_error17ha4a59d537ff23d29E: argument 0"}
+!33 = !{!32}
+!34 = !{!35, !37, !38, !40, !32, !29}
 !35 = distinct !{!35, !36, !"_ZN71_$LT$std..path..PathBuf$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17h9def1ed682f50de1E.llvm.14975624700125130854: argument 0"}
 !36 = distinct !{!36, !"_ZN71_$LT$std..path..PathBuf$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17h9def1ed682f50de1E.llvm.14975624700125130854"}
 !37 = distinct !{!37, !36, !"_ZN71_$LT$std..path..PathBuf$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17h9def1ed682f50de1E.llvm.14975624700125130854: argument 1"}
 !38 = distinct !{!38, !39, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h53aa819ddb6e8379E.llvm.14975624700125130854: argument 0"}
 !39 = distinct !{!39, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h53aa819ddb6e8379E.llvm.14975624700125130854"}
 !40 = distinct !{!40, !39, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h53aa819ddb6e8379E.llvm.14975624700125130854: argument 1"}
-!41 = !{!42, !32}
+!41 = !{!42, !29}
 !42 = distinct !{!42, !43, !"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854: argument 0"}
 !43 = distinct !{!43, !"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854"}
 !44 = !{!45, !47}
@@ -410,19 +407,19 @@ attributes #6 = { cold noreturn nounwind }
 !56 = distinct !{!56, !"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.469525117986682804"}
 !57 = !{i32 0, i32 2}
 !58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN118_$LT$anki_io..error..FileIoSnafu$LT$__T0$C$__T1$GT$$u20$as$u20$snafu..IntoError$LT$anki_io..error..FileIoError$GT$$GT$10into_error17ha4a59d537ff23d29E: argument 0"}
+!59 = distinct !{!59, !60, !"_ZN118_$LT$anki_io..error..FileIoSnafu$LT$__T0$C$__T1$GT$$u20$as$u20$snafu..IntoError$LT$anki_io..error..FileIoError$GT$$GT$10into_error17ha4a59d537ff23d29E: argument 1"}
 !60 = distinct !{!60, !"_ZN118_$LT$anki_io..error..FileIoSnafu$LT$__T0$C$__T1$GT$$u20$as$u20$snafu..IntoError$LT$anki_io..error..FileIoError$GT$$GT$10into_error17ha4a59d537ff23d29E"}
-!61 = !{!62}
-!62 = distinct !{!62, !60, !"_ZN118_$LT$anki_io..error..FileIoSnafu$LT$__T0$C$__T1$GT$$u20$as$u20$snafu..IntoError$LT$anki_io..error..FileIoError$GT$$GT$10into_error17ha4a59d537ff23d29E: argument 1"}
-!63 = !{!59, !62}
-!64 = !{!65, !67, !68, !70, !59, !62}
+!61 = !{!62, !59}
+!62 = distinct !{!62, !60, !"_ZN118_$LT$anki_io..error..FileIoSnafu$LT$__T0$C$__T1$GT$$u20$as$u20$snafu..IntoError$LT$anki_io..error..FileIoError$GT$$GT$10into_error17ha4a59d537ff23d29E: argument 0"}
+!63 = !{!62}
+!64 = !{!65, !67, !68, !70, !62, !59}
 !65 = distinct !{!65, !66, !"_ZN71_$LT$std..path..PathBuf$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17h9def1ed682f50de1E.llvm.14975624700125130854: argument 0"}
 !66 = distinct !{!66, !"_ZN71_$LT$std..path..PathBuf$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17h9def1ed682f50de1E.llvm.14975624700125130854"}
 !67 = distinct !{!67, !66, !"_ZN71_$LT$std..path..PathBuf$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17h9def1ed682f50de1E.llvm.14975624700125130854: argument 1"}
 !68 = distinct !{!68, !69, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h53aa819ddb6e8379E.llvm.14975624700125130854: argument 0"}
 !69 = distinct !{!69, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h53aa819ddb6e8379E.llvm.14975624700125130854"}
 !70 = distinct !{!70, !69, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h53aa819ddb6e8379E.llvm.14975624700125130854: argument 1"}
-!71 = !{!72, !62}
+!71 = !{!72, !59}
 !72 = distinct !{!72, !73, !"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854: argument 0"}
 !73 = distinct !{!73, !"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17hc8f48f1b0acd5228E.llvm.14975624700125130854"}
 !74 = !{i32 0, i32 -1}

@@ -12593,7 +12593,7 @@ entry:
   %10 = load i32, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %10 to i64
   %arrayidx16 = getelementptr inbounds %"class.pbrt::Point3", ptr %6, i64 %idxprom15
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp19, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx16, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp19, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx16, i64 12, i1 false)
   call void @_ZN4pbrt22IntersectBilinearPatchERKNS_3RayEfNS_6Point3IfEES4_S4_S4_(ptr nonnull sret(%"class.pstd::optional.117") align 4 %blpIsect, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %tMax, <2 x float> %p00.sroa.0.0.copyload, float %p00.sroa.2.0.copyload, <2 x float> %p10.sroa.0.0.copyload, float %p10.sroa.2.0.copyload, <2 x float> %p01.sroa.0.0.copyload, float %p01.sroa.2.0.copyload, ptr noundef nonnull byval(%"class.pbrt::Point3") align 8 %agg.tmp19)
   %set.i = getelementptr inbounds i8, ptr %blpIsect, i64 12
   %11 = load i8, ptr %set.i, align 4
@@ -14236,7 +14236,7 @@ entry:
   %10 = load i32, ptr %arrayidx14, align 4
   %idxprom15 = sext i32 %10 to i64
   %arrayidx16 = getelementptr inbounds %"class.pbrt::Point3", ptr %6, i64 %idxprom15
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp19, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx16, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp19, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx16, i64 12, i1 false)
   call void @_ZN4pbrt22IntersectBilinearPatchERKNS_3RayEfNS_6Point3IfEES4_S4_S4_(ptr nonnull sret(%"class.pstd::optional.117") align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %tMax, <2 x float> %p00.sroa.0.0.copyload, float %p00.sroa.2.0.copyload, <2 x float> %p10.sroa.0.0.copyload, float %p10.sroa.2.0.copyload, <2 x float> %p01.sroa.0.0.copyload, float %p01.sroa.2.0.copyload, ptr noundef nonnull byval(%"class.pbrt::Point3") align 8 %agg.tmp19)
   %set.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   %11 = load i8, ptr %set.i, align 4
@@ -37852,6 +37852,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp4.i.i.i)
+  %ctx.sroa.4.0.agg.tmp4.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp4.i.i.i, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ctx.sroa.4.0.agg.tmp4.sroa_idx.i.i.i, i8 0, i64 20, i1 false)
   %0 = load ptr, ptr %__functor.val, align 8
   %sext.i.i = shl i64 %__args.val, 32
   %idxprom.i.i.i = ashr exact i64 %sext.i.i, 32
@@ -37869,8 +37871,6 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp4.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ctx.sroa.0.i.i.i, i64 48, i1 false)
   %ctx.sroa.3.0.agg.tmp4.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp4.i.i.i, i64 48
   store i64 %3, ptr %ctx.sroa.3.0.agg.tmp4.sroa_idx.i.i.i, align 8
-  %ctx.sroa.4.0.agg.tmp4.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp4.i.i.i, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %ctx.sroa.4.0.agg.tmp4.sroa_idx.i.i.i, i8 0, i64 20, i1 false)
   %call.i.i.i = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp4.i.i.i)
   %6 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %7 = load ptr, ptr %6, align 8

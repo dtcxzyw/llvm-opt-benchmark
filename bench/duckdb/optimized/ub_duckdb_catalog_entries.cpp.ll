@@ -5936,7 +5936,6 @@ entry:
   %agg.tmp.i = alloca %"class.std::shared_ptr.264", align 8
   %table = alloca %"class.duckdb::unique_ptr.186", align 8
   %entry9 = alloca %"class.duckdb::optional_ptr.2", align 8
-  %agg.tmp = alloca %"struct.duckdb::CatalogTransaction", align 8
   %agg.tmp10 = alloca %"class.duckdb::unique_ptr.162", align 8
   %agg.tmp14 = alloca %"class.duckdb::DependencyList", align 8
   %fk_arrays = alloca %"class.duckdb::vector.105", align 8
@@ -6034,7 +6033,6 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %cardinality = getelementptr inbounds i8, ptr %10, i64 24
   store atomic i64 %call5, ptr %cardinality seq_cst, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %entry9) #28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(40) %transaction, i64 40, i1 false), !tbaa.struct !159
   %11 = load ptr, ptr %table, align 8, !tbaa !16
   store ptr null, ptr %table, align 8, !tbaa !16
   store ptr %11, ptr %agg.tmp10, align 8, !tbaa !165
@@ -6069,7 +6067,7 @@ invoke.cont12:                                    ; preds = %invoke.cont4
 
 invoke.cont15:                                    ; preds = %invoke.cont12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i.i) #28
-  %call18 = invoke ptr @_ZN6duckdb15DuckSchemaEntry16AddEntryInternalENS_18CatalogTransactionENS_10unique_ptrINS_13StandardEntryESt14default_deleteIS3_ELb1EEENS_16OnCreateConflictENS_14DependencyListE(ptr noundef nonnull align 8 dereferenceable(1040) %this, ptr noundef nonnull byval(%"struct.duckdb::CatalogTransaction") align 8 %agg.tmp, ptr noundef nonnull %agg.tmp10, i8 noundef zeroext %12, ptr noundef nonnull %agg.tmp14)
+  %call18 = invoke ptr @_ZN6duckdb15DuckSchemaEntry16AddEntryInternalENS_18CatalogTransactionENS_10unique_ptrINS_13StandardEntryESt14default_deleteIS3_ELb1EEENS_16OnCreateConflictENS_14DependencyListE(ptr noundef nonnull align 8 dereferenceable(1040) %this, ptr noundef nonnull byval(%"struct.duckdb::CatalogTransaction") align 8 %transaction, ptr noundef nonnull %agg.tmp10, i8 noundef zeroext %12, ptr noundef nonnull %agg.tmp14)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15

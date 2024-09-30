@@ -4850,7 +4850,7 @@ switch.lookup:                                    ; preds = %95
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h3b5903e5b2523940E.exit": ; preds = %180, %179, %.noexc67, %.noexc
   %.1.i = phi ptr [ %167, %.noexc67 ], [ %165, %.noexc ], [ %178, %179 ], [ %176, %180 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false)
   %185 = getelementptr inbounds i8, ptr %24, i64 32
   store ptr %.1.i, ptr %185, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
@@ -5078,7 +5078,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hc22ec177dc9ce117E.exit": ; preds = %.noexc75, %.noexc74, %.noexc73
   %.1.i70 = phi ptr [ %240, %.noexc74 ], [ %242, %.noexc75 ], [ %238, %.noexc73 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
   %245 = getelementptr inbounds i8, ptr %20, i64 32
   store ptr %.1.i70, ptr %245, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)

@@ -70501,58 +70501,50 @@ declare noundef zeroext i1 @_ZNK5clang4Expr17isTemporaryObjectERNS_10ASTContextE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local i64 @_ZN5clang4Sema21BuildCXXConstructExprENS_14SourceLocationENS_8QualTypeEPNS_9NamedDeclEPNS_18CXXConstructorDeclEbN4llvm15MutableArrayRefIPNS_4ExprEEEbbbbNS_19CXXConstructionKindENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, i64 %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr nocapture noundef readonly byval(%"class.llvm::MutableArrayRef") align 8 %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i32 noundef %11, i64 %12) local_unnamed_addr #0 align 2 {
-  %14 = alloca %"class.llvm::MutableArrayRef", align 8
-  %15 = alloca %"class.clang::SourceLocation", align 4
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %17 = load i32, ptr %16, align 4
-  %18 = and i32 %17, 127
-  %19 = icmp ne i32 %18, 51
+  %14 = alloca %"class.clang::SourceLocation", align 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %16 = load i32, ptr %15, align 4
+  %17 = and i32 %16, 127
+  %18 = icmp ne i32 %17, 51
   %.not23 = icmp eq ptr %3, null
-  %.not = or i1 %.not23, %19
-  br i1 %.not, label %23, label %20
+  %.not = or i1 %.not23, %18
+  br i1 %.not, label %22, label %19
 
-20:                                               ; preds = %13
-  %21 = tail call noundef ptr @_ZN5clang4Sema25findInheritingConstructorENS_14SourceLocationEPNS_18CXXConstructorDeclEPNS_26ConstructorUsingShadowDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, ptr noundef %4, ptr noundef nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
-  store i32 %1, ptr %15, align 4
-  %22 = call noundef zeroext i1 @_ZN5clang4Sema17DiagnoseUseOfDeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_14SourceLocationEEEPKNS_17ObjCInterfaceDeclEbbPS7_b(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %21, ptr nonnull %15, i64 1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, i1 noundef zeroext true) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  br i1 %22, label %39, label %23
+19:                                               ; preds = %13
+  %20 = tail call noundef ptr @_ZN5clang4Sema25findInheritingConstructorENS_14SourceLocationEPNS_18CXXConstructorDeclEPNS_26ConstructorUsingShadowDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, ptr noundef %4, ptr noundef nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  store i32 %1, ptr %14, align 4
+  %21 = call noundef zeroext i1 @_ZN5clang4Sema17DiagnoseUseOfDeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_14SourceLocationEEEPKNS_17ObjCInterfaceDeclEbbPS7_b(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %20, ptr nonnull %14, i64 1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, i1 noundef zeroext true) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  br i1 %21, label %_ZN5clang4Sema21BuildCXXConstructExprENS_14SourceLocationENS_8QualTypeEPNS_18CXXConstructorDeclEbN4llvm15MutableArrayRefIPNS_4ExprEEEbbbbNS_19CXXConstructionKindENS_11SourceRangeE.exit, label %22
 
-23:                                               ; preds = %20, %13
-  %.0 = phi ptr [ %21, %20 ], [ %4, %13 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+22:                                               ; preds = %19, %13
+  %.0 = phi ptr [ %20, %19 ], [ %4, %13 ]
   call void @_ZN5clang4Sema22MarkFunctionReferencedENS_14SourceLocationEPNS_12FunctionDeclEb(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, ptr noundef %.0, i1 noundef zeroext true) #24
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  %27 = load i64, ptr %26, align 8
-  %28 = and i64 %27, 68719476736
-  %.not.i = icmp eq i64 %28, 0
-  br i1 %.not.i, label %33, label %29
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %26 = load i64, ptr %25, align 8
+  %27 = and i64 %26, 68719476736
+  %.not.i = icmp eq i64 %27, 0
+  br i1 %.not.i, label %32, label %28
 
-29:                                               ; preds = %23
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %31 = load ptr, ptr %30, align 8
-  %32 = call noundef zeroext i1 @_ZN5clang8SemaCUDA9CheckCallENS_14SourceLocationEPNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(76) %31, i32 %1, ptr noundef %.0) #24
-  br i1 %32, label %33, label %_ZN5clang4Sema21BuildCXXConstructExprENS_14SourceLocationENS_8QualTypeEPNS_18CXXConstructorDeclEbN4llvm15MutableArrayRefIPNS_4ExprEEEbbbbNS_19CXXConstructionKindENS_11SourceRangeE.exit
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  %30 = load ptr, ptr %29, align 8
+  %31 = call noundef zeroext i1 @_ZN5clang8SemaCUDA9CheckCallENS_14SourceLocationEPNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(76) %30, i32 %1, ptr noundef %.0) #24
+  br i1 %31, label %32, label %_ZN5clang4Sema21BuildCXXConstructExprENS_14SourceLocationENS_8QualTypeEPNS_18CXXConstructorDeclEbN4llvm15MutableArrayRefIPNS_4ExprEEEbbbbNS_19CXXConstructionKindENS_11SourceRangeE.exit
 
-33:                                               ; preds = %29, %23
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %35 = load ptr, ptr %34, align 8
-  %36 = call noundef ptr @_ZN5clang16CXXConstructExpr6CreateERKNS_10ASTContextENS_8QualTypeENS_14SourceLocationEPNS_18CXXConstructorDeclEbN4llvm8ArrayRefIPNS_4ExprEEEbbbbNS_19CXXConstructionKindENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23096) %35, i64 %2, i32 %1, ptr noundef %.0, i1 noundef zeroext %5, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1047") align 8 %14, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i32 noundef %11, i64 %12) #24
-  %37 = ptrtoint ptr %36 to i64
-  %38 = call i64 @_ZN5clang4Sema27CheckForImmediateInvocationENS_12ActionResultIPNS_4ExprELb1EEEPNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %37, ptr noundef %.0) #24
+32:                                               ; preds = %28, %22
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %34 = load ptr, ptr %33, align 8
+  %35 = call noundef ptr @_ZN5clang16CXXConstructExpr6CreateERKNS_10ASTContextENS_8QualTypeENS_14SourceLocationEPNS_18CXXConstructorDeclEbN4llvm8ArrayRefIPNS_4ExprEEEbbbbNS_19CXXConstructionKindENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(23096) %34, i64 %2, i32 %1, ptr noundef %.0, i1 noundef zeroext %5, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1047") align 8 %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i32 noundef %11, i64 %12) #24
+  %36 = ptrtoint ptr %35 to i64
+  %37 = call i64 @_ZN5clang4Sema27CheckForImmediateInvocationENS_12ActionResultIPNS_4ExprELb1EEEPNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %36, ptr noundef %.0) #24
   br label %_ZN5clang4Sema21BuildCXXConstructExprENS_14SourceLocationENS_8QualTypeEPNS_18CXXConstructorDeclEbN4llvm15MutableArrayRefIPNS_4ExprEEEbbbbNS_19CXXConstructionKindENS_11SourceRangeE.exit
 
-_ZN5clang4Sema21BuildCXXConstructExprENS_14SourceLocationENS_8QualTypeEPNS_18CXXConstructorDeclEbN4llvm15MutableArrayRefIPNS_4ExprEEEbbbbNS_19CXXConstructionKindENS_11SourceRangeE.exit: ; preds = %29, %33
-  %.sroa.019.0.i = phi i64 [ %38, %33 ], [ 1, %29 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  br label %39
-
-39:                                               ; preds = %20, %_ZN5clang4Sema21BuildCXXConstructExprENS_14SourceLocationENS_8QualTypeEPNS_18CXXConstructorDeclEbN4llvm15MutableArrayRefIPNS_4ExprEEEbbbbNS_19CXXConstructionKindENS_11SourceRangeE.exit
-  %.sroa.021.0 = phi i64 [ %.sroa.019.0.i, %_ZN5clang4Sema21BuildCXXConstructExprENS_14SourceLocationENS_8QualTypeEPNS_18CXXConstructorDeclEbN4llvm15MutableArrayRefIPNS_4ExprEEEbbbbNS_19CXXConstructionKindENS_11SourceRangeE.exit ], [ 1, %20 ]
+_ZN5clang4Sema21BuildCXXConstructExprENS_14SourceLocationENS_8QualTypeEPNS_18CXXConstructorDeclEbN4llvm15MutableArrayRefIPNS_4ExprEEEbbbbNS_19CXXConstructionKindENS_11SourceRangeE.exit: ; preds = %32, %28, %19
+  %.sroa.021.0 = phi i64 [ 1, %19 ], [ %37, %32 ], [ 1, %28 ]
   ret i64 %.sroa.021.0
 }
 

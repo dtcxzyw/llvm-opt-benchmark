@@ -2149,7 +2149,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %.0 = sub nuw i64 %11, %13
   %14 = load ptr, ptr %0, align 8, !nonnull !14, !noundef !14
   %15 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %14, i64 %.0
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %16 = load i64, ptr %3, align 8, !noundef !14
   %17 = add i64 %16, 1
   store i64 %17, ptr %3, align 8

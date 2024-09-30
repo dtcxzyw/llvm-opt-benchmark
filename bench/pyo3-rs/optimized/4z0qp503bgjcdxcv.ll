@@ -3506,7 +3506,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass10impl_class17h7c9b
   br label %.thread104
 
 109:                                              ; preds = %105
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %51, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %98, i64 64, i1 false)
   invoke void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h2b7f2741f421f32dE"(ptr nonnull align 8 %46, ptr nonnull align 8 %27)
           to label %110 unwind label %.thread86
 
@@ -6262,7 +6262,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   br label %.thread175.i.i
 
 625:                                              ; preds = %623
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %62, i64 64, i1 false), !noalias !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %615, i64 64, i1 false), !noalias !33
   invoke void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h2b7f2741f421f32dE"(ptr nonnull align 8 %60, ptr nonnull align 8 %39)
           to label %626 unwind label %712, !noalias !33
 
@@ -7748,7 +7748,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass17impl_complex_enum
   br label %.thread204.thread
 
 270:                                              ; preds = %263
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %98, ptr noundef nonnull align 8 dereferenceable(64) %179, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %98, ptr noundef nonnull align 8 dereferenceable(64) %264, i64 64, i1 false)
   invoke void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h2b7f2741f421f32dE"(ptr nonnull align 8 %177, ptr nonnull align 8 %98)
           to label %271 unwind label %1077
 
@@ -9430,7 +9430,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
   store i32 3, ptr %487, align 8, !noalias !58
   store ptr %63, ptr %488, align 8, !noalias !58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %489, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false), !noalias !58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %64, ptr noundef nonnull align 8 dereferenceable(192) %55, i64 192, i1 false), !noalias !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %64, ptr noundef nonnull align 8 dereferenceable(192) %70, i64 192, i1 false), !noalias !58
   store i8 3, ptr %490, align 4, !noalias !58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %491, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 32, i1 false), !noalias !58
   store i32 0, ptr %492, align 8, !noalias !58
@@ -10127,7 +10127,7 @@ _ZN19pyo3_macros_backend7pyclass31complex_enum_struct_variant_new17h9ee762c91a75
   store i32 3, ptr %452, align 8, !noalias !62
   store ptr %17, ptr %453, align 8, !noalias !62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %454, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !62
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %18, ptr noundef nonnull align 8 dereferenceable(192) %9, i64 192, i1 false), !noalias !62
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %18, ptr noundef nonnull align 8 dereferenceable(192) %24, i64 192, i1 false), !noalias !62
   store i8 3, ptr %455, align 4, !noalias !62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %456, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !62
   store i32 0, ptr %457, align 8, !noalias !62
@@ -15703,7 +15703,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass33complex_enum_vari
   store ptr %2, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %15, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %15, ptr noundef nonnull align 8 dereferenceable(192) %13, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %15, ptr noundef nonnull align 8 dereferenceable(192) %19, i64 192, i1 false)
   %36 = getelementptr inbounds i8, ptr %15, i64 316
   store i8 0, ptr %36, align 4
   %37 = getelementptr inbounds i8, ptr %15, i64 264

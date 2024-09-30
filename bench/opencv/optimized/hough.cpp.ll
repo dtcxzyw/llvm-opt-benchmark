@@ -10046,7 +10046,7 @@ _ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds 
   %.1543 = phi i64 [ %2121, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %2119 = getelementptr inbounds %"struct.cv::EstimatedCircle", ptr %2080, i64 %.1543
   %2120 = getelementptr inbounds %"class.cv::Vec.32", ptr %2118, i64 %.1543
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2120, ptr noundef nonnull align 4 dereferenceable(12) %2119, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2120, ptr noundef nonnull align 4 dereferenceable(12) %2119, i64 12, i1 false)
   %2121 = add nuw i64 %.1543, 1
   %exitcond.not = icmp eq i64 %2121, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !137

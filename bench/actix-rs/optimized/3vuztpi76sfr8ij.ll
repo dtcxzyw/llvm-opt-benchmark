@@ -6025,7 +6025,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hee8a42f28fedc1
 15:                                               ; preds = %22, %10
   %16 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %17 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %16, i64 %11
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %18 = add i64 %11, 1
   store i64 %18, ptr %7, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20f347c1db874ca7E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, ptr align 8 %1)

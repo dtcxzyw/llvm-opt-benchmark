@@ -5141,7 +5141,6 @@ define hidden noundef i32 @_ZN4cvc58internal6theory2eq14EqualityEngine18newAppli
 cond.end:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.223", align 8
   %funNormalized = alloca %"struct.cvc5::internal::theory::eq::FunctionApplication", align 4
-  %ref.tmp61.sroa.4 = alloca %"struct.cvc5::internal::theory::eq::FunctionApplication", align 8
   %ref.tmp144 = alloca %"struct.cvc5::internal::theory::eq::MergeCandidate", align 8
   %d_functionTermsCount = getelementptr inbounds i8, ptr %this, i64 1144
   %call20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7IntStatppEv(ptr noundef nonnull align 8 dereferenceable(8) %d_functionTermsCount)
@@ -5161,7 +5160,6 @@ cond.end:
   store i32 %2, ptr %d_a.i349, align 4
   %d_b.i350 = getelementptr inbounds i8, ptr %funNormalized, i64 8
   store i32 %3, ptr %d_b.i350, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp61.sroa.4, ptr noundef nonnull align 4 dereferenceable(12) %funNormalized, i64 12, i1 false)
   %d_applications = getelementptr inbounds i8, ptr %this, i64 520
   %conv62 = zext i32 %call21 to i64
   %4 = load ptr, ptr %d_applications, align 8
@@ -5172,7 +5170,7 @@ cond.end:
   %ref.tmp61.sroa.3.0.add.ptr.i786.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i786, i64 8
   store i32 %t2, ptr %ref.tmp61.sroa.3.0.add.ptr.i786.sroa_idx, align 4
   %ref.tmp61.sroa.4.0.add.ptr.i786.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i786, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp61.sroa.4.0.add.ptr.i786.sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp61.sroa.4, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp61.sroa.4.0.add.ptr.i786.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %funNormalized, i64 12, i1 false)
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 344
   %5 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i = icmp eq i64 %5, 0

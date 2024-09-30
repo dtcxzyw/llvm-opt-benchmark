@@ -298,7 +298,6 @@ define hidden void @_ZN2cv5gimpl6passes12intrinDesyncERN3ade6passes11PassContext
   %6 = alloca %"struct.ade::util::Range::IterableRange<ade::util::Range::MapRange<ade::util::Range::IterRange<__gnu_cxx::__normal_iterator<std::shared_ptr<ade::Node> *, std::vector<std::shared_ptr<ade::Node>>>>, ade::Graph::HandleMapper>>::iterator", align 8
   %7 = alloca %"struct.ade::util::Range::IterableRange<ade::util::Range::MapRange<ade::util::Range::IterRange<__gnu_cxx::__normal_iterator<std::shared_ptr<ade::Node> *, std::vector<std::shared_ptr<ade::Node>>>>, ade::Graph::HandleMapper>>::iterator", align 8
   %8 = alloca %"class.std::vector.74", align 8
-  %.sroa.083.i = alloca %"struct.ade::util::Range::MapRange", align 8
   %9 = alloca %"struct.ade::util::Range::MapRange", align 8
   %10 = alloca %"struct.ade::util::Range::MapRange", align 8
   %11 = alloca %"class.std::vector.80", align 8
@@ -2881,7 +2880,6 @@ _ZN6desync12_GLOBAL__N_15applyERN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS4_5Inpu
 
 1083:                                             ; preds = %59
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.083.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
@@ -2889,16 +2887,15 @@ _ZN6desync12_GLOBAL__N_15applyERN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS4_5Inpu
   %1084 = load i64, ptr %50, align 8, !noalias !90
   %1085 = inttoptr i64 %1084 to ptr
   call void @_ZN3ade5Graph5nodesEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::Range::MapRange") align 8 %9, ptr noundef nonnull align 8 dereferenceable(168) %1085)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %.sroa.083.i, ptr noundef nonnull align 8 dereferenceable(17) %9, i64 17, i1 false)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %7, ptr noundef nonnull align 8 dereferenceable(17) %9, i64 17, i1 false)
   %1086 = load i64, ptr %50, align 8, !noalias !93
   %1087 = inttoptr i64 %1086 to ptr
   call void @_ZN3ade5Graph5nodesEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::Range::MapRange") align 8 %10, ptr noundef nonnull align 8 dereferenceable(168) %1087)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %6, ptr noundef nonnull align 8 dereferenceable(17) %10, i64 17, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %.sroa.282.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 24
   store i8 1, ptr %.sroa.282.0..sroa_idx.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.083.i, i64 24, i1 false)
   %.sroa.284.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 24
   store i8 0, ptr %.sroa.284.0..sroa_idx.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
@@ -3652,7 +3649,6 @@ _ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exit.i.i37: ; preds =
 
 _ZN6desync12_GLOBAL__N_14dropERN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS4_5InputENS4_6OutputENS4_2OpENS4_4DataENS4_10ConstValueENS4_6IslandENS4_8ProtocolENS4_17OriginalInputMetaENS4_10OutputMetaENS4_7JournalENS1_6passes19TopologicalSortDataENS4_17DataObjectCounterENS4_11IslandModelENS4_14ActiveBackendsENS4_18CustomMetaFunctionENS4_9StreamingENS4_12DeserializedENS4_13HasIntrinsicsENS4_10DesyncPathENS4_10DesyncEdgeENS4_14DesynchronizedENS4_11CompileArgsEEEE.exit: ; preds = %_ZSt8_DestroyIPN3ade6HandleINS0_4NodeEEES3_EvT_S5_RSaIT0_E.exit.i.i37, %1397
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.083.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)

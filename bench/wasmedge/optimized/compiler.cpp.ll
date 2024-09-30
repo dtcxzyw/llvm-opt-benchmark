@@ -35443,55 +35443,53 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5Va
   %8 = alloca %"class.std::allocator.104", align 1
   %9 = alloca %"class.fmt::v8::format_arg_store.422", align 16
   %10 = alloca %"struct.spdlog::details::log_msg", align 8
-  %11 = alloca %"struct.spdlog::source_loc", align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
-  %13 = load atomic i32, ptr %12 monotonic, align 8
-  %14 = icmp sge i32 %2, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
-  %16 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %15) #16
-  %brmerge = or i1 %14, %16
-  br i1 %brmerge, label %17, label %33
+  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = load atomic i32, ptr %11 monotonic, align 8
+  %13 = icmp sge i32 %2, %12
+  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %15 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %14) #16
+  %brmerge = or i1 %13, %15
+  br i1 %brmerge, label %16, label %32
 
-17:                                               ; preds = %6
+16:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #16
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
+  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds i8, ptr %7, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 282
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %8) #16
-  %21 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %21, ptr %18, align 8
-  store i64 250, ptr %19, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 282
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 1 dereferenceable(1) %8) #16
+  %20 = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr %20, ptr %17, align 8
+  store i64 250, ptr %18, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #16
-  %22 = ptrtoint ptr %5 to i64
-  store i64 %22, ptr %9, align 16
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN8WasmEdge7ErrCode5ValueENS0_9formatterISA_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %23, align 8
+  %21 = ptrtoint ptr %5 to i64
+  store i64 %21, ptr %9, align 16
+  %22 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN8WasmEdge7ErrCode5ValueENS0_9formatterISA_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %22, align 8
   call void @_ZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr %3, i64 %4, i64 15, ptr nonnull %9, ptr null)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  %25 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #16
-  %26 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #16
-  %27 = load ptr, ptr %18, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 16
-  %29 = load i64, ptr %28, align 8
-  call void @_ZN6spdlog7details7log_msgC1ENS_10source_locEN3fmt2v817basic_string_viewIcEENS_5level10level_enumES6_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %11, ptr %25, i64 %26, i32 noundef %2, ptr %27, i64 %29) #16
-  call void @_ZN6spdlog6logger7log_it_ERKNS_7details7log_msgEbb(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(96) %10, i1 noundef zeroext %14, i1 noundef zeroext %16) #16
-  %30 = load ptr, ptr %18, align 8
-  %.not.i.i = icmp eq ptr %30, %21
-  br i1 %.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm250ESaIcEED2Ev.exit, label %31
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #16
+  %25 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #16
+  %26 = load ptr, ptr %17, align 8
+  %27 = getelementptr inbounds i8, ptr %7, i64 16
+  %28 = load i64, ptr %27, align 8
+  call void @_ZN6spdlog7details7log_msgC1ENS_10source_locEN3fmt2v817basic_string_viewIcEENS_5level10level_enumES6_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %1, ptr %24, i64 %25, i32 noundef %2, ptr %26, i64 %28) #16
+  call void @_ZN6spdlog6logger7log_it_ERKNS_7details7log_msgEbb(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(96) %10, i1 noundef zeroext %13, i1 noundef zeroext %15) #16
+  %29 = load ptr, ptr %17, align 8
+  %.not.i.i = icmp eq ptr %29, %20
+  br i1 %.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm250ESaIcEED2Ev.exit, label %30
 
-31:                                               ; preds = %17
-  %32 = load i64, ptr %19, align 8
-  call void @_ZdlPvm(ptr noundef %30, i64 noundef %32) #18
+30:                                               ; preds = %16
+  %31 = load i64, ptr %18, align 8
+  call void @_ZdlPvm(ptr noundef %29, i64 noundef %31) #18
   br label %_ZN3fmt2v819basic_memory_bufferIcLm250ESaIcEED2Ev.exit
 
-_ZN3fmt2v819basic_memory_bufferIcLm250ESaIcEED2Ev.exit: ; preds = %17, %31
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #16
-  br label %33
+_ZN3fmt2v819basic_memory_bufferIcLm250ESaIcEED2Ev.exit: ; preds = %16, %30
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #16
+  br label %32
 
-33:                                               ; preds = %6, %_ZN3fmt2v819basic_memory_bufferIcLm250ESaIcEED2Ev.exit
+32:                                               ; preds = %6, %_ZN3fmt2v819basic_memory_bufferIcLm250ESaIcEED2Ev.exit
   ret void
 }
 
@@ -62796,58 +62794,56 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJSt17basic_string_viewIc
   %8 = alloca %"class.std::allocator.104", align 1
   %9 = alloca %"class.fmt::v8::format_arg_store.526", align 16
   %10 = alloca %"struct.spdlog::details::log_msg", align 8
-  %11 = alloca %"struct.spdlog::source_loc", align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
-  %13 = load atomic i32, ptr %12 monotonic, align 8
-  %14 = icmp sge i32 %2, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
-  %16 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %15) #16
-  %brmerge = or i1 %14, %16
-  br i1 %brmerge, label %17, label %33
+  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = load atomic i32, ptr %11 monotonic, align 8
+  %13 = icmp sge i32 %2, %12
+  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %15 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %14) #16
+  %brmerge = or i1 %13, %15
+  br i1 %brmerge, label %16, label %32
 
-17:                                               ; preds = %6
+16:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #16
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
+  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds i8, ptr %7, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN3fmt2v819basic_memory_bufferIcLm250ESaIcEEE, i64 16), ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 282
-  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %8) #16
-  %21 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %21, ptr %18, align 8
-  store i64 250, ptr %19, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 282
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 1 dereferenceable(1) %8) #16
+  %20 = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr %20, ptr %17, align 8
+  store i64 250, ptr %18, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #16
   %.sroa.014.0.copyload.i = load i64, ptr %5, align 8
   %.sroa.215.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.215.0.copyload.i = load ptr, ptr %.sroa.215.0..sroa_idx.i, align 8
-  %22 = ptrtoint ptr %.sroa.215.0.copyload.i to i64
-  store i64 %22, ptr %9, align 16
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %.sroa.014.0.copyload.i, ptr %23, align 8
+  %21 = ptrtoint ptr %.sroa.215.0.copyload.i to i64
+  store i64 %21, ptr %9, align 16
+  %22 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %.sroa.014.0.copyload.i, ptr %22, align 8
   call void @_ZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr %3, i64 %4, i64 13, ptr nonnull %9, ptr null)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  %25 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #16
-  %26 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #16
-  %27 = load ptr, ptr %18, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 16
-  %29 = load i64, ptr %28, align 8
-  call void @_ZN6spdlog7details7log_msgC1ENS_10source_locEN3fmt2v817basic_string_viewIcEENS_5level10level_enumES6_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %11, ptr %25, i64 %26, i32 noundef %2, ptr %27, i64 %29) #16
-  call void @_ZN6spdlog6logger7log_it_ERKNS_7details7log_msgEbb(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(96) %10, i1 noundef zeroext %14, i1 noundef zeroext %16) #16
-  %30 = load ptr, ptr %18, align 8
-  %.not.i.i = icmp eq ptr %30, %21
-  br i1 %.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm250ESaIcEED2Ev.exit, label %31
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #16
+  %25 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #16
+  %26 = load ptr, ptr %17, align 8
+  %27 = getelementptr inbounds i8, ptr %7, i64 16
+  %28 = load i64, ptr %27, align 8
+  call void @_ZN6spdlog7details7log_msgC1ENS_10source_locEN3fmt2v817basic_string_viewIcEENS_5level10level_enumES6_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %1, ptr %24, i64 %25, i32 noundef %2, ptr %26, i64 %28) #16
+  call void @_ZN6spdlog6logger7log_it_ERKNS_7details7log_msgEbb(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(96) %10, i1 noundef zeroext %13, i1 noundef zeroext %15) #16
+  %29 = load ptr, ptr %17, align 8
+  %.not.i.i = icmp eq ptr %29, %20
+  br i1 %.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm250ESaIcEED2Ev.exit, label %30
 
-31:                                               ; preds = %17
-  %32 = load i64, ptr %19, align 8
-  call void @_ZdlPvm(ptr noundef %30, i64 noundef %32) #18
+30:                                               ; preds = %16
+  %31 = load i64, ptr %18, align 8
+  call void @_ZdlPvm(ptr noundef %29, i64 noundef %31) #18
   br label %_ZN3fmt2v819basic_memory_bufferIcLm250ESaIcEED2Ev.exit
 
-_ZN3fmt2v819basic_memory_bufferIcLm250ESaIcEED2Ev.exit: ; preds = %17, %31
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #16
-  br label %33
+_ZN3fmt2v819basic_memory_bufferIcLm250ESaIcEED2Ev.exit: ; preds = %16, %30
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #16
+  br label %32
 
-33:                                               ; preds = %6, %_ZN3fmt2v819basic_memory_bufferIcLm250ESaIcEED2Ev.exit
+32:                                               ; preds = %6, %_ZN3fmt2v819basic_memory_bufferIcLm250ESaIcEED2Ev.exit
   ret void
 }
 

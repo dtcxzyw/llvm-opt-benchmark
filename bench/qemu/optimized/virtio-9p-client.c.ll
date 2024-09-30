@@ -778,16 +778,16 @@ do.end:                                           ; preds = %entry
   %msize = getelementptr inbounds i8, ptr %opt, i64 12
   %1 = load i32, ptr %msize, align 4
   %tobool1.not = icmp eq i32 %1, 0
-  %spec.select = select i1 %tobool1.not, i32 4096, i32 %1
+  %spec.store.select = select i1 %tobool1.not, i32 4096, i32 %1
   %tag = getelementptr inbounds i8, ptr %opt, i64 8
   %2 = load i16, ptr %tag, align 8
   %tobool5.not = icmp eq i16 %2, 0
-  %3 = select i1 %tobool5.not, i16 -1, i16 %2
+  %spec.store.select26 = select i1 %tobool5.not, i16 -1, i16 %2
   %version = getelementptr inbounds i8, ptr %opt, i64 16
-  %4 = load ptr, ptr %version, align 8
-  %tobool9.not = icmp eq ptr %4, null
-  %5 = select i1 %tobool9.not, ptr @.str.15, ptr %4
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #14
+  %3 = load ptr, ptr %version, align 8
+  %tobool9.not = icmp eq ptr %3, null
+  %spec.store.select25 = select i1 %tobool9.not, ptr @.str.15, ptr %3
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select25) #14
   %cmp.i = icmp slt i64 %call.i, 65534
   br i1 %cmp.i, label %v9fs_string_size.exit, label %if.else.i
 
@@ -797,95 +797,95 @@ if.else.i:                                        ; preds = %do.end
   br label %v9fs_string_size.exit
 
 v9fs_string_size.exit:                            ; preds = %do.end, %if.else.i
-  %6 = trunc i64 %call.i to i32
-  %conv2.i = add i32 %6, 2
+  %4 = trunc i64 %call.i to i32
+  %conv2.i = add i32 %4, 2
   %conv15 = and i32 %conv2.i, 65535
   %add = add nuw nsw i32 %conv15, 4
-  %call28 = tail call ptr @v9fs_req_init(ptr noundef nonnull %0, i32 noundef %add, i8 noundef zeroext 100, i16 noundef zeroext %3)
+  %call28 = tail call ptr @v9fs_req_init(ptr noundef nonnull %0, i32 noundef %add, i8 noundef zeroext 100, i16 noundef zeroext %spec.store.select26)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i)
-  store i32 %spec.select, ptr %le_val.i, align 4
-  %7 = load ptr, ptr %call28, align 8
+  store i32 %spec.store.select, ptr %le_val.i, align 4
+  %5 = load ptr, ptr %call28, align 8
   %t_msg.i.i = getelementptr inbounds i8, ptr %call28, i64 24
-  %8 = load i64, ptr %t_msg.i.i, align 8
+  %6 = load i64, ptr %t_msg.i.i, align 8
   %t_off.i.i = getelementptr inbounds i8, ptr %call28, i64 48
-  %9 = load i64, ptr %t_off.i.i, align 8
-  %add.i.i = add i64 %9, %8
-  call void @qtest_memwrite(ptr noundef %7, i64 noundef %add.i.i, ptr noundef nonnull %le_val.i, i64 noundef 4) #13
-  %add2.i.i = add i64 %9, 4
+  %7 = load i64, ptr %t_off.i.i, align 8
+  %add.i.i = add i64 %7, %6
+  call void @qtest_memwrite(ptr noundef %5, i64 noundef %add.i.i, ptr noundef nonnull %le_val.i, i64 noundef 4) #13
+  %add2.i.i = add i64 %7, 4
   store i64 %add2.i.i, ptr %t_off.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i)
-  call void @v9fs_string_write(ptr noundef nonnull %call28, ptr noundef nonnull %5)
+  call void @v9fs_string_write(ptr noundef nonnull %call28, ptr noundef nonnull %spec.store.select25)
   %v9p1.i = getelementptr inbounds i8, ptr %call28, i64 8
-  %10 = load ptr, ptr %v9p1.i, align 8
-  %11 = load ptr, ptr @alloc, align 8
-  %call.i25 = call i64 @guest_alloc(ptr noundef %11, i64 noundef 4096) #13
+  %8 = load ptr, ptr %v9p1.i, align 8
+  %9 = load ptr, ptr @alloc, align 8
+  %call.i27 = call i64 @guest_alloc(ptr noundef %9, i64 noundef 4096) #13
   %r_msg.i = getelementptr inbounds i8, ptr %call28, i64 40
-  store i64 %call.i25, ptr %r_msg.i, align 8
-  %12 = load ptr, ptr %call28, align 8
-  %vq.i = getelementptr inbounds i8, ptr %10, i64 8
-  %13 = load ptr, ptr %vq.i, align 8
-  %14 = load i64, ptr %t_msg.i.i, align 8
+  store i64 %call.i27, ptr %r_msg.i, align 8
+  %10 = load ptr, ptr %call28, align 8
+  %vq.i = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = load ptr, ptr %vq.i, align 8
+  %12 = load i64, ptr %t_msg.i.i, align 8
   %t_size.i = getelementptr inbounds i8, ptr %call28, i64 32
-  %15 = load i32, ptr %t_size.i, align 8
-  %call2.i = call i32 @qvirtqueue_add(ptr noundef %12, ptr noundef %13, i64 noundef %14, i32 noundef %15, i1 noundef zeroext false, i1 noundef zeroext true) #13
+  %13 = load i32, ptr %t_size.i, align 8
+  %call2.i = call i32 @qvirtqueue_add(ptr noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %13, i1 noundef zeroext false, i1 noundef zeroext true) #13
   %free_head.i = getelementptr inbounds i8, ptr %call28, i64 64
   store i32 %call2.i, ptr %free_head.i, align 8
+  %14 = load ptr, ptr %vq.i, align 8
+  %call6.i = call i32 @qvirtqueue_add(ptr noundef %10, ptr noundef %14, i64 noundef %call.i27, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
+  %15 = load ptr, ptr %8, align 8
   %16 = load ptr, ptr %vq.i, align 8
-  %call6.i = call i32 @qvirtqueue_add(ptr noundef %12, ptr noundef %16, i64 noundef %call.i25, i32 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false) #13
-  %17 = load ptr, ptr %10, align 8
-  %18 = load ptr, ptr %vq.i, align 8
-  call void @qvirtqueue_kick(ptr noundef %12, ptr noundef %17, ptr noundef %18, i32 noundef %call2.i) #13
+  call void @qvirtqueue_kick(ptr noundef %10, ptr noundef %15, ptr noundef %16, i32 noundef %call2.i) #13
   store i64 0, ptr %t_off.i.i, align 8
   %requestOnly = getelementptr inbounds i8, ptr %opt, i64 24
-  %19 = load i8, ptr %requestOnly, align 8
-  %tobool31 = trunc i8 %19 to i1
+  %17 = load i8, ptr %requestOnly, align 8
+  %tobool31 = trunc i8 %17 to i1
   br i1 %tobool31, label %if.end94, label %if.then32
 
 if.then32:                                        ; preds = %v9fs_string_size.exit
-  %20 = load ptr, ptr %10, align 8
-  %21 = load ptr, ptr %vq.i, align 8
-  call void @qvirtio_wait_used_elem(ptr noundef %12, ptr noundef %20, ptr noundef %21, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %vq.i, align 8
+  call void @qvirtio_wait_used_elem(ptr noundef %10, ptr noundef %18, ptr noundef %19, i32 noundef %call2.i, ptr noundef null, i64 noundef 10000000) #13
   %expectErr = getelementptr inbounds i8, ptr %opt, i64 28
-  %22 = load i32, ptr %expectErr, align 4
-  %tobool33.not = icmp eq i32 %22, 0
+  %20 = load i32, ptr %expectErr, align 4
+  %tobool33.not = icmp eq i32 %20, 0
   br i1 %tobool33.not, label %if.else50, label %if.then34
 
 if.then34:                                        ; preds = %if.then32
   call void @v9fs_req_recv(ptr noundef nonnull %call28, i8 noundef zeroext 7)
-  %23 = load ptr, ptr %call28, align 8
-  %24 = load i64, ptr %r_msg.i, align 8
+  %21 = load ptr, ptr %call28, align 8
+  %22 = load i64, ptr %r_msg.i, align 8
   %r_off.i.i.i = getelementptr inbounds i8, ptr %call28, i64 56
-  %25 = load i64, ptr %r_off.i.i.i, align 8
-  %add.i.i.i = add i64 %25, %24
-  call void @qtest_memread(ptr noundef %23, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
-  %26 = load i64, ptr %r_off.i.i.i, align 8
-  %add2.i.i.i = add i64 %26, 4
+  %23 = load i64, ptr %r_off.i.i.i, align 8
+  %add.i.i.i = add i64 %23, %22
+  call void @qtest_memread(ptr noundef %21, i64 noundef %add.i.i.i, ptr noundef nonnull %err, i64 noundef 4) #13
+  %24 = load i64, ptr %r_off.i.i.i, align 8
+  %add2.i.i.i = add i64 %24, 4
   store i64 %add2.i.i.i, ptr %r_off.i.i.i, align 8
+  %25 = load ptr, ptr @alloc, align 8
+  %26 = load i64, ptr %t_msg.i.i, align 8
+  call void @guest_free(ptr noundef %25, i64 noundef %26) #13
   %27 = load ptr, ptr @alloc, align 8
-  %28 = load i64, ptr %t_msg.i.i, align 8
+  %28 = load i64, ptr %r_msg.i, align 8
   call void @guest_free(ptr noundef %27, i64 noundef %28) #13
-  %29 = load ptr, ptr @alloc, align 8
-  %30 = load i64, ptr %r_msg.i, align 8
-  call void @guest_free(ptr noundef %29, i64 noundef %30) #13
   call void @g_free(ptr noundef nonnull %call28) #13
-  %31 = load i32, ptr %err, align 4
-  %cmp41 = icmp eq i32 %31, %22
+  %29 = load i32, ptr %err, align 4
+  %cmp41 = icmp eq i32 %29, %20
   br i1 %cmp41, label %if.end94, label %if.else44
 
 if.else44:                                        ; preds = %if.then34
-  %conv45 = uitofp i32 %31 to x86_fp80
-  %conv46 = uitofp i32 %22 to x86_fp80
+  %conv45 = uitofp i32 %29 to x86_fp80
+  %conv46 = uitofp i32 %20 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 330, ptr noundef nonnull @__func__.v9fs_tversion, ptr noundef nonnull @.str.17, x86_fp80 noundef %conv45, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv46, i8 noundef signext 105) #13
   br label %if.end94
 
 if.else50:                                        ; preds = %if.then32
   call void @v9fs_rversion(ptr noundef nonnull %call28, ptr noundef nonnull %server_len, ptr noundef nonnull %server_version)
-  %32 = load ptr, ptr %server_version, align 8
-  %33 = load i16, ptr %server_len, align 2
-  %call55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
+  %30 = load ptr, ptr %server_version, align 8
+  %31 = load i16, ptr %server_len, align 2
+  %call55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select25) #14
   %conv56 = trunc i64 %call55 to i32
-  %cmp57 = icmp ne i16 %33, 0
-  %cmp59 = icmp eq ptr %32, null
+  %cmp57 = icmp ne i16 %31, 0
+  %cmp59 = icmp eq ptr %30, null
   %or.cond = select i1 %cmp57, i1 %cmp59, i1 false
   br i1 %or.cond, label %if.then61, label %if.else69
 
@@ -894,12 +894,12 @@ if.then61:                                        ; preds = %if.else50
   br label %if.end94
 
 if.else69:                                        ; preds = %if.else50
-  %conv53 = zext i16 %33 to i32
+  %conv53 = zext i16 %31 to i32
   %cmp70.not = icmp eq i32 %conv53, %conv56
   br i1 %cmp70.not, label %if.else75, label %if.then72
 
 if.then72:                                        ; preds = %if.else69
-  %conv73 = uitofp i16 %33 to x86_fp80
+  %conv73 = uitofp i16 %31 to x86_fp80
   %conv74 = sitofp i32 %conv56 to x86_fp80
   call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 334, ptr noundef nonnull @__func__.v9fs_tversion, ptr noundef nonnull @.str.20, x86_fp80 noundef %conv73, ptr noundef nonnull @.str.10, x86_fp80 noundef %conv74, i8 noundef signext 105) #13
   br label %if.end94
@@ -908,8 +908,8 @@ if.else75:                                        ; preds = %if.else69
   br i1 %cmp57, label %land.lhs.true81, label %if.end94
 
 land.lhs.true81:                                  ; preds = %if.else75
-  %conv82 = zext i16 %33 to i64
-  %bcmp = call i32 @bcmp(ptr %32, ptr nonnull %5, i64 %conv82)
+  %conv82 = zext i16 %31 to i64
+  %bcmp = call i32 @bcmp(ptr %30, ptr nonnull %spec.store.select25, i64 %conv82)
   %cmp84.not = icmp eq i32 %bcmp, 0
   br i1 %cmp84.not, label %if.end94, label %if.then86
 
@@ -1676,7 +1676,7 @@ do.end7:                                          ; preds = %do.body1
   %request_mask = getelementptr inbounds i8, ptr %opt, i64 16
   %3 = load i64, ptr %request_mask, align 8
   %tobool8.not = icmp eq i64 %3, 0
-  %spec.select = select i1 %tobool8.not, i64 16383, i64 %3
+  %spec.store.select = select i1 %tobool8.not, i64 16383, i64 %3
   %tag = getelementptr inbounds i8, ptr %opt, i64 8
   %4 = load i16, ptr %tag, align 8
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %hdr.i)
@@ -1713,7 +1713,7 @@ do.end7:                                          ; preds = %do.body1
   %add2.i.i11 = add i64 %7, 11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %le_val.i12)
-  store i64 %spec.select, ptr %le_val.i12, align 8
+  store i64 %spec.store.select, ptr %le_val.i12, align 8
   %add.i.i15 = add i64 %call26.i, %add2.i.i11
   call void @qtest_memwrite(ptr noundef %5, i64 noundef %add.i.i15, ptr noundef nonnull %le_val.i12, i64 noundef 8) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %le_val.i12)
@@ -2888,7 +2888,7 @@ if.end24:                                         ; preds = %if.then18, %do.end1
   %mode = getelementptr inbounds i8, ptr %opt, i64 32
   %8 = load i32, ptr %mode, align 8
   %tobool25.not = icmp eq i32 %8, 0
-  %spec.select = select i1 %tobool25.not, i32 488, i32 %8
+  %spec.store.select = select i1 %tobool25.not, i32 488, i32 %8
   %name = getelementptr inbounds i8, ptr %opt, i64 24
   %9 = load ptr, ptr %name, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #14
@@ -2922,7 +2922,7 @@ v9fs_string_size.exit:                            ; preds = %if.end24, %if.else.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i)
   call void @v9fs_string_write(ptr noundef nonnull %call42, ptr noundef %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i17)
-  store i32 %spec.select, ptr %le_val.i17, align 4
+  store i32 %spec.store.select, ptr %le_val.i17, align 4
   %15 = load ptr, ptr %call42, align 8
   %16 = load i64, ptr %t_msg.i.i, align 8
   %17 = load i64, ptr %t_off.i.i, align 8
@@ -3145,7 +3145,7 @@ if.end28:                                         ; preds = %if.then21, %do.end1
   %mode = getelementptr inbounds i8, ptr %opt, i64 36
   %9 = load i32, ptr %mode, align 4
   %tobool29.not = icmp eq i32 %9, 0
-  %spec.select = select i1 %tobool29.not, i32 488, i32 %9
+  %spec.store.select = select i1 %tobool29.not, i32 488, i32 %9
   %name = getelementptr inbounds i8, ptr %opt, i64 24
   %10 = load ptr, ptr %name, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %10) #14
@@ -3190,7 +3190,7 @@ v9fs_string_size.exit:                            ; preds = %if.end28, %if.else.
   %add2.i.i22 = add i64 %19, 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %le_val.i18)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %le_val.i23)
-  store i32 %spec.select, ptr %le_val.i23, align 4
+  store i32 %spec.store.select, ptr %le_val.i23, align 4
   %add.i.i26 = add i64 %18, %add2.i.i22
   call void @qtest_memwrite(ptr noundef %17, i64 noundef %add.i.i26, ptr noundef nonnull %le_val.i23, i64 noundef 4) #13
   %add2.i.i27 = add i64 %19, 8

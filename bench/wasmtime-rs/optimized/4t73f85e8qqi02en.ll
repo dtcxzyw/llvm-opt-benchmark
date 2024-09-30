@@ -237,7 +237,6 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$
 define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb84aa2c011ade00E.llvm.1804880793895523134"(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 16 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(96) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, [3 x i64] }, align 16
   %4 = alloca { ptr, [3 x i64] }, align 16
-  %.sroa.7 = alloca [3 x i64], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = getelementptr inbounds i8, ptr %1, i64 56
   %7 = getelementptr inbounds i8, ptr %1, i64 40
@@ -245,7 +244,6 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.617.0..sroa_idx18 = getelementptr inbounds i8, ptr %1, i64 48
   %.pre = load ptr, ptr %5, align 8
-  %.sroa.7.0..sroa_idx3238 = getelementptr inbounds i8, ptr %4, i64 8
   br label %10
 
 10:                                               ; preds = %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..any_value..AnyValue$GT$$GT$$GT$17h4a547b0f4db03b14E.exit", %2
@@ -290,7 +288,6 @@ _ZN4core3ops8function6FnOnce9call_once17h6e3087070812fe25E.exit.i: ; preds = %13
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17hffc6341bce1dcf3cE.exit.thread36: ; preds = %18
   store ptr null, ptr %5, align 8, !alias.scope !75, !noalias !94
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx3238, i64 24, i1 false)
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h5e615b730161e9afE.exit"
 
 21:                                               ; preds = %19
@@ -305,11 +302,10 @@ common.resume:                                    ; preds = %47, %19
 
 23:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h6e3087070812fe25E.exit.i
   %24 = getelementptr inbounds i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !78
   store ptr %.pr.i, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   br label %33
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$clap_builder..util..any_value..AnyValue$GT$$GT$17h5e615b730161e9afE.exit": ; preds = %10, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hffc6341bce1dcf3cE.exit.thread36

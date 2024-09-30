@@ -1150,9 +1150,9 @@ if.end9:                                          ; preds = %if.end4
   br i1 %cmp11.not, label %if.end17, label %if.then13
 
 if.then13:                                        ; preds = %if.end9
-  %4 = getelementptr inbounds i8, ptr %params, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %4, i8 0, i64 48, i1 false)
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull %mdsize) #7
+  %4 = getelementptr inbounds i8, ptr %params, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %pctx1.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %5 = load ptr, ptr %pctx1.i, align 8

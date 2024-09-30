@@ -118,6 +118,10 @@ if.end:                                           ; preds = %entry
   %call8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %conv7)
   %call9 = tail call ptr @zmq_ctx_new()
   %call10 = tail call i32 @zmq_ctx_set(ptr noundef %call9, i32 noundef 1, i32 noundef 4)
+  %cfg_global.sroa.8.0.cfg_pub2.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub2, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cfg_global.sroa.8.0.cfg_pub2.sroa_idx, i8 0, i64 16, i1 false)
+  %cfg_global.sroa.9.0.cfg_pub2.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub2, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cfg_global.sroa.9.0.cfg_pub2.sroa_idx, i8 0, i64 24, i1 false)
   store ptr %call9, ptr %cfg_proxy, align 8
   %cfg_global.sroa.6.0.cfg_proxy.sroa_idx = getelementptr inbounds i8, ptr %cfg_proxy, i64 8
   store i64 0, ptr %cfg_global.sroa.6.0.cfg_proxy.sroa_idx, align 8
@@ -174,12 +178,8 @@ if.end:                                           ; preds = %entry
   store ptr @.str.8, ptr %cfg_global.sroa.69.0.cfg_pub2.sroa_idx, align 8
   %cfg_global.sroa.7.0.cfg_pub2.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub2, i64 24
   store ptr @.str.9, ptr %cfg_global.sroa.7.0.cfg_pub2.sroa_idx, align 8
-  %cfg_global.sroa.8.0.cfg_pub2.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cfg_global.sroa.8.0.cfg_pub2.sroa_idx, i8 0, i64 16, i1 false)
   %cfg_global.sroa.816.0.cfg_pub2.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub2, i64 48
   store ptr @.str.10, ptr %cfg_global.sroa.816.0.cfg_pub2.sroa_idx, align 8
-  %cfg_global.sroa.9.0.cfg_pub2.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub2, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cfg_global.sroa.9.0.cfg_pub2.sroa_idx, i8 0, i64 24, i1 false)
   %cfg_global.sroa.920.0.cfg_pub2.sroa_idx = getelementptr inbounds i8, ptr %cfg_pub2, i64 80
   store ptr @.str.11, ptr %cfg_global.sroa.920.0.cfg_pub2.sroa_idx, align 8
   %call22 = call ptr @zmq_threadstart(ptr noundef nonnull @_ZL21publisher_thread_mainPv, ptr noundef nonnull %cfg_pub2)

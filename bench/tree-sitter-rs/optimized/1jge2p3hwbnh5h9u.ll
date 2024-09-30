@@ -1286,7 +1286,7 @@ switch.lookup:                                    ; preds = %109
   %113 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %.sroa.5.0.i, ptr %113, align 8, !alias.scope !294, !noalias !297
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %12), !noalias !291
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %12, ptr noundef nonnull align 8 dereferenceable(152) %13, i64 152, i1 false), !noalias !291
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %12, ptr noundef nonnull align 8 dereferenceable(152) %14, i64 152, i1 false), !noalias !291
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !291
   store ptr %0, ptr %11, align 8, !noalias !291
   %114 = call noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f67eb64de7d1e1E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(152) %12, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11), !range !298

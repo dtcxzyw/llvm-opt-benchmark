@@ -7682,8 +7682,8 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2e
 
 22:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb10d0ff781f4c46cE.exit.i.i"
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.5.0..sroa_idx.i.i, i64 88, i1 false), !noalias !1636
   store i64 %.sroa.0.0.copyload.i.i, ptr %7, align 8, !noalias !1636
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.5.0..sroa_idx.i.i, i64 88, i1 false), !noalias !1636
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1637)
   %23 = icmp eq ptr %18, %13
   br i1 %23, label %24, label %39
@@ -7744,7 +7744,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2e
   store ptr %40, ptr %14, align 8, !alias.scope !1628, !noalias !1631
   %41 = load ptr, ptr %18, align 8, !noalias !1653, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.4.sroa.4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.4.sroa.4, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.4.0..sroa_idx.i.i, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.4.sroa.4, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.5.0..sroa_idx.i.i, i64 88, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7), !noalias !1636
   store i64 %.sroa.0.0.copyload.i.i, ptr %.sroa.7.022, align 8
   %.sroa.4.sroa.4.0..sroa.7.022.sroa_idx = getelementptr inbounds i8, ptr %.sroa.7.022, i64 8
@@ -15254,7 +15254,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %79
   %386 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %376, %375 ]
   %387 = load ptr, ptr %338, align 8, !alias.scope !2907, !noalias !2910, !nonnull !4, !noundef !4
   %388 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %387, i64 %386
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %388, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %388, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.7107.8..sroa_idx, i64 24, i1 false)
   %389 = load i64, ptr %339, align 8, !alias.scope !2907, !noalias !2910, !noundef !4
   %390 = add i64 %389, 1
   store i64 %390, ptr %339, align 8, !alias.scope !2907, !noalias !2910
@@ -17331,7 +17331,7 @@ define hidden void @_ZN4just9evaluator9Evaluator19evaluate_parameters17hc8c52dbe
   %83 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %74, %73 ]
   %84 = load ptr, ptr %39, align 8, !alias.scope !3230, !noalias !3233, !nonnull !4, !noundef !4
   %85 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %84, i64 %83
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
   %86 = load i64, ptr %40, align 8, !alias.scope !3230, !noalias !3233, !noundef !4
   %87 = add i64 %86, 1
   store i64 %87, ptr %40, align 8, !alias.scope !3230, !noalias !3233
@@ -17492,7 +17492,7 @@ define hidden void @_ZN4just9evaluator9Evaluator19evaluate_parameters17hc8c52dbe
   %126 = phi i64 [ %.pre.i62, %._crit_edge.i61 ], [ %117, %116 ]
   %127 = load ptr, ptr %39, align 8, !alias.scope !3261, !noalias !3264, !nonnull !4, !noundef !4
   %128 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %127, i64 %126
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %128, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %128, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
   %129 = load i64, ptr %40, align 8, !alias.scope !3261, !noalias !3264, !noundef !4
   %130 = add i64 %129, 1
   store i64 %130, ptr %40, align 8, !alias.scope !3261, !noalias !3264
@@ -17633,7 +17633,7 @@ define hidden void @_ZN4just9evaluator9Evaluator19evaluate_parameters17hc8c52dbe
   %169 = phi i64 [ %.pre.i71, %._crit_edge.i70 ], [ %160, %159 ]
   %170 = load ptr, ptr %39, align 8, !alias.scope !3272, !noalias !3275, !nonnull !4, !noundef !4
   %171 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %170, i64 %169
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %171, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %171, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   %172 = load i64, ptr %40, align 8, !alias.scope !3272, !noalias !3275, !noundef !4
   %173 = add i64 %172, 1
   store i64 %173, ptr %40, align 8, !alias.scope !3272, !noalias !3275
@@ -19074,11 +19074,11 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #37
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #38
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #39
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #36
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #39
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

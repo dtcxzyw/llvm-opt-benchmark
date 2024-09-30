@@ -5552,7 +5552,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit161: ; preds = %198
   unreachable
 
 263:                                              ; preds = %257
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %258, ptr noundef nonnull align 16 dereferenceable(48) %57, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %258, ptr noundef nonnull align 16 dereferenceable(48) %62, i64 48, i1 false)
   store i64 0, ptr %0, align 16
   %.sroa.234.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.0.i162, ptr %.sroa.234.0..sroa_idx, align 8
@@ -5814,7 +5814,7 @@ _ZN14cranelift_isle4sema4Term13has_extractor17h13ad1177cbfb9861E.exit.thread.i: 
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %45, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %45, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %16, i64 56, i1 false)
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %45, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9)
@@ -6121,7 +6121,7 @@ define internal fastcc void @_ZN14cranelift_isle4sema7TermEnv27maybe_implicit_co
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %14, i64 56, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   br label %56

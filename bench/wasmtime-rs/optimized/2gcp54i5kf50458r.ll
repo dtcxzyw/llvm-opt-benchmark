@@ -86,8 +86,6 @@ define hidden void @_ZN14cranelift_isle5lexer5Lexer5error17h3b1cd38a88e125ecE(pt
   %7 = alloca { { i64, i64, i64, i64 }, { i64, i64, i64, i64 } }, align 8
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.2 = alloca [8 x i64], align 8
-  %.sroa.3 = alloca [3 x i64], align 8
   %10 = alloca ptr, align 8
   %11 = alloca { { i64, ptr, {} }, i64 }, align 8
   %12 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17h449635dedb28fafeE(i64 96, i64 8)
@@ -120,13 +118,11 @@ define hidden void @_ZN14cranelift_isle5lexer5Lexer5error17h3b1cd38a88e125ecE(pt
           to label %14 unwind label %32
 
 20:                                               ; preds = %17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   store i64 1, ptr %12, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @_ZN5alloc5slice4hack8into_vec17h400ad37767ab9d28E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %11, ptr nonnull align 8 %12, i64 1)
   %21 = getelementptr inbounds i8, ptr %1, i64 96
   invoke void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he828f09ea8fbbd3fE"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %6, ptr nonnull align 8 %21)
@@ -184,8 +180,6 @@ define hidden void @_ZN14cranelift_isle5lexer5Lexer5error17hc9607b370faf8f96E(pt
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   %8 = alloca { { i64, i64, i64, i64 }, { i64, i64, i64, i64 } }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.2 = alloca [8 x i64], align 8
-  %.sroa.3 = alloca [3 x i64], align 8
   %10 = alloca ptr, align 8
   %11 = alloca { { i64, ptr, {} }, i64 }, align 8
   %12 = tail call ptr @_ZN5alloc5alloc15exchange_malloc17h449635dedb28fafeE(i64 96, i64 8)
@@ -214,13 +208,11 @@ define hidden void @_ZN14cranelift_isle5lexer5Lexer5error17hc9607b370faf8f96E(pt
           to label %13 unwind label %31
 
 19:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
   store i64 1, ptr %12, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @_ZN5alloc5slice4hack8into_vec17h400ad37767ab9d28E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %11, ptr nonnull align 8 %12, i64 1)
   %20 = getelementptr inbounds i8, ptr %1, i64 96
   invoke void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he828f09ea8fbbd3fE"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %7, ptr nonnull align 8 %20)

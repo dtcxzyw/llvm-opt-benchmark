@@ -46212,10 +46212,8 @@ declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012ImageBufAlgo12fixNonFiniteE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIESt8functionIFvS1_EE(ptr noundef byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef %f) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"struct.OpenImageIO_v2_6_0::ROI", align 8
   %agg.tmp1 = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %agg.tmp2 = alloca %"class.std::function", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %roi, i64 32, i1 false)
   store i32 0, ptr %agg.tmp1, align 8
   %m_strategy.i = getelementptr inbounds i8, ptr %agg.tmp1, i64 4
   store i16 0, ptr %m_strategy.i, align 4
@@ -46270,7 +46268,7 @@ common.resume:                                    ; preds = %if.then.i.i9, %lpad
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEEC2ERKS3_.exit: ; preds = %entry, %invoke.cont.i
-  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %agg.tmp, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1, ptr noundef nonnull %agg.tmp2)
+  invoke void @_ZN18OpenImageIO_v2_6_012ImageBufAlgo14parallel_imageENS_3ROIENS_6paroptESt8functionIFvS1_EE(ptr noundef nonnull byval(%"struct.OpenImageIO_v2_6_0::ROI") align 8 %roi, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %agg.tmp1, ptr noundef nonnull %agg.tmp2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEEC2ERKS3_.exit

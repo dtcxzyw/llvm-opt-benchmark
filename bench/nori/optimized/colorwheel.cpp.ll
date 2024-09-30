@@ -265,7 +265,7 @@ define hidden noundef i64 @_ZNK7nanogui10ColorWheel14preferred_sizeEP10NVGcontex
 define hidden void @_ZN7nanogui10ColorWheel4drawEP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = alloca %struct.NVGpaint, align 8
   %4 = alloca %struct.NVGpaint, align 8
-  %5 = alloca %struct.NVGpaint, align 4
+  %5 = alloca %struct.NVGpaint, align 8
   %6 = alloca %struct.NVGcolor, align 8
   %7 = alloca %struct.NVGpaint, align 8
   %8 = alloca %struct.NVGpaint, align 8
@@ -390,7 +390,7 @@ define hidden void @_ZN7nanogui10ColorWheel4drawEP10NVGcontext(ptr noundef nonnu
   %93 = extractvalue { <2 x float>, <2 x float> } %90, 1
   store <2 x float> %93, ptr %92, align 8
   call void @nvgBoxGradient(ptr dead_on_unwind nonnull writable sret(%struct.NVGpaint) align 4 %5, ptr noundef %1, float noundef %85, float noundef -5.000000e+00, float noundef %86, float noundef 1.000000e+01, float noundef 2.000000e+00, float noundef 4.000000e+00, <2 x float> %88, <2 x float> %89, ptr noundef nonnull byval(%struct.NVGcolor) align 8 %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %3, ptr noundef nonnull align 4 dereferenceable(76) %5, i64 76, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %3, ptr noundef nonnull align 8 dereferenceable(76) %5, i64 76, i1 false)
   call void @nvgBeginPath(ptr noundef %1)
   %94 = fadd float %32, -2.000000e+00
   %95 = fadd float %94, -1.000000e+01

@@ -4934,7 +4934,6 @@ define void @"_ZN6diesel2pg5types13date_and_time6chrono192_$LT$impl$u20$diesel..
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN6diesel2pg5types13date_and_time6chrono196_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..pg..types..sql_types..Timestamptz$C$diesel..pg..backend..Pg$GT$$u20$for$u20$chrono..datetime..DateTime$LT$chrono..offset..local..Local$GT$$GT$8from_sql17hd1ca841a2993b531E"(ptr noalias nocapture noundef writeonly sret({ i32, [5 x i32] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #6 {
-  %.sroa.06 = alloca { { i32, i32 }, i32 }, align 8
   %3 = alloca { i32, [5 x i32] }, align 8
   %4 = alloca { { i32, i32 }, i32 }, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
@@ -4955,14 +4954,11 @@ define void @"_ZN6diesel2pg5types13date_and_time6chrono196_$LT$impl$u20$diesel..
   store i32 %.sroa.08.0.copyload, ptr %4, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
   store ptr %7, ptr %.sroa.4.0..sroa_idx, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.06)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.06, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
   %12 = call noundef i32 @"_ZN73_$LT$chrono..offset..local..Local$u20$as$u20$chrono..offset..TimeZone$GT$24offset_from_utc_datetime17he5022924eeec9037E"(ptr noalias noundef nonnull readonly align 1 @anon.33cac3b1fca7ecc48f70bbdadbd2e063.14.llvm.613377767644086563, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %4)
   %13 = getelementptr inbounds i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.06, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %12, ptr %.sroa.47.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.06)
   br label %17
 
 14:                                               ; preds = %2
@@ -7442,7 +7438,6 @@ _ZN6diesel6sqlite10connection12sqlite_value11SqliteValue12parse_string17ha0812db
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN6diesel6sqlite5types13date_and_time6chrono197_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sqlite..types..Timestamptz$C$diesel..sqlite..backend..Sqlite$GT$$u20$for$u20$chrono..datetime..DateTime$LT$chrono..offset..local..Local$GT$$GT$8from_sql17h364ecee307f2c984E"(ptr noalias nocapture noundef writeonly sret({ i32, [5 x i32] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
-  %.sroa.06 = alloca { { i32, i32 }, i32 }, align 8
   %3 = alloca { i32, [5 x i32] }, align 8
   %4 = alloca { { i32, i32 }, i32 }, align 4
   %5 = alloca { i32, [4 x i32] }, align 4
@@ -7525,15 +7520,12 @@ _ZN6diesel6sqlite10connection12sqlite_value11SqliteValue12parse_string17h7cb5930
   store i32 %.sroa.09.0.copyload, ptr %4, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
   store ptr %30, ptr %.sroa.4.0..sroa_idx, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.06)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.06, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
   %35 = call noundef i32 @"_ZN73_$LT$chrono..offset..local..Local$u20$as$u20$chrono..offset..TimeZone$GT$24offset_from_utc_datetime17he5022924eeec9037E"(ptr noalias noundef nonnull readonly align 1 @anon.33cac3b1fca7ecc48f70bbdadbd2e063.14.llvm.613377767644086563, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %4)
   %36 = getelementptr inbounds i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %36, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.06, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %36, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %35, ptr %.sroa.47.0..sroa_idx, align 8
   store i32 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.06)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   br label %37
 

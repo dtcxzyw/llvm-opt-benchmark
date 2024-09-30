@@ -3286,7 +3286,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   br label %.critedge218
 
 783:                                              ; preds = %760, %758
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %755, ptr noundef nonnull align 8 dereferenceable(136) %46, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %755, ptr noundef nonnull align 8 dereferenceable(136) %46, i64 136, i1 false)
   %784 = add i64 %343, 1
   store i64 %784, ptr %63, align 8, !alias.scope !642, !noalias !645
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %46)
@@ -3617,7 +3617,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   %915 = phi i64 [ %.pre.i333, %._crit_edge.i332 ], [ %907, %905 ]
   %916 = load ptr, ptr %76, align 8, !alias.scope !743, !noalias !746, !nonnull !9, !noundef !9
   %917 = getelementptr inbounds { { { i64, ptr }, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %916, i64 %915
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %917, ptr noundef nonnull align 8 dereferenceable(48) %56, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %917, ptr noundef nonnull align 8 dereferenceable(48) %56, i64 48, i1 false)
   %918 = load i64, ptr %77, align 8, !alias.scope !743, !noalias !746, !noundef !9
   %919 = add i64 %918, 1
   store i64 %919, ptr %77, align 8, !alias.scope !743, !noalias !746

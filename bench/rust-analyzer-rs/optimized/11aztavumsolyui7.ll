@@ -7614,13 +7614,13 @@ default.unreachable1.i:                           ; preds = %20
 
 "_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h38d734d86f6314f9E.exit.i": ; preds = %"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfbdb1766a94223b6E.exit.i.i.i.i.i"
   %91 = getelementptr inbounds i8, ptr %9, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !2347
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i, i64 32, i1 false), !noalias !2347
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !2347
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !2326
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2326
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i)
   %92 = getelementptr inbounds i8, ptr %11, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !noalias !2348
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i, i64 32, i1 false), !noalias !2348
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false), !noalias !2348
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !2308
@@ -25433,7 +25433,7 @@ define hidden void @"_ZN8chalk_ir4fold12boring_impls105_$LT$impl$u20$chalk_ir..f
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !6406
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !6406
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !6406
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !noalias !6406
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %23, i64 24, i1 false), !noalias !6409
   invoke fastcc void @"_ZN8chalk_ir4fold12boring_impls92_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$13try_fold_with17h14dbc149dbda9a78E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %12, ptr noalias nocapture noundef align 8 dereferenceable(24) %11, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3, i32 noundef %34)
           to label %44 unwind label %42, !noalias !6412
 
@@ -25449,7 +25449,7 @@ define hidden void @"_ZN8chalk_ir4fold12boring_impls105_$LT$impl$u20$chalk_ir..f
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !6406
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.015.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !6406
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !6406
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %36, i64 24, i1 false), !noalias !6409
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6413)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8), !noalias !6406
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !6406

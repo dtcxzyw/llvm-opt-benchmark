@@ -1486,7 +1486,7 @@ define hidden { i64, ptr } @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$L
 .thread:                                          ; preds = %19, %18
   %24 = phi i16 [ %.pre.i, %19 ], [ %13, %18 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !249
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %25 = getelementptr inbounds i8, ptr %4, i64 24
   store i16 %24, ptr %25, align 8, !noalias !255
   %26 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h4308f4f528b2b2daE.llvm.12299150788236080081"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.88003080372ff52b23e46096790674a6.81.llvm.12299150788236080081, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6), !noalias !249

@@ -1365,18 +1365,16 @@ define void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$1
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4464199060bb44daE"(ptr sret({ { i64, ptr }, { ptr, ptr } }) align 8 %0, ptr align 1 %1, ptr nocapture readonly align 8 %2, ptr align 8 %3, ptr align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i64, ptr }, { ptr, ptr } }, align 8
-  %7 = alloca { { i64, ptr }, { ptr, ptr } }, align 8
-  %8 = alloca { { { i64, ptr }, { ptr, ptr } }, { { i64, ptr }, { ptr, ptr } } }, align 8
+  %7 = alloca { { { i64, ptr }, { ptr, ptr } }, { { i64, ptr }, { ptr, ptr } } }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  %9 = icmp ne ptr %3, null
+  %8 = icmp ne ptr %3, null
+  tail call void @llvm.assume(i1 %8)
+  %9 = icmp ne ptr %4, null
   tail call void @llvm.assume(i1 %9)
-  %10 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %10)
   call void @"_ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17h2222d26db13544cdE"(ptr nonnull sret({ { i64, ptr }, { ptr, ptr } }) align 8 %6, ptr align 1 %1, ptr nonnull align 8 %3, ptr nonnull align 8 %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @"_ZN4core4iter6traits8iterator8Iterator6max_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17h6c1276d9572e9f07E"(ptr sret({ { i64, ptr }, { ptr, ptr } }) align 8 %0, ptr align 1 %1, ptr nonnull align 8 %8, ptr nonnull align 8 %11)
+  %10 = getelementptr inbounds i8, ptr %7, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  call void @"_ZN4core4iter6traits8iterator8Iterator6max_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17h6c1276d9572e9f07E"(ptr sret({ { i64, ptr }, { ptr, ptr } }) align 8 %0, ptr align 1 %1, ptr nonnull align 8 %7, ptr nonnull align 8 %10)
   ret void
 }
 

@@ -5112,7 +5112,6 @@ _ZN11trail_stack8push_ptrEP5trail.exit:           ; preds = %lor.lhs.false.i.i, 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3sat14cut_simplifier11assign_unitERKNS_3cutENS_7literalE(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(48) %c, i32 %lit.coerce) local_unnamed_addr #3 align 2 {
 entry:
-  %agg.tmp164.sroa.5.i.i = alloca <{ [4 x i8], i64, i32, [4 x i8] }>, align 4
   %agg.tmp21.i = alloca %"class.sat::justification", align 8
   %lit.i = alloca %"class.sat::literal", align 4
   %0 = load ptr, ptr %this, align 8
@@ -5207,6 +5206,7 @@ _ZN3sat14cut_simplifier13validate_unitENS_7literalE.exit: ; preds = %if.end21, %
   %9 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp21.i)
   store i32 0, ptr %agg.tmp21.i, align 8
+  %agg.tmp2.sroa.2.0.agg.tmp21.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp21.i, i64 4
   %agg.tmp2.sroa.22.0.agg.tmp21.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp21.i, i64 8
   store i64 0, ptr %agg.tmp2.sroa.22.0.agg.tmp21.sroa_idx.i, align 8
   %agg.tmp2.sroa.3.0.agg.tmp21.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp21.i, i64 16
@@ -5230,13 +5230,10 @@ sw.bb10.i.i:                                      ; preds = %_ZN3sat14cut_simpli
   br label %_ZN3sat6solver11assign_unitENS_7literalE.exit
 
 land.lhs.true.i.i.i:                              ; preds = %_ZN3sat14cut_simplifier13validate_unitENS_7literalE.exit
-  %agg.tmp2.sroa.2.0.agg.tmp21.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp21.i, i64 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %agg.tmp164.sroa.5.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp164.sroa.5.i.i, ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp2.sroa.2.0.agg.tmp21.sroa_idx.i, i64 20, i1 false)
   %m_trim.i.i.i = getelementptr inbounds i8, ptr %9, i64 3976
   %12 = load i8, ptr %m_trim.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %12 to i1
-  br i1 %tobool.i.i.i, label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i, label %if.then.i.i.i
+  br i1 %tobool.i.i.i, label %_ZN3sat6solver11assign_unitENS_7literalE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %m_justification.i.i.i = getelementptr inbounds i8, ptr %9, i64 3448
@@ -5246,14 +5243,10 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %arrayidx.i.i6.i.i = getelementptr inbounds %"class.sat::justification", ptr %13, i64 %idxprom.i.i5.i.i
   store i32 0, ptr %arrayidx.i.i6.i.i, align 8
   %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i6.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.i.i, i64 16, i1 false)
-  br label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i
-
-_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i: ; preds = %if.then.i.i.i, %land.lhs.true.i.i.i
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %agg.tmp164.sroa.5.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp2.sroa.2.0.agg.tmp21.sroa_idx.i, i64 16, i1 false)
   br label %_ZN3sat6solver11assign_unitENS_7literalE.exit
 
-_ZN3sat6solver11assign_unitENS_7literalE.exit:    ; preds = %_ZN3sat14cut_simplifier13validate_unitENS_7literalE.exit, %sw.bb.i.i, %sw.bb10.i.i, %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i
+_ZN3sat6solver11assign_unitENS_7literalE.exit:    ; preds = %_ZN3sat14cut_simplifier13validate_unitENS_7literalE.exit, %sw.bb.i.i, %sw.bb10.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp21.i)
   %m_num_units = getelementptr inbounds i8, ptr %this, i64 12
   %14 = load i32, ptr %m_num_units, align 4

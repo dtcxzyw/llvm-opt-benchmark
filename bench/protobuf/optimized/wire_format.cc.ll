@@ -5449,7 +5449,7 @@ if.end6.i:                                        ; preds = %while.body.i
 
 while.end.i:                                      ; preds = %if.end6.i
   %6 = getelementptr inbounds i8, ptr %buf.i, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %6, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %6, i8 0, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf.i, ptr noundef nonnull align 1 dereferenceable(16) %5, i64 16, i1 false)
   %idx.ext.i = sext i32 %sub.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %idx.ext.i

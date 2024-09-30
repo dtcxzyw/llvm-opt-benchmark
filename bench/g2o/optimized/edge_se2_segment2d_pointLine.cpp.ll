@@ -12,12 +12,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Eigen::PlainObjectBase.19" = type { %"class.Eigen::DenseStorage.26" }
 %"class.Eigen::DenseStorage.26" = type { %"struct.Eigen::internal::plain_array.27" }
 %"struct.Eigen::internal::plain_array.27" = type { [9 x double] }
-%"class.Eigen::MapBase.base.64" = type <{ ptr, [2 x i8] }>
 %"class.Eigen::Product.926" = type { %"class.Eigen::Product.911", %"class.Eigen::Map.55" }
 %"class.Eigen::Product.911" = type { %"class.Eigen::Transpose.723", ptr }
 %"class.Eigen::Transpose.723" = type { %"class.Eigen::Map.55" }
 %"class.Eigen::Map.55" = type { %"class.Eigen::MapBase.base.65", [6 x i8] }
 %"class.Eigen::MapBase.base.65" = type { %"class.Eigen::MapBase.base.64" }
+%"class.Eigen::MapBase.base.64" = type <{ ptr, [2 x i8] }>
 %"class.Eigen::Product.622" = type { %"class.Eigen::Product.524", %"class.Eigen::Map.68" }
 %"class.Eigen::Product.524" = type { %"class.Eigen::Transpose.531", ptr }
 %"class.Eigen::Transpose.531" = type { %"class.Eigen::Map.68" }
@@ -1339,7 +1339,6 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef no
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEJNS_9VertexSE2ENS_15VertexSegment2DEEE24constructQuadraticFormNsIJLm0ELm1EEEEvRKNS2_IdLi3ELi3ELi0ELi3ELi3EEERKS3_St16integer_sequenceImJXspT_EEE(ptr noundef nonnull align 8 dereferenceable(368) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.018.i = alloca %"class.Eigen::MapBase.base.64", align 8
   %4 = alloca %"class.Eigen::Product.926", align 8
   %5 = alloca %"class.Eigen::Product.622", align 8
   %6 = alloca %"struct.Eigen::internal::add_assign_op", align 1
@@ -1425,7 +1424,6 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3EN5Eigen6MatrixIdLi3ELi
 _ZN3g2o18BaseFixedSizedEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEJNS_9VertexSE2ENS_15VertexSegment2DEEE23constructQuadraticFormNILi0EEEvRKNS2_IdLi3ELi3ELi0ELi3ELi3EEERKS3_.exit: ; preds = %3, %14
   %62 = phi ptr [ %9, %3 ], [ %.pre, %14 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %.sroa.018.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %63 = getelementptr inbounds i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
@@ -1436,7 +1434,7 @@ _ZN3g2o18BaseFixedSizedEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEJNS_9Verte
 
 68:                                               ; preds = %_ZN3g2o18BaseFixedSizedEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEJNS_9VertexSE2ENS_15VertexSegment2DEEE23constructQuadraticFormNILi0EEEvRKNS2_IdLi3ELi3ELi0ELi3ELi3EEERKS3_.exit
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.018.i, ptr noundef nonnull align 8 dereferenceable(10) %69, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %4, ptr noundef nonnull align 8 dereferenceable(10) %69, i64 10, i1 false)
   %.sroa.014.sroa.0.0.copyload.i = load ptr, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 144
   %71 = load <2 x double>, ptr %.sroa.014.sroa.0.0.copyload.i, align 1
@@ -1502,7 +1500,6 @@ _ZN3g2o18BaseFixedSizedEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEJNS_9Verte
   %124 = load double, ptr %112, align 8
   %125 = fadd double %124, %123
   store double %125, ptr %112, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %4, ptr noundef nonnull align 8 dereferenceable(10) %.sroa.018.i, i64 10, i1 false)
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %126, align 8, !alias.scope !98
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1512,7 +1509,6 @@ _ZN3g2o18BaseFixedSizedEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEJNS_9Verte
   br label %_ZN3g2o18BaseFixedSizedEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEJNS_9VertexSE2ENS_15VertexSegment2DEEE23constructQuadraticFormNILi1EEEvRKNS2_IdLi3ELi3ELi0ELi3ELi3EEERKS3_.exit
 
 _ZN3g2o18BaseFixedSizedEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEJNS_9VertexSE2ENS_15VertexSegment2DEEE23constructQuadraticFormNILi1EEEvRKNS2_IdLi3ELi3ELi0ELi3ELi3EEERKS3_.exit: ; preds = %_ZN3g2o18BaseFixedSizedEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEJNS_9VertexSE2ENS_15VertexSegment2DEEE23constructQuadraticFormNILi0EEEvRKNS2_IdLi3ELi3ELi0ELi3ELi3EEERKS3_.exit, %68
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %.sroa.018.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   ret void
 }

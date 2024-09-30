@@ -136,7 +136,6 @@ define nonnull align 8 ptr @"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$10
   %2 = alloca { ptr, i64, { i64, i64, i64, i64 } }, align 8
   %3 = alloca { { i64, [4 x i64] }, ptr, ptr }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %.sroa.02 = alloca { ptr, i64, { i64, i64, i64, i64 } }, align 8
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !3
   %.not = icmp eq i64 %5, 2
   br i1 %.not, label %8, label %6
@@ -148,9 +147,8 @@ define nonnull align 8 ptr @"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$10
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.02, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h6cac92fc5efddb07E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.02, i64 48, i1 false)
   %10 = call align 8 ptr @"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h3b77f9ffe97f0445E"(ptr nonnull align 8 %2, ptr nonnull align 8 %4)
   br label %11
 
@@ -166,7 +164,6 @@ define nonnull align 8 ptr @"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$10
   %2 = alloca { ptr, i64, { i64, i64, i64, i64 } }, align 8
   %3 = alloca { { i64, [4 x i64] }, ptr, ptr }, align 8
   %4 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
-  %.sroa.02 = alloca { ptr, i64, { i64, i64, i64, i64 } }, align 8
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !3
   %.not = icmp eq i64 %5, 2
   br i1 %.not, label %8, label %6
@@ -178,9 +175,8 @@ define nonnull align 8 ptr @"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$10
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.02, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   call void @"_ZN92_$LT$std..collections..hash..set..HashSet$LT$T$C$S$GT$$u20$as$u20$core..default..Default$GT$7default17he3aea8eebf896bc4E"(ptr nonnull sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.02, i64 48, i1 false)
   %10 = call align 8 ptr @"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h75cf28fd4d1182efE"(ptr nonnull align 8 %2, ptr nonnull align 8 %4)
   br label %11
 
@@ -196,7 +192,6 @@ define nonnull align 8 ptr @"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14
   %2 = alloca { ptr, i64, i64 }, align 8
   %3 = alloca { { i64, [1 x i64] }, ptr, ptr }, align 8
   %4 = alloca { { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, i32, [1 x i32] }, align 8
-  %.sroa.02 = alloca { ptr, i64, i64 }, align 8
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !3
   %.not = icmp eq i64 %5, 2
   br i1 %.not, label %8, label %6
@@ -208,9 +203,8 @@ define nonnull align 8 ptr @"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$14
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.02, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @_ZN4core3ops8function6FnOnce9call_once17h8197dc0b67103d29E(ptr nonnull sret({ { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, i32, [1 x i32] }) align 8 %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.02, i64 24, i1 false)
   %10 = call align 8 ptr @"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h2523c1dece1de916E"(ptr nonnull align 8 %2, ptr nonnull align 8 %4)
   br label %11
 

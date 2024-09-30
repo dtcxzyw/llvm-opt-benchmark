@@ -87194,7 +87194,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit7:           ; preds = %20
 _ZNK5boost9iterators6detail20iterator_facade_baseINS0_18transform_iteratorIN4CGAL8internal17K_neighbor_searchINS4_15Search_traits_3INS4_19Add_decorated_pointINS4_11AABB_traitsINS4_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS4_5EpickEEENS4_14AABB_primitiveISt4pairImmENS4_20Compose_property_mapINSI_INS4_26First_of_pair_property_mapISH_EENSB_19Vector_property_mapImEENS_27read_write_property_map_tagEEENSL_INS4_10Triangle_3ISD_EEEESN_EENSI_ISK_NSL_INS4_7Point_3ISD_EEEESN_EENS4_11Boolean_tagILb1EEENSX_ILb0EEEEENSI_ISK_NSL_INS4_6Bbox_3EEESN_EEEESH_EEEENS4_18Euclidean_distanceIS16_EENS4_16Sliding_midpointIS16_NS4_15Plane_separatorIdEEEENS4_7Kd_treeIS16_S1C_SY_SZ_EEE14Transform_pairEN9__gnu_cxx17__normal_iteratorIPKSG_IPKNS15_15Decorated_pointEdESt6vectorIS1M_SaIS1M_EEEENS_11use_defaultES1T_EESG_IS1J_dENS0_27random_access_traversal_tagES1V_lLb0ELb0EEptEv.exit4.i: ; preds = %36, %26
   %.sroa.2.0.i = phi i64 [ %38, %36 ], [ 0, %26 ]
   %.sroa.5.0.i = phi i64 [ %40, %36 ], [ 0, %26 ]
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   %41 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.2.0.i, ptr %41, align 8, !alias.scope !1663
   %.sroa.5.24..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32

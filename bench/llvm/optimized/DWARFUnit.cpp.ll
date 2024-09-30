@@ -59,7 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.196" = type { %"class.llvm::SmallVectorBase.134" }
 %"class.llvm::SmallVectorBase.134" = type { ptr, i64, i64 }
 %"struct.llvm::SmallVectorStorage.392" = type { [3 x i8] }
-%"class.llvm::DWARFDebugInfoEntry" = type { i64, i32, i32, ptr }
 %class.anon.316 = type { i8 }
 %"class.llvm::Expected.308" = type { %union.anon.309, i8, [7 x i8] }
 %union.anon.309 = type { %"struct.llvm::AlignedCharArrayUnion.310" }
@@ -73,6 +72,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::DWARFFormValue::ValueType" = type { %union.anon.76, ptr, i64 }
 %union.anon.76 = type { i64 }
 %"class.llvm::DWARFDie" = type { ptr, ptr }
+%"class.llvm::DWARFDebugInfoEntry" = type { i64, i32, i32, ptr }
 %"class.llvm::Expected.98" = type { %union.anon.99, i8, [7 x i8] }
 %union.anon.99 = type { %"struct.llvm::AlignedCharArrayUnion.100" }
 %"struct.llvm::AlignedCharArrayUnion.100" = type { [32 x i8] }
@@ -2378,7 +2378,6 @@ declare void @_ZN4llvm19DWARFDebugRangeList7extractERKNS_18DWARFDataExtractorEPm
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm9DWARFUnit9clearDIEsEb(ptr nocapture noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
-  %.sroa.0 = alloca %"class.llvm::DWARFDebugInfoEntry", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = load ptr, ptr %3, align 8
   br i1 %1, label %5, label %.critedge
@@ -2390,10 +2389,9 @@ define dso_local void @_ZN4llvm9DWARFUnit9clearDIEsEb(ptr nocapture noundef nonn
   br i1 %8, label %.critedge, label %_ZNSt6vectorIN4llvm19DWARFDebugInfoEntryESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4llvm19DWARFDebugInfoEntryESaIS1_EED2Ev.exit: ; preds = %5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   %10 = getelementptr inbounds i8, ptr %9, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %12 = load ptr, ptr %11, align 8
   store ptr %9, ptr %3, align 8
@@ -8439,31 +8437,29 @@ _ZN4llvm8ExpectedINS_32StrOffsetsContributionDescriptorEED2Ev.exit31: ; preds = 
 define dso_local { i64, i8 } @_ZN4llvm9DWARFUnit16getLoclistOffsetEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.llvm::DataExtractor", align 8
-  %5 = alloca %"class.llvm::DataExtractor", align 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 35
-  %12 = load i8, ptr %11, align 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %9 = load i64, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 35
+  %11 = load i8, ptr %10, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %13 = icmp eq i8 %12, 1
-  %14 = select i1 %13, i32 8, i32 4
-  %15 = select i1 %13, i32 3, i32 2
-  %16 = shl i32 %1, %15
-  %17 = zext i32 %16 to i64
-  %18 = add i64 %10, %17
-  store i64 %18, ptr %3, align 8
-  %19 = call noundef i64 @_ZNK4llvm13DataExtractor11getUnsignedEPmjPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %4, ptr noundef nonnull %3, i32 noundef %14, ptr noundef null) #22
+  %12 = icmp eq i8 %11, 1
+  %13 = select i1 %12, i32 8, i32 4
+  %14 = select i1 %12, i32 3, i32 2
+  %15 = shl i32 %1, %14
+  %16 = zext i32 %15 to i64
+  %17 = add i64 %9, %16
+  store i64 %17, ptr %3, align 8
+  %18 = call noundef i64 @_ZNK4llvm13DataExtractor11getUnsignedEPmjPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %4, ptr noundef nonnull %3, i32 noundef %13, ptr noundef null) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %20 = load i64, ptr %9, align 8
-  %21 = add i64 %20, %19
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %21, 0
+  %19 = load i64, ptr %8, align 8
+  %20 = add i64 %19, %18
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %20, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 1, 1
   ret { i64, i8 } %.fca.1.insert
 }

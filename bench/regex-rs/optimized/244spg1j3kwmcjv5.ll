@@ -3347,7 +3347,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %19 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 0, ptr %19, align 8, !noalias !676
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !676
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !678
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !679)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !682)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !684)
@@ -3376,7 +3376,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %28 = phi ptr [ %.pre.i, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb5ea3fea7d38c2d4E.llvm.9790117770016849591.exit_crit_edge.i.i.i" ], [ %17, %15 ]
   %29 = phi i64 [ %.pre.i.i.i, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb5ea3fea7d38c2d4E.llvm.9790117770016849591.exit_crit_edge.i.i.i" ], [ 0, %15 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !693
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !690
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !700)
   %30 = getelementptr inbounds i8, ptr %4, i64 16
   %31 = getelementptr inbounds i8, ptr %4, i64 24
@@ -3505,7 +3505,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %18 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 0, ptr %18, align 8, !noalias !742
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !742
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !744
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !745)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !748)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !750)
@@ -3545,7 +3545,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %29 = phi ptr [ %.pre.i, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8cb7dfc9c4e89667E.llvm.9790117770016849591.exit_crit_edge.i.i.i" ], [ %16, %14 ]
   %30 = phi i64 [ %.pre.i.i.i, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8cb7dfc9c4e89667E.llvm.9790117770016849591.exit_crit_edge.i.i.i" ], [ 0, %14 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !759
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !756
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !759
   store ptr %18, ptr %3, align 8, !noalias !763
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 8

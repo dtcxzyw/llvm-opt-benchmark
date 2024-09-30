@@ -4457,8 +4457,8 @@ while.cond.preheader.i.i.i.i:                     ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %ptr.coerce, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %3, align 8
-  %cmp2.not150.i.i.i.i = icmp eq i64 %4, 0
-  br i1 %cmp2.not150.i.i.i.i, label %"_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_122FormatFNegativeExpSlowENS0_7uint128EiRKNS2_11FormatStateEE3$_0JNS2_24FractionalDigitGeneratorEEENSt13invoke_resultIT_JDpT0_EE4typeEOSC_DpOSD_.exit", label %land.rhs.i.preheader.i.i.i
+  %cmp2.not149.i.i.i.i = icmp eq i64 %4, 0
+  br i1 %cmp2.not149.i.i.i.i, label %"_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_122FormatFNegativeExpSlowENS0_7uint128EiRKNS2_11FormatStateEE3$_0JNS2_24FractionalDigitGeneratorEEENSt13invoke_resultIT_JDpT0_EE4typeEOSC_DpOSD_.exit", label %land.rhs.i.preheader.i.i.i
 
 land.rhs.i.preheader.i.i.i:                       ; preds = %while.cond.preheader.i.i.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i8, ptr %args, align 8
@@ -4467,19 +4467,19 @@ land.rhs.i.preheader.i.i.i:                       ; preds = %while.cond.preheade
   br label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit43.i.i.i.i, %land.rhs.i.preheader.i.i.i
-  %sub6.i19.i143.lcssa155.i.i.i.i = phi i64 [ %digit_gen.val10.i.i.i.i, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit43.i.i.i.i ], [ %agg.tmp.sroa.3.0.copyload.i.i.i, %land.rhs.i.preheader.i.i.i ]
-  %conv3.i.le.i18.i.lcssa148151.i.i.i.i = phi i8 [ %digit_gen.val9.i.i.i.i, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit43.i.i.i.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.i, %land.rhs.i.preheader.i.i.i ]
-  %cmp.not.i.i.i.i.i = icmp ne i8 %conv3.i.le.i18.i.lcssa148151.i.i.i.i, 0
-  %tobool.i.i.i.i.i = icmp ne i64 %sub6.i19.i143.lcssa155.i.i.i.i, 0
+  %spec.store.select.lcssa154.i.i.i.i = phi i64 [ %digit_gen.val10.i.i.i.i, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit43.i.i.i.i ], [ %agg.tmp.sroa.3.0.copyload.i.i.i, %land.rhs.i.preheader.i.i.i ]
+  %conv3.i.le.i18.i.lcssa147150.i.i.i.i = phi i8 [ %digit_gen.val9.i.i.i.i, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit43.i.i.i.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.i, %land.rhs.i.preheader.i.i.i ]
+  %cmp.not.i.i.i.i.i = icmp ne i8 %conv3.i.le.i18.i.lcssa147150.i.i.i.i, 0
+  %tobool.i.i.i.i.i = icmp ne i64 %spec.store.select.lcssa154.i.i.i.i, 0
   %5 = select i1 %cmp.not.i.i.i.i.i, i1 true, i1 %tobool.i.i.i.i.i
   br i1 %5, label %while.body.i.i.i.i, label %"_ZSt6invokeIRKZN4absl19str_format_internal12_GLOBAL__N_122FormatFNegativeExpSlowENS0_7uint128EiRKNS2_11FormatStateEE3$_0JNS2_24FractionalDigitGeneratorEEENSt13invoke_resultIT_JDpT0_EE4typeEOSC_DpOSD_.exit"
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
-  %tobool.not.i.i.i.i.i.i = icmp eq i64 %sub6.i19.i143.lcssa155.i.i.i.i, 0
+  %tobool.not.i.i.i.i.i.i = icmp eq i64 %spec.store.select.lcssa154.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.i.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i, %for.body.i.i.i.i.i.i
-  %i.06.i.i.i.i.i.i = phi i64 [ %sub.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %sub6.i19.i143.lcssa155.i.i.i.i, %while.body.i.i.i.i ]
+  %i.06.i.i.i.i.i.i = phi i64 [ %sub.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %spec.store.select.lcssa154.i.i.i.i, %while.body.i.i.i.i ]
   %carry.05.i.i.i.i.i.i = phi i64 [ %shr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i ]
   %sub.i.i.i.i.i.i = add i64 %i.06.i.i.i.i.i.i, -1
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %agg.tmp.sroa.4.0.copyload.i.i.i, i64 %sub.i.i.i.i.i.i
@@ -4495,26 +4495,26 @@ for.body.i.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i,
 
 for.end.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
   %conv3.i.le.i.i.i.i.i.i = trunc nuw nsw i64 %shr.i.i.i.i.i.i.i to i8
-  %sub6.i.i.i.i.i.i = add i64 %sub6.i19.i143.lcssa155.i.i.i.i, -1
+  %sub6.i.i.i.i.i.i = add i64 %spec.store.select.lcssa154.i.i.i.i, -1
   %arrayidx.i4.i.i.i.i.i.i = getelementptr inbounds i32, ptr %agg.tmp.sroa.4.0.copyload.i.i.i, i64 %sub6.i.i.i.i.i.i
   %7 = load i32, ptr %arrayidx.i4.i.i.i.i.i.i, align 4
   %cmp8.i.i.i.i.i.i = icmp eq i32 %7, 0
-  %spec.select.i.i.i.i = select i1 %cmp8.i.i.i.i.i.i, i64 %sub6.i.i.i.i.i.i, i64 %sub6.i19.i143.lcssa155.i.i.i.i
+  %spec.select158.i.i.i.i = select i1 %cmp8.i.i.i.i.i.i, i64 %sub6.i.i.i.i.i.i, i64 %spec.store.select.lcssa154.i.i.i.i
   %cmp25.i.i.i.i.i = icmp eq i64 %shr.i.i.i.i.i.i.i, 9
   br i1 %cmp25.i.i.i.i.i, label %while.body.lr.ph.i.i.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.i.i.i.i
 
 while.body.lr.ph.i.i.i.i.i:                       ; preds = %for.end.i.i.i.i.i.i
-  %8 = icmp eq i64 %spec.select.i.i.i.i, 0
+  %8 = icmp eq i64 %spec.select158.i.i.i.i, 0
   br i1 %8, label %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.i.i.i.i, label %for.body.i6.i.preheader.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %for.end.i17.i.i.i.i.i
-  %inc.i.i.i.i.i = add i64 %inc.i147.i.i.i.i, 1
-  %tobool.not.i3.i.i.i.i.i = icmp eq i64 %spec.select160.i.i.i.i, 0
+  %inc.i.i.i.i.i = add i64 %inc.i146.i.i.i.i, 1
+  %tobool.not.i3.i.i.i.i.i = icmp eq i64 %spec.store.select.i.i.i.i, 0
   br i1 %tobool.not.i3.i.i.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.i.i.i.i, label %for.body.i6.i.preheader.i.i.i.i, !llvm.loop !49
 
 for.body.i6.i.preheader.i.i.i.i:                  ; preds = %while.body.lr.ph.i.i.i.i.i, %while.body.i.i.i.i.i
-  %inc.i147.i.i.i.i = phi i64 [ %inc.i.i.i.i.i, %while.body.i.i.i.i.i ], [ 1, %while.body.lr.ph.i.i.i.i.i ]
-  %9 = phi i64 [ %spec.select160.i.i.i.i, %while.body.i.i.i.i.i ], [ %spec.select.i.i.i.i, %while.body.lr.ph.i.i.i.i.i ]
+  %inc.i146.i.i.i.i = phi i64 [ %inc.i.i.i.i.i, %while.body.i.i.i.i.i ], [ 1, %while.body.lr.ph.i.i.i.i.i ]
+  %9 = phi i64 [ %spec.store.select.i.i.i.i, %while.body.i.i.i.i.i ], [ %spec.select158.i.i.i.i, %while.body.lr.ph.i.i.i.i.i ]
   br label %for.body.i6.i.i.i.i.i
 
 for.body.i6.i.i.i.i.i:                            ; preds = %for.body.i6.i.i.i.i.i, %for.body.i6.i.preheader.i.i.i.i
@@ -4537,18 +4537,18 @@ for.end.i17.i.i.i.i.i:                            ; preds = %for.body.i6.i.i.i.i
   %arrayidx.i4.i20.i.i.i.i.i = getelementptr inbounds i32, ptr %agg.tmp.sroa.4.0.copyload.i.i.i, i64 %sub6.i19.i.i.i.i.i
   %11 = load i32, ptr %arrayidx.i4.i20.i.i.i.i.i, align 4
   %cmp8.i21.i.i.i.i.i = icmp eq i32 %11, 0
-  %spec.select160.i.i.i.i = select i1 %cmp8.i21.i.i.i.i.i, i64 %sub6.i19.i.i.i.i.i, i64 %9
+  %spec.store.select.i.i.i.i = select i1 %cmp8.i21.i.i.i.i.i, i64 %sub6.i19.i.i.i.i.i, i64 %9
   %cmp.i.i.i.i.i = icmp eq i64 %shr.i.i15.i.i.i.i.i, 9
-  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit178.i.i.i.i, !llvm.loop !49
+  br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit176.i.i.i.i, !llvm.loop !49
 
-_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit178.i.i.i.i: ; preds = %for.end.i17.i.i.i.i.i
+_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit176.i.i.i.i: ; preds = %for.end.i17.i.i.i.i.i
   %conv3.i.le.i18.i.le.i.i.i.i = trunc nuw nsw i64 %shr.i.i15.i.i.i.i.i to i8
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.i.i.i.i
 
-_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit178.i.i.i.i, %while.body.lr.ph.i.i.i.i.i, %for.end.i.i.i.i.i.i, %while.body.i.i.i.i
-  %digit_gen.val10.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %for.end.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i ], [ 0, %while.body.lr.ph.i.i.i.i.i ], [ %spec.select160.i.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit178.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ]
-  %digit_gen.val9.i.i.i.i = phi i8 [ %conv3.i.le.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i ], [ 0, %while.body.lr.ph.i.i.i.i.i ], [ %conv3.i.le.i18.i.le.i.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit178.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ]
-  %retval.sroa.2.0.lcssa.i.i.i.i.i = phi i64 [ 0, %for.end.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i ], [ 1, %while.body.lr.ph.i.i.i.i.i ], [ %inc.i147.i.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit178.i.i.i.i ], [ %inc.i.i.i.i.i, %while.body.i.i.i.i.i ]
+_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit176.i.i.i.i, %while.body.lr.ph.i.i.i.i.i, %for.end.i.i.i.i.i.i, %while.body.i.i.i.i
+  %digit_gen.val10.i.i.i.i = phi i64 [ %spec.select158.i.i.i.i, %for.end.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i ], [ 0, %while.body.lr.ph.i.i.i.i.i ], [ %spec.store.select.i.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit176.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ]
+  %digit_gen.val9.i.i.i.i = phi i8 [ %conv3.i.le.i.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i ], [ 0, %while.body.lr.ph.i.i.i.i.i ], [ %conv3.i.le.i18.i.le.i.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit176.i.i.i.i ], [ 0, %while.body.i.i.i.i.i ]
+  %retval.sroa.2.0.lcssa.i.i.i.i.i = phi i64 [ 0, %for.end.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i ], [ 1, %while.body.lr.ph.i.i.i.i.i ], [ %inc.i146.i.i.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator9GetDigitsEv.exit.loopexit.split.loop.exit176.i.i.i.i ], [ %inc.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %add.i.i.i.i = add i64 %retval.sroa.2.0.lcssa.i.i.i.i.i, 1
   %12 = load ptr, ptr %2, align 8
   %13 = load i64, ptr %12, align 8
@@ -4559,7 +4559,7 @@ if.then5.i.i.i.i:                                 ; preds = %_ZN4absl19str_forma
   %14 = load ptr, ptr %ptr.coerce, align 8
   %sink.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %sink.i.i.i.i, align 8
-  %add6.i.i.i.i = add i8 %conv3.i.le.i18.i.lcssa148151.i.i.i.i, 48
+  %add6.i.i.i.i = add i8 %conv3.i.le.i18.i.lcssa147150.i.i.i.i, 48
   %size_.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 16
   %16 = load i64, ptr %size_.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %16, 1
@@ -4675,7 +4675,7 @@ if.else19.i.i.i.i:                                ; preds = %_ZNK4absl19str_form
 
 if.then21.i.i.i.i:                                ; preds = %if.else19.i.i.i.i
   %cmp23.not.i.i.i.i = icmp ne i64 %retval.sroa.2.0.lcssa.i.i.i.i.i, 0
-  %conv25.i.i.i.i = sext i8 %conv3.i.le.i18.i.lcssa148151.i.i.i.i to i32
+  %conv25.i.i.i.i = sext i8 %conv3.i.le.i18.i.lcssa147150.i.i.i.i to i32
   %35 = and i32 %conv25.i.i.i.i, -2147483647
   %cmp26.i.i.i.i = icmp eq i32 %35, 1
   %frombool.i.i.i.i = or i1 %cmp26.i.i.i.i, %cmp23.not.i.i.i.i
@@ -4685,7 +4685,7 @@ if.then30.i.i.i.i:                                ; preds = %if.then21.i.i.i.i, 
   %36 = load ptr, ptr %ptr.coerce, align 8
   %sink31.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 24
   %37 = load ptr, ptr %sink31.i.i.i.i, align 8
-  %add34.i.i.i.i = add i8 %conv3.i.le.i18.i.lcssa148151.i.i.i.i, 49
+  %add34.i.i.i.i = add i8 %conv3.i.le.i18.i.lcssa147150.i.i.i.i, 49
   %size_.i48.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 16
   %38 = load i64, ptr %size_.i48.i.i.i.i, align 8
   %add.i49.i.i.i.i = add i64 %38, 1
@@ -4721,7 +4721,7 @@ if.else36.i.i.i.i:                                ; preds = %if.then21.i.i.i.i, 
   %45 = load ptr, ptr %ptr.coerce, align 8
   %sink37.i.i.i.i = getelementptr inbounds i8, ptr %45, i64 24
   %46 = load ptr, ptr %sink37.i.i.i.i, align 8
-  %add40.i.i.i.i = add i8 %conv3.i.le.i18.i.lcssa148151.i.i.i.i, 48
+  %add40.i.i.i.i = add i8 %conv3.i.le.i18.i.lcssa147150.i.i.i.i, 48
   %size_.i78.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 16
   %47 = load i64, ptr %size_.i78.i.i.i.i, align 8
   %add.i79.i.i.i.i = add i64 %47, 1

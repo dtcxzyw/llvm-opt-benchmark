@@ -8194,7 +8194,7 @@ define void @"_ZN72_$LT$actix_http..h2..Payload$u20$as$u20$futures_core..stream.
 
 .thread:                                          ; preds = %23
   %.sroa.45.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.45, i64 7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.sroa.45.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.sroa.45.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   store i8 11, ptr %0, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.47.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.45, i64 39, i1 false)

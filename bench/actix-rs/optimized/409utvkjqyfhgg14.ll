@@ -83,7 +83,7 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$11into_map_io17
           to label %"_ZN4core3ptr56drop_in_place$LT$actix_http..h1..client..ClientCodec$GT$17h5505d04cdf13a494E.exit" unwind label %24
 
 13:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull align 8 dereferenceable(120) %3, i64 120, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3)
   %14 = getelementptr inbounds i8, ptr %1, i64 120
   %15 = getelementptr inbounds i8, ptr %1, i64 248
@@ -150,7 +150,7 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$14into_map_code
   %11 = getelementptr inbounds i8, ptr %1, i64 160
   %12 = getelementptr inbounds i8, ptr %1, i64 192
   %13 = getelementptr inbounds i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 224
   store i8 %10, ptr %14, align 8
@@ -209,7 +209,7 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$14into_map_code
   %11 = getelementptr inbounds i8, ptr %1, i64 152
   %12 = getelementptr inbounds i8, ptr %1, i64 184
   %13 = getelementptr inbounds i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %13, ptr noundef nonnull align 8 dereferenceable(88) %5, i64 88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %13, ptr noundef nonnull align 8 dereferenceable(88) %6, i64 88, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   %14 = getelementptr inbounds i8, ptr %0, i64 216
   store i8 %10, ptr %14, align 8
@@ -305,9 +305,9 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$3new17h3bf38fd3
   %34 = shl nuw nsw i64 %.0.sroa.speculated.i.i7, 2
   %35 = or disjoint i64 %34, 1
   %36 = getelementptr i8, ptr null, i64 %35
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %6, i64 120, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
   %37 = getelementptr inbounds i8, ptr %0, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   %38 = getelementptr inbounds i8, ptr %0, i64 248
   store i8 0, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 184
@@ -404,8 +404,8 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$3new17h67b3c0b6
   %35 = or disjoint i64 %34, 1
   %36 = getelementptr i8, ptr null, i64 %35
   %37 = getelementptr inbounds i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %37, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %37, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   %38 = getelementptr inbounds i8, ptr %0, i64 224
   store i8 0, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 160
@@ -502,8 +502,8 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$3new17h90920fc6
   %35 = or disjoint i64 %34, 1
   %36 = getelementptr i8, ptr null, i64 %35
   %37 = getelementptr inbounds i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %37, ptr noundef nonnull align 8 dereferenceable(88) %6, i64 88, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %37, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   %38 = getelementptr inbounds i8, ptr %0, i64 216
   store i8 0, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 152

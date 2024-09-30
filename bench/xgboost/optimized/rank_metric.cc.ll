@@ -23981,22 +23981,22 @@ define internal fastcc noundef double @_ZN7xgboost6metric12_GLOBAL__N_18Finalize
 
 .noexc.i:                                         ; preds = %3
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !220
-  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %14 = load ptr, ptr %13, align 8, !noalias !369
-  store i64 1, ptr %4, align 8, !noalias !369
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !369
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %15, align 8, !noalias !369
-  %16 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %6, ptr %16, align 8, !noalias !369
-  %17 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !220
+  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.24.0..sroa_idx, align 8, !noalias !220
+  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %6, ptr %13, align 8, !noalias !220
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !220
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !220
+  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %15 = load ptr, ptr %14, align 8, !noalias !369
+  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %16, align 8, !noalias !369
+  %17 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %6, ptr %17, align 8, !noalias !369
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !369
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !369
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %7, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %7, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !220
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 

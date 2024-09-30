@@ -1762,139 +1762,137 @@ define internal fastcc noundef zeroext i1 @_ZN4LuauL15isWithinCommentERKSt6vecto
   %5 = alloca %"struct.Luau::Position", align 8
   %6 = alloca %"struct.Luau::Comment", align 8
   %7 = alloca %"struct.Luau::Comment", align 4
-  %8 = alloca %"struct.Luau::Comment", align 8
-  %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8
+  %8 = load ptr, ptr %0, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
   store i32 282, ptr %7, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 4
+  %11 = getelementptr inbounds i8, ptr %7, i64 4
+  store i64 %1, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %7, i64 12
   store i64 %1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %7, i64 12
-  store i64 %1, ptr %13, align 4
-  %14 = ptrtoint ptr %11 to i64
-  %15 = ptrtoint ptr %9 to i64
-  %16 = sub i64 %14, %15
-  %17 = icmp sgt i64 %16, 0
-  br i1 %17, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i.i, label %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit"
+  %13 = ptrtoint ptr %10 to i64
+  %14 = ptrtoint ptr %8 to i64
+  %15 = sub i64 %13, %14
+  %16 = icmp sgt i64 %15, 0
+  br i1 %16, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i.i, label %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit"
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i.i: ; preds = %2
-  %18 = udiv exact i64 %16, 20
+  %17 = udiv exact i64 %15, 20
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i.i
-  %.013.i.i = phi i64 [ %18, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i ]
-  %.sroa.011.012.i.i = phi ptr [ %9, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i ]
-  %19 = lshr i64 %.013.i.i, 1
-  %20 = getelementptr inbounds %"struct.Luau::Comment", ptr %.sroa.011.012.i.i, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 12
-  %22 = call noundef zeroext i1 @_ZNK4Luau8PositionltERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(8) %13)
-  %23 = getelementptr inbounds i8, ptr %20, i64 20
-  %24 = xor i64 %19, -1
-  %25 = add nsw i64 %.013.i.i, %24
-  %.sroa.011.1.i.i = select i1 %22, ptr %23, ptr %.sroa.011.012.i.i
-  %.1.i.i = select i1 %22, i64 %25, i64 %19
-  %26 = icmp sgt i64 %.1.i.i, 0
-  br i1 %26, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !5
+  %.013.i.i = phi i64 [ %17, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i ]
+  %.sroa.011.012.i.i = phi ptr [ %8, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i ]
+  %18 = lshr i64 %.013.i.i, 1
+  %19 = getelementptr inbounds %"struct.Luau::Comment", ptr %.sroa.011.012.i.i, i64 %18
+  %20 = getelementptr inbounds i8, ptr %19, i64 12
+  %21 = call noundef zeroext i1 @_ZNK4Luau8PositionltERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(8) %12)
+  %22 = getelementptr inbounds i8, ptr %19, i64 20
+  %23 = xor i64 %18, -1
+  %24 = add nsw i64 %.013.i.i, %23
+  %.sroa.011.1.i.i = select i1 %21, ptr %22, ptr %.sroa.011.012.i.i
+  %.1.i.i = select i1 %21, i64 %24, i64 %18
+  %25 = icmp sgt i64 %.1.i.i, 0
+  br i1 %25, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit", !llvm.loop !5
 
 "_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i
-  %.pre = load ptr, ptr %10, align 8
+  %.pre = load ptr, ptr %9, align 8
   br label %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit"
 
 "_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit": ; preds = %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit", %2
-  %27 = phi ptr [ %11, %2 ], [ %.pre, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit" ]
-  %.sroa.011.0.lcssa.i.i = phi ptr [ %9, %2 ], [ %.sroa.011.1.i.i, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit" ]
-  %28 = icmp eq ptr %.sroa.011.0.lcssa.i.i, %27
-  br i1 %28, label %62, label %29
+  %26 = phi ptr [ %10, %2 ], [ %.pre, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit" ]
+  %.sroa.011.0.lcssa.i.i = phi ptr [ %8, %2 ], [ %.sroa.011.1.i.i, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit.loopexit" ]
+  %27 = icmp eq ptr %.sroa.011.0.lcssa.i.i, %26
+  br i1 %27, label %61, label %28
 
-29:                                               ; preds = %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.011.0.lcssa.i.i, i64 20, i1 false)
+28:                                               ; preds = %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit"
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.011.0.lcssa.i.i, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %8, i64 20, i1 false)
   store i64 %1, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 4
-  %31 = call noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br i1 %31, label %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit.thread, label %32
+  %29 = getelementptr inbounds i8, ptr %6, i64 4
+  %30 = call noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(8) %5)
+  br i1 %30, label %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit.thread, label %31
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr %6, align 8
-  %34 = icmp eq i32 %33, 286
-  br i1 %34, label %35, label %37
+31:                                               ; preds = %28
+  %32 = load i32, ptr %6, align 8
+  %33 = icmp eq i32 %32, 286
+  br i1 %33, label %34, label %36
 
-35:                                               ; preds = %32
-  %36 = call noundef zeroext i1 @_ZNK4Luau8PositionleERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %30, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br i1 %36, label %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit.thread, label %thread-pre-split.i
+34:                                               ; preds = %31
+  %35 = call noundef zeroext i1 @_ZNK4Luau8PositionleERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %29, ptr noundef nonnull align 4 dereferenceable(8) %5)
+  br i1 %35, label %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit.thread, label %thread-pre-split.i
 
-thread-pre-split.i:                               ; preds = %35
+thread-pre-split.i:                               ; preds = %34
   %.pr.i = load i32, ptr %6, align 8
-  br label %37
+  br label %36
 
-37:                                               ; preds = %thread-pre-split.i, %32
-  %38 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %33, %32 ]
-  %39 = icmp eq i32 %38, 282
-  br i1 %39, label %40, label %43
+36:                                               ; preds = %thread-pre-split.i, %31
+  %37 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %32, %31 ]
+  %38 = icmp eq i32 %37, 282
+  br i1 %38, label %39, label %42
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %6, i64 12
-  %42 = call noundef zeroext i1 @_ZNK4Luau8PositioneqERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %41, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br i1 %42, label %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit.thread, label %43
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds i8, ptr %6, i64 12
+  %41 = call noundef zeroext i1 @_ZNK4Luau8PositioneqERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %40, ptr noundef nonnull align 4 dereferenceable(8) %5)
+  br i1 %41, label %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit.thread, label %42
 
-_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit.thread: ; preds = %29, %35, %40
+_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit.thread: ; preds = %28, %34, %39
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %62
+  br label %61
 
-43:                                               ; preds = %40, %37
+42:                                               ; preds = %39, %36
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %44 = getelementptr inbounds i8, ptr %.sroa.011.0.lcssa.i.i, i64 20
-  %45 = load ptr, ptr %10, align 8
-  %46 = icmp eq ptr %44, %45
-  br i1 %46, label %62, label %47
+  %43 = getelementptr inbounds i8, ptr %.sroa.011.0.lcssa.i.i, i64 20
+  %44 = load ptr, ptr %9, align 8
+  %45 = icmp eq ptr %43, %44
+  br i1 %45, label %61, label %46
 
-47:                                               ; preds = %43
+46:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %44, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %43, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %1, ptr %3, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 4
-  %49 = call noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  br i1 %49, label %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit11, label %50
+  %47 = getelementptr inbounds i8, ptr %4, i64 4
+  %48 = call noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %47, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  br i1 %48, label %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit11, label %49
 
-50:                                               ; preds = %47
-  %51 = load i32, ptr %4, align 8
-  %52 = icmp eq i32 %51, 286
-  br i1 %52, label %53, label %55
+49:                                               ; preds = %46
+  %50 = load i32, ptr %4, align 8
+  %51 = icmp eq i32 %50, 286
+  br i1 %51, label %52, label %54
 
-53:                                               ; preds = %50
-  %54 = call noundef zeroext i1 @_ZNK4Luau8PositionleERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %48, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  br i1 %54, label %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit11, label %thread-pre-split.i9
+52:                                               ; preds = %49
+  %53 = call noundef zeroext i1 @_ZNK4Luau8PositionleERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %47, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  br i1 %53, label %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit11, label %thread-pre-split.i9
 
-thread-pre-split.i9:                              ; preds = %53
+thread-pre-split.i9:                              ; preds = %52
   %.pr.i10 = load i32, ptr %4, align 8
-  br label %55
+  br label %54
 
-55:                                               ; preds = %thread-pre-split.i9, %50
-  %56 = phi i32 [ %.pr.i10, %thread-pre-split.i9 ], [ %51, %50 ]
-  %57 = icmp eq i32 %56, 282
-  br i1 %57, label %58, label %61
+54:                                               ; preds = %thread-pre-split.i9, %49
+  %55 = phi i32 [ %.pr.i10, %thread-pre-split.i9 ], [ %50, %49 ]
+  %56 = icmp eq i32 %55, 282
+  br i1 %56, label %57, label %60
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %4, i64 12
-  %60 = call noundef zeroext i1 @_ZNK4Luau8PositioneqERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %59, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  br i1 %60, label %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit11, label %61
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds i8, ptr %4, i64 12
+  %59 = call noundef zeroext i1 @_ZNK4Luau8PositioneqERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %58, ptr noundef nonnull align 4 dereferenceable(8) %3)
+  br i1 %59, label %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit11, label %60
 
-61:                                               ; preds = %58, %55
+60:                                               ; preds = %57, %54
   br label %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit11
 
-_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit11: ; preds = %47, %53, %58, %61
-  %.0.i8 = phi i1 [ false, %61 ], [ true, %47 ], [ true, %53 ], [ true, %58 ]
+_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit11: ; preds = %46, %52, %57, %60
+  %.0.i8 = phi i1 [ false, %60 ], [ true, %46 ], [ true, %52 ], [ true, %57 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %62
+  br label %61
 
-62:                                               ; preds = %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit.thread, %43, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit", %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit11
-  %.0 = phi i1 [ %.0.i8, %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit11 ], [ false, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit" ], [ false, %43 ], [ true, %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit.thread ]
+61:                                               ; preds = %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit.thread, %42, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit", %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit11
+  %.0 = phi i1 [ %.0.i8, %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit11 ], [ false, %"_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CommentESt6vectorIS3_SaIS3_EEEES3_ZNS2_L15isWithinCommentERKS8_NS2_8PositionEE3$_0ET_SE_SE_RKT0_T1_.exit" ], [ false, %42 ], [ true, %_ZN4LuauL8containsENS_8PositionENS_7CommentE.exit.thread ]
   ret i1 %.0
 }
 

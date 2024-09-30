@@ -1147,17 +1147,17 @@ define hidden void @_ZNK12XStatSampler17collect_and_resetEv(ptr dead_on_unwind n
   %27 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %26) #22, !srcloc !6
   %28 = add i64 %13, %23
   %29 = add i64 %12, %25
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %11, i64 %27)
+  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %11, i64 %27)
   %.pre = load i64, ptr @_ZN10XStatValue5_baseE, align 8
   %.pre23 = load i32, ptr @_ZN10XStatValue11_cpu_offsetE, align 4
   br label %30
 
 30:                                               ; preds = %22, %8
-  %31 = phi i32 [ %9, %8 ], [ %.pre23, %22 ]
-  %32 = phi i64 [ %10, %8 ], [ %.pre, %22 ]
-  %33 = phi i64 [ %11, %8 ], [ %spec.select, %22 ]
-  %34 = phi i64 [ %12, %8 ], [ %29, %22 ]
-  %35 = phi i64 [ %13, %8 ], [ %28, %22 ]
+  %31 = phi i32 [ %.pre23, %22 ], [ %9, %8 ]
+  %32 = phi i64 [ %.pre, %22 ], [ %10, %8 ]
+  %33 = phi i64 [ %spec.store.select, %22 ], [ %11, %8 ]
+  %34 = phi i64 [ %29, %22 ], [ %12, %8 ]
+  %35 = phi i64 [ %28, %22 ], [ %13, %8 ]
   %36 = add nuw i32 %.013, 1
   %exitcond.not = icmp eq i32 %36, %4
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !7
@@ -4373,17 +4373,17 @@ define hidden void @_ZNK5XStat18sample_and_collectEP19XStatSamplerHistory(ptr no
   %33 = call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %32) #22, !noalias !43, !srcloc !6
   %34 = add i64 %29, %19
   %35 = add i64 %31, %18
-  %spec.select.i = call i64 @llvm.umax.i64(i64 %17, i64 %33)
+  %spec.store.select.i = call i64 @llvm.umax.i64(i64 %17, i64 %33)
   %.pre.i = load i64, ptr @_ZN10XStatValue5_baseE, align 8, !noalias !43
   %.pre23.i = load i32, ptr @_ZN10XStatValue11_cpu_offsetE, align 4, !noalias !43
   br label %36
 
 36:                                               ; preds = %28, %14
-  %37 = phi i32 [ %15, %14 ], [ %.pre23.i, %28 ]
-  %38 = phi i64 [ %16, %14 ], [ %.pre.i, %28 ]
-  %39 = phi i64 [ %17, %14 ], [ %spec.select.i, %28 ]
-  %40 = phi i64 [ %18, %14 ], [ %35, %28 ]
-  %41 = phi i64 [ %19, %14 ], [ %34, %28 ]
+  %37 = phi i32 [ %.pre23.i, %28 ], [ %15, %14 ]
+  %38 = phi i64 [ %.pre.i, %28 ], [ %16, %14 ]
+  %39 = phi i64 [ %spec.store.select.i, %28 ], [ %17, %14 ]
+  %40 = phi i64 [ %35, %28 ], [ %18, %14 ]
+  %41 = phi i64 [ %34, %28 ], [ %19, %14 ]
   %42 = add nuw i32 %.013.i, 1
   %exitcond.not.i = icmp eq i32 %42, %12
   br i1 %exitcond.not.i, label %._crit_edge.i, label %14, !llvm.loop !7

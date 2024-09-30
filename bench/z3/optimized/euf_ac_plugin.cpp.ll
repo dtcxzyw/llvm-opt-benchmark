@@ -5117,7 +5117,7 @@ _ZN3euf9ac_plugin10monomial_tD2Ev.exit:           ; preds = %.noexc, %lor.lhs.fa
   %add.ptr.i = getelementptr inbounds %"struct.euf::ac_plugin::monomial_t", ptr %14, i64 %idx.ext.i
   store ptr %9, ptr %add.ptr.i, align 8
   %m_bloom.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_bloom.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_bloom, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_bloom.i.i, i8 0, i64 16, i1 false)
   %15 = load ptr, ptr %m_monomials, align 8
   %arrayidx10.i = getelementptr inbounds i8, ptr %15, i64 -4
   %16 = load i32, ptr %arrayidx10.i, align 4

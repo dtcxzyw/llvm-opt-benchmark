@@ -1091,7 +1091,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h37bcc7ac9650a8b4E"
   unreachable
 
 23:                                               ; preds = %15, %17
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %11, ptr noundef nonnull align 8 dereferenceable(240) %2, i64 240, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %11, ptr noundef nonnull align 8 dereferenceable(240) %2, i64 240, i1 false)
   %24 = add i64 %5, 1
   store i64 %24, ptr %4, align 8
   ret void

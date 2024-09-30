@@ -1697,7 +1697,7 @@ define hidden noundef nonnull align 8 dereferenceable(184) ptr @"_ZN9hashbrown11
   %35 = sub i64 %34, %32
   store i64 %35, ptr %33, align 8, !alias.scope !164, !noalias !157
   %36 = getelementptr inbounds i8, ptr %30, i64 -192
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %36, ptr noundef nonnull align 8 dereferenceable(192) %3, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %36, ptr noundef nonnull align 8 dereferenceable(192) %3, i64 192, i1 false)
   %37 = getelementptr inbounds i8, ptr %4, i64 24
   %38 = load i64, ptr %37, align 8, !alias.scope !164, !noalias !157, !noundef !5
   %39 = add i64 %38, 1
@@ -13427,9 +13427,6 @@ declare noundef zeroext i1 @"_ZN4core3fmt3num55_$LT$impl$u20$core..fmt..LowerHex
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #14
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #16
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h7bc8a3c7e092d2d8E"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #2

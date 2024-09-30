@@ -3875,7 +3875,7 @@ define hidden noalias noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyh
 "_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$10from_adhoc17hc8ff23e49681020aE.llvm.338919531005034474.exit": ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
-  %5 = call noalias noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h79e25356b896eeb7E.llvm.338919531005034474"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.c0e27aac995587cea3c09925bde3e989.77.llvm.338919531005034474, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %3)
+  %5 = call noalias noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h79e25356b896eeb7E.llvm.338919531005034474"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.c0e27aac995587cea3c09925bde3e989.77.llvm.338919531005034474, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret ptr %5
@@ -4081,32 +4081,28 @@ define hidden noalias noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyh
 ; Function Attrs: cold nonlazybind uwtable
 define hidden noalias noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h6cf91a0376d2b548E"(ptr noalias nocapture noundef align 8 dereferenceable(48) %0) unnamed_addr #11 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [5 x i64] }, align 8
-  %3 = alloca { i64, [5 x i64] }, align 8
-  %4 = alloca { { i64, [5 x i64] } }, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  invoke void @_ZN3std9backtrace9Backtrace7capture17h9d460402eaabaa03E(ptr noalias nocapture noundef nonnull sret({ { i64, [5 x i64] } }) align 8 dereferenceable(48) %4)
-          to label %"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$8from_std17hd80628fce585c723E.llvm.338919531005034474.exit" unwind label %7
+  %3 = alloca { { i64, [5 x i64] } }, align 8
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  invoke void @_ZN3std9backtrace9Backtrace7capture17h9d460402eaabaa03E(ptr noalias nocapture noundef nonnull sret({ { i64, [5 x i64] } }) align 8 dereferenceable(48) %3)
+          to label %"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$8from_std17hd80628fce585c723E.llvm.338919531005034474.exit" unwind label %6
 
 "_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$8from_std17hd80628fce585c723E.llvm.338919531005034474.exit": ; preds = %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
-  %5 = call noalias noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h12f062f784d14237E.llvm.338919531005034474"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.c0e27aac995587cea3c09925bde3e989.80.llvm.338919531005034474, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %2)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  ret ptr %5
+  %4 = call noalias noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h12f062f784d14237E.llvm.338919531005034474"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.c0e27aac995587cea3c09925bde3e989.80.llvm.338919531005034474, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %2)
+  ret ptr %4
 
-6:                                                ; preds = %7
-  resume { ptr, i32 } %8
+5:                                                ; preds = %6
+  resume { ptr, i32 } %7
 
-7:                                                ; preds = %1
-  %8 = landingpad { ptr, i32 }
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr47drop_in_place$LT$humantime..duration..Error$GT$17h45393f1c241fd029E.llvm.338919531005034474"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) #23
-          to label %6 unwind label %9
+          to label %5 unwind label %8
 
-9:                                                ; preds = %7
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %6
+  %9 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24
   unreachable

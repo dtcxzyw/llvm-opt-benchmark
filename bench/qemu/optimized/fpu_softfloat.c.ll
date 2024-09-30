@@ -526,7 +526,7 @@ if.then20.i:                                      ; preds = %if.then.i
 frac64_shrjam.exit.i:                             ; preds = %if.then20.i
   %sh_prom.i.i = zext nneg i32 %sub.i to i64
   %shr.i.i = lshr i64 %b.val.i107, %sh_prom.i.i
-  %18 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i107, i32 %sub.i, i64 0) #15, !srcloc !5
+  %18 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i107, i32 %sub.i, i64 0) #14, !srcloc !5
   %cmp11.i.i = icmp ne i64 %18, 0
   %conv13.i.i = zext i1 %cmp11.i.i to i64
   %or.i.i82 = or i64 %shr.i.i, %conv13.i.i
@@ -544,7 +544,7 @@ frac64_shrjam.exit42.i:                           ; preds = %if.else.i77
   %frombool.i = xor i8 %frombool.i.i.i, 1
   store i8 %frombool.i, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i, align 1
   %sub7.i = sub nsw i32 0, %sub.i
-  %20 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i106, i32 %sub7.i, i64 0) #15, !srcloc !5
+  %20 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i106, i32 %sub7.i, i64 0) #14, !srcloc !5
   %sh_prom.i37.i = zext nneg i32 %sub7.i to i64
   %shr.i38.i = lshr i64 %a.val.i106, %sh_prom.i37.i
   %cmp11.i39.i = icmp ne i64 %20, 0
@@ -637,7 +637,7 @@ if.then65.i:                                      ; preds = %if.else.i
 frac64_shrjam.exit.i96:                           ; preds = %if.then65.i
   %sh_prom.i.i99 = zext nneg i32 %sub.i85 to i64
   %shr.i.i100 = lshr i64 %b.val.i107, %sh_prom.i.i99
-  %30 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i107, i32 %sub.i85, i64 0) #15, !srcloc !5
+  %30 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i107, i32 %sub.i85, i64 0) #14, !srcloc !5
   %cmp11.i.i101 = icmp ne i64 %30, 0
   %conv13.i.i102 = zext i1 %cmp11.i.i101 to i64
   %or.i.i103 = or i64 %shr.i.i100, %conv13.i.i102
@@ -650,7 +650,7 @@ if.else.i87:                                      ; preds = %if.then65.i
 
 frac64_shrjam.exit28.i:                           ; preds = %if.else.i87
   %sub4.i = sub nsw i32 0, %sub.i85
-  %31 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i106, i32 %sub4.i, i64 0) #15, !srcloc !5
+  %31 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i106, i32 %sub4.i, i64 0) #14, !srcloc !5
   %sh_prom.i23.i = zext nneg i32 %sub4.i to i64
   %shr.i24.i = lshr i64 %a.val.i106, %sh_prom.i23.i
   %cmp11.i25.i = icmp ne i64 %31, 0
@@ -671,7 +671,7 @@ if.end7.i:                                        ; preds = %frac64_shrjam.exit2
 
 if.then8.i:                                       ; preds = %if.end7.i
   %shr.i31.i = lshr i64 %35, 1
-  %36 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %35, i32 1, i64 0) #15, !srcloc !5
+  %36 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %35, i32 1, i64 0) #14, !srcloc !5
   %cmp11.i32.i = icmp ne i64 %36, 0
   %conv13.i33.i = zext i1 %cmp11.i32.i to i64
   %or.i34.i = or i64 %shr.i31.i, %conv13.i33.i
@@ -704,7 +704,7 @@ if.then91.i:                                      ; preds = %if.end86.i
   br i1 %cmp94.i, label %parts64_addsub.exit, label %if.else97.i
 
 if.else97.i:                                      ; preds = %if.then91.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 401, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.4) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 401, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.4) #15
   unreachable
 
 if.end99.i:                                       ; preds = %if.end86.i
@@ -716,11 +716,11 @@ if.then105.i:                                     ; preds = %if.end99.i
   br i1 %cmp112.i, label %return_b.i, label %if.else115.i
 
 if.else106.i:                                     ; preds = %if.end99.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 405, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.5) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 405, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.5) #15
   unreachable
 
 if.else115.i:                                     ; preds = %if.then105.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 406, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.6) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 406, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.6) #15
   unreachable
 
 return_b.i:                                       ; preds = %if.then105.i, %if.then43.i
@@ -895,7 +895,7 @@ if.end14.i:                                       ; preds = %f32_is_zon2.exit.i
   %12 = bitcast i32 %ub.sroa.0.0.i to float
   %add.i = fadd float %11, %12
   %13 = bitcast float %add.i to i32
-  %14 = tail call float @llvm.fabs.f32(float %add.i) #17
+  %14 = tail call float @llvm.fabs.f32(float %add.i) #16
   %isinf.i.i = fcmp oeq float %14, 0x7FF0000000000000
   br i1 %isinf.i.i, label %if.then24.i, label %if.else.i
 
@@ -996,7 +996,7 @@ if.end14.i:                                       ; preds = %f32_is_zon2.exit.i
   %12 = bitcast i32 %ub.sroa.0.0.i to float
   %sub.i = fsub float %11, %12
   %13 = bitcast float %sub.i to i32
-  %14 = tail call float @llvm.fabs.f32(float %sub.i) #17
+  %14 = tail call float @llvm.fabs.f32(float %sub.i) #16
   %isinf.i.i = fcmp oeq float %14, 0x7FF0000000000000
   br i1 %isinf.i.i, label %if.then24.i, label %if.else.i
 
@@ -1102,7 +1102,7 @@ f64_is_zon2.exit.i:                               ; preds = %land.rhs.i5.i
 if.end14.i:                                       ; preds = %f64_is_zon2.exit.i, %fpclassify_not_nan18.i.i
   %add.i = fadd double %9, %10
   %11 = bitcast double %add.i to i64
-  %12 = tail call double @llvm.fabs.f64(double %add.i) #17
+  %12 = tail call double @llvm.fabs.f64(double %add.i) #16
   %isinf.i.i = fcmp oeq double %12, 0x7FF0000000000000
   br i1 %isinf.i.i, label %if.then24.i, label %if.else.i
 
@@ -1208,7 +1208,7 @@ f64_is_zon2.exit.i:                               ; preds = %land.rhs.i5.i
 if.end14.i:                                       ; preds = %f64_is_zon2.exit.i, %fpclassify_not_nan18.i.i
   %sub.i = fsub double %9, %10
   %11 = bitcast double %sub.i to i64
-  %12 = tail call double @llvm.fabs.f64(double %sub.i) #17
+  %12 = tail call double @llvm.fabs.f64(double %sub.i) #16
   %isinf.i.i = fcmp oeq double %12, 0x7FF0000000000000
   br i1 %isinf.i.i, label %if.then24.i, label %if.else.i
 
@@ -1437,7 +1437,7 @@ if.then.i.i46:                                    ; preds = %if.then20.i
 if.then10.i.i49:                                  ; preds = %if.then.i.i46
   %sh_prom.i.i = zext nneg i32 %sub.i to i64
   %shr.i.i = lshr i64 %b.val.i41.i, %sh_prom.i.i
-  %15 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i41.i, i32 %sub.i, i64 0) #15, !srcloc !5
+  %15 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i41.i, i32 %sub.i, i64 0) #14, !srcloc !5
   %cmp11.i.i50 = icmp ne i64 %15, 0
   %conv13.i.i = zext i1 %cmp11.i.i50 to i64
   %or.i.i51 = or i64 %shr.i.i, %conv13.i.i
@@ -1470,7 +1470,7 @@ if.then10.i36.i:                                  ; preds = %if.then.i29.i
   %sub7.i = sub nsw i32 0, %sub.i
   %sh_prom.i37.i = zext nneg i32 %sub7.i to i64
   %shr.i38.i = lshr i64 %.pre, %sh_prom.i37.i
-  %17 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %.pre, i32 %sub7.i, i64 0) #15, !srcloc !5
+  %17 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %.pre, i32 %sub7.i, i64 0) #14, !srcloc !5
   %cmp11.i39.i = icmp ne i64 %17, 0
   %conv13.i40.i = zext i1 %cmp11.i39.i to i64
   %or.i41.i = or i64 %shr.i38.i, %conv13.i40.i
@@ -1574,7 +1574,7 @@ if.then.i.i.i:                                    ; preds = %if.then65.i
 if.then10.i.i.i:                                  ; preds = %if.then.i.i.i
   %sh_prom.i.i.i = zext nneg i32 %sub.i.i to i64
   %shr.i.i.i = lshr i64 %b.val.i41.i, %sh_prom.i.i.i
-  %27 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i41.i, i32 %sub.i.i, i64 0) #15, !srcloc !5
+  %27 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i41.i, i32 %sub.i.i, i64 0) #14, !srcloc !5
   %cmp11.i.i.i = icmp ne i64 %27, 0
   %conv13.i.i.i = zext i1 %cmp11.i.i.i to i64
   %or.i.i.i = or i64 %shr.i.i.i, %conv13.i.i.i
@@ -1602,7 +1602,7 @@ if.then10.i22.i.i:                                ; preds = %if.then.i15.i.i
   %sub4.i.i = sub nsw i32 0, %sub.i.i
   %sh_prom.i23.i.i = zext nneg i32 %sub4.i.i to i64
   %shr.i24.i.i = lshr i64 %.pre, %sh_prom.i23.i.i
-  %28 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %.pre, i32 %sub4.i.i, i64 0) #15, !srcloc !5
+  %28 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %.pre, i32 %sub4.i.i, i64 0) #14, !srcloc !5
   %cmp11.i25.i.i = icmp ne i64 %28, 0
   %conv13.i26.i.i = zext i1 %cmp11.i25.i.i to i64
   %or.i27.i.i = or i64 %shr.i24.i.i, %conv13.i26.i.i
@@ -1630,7 +1630,7 @@ if.end7.i.i:                                      ; preds = %frac64_shrjam.exit2
 
 if.then8.i.i37:                                   ; preds = %if.end7.i.i
   %shr.i31.i.i = lshr i64 %32, 1
-  %33 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %32, i32 1, i64 0) #15, !srcloc !5
+  %33 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %32, i32 1, i64 0) #14, !srcloc !5
   %cmp11.i32.i.i = icmp ne i64 %33, 0
   %conv13.i33.i.i = zext i1 %cmp11.i32.i.i to i64
   %or.i34.i.i = or i64 %shr.i31.i.i, %conv13.i33.i.i
@@ -1663,7 +1663,7 @@ do.body.i:                                        ; preds = %if.end86.i
   br i1 %cmp94.i, label %parts64_addsub.exit, label %if.else97.i
 
 if.else97.i:                                      ; preds = %do.body.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 401, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.4) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 401, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.4) #15
   unreachable
 
 do.body100.i:                                     ; preds = %if.end86.i
@@ -1671,7 +1671,7 @@ do.body100.i:                                     ; preds = %if.end86.i
   br i1 %cmp103.i, label %do.body109.i, label %if.else106.i
 
 if.else106.i:                                     ; preds = %do.body100.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 405, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.5) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 405, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.5) #15
   unreachable
 
 do.body109.i:                                     ; preds = %do.body100.i
@@ -1679,7 +1679,7 @@ do.body109.i:                                     ; preds = %do.body100.i
   br i1 %cmp112.i, label %return_b.i, label %if.else115.i
 
 if.else115.i:                                     ; preds = %do.body109.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 406, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.6) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 406, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.6) #15
   unreachable
 
 return_b.i:                                       ; preds = %do.body109.i, %if.then43.i
@@ -1970,7 +1970,7 @@ if.then.i.i:                                      ; preds = %if.then20.i
 if.then10.i.i:                                    ; preds = %if.then.i.i
   %sh_prom.i.i = zext nneg i32 %sub.i to i64
   %shr.i.i = lshr i64 %b.val.i120, %sh_prom.i.i
-  %18 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i120, i32 %sub.i, i64 0) #15, !srcloc !5
+  %18 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i120, i32 %sub.i, i64 0) #14, !srcloc !5
   %cmp11.i.i = icmp ne i64 %18, 0
   %conv13.i.i = zext i1 %cmp11.i.i to i64
   %or.i.i = or i64 %shr.i.i, %conv13.i.i
@@ -2003,7 +2003,7 @@ if.then10.i36.i:                                  ; preds = %if.then.i29.i
   %sub7.i = sub nsw i32 0, %sub.i
   %sh_prom.i37.i = zext nneg i32 %sub7.i to i64
   %shr.i38.i = lshr i64 %a.val.i119, %sh_prom.i37.i
-  %20 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i119, i32 %sub7.i, i64 0) #15, !srcloc !5
+  %20 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i119, i32 %sub7.i, i64 0) #14, !srcloc !5
   %cmp11.i39.i = icmp ne i64 %20, 0
   %conv13.i40.i = zext i1 %cmp11.i39.i to i64
   %or.i41.i = or i64 %shr.i38.i, %conv13.i40.i
@@ -2107,7 +2107,7 @@ if.then.i.i103:                                   ; preds = %if.then65.i
 if.then10.i.i110:                                 ; preds = %if.then.i.i103
   %sh_prom.i.i111 = zext nneg i32 %sub.i95 to i64
   %shr.i.i112 = lshr i64 %b.val.i120, %sh_prom.i.i111
-  %30 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i120, i32 %sub.i95, i64 0) #15, !srcloc !5
+  %30 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i120, i32 %sub.i95, i64 0) #14, !srcloc !5
   %cmp11.i.i113 = icmp ne i64 %30, 0
   %conv13.i.i114 = zext i1 %cmp11.i.i113 to i64
   %or.i.i115 = or i64 %shr.i.i112, %conv13.i.i114
@@ -2135,7 +2135,7 @@ if.then10.i22.i:                                  ; preds = %if.then.i15.i
   %sub4.i = sub nsw i32 0, %sub.i95
   %sh_prom.i23.i = zext nneg i32 %sub4.i to i64
   %shr.i24.i = lshr i64 %a.val.i119, %sh_prom.i23.i
-  %31 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i119, i32 %sub4.i, i64 0) #15, !srcloc !5
+  %31 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i119, i32 %sub4.i, i64 0) #14, !srcloc !5
   %cmp11.i25.i = icmp ne i64 %31, 0
   %conv13.i26.i = zext i1 %cmp11.i25.i to i64
   %or.i27.i = or i64 %shr.i24.i, %conv13.i26.i
@@ -2163,7 +2163,7 @@ if.end7.i:                                        ; preds = %frac64_shrjam.exit2
 
 if.then8.i100:                                    ; preds = %if.end7.i
   %shr.i31.i = lshr i64 %35, 1
-  %36 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %35, i32 1, i64 0) #15, !srcloc !5
+  %36 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %35, i32 1, i64 0) #14, !srcloc !5
   %cmp11.i32.i = icmp ne i64 %36, 0
   %conv13.i33.i = zext i1 %cmp11.i32.i to i64
   %or.i34.i = or i64 %shr.i31.i, %conv13.i33.i
@@ -2196,7 +2196,7 @@ if.then91.i:                                      ; preds = %if.end86.i
   br i1 %cmp94.i, label %parts64_addsub.exit, label %if.else97.i
 
 if.else97.i:                                      ; preds = %if.then91.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 401, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.4) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 401, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.4) #15
   unreachable
 
 if.end99.i:                                       ; preds = %if.end86.i
@@ -2208,11 +2208,11 @@ if.then105.i:                                     ; preds = %if.end99.i
   br i1 %cmp112.i, label %return_b.i, label %if.else115.i
 
 if.else106.i:                                     ; preds = %if.end99.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 405, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.5) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 405, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.5) #15
   unreachable
 
 if.else115.i:                                     ; preds = %if.then105.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 406, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.6) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 406, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.6) #15
   unreachable
 
 return_b.i:                                       ; preds = %if.then105.i, %if.then43.i
@@ -2451,7 +2451,7 @@ if.then91.i:                                      ; preds = %if.end86.i
   br i1 %cmp94.i, label %if.then.i63, label %if.else97.i
 
 if.else97.i:                                      ; preds = %if.then91.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 401, ptr noundef nonnull @__func__.parts128_addsub, ptr noundef nonnull @.str.4) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 401, ptr noundef nonnull @__func__.parts128_addsub, ptr noundef nonnull @.str.4) #15
   unreachable
 
 if.end99.i:                                       ; preds = %if.end86.i
@@ -2463,11 +2463,11 @@ if.then105.i:                                     ; preds = %if.end99.i
   br i1 %cmp112.i, label %return_b.i, label %if.else115.i
 
 if.else106.i:                                     ; preds = %if.end99.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 405, ptr noundef nonnull @__func__.parts128_addsub, ptr noundef nonnull @.str.5) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 405, ptr noundef nonnull @__func__.parts128_addsub, ptr noundef nonnull @.str.5) #15
   unreachable
 
 if.else115.i:                                     ; preds = %if.then105.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 406, ptr noundef nonnull @__func__.parts128_addsub, ptr noundef nonnull @.str.6) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 406, ptr noundef nonnull @__func__.parts128_addsub, ptr noundef nonnull @.str.6) #15
   unreachable
 
 return_b.i:                                       ; preds = %if.then105.i, %if.then43.i
@@ -2606,14 +2606,14 @@ do.end18.i:                                       ; preds = %lor.lhs.false.i.i, 
   %25 = load i64, ptr %frac_hi.i15.i, align 8
   %frac_lo.i.i62 = getelementptr inbounds i8, ptr %retval.i7.076, i64 16
   %26 = load i64, ptr %frac_lo.i.i62, align 8
-  %27 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %25, i32 15, i64 %26) #15, !srcloc !5
+  %27 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %25, i32 15, i64 %26) #14, !srcloc !5
   %shr.i.i = lshr i64 %25, 15
   store i64 %shr.i.i, ptr %frac_hi.i15.i, align 8
   store i64 %27, ptr %frac_lo.i.i62, align 8
   br label %parts128_uncanon.exit
 
 do.body21.i:                                      ; preds = %parts128_addsub.exit
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.parts128_uncanon, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.parts128_uncanon, ptr noundef null) #15
   unreachable
 
 parts128_uncanon.exit:                            ; preds = %if.then.i63, %sw.bb.i, %do.end.i, %do.end18.i
@@ -2671,7 +2671,7 @@ sw.bb.i14:                                        ; preds = %entry
   br i1 %2, label %floatx80_unpack_canonical.exit42, label %if.end.i19
 
 sw.default.i41:                                   ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 if.end.i19:                                       ; preds = %sw.bb.i14
@@ -2720,7 +2720,7 @@ sw.bb.i:                                          ; preds = %lor.lhs.false.threa
   br i1 %7, label %floatx80_unpack_canonical.exit, label %if.end.i
 
 sw.default.i:                                     ; preds = %lor.lhs.false
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 if.end.i:                                         ; preds = %sw.bb.i
@@ -2860,7 +2860,7 @@ parts128_addsub.exit.thread119:                   ; preds = %if.then91.i
   br label %sw.bb.i50
 
 if.else97.i:                                      ; preds = %if.then91.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 401, ptr noundef nonnull @__func__.parts128_addsub, ptr noundef nonnull @.str.4) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 401, ptr noundef nonnull @__func__.parts128_addsub, ptr noundef nonnull @.str.4) #15
   unreachable
 
 if.end99.i:                                       ; preds = %if.end86.i
@@ -2872,11 +2872,11 @@ if.then105.i:                                     ; preds = %if.end99.i
   br i1 %cmp112.i, label %return_b.i, label %if.else115.i
 
 if.else106.i:                                     ; preds = %if.end99.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 405, ptr noundef nonnull @__func__.parts128_addsub, ptr noundef nonnull @.str.5) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 405, ptr noundef nonnull @__func__.parts128_addsub, ptr noundef nonnull @.str.5) #15
   unreachable
 
 if.else115.i:                                     ; preds = %if.then105.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 406, ptr noundef nonnull @__func__.parts128_addsub, ptr noundef nonnull @.str.6) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 406, ptr noundef nonnull @__func__.parts128_addsub, ptr noundef nonnull @.str.6) #15
   unreachable
 
 return_b.i:                                       ; preds = %if.then105.i, %if.then43.i
@@ -3065,7 +3065,7 @@ sw.bb16.i:                                        ; preds = %parts128_addsub.exi
   br label %floatx80_round_pack_canonical.exit.sink.split
 
 sw.default.i57:                                   ; preds = %parts128_addsub.exit
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1858, ptr noundef nonnull @__func__.floatx80_round_pack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1858, ptr noundef nonnull @__func__.floatx80_round_pack_canonical, ptr noundef null) #15
   unreachable
 
 floatx80_round_pack_canonical.exit.sink.split:    ; preds = %parts128_addsub.exit, %if.end.i54, %parts128_addsub.exit.thread, %sw.bb16.i
@@ -3410,7 +3410,7 @@ if.then54.i:                                      ; preds = %if.end51.i
   br label %parts64_mul.exit
 
 if.else.i:                                        ; preds = %if.end51.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 460, ptr noundef nonnull @__func__.parts64_mul, ptr noundef nonnull @.str.7) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 460, ptr noundef nonnull @__func__.parts64_mul, ptr noundef nonnull @.str.7) #15
   unreachable
 
 parts64_mul.exit:                                 ; preds = %.thread100, %if.then24.i, %21, %if.then6.i.i, %if.then3.i, %if.then54.i, %if.then46.i, %if.then31.i, %if.end.i
@@ -3611,7 +3611,7 @@ do.body:                                          ; preds = %if.end43
   br i1 %tobool53.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %do.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 460, ptr noundef nonnull @__func__.parts64_mul, ptr noundef nonnull @.str.7) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 460, ptr noundef nonnull @__func__.parts64_mul, ptr noundef nonnull @.str.7) #15
   unreachable
 
 do.end:                                           ; preds = %do.body
@@ -3699,7 +3699,7 @@ if.end14.i:                                       ; preds = %f32_is_zon2.exit
   %13 = bitcast i32 %ub.i.sroa.0.1 to float
   %mul.i = fmul float %12, %13
   %14 = bitcast float %mul.i to i32
-  %15 = tail call float @llvm.fabs.f32(float %mul.i) #17
+  %15 = tail call float @llvm.fabs.f32(float %mul.i) #16
   %isinf.i = fcmp oeq float %15, 0x7FF0000000000000
   br i1 %isinf.i, label %if.then24.i, label %if.else.i
 
@@ -4023,7 +4023,7 @@ if.then54.i.i:                                    ; preds = %if.end51.i.i
   br label %soft_f32_mul.exit
 
 if.else.i.i:                                      ; preds = %if.end51.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 460, ptr noundef nonnull @__func__.parts64_mul, ptr noundef nonnull @.str.7) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 460, ptr noundef nonnull @__func__.parts64_mul, ptr noundef nonnull @.str.7) #15
   unreachable
 
 soft_f32_mul.exit:                                ; preds = %if.end.i.i, %if.then31.i.i, %if.then3.i.i, %if.then6.i.i.i, %.thread116.i, %35, %if.then24.i.i, %if.then46.i.i, %if.then54.i.i
@@ -4133,7 +4133,7 @@ f64_is_zon2.exit:                                 ; preds = %land.rhs.i7
 if.end14.i:                                       ; preds = %fpclassify_not_nan18.i, %f64_is_zon2.exit
   %mul.i = fmul double %10, %11
   %12 = bitcast double %mul.i to i64
-  %13 = tail call double @llvm.fabs.f64(double %mul.i) #17
+  %13 = tail call double @llvm.fabs.f64(double %mul.i) #16
   %isinf.i = fcmp oeq double %13, 0x7FF0000000000000
   br i1 %isinf.i, label %if.then24.i, label %if.else.i
 
@@ -4455,7 +4455,7 @@ if.then54.i.i:                                    ; preds = %if.end51.i.i
   br label %soft_f64_mul.exit
 
 if.else.i.i:                                      ; preds = %if.end51.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 460, ptr noundef nonnull @__func__.parts64_mul, ptr noundef nonnull @.str.7) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 460, ptr noundef nonnull @__func__.parts64_mul, ptr noundef nonnull @.str.7) #15
   unreachable
 
 soft_f64_mul.exit:                                ; preds = %if.end.i.i, %if.then31.i.i, %if.then3.i.i, %if.then6.i.i.i, %.thread114.i, %33, %if.then24.i.i, %if.then46.i.i, %if.then54.i.i
@@ -4712,7 +4712,7 @@ sw.bb10:                                          ; preds = %entry
   br label %sw.epilog
 
 do.body:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1758, ptr noundef nonnull @__func__.float64r32_round_pack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1758, ptr noundef nonnull @__func__.float64r32_round_pack_canonical, ptr noundef null) #15
   unreachable
 
 sw.epilog:                                        ; preds = %entry.sw.epilog_crit_edge, %frac64_normalize.exit, %if.else, %sw.bb10, %sw.bb8
@@ -5042,7 +5042,7 @@ if.then54.i:                                      ; preds = %if.end51.i
   br label %parts64_mul.exit
 
 if.else.i:                                        ; preds = %if.end51.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 460, ptr noundef nonnull @__func__.parts64_mul, ptr noundef nonnull @.str.7) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 460, ptr noundef nonnull @__func__.parts64_mul, ptr noundef nonnull @.str.7) #15
   unreachable
 
 parts64_mul.exit:                                 ; preds = %.thread116, %if.then24.i, %21, %if.then6.i.i, %if.then3.i, %if.then54.i, %if.then46.i, %if.then31.i, %if.end.i
@@ -5321,7 +5321,7 @@ parts128_mul.exit.thread85:                       ; preds = %if.end51.i
   br label %sw.bb.i
 
 if.else.i:                                        ; preds = %if.end51.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 460, ptr noundef nonnull @__func__.parts128_mul, ptr noundef nonnull @.str.7) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 460, ptr noundef nonnull @__func__.parts128_mul, ptr noundef nonnull @.str.7) #15
   unreachable
 
 parts128_mul.exit:                                ; preds = %lor.lhs.false.i.i, %if.end.i, %45
@@ -5366,14 +5366,14 @@ do.end18.i:                                       ; preds = %lor.lhs.false.i.i, 
   %51 = load i64, ptr %frac_hi.i15.i, align 8
   %frac_lo.i.i69 = getelementptr inbounds i8, ptr %retval.i.083, i64 16
   %52 = load i64, ptr %frac_lo.i.i69, align 8
-  %53 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %51, i32 15, i64 %52) #15, !srcloc !5
+  %53 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %51, i32 15, i64 %52) #14, !srcloc !5
   %shr.i.i = lshr i64 %51, 15
   store i64 %shr.i.i, ptr %frac_hi.i15.i, align 8
   store i64 %53, ptr %frac_lo.i.i69, align 8
   br label %parts128_uncanon.exit
 
 do.body21.i:                                      ; preds = %parts128_mul.exit
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.parts128_uncanon, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.parts128_uncanon, ptr noundef null) #15
   unreachable
 
 parts128_uncanon.exit:                            ; preds = %if.then.i71, %sw.bb.i, %do.end.i, %do.end18.i
@@ -5440,14 +5440,14 @@ do.end18.i:                                       ; preds = %entry, %entry
   %4 = load i64, ptr %frac_hi.i15.i, align 8
   %frac_lo.i.i = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i64, ptr %frac_lo.i.i, align 8
-  %6 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %4, i32 15, i64 %5) #15, !srcloc !5
+  %6 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %4, i32 15, i64 %5) #14, !srcloc !5
   %shr.i.i = lshr i64 %4, 15
   store i64 %shr.i.i, ptr %frac_hi.i15.i, align 8
   store i64 %6, ptr %frac_lo.i.i, align 8
   br label %parts128_uncanon.exit
 
 do.body21.i:                                      ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.parts128_uncanon, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.parts128_uncanon, ptr noundef null) #15
   unreachable
 
 parts128_uncanon.exit:                            ; preds = %if.then.i, %sw.bb.i, %do.end.i, %do.end18.i
@@ -5506,7 +5506,7 @@ sw.bb.i29:                                        ; preds = %entry
   br i1 %2, label %floatx80_unpack_canonical.exit57, label %if.end.i34
 
 sw.default.i56:                                   ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 if.end.i34:                                       ; preds = %sw.bb.i29
@@ -5555,7 +5555,7 @@ sw.bb.i:                                          ; preds = %lor.lhs.false.threa
   br i1 %7, label %floatx80_unpack_canonical.exit, label %if.end.i15
 
 sw.default.i:                                     ; preds = %lor.lhs.false
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 if.end.i15:                                       ; preds = %sw.bb.i
@@ -5831,7 +5831,7 @@ parts128_mul.exit.thread125:                      ; preds = %if.end51.i
   br label %floatx80_round_pack_canonical.exit
 
 if.else.i6:                                       ; preds = %if.end51.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 460, ptr noundef nonnull @__func__.parts128_mul, ptr noundef nonnull @.str.7) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 460, ptr noundef nonnull @__func__.parts128_mul, ptr noundef nonnull @.str.7) #15
   unreachable
 
 parts128_mul.exitthread-pre-split:                ; preds = %if.end.i, %if.then31.i, %if.then3.i, %if.then6.i.i
@@ -5915,7 +5915,7 @@ sw.bb16.i:                                        ; preds = %parts128_mul.exit.t
   br label %floatx80_round_pack_canonical.exit
 
 sw.default.i76:                                   ; preds = %parts128_mul.exit
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1858, ptr noundef nonnull @__func__.floatx80_round_pack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1858, ptr noundef nonnull @__func__.floatx80_round_pack_canonical, ptr noundef null) #15
   unreachable
 
 floatx80_round_pack_canonical.exit:               ; preds = %parts128_mul.exit.thread125, %parts128_mul.exit, %if.end.i73, %sw.bb16.i, %sw.bb13.i
@@ -6007,7 +6007,7 @@ sw.bb16:                                          ; preds = %entry, %entry
   br label %sw.epilog.sink.split
 
 do.body:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1858, ptr noundef nonnull @__func__.floatx80_round_pack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1858, ptr noundef nonnull @__func__.floatx80_round_pack_canonical, ptr noundef null) #15
   unreachable
 
 sw.epilog.sink.split:                             ; preds = %entry, %sw.bb16
@@ -6299,7 +6299,7 @@ if.then75.i:                                      ; preds = %if.end72.i
   ]
 
 if.else.i:                                        ; preds = %if.end72.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 522, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.7) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 522, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.7) #15
   unreachable
 
 if.then81.i:                                      ; preds = %if.then75.i
@@ -6314,7 +6314,7 @@ if.then87.i:                                      ; preds = %if.then75.i
   br i1 %cmp94.i.not, label %return_zero.i, label %return_sub_zero.i
 
 if.else105.i:                                     ; preds = %if.then75.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 533, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.12) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 533, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.12) #15
   unreachable
 
 if.end108.i:                                      ; preds = %if.end.i
@@ -6566,7 +6566,7 @@ do.body:                                          ; preds = %if.end54
   br i1 %tobool74.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %do.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 522, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.7) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 522, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.7) #15
   unreachable
 
 do.end:                                           ; preds = %do.body
@@ -6590,7 +6590,7 @@ if.then87:                                        ; preds = %do.end
   br i1 %cmp94.not, label %return_zero, label %return_sub_zero
 
 if.else105:                                       ; preds = %do.end
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 533, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.12) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 533, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.12) #15
   unreachable
 
 if.end108:                                        ; preds = %if.end17
@@ -6873,7 +6873,7 @@ if.else:                                          ; preds = %if.end33
   %21 = bitcast i32 %ub.sroa.0.1 to float
   %22 = select i1 %tobool68.not, float %19, float %fneg70
   %23 = tail call float @llvm.fma.f32(float %20, float %21, float %22)
-  %24 = tail call float @llvm.fabs.f32(float %23) #17
+  %24 = tail call float @llvm.fabs.f32(float %23) #16
   %isinf.i = fcmp oeq float %24, 0x7FF0000000000000
   br i1 %isinf.i, label %if.then80, label %if.else81
 
@@ -7166,7 +7166,7 @@ if.then75.i.i:                                    ; preds = %if.end72.i.i
   ]
 
 if.else.i.i:                                      ; preds = %if.end72.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 522, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.7) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 522, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.7) #15
   unreachable
 
 if.then81.i.i:                                    ; preds = %if.then75.i.i
@@ -7181,7 +7181,7 @@ if.then87.i.i:                                    ; preds = %if.then75.i.i
   br i1 %cmp94.i.not.i, label %return_zero.i.i, label %return_sub_zero.i.i
 
 if.else105.i.i:                                   ; preds = %if.then75.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 533, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.12) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 533, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.12) #15
   unreachable
 
 if.end108.i.i:                                    ; preds = %if.end.i.i
@@ -7478,7 +7478,7 @@ if.else:                                          ; preds = %if.end33
   %18 = select i1 %tobool63.not, double %13, double %fneg65
   %19 = select i1 %tobool68.not, double %15, double %fneg70
   %20 = tail call double @llvm.fma.f64(double %18, double %14, double %19)
-  %21 = tail call double @llvm.fabs.f64(double %20) #17
+  %21 = tail call double @llvm.fabs.f64(double %20) #16
   %isinf.i124 = fcmp oeq double %21, 0x7FF0000000000000
   br i1 %isinf.i124, label %if.then80, label %if.else81
 
@@ -7768,7 +7768,7 @@ if.then75.i.i:                                    ; preds = %if.end72.i.i
   ]
 
 if.else.i.i:                                      ; preds = %if.end72.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 522, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.7) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 522, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.7) #15
   unreachable
 
 if.then81.i.i:                                    ; preds = %if.then75.i.i
@@ -7783,7 +7783,7 @@ if.then87.i.i:                                    ; preds = %if.then75.i.i
   br i1 %cmp94.i.not.i, label %return_zero.i.i, label %return_sub_zero.i.i
 
 if.else105.i.i:                                   ; preds = %if.then75.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 533, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.12) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 533, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.12) #15
   unreachable
 
 if.end108.i.i:                                    ; preds = %if.end.i.i
@@ -8451,7 +8451,7 @@ if.then75.i:                                      ; preds = %if.end72.i
   ]
 
 if.else.i:                                        ; preds = %if.end72.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 522, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.7) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 522, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.7) #15
   unreachable
 
 if.then81.i:                                      ; preds = %if.then75.i
@@ -8466,7 +8466,7 @@ if.then87.i:                                      ; preds = %if.then75.i
   br i1 %cmp94.i.not, label %return_zero.i, label %return_sub_zero.i
 
 if.else105.i:                                     ; preds = %if.then75.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 533, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.12) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 533, ptr noundef nonnull @__func__.parts64_muladd, ptr noundef nonnull @.str.12) #15
   unreachable
 
 if.end108.i:                                      ; preds = %if.end.i
@@ -8755,7 +8755,7 @@ if.then75.i:                                      ; preds = %if.end72.i
   ]
 
 if.else.i:                                        ; preds = %if.end72.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 522, ptr noundef nonnull @__func__.parts128_muladd, ptr noundef nonnull @.str.7) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 522, ptr noundef nonnull @__func__.parts128_muladd, ptr noundef nonnull @.str.7) #15
   unreachable
 
 if.then81.i:                                      ; preds = %if.then75.i
@@ -8770,7 +8770,7 @@ if.then87.i:                                      ; preds = %if.then75.i
   br i1 %cmp94.i.not, label %return_zero.i, label %return_sub_zero.i
 
 if.else105.i:                                     ; preds = %if.then75.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 533, ptr noundef nonnull @__func__.parts128_muladd, ptr noundef nonnull @.str.12) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 533, ptr noundef nonnull @__func__.parts128_muladd, ptr noundef nonnull @.str.12) #15
   unreachable
 
 if.end108.i:                                      ; preds = %if.end17.i
@@ -9009,12 +9009,12 @@ do.end18.i.sink.split:                            ; preds = %do.end18.i.sink.spl
 do.end18.i:                                       ; preds = %do.end18.i.sink.split, %parts128_muladd.exit, %parts128_muladd.exit
   %82 = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   %83 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  %84 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %82, i32 15, i64 %83) #15, !srcloc !5
+  %84 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %82, i32 15, i64 %83) #14, !srcloc !5
   %shr.i.i = lshr i64 %82, 15
   br label %parts128_uncanon.exit
 
 do.body21.i:                                      ; preds = %parts128_muladd.exit
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.parts128_uncanon, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.parts128_uncanon, ptr noundef null) #15
   unreachable
 
 parts128_uncanon.exit:                            ; preds = %parts128_muladd.exit, %if.then.i112, %do.end.i, %do.end18.i
@@ -9246,7 +9246,7 @@ if.then:                                          ; preds = %entry
   %shr.i = zext i1 %not.cmp.i to i64
   %n0.0.i = lshr i64 %8, %shr.i
   %n1.0.i = select i1 %cmp.i, i64 0, i64 %shl.i
-  %9 = tail call { i64, i64 } asm "divq $4", "={ax},={dx},0,1,rm,~{dirflag},~{fpsr},~{flags}"(i64 %n1.0.i, i64 %n0.0.i, i64 %b.val) #18, !srcloc !6
+  %9 = tail call { i64, i64 } asm "divq $4", "={ax},={dx},0,1,rm,~{dirflag},~{fpsr},~{flags}"(i64 %n1.0.i, i64 %n0.0.i, i64 %b.val) #17, !srcloc !6
   %asmresult.i.i = extractvalue { i64, i64 } %9, 0
   %asmresult1.i.i = extractvalue { i64, i64 } %9, 1
   %cmp1.i = icmp ne i64 %asmresult1.i.i, 0
@@ -9376,7 +9376,7 @@ if.then68:                                        ; preds = %if.end63
   br label %return
 
 if.else:                                          ; preds = %if.end63
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 644, ptr noundef nonnull @__func__.parts64_div, ptr noundef nonnull @.str.13) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 644, ptr noundef nonnull @__func__.parts64_div, ptr noundef nonnull @.str.13) #15
   unreachable
 
 do.end:                                           ; preds = %if.end63
@@ -9476,7 +9476,7 @@ if.end14.i:                                       ; preds = %f32_div_pre.exit
   %12 = bitcast i32 %ub.i.sroa.0.1 to float
   %div.i = fdiv float %11, %12
   %13 = bitcast float %div.i to i32
-  %14 = tail call float @llvm.fabs.f32(float %div.i) #17
+  %14 = tail call float @llvm.fabs.f32(float %div.i) #16
   %isinf.i = fcmp oeq float %14, 0x7FF0000000000000
   br i1 %isinf.i, label %if.then24.i, label %if.else.i
 
@@ -9676,7 +9676,7 @@ if.then.i.i10:                                    ; preds = %parts64_canonicaliz
   %shr.i.i11 = zext i1 %not.cmp.i.i to i64
   %n0.0.i.i = lshr i64 %.pre, %shr.i.i11
   %n1.0.i.i = select i1 %cmp.i83.i, i64 0, i64 %shl.i84.i
-  %29 = tail call { i64, i64 } asm "divq $4", "={ax},={dx},0,1,rm,~{dirflag},~{fpsr},~{flags}"(i64 %n1.0.i.i, i64 %n0.0.i.i, i64 %25) #18, !srcloc !6
+  %29 = tail call { i64, i64 } asm "divq $4", "={ax},={dx},0,1,rm,~{dirflag},~{fpsr},~{flags}"(i64 %n1.0.i.i, i64 %n0.0.i.i, i64 %25) #17, !srcloc !6
   %asmresult.i.i.i = extractvalue { i64, i64 } %29, 0
   %asmresult1.i.i.i = extractvalue { i64, i64 } %29, 1
   %cmp1.i.i = icmp ne i64 %asmresult1.i.i.i, 0
@@ -9788,7 +9788,7 @@ if.then75.i.i:                                    ; preds = %if.end63.i.i
   br label %soft_f32_div.exit
 
 if.else.i.i:                                      ; preds = %if.end63.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 644, ptr noundef nonnull @__func__.parts64_div, ptr noundef nonnull @.str.13) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 644, ptr noundef nonnull @__func__.parts64_div, ptr noundef nonnull @.str.13) #15
   unreachable
 
 d_nan.i.i:                                        ; preds = %if.then37.i.i, %parts64_canonicalize.exit82.i
@@ -9903,7 +9903,7 @@ fpclassify_not_nan18.i:                           ; preds = %land.rhs.i7
 if.end14.i:                                       ; preds = %fpclassify_not_nan18.i
   %div.i = fdiv double %10, %11
   %12 = bitcast double %div.i to i64
-  %13 = tail call double @llvm.fabs.f64(double %div.i) #17
+  %13 = tail call double @llvm.fabs.f64(double %div.i) #16
   %isinf.i = fcmp oeq double %13, 0x7FF0000000000000
   br i1 %isinf.i, label %if.then24.i, label %if.else.i
 
@@ -10102,7 +10102,7 @@ if.then.i.i9:                                     ; preds = %parts64_canonicaliz
   %shr.i.i = zext i1 %not.cmp.i.i to i64
   %n0.0.i.i = lshr i64 %.pre, %shr.i.i
   %n1.0.i.i = select i1 %cmp.i83.i, i64 0, i64 %shl.i84.i
-  %29 = tail call { i64, i64 } asm "divq $4", "={ax},={dx},0,1,rm,~{dirflag},~{fpsr},~{flags}"(i64 %n1.0.i.i, i64 %n0.0.i.i, i64 %25) #18, !srcloc !6
+  %29 = tail call { i64, i64 } asm "divq $4", "={ax},={dx},0,1,rm,~{dirflag},~{fpsr},~{flags}"(i64 %n1.0.i.i, i64 %n0.0.i.i, i64 %25) #17, !srcloc !6
   %asmresult.i.i.i = extractvalue { i64, i64 } %29, 0
   %asmresult1.i.i.i = extractvalue { i64, i64 } %29, 1
   %cmp1.i.i = icmp ne i64 %asmresult1.i.i.i, 0
@@ -10214,7 +10214,7 @@ if.then75.i.i:                                    ; preds = %if.end63.i.i
   br label %soft_f64_div.exit
 
 if.else.i.i:                                      ; preds = %if.end63.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 644, ptr noundef nonnull @__func__.parts64_div, ptr noundef nonnull @.str.13) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 644, ptr noundef nonnull @__func__.parts64_div, ptr noundef nonnull @.str.13) #15
   unreachable
 
 d_nan.i.i:                                        ; preds = %if.then37.i.i, %parts64_canonicalize.exit82.i
@@ -10600,7 +10600,7 @@ if.then.i:                                        ; preds = %parts64_canonicaliz
   %shr.i = zext i1 %not.cmp.i to i64
   %n0.0.i = lshr i64 %a.val.i, %shr.i
   %n1.0.i = select i1 %cmp.i82, i64 0, i64 %shl.i83
-  %16 = tail call { i64, i64 } asm "divq $4", "={ax},={dx},0,1,rm,~{dirflag},~{fpsr},~{flags}"(i64 %n1.0.i, i64 %n0.0.i, i64 %b.val.i) #18, !srcloc !6
+  %16 = tail call { i64, i64 } asm "divq $4", "={ax},={dx},0,1,rm,~{dirflag},~{fpsr},~{flags}"(i64 %n1.0.i, i64 %n0.0.i, i64 %b.val.i) #17, !srcloc !6
   %asmresult.i.i = extractvalue { i64, i64 } %16, 0
   %asmresult1.i.i = extractvalue { i64, i64 } %16, 1
   %cmp1.i = icmp ne i64 %asmresult1.i.i, 0
@@ -10715,7 +10715,7 @@ if.then75.i:                                      ; preds = %if.end63.i
   br label %parts64_div.exit
 
 if.else.i:                                        ; preds = %if.end63.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 644, ptr noundef nonnull @__func__.parts64_div, ptr noundef nonnull @.str.13) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 644, ptr noundef nonnull @__func__.parts64_div, ptr noundef nonnull @.str.13) #15
   unreachable
 
 d_nan.i:                                          ; preds = %parts64_canonicalize.exit81, %if.then37.i
@@ -10934,7 +10934,7 @@ parts128_div.exit.thread76:                       ; preds = %if.end63.i
   br label %do.end.i
 
 if.else.i:                                        ; preds = %if.end63.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 644, ptr noundef nonnull @__func__.parts128_div, ptr noundef nonnull @.str.13) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 644, ptr noundef nonnull @__func__.parts128_div, ptr noundef nonnull @.str.13) #15
   unreachable
 
 d_nan.i:                                          ; preds = %entry, %if.then37.i
@@ -10990,14 +10990,14 @@ do.end18.i:                                       ; preds = %lor.lhs.false.i.i, 
   %25 = load i64, ptr %frac_hi.i15.i, align 8
   %frac_lo.i.i59 = getelementptr inbounds i8, ptr %retval.i7.071, i64 16
   %26 = load i64, ptr %frac_lo.i.i59, align 8
-  %27 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %25, i32 15, i64 %26) #15, !srcloc !5
+  %27 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %25, i32 15, i64 %26) #14, !srcloc !5
   %shr.i.i = lshr i64 %25, 15
   store i64 %shr.i.i, ptr %frac_hi.i15.i, align 8
   store i64 %27, ptr %frac_lo.i.i59, align 8
   br label %parts128_uncanon.exit
 
 do.body21.i:                                      ; preds = %parts128_div.exit
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.parts128_uncanon, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.parts128_uncanon, ptr noundef null) #15
   unreachable
 
 parts128_uncanon.exit:                            ; preds = %if.then.i61, %sw.bb.i, %do.end.i, %do.end18.i
@@ -11033,7 +11033,7 @@ entry:
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %entry
@@ -11082,7 +11082,7 @@ lor.lhs.false:                                    ; preds = %if.end.i
   br i1 %switch.i6, label %sw.epilog.i8, label %do.body.i7
 
 do.body.i7:                                       ; preds = %lor.lhs.false
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 sw.epilog.i8:                                     ; preds = %lor.lhs.false.thread, %lor.lhs.false
@@ -11280,7 +11280,7 @@ if.then68.i:                                      ; preds = %if.end63.i
   br label %parts128_div.exit
 
 if.else.i34:                                      ; preds = %if.end63.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 644, ptr noundef nonnull @__func__.parts128_div, ptr noundef nonnull @.str.13) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 644, ptr noundef nonnull @__func__.parts128_div, ptr noundef nonnull @.str.13) #15
   unreachable
 
 do.end.i:                                         ; preds = %if.end63.i
@@ -11972,7 +11972,7 @@ lor.lhs.false33:                                  ; preds = %lor.lhs.false
   br i1 %cmp36, label %return, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false33
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 684, ptr noundef nonnull @__func__.parts64_modrem, ptr noundef nonnull @.str.14) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 684, ptr noundef nonnull @__func__.parts64_modrem, ptr noundef nonnull @.str.14) #15
   unreachable
 
 return:                                           ; preds = %.thread11, %if.then24.i, %61, %if.then6.i.i, %if.then3.i, %if.end87.i, %if.else85.i, %if.then, %lor.lhs.false33, %lor.lhs.false, %if.then27
@@ -12873,7 +12873,7 @@ lor.lhs.false33:                                  ; preds = %lor.lhs.false
   br i1 %cmp36, label %return, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false33
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 684, ptr noundef nonnull @__func__.parts128_modrem, ptr noundef nonnull @.str.14) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 684, ptr noundef nonnull @__func__.parts128_modrem, ptr noundef nonnull @.str.14) #15
   unreachable
 
 return:                                           ; preds = %lor.lhs.false.i.i, %if.then24.i, %106, %if.then6.i.i, %if.then3.i, %if.end98.i, %if.else95.i, %if.then2.i, %if.then.i, %lor.lhs.false33, %lor.lhs.false, %if.then27
@@ -12893,7 +12893,7 @@ entry:
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %entry
@@ -12943,7 +12943,7 @@ lor.lhs.false:                                    ; preds = %if.end.i
   br i1 %switch.i7, label %sw.epilog.i9, label %do.body.i8
 
 do.body.i8:                                       ; preds = %lor.lhs.false
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 sw.epilog.i9:                                     ; preds = %lor.lhs.false.thread, %lor.lhs.false
@@ -14560,7 +14560,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts_float_to_float_narrow.exit
 
 do.body.i.i:                                      ; preds = %if.then7.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.parts64_return_nan, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.parts64_return_nan, ptr noundef null) #15
   unreachable
 
 parts_float_to_float_narrow.exit:                 ; preds = %if.then.i, %if.else.i, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i
@@ -14673,7 +14673,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts_float_to_float_narrow.exit
 
 do.body.i.i:                                      ; preds = %if.then7.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.parts64_return_nan, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.parts64_return_nan, ptr noundef null) #15
   unreachable
 
 parts_float_to_float_narrow.exit:                 ; preds = %if.then.i, %if.else.i, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i
@@ -14942,7 +14942,7 @@ entry:
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %entry
@@ -15059,7 +15059,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %if.end
 
 do.body.i.i:                                      ; preds = %if.then7.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.parts64_return_nan, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.parts64_return_nan, ptr noundef null) #15
   unreachable
 
 if.else:                                          ; preds = %sw.epilog.i
@@ -15106,7 +15106,7 @@ entry:
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %entry
@@ -15223,7 +15223,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %if.end
 
 do.body.i.i:                                      ; preds = %if.then7.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.parts64_return_nan, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.parts64_return_nan, ptr noundef null) #15
   unreachable
 
 if.else:                                          ; preds = %sw.epilog.i
@@ -15269,7 +15269,7 @@ entry:
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %entry
@@ -15361,7 +15361,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %if.end
 
 do.body.i.i:                                      ; preds = %if.then.i6
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.parts128_return_nan, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.parts128_return_nan, ptr noundef null) #15
   unreachable
 
 if.else:                                          ; preds = %sw.epilog.i
@@ -15686,7 +15686,7 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   br label %parts128_float_to_float.exit
 
 do.body.i.i:                                      ; preds = %if.then.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.parts128_return_nan, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.parts128_return_nan, ptr noundef null) #15
   unreachable
 
 parts128_float_to_float.exit:                     ; preds = %entry, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i
@@ -16346,7 +16346,7 @@ if.then.i:                                        ; preds = %sw.bb2.i
   br label %parts128_round_to_int.exit
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1047, ptr noundef nonnull @__func__.parts128_round_to_int, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1047, ptr noundef nonnull @__func__.parts128_round_to_int, ptr noundef null) #15
   unreachable
 
 parts128_round_to_int.exit:                       ; preds = %entry, %entry, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i, %if.then.i
@@ -16364,7 +16364,7 @@ entry:
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %entry
@@ -16477,7 +16477,7 @@ if.then.i7:                                       ; preds = %sw.bb2.i
   br label %parts128_round_to_int.exit
 
 do.body.i9:                                       ; preds = %if.end
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1047, ptr noundef nonnull @__func__.parts128_round_to_int, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1047, ptr noundef nonnull @__func__.parts128_round_to_int, ptr noundef null) #15
   unreachable
 
 parts128_round_to_int.exit:                       ; preds = %if.end, %if.end, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i, %if.then.i7
@@ -18172,7 +18172,7 @@ if.else21.i:                                      ; preds = %sw.bb6.i
   br label %sw.epilog.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1110, ptr noundef nonnull @__func__.parts128_float_to_sint, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1110, ptr noundef nonnull @__func__.parts128_float_to_sint, ptr noundef null) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %if.else21.i, %if.then13.i, %sw.bb3.i, %sw.bb.i, %entry
@@ -18264,7 +18264,7 @@ if.else21.i:                                      ; preds = %sw.bb6.i
   br label %sw.epilog.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1110, ptr noundef nonnull @__func__.parts128_float_to_sint, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1110, ptr noundef nonnull @__func__.parts128_float_to_sint, ptr noundef null) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %if.else21.i, %if.then13.i, %sw.bb3.i, %sw.bb.i, %entry
@@ -18386,7 +18386,7 @@ if.else46:                                        ; preds = %if.else, %land.lhs.
   br label %sw.epilog
 
 do.body:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 3237, ptr noundef nonnull @__func__.float128_to_int128_scalbn, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 3237, ptr noundef nonnull @__func__.float128_to_int128_scalbn, ptr noundef null) #15
   unreachable
 
 sw.epilog:                                        ; preds = %land.lhs.true, %entry, %sw.bb, %if.then24, %if.then15, %if.else46, %sw.bb3
@@ -18425,7 +18425,7 @@ entry:
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %entry
@@ -18524,7 +18524,7 @@ if.else21.i:                                      ; preds = %sw.bb6.i
   br label %sw.epilog.i3
 
 do.body.i5:                                       ; preds = %if.end
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1110, ptr noundef nonnull @__func__.parts128_float_to_sint, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1110, ptr noundef nonnull @__func__.parts128_float_to_sint, ptr noundef null) #15
   unreachable
 
 sw.epilog.i3:                                     ; preds = %if.end.thread, %if.else21.i, %if.then13.i, %sw.bb3.i, %sw.bb.i, %if.end
@@ -18560,7 +18560,7 @@ entry:
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %entry
@@ -18659,7 +18659,7 @@ if.else21.i:                                      ; preds = %sw.bb6.i
   br label %sw.epilog.i3
 
 do.body.i5:                                       ; preds = %if.end
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1110, ptr noundef nonnull @__func__.parts128_float_to_sint, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1110, ptr noundef nonnull @__func__.parts128_float_to_sint, ptr noundef null) #15
   unreachable
 
 sw.epilog.i3:                                     ; preds = %if.end.thread, %if.else21.i, %if.then13.i, %sw.bb3.i, %sw.bb.i, %if.end
@@ -20976,7 +20976,7 @@ if.else18.i:                                      ; preds = %if.else.i
   br label %sw.epilog.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1178, ptr noundef nonnull @__func__.parts128_float_to_uint, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1178, ptr noundef nonnull @__func__.parts128_float_to_uint, ptr noundef null) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %if.else18.i, %if.else.i, %if.end11.i, %if.then.i, %sw.bb3.i, %sw.bb.i, %entry
@@ -21070,7 +21070,7 @@ if.else18.i:                                      ; preds = %if.else.i
   br label %sw.epilog.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1178, ptr noundef nonnull @__func__.parts128_float_to_uint, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1178, ptr noundef nonnull @__func__.parts128_float_to_uint, ptr noundef null) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %if.else18.i, %if.else.i, %if.end11.i, %if.then.i, %sw.bb3.i, %sw.bb.i, %entry
@@ -21171,7 +21171,7 @@ if.then28:                                        ; preds = %if.else
   br label %sw.epilog
 
 do.body:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 3665, ptr noundef nonnull @__func__.float128_to_uint128_scalbn, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 3665, ptr noundef nonnull @__func__.float128_to_uint128_scalbn, ptr noundef null) #15
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb3, %if.else, %if.end20, %if.then, %entry, %sw.bb, %if.then28
@@ -26162,7 +26162,7 @@ sw.bb49.i:                                        ; preds = %if.then45.i
   br label %sw.epilog.i
 
 do.body.i:                                        ; preds = %if.then45.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1375, ptr noundef nonnull @__func__.parts128_minmax, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1375, ptr noundef nonnull @__func__.parts128_minmax, ptr noundef null) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.bb49.i, %sw.bb48.i, %if.then45.i
@@ -26180,7 +26180,7 @@ sw.bb54.i:                                        ; preds = %sw.epilog.i
   br label %if.end59.i
 
 do.body56.i:                                      ; preds = %sw.epilog.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1388, ptr noundef nonnull @__func__.parts128_minmax, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1388, ptr noundef nonnull @__func__.parts128_minmax, ptr noundef null) #15
   unreachable
 
 if.end59.i:                                       ; preds = %sw.bb54.i, %sw.bb53.i, %sw.epilog.i, %if.end35.i
@@ -26504,7 +26504,7 @@ if.else83.i:                                      ; preds = %if.else77.i
   br i1 %cmp86.i, label %a_sign.i, label %if.else89.i
 
 if.else89.i:                                      ; preds = %if.else83.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1472, ptr noundef nonnull @__func__.parts64_compare, ptr noundef nonnull @.str.15) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1472, ptr noundef nonnull @__func__.parts64_compare, ptr noundef nonnull @.str.15) #15
   unreachable
 
 a_sign.i:                                         ; preds = %if.then66.i, %if.else83.i, %if.else56.i, %if.then.i
@@ -26782,7 +26782,7 @@ if.else83.i.i:                                    ; preds = %if.else77.i.i
   br i1 %cmp86.i.i, label %a_sign.i.i, label %if.else89.i.i
 
 if.else89.i.i:                                    ; preds = %if.else83.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1472, ptr noundef nonnull @__func__.parts64_compare, ptr noundef nonnull @.str.15) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1472, ptr noundef nonnull @__func__.parts64_compare, ptr noundef nonnull @.str.15) #15
   unreachable
 
 a_sign.i.i:                                       ; preds = %if.else83.i.i, %if.then66.i.i, %if.else56.i.i, %if.then.i.i
@@ -27058,7 +27058,7 @@ if.else83.i.i:                                    ; preds = %if.else77.i.i
   br i1 %cmp86.i.i, label %a_sign.i.i, label %if.else89.i.i
 
 if.else89.i.i:                                    ; preds = %if.else83.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1472, ptr noundef nonnull @__func__.parts64_compare, ptr noundef nonnull @.str.15) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1472, ptr noundef nonnull @__func__.parts64_compare, ptr noundef nonnull @.str.15) #15
   unreachable
 
 a_sign.i.i:                                       ; preds = %if.else83.i.i, %if.then66.i.i, %if.else56.i.i, %if.then.i.i
@@ -27290,7 +27290,7 @@ if.else83.i:                                      ; preds = %if.else77.i
   br i1 %cmp86.i, label %a_sign.i, label %if.else89.i
 
 if.else89.i:                                      ; preds = %if.else83.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1472, ptr noundef nonnull @__func__.parts64_compare, ptr noundef nonnull @.str.15) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1472, ptr noundef nonnull @__func__.parts64_compare, ptr noundef nonnull @.str.15) #15
   unreachable
 
 a_sign.i:                                         ; preds = %if.then66.i, %if.else83.i, %if.else56.i, %if.then.i
@@ -27473,7 +27473,7 @@ if.else83.i:                                      ; preds = %if.else77.i
   br i1 %cmp86.i, label %a_sign.i, label %if.else89.i
 
 if.else89.i:                                      ; preds = %if.else83.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1472, ptr noundef nonnull @__func__.parts128_compare, ptr noundef nonnull @.str.15) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1472, ptr noundef nonnull @__func__.parts128_compare, ptr noundef nonnull @.str.15) #15
   unreachable
 
 a_sign.i:                                         ; preds = %if.then66.i, %if.else83.i, %if.else56.i, %if.then.i
@@ -27525,7 +27525,7 @@ sw.bb.i9:                                         ; preds = %entry
   br i1 %2, label %floatx80_unpack_canonical.exit37, label %if.end.i14
 
 sw.default.i36:                                   ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 if.end.i14:                                       ; preds = %sw.bb.i9
@@ -27575,7 +27575,7 @@ sw.bb.i:                                          ; preds = %lor.lhs.false.threa
   br i1 %7, label %floatx80_unpack_canonical.exit, label %if.end.i
 
 sw.default.i:                                     ; preds = %lor.lhs.false
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 if.end.i:                                         ; preds = %sw.bb.i
@@ -27730,7 +27730,7 @@ if.else83.i:                                      ; preds = %if.else77.i
   br i1 %cmp86.i, label %a_sign.i, label %if.else89.i
 
 if.else89.i:                                      ; preds = %if.else83.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1472, ptr noundef nonnull @__func__.parts128_compare, ptr noundef nonnull @.str.15) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1472, ptr noundef nonnull @__func__.parts128_compare, ptr noundef nonnull @.str.15) #15
   unreachable
 
 a_sign.i:                                         ; preds = %if.then66.i, %if.else83.i, %if.else56.i, %if.then.i47
@@ -28381,7 +28381,7 @@ sw.bb2.i:                                         ; preds = %entry
   br label %parts128_scalbn.exit
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1498, ptr noundef nonnull @__func__.parts128_scalbn, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1498, ptr noundef nonnull @__func__.parts128_scalbn, ptr noundef null) #15
   unreachable
 
 parts128_scalbn.exit:                             ; preds = %entry, %entry, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i
@@ -28399,7 +28399,7 @@ entry:
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %entry
@@ -28504,7 +28504,7 @@ sw.bb2.i:                                         ; preds = %if.end
   br label %parts128_scalbn.exit
 
 do.body.i5:                                       ; preds = %if.end
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1498, ptr noundef nonnull @__func__.parts128_scalbn, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1498, ptr noundef nonnull @__func__.parts128_scalbn, ptr noundef null) #15
   unreachable
 
 parts128_scalbn.exit:                             ; preds = %if.end, %if.end, %if.then.i.i, %if.else.i.i, %sw.bb1.i.i, %if.then4.i.i, %sw.bb2.i
@@ -28788,7 +28788,7 @@ lor.rhs:                                          ; preds = %float32_input_flush
 
 if.end13:                                         ; preds = %lor.rhs.i, %lor.rhs
   %6 = bitcast i32 %ua.sroa.0.1 to float
-  %call14 = tail call float @sqrtf(float noundef %6) #19
+  %call14 = tail call float @sqrtf(float noundef %6) #18
   %7 = bitcast float %call14 to i32
   br label %return
 
@@ -29066,7 +29066,7 @@ fpclassify_not_nan:                               ; preds = %float64_input_flush
   br i1 %or.cond20.not, label %if.end23, label %soft
 
 if.end23:                                         ; preds = %lor.lhs.false, %fpclassify_not_nan
-  %call24 = tail call double @sqrt(double noundef %6) #19
+  %call24 = tail call double @sqrt(double noundef %6) #18
   %7 = bitcast double %call24 to i64
   br label %return
 
@@ -29787,7 +29787,7 @@ sw.bb7.i:                                         ; preds = %entry
   br i1 %tobool8.i, label %d_nan.i, label %do.end.i
 
 sw.default.i:                                     ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 724, ptr noundef nonnull @__func__.parts128_sqrt, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 724, ptr noundef nonnull @__func__.parts128_sqrt, ptr noundef null) #15
   unreachable
 
 if.end16.i:                                       ; preds = %entry
@@ -29810,7 +29810,7 @@ if.end26.i:                                       ; preds = %if.end16.i
   br i1 %tobool27.i.not, label %if.then33.i, label %if.end34.i
 
 if.then33.i:                                      ; preds = %if.end26.i
-  %10 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %9, i32 1, i64 %.pre) #15, !srcloc !5
+  %10 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %9, i32 1, i64 %.pre) #14, !srcloc !5
   %shr.i41 = lshr i64 %9, 1
   br label %if.end34.i
 
@@ -30121,12 +30121,12 @@ do.end.i:                                         ; preds = %sw.bb7.i, %parts128
 do.end18.i:                                       ; preds = %sw.bb1.i, %d_nan.i, %if.then.i, %if.else.i36, %if.then4.i, %parts128_sqrt.exit, %parts128_sqrt.exit
   %124 = load i64, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   %125 = load i64, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  %126 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %124, i32 15, i64 %125) #15, !srcloc !5
+  %126 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %124, i32 15, i64 %125) #14, !srcloc !5
   %shr.i.i144 = lshr i64 %124, 15
   br label %parts128_uncanon.exit
 
 do.body21.i:                                      ; preds = %parts128_sqrt.exit
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.parts128_uncanon, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.parts128_uncanon, ptr noundef null) #15
   unreachable
 
 parts128_uncanon.exit:                            ; preds = %parts128_sqrt.exit, %entry, %if.then.i147, %do.end.i, %do.end18.i
@@ -30155,7 +30155,7 @@ entry:
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %entry
@@ -30257,7 +30257,7 @@ sw.bb7.i:                                         ; preds = %if.end
   br i1 %tobool8.i, label %d_nan.i, label %parts128_sqrt.exit
 
 do.body.i11:                                      ; preds = %if.end
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 724, ptr noundef nonnull @__func__.parts128_sqrt, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 724, ptr noundef nonnull @__func__.parts128_sqrt, ptr noundef null) #15
   unreachable
 
 if.end16.i:                                       ; preds = %if.end
@@ -30280,7 +30280,7 @@ if.end26.i:                                       ; preds = %if.end16.i
   br i1 %tobool27.not.i, label %if.then33.i, label %if.end34.i
 
 if.then33.i:                                      ; preds = %if.end26.i
-  %15 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %13, i32 1, i64 %14) #15, !srcloc !5
+  %15 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %13, i32 1, i64 %14) #14, !srcloc !5
   %shr.i29.i = lshr i64 %13, 1
   br label %if.end34.i
 
@@ -30749,7 +30749,7 @@ sw.bb8:                                           ; preds = %entry
   br i1 %tobool10, label %d_nan, label %return
 
 do.body:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1531, ptr noundef nonnull @__func__.parts64_log2, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1531, ptr noundef nonnull @__func__.parts64_log2, ptr noundef null) #15
   unreachable
 
 if.end18:                                         ; preds = %entry
@@ -30972,7 +30972,7 @@ if.then.i.i:                                      ; preds = %if.then94
 if.then10.i.i:                                    ; preds = %if.then.i.i
   %sh_prom.i.i = zext nneg i32 %sub.i40 to i64
   %shr.i.i45 = lshr i64 %shl.i38, %sh_prom.i.i
-  %45 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %shl.i38, i32 %sub.i40, i64 0) #15, !srcloc !5
+  %45 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %shl.i38, i32 %sub.i40, i64 0) #14, !srcloc !5
   %cmp11.i.i = icmp ne i64 %45, 0
   %conv13.i.i = zext i1 %cmp11.i.i to i64
   %or.i.i = or i64 %shr.i.i45, %conv13.i.i
@@ -31003,7 +31003,7 @@ if.then.i29.i:                                    ; preds = %if.else.i42
 if.then10.i36.i:                                  ; preds = %if.then.i29.i
   %sh_prom.i37.i = zext nneg i32 %sub7.i to i64
   %shr.i38.i = lshr i64 %a.val.i, %sh_prom.i37.i
-  %47 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i, i32 %sub7.i, i64 0) #15, !srcloc !5
+  %47 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i, i32 %sub7.i, i64 0) #14, !srcloc !5
   %cmp11.i39.i = icmp ne i64 %47, 0
   %conv13.i40.i = zext i1 %cmp11.i39.i to i64
   %or.i41.i = or i64 %shr.i38.i, %conv13.i40.i
@@ -31067,7 +31067,7 @@ if.then.i.i54:                                    ; preds = %if.then99
 if.then10.i.i61:                                  ; preds = %if.then.i.i54
   %sh_prom.i.i62 = zext nneg i32 %sub.i48 to i64
   %shr.i.i63 = lshr i64 %shl.i38, %sh_prom.i.i62
-  %55 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %shl.i38, i32 %sub.i48, i64 0) #15, !srcloc !5
+  %55 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %shl.i38, i32 %sub.i48, i64 0) #14, !srcloc !5
   %cmp11.i.i64 = icmp ne i64 %55, 0
   %conv13.i.i65 = zext i1 %cmp11.i.i64 to i64
   %or.i.i66 = or i64 %shr.i.i63, %conv13.i.i65
@@ -31090,7 +31090,7 @@ if.then.i15.i:                                    ; preds = %if.else.i50
 if.then10.i22.i:                                  ; preds = %if.then.i15.i
   %sh_prom.i23.i = zext nneg i32 %sub4.i to i64
   %shr.i24.i = lshr i64 %a.val.i, %sh_prom.i23.i
-  %56 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i, i32 %sub4.i, i64 0) #15, !srcloc !5
+  %56 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i, i32 %sub4.i, i64 0) #14, !srcloc !5
   %cmp11.i25.i = icmp ne i64 %56, 0
   %conv13.i26.i = zext i1 %cmp11.i25.i to i64
   %or.i27.i = or i64 %shr.i24.i, %conv13.i26.i
@@ -31118,7 +31118,7 @@ if.end7.i:                                        ; preds = %if.then10.i.i61, %i
 
 if.then8.i:                                       ; preds = %if.end7.i
   %shr.i31.i = lshr i64 %60, 1
-  %61 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %60, i32 1, i64 0) #15, !srcloc !5
+  %61 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %60, i32 1, i64 0) #14, !srcloc !5
   %cmp11.i32.i = icmp ne i64 %61, 0
   %conv13.i33.i = zext i1 %cmp11.i32.i to i64
   %or.i34.i = or i64 %shr.i31.i, %conv13.i33.i
@@ -31269,7 +31269,7 @@ entry:
 ; Function Attrs: nofree nosync nounwind sspstrong memory(none) uwtable
 define dso_local { i64, i64 } @float128_default_nan(ptr nocapture noundef readnone %status) local_unnamed_addr #7 {
 entry:
-  %0 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 4611686018427387904, i32 15, i64 0) #15, !srcloc !5
+  %0 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 4611686018427387904, i32 15, i64 0) #14, !srcloc !5
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %0, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 9223231299366420480, 1
   ret { i64, i64 } %.fca.1.insert.i
@@ -31313,10 +31313,10 @@ entry:
 define dso_local { i64, i64 } @float128_silence_nan(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef readnone %status) local_unnamed_addr #7 {
 entry:
   %and.i.i = and i64 %a.coerce1, 281474976710655
-  %0 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.coerce0, i32 15, i64 %and.i.i) #15, !srcloc !14
+  %0 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.coerce0, i32 15, i64 %and.i.i) #14, !srcloc !14
   %shl.i = shl i64 %a.coerce0, 15
   %or4.i.i = or i64 %0, 4611686018427387904
-  %1 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %or4.i.i, i32 15, i64 %shl.i) #15, !srcloc !5
+  %1 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %or4.i.i, i32 15, i64 %shl.i) #14, !srcloc !5
   %shr.i = lshr i64 %or4.i.i, 15
   %or.i25.i = and i64 %a.coerce1, -281474976710656
   %and8.i.i = and i64 %shr.i, 281474976710655
@@ -31466,7 +31466,7 @@ sw.bb5:                                           ; preds = %entry
   br label %sw.epilog
 
 do.body:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 4969, ptr noundef nonnull @__func__.roundAndPackFloatx80, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 4969, ptr noundef nonnull @__func__.roundAndPackFloatx80, ptr noundef null) #15
   unreachable
 
 sw.epilog:                                        ; preds = %entry, %sw.bb5
@@ -31495,7 +31495,7 @@ sw.bb14:                                          ; preds = %sw.epilog
   br label %sw.epilog22
 
 sw.default21:                                     ; preds = %sw.epilog
-  tail call void @abort() #16
+  tail call void @abort() #15
   unreachable
 
 sw.epilog22:                                      ; preds = %sw.epilog, %sw.epilog, %sw.bb14, %sw.bb12, %sw.bb11
@@ -31661,7 +31661,7 @@ sw.bb114:                                         ; preds = %precision80
   br label %sw.epilog122
 
 sw.default121:                                    ; preds = %precision80
-  tail call void @abort() #16
+  tail call void @abort() #15
   unreachable
 
 sw.epilog122:                                     ; preds = %precision80, %sw.bb114, %sw.bb110, %sw.bb105
@@ -32056,7 +32056,7 @@ if.end:                                           ; preds = %float32_unpack_cano
   store i64 -5660435428506896384, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i17, align 8
   %call10 = call fastcc ptr @parts64_mul(ptr noundef %xp, ptr noundef %tp, ptr noundef nonnull %status)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %xp, ptr noundef nonnull align 8 dereferenceable(16) %call10, i64 16, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %xnp, ptr noundef nonnull align 8 dereferenceable(16) %call10, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %xnp, ptr noundef nonnull align 8 dereferenceable(16) %call10, i64 16, i1 false)
   %.compoundliteral.i.sroa.2.0..sroa_idx.i.i19 = getelementptr inbounds i8, ptr %rp, i64 1
   store i8 0, ptr %.compoundliteral.i.sroa.2.0..sroa_idx.i.i19, align 1
   %.compoundliteral.i.sroa.31.0..sroa_idx.i.i20 = getelementptr inbounds i8, ptr %rp, i64 4
@@ -32183,7 +32183,7 @@ entry:
   br i1 %switch.i, label %sw.epilog.i, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.floatx80_unpack_canonical, ptr noundef null) #15
   unreachable
 
 sw.epilog.i:                                      ; preds = %entry
@@ -32444,7 +32444,7 @@ if.then.i.i:                                      ; preds = %if.then20.i
 if.then10.i.i:                                    ; preds = %if.then.i.i
   %sh_prom.i.i = zext nneg i32 %sub.i to i64
   %shr.i.i = lshr i64 %b.val.i121, %sh_prom.i.i
-  %14 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i121, i32 %sub.i, i64 0) #15, !srcloc !5
+  %14 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i121, i32 %sub.i, i64 0) #14, !srcloc !5
   %cmp11.i.i = icmp ne i64 %14, 0
   %conv13.i.i = zext i1 %cmp11.i.i to i64
   %or.i.i = or i64 %shr.i.i, %conv13.i.i
@@ -32477,7 +32477,7 @@ if.then10.i36.i:                                  ; preds = %if.then.i29.i
   %sub7.i = sub nsw i32 0, %sub.i
   %sh_prom.i37.i = zext nneg i32 %sub7.i to i64
   %shr.i38.i = lshr i64 %a.val.i120, %sh_prom.i37.i
-  %16 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i120, i32 %sub7.i, i64 0) #15, !srcloc !5
+  %16 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i120, i32 %sub7.i, i64 0) #14, !srcloc !5
   %cmp11.i39.i = icmp ne i64 %16, 0
   %conv13.i40.i = zext i1 %cmp11.i39.i to i64
   %or.i41.i = or i64 %shr.i38.i, %conv13.i40.i
@@ -32581,7 +32581,7 @@ if.then.i.i104:                                   ; preds = %if.then65.i
 if.then10.i.i111:                                 ; preds = %if.then.i.i104
   %sh_prom.i.i112 = zext nneg i32 %sub.i96 to i64
   %shr.i.i113 = lshr i64 %b.val.i121, %sh_prom.i.i112
-  %26 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i121, i32 %sub.i96, i64 0) #15, !srcloc !5
+  %26 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i121, i32 %sub.i96, i64 0) #14, !srcloc !5
   %cmp11.i.i114 = icmp ne i64 %26, 0
   %conv13.i.i115 = zext i1 %cmp11.i.i114 to i64
   %or.i.i116 = or i64 %shr.i.i113, %conv13.i.i115
@@ -32609,7 +32609,7 @@ if.then10.i22.i:                                  ; preds = %if.then.i15.i
   %sub4.i = sub nsw i32 0, %sub.i96
   %sh_prom.i23.i = zext nneg i32 %sub4.i to i64
   %shr.i24.i = lshr i64 %a.val.i120, %sh_prom.i23.i
-  %27 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i120, i32 %sub4.i, i64 0) #15, !srcloc !5
+  %27 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i120, i32 %sub4.i, i64 0) #14, !srcloc !5
   %cmp11.i25.i = icmp ne i64 %27, 0
   %conv13.i26.i = zext i1 %cmp11.i25.i to i64
   %or.i27.i = or i64 %shr.i24.i, %conv13.i26.i
@@ -32637,7 +32637,7 @@ if.end7.i:                                        ; preds = %frac64_shrjam.exit2
 
 if.then8.i101:                                    ; preds = %if.end7.i
   %shr.i31.i = lshr i64 %31, 1
-  %32 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %31, i32 1, i64 0) #15, !srcloc !5
+  %32 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %31, i32 1, i64 0) #14, !srcloc !5
   %cmp11.i32.i = icmp ne i64 %32, 0
   %conv13.i33.i = zext i1 %cmp11.i32.i to i64
   %or.i34.i = or i64 %shr.i31.i, %conv13.i33.i
@@ -32670,7 +32670,7 @@ if.then91.i:                                      ; preds = %if.end86.i
   br i1 %cmp94.i, label %parts64_addsub.exit, label %if.else97.i
 
 if.else97.i:                                      ; preds = %if.then91.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 401, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.4) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 401, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.4) #15
   unreachable
 
 if.end99.i:                                       ; preds = %if.end86.i
@@ -32682,11 +32682,11 @@ if.then105.i:                                     ; preds = %if.end99.i
   br i1 %cmp112.i, label %return_b.i, label %if.else115.i
 
 if.else106.i:                                     ; preds = %if.end99.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 405, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.5) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 405, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.5) #15
   unreachable
 
 if.else115.i:                                     ; preds = %if.then105.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 406, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.6) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 406, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.6) #15
   unreachable
 
 return_b.i:                                       ; preds = %if.then105.i, %if.then43.i
@@ -32975,7 +32975,7 @@ if.then.i.i:                                      ; preds = %if.then20.i
 if.then10.i.i:                                    ; preds = %if.then.i.i
   %sh_prom.i.i = zext nneg i32 %sub.i to i64
   %shr.i.i = lshr i64 %b.val.i121, %sh_prom.i.i
-  %14 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i121, i32 %sub.i, i64 0) #15, !srcloc !5
+  %14 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i121, i32 %sub.i, i64 0) #14, !srcloc !5
   %cmp11.i.i = icmp ne i64 %14, 0
   %conv13.i.i = zext i1 %cmp11.i.i to i64
   %or.i.i = or i64 %shr.i.i, %conv13.i.i
@@ -33008,7 +33008,7 @@ if.then10.i36.i:                                  ; preds = %if.then.i29.i
   %sub7.i = sub nsw i32 0, %sub.i
   %sh_prom.i37.i = zext nneg i32 %sub7.i to i64
   %shr.i38.i = lshr i64 %a.val.i120, %sh_prom.i37.i
-  %16 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i120, i32 %sub7.i, i64 0) #15, !srcloc !5
+  %16 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i120, i32 %sub7.i, i64 0) #14, !srcloc !5
   %cmp11.i39.i = icmp ne i64 %16, 0
   %conv13.i40.i = zext i1 %cmp11.i39.i to i64
   %or.i41.i = or i64 %shr.i38.i, %conv13.i40.i
@@ -33112,7 +33112,7 @@ if.then.i.i104:                                   ; preds = %if.then65.i
 if.then10.i.i111:                                 ; preds = %if.then.i.i104
   %sh_prom.i.i112 = zext nneg i32 %sub.i96 to i64
   %shr.i.i113 = lshr i64 %b.val.i121, %sh_prom.i.i112
-  %26 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i121, i32 %sub.i96, i64 0) #15, !srcloc !5
+  %26 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %b.val.i121, i32 %sub.i96, i64 0) #14, !srcloc !5
   %cmp11.i.i114 = icmp ne i64 %26, 0
   %conv13.i.i115 = zext i1 %cmp11.i.i114 to i64
   %or.i.i116 = or i64 %shr.i.i113, %conv13.i.i115
@@ -33140,7 +33140,7 @@ if.then10.i22.i:                                  ; preds = %if.then.i15.i
   %sub4.i = sub nsw i32 0, %sub.i96
   %sh_prom.i23.i = zext nneg i32 %sub4.i to i64
   %shr.i24.i = lshr i64 %a.val.i120, %sh_prom.i23.i
-  %27 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i120, i32 %sub4.i, i64 0) #15, !srcloc !5
+  %27 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.val.i120, i32 %sub4.i, i64 0) #14, !srcloc !5
   %cmp11.i25.i = icmp ne i64 %27, 0
   %conv13.i26.i = zext i1 %cmp11.i25.i to i64
   %or.i27.i = or i64 %shr.i24.i, %conv13.i26.i
@@ -33168,7 +33168,7 @@ if.end7.i:                                        ; preds = %frac64_shrjam.exit2
 
 if.then8.i101:                                    ; preds = %if.end7.i
   %shr.i31.i = lshr i64 %31, 1
-  %32 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %31, i32 1, i64 0) #15, !srcloc !5
+  %32 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %31, i32 1, i64 0) #14, !srcloc !5
   %cmp11.i32.i = icmp ne i64 %32, 0
   %conv13.i33.i = zext i1 %cmp11.i32.i to i64
   %or.i34.i = or i64 %shr.i31.i, %conv13.i33.i
@@ -33201,7 +33201,7 @@ if.then91.i:                                      ; preds = %if.end86.i
   br i1 %cmp94.i, label %parts64_addsub.exit, label %if.else97.i
 
 if.else97.i:                                      ; preds = %if.then91.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 401, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.4) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 401, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.4) #15
   unreachable
 
 if.end99.i:                                       ; preds = %if.end86.i
@@ -33213,11 +33213,11 @@ if.then105.i:                                     ; preds = %if.end99.i
   br i1 %cmp112.i, label %return_b.i, label %if.else115.i
 
 if.else106.i:                                     ; preds = %if.end99.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 405, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.5) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 405, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.5) #15
   unreachable
 
 if.else115.i:                                     ; preds = %if.then105.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 406, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.6) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 406, ptr noundef nonnull @__func__.parts64_addsub, ptr noundef nonnull @.str.6) #15
   unreachable
 
 return_b.i:                                       ; preds = %if.then105.i, %if.then43.i
@@ -33351,9 +33351,9 @@ if.end27.i:                                       ; preds = %if.then20.i, %if.el
   %a0.1.i = phi i64 [ %2, %if.else.i ], [ 0, %if.then20.i ]
   %a1.1.i = phi i64 [ %3, %if.else.i ], [ %2, %if.then20.i ]
   %sticky.1.i = phi i64 [ 0, %if.else.i ], [ %3, %if.then20.i ]
-  %4 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.1.i, i32 %c.addr.0.i, i64 0) #15, !srcloc !5
+  %4 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.1.i, i32 %c.addr.0.i, i64 0) #14, !srcloc !5
   %or28.i = or i64 %4, %sticky.1.i
-  %5 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.1.i, i32 %c.addr.0.i, i64 %a1.1.i) #15, !srcloc !5
+  %5 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.1.i, i32 %c.addr.0.i, i64 %a1.1.i) #14, !srcloc !5
   %sh_prom.i = zext nneg i32 %c.addr.0.i to i64
   %shr.i = lshr i64 %a0.1.i, %sh_prom.i
   br label %frac128_shrjam.exit
@@ -33419,9 +33419,9 @@ if.end27.i45:                                     ; preds = %if.then20.i42, %if.
   %a0.1.i47 = phi i64 [ %16, %if.else.i29 ], [ 0, %if.then20.i42 ]
   %a1.1.i48 = phi i64 [ %17, %if.else.i29 ], [ %16, %if.then20.i42 ]
   %sticky.1.i49 = phi i64 [ 0, %if.else.i29 ], [ %17, %if.then20.i42 ]
-  %18 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.1.i48, i32 %c.addr.0.i46, i64 0) #15, !srcloc !5
+  %18 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.1.i48, i32 %c.addr.0.i46, i64 0) #14, !srcloc !5
   %or28.i50 = or i64 %18, %sticky.1.i49
-  %19 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.1.i47, i32 %c.addr.0.i46, i64 %a1.1.i48) #15, !srcloc !5
+  %19 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.1.i47, i32 %c.addr.0.i46, i64 %a1.1.i48) #14, !srcloc !5
   %sh_prom.i51 = zext nneg i32 %c.addr.0.i46 to i64
   %shr.i52 = lshr i64 %a0.1.i47, %sh_prom.i51
   br label %frac128_shrjam.exit53
@@ -33499,7 +33499,7 @@ if.then.i:                                        ; preds = %if.end19
   %49 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %48, i1 true)
   %cast.i.i = trunc nuw nsw i64 %49 to i32
   %frac_lo.i71 = getelementptr inbounds i8, ptr %a, i64 16
-  %50 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %47, i32 %cast.i.i, i64 %48) #15, !srcloc !14
+  %50 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %47, i32 %cast.i.i, i64 %48) #14, !srcloc !14
   store i64 %50, ptr %frac_hi.i70, align 8
   %shl6.i = shl i64 %47, %49
   store i64 %shl6.i, ptr %frac_lo.i71, align 8
@@ -33572,9 +33572,9 @@ if.end27.i:                                       ; preds = %if.then20.i, %if.el
   %a0.1.i = phi i64 [ %2, %if.else.i ], [ 0, %if.then20.i ]
   %a1.1.i = phi i64 [ %3, %if.else.i ], [ %2, %if.then20.i ]
   %sticky.1.i = phi i64 [ 0, %if.else.i ], [ %3, %if.then20.i ]
-  %4 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.1.i, i32 %c.addr.0.i, i64 0) #15, !srcloc !5
+  %4 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.1.i, i32 %c.addr.0.i, i64 0) #14, !srcloc !5
   %or28.i = or i64 %4, %sticky.1.i
-  %5 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.1.i, i32 %c.addr.0.i, i64 %a1.1.i) #15, !srcloc !5
+  %5 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.1.i, i32 %c.addr.0.i, i64 %a1.1.i) #14, !srcloc !5
   %sh_prom.i = zext nneg i32 %c.addr.0.i to i64
   %shr.i = lshr i64 %a0.1.i, %sh_prom.i
   br label %frac128_shrjam.exit
@@ -33621,9 +33621,9 @@ if.end27.i33:                                     ; preds = %if.then20.i30, %if.
   %a0.1.i35 = phi i64 [ %6, %if.else.i17 ], [ 0, %if.then20.i30 ]
   %a1.1.i36 = phi i64 [ %7, %if.else.i17 ], [ %6, %if.then20.i30 ]
   %sticky.1.i37 = phi i64 [ 0, %if.else.i17 ], [ %7, %if.then20.i30 ]
-  %8 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.1.i36, i32 %c.addr.0.i34, i64 0) #15, !srcloc !5
+  %8 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.1.i36, i32 %c.addr.0.i34, i64 0) #14, !srcloc !5
   %or28.i38 = or i64 %8, %sticky.1.i37
-  %9 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.1.i35, i32 %c.addr.0.i34, i64 %a1.1.i36) #15, !srcloc !5
+  %9 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.1.i35, i32 %c.addr.0.i34, i64 %a1.1.i36) #14, !srcloc !5
   %sh_prom.i39 = zext nneg i32 %c.addr.0.i34 to i64
   %shr.i40 = lshr i64 %a0.1.i35, %sh_prom.i39
   br label %frac128_shrjam.exit41
@@ -33666,8 +33666,8 @@ if.end7:                                          ; preds = %if.else, %frac128_s
   br i1 %24, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.end7
-  %25 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %15, i32 1, i64 0) #15, !srcloc !5
-  %26 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %23, i32 1, i64 %15) #15, !srcloc !5
+  %25 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %15, i32 1, i64 0) #14, !srcloc !5
+  %26 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %23, i32 1, i64 %15) #14, !srcloc !5
   %shr.i54 = lshr i64 %23, 1
   %cmp30.i59 = icmp ne i64 %25, 0
   %conv32.i60 = zext i1 %cmp30.i59 to i64
@@ -33714,7 +33714,7 @@ do.body:                                          ; preds = %entry
   br i1 %tobool7, label %if.else9, label %do.end
 
 if.else9:                                         ; preds = %do.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 317, ptr noundef nonnull @__func__.parts64_uncanon, ptr noundef nonnull @.str.10) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 317, ptr noundef nonnull @__func__.parts64_uncanon, ptr noundef nonnull @.str.10) #15
   unreachable
 
 do.end:                                           ; preds = %do.body
@@ -33733,7 +33733,7 @@ do.body12:                                        ; preds = %entry, %entry
   br i1 %tobool14, label %if.else16, label %do.end18
 
 if.else16:                                        ; preds = %do.body12
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 323, ptr noundef nonnull @__func__.parts64_uncanon, ptr noundef nonnull @.str.10) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 323, ptr noundef nonnull @__func__.parts64_uncanon, ptr noundef nonnull @.str.10) #15
   unreachable
 
 do.end18:                                         ; preds = %do.body12
@@ -33751,7 +33751,7 @@ do.end18:                                         ; preds = %do.body12
   br label %if.end23
 
 do.body21:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.parts64_uncanon, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @__func__.parts64_uncanon, ptr noundef null) #15
   unreachable
 
 if.end23:                                         ; preds = %do.end18, %do.end, %sw.bb, %if.then
@@ -33822,7 +33822,7 @@ sw.bb27:                                          ; preds = %sw.bb26, %entry
   br label %sw.epilog
 
 do.body:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 193, ptr noundef nonnull @__func__.parts64_uncanon_normal, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 193, ptr noundef nonnull @__func__.parts64_uncanon_normal, ptr noundef null) #15
   unreachable
 
 sw.epilog:                                        ; preds = %entry, %sw.bb27, %sw.bb15, %sw.bb7, %sw.bb6, %sw.bb
@@ -33998,7 +33998,7 @@ if.then.i:                                        ; preds = %if.end131
 if.then10.i:                                      ; preds = %if.then.i
   %sh_prom.i116 = zext nneg i32 %sub135 to i64
   %shr.i117 = lshr i64 %.pre, %sh_prom.i116
-  %42 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %.pre, i32 %sub135, i64 0) #15, !srcloc !5
+  %42 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %.pre, i32 %sub135, i64 0) #14, !srcloc !5
   %cmp11.i = icmp ne i64 %42, 0
   %conv13.i = zext i1 %cmp11.i to i64
   %or.i = or i64 %shr.i117, %conv13.i
@@ -34133,7 +34133,7 @@ if.else12:                                        ; preds = %if.else
 if.then.i:                                        ; preds = %if.else12
   %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %p.val, i1 true)
   %cast.i.i = trunc nuw nsw i64 %5 to i32
-  %6 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %p.val27, i32 %cast.i.i, i64 %p.val) #15, !srcloc !14
+  %6 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %p.val27, i32 %cast.i.i, i64 %p.val) #14, !srcloc !14
   store i64 %6, ptr %1, align 8
   %shl6.i = shl i64 %p.val27, %5
   store i64 %shl6.i, ptr %2, align 8
@@ -34203,7 +34203,7 @@ if.then33:                                        ; preds = %lor.lhs.false, %if.
   br i1 %tobool2.not.i, label %frac128_shl.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then33
-  %20 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %spec.select12.i, i32 %and1.i, i64 %spec.select.i) #15, !srcloc !14
+  %20 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %spec.select12.i, i32 %and1.i, i64 %spec.select.i) #14, !srcloc !14
   %sh_prom.i = zext nneg i32 %and1.i to i64
   %shl.i = shl i64 %spec.select12.i, %sh_prom.i
   br label %frac128_shl.exit
@@ -34241,7 +34241,7 @@ if.else49:                                        ; preds = %if.else39
   br i1 %tobool2.not.i43, label %frac128_shl.exit49, label %if.then3.i44
 
 if.then3.i44:                                     ; preds = %if.else49
-  %24 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %spec.select12.i41, i32 %and1.i42, i64 %spec.select.i40) #15, !srcloc !14
+  %24 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %spec.select12.i41, i32 %and1.i42, i64 %spec.select.i40) #14, !srcloc !14
   %sh_prom.i45 = zext nneg i32 %and1.i42 to i64
   %shl.i46 = shl i64 %spec.select12.i41, %sh_prom.i45
   br label %frac128_shl.exit49
@@ -34358,7 +34358,7 @@ if.else50:                                        ; preds = %sw.bb39
   br label %sw.epilog
 
 do.body:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 193, ptr noundef nonnull @__func__.parts128_uncanon_normal, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 193, ptr noundef nonnull @__func__.parts128_uncanon_normal, ptr noundef null) #15
   unreachable
 
 sw.epilog:                                        ; preds = %entry, %cond.true, %lor.lhs.false, %if.then42, %if.else50, %if.else, %sw.bb27, %sw.bb18, %sw.bb17
@@ -34393,7 +34393,7 @@ if.then71:                                        ; preds = %if.then67
   br i1 %19, label %if.then73, label %if.end77
 
 if.then73:                                        ; preds = %if.then71
-  %21 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %20, i32 1, i64 %16) #15, !srcloc !5
+  %21 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %20, i32 1, i64 %16) #14, !srcloc !5
   %shr.i = lshr i64 %20, 1
   %or75 = or disjoint i64 %shr.i, -9223372036854775808
   store i64 %or75, ptr %frac_hi.i, align 8
@@ -34475,7 +34475,7 @@ if.end122:                                        ; preds = %if.else96, %if.then
   br i1 %tobool2.not.i, label %frac128_shr.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end122
-  %29 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %spec.select.i, i32 %and1.i, i64 %spec.select12.i) #15, !srcloc !5
+  %29 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %spec.select.i, i32 %and1.i, i64 %spec.select12.i) #14, !srcloc !5
   %sh_prom.i = zext nneg i32 %and1.i to i64
   %shr.i134 = lshr i64 %spec.select.i, %sh_prom.i
   br label %frac128_shr.exit
@@ -34521,7 +34521,7 @@ if.then138:                                       ; preds = %if.then131
   br i1 %38, label %if.then141, label %if.end145
 
 if.then141:                                       ; preds = %if.then138
-  %40 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %39, i32 1, i64 %35) #15, !srcloc !5
+  %40 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %39, i32 1, i64 %35) #14, !srcloc !5
   %shr.i145 = lshr i64 %39, 1
   %or143 = or disjoint i64 %shr.i145, -9223372036854775808
   %inc144 = add i32 %add134, 1
@@ -34550,7 +34550,7 @@ if.end149:                                        ; preds = %if.then131.if.end14
   br i1 %tobool2.not.i155, label %frac128_shr.exit161, label %if.then3.i156
 
 if.then3.i156:                                    ; preds = %if.end149
-  %45 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %spec.select.i152, i32 %and1.i154, i64 %spec.select12.i153) #15, !srcloc !5
+  %45 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %spec.select.i152, i32 %and1.i154, i64 %spec.select12.i153) #14, !srcloc !5
   %sh_prom.i157 = zext nneg i32 %and1.i154 to i64
   %shr.i158 = lshr i64 %spec.select.i152, %sh_prom.i157
   br label %frac128_shr.exit161
@@ -34639,9 +34639,9 @@ if.end27.i:                                       ; preds = %if.then20.i, %if.el
   %a0.1.i171 = phi i64 [ %55, %if.else.i ], [ 0, %if.then20.i ]
   %a1.1.i172 = phi i64 [ %.pre197, %if.else.i ], [ %55, %if.then20.i ]
   %sticky.1.i = phi i64 [ 0, %if.else.i ], [ %.pre197, %if.then20.i ]
-  %59 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.1.i172, i32 %c.addr.0.i, i64 0) #15, !srcloc !5
+  %59 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.1.i172, i32 %c.addr.0.i, i64 0) #14, !srcloc !5
   %or28.i = or i64 %59, %sticky.1.i
-  %60 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.1.i171, i32 %c.addr.0.i, i64 %a1.1.i172) #15, !srcloc !5
+  %60 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.1.i171, i32 %c.addr.0.i, i64 %a1.1.i172) #14, !srcloc !5
   %sh_prom.i173 = zext nneg i32 %c.addr.0.i to i64
   %shr.i174 = lshr i64 %a0.1.i171, %sh_prom.i173
   br label %done.i
@@ -34743,7 +34743,7 @@ land.end:                                         ; preds = %land.rhs, %if.end23
   br i1 %tobool2.not.i187, label %frac128_shr.exit193, label %if.then3.i188
 
 if.then3.i188:                                    ; preds = %land.end
-  %72 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %spec.select.i184, i32 %and1.i186, i64 %spec.select12.i185) #15, !srcloc !5
+  %72 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %spec.select.i184, i32 %and1.i186, i64 %spec.select12.i185) #14, !srcloc !5
   %sh_prom.i189 = zext nneg i32 %and1.i186 to i64
   %shr.i190 = lshr i64 %spec.select.i184, %sh_prom.i189
   br label %frac128_shr.exit193
@@ -34849,11 +34849,11 @@ if.end52.i:                                       ; preds = %if.end40.i, %if.the
   %a2.3.i = phi i64 [ %4, %if.then ], [ %a2.1.i, %if.end40.i ]
   %a3.3.i = phi i64 [ %5, %if.then ], [ %a3.1.i, %if.end40.i ]
   %sticky.3.i = phi i64 [ 0, %if.then ], [ %sticky.1.i, %if.end40.i ]
-  %6 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a3.3.i, i32 %c.addr.0.i, i64 0) #15, !srcloc !5
+  %6 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a3.3.i, i32 %c.addr.0.i, i64 0) #14, !srcloc !5
   %or53.i = or i64 %6, %sticky.3.i
-  %7 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a2.3.i, i32 %c.addr.0.i, i64 %a3.3.i) #15, !srcloc !5
-  %8 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.3.i, i32 %c.addr.0.i, i64 %a2.3.i) #15, !srcloc !5
-  %9 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.3.i, i32 %c.addr.0.i, i64 %a1.3.i) #15, !srcloc !5
+  %7 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a2.3.i, i32 %c.addr.0.i, i64 %a3.3.i) #14, !srcloc !5
+  %8 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.3.i, i32 %c.addr.0.i, i64 %a2.3.i) #14, !srcloc !5
+  %9 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.3.i, i32 %c.addr.0.i, i64 %a1.3.i) #14, !srcloc !5
   %sh_prom.i = zext nneg i32 %c.addr.0.i to i64
   %shr.i = lshr i64 %a0.3.i, %sh_prom.i
   br label %frac256_shrjam.exit
@@ -34939,11 +34939,11 @@ if.end52.i55:                                     ; preds = %if.end40.i47, %if.t
   %a2.3.i59 = phi i64 [ %12, %if.then3 ], [ %a2.1.i50, %if.end40.i47 ]
   %a3.3.i60 = phi i64 [ %13, %if.then3 ], [ %a3.1.i51, %if.end40.i47 ]
   %sticky.3.i61 = phi i64 [ 0, %if.then3 ], [ %sticky.1.i52, %if.end40.i47 ]
-  %14 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a3.3.i60, i32 %c.addr.0.i56, i64 0) #15, !srcloc !5
+  %14 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a3.3.i60, i32 %c.addr.0.i56, i64 0) #14, !srcloc !5
   %or53.i62 = or i64 %14, %sticky.3.i61
-  %15 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a2.3.i59, i32 %c.addr.0.i56, i64 %a3.3.i60) #15, !srcloc !5
-  %16 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.3.i58, i32 %c.addr.0.i56, i64 %a2.3.i59) #15, !srcloc !5
-  %17 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.3.i57, i32 %c.addr.0.i56, i64 %a1.3.i58) #15, !srcloc !5
+  %15 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a2.3.i59, i32 %c.addr.0.i56, i64 %a3.3.i60) #14, !srcloc !5
+  %16 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.3.i58, i32 %c.addr.0.i56, i64 %a2.3.i59) #14, !srcloc !5
+  %17 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.3.i57, i32 %c.addr.0.i56, i64 %a1.3.i58) #14, !srcloc !5
   %sh_prom.i63 = zext nneg i32 %c.addr.0.i56 to i64
   %shr.i64 = lshr i64 %a0.3.i57, %sh_prom.i63
   br label %frac256_shrjam.exit65
@@ -35016,10 +35016,10 @@ if.end7:                                          ; preds = %if.else, %frac256_s
   br i1 %50, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.end7
-  %51 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %23, i32 1, i64 0) #15, !srcloc !5
-  %52 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %31, i32 1, i64 %23) #15, !srcloc !5
-  %53 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %40, i32 1, i64 %31) #15, !srcloc !5
-  %54 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %49, i32 1, i64 %40) #15, !srcloc !5
+  %51 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %23, i32 1, i64 0) #14, !srcloc !5
+  %52 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %31, i32 1, i64 %23) #14, !srcloc !5
+  %53 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %40, i32 1, i64 %31) #14, !srcloc !5
+  %54 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %49, i32 1, i64 %40) #14, !srcloc !5
   %shr.i83 = lshr i64 %49, 1
   %cmp57.i89 = icmp ne i64 %51, 0
   %conv59.i90 = zext i1 %cmp57.i89 to i64
@@ -35110,11 +35110,11 @@ if.end52.i:                                       ; preds = %if.end40.i, %if.the
   %a2.3.i = phi i64 [ %4, %if.then ], [ %a2.1.i, %if.end40.i ]
   %a3.3.i = phi i64 [ %5, %if.then ], [ %a3.1.i, %if.end40.i ]
   %sticky.3.i = phi i64 [ 0, %if.then ], [ %sticky.1.i, %if.end40.i ]
-  %6 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a3.3.i, i32 %c.addr.0.i, i64 0) #15, !srcloc !5
+  %6 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a3.3.i, i32 %c.addr.0.i, i64 0) #14, !srcloc !5
   %or53.i = or i64 %6, %sticky.3.i
-  %7 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a2.3.i, i32 %c.addr.0.i, i64 %a3.3.i) #15, !srcloc !5
-  %8 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.3.i, i32 %c.addr.0.i, i64 %a2.3.i) #15, !srcloc !5
-  %9 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.3.i, i32 %c.addr.0.i, i64 %a1.3.i) #15, !srcloc !5
+  %7 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a2.3.i, i32 %c.addr.0.i, i64 %a3.3.i) #14, !srcloc !5
+  %8 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.3.i, i32 %c.addr.0.i, i64 %a2.3.i) #14, !srcloc !5
+  %9 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.3.i, i32 %c.addr.0.i, i64 %a1.3.i) #14, !srcloc !5
   %sh_prom.i = zext nneg i32 %c.addr.0.i to i64
   %shr.i = lshr i64 %a0.3.i, %sh_prom.i
   br label %frac256_shrjam.exit
@@ -35243,11 +35243,11 @@ if.end52.i69:                                     ; preds = %if.end40.i61, %if.t
   %a2.3.i73 = phi i64 [ %40, %if.then3 ], [ %a2.1.i64, %if.end40.i61 ]
   %a3.3.i74 = phi i64 [ %41, %if.then3 ], [ %a3.1.i65, %if.end40.i61 ]
   %sticky.3.i75 = phi i64 [ 0, %if.then3 ], [ %sticky.1.i66, %if.end40.i61 ]
-  %42 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a3.3.i74, i32 %c.addr.0.i70, i64 0) #15, !srcloc !5
+  %42 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a3.3.i74, i32 %c.addr.0.i70, i64 0) #14, !srcloc !5
   %or53.i76 = or i64 %42, %sticky.3.i75
-  %43 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a2.3.i73, i32 %c.addr.0.i70, i64 %a3.3.i74) #15, !srcloc !5
-  %44 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.3.i72, i32 %c.addr.0.i70, i64 %a2.3.i73) #15, !srcloc !5
-  %45 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.3.i71, i32 %c.addr.0.i70, i64 %a1.3.i72) #15, !srcloc !5
+  %43 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a2.3.i73, i32 %c.addr.0.i70, i64 %a3.3.i74) #14, !srcloc !5
+  %44 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.3.i72, i32 %c.addr.0.i70, i64 %a2.3.i73) #14, !srcloc !5
+  %45 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.3.i71, i32 %c.addr.0.i70, i64 %a1.3.i72) #14, !srcloc !5
   %sh_prom.i77 = zext nneg i32 %c.addr.0.i70 to i64
   %shr.i78 = lshr i64 %a0.3.i71, %sh_prom.i77
   br label %frac256_shrjam.exit79
@@ -35435,9 +35435,9 @@ if.end22.i:                                       ; preds = %if.end21.i, %if.the
   %a3.0.i122 = phi i64 [ 0, %if.end21.i ], [ %121, %if.then.i ]
   %ret.0.i = phi i32 [ %add.i, %if.end21.i ], [ %cast.i.i, %if.then.i ]
   %shl.0.i = phi i32 [ %cast.i38.i, %if.end21.i ], [ %cast.i.i, %if.then.i ]
-  %127 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.0.i120, i32 %shl.0.i, i64 %a0.0.i119) #15, !srcloc !14
-  %128 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a2.0.i121, i32 %shl.0.i, i64 %a1.0.i120) #15, !srcloc !14
-  %129 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a3.0.i122, i32 %shl.0.i, i64 %a2.0.i121) #15, !srcloc !14
+  %127 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.0.i120, i32 %shl.0.i, i64 %a0.0.i119) #14, !srcloc !14
+  %128 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a2.0.i121, i32 %shl.0.i, i64 %a1.0.i120) #14, !srcloc !14
+  %129 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a3.0.i122, i32 %shl.0.i, i64 %a2.0.i121) #14, !srcloc !14
   %sh_prom.i123 = zext nneg i32 %shl.0.i to i64
   %shl26.i = shl i64 %a3.0.i122, %sh_prom.i123
   br label %frac256_normalize.exit.thread136
@@ -35488,7 +35488,7 @@ lt128.exit:                                       ; preds = %entry
   br i1 %2, label %if.end.estimateDiv128To64.exit_crit_edge, label %if.then
 
 if.then:                                          ; preds = %lt128.exit
-  %3 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %0, i32 1, i64 %1) #15, !srcloc !5
+  %3 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %0, i32 1, i64 %1) #14, !srcloc !5
   %shr = lshr i64 %0, 1
   br label %if.end
 
@@ -35821,7 +35821,7 @@ sw.epilog.thread59:                               ; preds = %if.then
   br label %if.then31
 
 do.body:                                          ; preds = %if.then
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 944, ptr noundef nonnull @__func__.parts64_round_to_int_normal, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 944, ptr noundef nonnull @__func__.parts64_round_to_int_normal, ptr noundef null) #15
   unreachable
 
 sw.epilog.thread:                                 ; preds = %sw.bb, %if.then
@@ -35904,7 +35904,7 @@ sw.bb72:                                          ; preds = %if.end44
   br label %if.then85
 
 do.body80:                                        ; preds = %if.end44
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1005, ptr noundef nonnull @__func__.parts64_round_to_int_normal, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1005, ptr noundef nonnull @__func__.parts64_round_to_int_normal, ptr noundef null) #15
   unreachable
 
 if.then85:                                        ; preds = %sw.bb46, %sw.bb55, %sw.bb56, %sw.bb64, %sw.bb72, %if.end44
@@ -35992,7 +35992,7 @@ sw.epilog.thread111:                              ; preds = %if.then
   br label %if.then31
 
 do.body:                                          ; preds = %if.then
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 944, ptr noundef nonnull @__func__.parts128_round_to_int_normal, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 944, ptr noundef nonnull @__func__.parts128_round_to_int_normal, ptr noundef null) #15
   unreachable
 
 sw.epilog.thread:                                 ; preds = %sw.bb, %if.then
@@ -36041,9 +36041,9 @@ if.end27.i:                                       ; preds = %if.then20.i, %if.th
   %a0.1.i = phi i64 [ %11, %if.then42 ], [ 0, %if.then20.i ]
   %a1.1.i = phi i64 [ %10, %if.then42 ], [ %11, %if.then20.i ]
   %sticky.1.i = phi i64 [ 0, %if.then42 ], [ %10, %if.then20.i ]
-  %12 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.1.i, i32 %c.addr.0.i, i64 0) #15, !srcloc !5
+  %12 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a1.1.i, i32 %c.addr.0.i, i64 0) #14, !srcloc !5
   %or28.i = or i64 %12, %sticky.1.i
-  %13 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.1.i, i32 %c.addr.0.i, i64 %a1.1.i) #15, !srcloc !5
+  %13 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a0.1.i, i32 %c.addr.0.i, i64 %a1.1.i) #14, !srcloc !5
   %sh_prom.i = zext nneg i32 %c.addr.0.i to i64
   %shr.i = lshr i64 %a0.1.i, %sh_prom.i
   br label %done.i
@@ -36088,7 +36088,7 @@ if.then52:                                        ; preds = %if.end47
   br i1 %tobool2.not.i, label %frac128_shl.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then52
-  %16 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %spec.select12.i, i32 %and1.i, i64 %spec.select.i) #15, !srcloc !14
+  %16 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %spec.select12.i, i32 %and1.i, i64 %spec.select.i) #14, !srcloc !14
   %sh_prom.i68 = zext nneg i32 %and1.i to i64
   %shl.i = shl i64 %spec.select12.i, %sh_prom.i68
   br label %frac128_shl.exit
@@ -36140,7 +36140,7 @@ sw.bb82:                                          ; preds = %if.end53
   br label %sw.epilog93
 
 do.body91:                                        ; preds = %if.end53
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1005, ptr noundef nonnull @__func__.parts128_round_to_int_normal, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1005, ptr noundef nonnull @__func__.parts128_round_to_int_normal, ptr noundef null) #15
   unreachable
 
 sw.epilog93:                                      ; preds = %if.end53, %sw.bb82, %sw.bb74, %sw.bb66, %sw.bb65, %sw.bb55
@@ -36162,7 +36162,7 @@ if.then96:                                        ; preds = %sw.epilog93
   br i1 %24, label %if.then98, label %if.end103
 
 if.then98:                                        ; preds = %if.then96
-  %26 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %25, i32 1, i64 %21) #15, !srcloc !5
+  %26 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %25, i32 1, i64 %21) #14, !srcloc !5
   %shr.i79 = lshr i64 %25, 1
   %or100 = or disjoint i64 %shr.i79, -9223372036854775808
   store i64 %or100, ptr %frac_hi.i73, align 8
@@ -36191,7 +36191,7 @@ if.else106:                                       ; preds = %sw.epilog93
   br i1 %tobool2.not.i94, label %frac128_shl.exit100, label %if.then3.i95
 
 if.then3.i95:                                     ; preds = %if.else106
-  %29 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %spec.select12.i92, i32 %and1.i93, i64 %spec.select.i91) #15, !srcloc !14
+  %29 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %spec.select12.i92, i32 %and1.i93, i64 %spec.select.i91) #14, !srcloc !14
   %sh_prom.i96 = zext nneg i32 %and1.i93 to i64
   %shl.i97 = shl i64 %spec.select12.i92, %sh_prom.i96
   br label %frac128_shl.exit100
@@ -36387,7 +36387,7 @@ sw.bb49:                                          ; preds = %if.then45
   br label %sw.epilog
 
 do.body:                                          ; preds = %if.then45
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1375, ptr noundef nonnull @__func__.parts64_minmax, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1375, ptr noundef nonnull @__func__.parts64_minmax, ptr noundef null) #15
   unreachable
 
 sw.epilog:                                        ; preds = %if.then45, %sw.bb49, %sw.bb48
@@ -36405,7 +36405,7 @@ sw.bb54:                                          ; preds = %sw.epilog
   br label %if.end59
 
 do.body56:                                        ; preds = %sw.epilog
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1388, ptr noundef nonnull @__func__.parts64_minmax, ptr noundef null) #16
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1388, ptr noundef nonnull @__func__.parts64_minmax, ptr noundef null) #15
   unreachable
 
 if.end59:                                         ; preds = %sw.bb53, %sw.bb54, %sw.epilog, %if.end35
@@ -36493,9 +36493,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -36510,12 +36507,11 @@ attributes #10 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapp
 attributes #11 = { nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind memory(none) }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { memory(none) }
-attributes #18 = { nounwind memory(read) }
-attributes #19 = { alwaysinline nounwind }
+attributes #14 = { nounwind memory(none) }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { memory(none) }
+attributes #17 = { nounwind memory(read) }
+attributes #18 = { alwaysinline nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

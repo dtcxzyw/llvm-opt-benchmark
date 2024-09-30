@@ -168,7 +168,7 @@ define hidden void @"_ZN10tokio_util5codec11framed_read23FramedRead$LT$T$C$D$GT$
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %6, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %10, ptr noundef nonnull align 8 dereferenceable(320) %5, i64 320, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %10, ptr noundef nonnull align 8 dereferenceable(320) %1, i64 320, i1 false)
   %11 = getelementptr inbounds i8, ptr %6, i64 392
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
@@ -208,7 +208,7 @@ define hidden void @"_ZN10tokio_util5codec11framed_read23FramedRead$LT$T$C$D$GT$
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %6, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %10, ptr noundef nonnull align 8 dereferenceable(328) %5, i64 328, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %10, ptr noundef nonnull align 8 dereferenceable(328) %1, i64 328, i1 false)
   %11 = getelementptr inbounds i8, ptr %6, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)

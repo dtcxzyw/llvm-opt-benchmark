@@ -3405,7 +3405,7 @@ _ZN10ockam_core7routing7message13local_message12LocalMessage10local_info17h3c74e
   %148 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %138, %129 ]
   %149 = load ptr, ptr %35, align 8, !alias.scope !341, !noalias !344, !nonnull !8, !noundef !8
   %150 = getelementptr inbounds { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64, i64 } }, { { { ptr, i64 }, i64, i64 } }, { { ptr, i64 }, i64 }, { i64, i32 } }, ptr %149, i64 %148
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %150, ptr noundef nonnull align 8 dereferenceable(168) %16, i64 168, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %150, ptr noundef nonnull align 8 dereferenceable(168) %16, i64 168, i1 false)
   %151 = load i64, ptr %37, align 8, !alias.scope !341, !noalias !344, !noundef !8
   %152 = add i64 %151, 1
   store i64 %152, ptr %37, align 8, !alias.scope !341, !noalias !344

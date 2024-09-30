@@ -406,7 +406,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h275d9d6ddb84f16aE.ll
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %11, i64 %9
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %13 = load i64, ptr %3, align 8, !noundef !4
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8
@@ -14996,7 +14996,7 @@ _ZN12typst_syntax4node10SyntaxNode5inner17h663e2a0e3d635b85E.exit: ; preds = %.n
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hbdf98353bdd3022bE.exit": ; preds = %43, %45
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %53 = add i64 %34, 1
   store i64 %53, ptr %10, align 8, !alias.scope !3283, !noalias !3286
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -15676,7 +15676,7 @@ common.resume:                                    ; preds = %75, %66, %42
   %47 = getelementptr inbounds i8, ptr %0, i64 88
   %48 = load ptr, ptr %47, align 8, !alias.scope !3446, !noalias !3449, !nonnull !4, !noundef !4
   %49 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %48, i64 %46
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %50 = load i64, ptr %37, align 8, !alias.scope !3446, !noalias !3449, !noundef !4
   %51 = add i64 %50, 1
   store i64 %51, ptr %37, align 8, !alias.scope !3446, !noalias !3449
@@ -15776,7 +15776,7 @@ _ZN12typst_syntax4node10SyntaxNode5error17hfbce185a01cd4c02E.exit: ; preds = %.n
   %80 = getelementptr inbounds i8, ptr %0, i64 88
   %81 = load ptr, ptr %80, align 8, !alias.scope !3468, !noalias !3471, !nonnull !4, !noundef !4
   %82 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %81, i64 %79
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %83 = load i64, ptr %70, align 8, !alias.scope !3468, !noalias !3471, !noundef !4
   %84 = add i64 %83, 1
   store i64 %84, ptr %70, align 8, !alias.scope !3468, !noalias !3471
@@ -16391,7 +16391,7 @@ _ZN12typst_syntax4node10SyntaxNode5error17hfbce185a01cd4c02E.exit: ; preds = %.n
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hbdf98353bdd3022bE.exit": ; preds = %50, %52
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   %60 = add i64 %40, 1
   store i64 %60, ptr %39, align 8, !alias.scope !3579, !noalias !3582
   ret void

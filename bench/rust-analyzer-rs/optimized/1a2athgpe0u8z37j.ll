@@ -2040,7 +2040,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..Mu
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !188, !noalias !191, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %19, i64 %17
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !184
   %21 = load i64, ptr %7, align 8, !alias.scope !188, !noalias !191, !noundef !4
   %22 = add i64 %21, 1
   store i64 %22, ptr %7, align 8, !alias.scope !188, !noalias !191
@@ -2100,7 +2100,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..Mu
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !196, !noalias !199, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %19, i64 %17
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !193
   %21 = load i64, ptr %7, align 8, !alias.scope !196, !noalias !199, !noundef !4
   %22 = add i64 %21, 1
   store i64 %22, ptr %7, align 8, !alias.scope !196, !noalias !199
@@ -2592,7 +2592,7 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
   %68 = getelementptr inbounds i8, ptr %55, i64 8
   %69 = load ptr, ptr %68, align 8, !alias.scope !251, !noalias !254, !nonnull !4, !noundef !4
   %70 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %69, i64 %67
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !250
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !250
   %71 = load i64, ptr %56, align 8, !alias.scope !251, !noalias !254, !noundef !4
   %72 = add i64 %71, 1
   store i64 %72, ptr %56, align 8, !alias.scope !251, !noalias !254
@@ -2739,7 +2739,7 @@ define hidden void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$
   %68 = getelementptr inbounds i8, ptr %55, i64 8
   %69 = load ptr, ptr %68, align 8, !alias.scope !282, !noalias !285, !nonnull !4, !noundef !4
   %70 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %69, i64 %67
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !281
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !281
   %71 = load i64, ptr %56, align 8, !alias.scope !282, !noalias !285, !noundef !4
   %72 = add i64 %71, 1
   store i64 %72, ptr %56, align 8, !alias.scope !282, !noalias !285
@@ -3490,7 +3490,7 @@ define hidden noundef zeroext i1 @"_ZN4stdx13to_snake_case28_$u7b$$u7b$closure$u
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !355, !noalias !358, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %19, i64 %17
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %21 = load i64, ptr %7, align 8, !alias.scope !355, !noalias !358, !noundef !4
   %22 = add i64 %21, 1
   store i64 %22, ptr %7, align 8, !alias.scope !355, !noalias !358
@@ -3549,7 +3549,7 @@ define hidden noundef zeroext i1 @"_ZN4stdx13to_snake_case28_$u7b$$u7b$closure$u
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !360, !noalias !363, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %19, i64 %17
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %21 = load i64, ptr %7, align 8, !alias.scope !360, !noalias !363, !noundef !4
   %22 = add i64 %21, 1
   store i64 %22, ptr %7, align 8, !alias.scope !360, !noalias !363
@@ -3563,8 +3563,11 @@ define hidden noundef zeroext i1 @"_ZN4stdx13to_snake_case28_$u7b$$u7b$closure$u
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
 
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #13
+declare void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #14
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #8
@@ -3579,22 +3582,19 @@ declare noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex
 declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h719a2f7fd365a893E"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #8
 
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
-declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed_addr #14
+declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h77fb59a6323ae084E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #16
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 attributes #0 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -3609,11 +3609,11 @@ attributes #9 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "tar
 attributes #10 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #14 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #15 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #18 = { noreturn }
 attributes #19 = { cold }
 attributes #20 = { cold noreturn nounwind }

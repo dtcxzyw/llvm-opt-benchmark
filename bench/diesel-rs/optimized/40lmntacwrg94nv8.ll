@@ -106,12 +106,12 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt14BoundStatement4bind17h99
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %2, ptr %16, align 8
   %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %18 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #14
+  %18 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #13
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %7
-  invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 16) #15
+  invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 16) #14
           to label %.noexc unwind label %.thread
 
 .noexc:                                           ; preds = %20
@@ -119,13 +119,13 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt14BoundStatement4bind17h99
 
 .thread60.thread:                                 ; preds = %27, %42
   %.pn48.ph = phi { ptr, i32 } [ %43, %42 ], [ %28, %27 ]
-  call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef 16, i64 noundef 8) #14
+  call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef 16, i64 noundef 8) #13
   br label %"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17hf62a9d5b8091e72eE.exit54"
 
 .thread60:                                        ; preds = %23, %52
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef 16, i64 noundef 8) #14
+  call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef 16, i64 noundef 8) #13
   br label %61
 
 .thread:                                          ; preds = %20
@@ -197,7 +197,7 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt14BoundStatement4bind17h99
 42:                                               ; preds = %32
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17hd3ba30e8db2b3227E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %12) #16
+  invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17hd3ba30e8db2b3227E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %12) #15
           to label %.thread60.thread unwind label %50
 
 44:                                               ; preds = %32
@@ -233,7 +233,7 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt14BoundStatement4bind17h99
 50:                                               ; preds = %64, %59, %42
   %51 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #17
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #16
   unreachable
 
 52:                                               ; preds = %29
@@ -251,12 +251,12 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt14BoundStatement4bind17h99
 54:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef 16, i64 noundef 8) #14
+  call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef 16, i64 noundef 8) #13
   br label %"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17hf62a9d5b8091e72eE.exit"
 
 55:                                               ; preds = %52
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef 16, i64 noundef 8) #14
+  call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef 16, i64 noundef 8) #13
   %56 = load i64, ptr %15, align 8, !range !26, !alias.scope !27, !noundef !10
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %58, label %"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17hf62a9d5b8091e72eE.exit"
@@ -268,11 +268,11 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt14BoundStatement4bind17h99
 59:                                               ; preds = %25
   %60 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr157drop_in_place$LT$alloc..vec..Vec$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$$GT$17ha3f01fcefcc45a15E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #16
+  invoke void @"_ZN4core3ptr157drop_in_place$LT$alloc..vec..Vec$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$$GT$17ha3f01fcefcc45a15E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #15
           to label %.thread60.thread76 unwind label %50
 
 .thread60.thread76:                               ; preds = %59
-  call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef 16, i64 noundef 8) #14
+  call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef 16, i64 noundef 8) #13
   br label %61
 
 "_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17hf62a9d5b8091e72eE.exit54": ; preds = %.thread60.thread, %61, %64
@@ -383,7 +383,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9hashbrown11ru
 10:                                               ; preds = %2
   %11 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr168drop_in_place$LT$$LP$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..sqlite..backend..Sqlite$GT$$C$diesel..sqlite..connection..stmt..Statement$RP$$GT$17hcbb996368a51c365E.llvm.8739912655473484750"(ptr noalias noundef nonnull align 8 dereferenceable(56) %3) #16
+  invoke void @"_ZN4core3ptr168drop_in_place$LT$$LP$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..sqlite..backend..Sqlite$GT$$C$diesel..sqlite..connection..stmt..Statement$RP$$GT$17hcbb996368a51c365E.llvm.8739912655473484750"(ptr noalias noundef nonnull align 8 dereferenceable(56) %3) #15
           to label %12 unwind label %13
 
 12:                                               ; preds = %10
@@ -392,7 +392,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9hashbrown11ru
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #17
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #16
   unreachable
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h369479665c60ce6dE.exit": ; preds = %2
@@ -420,7 +420,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9hashbrown11ru
   %34 = sub i64 %33, %31
   store i64 %34, ptr %32, align 8, !alias.scope !53, !noalias !46
   %35 = getelementptr inbounds i8, ptr %29, i64 -56
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   %36 = getelementptr inbounds i8, ptr %5, i64 24
   %37 = load i64, ptr %36, align 8, !alias.scope !53, !noalias !46, !noundef !10
   %38 = add i64 %37, 1
@@ -446,7 +446,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9hashbrown11ru
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$diesel..sqlite..backend..SqliteType$GT$$GT$17ha8ff8bb80964c349E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #16
+  invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$diesel..sqlite..backend..SqliteType$GT$$GT$17ha8ff8bb80964c349E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #15
           to label %common.resume.i.i.i unwind label %13
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4e34a91b1deecf21E.exit.i.i.i": ; preds = %5
@@ -462,7 +462,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9hashbrown11ru
 11:                                               ; preds = %9
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #17
+  tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #16
   unreachable
 
 common.resume.i.i.i:                              ; preds = %9, %7
@@ -476,7 +476,7 @@ common.resume.i.i.i:                              ; preds = %9, %7
 13:                                               ; preds = %7
   %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #17
+  tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #16
   unreachable
 
 "_ZN4core3ptr210drop_in_place$LT$hashbrown..rustc_entry..RustcOccupiedEntry$LT$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..sqlite..backend..Sqlite$GT$$C$diesel..sqlite..connection..stmt..Statement$GT$$GT$17h5581b262f0547ec5E.exit": ; preds = %1, %"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$diesel..sqlite..backend..SqliteType$GT$$GT$17ha8ff8bb80964c349E.exit.i.i.i"
@@ -571,9 +571,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
-
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -587,11 +584,10 @@ attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #10 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { nofree nounwind nonlazybind willreturn memory(argmem: read) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn }
-attributes #16 = { cold }
-attributes #17 = { cold noreturn nounwind }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn }
+attributes #15 = { cold }
+attributes #16 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

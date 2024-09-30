@@ -125,7 +125,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %46 = phi i64 [ %.pre6, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0d3e58eaabc1d14eE.exit.i_crit_edge" ], [ 0, %22 ], [ 0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3843135c7a6694fE.exit.i.i" ]
   %47 = phi ptr [ %.pre, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0d3e58eaabc1d14eE.exit.i_crit_edge" ], [ %24, %22 ], [ %24, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3843135c7a6694fE.exit.i.i" ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !45
   store ptr %26, ptr %3, align 8, !noalias !49
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -288,7 +288,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %46 = phi i64 [ %.pre6, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h88730d571df36a3cE.exit.i_crit_edge" ], [ 0, %22 ], [ 0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfe8d33509890fd51E.exit.i.i" ]
   %47 = phi ptr [ %.pre, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h88730d571df36a3cE.exit.i_crit_edge" ], [ %24, %22 ], [ %24, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfe8d33509890fd51E.exit.i.i" ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !87
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !89
   store ptr %26, ptr %3, align 8, !noalias !93
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8

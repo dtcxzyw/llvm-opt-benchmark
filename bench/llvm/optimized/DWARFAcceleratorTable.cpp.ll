@@ -2384,7 +2384,6 @@ define dso_local void @_ZNK4llvm21AppleAcceleratorTable5Entry6lookupEt(ptr dead_
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { i64, i8 } @_ZNK4llvm21AppleAcceleratorTable5Entry19getDIESectionOffsetEv(ptr noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %"class.std::optional.8", align 8
-  %.sroa.0 = alloca %"class.llvm::DWARFFormValue", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -2416,9 +2415,8 @@ _ZNK4llvm21AppleAcceleratorTable5Entry6lookupEt.exit.thread: ; preds = %15, %1
   br label %_ZNK4llvm21AppleAcceleratorTable10HeaderData13extractOffsetESt8optionalINS_14DWARFFormValueEE.exit
 
 18:                                               ; preds = %.lr.ph.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.06.015.i, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.06.015.i, i64 48, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 48
   store i8 1, ptr %.sroa.2.0..sroa_idx, align 8
   %19 = load i16, ptr %2, align 8
@@ -2451,7 +2449,6 @@ _ZNK4llvm21AppleAcceleratorTable10HeaderData13extractOffsetESt8optionalINS_14DWA
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { i64, i8 } @_ZNK4llvm21AppleAcceleratorTable5Entry11getCUOffsetEv(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.std::optional.8", align 8
-  %.sroa.0 = alloca %"class.llvm::DWARFFormValue", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -2483,9 +2480,8 @@ _ZNK4llvm21AppleAcceleratorTable5Entry6lookupEt.exit.thread: ; preds = %15, %1
   br label %_ZNK4llvm21AppleAcceleratorTable10HeaderData13extractOffsetESt8optionalINS_14DWARFFormValueEE.exit
 
 18:                                               ; preds = %.lr.ph.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.06.015.i, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.06.015.i, i64 48, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 48
   store i8 1, ptr %.sroa.2.0..sroa_idx, align 8
   %19 = load i16, ptr %2, align 8

@@ -1819,9 +1819,7 @@ _ZN7datalog12boogie_proof4stepD2Ev.exit:          ; preds = %lor.lhs.false.i26, 
   %7 = phi ptr [ %.pre.i35, %.noexc38 ], [ %3, %lor.lhs.false.i26 ]
   %idx.ext.i30 = zext i32 %6 to i64
   %add.ptr.i31 = getelementptr inbounds %"struct.datalog::boogie_proof::step", ptr %7, i64 %idx.ext.i30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i31, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6, i64 16, i1 false)
-  %m_subst.i.i = getelementptr inbounds i8, ptr %add.ptr.i31, i64 16
-  store ptr null, ptr %m_subst.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i31, i8 0, i64 24, i1 false)
   store ptr null, ptr %m_subst.i, align 8
   %m_labels.i.i = getelementptr inbounds i8, ptr %add.ptr.i31, i64 24
   %m_labels4.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 24
@@ -2177,9 +2175,7 @@ _ZN7datalog12boogie_proof4stepD2Ev.exit129:       ; preds = %.noexc110, %lor.lhs
   %56 = phi ptr [ %.pre.i107, %.noexc110 ], [ %52, %lor.lhs.false.i91 ]
   %idx.ext.i96 = zext i32 %55 to i64
   %add.ptr.i97 = getelementptr inbounds %"struct.datalog::boogie_proof::step", ptr %56, i64 %idx.ext.i96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i97, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp69, i64 16, i1 false)
-  %m_subst.i.i98 = getelementptr inbounds i8, ptr %add.ptr.i97, i64 16
-  store ptr null, ptr %m_subst.i.i98, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i97, i8 0, i64 24, i1 false)
   store ptr null, ptr %m_subst.i89, align 8
   %m_labels.i.i100 = getelementptr inbounds i8, ptr %add.ptr.i97, i64 24
   store ptr null, ptr %m_labels.i.i100, align 8

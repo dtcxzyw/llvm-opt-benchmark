@@ -574,7 +574,7 @@ define hidden void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$16fr
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !84
   %.sroa.4.24..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.4.i, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.4.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.24..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !88
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.24..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i64 0, ptr %3, align 8, !noalias !84
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.i, i64 48, i1 false), !noalias !84

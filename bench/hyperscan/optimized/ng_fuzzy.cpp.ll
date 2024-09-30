@@ -4921,7 +4921,7 @@ invoke.cont.i.i.i:                                ; preds = %cond.true.i.i.i.i, 
   %src.sroa.3.0.add.ptr.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i544, i64 8
   store i64 %shadow_v.sroa.3.0.copyload.i, ptr %src.sroa.3.0.add.ptr.i.i.sroa_idx.i, align 8
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i544, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %dst.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__begin2.sroa.0.07.i, i64 16, i1 false)
   %cmp.not5.i.i.i.i.i.i = icmp eq ptr %178, %175
   br i1 %cmp.not5.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_ESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit26.i.i.i, label %for.body.i.i.i.i.i.i
 
@@ -8999,7 +8999,7 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %src.sroa.3.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i64 %src.coerce1, ptr %src.sroa.3.0.add.ptr.i.i.sroa_idx, align 8
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %dst, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__begin2.sroa.0.07, i64 16, i1 false)
   %cmp.not5.i.i.i.i.i = icmp eq ptr %5, %2
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_ESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit26.i.i, label %for.body.i.i.i.i.i
 

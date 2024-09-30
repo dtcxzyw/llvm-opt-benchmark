@@ -964,23 +964,23 @@ define hidden void @_ZN4ring2ec4keys7KeyPair6derive17hba78f2f63387b9e3E(ptr noal
   %4 = alloca { { ptr, [48 x i8], { {} } }, { i64, [97 x i8], [7 x i8] } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3), !noalias !120
-  %5 = load ptr, ptr %1, align 8, !alias.scope !117, !noalias !122, !nonnull !4, !align !123, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load i64, ptr %6, align 8, !noalias !120, !noundef !4
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(97) %8, i8 0, i64 97, i1 false), !noalias !120
-  store i64 %7, ptr %3, align 8, !noalias !120
-  %9 = icmp ugt i64 %7, 97
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(97) %5, i8 0, i64 97, i1 false), !noalias !120
+  %6 = load ptr, ptr %1, align 8, !alias.scope !117, !noalias !122, !nonnull !4, !align !123, !noundef !4
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = load i64, ptr %7, align 8, !noalias !120, !noundef !4
+  store i64 %8, ptr %3, align 8, !noalias !120
+  %9 = icmp ugt i64 %8, 97
   br i1 %9, label %10, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.6801758991666044160.exit.i"
 
 10:                                               ; preds = %2
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %7, i64 noundef 97, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.530c81c04d65135741421c4dd2531efc.16.llvm.6801758991666044160) #22, !noalias !124
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %8, i64 noundef 97, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.530c81c04d65135741421c4dd2531efc.16.llvm.6801758991666044160) #22, !noalias !124
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.6801758991666044160.exit.i": ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8, !noalias !120, !nonnull !4, !noundef !4
-  %13 = call noundef zeroext i1 %12(ptr noalias noundef nonnull align 1 %8, i64 noundef %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1), !noalias !122
+  %13 = call noundef zeroext i1 %12(ptr noalias noundef nonnull align 1 %5, i64 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1), !noalias !122
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.6801758991666044160.exit.i"
@@ -1116,23 +1116,23 @@ define hidden { ptr, i64 } @_ZN4ring2ec4keys4Seed15bytes_less_safe17hd49c92e671d
 define void @_ZN4ring2ec4keys4Seed18compute_public_key17h03a34cbf1f7593a5E(ptr noalias nocapture noundef writeonly sret({ i64, [14 x i64] }) align 8 dereferenceable(120) %0, ptr noalias noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #4 {
   %3 = alloca { i64, [97 x i8], [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
-  %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !123, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
-  %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(97) %7, i8 0, i64 97, i1 false)
-  store i64 %6, ptr %3, align 8
-  %8 = icmp ugt i64 %6, 97
+  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(97) %4, i8 0, i64 97, i1 false)
+  %5 = load ptr, ptr %1, align 8, !nonnull !4, !align !123, !noundef !4
+  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = load i64, ptr %6, align 8, !noundef !4
+  store i64 %7, ptr %3, align 8
+  %8 = icmp ugt i64 %7, 97
   br i1 %8, label %9, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.6801758991666044160.exit"
 
 9:                                                ; preds = %2
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %6, i64 noundef 97, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.530c81c04d65135741421c4dd2531efc.16.llvm.6801758991666044160) #22, !noalias !140
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %7, i64 noundef 97, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.530c81c04d65135741421c4dd2531efc.16.llvm.6801758991666044160) #22, !noalias !140
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.6801758991666044160.exit": ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds i8, ptr %5, i64 16
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = call noundef zeroext i1 %11(ptr noalias noundef nonnull align 1 %7, i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
+  %12 = call noundef zeroext i1 %11(ptr noalias noundef nonnull align 1 %4, i64 noundef %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.6801758991666044160.exit"

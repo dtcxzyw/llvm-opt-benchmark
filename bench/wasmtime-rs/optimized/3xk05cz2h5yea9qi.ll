@@ -2777,7 +2777,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h1c1f37adb56553
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc91b494598c10235E.exit": ; preds = %26, %33, %15
   %21 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %22 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %21, i64 %16
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %23 = add i64 %16, 1
   store i64 %23, ptr %9, align 8
   br label %11
@@ -2870,7 +2870,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hd69a592a65a010
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb4c6ffda0a824d6fE.exit": ; preds = %26, %33, %15
   %21 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %22 = getelementptr inbounds { { i64, [3 x i64] }, {} }, ptr %21, i64 %16
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %23 = add i64 %16, 1
   store i64 %23, ptr %9, align 8
   br label %11
@@ -2944,7 +2944,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hfc9c5340f52242
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h57ee38fc4acaf1adE.exit": ; preds = %21, %28, %10
   %15 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds { i64, [9 x i64] }, ptr %15, i64 %11
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %16, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
   %17 = add i64 %11, 1
   store i64 %17, ptr %7, align 8
   call void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf914c1babf5e2f6eE"(ptr nonnull sret({ i64, [9 x i64] }) align 8 %5, ptr align 8 %1)

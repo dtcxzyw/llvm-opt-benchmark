@@ -59,7 +59,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %21 = phi ptr [ %.pre, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h46b9574606fbca7cE.exit_crit_edge.i.i" ], [ %13, %11 ]
   %22 = phi i64 [ %.pre.i.i, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h46b9574606fbca7cE.exit_crit_edge.i.i" ], [ 0, %11 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !17
   store ptr %15, ptr %3, align 8, !noalias !24
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -332,7 +332,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2ebde2e32fc2ccfdE.exit.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf9782d1e3bdaca80E.exit.thread.i.i", %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf9782d1e3bdaca80E.exit.i.i", %44
   %52 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !146, !noalias !147, !nonnull !4, !noundef !4
   %53 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %52, i64 %45
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %54 = add i64 %45, 1
   store i64 %54, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !146, !noalias !147
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !145

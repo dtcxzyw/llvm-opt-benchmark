@@ -7203,7 +7203,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %.0 = sub nuw i64 %11, %13
   %14 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds { i64, [5 x i64] }, ptr %14, i64 %.0
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %16 = load i64, ptr %3, align 8, !noundef !5
   %17 = add i64 %16, 1
   store i64 %17, ptr %3, align 8
@@ -7285,7 +7285,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %.0 = sub nuw i64 %11, %13
   %14 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds { { i8, [55 x i8] }, { { i64, [3 x i64] }, ptr } }, ptr %14, i64 %.0
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
   %16 = load i64, ptr %3, align 8, !noundef !5
   %17 = add i64 %16, 1
   store i64 %17, ptr %3, align 8

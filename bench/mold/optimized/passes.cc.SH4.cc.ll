@@ -55409,7 +55409,7 @@ declare noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctyp
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local noundef i64 @_ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE23_M_insert_subexpr_beginEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %__tmp.sroa.5 = alloca [24 x i8], align 8
+  %__tmp.sroa.6 = alloca [24 x i8], align 8
   %agg.tmp = alloca %"struct.std::__detail::_State", align 8
   %_M_subexpr_count = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_subexpr_count, align 8
@@ -55490,8 +55490,8 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:             ; preds = %_ZNSt6vectorImSaImE
   store i64 -1, ptr %__tmp.sroa.322.0.agg.tmp.sroa_idx, align 8
   %__tmp.sroa.4.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store i64 %0, ptr %__tmp.sroa.4.0.agg.tmp.sroa_idx, align 8
-  %__tmp.sroa.5.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.5.0.agg.tmp.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.5, i64 24, i1 false)
+  %__tmp.sroa.6.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.6.0.agg.tmp.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.6, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -55506,8 +55506,8 @@ if.then.i.i.i3:                                   ; preds = %_ZNSt8__detail6_Sta
   store i64 -1, ptr %__tmp.sroa.322.0..sroa_idx, align 8
   %__tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %0, ptr %__tmp.sroa.4.0..sroa_idx, align 8
-  %__tmp.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.5, i64 24, i1 false)
+  %__tmp.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.6, i64 24, i1 false)
   %8 = load i32, ptr %agg.tmp, align 8
   %cmp.i.i.i.i.i.i = icmp eq i32 %8, 11
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -55525,9 +55525,11 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i3
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %12 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
+  store i64 %0, ptr %9, align 8
+  %__tmp.sroa.6.16..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = load i64, ptr %__tmp.sroa.6, align 8
+  store i64 %12, ptr %__tmp.sroa.6.16..sroa_idx, align 8
   store ptr %11, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -55826,7 +55828,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.sroa.6.0.agg.tmp.i25.sroa_idx, i64 16, i1 false)
+  store i64 %__alt1.sroa.3.0, ptr %__tmp.i.sroa.6.0..sroa_idx, align 8
   store ptr %31, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i31
@@ -55957,7 +55959,7 @@ declare void @_ZSt19__throw_regex_errorNSt15regex_constants10error_typeE(i32 nou
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local noundef i64 @_ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE21_M_insert_subexpr_endEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #4 comdat align 2 {
 _ZNSt8__detail6_StateIcEC2EOS1_.exit:
-  %__tmp.sroa.5 = alloca [24 x i8], align 8
+  %__tmp.sroa.6 = alloca [24 x i8], align 8
   %agg.tmp = alloca %"struct.std::__detail::_State", align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -55969,8 +55971,8 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   store i64 -1, ptr %__tmp.sroa.316.0.agg.tmp.sroa_idx, align 8
   %__tmp.sroa.4.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store i64 %1, ptr %__tmp.sroa.4.0.agg.tmp.sroa_idx, align 8
-  %__tmp.sroa.5.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.5.0.agg.tmp.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.5, i64 24, i1 false)
+  %__tmp.sroa.6.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.6.0.agg.tmp.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.6, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -55985,8 +55987,8 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8__detail6_Sta
   store i64 -1, ptr %__tmp.sroa.316.0..sroa_idx, align 8
   %__tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %1, ptr %__tmp.sroa.4.0..sroa_idx, align 8
-  %__tmp.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.5, i64 24, i1 false)
+  %__tmp.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.6, i64 24, i1 false)
   %4 = load i32, ptr %agg.tmp, align 8
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, 11
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -56004,9 +56006,11 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %8 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  store i64 %1, ptr %5, align 8
+  %__tmp.sroa.6.16..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = load i64, ptr %__tmp.sroa.6, align 8
+  store i64 %8, ptr %__tmp.sroa.6.16..sroa_idx, align 8
   store ptr %7, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -60569,8 +60573,8 @@ _ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE6_M_popEv.exit: ; preds =
   store i64 -1, ptr %__tmp.i.sroa.5524.0.agg.tmp.i.sroa_idx, align 8
   %__tmp.i.sroa.6.0.agg.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   store i64 %__e.sroa.3.0, ptr %__tmp.i.sroa.6.0.agg.tmp.i.sroa_idx, align 8
-  %__tmp.i.sroa.7.0.agg.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  store i8 %frombool.i, ptr %__tmp.i.sroa.7.0.agg.tmp.i.sroa_idx, align 8
+  %__tmp.i.sroa.8.0.agg.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
+  store i8 %frombool.i, ptr %__tmp.i.sroa.8.0.agg.tmp.i.sroa_idx, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 56
   %_M_finish.i.i.i.i8 = getelementptr inbounds i8, ptr %14, i64 64
   %16 = load ptr, ptr %_M_finish.i.i.i.i8, align 8
@@ -60585,8 +60589,8 @@ _ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT
   store i64 -1, ptr %__tmp.i.sroa.5524.0..sroa_idx, align 8
   %__tmp.i.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
   store i64 %__e.sroa.3.0, ptr %__tmp.i.sroa.6.0..sroa_idx, align 8
-  %__tmp.i.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 24
-  store i8 %frombool.i, ptr %__tmp.i.sroa.7.0..sroa_idx, align 8
+  %__tmp.i.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 24
+  store i8 %frombool.i, ptr %__tmp.i.sroa.8.0..sroa_idx, align 8
   %.pre565 = load ptr, ptr %_M_finish.i.i.i.i8, align 8
   %incdec.ptr.i.i.i.i9 = getelementptr inbounds i8, ptr %.pre565, i64 48
   store ptr %incdec.ptr.i.i.i.i9, ptr %_M_finish.i.i.i.i8, align 8
@@ -60741,8 +60745,8 @@ _ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE6_M_popEv.exit44: ; preds
   store i64 -1, ptr %__tmp.i45.sroa.5530.0.agg.tmp.i46.sroa_idx, align 8
   %__tmp.i45.sroa.6.0.agg.tmp.i46.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i46, i64 16
   store i64 %36, ptr %__tmp.i45.sroa.6.0.agg.tmp.i46.sroa_idx, align 8
-  %__tmp.i45.sroa.7.0.agg.tmp.i46.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i46, i64 24
-  store i8 %frombool.i47, ptr %__tmp.i45.sroa.7.0.agg.tmp.i46.sroa_idx, align 8
+  %__tmp.i45.sroa.8.0.agg.tmp.i46.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i46, i64 24
+  store i8 %frombool.i47, ptr %__tmp.i45.sroa.8.0.agg.tmp.i46.sroa_idx, align 8
   %add.ptr.i.i50 = getelementptr inbounds i8, ptr %35, i64 56
   %_M_finish.i.i.i.i51 = getelementptr inbounds i8, ptr %35, i64 64
   %38 = load ptr, ptr %_M_finish.i.i.i.i51, align 8
@@ -60757,8 +60761,8 @@ _ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT
   store i64 -1, ptr %__tmp.i45.sroa.5530.0..sroa_idx, align 8
   %__tmp.i45.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 16
   store i64 %36, ptr %__tmp.i45.sroa.6.0..sroa_idx, align 8
-  %__tmp.i45.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 24
-  store i8 %frombool.i47, ptr %__tmp.i45.sroa.7.0..sroa_idx, align 8
+  %__tmp.i45.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 24
+  store i8 %frombool.i47, ptr %__tmp.i45.sroa.8.0..sroa_idx, align 8
   %.pre564 = load ptr, ptr %_M_finish.i.i.i.i51, align 8
   %incdec.ptr.i.i.i.i57 = getelementptr inbounds i8, ptr %.pre564, i64 48
   store ptr %incdec.ptr.i.i.i.i57, ptr %_M_finish.i.i.i.i51, align 8
@@ -60979,8 +60983,8 @@ _ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE15_M_insert_dummyEv.exit: ; pr
   store i64 -1, ptr %__tmp.i148.sroa.5536.0.agg.tmp.i149.sroa_idx, align 8
   %__tmp.i148.sroa.6.0.agg.tmp.i149.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i149, i64 16
   store i64 %__e20.sroa.3.0, ptr %__tmp.i148.sroa.6.0.agg.tmp.i149.sroa_idx, align 8
-  %__tmp.i148.sroa.7.0.agg.tmp.i149.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i149, i64 24
-  store i8 %frombool.i150, ptr %__tmp.i148.sroa.7.0.agg.tmp.i149.sroa_idx, align 8
+  %__tmp.i148.sroa.8.0.agg.tmp.i149.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i149, i64 24
+  store i8 %frombool.i150, ptr %__tmp.i148.sroa.8.0.agg.tmp.i149.sroa_idx, align 8
   %add.ptr.i.i153 = getelementptr inbounds i8, ptr %67, i64 56
   %_M_finish.i.i.i.i154 = getelementptr inbounds i8, ptr %67, i64 64
   %69 = load ptr, ptr %_M_finish.i.i.i.i154, align 8
@@ -60995,8 +60999,8 @@ _ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT
   store i64 -1, ptr %__tmp.i148.sroa.5536.0..sroa_idx, align 8
   %__tmp.i148.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %69, i64 16
   store i64 %__e20.sroa.3.0, ptr %__tmp.i148.sroa.6.0..sroa_idx, align 8
-  %__tmp.i148.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %69, i64 24
-  store i8 %frombool.i150, ptr %__tmp.i148.sroa.7.0..sroa_idx, align 8
+  %__tmp.i148.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %69, i64 24
+  store i8 %frombool.i150, ptr %__tmp.i148.sroa.8.0..sroa_idx, align 8
   %.pre563 = load ptr, ptr %_M_finish.i.i.i.i154, align 8
   %incdec.ptr.i.i.i.i160 = getelementptr inbounds i8, ptr %.pre563, i64 48
   store ptr %incdec.ptr.i.i.i.i160, ptr %_M_finish.i.i.i.i154, align 8
@@ -61509,8 +61513,8 @@ if.then66:                                        ; preds = %for.end
   store i64 -1, ptr %__tmp.i353.sroa.5542.0.agg.tmp.i354.sroa_idx, align 8
   %__tmp.i353.sroa.6.0.agg.tmp.i354.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i354, i64 16
   store i64 %136, ptr %__tmp.i353.sroa.6.0.agg.tmp.i354.sroa_idx, align 8
-  %__tmp.i353.sroa.7.0.agg.tmp.i354.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i354, i64 24
-  store i8 %frombool.i355, ptr %__tmp.i353.sroa.7.0.agg.tmp.i354.sroa_idx, align 8
+  %__tmp.i353.sroa.8.0.agg.tmp.i354.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i354, i64 24
+  store i8 %frombool.i355, ptr %__tmp.i353.sroa.8.0.agg.tmp.i354.sroa_idx, align 8
   %add.ptr.i.i358 = getelementptr inbounds i8, ptr %135, i64 56
   %_M_finish.i.i.i.i359 = getelementptr inbounds i8, ptr %135, i64 64
   %138 = load ptr, ptr %_M_finish.i.i.i.i359, align 8
@@ -61525,8 +61529,8 @@ _ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT
   store i64 -1, ptr %__tmp.i353.sroa.5542.0..sroa_idx, align 8
   %__tmp.i353.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %138, i64 16
   store i64 %136, ptr %__tmp.i353.sroa.6.0..sroa_idx, align 8
-  %__tmp.i353.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %138, i64 24
-  store i8 %frombool.i355, ptr %__tmp.i353.sroa.7.0..sroa_idx, align 8
+  %__tmp.i353.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %138, i64 24
+  store i8 %frombool.i355, ptr %__tmp.i353.sroa.8.0..sroa_idx, align 8
   %.pre562 = load ptr, ptr %_M_finish.i.i.i.i359, align 8
   %incdec.ptr.i.i.i.i365 = getelementptr inbounds i8, ptr %.pre562, i64 48
   store ptr %incdec.ptr.i.i.i.i365, ptr %_M_finish.i.i.i.i359, align 8
@@ -61681,7 +61685,7 @@ for.body85.lr.ph:                                 ; preds = %_ZNSt8__detail4_NFA
   %_M_start89 = getelementptr inbounds i8, ptr %__tmp86, i64 8
   %__tmp.i432.sroa.5548.0.agg.tmp.i433.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i433, i64 8
   %__tmp.i432.sroa.6.0.agg.tmp.i433.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i433, i64 16
-  %__tmp.i432.sroa.7.0.agg.tmp.i433.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i433, i64 24
+  %__tmp.i432.sroa.8.0.agg.tmp.i433.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i433, i64 24
   %_M_invoker2.i.i.i.i.i.i.i.i462 = getelementptr inbounds i8, ptr %agg.tmp.i433, i64 40
   %_M_manager.i.i.i.i.i.i.i.i.i.i463 = getelementptr inbounds i8, ptr %agg.tmp.i433, i64 32
   %_M_end = getelementptr inbounds i8, ptr %__tmp86, i64 16
@@ -61699,7 +61703,7 @@ for.body85:                                       ; preds = %for.body85.lr.ph, %
   store i32 2, ptr %agg.tmp.i433, align 8
   store i64 %158, ptr %__tmp.i432.sroa.5548.0.agg.tmp.i433.sroa_idx, align 8
   store i64 %sub.i.i420, ptr %__tmp.i432.sroa.6.0.agg.tmp.i433.sroa_idx, align 8
-  store i8 %frombool.i434, ptr %__tmp.i432.sroa.7.0.agg.tmp.i433.sroa_idx, align 8
+  store i8 %frombool.i434, ptr %__tmp.i432.sroa.8.0.agg.tmp.i433.sroa_idx, align 8
   %add.ptr.i.i437 = getelementptr inbounds i8, ptr %157, i64 56
   %_M_finish.i.i.i.i438 = getelementptr inbounds i8, ptr %157, i64 64
   %160 = load ptr, ptr %_M_finish.i.i.i.i438, align 8
@@ -61714,8 +61718,8 @@ if.then.i.i.i.i441:                               ; preds = %for.body85
   store i64 %158, ptr %__tmp.i432.sroa.5548.0..sroa_idx, align 8
   %__tmp.i432.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %160, i64 16
   store i64 %sub.i.i420, ptr %__tmp.i432.sroa.6.0..sroa_idx, align 8
-  %__tmp.i432.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %160, i64 24
-  store i8 %frombool.i434, ptr %__tmp.i432.sroa.7.0..sroa_idx, align 8
+  %__tmp.i432.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %160, i64 24
+  store i8 %frombool.i434, ptr %__tmp.i432.sroa.8.0..sroa_idx, align 8
   %162 = load i32, ptr %agg.tmp.i433, align 8
   %cmp.i.i.i.i.i.i.i442 = icmp eq i32 %162, 11
   br i1 %cmp.i.i.i.i.i.i.i442, label %if.then.i.i.i.i.i.i.i460, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i443
@@ -61731,7 +61735,8 @@ if.then.i.i.i.i.i.i.i460:                         ; preds = %if.then.i.i.i.i441
 
 if.then.i.i.i.i.i.i.i.i465:                       ; preds = %if.then.i.i.i.i.i.i.i460
   %_M_manager.i.i.i.i.i.i.i.i.i466 = getelementptr inbounds i8, ptr %160, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i432.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i432.sroa.6.0.agg.tmp.i433.sroa_idx, i64 16, i1 false)
+  store i64 %sub.i.i420, ptr %__tmp.i432.sroa.6.0..sroa_idx, align 8
+  store i8 %frombool.i434, ptr %__tmp.i432.sroa.8.0..sroa_idx, align 8
   store ptr %164, ptr %_M_manager.i.i.i.i.i.i.i.i.i466, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i.i463, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i443
@@ -61922,113 +61927,12 @@ return:                                           ; preds = %entry, %if.else.i.i
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local noundef i64 @_ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE20_M_insert_word_boundEb(ptr noundef nonnull align 8 dereferenceable(88) %this, i1 noundef zeroext %__neg) local_unnamed_addr #4 comdat align 2 {
 _ZNSt8__detail6_StateIcEC2EOS1_.exit:
-  %__tmp.sroa.5 = alloca [23 x i8], align 1
+  %__tmp.sroa.6 = alloca [23 x i8], align 1
   %agg.tmp = alloca %"struct.std::__detail::_State", align 8
   %frombool = zext i1 %__neg to i8
   store i32 6, ptr %agg.tmp, align 8
   %__tmp.sroa.316.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 -1, ptr %__tmp.sroa.316.0.agg.tmp.sroa_idx, align 8
-  %__tmp.sroa.419.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  store i8 %frombool, ptr %__tmp.sroa.419.0.agg.tmp.sroa_idx, align 8
-  %__tmp.sroa.5.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %__tmp.sroa.5.0.agg.tmp.sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %__tmp.sroa.5, i64 23, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %1 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  store i32 6, ptr %0, align 8
-  %__tmp.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 -1, ptr %__tmp.sroa.316.0..sroa_idx, align 8
-  %__tmp.sroa.419.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %frombool, ptr %__tmp.sroa.419.0..sroa_idx, align 8
-  %__tmp.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %__tmp.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %__tmp.sroa.5, i64 23, i1 false)
-  %2 = load i32, ptr %agg.tmp, align 8
-  %cmp.i.i.i.i.i.i = icmp eq i32 %2, 11
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
-
-if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %_M_invoker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  %_M_invoker2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %4 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i, align 8
-  store ptr %4, ptr %_M_invoker.i.i.i.i.i.i.i, align 8
-  %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %5 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  store ptr %5, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  br label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
-
-_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.then.i.i.i
-  %7 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
-  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
-  br label %_ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE9push_backEOS2_.exit.i
-
-if.else.i.i.i:                                    ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  call void @_ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr %0, ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp)
-  %.pre.i = load ptr, ptr %_M_finish.i.i.i, align 8
-  br label %_ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE9push_backEOS2_.exit.i
-
-_ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE9push_backEOS2_.exit.i: ; preds = %if.else.i.i.i, %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
-  %8 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i ], [ %.pre.i, %if.else.i.i.i ]
-  %9 = load ptr, ptr %add.ptr.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
-  %cmp.i1 = icmp ugt i64 %sub.ptr.div.i.i, 100000
-  br i1 %cmp.i1, label %if.then.i2, label %_ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE15_M_insert_stateENS_6_StateIcEE.exit
-
-if.then.i2:                                       ; preds = %_ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE9push_backEOS2_.exit.i
-  call void @abort() #37
-  unreachable
-
-_ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE15_M_insert_stateENS_6_StateIcEE.exit: ; preds = %_ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE9push_backEOS2_.exit.i
-  %10 = load i32, ptr %agg.tmp, align 8
-  %cmp.i3 = icmp eq i32 %10, 11
-  br i1 %cmp.i3, label %if.then.i4, label %_ZNSt8__detail6_StateIcED2Ev.exit13
-
-if.then.i4:                                       ; preds = %_ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE15_M_insert_stateENS_6_StateIcEE.exit
-  %_M_manager.i.i.i5 = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %11 = load ptr, ptr %_M_manager.i.i.i5, align 8
-  %tobool.not.i.i.i = icmp eq ptr %11, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt8__detail6_StateIcED2Ev.exit13, label %if.then.i.i.i6
-
-if.then.i.i.i6:                                   ; preds = %if.then.i4
-  %12 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %call.i.i.i = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3) #15
-  br label %_ZNSt8__detail6_StateIcED2Ev.exit13
-
-_ZNSt8__detail6_StateIcED2Ev.exit13:              ; preds = %if.then.i.i.i6, %if.then.i4, %_ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE15_M_insert_stateENS_6_StateIcEE.exit
-  %sub.i = add nsw i64 %sub.ptr.div.i.i, -1
-  ret i64 %sub.i
-}
-
-; Function Attrs: mustprogress nounwind
-define linkonce_odr dso_local noundef i64 @_ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE19_M_insert_lookaheadElb(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %__alt, i1 noundef zeroext %__neg) local_unnamed_addr #4 comdat align 2 {
-_ZNSt8__detail6_StateIcEC2EOS1_.exit:
-  %__tmp.sroa.6 = alloca [23 x i8], align 1
-  %agg.tmp = alloca %"struct.std::__detail::_State", align 8
-  %frombool = zext i1 %__neg to i8
-  store i32 7, ptr %agg.tmp, align 8
-  %__tmp.sroa.316.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i64 -1, ptr %__tmp.sroa.316.0.agg.tmp.sroa_idx, align 8
-  %__tmp.sroa.4.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  store i64 %__alt, ptr %__tmp.sroa.4.0.agg.tmp.sroa_idx, align 8
   %__tmp.sroa.5.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store i8 %frombool, ptr %__tmp.sroa.5.0.agg.tmp.sroa_idx, align 8
   %__tmp.sroa.6.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 25
@@ -62042,11 +61946,9 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  store i32 7, ptr %0, align 8
+  store i32 6, ptr %0, align 8
   %__tmp.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -1, ptr %__tmp.sroa.316.0..sroa_idx, align 8
-  %__tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %__alt, ptr %__tmp.sroa.4.0..sroa_idx, align 8
   %__tmp.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %frombool, ptr %__tmp.sroa.5.0..sroa_idx, align 8
   %__tmp.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 25
@@ -62068,16 +61970,18 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  %__tmp.sroa.5.16..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 %frombool, ptr %__tmp.sroa.5.16..sroa_idx, align 8
+  %__tmp.sroa.6.16..sroa_idx = getelementptr inbounds i8, ptr %0, i64 25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %__tmp.sroa.6.16..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %__tmp.sroa.6, i64 7, i1 false)
   store ptr %5, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
 
 _ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.then.i.i.i
-  %7 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
+  %6 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 48
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %_ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE9push_backEOS2_.exit.i
 
@@ -62087,10 +61991,10 @@ if.else.i.i.i:                                    ; preds = %_ZNSt8__detail6_Sta
   br label %_ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE9push_backEOS2_.exit.i
 
 _ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE9push_backEOS2_.exit.i: ; preds = %if.else.i.i.i, %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
-  %8 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i ], [ %.pre.i, %if.else.i.i.i ]
-  %9 = load ptr, ptr %add.ptr.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
+  %7 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i ], [ %.pre.i, %if.else.i.i.i ]
+  %8 = load ptr, ptr %add.ptr.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
   %cmp.i1 = icmp ugt i64 %sub.ptr.div.i.i, 100000
@@ -62101,19 +62005,125 @@ if.then.i2:                                       ; preds = %_ZNSt6vectorINSt8__
   unreachable
 
 _ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE15_M_insert_stateENS_6_StateIcEE.exit: ; preds = %_ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE9push_backEOS2_.exit.i
-  %10 = load i32, ptr %agg.tmp, align 8
-  %cmp.i3 = icmp eq i32 %10, 11
+  %9 = load i32, ptr %agg.tmp, align 8
+  %cmp.i3 = icmp eq i32 %9, 11
   br i1 %cmp.i3, label %if.then.i4, label %_ZNSt8__detail6_StateIcED2Ev.exit13
 
 if.then.i4:                                       ; preds = %_ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE15_M_insert_stateENS_6_StateIcEE.exit
   %_M_manager.i.i.i5 = getelementptr inbounds i8, ptr %agg.tmp, i64 32
-  %11 = load ptr, ptr %_M_manager.i.i.i5, align 8
-  %tobool.not.i.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %_M_manager.i.i.i5, align 8
+  %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8__detail6_StateIcED2Ev.exit13, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %if.then.i4
-  %12 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %call.i.i.i = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef 3) #15
+  %11 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %call.i.i.i = call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3) #15
+  br label %_ZNSt8__detail6_StateIcED2Ev.exit13
+
+_ZNSt8__detail6_StateIcED2Ev.exit13:              ; preds = %if.then.i.i.i6, %if.then.i4, %_ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE15_M_insert_stateENS_6_StateIcEE.exit
+  %sub.i = add nsw i64 %sub.ptr.div.i.i, -1
+  ret i64 %sub.i
+}
+
+; Function Attrs: mustprogress nounwind
+define linkonce_odr dso_local noundef i64 @_ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE19_M_insert_lookaheadElb(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %__alt, i1 noundef zeroext %__neg) local_unnamed_addr #4 comdat align 2 {
+_ZNSt8__detail6_StateIcEC2EOS1_.exit:
+  %__tmp.sroa.7 = alloca [23 x i8], align 1
+  %agg.tmp = alloca %"struct.std::__detail::_State", align 8
+  %frombool = zext i1 %__neg to i8
+  store i32 7, ptr %agg.tmp, align 8
+  %__tmp.sroa.316.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  store i64 -1, ptr %__tmp.sroa.316.0.agg.tmp.sroa_idx, align 8
+  %__tmp.sroa.4.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  store i64 %__alt, ptr %__tmp.sroa.4.0.agg.tmp.sroa_idx, align 8
+  %__tmp.sroa.6.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  store i8 %frombool, ptr %__tmp.sroa.6.0.agg.tmp.sroa_idx, align 8
+  %__tmp.sroa.7.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %__tmp.sroa.7.0.agg.tmp.sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %__tmp.sroa.7, i64 23, i1 false)
+  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %0 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %1 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %0, %1
+  br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
+  store i32 7, ptr %0, align 8
+  %__tmp.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 -1, ptr %__tmp.sroa.316.0..sroa_idx, align 8
+  %__tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %__alt, ptr %__tmp.sroa.4.0..sroa_idx, align 8
+  %__tmp.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 %frombool, ptr %__tmp.sroa.6.0..sroa_idx, align 8
+  %__tmp.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %__tmp.sroa.7.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %__tmp.sroa.7, i64 23, i1 false)
+  %2 = load i32, ptr %agg.tmp, align 8
+  %cmp.i.i.i.i.i.i = icmp eq i32 %2, 11
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
+
+if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %_M_invoker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %_M_invoker2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  %4 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i, align 8
+  store ptr %4, ptr %_M_invoker.i.i.i.i.i.i.i, align 8
+  %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
+  %5 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
+
+if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
+  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %__alt, ptr %3, align 8
+  %__tmp.sroa.6.16..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 %frombool, ptr %__tmp.sroa.6.16..sroa_idx, align 8
+  %__tmp.sroa.7.16..sroa_idx = getelementptr inbounds i8, ptr %0, i64 25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %__tmp.sroa.7.16..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %__tmp.sroa.7, i64 7, i1 false)
+  store ptr %5, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
+  br label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
+
+_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.then.i.i.i
+  %6 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 48
+  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
+  br label %_ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE9push_backEOS2_.exit.i
+
+if.else.i.i.i:                                    ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
+  call void @_ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i, ptr %0, ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp)
+  %.pre.i = load ptr, ptr %_M_finish.i.i.i, align 8
+  br label %_ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE9push_backEOS2_.exit.i
+
+_ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE9push_backEOS2_.exit.i: ; preds = %if.else.i.i.i, %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
+  %7 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i ], [ %.pre.i, %if.else.i.i.i ]
+  %8 = load ptr, ptr %add.ptr.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 48
+  %cmp.i1 = icmp ugt i64 %sub.ptr.div.i.i, 100000
+  br i1 %cmp.i1, label %if.then.i2, label %_ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE15_M_insert_stateENS_6_StateIcEE.exit
+
+if.then.i2:                                       ; preds = %_ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE9push_backEOS2_.exit.i
+  call void @abort() #37
+  unreachable
+
+_ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE15_M_insert_stateENS_6_StateIcEE.exit: ; preds = %_ZNSt6vectorINSt8__detail6_StateIcEESaIS2_EE9push_backEOS2_.exit.i
+  %9 = load i32, ptr %agg.tmp, align 8
+  %cmp.i3 = icmp eq i32 %9, 11
+  br i1 %cmp.i3, label %if.then.i4, label %_ZNSt8__detail6_StateIcED2Ev.exit13
+
+if.then.i4:                                       ; preds = %_ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE15_M_insert_stateENS_6_StateIcEE.exit
+  %_M_manager.i.i.i5 = getelementptr inbounds i8, ptr %agg.tmp, i64 32
+  %10 = load ptr, ptr %_M_manager.i.i.i5, align 8
+  %tobool.not.i.i.i = icmp eq ptr %10, null
+  br i1 %tobool.not.i.i.i, label %_ZNSt8__detail6_StateIcED2Ev.exit13, label %if.then.i.i.i6
+
+if.then.i.i.i6:                                   ; preds = %if.then.i4
+  %11 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %call.i.i.i = call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 3) #15
   br label %_ZNSt8__detail6_StateIcED2Ev.exit13
 
 _ZNSt8__detail6_StateIcED2Ev.exit13:              ; preds = %if.then.i.i.i6, %if.then.i4, %_ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE15_M_insert_stateENS_6_StateIcEE.exit
@@ -62403,7 +62413,7 @@ if.end14:                                         ; preds = %entry, %if.then10.i
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local noundef i64 @_ZNSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEE17_M_insert_backrefEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %__index) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %__tmp.sroa.5 = alloca [24 x i8], align 8
+  %__tmp.sroa.6 = alloca [24 x i8], align 8
   %agg.tmp = alloca %"struct.std::__detail::_State", align 8
   %_M_flags = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %_M_flags, align 8
@@ -62455,8 +62465,8 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:             ; preds = %for.cond, %if.end3
   store i64 -1, ptr %__tmp.sroa.326.0.agg.tmp.sroa_idx, align 8
   %__tmp.sroa.4.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store i64 %__index, ptr %__tmp.sroa.4.0.agg.tmp.sroa_idx, align 8
-  %__tmp.sroa.5.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.5.0.agg.tmp.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.5, i64 24, i1 false)
+  %__tmp.sroa.6.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.6.0.agg.tmp.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.6, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -62471,8 +62481,8 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8__detail6_Sta
   store i64 -1, ptr %__tmp.sroa.326.0..sroa_idx, align 8
   %__tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   store i64 %__index, ptr %__tmp.sroa.4.0..sroa_idx, align 8
-  %__tmp.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.5, i64 24, i1 false)
+  %__tmp.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.6, i64 24, i1 false)
   %7 = load i32, ptr %agg.tmp, align 8
   %cmp.i.i.i.i.i.i = icmp eq i32 %7, 11
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -62490,9 +62500,11 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %11 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
+  store i64 %__index, ptr %8, align 8
+  %__tmp.sroa.6.16..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = load i64, ptr %__tmp.sroa.6, align 8
+  store i64 %11, ptr %__tmp.sroa.6.16..sroa_idx, align 8
   store ptr %10, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i

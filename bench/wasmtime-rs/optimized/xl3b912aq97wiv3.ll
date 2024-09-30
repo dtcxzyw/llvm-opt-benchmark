@@ -7946,7 +7946,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN9hashbrown11r
   %38 = sub i64 %37, %35
   store i64 %38, ptr %36, align 8, !alias.scope !2095, !noalias !2088
   %39 = getelementptr inbounds i8, ptr %33, i64 -64
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   %40 = getelementptr inbounds i8, ptr %5, i64 24
   %41 = load i64, ptr %40, align 8, !alias.scope !2095, !noalias !2088, !noundef !4
   %42 = add i64 %41, 1
@@ -10444,7 +10444,7 @@ common.resume:                                    ; preds = %269, %274, %255, %1
   unreachable
 
 208:                                              ; preds = %198, %196
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %193, ptr noundef nonnull align 8 dereferenceable(72) %17, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %193, ptr noundef nonnull align 8 dereferenceable(72) %18, i64 72, i1 false)
   %209 = add i64 %188, 1
   store i64 %209, ptr %92, align 8, !alias.scope !2566, !noalias !2569
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %17)
@@ -10612,7 +10612,7 @@ common.resume:                                    ; preds = %269, %274, %255, %1
   unreachable
 
 266:                                              ; preds = %258, %256
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %253, ptr noundef nonnull align 8 dereferenceable(72) %12, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %253, ptr noundef nonnull align 8 dereferenceable(72) %12, i64 72, i1 false)
   %267 = add i64 %248, 1
   store i64 %267, ptr %92, align 8, !alias.scope !2588, !noalias !2591
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)

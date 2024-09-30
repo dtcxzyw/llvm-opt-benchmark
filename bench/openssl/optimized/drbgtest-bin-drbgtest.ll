@@ -927,9 +927,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i)
-  %0 = getelementptr inbounds i8, ptr %params.i.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, i8 0, i64 48, i1 false)
   call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i.i, ptr noundef nonnull @.str.48, ptr noundef nonnull %n.i.i) #14
+  %0 = getelementptr inbounds i8, ptr %params.i.i, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i, i64 40, i1 false)
   %call.i.i = call i32 @EVP_RAND_CTX_get_params(ptr noundef %primary, ptr noundef nonnull %params.i.i) #14
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -946,9 +946,9 @@ lor.lhs.false:                                    ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i.i27)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i.i28)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i29)
-  %2 = getelementptr inbounds i8, ptr %params.i.i27, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %2, i8 0, i64 48, i1 false)
   call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i.i29, ptr noundef nonnull @.str.48, ptr noundef nonnull %n.i.i28) #14
+  %2 = getelementptr inbounds i8, ptr %params.i.i27, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i.i27, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i29, i64 40, i1 false)
   %call.i.i30 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %public, ptr noundef nonnull %params.i.i27) #14
   %tobool.not.i.i31 = icmp eq i32 %call.i.i30, 0
@@ -965,9 +965,9 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i.i33)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i.i34)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i35)
-  %4 = getelementptr inbounds i8, ptr %params.i.i33, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %4, i8 0, i64 48, i1 false)
   call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i.i35, ptr noundef nonnull @.str.48, ptr noundef nonnull %n.i.i34) #14
+  %4 = getelementptr inbounds i8, ptr %params.i.i33, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i.i33, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i35, i64 40, i1 false)
   %call.i.i36 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %private, ptr noundef nonnull %params.i.i33) #14
   %tobool.not.i.i37 = icmp eq i32 %call.i.i36, 0
@@ -1084,9 +1084,9 @@ if.then46:                                        ; preds = %lor.lhs.false39
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i.i60)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i.i61)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i62)
-  %8 = getelementptr inbounds i8, ptr %params.i.i60, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %8, i8 0, i64 48, i1 false)
   call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i.i62, ptr noundef nonnull @.str.48, ptr noundef nonnull %n.i.i61) #14
+  %8 = getelementptr inbounds i8, ptr %params.i.i60, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i.i60, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i62, i64 40, i1 false)
   %call.i.i63 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %primary, ptr noundef nonnull %params.i.i60) #14
   %tobool.not.i.i64 = icmp eq i32 %call.i.i63, 0
@@ -1166,9 +1166,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i)
-  %0 = getelementptr inbounds i8, ptr %params.i.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, i8 0, i64 48, i1 false)
   call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i.i, ptr noundef nonnull @.str.48, ptr noundef nonnull %n.i.i) #14
+  %0 = getelementptr inbounds i8, ptr %params.i.i, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i, i64 40, i1 false)
   %call.i.i = call i32 @EVP_RAND_CTX_get_params(ptr noundef %drbg, ptr noundef nonnull %params.i.i) #14
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -1213,9 +1213,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
-  %0 = getelementptr inbounds i8, ptr %params.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, i8 0, i64 48, i1 false)
   call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.48, ptr noundef nonnull %n.i) #14
+  %0 = getelementptr inbounds i8, ptr %params.i, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %call.i = call i32 @EVP_RAND_CTX_get_params(ptr noundef %drbg, ptr noundef nonnull %params.i) #14
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -1241,9 +1241,9 @@ entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %t = alloca i64, align 8
   %tmp = alloca %struct.ossl_param_st, align 8
-  %0 = getelementptr inbounds i8, ptr %params, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, i8 0, i64 48, i1 false)
   call void @OSSL_PARAM_construct_time_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.49, ptr noundef nonnull %t) #14
+  %0 = getelementptr inbounds i8, ptr %params, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %call = call i32 @EVP_RAND_CTX_get_params(ptr noundef %drbg, ptr noundef nonnull %params) #14
   %tobool.not = icmp eq i32 %call, 0

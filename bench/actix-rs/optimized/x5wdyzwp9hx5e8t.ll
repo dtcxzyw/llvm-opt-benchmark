@@ -585,7 +585,6 @@ define hidden void @"_ZN129_$LT$futures_util..stream..futures_unordered..ready_t
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3f095b23c0298ea8E.llvm.11632439649900387884"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { i64, [6 x i64] }, align 8
   %2 = alloca { { i64, [1 x i64] } }, align 8
   %3 = alloca { i64, [6 x i64] }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !align !35, !noundef !5
@@ -602,8 +601,6 @@ define hidden void @"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b
   store i64 %8, ptr %2, align 8, !noalias !36
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %9, ptr %10, align 8, !noalias !36
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @"_ZN4core3ptr472drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$$LT$actix_http..encoding..decoder..Decoder$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1cb06b5e33978bedE.llvm.926505738866763462"(ptr noalias noundef nonnull align 8 dereferenceable(56) %11)
           to label %"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h0da2732252957733E.exit" unwind label %.body.i, !noalias !39
@@ -611,7 +608,7 @@ define hidden void @"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b
 .body.i:                                          ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i, i64 56, i1 false), !noalias !36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %.thread.i unwind label %13, !noalias !36
 
@@ -632,8 +629,7 @@ define hidden void @"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b
           to label %.thread.i unwind label %13
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h0da2732252957733E.exit": ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i, i64 56, i1 false), !noalias !36
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.0.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   call void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !36
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
@@ -22005,7 +22001,6 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$tokio..runtime..task..core..
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr572drop_in_place$LT$tokio..runtime..task..harness..poll_future..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$tokio..runtime..blocking..task..BlockingTask$LT$$LT$actix_http..encoding..decoder..Decoder$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17hdedf1e76e26317a0E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.0.i.i = alloca { i64, [6 x i64] }, align 8
   %2 = alloca { { i64, [1 x i64] } }, align 8
   %3 = alloca { i64, [6 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8079)
@@ -22023,8 +22018,6 @@ define hidden void @"_ZN4core3ptr572drop_in_place$LT$tokio..runtime..task..harne
   store i64 %8, ptr %2, align 8, !noalias !8082
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %9, ptr %10, align 8, !noalias !8082
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !8079
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @"_ZN4core3ptr472drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$$LT$actix_http..encoding..decoder..Decoder$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1cb06b5e33978bedE.llvm.926505738866763462"(ptr noalias noundef nonnull align 8 dereferenceable(56) %11)
           to label %"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3f095b23c0298ea8E.llvm.11632439649900387884.exit" unwind label %.body.i.i, !noalias !8085
@@ -22032,7 +22025,7 @@ define hidden void @"_ZN4core3ptr572drop_in_place$LT$tokio..runtime..task..harne
 .body.i.i:                                        ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i, i64 56, i1 false), !noalias !8082
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !8079
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %.thread.i.i unwind label %13, !noalias !8082
 
@@ -22053,8 +22046,7 @@ define hidden void @"_ZN4core3ptr572drop_in_place$LT$tokio..runtime..task..harne
           to label %.thread.i.i unwind label %13, !noalias !8079
 
 "_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3f095b23c0298ea8E.llvm.11632439649900387884.exit": ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i, i64 56, i1 false), !noalias !8082
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !8079
   call void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !8082
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !8082
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !8079

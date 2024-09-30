@@ -21940,8 +21940,8 @@ entry:
   store i32 2, ptr %verification_.i.i.i, align 4, !noalias !180
   %flags_.i.i.i = getelementptr inbounds i8, ptr %info.i.i, i64 176
   store i32 1024, ptr %flags_.i.i.i, align 8, !noalias !180
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %parse_func_.i.i.i, i8 0, i64 160, i1 false), !noalias !180
   %_M_manager3.i.i.i.i.i = getelementptr inbounds i8, ptr %info.i.i, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %parse_func_.i.i.i, i8 0, i64 160, i1 false), !noalias !180
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo17AsCustomSharedPtrINS0_13MergeOperatorEEESF_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation, ptr %_M_manager3.i.i.i.i.i, align 8, !noalias !180
   %_M_invoker4.i2.i.i.i.i = getelementptr inbounds i8, ptr %info.i.i, i64 32
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo17AsCustomSharedPtrINS0_13MergeOperatorEEESF_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker4.i2.i.i.i.i, align 8, !noalias !180
@@ -22129,8 +22129,8 @@ __cxx_global_var_init.11.exit:                    ; preds = %invoke.cont7.i
   store i32 3, ptr %verification_.i.i.i13, align 4, !noalias !183
   %flags_.i.i.i14 = getelementptr inbounds i8, ptr %info.i.i5, i64 176
   store i32 1024, ptr %flags_.i.i.i14, align 8, !noalias !183
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %parse_func_.i.i.i11, i8 0, i64 160, i1 false), !noalias !183
   %_M_manager3.i.i.i.i.i15 = getelementptr inbounds i8, ptr %info.i.i5, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %parse_func_.i.i.i11, i8 0, i64 160, i1 false), !noalias !183
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo17AsCustomSharedPtrINS0_23CompactionFilterFactoryEEESF_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation, ptr %_M_manager3.i.i.i.i.i15, align 8, !noalias !183
   %_M_invoker4.i2.i.i.i.i16 = getelementptr inbounds i8, ptr %info.i.i5, i64 32
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo17AsCustomSharedPtrINS0_23CompactionFilterFactoryEEESF_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker4.i2.i.i.i.i16, align 8, !noalias !183
@@ -22197,8 +22197,8 @@ __cxx_global_var_init.13.exit:                    ; preds = %invoke.cont3.i22
   store i32 1, ptr %verification_.i.i.i35, align 4, !noalias !186
   %flags_.i.i.i36 = getelementptr inbounds i8, ptr %info.i.i27, i64 176
   store i32 4608, ptr %flags_.i.i.i36, align 8, !noalias !186
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %parse_func_.i.i.i33, i8 0, i64 160, i1 false), !noalias !186
   %_M_manager3.i.i.i.i.i37 = getelementptr inbounds i8, ptr %info.i.i27, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %parse_func_.i.i.i33, i8 0, i64 160, i1 false), !noalias !186
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo14AsCustomRawPtrIKNS0_16CompactionFilterEEESF_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation, ptr %_M_manager3.i.i.i.i.i37, align 8, !noalias !186
   %_M_invoker4.i2.i.i.i.i38 = getelementptr inbounds i8, ptr %info.i.i27, i64 32
   store ptr @_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEZNS0_14OptionTypeInfo14AsCustomRawPtrIKNS0_16CompactionFilterEEESF_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsEEUlS4_SC_SC_SD_E_E9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_, ptr %_M_invoker4.i2.i.i.i.i38, align 8, !noalias !186

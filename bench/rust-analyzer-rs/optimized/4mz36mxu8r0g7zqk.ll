@@ -4193,7 +4193,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17heb9dcb63b14c984bE.exit.i.i: ;
 ._crit_edge.thread:                               ; preds = %_ZN5alloc11collections5btree3mem7replace17h87e978e052ec58a4E.exit58, %122
   %.sroa.068.0.lcssa115 = phi ptr [ %119, %122 ], [ %152, %_ZN5alloc11collections5btree3mem7replace17h87e978e052ec58a4E.exit58 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %124 = getelementptr inbounds i8, ptr %.sroa.062.0, i64 274
   %125 = load i16, ptr %124, align 2, !noalias !1319, !noundef !22
   %126 = icmp ult i16 %125, 11

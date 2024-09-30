@@ -17378,7 +17378,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ccf7530aaaa4898E.ll
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !11, !noundef !11
   %12 = getelementptr inbounds { i64, [8 x i64] }, ptr %11, i64 %9
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   %13 = load i64, ptr %3, align 8, !noundef !11
   %14 = add i64 %13, 1
   store i64 %14, ptr %3, align 8
@@ -19350,7 +19350,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h00f3074819df8ffcE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !6692, !noalias !6695, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !6698
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !6698
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !6692, !noalias !6695
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !6691
@@ -19739,7 +19739,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h1394eab21e2fc0aaE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !6888, !noalias !6891, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !6894
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !6894
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !6888, !noalias !6891
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !6887
@@ -19914,7 +19914,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h145fc42b8dda3c55E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !6932, !noalias !6935, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !6938
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !6938
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !6932, !noalias !6935
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !6931
@@ -20089,7 +20089,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h17d59d7799fe386bE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !6976, !noalias !6979, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !6982
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !6982
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !6976, !noalias !6979
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !6975
@@ -20264,7 +20264,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h192a4139494ceb1bE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7020, !noalias !7023, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7026
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7026
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7020, !noalias !7023
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7019
@@ -20439,7 +20439,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h28e194c2559283d6E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7064, !noalias !7067, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7070
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7070
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7064, !noalias !7067
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7063
@@ -20614,7 +20614,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h2d6d8135505edeb2E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7108, !noalias !7111, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7114
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7114
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7108, !noalias !7111
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7107
@@ -20789,7 +20789,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h347d56004cc62b6eE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7152, !noalias !7155, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7158
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7158
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7152, !noalias !7155
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7151
@@ -20964,7 +20964,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h368da36b5dc83716E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7196, !noalias !7199, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7202
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7202
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7196, !noalias !7199
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7195
@@ -21136,7 +21136,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h3a46d251bb65cf8dE(p
   %27 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %16, %15 ]
   %28 = load ptr, ptr %14, align 8, !alias.scope !7229, !noalias !7234, !nonnull !11, !noundef !11
   %29 = getelementptr inbounds { i64, [8 x i64] }, ptr %28, i64 %27
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !noalias !7261
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !noalias !7261
   %30 = add i64 %27, 1
   store i64 %30, ptr %13, align 8, !alias.scope !7229, !noalias !7234
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !7259
@@ -21253,7 +21253,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h4e0d8c637b8645b5E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7284, !noalias !7287, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7290
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7290
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7284, !noalias !7287
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7283
@@ -21521,7 +21521,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h529fc59754f44b0bE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7391, !noalias !7394, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7397
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7397
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7391, !noalias !7394
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7390
@@ -21696,7 +21696,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h53ae42a5f6bb1952E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7435, !noalias !7438, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7441
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7441
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7435, !noalias !7438
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7434
@@ -21871,7 +21871,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h574174a869eb3644E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7479, !noalias !7482, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7485
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7485
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7479, !noalias !7482
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7478
@@ -22046,7 +22046,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h583c78c6fb0a5c92E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7523, !noalias !7526, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7529
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7529
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7523, !noalias !7526
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7522
@@ -22221,7 +22221,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h5a0d884a52a5b7b5E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7567, !noalias !7570, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7573
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7573
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7567, !noalias !7570
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7566
@@ -22396,7 +22396,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h5c6577bec05140b5E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7611, !noalias !7614, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7617
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7617
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7611, !noalias !7614
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7610
@@ -22571,7 +22571,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h62d6ab6fffb6eca7E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7655, !noalias !7658, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7661
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7661
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7655, !noalias !7658
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7654
@@ -22746,7 +22746,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h64f50d5da14d9f1bE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7699, !noalias !7702, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7705
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7705
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7699, !noalias !7702
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7698
@@ -23072,7 +23072,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h6893b3107fae30aaE(p
   %27 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %16, %15 ]
   %28 = load ptr, ptr %14, align 8, !alias.scope !7830, !noalias !7835, !nonnull !11, !noundef !11
   %29 = getelementptr inbounds { i64, [8 x i64] }, ptr %28, i64 %27
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !noalias !7862
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !noalias !7862
   %30 = add i64 %27, 1
   store i64 %30, ptr %13, align 8, !alias.scope !7830, !noalias !7835
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !7860
@@ -23189,7 +23189,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h6996f6fc393c5267E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7885, !noalias !7888, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7891
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7891
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7885, !noalias !7888
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7884
@@ -23364,7 +23364,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h6c0c89391f7881a8E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7929, !noalias !7932, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7935
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7935
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7929, !noalias !7932
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7928
@@ -23539,7 +23539,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h72cb77196b57ec12E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !7973, !noalias !7976, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !7979
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !7979
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !7973, !noalias !7976
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !7972
@@ -23714,7 +23714,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h77d6c94a9541ca24E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !8017, !noalias !8020, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !8023
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !8023
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !8017, !noalias !8020
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !8016
@@ -23889,7 +23889,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h79e2d51e4b723d8eE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !8061, !noalias !8064, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !8067
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !8067
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !8061, !noalias !8064
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !8060
@@ -24064,7 +24064,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h7ef36183d4b2e2f3E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !8105, !noalias !8108, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !8111
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !8111
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !8105, !noalias !8108
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !8104
@@ -24239,7 +24239,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h8560407654a1305aE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !8149, !noalias !8152, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !8155
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !8155
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !8149, !noalias !8152
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !8148
@@ -24683,7 +24683,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h8e9e946f0d23f97dE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !8381, !noalias !8384, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !8387
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !8387
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !8381, !noalias !8384
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !8380
@@ -24865,7 +24865,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h902496afd633a932E(p
   %32 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %24, %.noexc ]
   %33 = load ptr, ptr %14, align 8, !alias.scope !8441, !noalias !8444, !nonnull !11, !noundef !11
   %34 = getelementptr inbounds { i64, [8 x i64] }, ptr %33, i64 %32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %34, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !noalias !8446
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %34, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !noalias !8446
   %35 = add i64 %32, 1
   store i64 %35, ptr %13, align 8, !alias.scope !8441, !noalias !8444
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !8437
@@ -24988,7 +24988,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h91a511fd9eaec81cE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !8469, !noalias !8472, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !8475
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !8475
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !8469, !noalias !8472
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !8468
@@ -25175,7 +25175,7 @@ _ZN10serde_json5value8to_value17hc4ad45f16a621713E.exit.i.i.i.i.i: ; preds = %23
   %36 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %28, %27 ]
   %37 = load ptr, ptr %16, align 8, !alias.scope !8530, !noalias !8533, !nonnull !11, !noundef !11
   %38 = getelementptr inbounds { i64, [8 x i64] }, ptr %37, i64 %36
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !8536
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !8536
   %39 = add i64 %36, 1
   store i64 %39, ptr %15, align 8, !alias.scope !8530, !noalias !8533
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !8514
@@ -25362,7 +25362,7 @@ _ZN10serde_json5value8to_value17h4023a9791e4f3462E.exit.i.i.i.i.i: ; preds = %24
   %36 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %28, %27 ]
   %37 = load ptr, ptr %16, align 8, !alias.scope !8590, !noalias !8593, !nonnull !11, !noundef !11
   %38 = getelementptr inbounds { i64, [8 x i64] }, ptr %37, i64 %36
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !8596
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !8596
   %39 = add i64 %36, 1
   store i64 %39, ptr %15, align 8, !alias.scope !8590, !noalias !8593
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !8575
@@ -25537,7 +25537,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h99b2f588ca02a5f5E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !8634, !noalias !8637, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !8640
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !8640
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !8634, !noalias !8637
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !8633
@@ -25787,7 +25787,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17ha1fb3dd3d1ed0a7eE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !8722, !noalias !8725, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !8728
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !8728
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !8722, !noalias !8725
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !8721
@@ -25962,7 +25962,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17ha5b1d700cba9d2abE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !8766, !noalias !8769, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !8772
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !8772
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !8766, !noalias !8769
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !8765
@@ -26137,7 +26137,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17ha8e821f4c733bc57E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !8810, !noalias !8813, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !8816
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !8816
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !8810, !noalias !8813
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !8809
@@ -26309,7 +26309,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17haeecb7ffbcc7364cE(p
   %27 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %16, %15 ]
   %28 = load ptr, ptr %14, align 8, !alias.scope !8843, !noalias !8848, !nonnull !11, !noundef !11
   %29 = getelementptr inbounds { i64, [8 x i64] }, ptr %28, i64 %27
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !noalias !8875
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !noalias !8875
   %30 = add i64 %27, 1
   store i64 %30, ptr %13, align 8, !alias.scope !8843, !noalias !8848
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !8873
@@ -26438,7 +26438,7 @@ _ZN10serde_json5value8to_value17h61370e64db853213E.exit.i.i.i.i.i: ; preds = %23
   %36 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %28, %27 ]
   %37 = load ptr, ptr %16, align 8, !alias.scope !8914, !noalias !8917, !nonnull !11, !noundef !11
   %38 = getelementptr inbounds { i64, [8 x i64] }, ptr %37, i64 %36
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !8920
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !8920
   %39 = add i64 %36, 1
   store i64 %39, ptr %15, align 8, !alias.scope !8914, !noalias !8917
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !8899
@@ -26613,7 +26613,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hb23ec89e72613a03E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !8958, !noalias !8961, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !8964
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !8964
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !8958, !noalias !8961
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !8957
@@ -27365,7 +27365,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hbd4acf4bb9891856E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !9459, !noalias !9462, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !9465
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !9465
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !9459, !noalias !9462
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !9458
@@ -27611,7 +27611,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hc6df4ee52a796e0fE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !9547, !noalias !9550, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !9553
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !9553
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !9547, !noalias !9550
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !9546
@@ -28191,7 +28191,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hd5f55c1a13373b32E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !9860, !noalias !9863, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !9866
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !9866
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !9860, !noalias !9863
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !9859
@@ -28366,7 +28366,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hd6221b0b132674fcE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !9904, !noalias !9907, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !9910
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !9910
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !9904, !noalias !9907
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !9903
@@ -28674,7 +28674,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hdb18a8d7676f0abdE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !10033, !noalias !10036, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !10039
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !10039
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !10033, !noalias !10036
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !10032
@@ -28849,7 +28849,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hddc544b8ab6269fbE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !10077, !noalias !10080, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !10083
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !10083
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !10077, !noalias !10080
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !10076
@@ -29096,7 +29096,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17he455e1fbd81ac5daE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !10167, !noalias !10170, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !10173
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !10173
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !10167, !noalias !10170
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !10166
@@ -29271,7 +29271,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hec5e318bb7861627E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !10211, !noalias !10214, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !10217
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !10217
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !10211, !noalias !10214
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !10210
@@ -29446,7 +29446,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hfaa0202d6ac83eb3E(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !10255, !noalias !10258, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !10261
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !10261
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !10255, !noalias !10258
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !10254
@@ -29621,7 +29621,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hfcb7f547a04d04dbE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !10299, !noalias !10302, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !10305
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !10305
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !10299, !noalias !10302
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !10298
@@ -29796,7 +29796,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hffd86ebcde13965dE(p
   %31 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %23, %22 ]
   %32 = load ptr, ptr %16, align 8, !alias.scope !10343, !noalias !10346, !nonnull !11, !noundef !11
   %33 = getelementptr inbounds { i64, [8 x i64] }, ptr %32, i64 %31
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !10349
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !10349
   %34 = add i64 %31, 1
   store i64 %34, ptr %15, align 8, !alias.scope !10343, !noalias !10346
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !10342
@@ -60870,7 +60870,7 @@ define hidden noalias noundef align 8 ptr @"_ZN81_$LT$serde_json..value..ser..Se
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !21105, !noalias !21108, !nonnull !11, !noundef !11
   %20 = getelementptr inbounds { i64, [8 x i64] }, ptr %19, i64 %17
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
   %21 = load i64, ptr %6, align 8, !alias.scope !21105, !noalias !21108, !noundef !11
   %22 = add i64 %21, 1
   store i64 %22, ptr %6, align 8, !alias.scope !21105, !noalias !21108
@@ -63922,7 +63922,7 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..value..ser..Se
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !23060, !noalias !23063, !nonnull !11, !noundef !11
   %19 = getelementptr inbounds { i64, [8 x i64] }, ptr %18, i64 %16
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !noalias !23046
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false), !noalias !23046
   %20 = load i64, ptr %6, align 8, !alias.scope !23060, !noalias !23063, !noundef !11
   %21 = add i64 %20, 1
   store i64 %21, ptr %6, align 8, !alias.scope !23060, !noalias !23063
@@ -73025,13 +73025,13 @@ default.unreachable1.i.i:                         ; preds = %.noexc41
 
 "_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd41b1f86d37df032E.exit.i.i": ; preds = %"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h47fa6c3e662422e3E.exit.i.i.i.i.i.i"
   %157 = getelementptr inbounds i8, ptr %11, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !26521
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !26521
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !26521
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !26500
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !26500
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
   %158 = getelementptr inbounds i8, ptr %13, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !26522
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i, i64 32, i1 false), !noalias !26522
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false), !noalias !26522
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !26482
@@ -74976,7 +74976,7 @@ define hidden void @"_ZN8chalk_ir4fold12boring_impls105_$LT$impl$u20$chalk_ir..f
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !26786
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !26786
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !26786
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !noalias !26786
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %27, i64 24, i1 false), !noalias !26791
   invoke fastcc void @"_ZN8chalk_ir4fold12boring_impls92_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$13try_fold_with17h51ae06b728ebe2aaE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %12, ptr noalias nocapture noundef align 8 dereferenceable(24) %11, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3, i32 noundef %63)
           to label %71 unwind label %69, !noalias !26793
 
@@ -74992,7 +74992,7 @@ define hidden void @"_ZN8chalk_ir4fold12boring_impls105_$LT$impl$u20$chalk_ir..f
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !26786
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.014.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !26786
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !26786
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %65, i64 24, i1 false), !noalias !26791
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26794)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8), !noalias !26786
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !26786

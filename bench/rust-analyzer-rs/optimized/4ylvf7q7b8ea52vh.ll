@@ -306,7 +306,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb1cf2db662051c7fE.exit.i.i": ; preds = %70, %60
   %64 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !106, !noalias !107, !nonnull !4, !noundef !4
   %65 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %64, i64 %61
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %66 = add i64 %61, 1
   store i64 %66, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !106, !noalias !107
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !105

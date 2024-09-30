@@ -4501,7 +4501,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %.thread314.i unwind label %2847
 
 2843:                                             ; preds = %2840
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2838, ptr noundef nonnull align 8 dereferenceable(104) %201, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2838, ptr noundef nonnull align 8 dereferenceable(104) %201, i64 104, i1 false)
   %.sroa.229.0..sroa_idx.i = getelementptr inbounds i8, ptr %2838, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.59, ptr %.sroa.229.0..sroa_idx.i, align 8
   %.sroa.330.0..sroa_idx.i = getelementptr inbounds i8, ptr %2838, i64 112
@@ -6932,7 +6932,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
           to label %.thread183.i unwind label %3315
 
 3311:                                             ; preds = %3308
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3306, ptr noundef nonnull align 8 dereferenceable(104) %5, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3306, ptr noundef nonnull align 8 dereferenceable(104) %5, i64 104, i1 false)
   %.sroa.290.0..sroa_idx.i = getelementptr inbounds i8, ptr %3306, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.290.0..sroa_idx.i, align 8
   %.sroa.391.0..sroa_idx.i = getelementptr inbounds i8, ptr %3306, i64 112

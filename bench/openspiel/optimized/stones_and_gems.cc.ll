@@ -479,7 +479,7 @@ $_ZTIPFSt10shared_ptrIKN10open_spiel4GameEERKSt3mapINSt7__cxx1112basic_stringIcS
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN10open_spiel15stones_and_gemsL12kNullElementE = internal unnamed_addr global %"struct.open_spiel::stones_and_gems::Element" zeroinitializer, align 4
+@_ZN10open_spiel15stones_and_gemsL12kNullElementE = internal unnamed_addr global %"struct.open_spiel::stones_and_gems::Element" zeroinitializer, align 8
 @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElAgentE = internal unnamed_addr global %"struct.open_spiel::stones_and_gems::Element" zeroinitializer, align 8
 @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElAgentInExitE = internal unnamed_addr global %"struct.open_spiel::stones_and_gems::Element" zeroinitializer, align 8
 @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_111kElExitOpenE = internal unnamed_addr global %"struct.open_spiel::stones_and_gems::Element" zeroinitializer, align 8
@@ -10041,7 +10041,7 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState15UpdateMagicWall
 define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState10UpdateBlobEi(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %4 = load i32, ptr %3, align 4
-  %5 = load i32, ptr @_ZN10open_spiel15stones_and_gemsL12kNullElementE, align 4
+  %5 = load i32, ptr @_ZN10open_spiel15stones_and_gemsL12kNullElementE, align 8
   %.not = icmp eq i32 %4, %5
   br i1 %.not, label %10, label %6
 
@@ -10316,7 +10316,7 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState9StartScanEv(ptr 
 define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7EndScanEv(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
-  %4 = load i32, ptr @_ZN10open_spiel15stones_and_gemsL12kNullElementE, align 4
+  %4 = load i32, ptr @_ZN10open_spiel15stones_and_gemsL12kNullElementE, align 8
   %5 = icmp eq i32 %3, %4
   br i1 %5, label %6, label %18
 
@@ -10602,7 +10602,7 @@ _ZN10open_spiel15stones_and_gems12_GLOBAL__N_111IsExplosionERKNS0_7ElementE.exit
 ._crit_edge:                                      ; preds = %122, %.preheader
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %129 = load i32, ptr %128, align 4
-  %130 = load i32, ptr @_ZN10open_spiel15stones_and_gemsL12kNullElementE, align 4
+  %130 = load i32, ptr @_ZN10open_spiel15stones_and_gemsL12kNullElementE, align 8
   %131 = icmp eq i32 %129, %130
   br i1 %131, label %132, label %144
 
@@ -20419,7 +20419,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   %29 = load i32, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %31 = load i32, ptr %30, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) @_ZN10open_spiel15stones_and_gemsL12kNullElementE, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) @_ZN10open_spiel15stones_and_gemsL12kNullElementE, i64 16, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 5356
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 5296
@@ -26730,9 +26730,9 @@ define internal void @_GLOBAL__sub_I_stones_and_gems.cc() #27 section ".text.sta
   %53 = alloca %"class.std::allocator", align 1
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %54 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #33
-  store i32 -1, ptr @_ZN10open_spiel15stones_and_gemsL12kNullElementE, align 4
+  store i32 -1, ptr @_ZN10open_spiel15stones_and_gemsL12kNullElementE, align 8
   store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gemsL12kNullElementE, i64 4), align 4
-  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gemsL12kNullElementE, i64 8), align 4
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gemsL12kNullElementE, i64 8), align 8
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gemsL12kNullElementE, i64 12), align 4
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel15stones_and_gemsL12kNullElementE, i64 13), align 1
   store i32 0, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElAgentE, align 8
@@ -26976,7 +26976,7 @@ define internal void @_GLOBAL__sub_I_stones_and_gems.cc() #27 section ".text.sta
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %53)
   store i32 -1, ptr %50, align 4
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %55, ptr noundef nonnull align 4 dereferenceable(16) @_ZN10open_spiel15stones_and_gemsL12kNullElementE, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) @_ZN10open_spiel15stones_and_gemsL12kNullElementE, i64 16, i1 false)
   %56 = getelementptr inbounds i8, ptr %50, i64 20
   store i32 0, ptr %56, align 4
   %57 = getelementptr inbounds i8, ptr %50, i64 24

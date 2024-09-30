@@ -2381,7 +2381,6 @@ _ZNK5clang12CXXScopeSpec9isInvalidEv.exit.thread: ; preds = %69
 define internal fastcc noundef zeroext i1 @_ZL24LookupMemberExprInRecordRN5clang4SemaERNS_12LookupResultEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbRNS_12CXXScopeSpecEbS7_RPNS_8TypoExprE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef %2, i64 %3, i32 %4, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(48) %6, i1 noundef zeroext %7, i32 %8, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %9) unnamed_addr #0 {
   %11 = alloca %"class.clang::Sema::BoundTypeDiagnoser", align 8
   %12 = alloca %"class.clang::SourceRange", align 8
-  %.sroa.2 = alloca %"struct.clang::DeclarationNameInfo", align 8
   %13 = alloca %"class.(anonymous namespace)::RecordMemberExprValidatorCCC", align 8
   %14 = alloca %"class.std::function.1215", align 8
   %15 = alloca %class.anon.1219, align 8
@@ -2467,7 +2466,8 @@ define internal fastcc noundef zeroext i1 @_ZL24LookupMemberExprInRecordRN5clang
   %55 = phi ptr [ %51, %50 ], [ %53, %52 ]
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %57 = load ptr, ptr %56, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false)
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %59 = load i32, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 161
@@ -2525,8 +2525,6 @@ define internal fastcc noundef zeroext i1 @_ZL24LookupMemberExprInRecordRN5clang
   store ptr @"_ZNSt17_Function_handlerIFvRKN5clang14TypoCorrectionEEZL24LookupMemberExprInRecordRNS0_4SemaERNS0_12LookupResultEPNS0_4ExprENS0_8QualTypeENS0_14SourceLocationEbRNS0_12CXXScopeSpecEbSC_RPNS0_8TypoExprEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %85, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN5clang14TypoCorrectionEEZL24LookupMemberExprInRecordRNS0_4SemaERNS0_12LookupResultEPNS0_4ExprENS0_8QualTypeENS0_14SourceLocationEbRNS0_12CXXScopeSpecEbSC_RPNS0_8TypoExprEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %84, align 8
   store ptr %57, ptr %17, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2, i64 24, i1 false)
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 32
   store i32 %59, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 36

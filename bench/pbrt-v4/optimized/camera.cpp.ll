@@ -296,135 +296,135 @@ entry:
   ]
 
 sw.bb.i.i:                                        ; preds = %entry
+  %0 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
   %rayQueues.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 520
-  %0 = load ptr, ptr %rayQueues.i.i.i.i.i, align 8
+  %1 = load ptr, ptr %rayQueues.i.i.i.i.i, align 8
   %maxQueueSize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  %1 = load i32, ptr %maxQueueSize.i.i.i.i, align 8
+  %2 = load i32, ptr %maxQueueSize.i.i.i.i, align 8
   store ptr %this, ptr %ref.tmp.i.i.i.i, align 8
-  %2 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
-  store i32 %y0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 12
-  store i32 %sampleIndex, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
+  store i32 %y0, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 12
+  store i32 %sampleIndex, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 144
-  store ptr %0, ptr %5, align 8
-  call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_14PMJ02BNSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i.i.i)
+  store ptr %1, ptr %5, align 8
+  call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_14PMJ02BNSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i.i.i.i)
   br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_23WavefrontPathIntegrator18GenerateCameraRaysEiNS_9TransformEiE3$_0EEDcOT_.exit"
 
 sw.bb1.i.i:                                       ; preds = %entry
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i.i18.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %ref.tmp.i.i18.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
   %rayQueues.i.i.i19.i.i = getelementptr inbounds i8, ptr %this, i64 520
-  %6 = load ptr, ptr %rayQueues.i.i.i19.i.i, align 8
+  %7 = load ptr, ptr %rayQueues.i.i.i19.i.i, align 8
   %maxQueueSize.i.i20.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  %7 = load i32, ptr %maxQueueSize.i.i20.i.i, align 8
+  %8 = load i32, ptr %maxQueueSize.i.i20.i.i, align 8
   store ptr %this, ptr %ref.tmp.i.i18.i.i, align 8
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i18.i.i, i64 8
-  store i32 %y0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i18.i.i, i64 12
-  store i32 %sampleIndex, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %ref.tmp.i.i18.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
+  %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i18.i.i, i64 8
+  store i32 %y0, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %ref.tmp.i.i18.i.i, i64 12
+  store i32 %sampleIndex, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %ref.tmp.i.i18.i.i, i64 144
-  store ptr %6, ptr %11, align 8
-  call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_18IndependentSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i18.i.i)
+  store ptr %7, ptr %11, align 8
+  call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_18IndependentSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i18.i.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i.i18.i.i)
   br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_23WavefrontPathIntegrator18GenerateCameraRaysEiNS_9TransformEiE3$_0EEDcOT_.exit"
 
 sw.bb2.i.i:                                       ; preds = %entry
+  %12 = getelementptr inbounds i8, ptr %ref.tmp.i.i21.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %ref.tmp.i.i21.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %12, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
   %rayQueues.i.i.i22.i.i = getelementptr inbounds i8, ptr %this, i64 520
-  %12 = load ptr, ptr %rayQueues.i.i.i22.i.i, align 8
+  %13 = load ptr, ptr %rayQueues.i.i.i22.i.i, align 8
   %maxQueueSize.i.i23.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  %13 = load i32, ptr %maxQueueSize.i.i23.i.i, align 8
+  %14 = load i32, ptr %maxQueueSize.i.i23.i.i, align 8
   store ptr %this, ptr %ref.tmp.i.i21.i.i, align 8
-  %14 = getelementptr inbounds i8, ptr %ref.tmp.i.i21.i.i, i64 8
-  store i32 %y0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %ref.tmp.i.i21.i.i, i64 12
-  store i32 %sampleIndex, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %ref.tmp.i.i21.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
+  %15 = getelementptr inbounds i8, ptr %ref.tmp.i.i21.i.i, i64 8
+  store i32 %y0, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %ref.tmp.i.i21.i.i, i64 12
+  store i32 %sampleIndex, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %ref.tmp.i.i21.i.i, i64 144
-  store ptr %12, ptr %17, align 8
-  call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_17StratifiedSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i21.i.i)
+  store ptr %13, ptr %17, align 8
+  call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_17StratifiedSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i21.i.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i.i21.i.i)
   br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_23WavefrontPathIntegrator18GenerateCameraRaysEiNS_9TransformEiE3$_0EEDcOT_.exit"
 
 sw.bb3.i.i:                                       ; preds = %entry
+  %18 = getelementptr inbounds i8, ptr %ref.tmp.i.i24.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %ref.tmp.i.i24.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %18, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
   %rayQueues.i.i.i25.i.i = getelementptr inbounds i8, ptr %this, i64 520
-  %18 = load ptr, ptr %rayQueues.i.i.i25.i.i, align 8
+  %19 = load ptr, ptr %rayQueues.i.i.i25.i.i, align 8
   %maxQueueSize.i.i26.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  %19 = load i32, ptr %maxQueueSize.i.i26.i.i, align 8
+  %20 = load i32, ptr %maxQueueSize.i.i26.i.i, align 8
   store ptr %this, ptr %ref.tmp.i.i24.i.i, align 8
-  %20 = getelementptr inbounds i8, ptr %ref.tmp.i.i24.i.i, i64 8
-  store i32 %y0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %ref.tmp.i.i24.i.i, i64 12
-  store i32 %sampleIndex, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %ref.tmp.i.i24.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %22, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
+  %21 = getelementptr inbounds i8, ptr %ref.tmp.i.i24.i.i, i64 8
+  store i32 %y0, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i.i24.i.i, i64 12
+  store i32 %sampleIndex, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %ref.tmp.i.i24.i.i, i64 144
-  store ptr %18, ptr %23, align 8
-  call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_13HaltonSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i24.i.i)
+  store ptr %19, ptr %23, align 8
+  call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_13HaltonSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %20, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i24.i.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i.i24.i.i)
   br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_23WavefrontPathIntegrator18GenerateCameraRaysEiNS_9TransformEiE3$_0EEDcOT_.exit"
 
 sw.bb4.i.i:                                       ; preds = %entry
+  %24 = getelementptr inbounds i8, ptr %ref.tmp.i.i27.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %ref.tmp.i.i27.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %24, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
   %rayQueues.i.i.i28.i.i = getelementptr inbounds i8, ptr %this, i64 520
-  %24 = load ptr, ptr %rayQueues.i.i.i28.i.i, align 8
+  %25 = load ptr, ptr %rayQueues.i.i.i28.i.i, align 8
   %maxQueueSize.i.i29.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  %25 = load i32, ptr %maxQueueSize.i.i29.i.i, align 8
+  %26 = load i32, ptr %maxQueueSize.i.i29.i.i, align 8
   store ptr %this, ptr %ref.tmp.i.i27.i.i, align 8
-  %26 = getelementptr inbounds i8, ptr %ref.tmp.i.i27.i.i, i64 8
-  store i32 %y0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %ref.tmp.i.i27.i.i, i64 12
-  store i32 %sampleIndex, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %ref.tmp.i.i27.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %28, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
+  %27 = getelementptr inbounds i8, ptr %ref.tmp.i.i27.i.i, i64 8
+  store i32 %y0, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %ref.tmp.i.i27.i.i, i64 12
+  store i32 %sampleIndex, ptr %28, align 4
   %29 = getelementptr inbounds i8, ptr %ref.tmp.i.i27.i.i, i64 144
-  store ptr %24, ptr %29, align 8
-  call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_18PaddedSobolSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %25, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i27.i.i)
+  store ptr %25, ptr %29, align 8
+  call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_18PaddedSobolSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %26, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i27.i.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i.i27.i.i)
   br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_23WavefrontPathIntegrator18GenerateCameraRaysEiNS_9TransformEiE3$_0EEDcOT_.exit"
 
 sw.bb5.i.i:                                       ; preds = %entry
+  %30 = getelementptr inbounds i8, ptr %ref.tmp.i.i30.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %ref.tmp.i.i30.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %30, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
   %rayQueues.i.i.i31.i.i = getelementptr inbounds i8, ptr %this, i64 520
-  %30 = load ptr, ptr %rayQueues.i.i.i31.i.i, align 8
+  %31 = load ptr, ptr %rayQueues.i.i.i31.i.i, align 8
   %maxQueueSize.i.i32.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  %31 = load i32, ptr %maxQueueSize.i.i32.i.i, align 8
+  %32 = load i32, ptr %maxQueueSize.i.i32.i.i, align 8
   store ptr %this, ptr %ref.tmp.i.i30.i.i, align 8
-  %32 = getelementptr inbounds i8, ptr %ref.tmp.i.i30.i.i, i64 8
-  store i32 %y0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %ref.tmp.i.i30.i.i, i64 12
-  store i32 %sampleIndex, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %ref.tmp.i.i30.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %34, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
+  %33 = getelementptr inbounds i8, ptr %ref.tmp.i.i30.i.i, i64 8
+  store i32 %y0, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %ref.tmp.i.i30.i.i, i64 12
+  store i32 %sampleIndex, ptr %34, align 4
   %35 = getelementptr inbounds i8, ptr %ref.tmp.i.i30.i.i, i64 144
-  store ptr %30, ptr %35, align 8
-  call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_12SobolSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %31, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i30.i.i)
+  store ptr %31, ptr %35, align 8
+  call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_12SobolSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %32, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i30.i.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i.i30.i.i)
   br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_23WavefrontPathIntegrator18GenerateCameraRaysEiNS_9TransformEiE3$_0EEDcOT_.exit"
 
 sw.bb6.i.i:                                       ; preds = %entry
+  %36 = getelementptr inbounds i8, ptr %ref.tmp.i.i33.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %ref.tmp.i.i33.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %36, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
   %rayQueues.i.i.i34.i.i = getelementptr inbounds i8, ptr %this, i64 520
-  %36 = load ptr, ptr %rayQueues.i.i.i34.i.i, align 8
+  %37 = load ptr, ptr %rayQueues.i.i.i34.i.i, align 8
   %maxQueueSize.i.i35.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  %37 = load i32, ptr %maxQueueSize.i.i35.i.i, align 8
+  %38 = load i32, ptr %maxQueueSize.i.i35.i.i, align 8
   store ptr %this, ptr %ref.tmp.i.i33.i.i, align 8
-  %38 = getelementptr inbounds i8, ptr %ref.tmp.i.i33.i.i, i64 8
-  store i32 %y0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %ref.tmp.i.i33.i.i, i64 12
-  store i32 %sampleIndex, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %ref.tmp.i.i33.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %40, ptr noundef nonnull align 8 dereferenceable(128) %movingFromCamera, i64 128, i1 false)
+  %39 = getelementptr inbounds i8, ptr %ref.tmp.i.i33.i.i, i64 8
+  store i32 %y0, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %ref.tmp.i.i33.i.i, i64 12
+  store i32 %sampleIndex, ptr %40, align 4
   %41 = getelementptr inbounds i8, ptr %ref.tmp.i.i33.i.i, i64 144
-  store ptr %36, ptr %41, align 8
-  call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_13ZSobolSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %37, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i33.i.i)
+  store ptr %37, ptr %41, align 8
+  call void @_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_18GenerateCameraRaysINS_13ZSobolSamplerEEEviNS_9TransformEiEUliE_EEvPKciOT_(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef nonnull @.str.5, i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(152) %ref.tmp.i.i33.i.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %ref.tmp.i.i33.i.i)
   br label %"_ZN4pbrt13TaggedPointerIJNS_14PMJ02BNSamplerENS_18IndependentSamplerENS_17StratifiedSamplerENS_13HaltonSamplerENS_18PaddedSobolSamplerENS_12SobolSamplerENS_13ZSobolSamplerENS_10MLTSamplerENS_15DebugMLTSamplerEEE11DispatchCPUIRZNS_23WavefrontPathIntegrator18GenerateCameraRaysEiNS_9TransformEiE3$_0EEDcOT_.exit"
 

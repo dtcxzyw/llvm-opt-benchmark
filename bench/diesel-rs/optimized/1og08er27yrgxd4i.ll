@@ -286,7 +286,7 @@ default.unreachable:                              ; preds = %30
 57:                                               ; preds = %64, %61, %56
   %.0 = phi i32 [ %63, %64 ], [ %60, %61 ], [ %55, %56 ]
   %58 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %.0, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8

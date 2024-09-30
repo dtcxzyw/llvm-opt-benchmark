@@ -1288,31 +1288,19 @@ invoke.cont13.thread:                             ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %call5.i.i.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i) #21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i1.i, ptr nonnull align 1 %add.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i1.i5.i.i4 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i) #21
-          to label %if.then.i.i.i6 unwind label %ehcleanup
-
-if.then.i.i.i6:                                   ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i
+  %call5.i.i.i.i1.i5.i.i4 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i) #21
   store ptr %call5.i.i.i.i1.i5.i.i4, ptr %agg.result, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i5.i.i4, i64 %sub.ptr.sub.i.i.i.i.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i1.i5.i.i4, ptr nonnull align 1 %call5.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i1.i5.i.i4, ptr nonnull align 1 %add.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   store ptr %add.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i) #22
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
-_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %invoke.cont13.thread, %if.then.i.i.i6
+_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %invoke.cont13.thread, %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i
   ret void
-
-ehcleanup:                                        ; preds = %_ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit.i.i.i.i.i
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i) #22
-  resume { ptr, i32 } %2
 }
 
 ; Function Attrs: mustprogress uwtable

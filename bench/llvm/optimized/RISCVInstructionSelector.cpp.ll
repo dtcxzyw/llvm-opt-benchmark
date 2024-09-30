@@ -2510,7 +2510,6 @@ define internal void @_ZNK12_GLOBAL__N_124RISCVInstructionSelector16selectAddrRe
   %7 = alloca [2 x %"class.std::function"], align 8
   %8 = alloca %"class.llvm::SmallVector.261", align 8
   %9 = alloca [2 x %"class.std::function"], align 8
-  %.sroa.073 = alloca %"class.llvm::MachineOperand", align 8
   %10 = alloca %"class.llvm::SmallVector.261", align 8
   %11 = alloca [2 x %"class.std::function"], align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2762,13 +2761,12 @@ _ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEED2Ev.exit47: ; preds = %_ZN4llvm
   br i1 %134, label %.loopexit, label %_ZN4llvm11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EED2Ev.exit45
 
 135:                                              ; preds = %97
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.073, ptr noundef nonnull align 8 dereferenceable(32) %70, i64 32, i1 false)
   %136 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %137 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %138 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 0, ptr %138, align 8
   %139 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.073, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(32) %70, i64 32, i1 false)
   store ptr %139, ptr %9, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNK12_GLOBAL__N_124RISCVInstructionSelector16selectAddrRegImmERNS0_14MachineOperandEE3$_4E9_M_invokeERKSt9_Any_dataS2_", ptr %137, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNK12_GLOBAL__N_124RISCVInstructionSelector16selectAddrRegImmERNS0_14MachineOperandEE3$_4E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %136, align 8

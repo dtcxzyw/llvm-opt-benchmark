@@ -1896,7 +1896,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %.sroa.03)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %22, i64 40, i1 false)
   invoke void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$6unpack17hc416311129053efbE"(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %18, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %17)
           to label %251 unwind label %253
 

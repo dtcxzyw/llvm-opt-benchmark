@@ -5463,7 +5463,7 @@ _ZN3syn5parse11ParseBuffer4fork17h99a05d2f0d2d086fE.exit.i: ; preds = %.noexc.i.
   unreachable
 
 235:                                              ; preds = %229
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %230, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false), !noalias !728
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %230, ptr noundef nonnull align 8 dereferenceable(48) %14, i64 48, i1 false), !noalias !728
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !728
   store i32 1, ptr %0, align 8, !alias.scope !728
   %.sroa.449.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
@@ -8186,7 +8186,7 @@ _ZN3syn9lookahead9peek_impl17h22fc71ab2d851a14E.exit1058: ; preds = %758, %.noex
   unreachable
 
 944:                                              ; preds = %932
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %933, ptr noundef nonnull align 8 dereferenceable(232) %30, i64 232, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %933, ptr noundef nonnull align 8 dereferenceable(232) %36, i64 232, i1 false)
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %30)
   store i64 13, ptr %0, align 8
   %.sroa.4460.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -8201,7 +8201,7 @@ _ZN3syn9lookahead9peek_impl17h22fc71ab2d851a14E.exit1058: ; preds = %758, %.noex
           to label %972 unwind label %.thread1354.loopexit.split-lp
 
 946:                                              ; preds = %938
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %939, ptr noundef nonnull align 8 dereferenceable(232) %34, i64 232, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %939, ptr noundef nonnull align 8 dereferenceable(232) %36, i64 232, i1 false)
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33)
   invoke void @"_ZN54_$LT$syn..token..Semi$u20$as$u20$syn..parse..Parse$GT$5parse17h246388f3234a1240E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 %38)

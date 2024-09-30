@@ -5825,7 +5825,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.4.sroa.5.i, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.8.0..sroa_idx21.i, i64 60, i1 false), !noalias !2268
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !2277
   store i32 %.sroa.0.0.copyload20.i, ptr %5, align 8, !noalias !2268
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.4.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.4.sroa.5.i, i64 60, i1 false), !noalias !2268
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.4.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.8.0..sroa_idx21.i, i64 60, i1 false), !noalias !2268
   %13 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2280
   %14 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef 64, i64 noundef 8) #42, !noalias !2280
   %15 = icmp eq ptr %14, null
@@ -11380,7 +11380,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h444ac347d4adb9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4267)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !4270
   store i32 %.sroa.04.0.copyload5, ptr %3, align 8, !noalias !4267
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.0.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.0.sroa.5, i64 60, i1 false), !noalias !4267
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.0.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.8.0..sroa_idx6, i64 60, i1 false)
   %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4272
   %18 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef 64, i64 noundef 8) #42, !noalias !4272
   %19 = icmp eq ptr %18, null
@@ -18925,7 +18925,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hec
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.4.sroa.5, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.8.0..sroa_idx21, i64 60, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !7198
   store i32 %.sroa.0.0.copyload20, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.4.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.4.sroa.5, i64 60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.4.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.8.0..sroa_idx21, i64 60, i1 false)
   %14 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !7201
   %15 = tail call noundef align 8 dereferenceable_or_null(64) ptr @__rust_alloc(i64 noundef 64, i64 noundef 8) #42, !noalias !7201
   %16 = icmp eq ptr %15, null

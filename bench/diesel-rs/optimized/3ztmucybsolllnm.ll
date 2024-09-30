@@ -2753,7 +2753,7 @@ define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_infer
   %.sroa.532.0 = phi ptr [ %20, %19 ], [ %25, %24 ]
   %.sroa.0.0 = phi i32 [ 2, %19 ], [ 1, %24 ]
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6), !noalias !396
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %6, ptr noundef nonnull align 8 dereferenceable(328) %9, i64 328, i1 false), !noalias !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %6, ptr noundef nonnull align 8 dereferenceable(328) %2, i64 328, i1 false)
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !396
   store i64 0, ptr %7, align 8, !noalias !396

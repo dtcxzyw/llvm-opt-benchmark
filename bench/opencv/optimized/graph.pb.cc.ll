@@ -5317,63 +5317,63 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf8internal8Map
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow26NodeDef_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE14DeleteMapValueERKNS0_6MapKeyE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::InnerMap::iterator_base.44", align 8
-  %3 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::iterator", align 8
-  %4 = alloca %"struct.std::pair.46", align 8
-  %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf6MapKey14GetStringValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(36) %1), !noalias !68
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 176
-  %9 = load ptr, ptr %8, align 8
-  %10 = invoke noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(120) %0)
-          to label %11 unwind label %20
+  %3 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::InnerMap::iterator_base.44", align 8
+  %4 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::iterator", align 8
+  %5 = alloca %"struct.std::pair.46", align 8
+  %6 = alloca %"class.std::__cxx11::basic_string", align 8
+  %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf6MapKey14GetStringValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(36) %1), !noalias !68
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %8 = load ptr, ptr %0, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 176
+  %10 = load ptr, ptr %9, align 8
+  %11 = invoke noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(120) %0)
+          to label %12 unwind label %21
 
-11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !71
-  invoke void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap10FindHelperIS7_EESt4pairINSB_13iterator_baseIKNS0_7MapPairIS7_S9_EEEEmERKT_PSt17_Rb_tree_iteratorISD_IKSt17reference_wrapperIKS7_EPvEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.46") align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null)
-          to label %.noexc unwind label %20
+12:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !71
+  invoke void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap10FindHelperIS7_EESt4pairINSB_13iterator_baseIKNS0_7MapPairIS7_S9_EEEEmERKT_PSt17_Rb_tree_iteratorISD_IKSt17reference_wrapperIKS7_EPvEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.46") align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef null)
+          to label %.noexc unwind label %21
 
-.noexc:                                           ; preds = %11
-  %12 = load ptr, ptr %4, align 8, !noalias !74
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
-  %14 = load ptr, ptr %13, align 8, !noalias !74
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
-  %16 = load i64, ptr %15, align 8, !noalias !74
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !71
-  %17 = icmp ne ptr %12, null
-  br i1 %17, label %18, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5eraseIS7_EEmRKS7_.exit
+.noexc:                                           ; preds = %12
+  %13 = load ptr, ptr %5, align 8, !noalias !74
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = load ptr, ptr %14, align 8, !noalias !74
+  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = load i64, ptr %16, align 8, !noalias !74
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !71
+  %18 = icmp ne ptr %13, null
+  br i1 %18, label %19, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5eraseIS7_EEmRKS7_.exit
 
-18:                                               ; preds = %.noexc
+19:                                               ; preds = %.noexc
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i)
-  store ptr %12, ptr %3, align 8
-  %.sroa.02.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %14, ptr %.sroa.02.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.02.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 %16, ptr %.sroa.02.sroa.3.0..sroa_idx.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !77
-  %19 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %.noexc4 unwind label %20
+  store ptr %13, ptr %4, align 8
+  %.sroa.02.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %15, ptr %.sroa.02.sroa.2.0..sroa_idx.i, align 8
+  %.sroa.02.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %17, ptr %.sroa.02.sroa.3.0..sroa_idx.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !77
+  %20 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %.noexc4 unwind label %21
 
-.noexc4:                                          ; preds = %18
-  invoke void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap5eraseENSB_13iterator_baseINS0_7MapPairIS7_S9_EEEE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::InnerMap::iterator_base.44") align 8 %.sroa.0.i.i)
-          to label %.noexc5 unwind label %20
+.noexc4:                                          ; preds = %19
+  invoke void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap5eraseENSB_13iterator_baseINS0_7MapPairIS7_S9_EEEE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::InnerMap::iterator_base.44") align 8 %3)
+          to label %.noexc5 unwind label %21
 
 .noexc5:                                          ; preds = %.noexc4
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i.i)
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5eraseIS7_EEmRKS7_.exit
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5eraseIS7_EEmRKS7_.exit: ; preds = %.noexc5, %.noexc
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
-  ret i1 %17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
+  ret i1 %18
 
-20:                                               ; preds = %.noexc4, %18, %11, %2
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %.noexc4, %19, %12, %2
+  %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
-  resume { ptr, i32 } %21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8283,37 +8283,37 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5eraseIS7_EEmRKS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 comdat align 2 {
-  %.sroa.0.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::InnerMap::iterator_base.44", align 8
-  %3 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::iterator", align 8
-  %4 = alloca %"struct.std::pair.46", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !146
-  call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap10FindHelperIS7_EESt4pairINSB_13iterator_baseIKNS0_7MapPairIS7_S9_EEEEmERKT_PSt17_Rb_tree_iteratorISD_IKSt17reference_wrapperIKS7_EPvEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.46") align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef null), !noalias !149
-  %5 = load ptr, ptr %4, align 8, !noalias !149
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !noalias !149
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
-  %9 = load i64, ptr %8, align 8, !noalias !149
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !146
-  %10 = icmp eq ptr %5, null
-  br i1 %10, label %13, label %11
+  %3 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::InnerMap::iterator_base.44", align 8
+  %4 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::iterator", align 8
+  %5 = alloca %"struct.std::pair.46", align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !146
+  call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap10FindHelperIS7_EESt4pairINSB_13iterator_baseIKNS0_7MapPairIS7_S9_EEEEmERKT_PSt17_Rb_tree_iteratorISD_IKSt17reference_wrapperIKS7_EPvEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.46") align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef null), !noalias !149
+  %6 = load ptr, ptr %5, align 8, !noalias !149
+  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = load ptr, ptr %7, align 8, !noalias !149
+  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = load i64, ptr %9, align 8, !noalias !149
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !146
+  %11 = icmp eq ptr %6, null
+  br i1 %11, label %14, label %12
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i)
-  store ptr %5, ptr %3, align 8
-  %.sroa.02.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %7, ptr %.sroa.02.sroa.2.0..sroa_idx, align 8
-  %.sroa.02.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 %9, ptr %.sroa.02.sroa.3.0..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !152
-  %12 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %3), !noalias !155
-  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap5eraseENSB_13iterator_baseINS0_7MapPairIS7_S9_EEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::InnerMap::iterator_base.44") align 8 %.sroa.0.i), !noalias !152
+  store ptr %6, ptr %4, align 8
+  %.sroa.02.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %8, ptr %.sroa.02.sroa.2.0..sroa_idx, align 8
+  %.sroa.02.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 %10, ptr %.sroa.02.sroa.3.0..sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !152
+  %13 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %4), !noalias !155
+  call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap5eraseENSB_13iterator_baseINS0_7MapPairIS7_S9_EEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::InnerMap::iterator_base.44") align 8 %3), !noalias !152
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i)
-  br label %13
+  br label %14
 
-13:                                               ; preds = %2, %11
-  %.0 = phi i64 [ 1, %11 ], [ 0, %2 ]
+14:                                               ; preds = %2, %12
+  %.0 = phi i64 [ 1, %12 ], [ 0, %2 ]
   ret i64 %.0
 }
 

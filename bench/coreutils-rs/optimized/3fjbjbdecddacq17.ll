@@ -68,7 +68,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %21 = phi ptr [ %.pre, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hded0650949951f3dE.exit_crit_edge.i.i" ], [ %13, %11 ]
   %22 = phi i64 [ %.pre.i.i, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hded0650949951f3dE.exit_crit_edge.i.i" ], [ 0, %11 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !17
   store ptr %15, ptr %3, align 8, !noalias !24
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -361,7 +361,7 @@ common.resume:                                    ; preds = %87, %.body5, %27
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf66a3cd2f7c741c1E.exit.i.i": ; preds = %69, %60
   %64 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !145, !noalias !146, !nonnull !4, !noundef !4
   %65 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %64, i64 %61
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %66 = add i64 %61, 1
   store i64 %66, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !145, !noalias !146
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !144
@@ -496,7 +496,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %22 = phi ptr [ %.pre, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbfbb488c3f0234bdE.exit_crit_edge.i.i" ], [ %12, %10 ]
   %23 = phi i64 [ %.pre.i.i, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbfbb488c3f0234bdE.exit_crit_edge.i.i" ], [ 0, %10 ]
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %4), !noalias !187
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %4, ptr noundef nonnull align 8 dereferenceable(232) %5, i64 232, i1 false), !noalias !186
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %4, ptr noundef nonnull align 8 dereferenceable(232) %1, i64 232, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !188
   store ptr %14, ptr %3, align 8, !noalias !192
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8

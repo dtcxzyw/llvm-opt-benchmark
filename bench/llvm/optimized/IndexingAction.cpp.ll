@@ -491,8 +491,8 @@ _ZNSt8functionIFbPKN5clang4DeclEEEC2ERKS5_.exit:  ; preds = %4
 
 "_ZNSt8functionIFbPKN5clang4DeclEEEaSIZNS0_5index25createIndexingASTConsumerESt10shared_ptrINS7_17IndexDataConsumerEERKNS7_15IndexingOptionsES8_INS0_12PreprocessorEEE3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueERS5_E4typeEOSI_.exit": ; preds = %22, %_ZNSt8functionIFbPKN5clang4DeclEEEC2ERKS5_.exit
   store ptr %20, ptr %5, align 8
-  %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   br label %_ZNSt8functionIFbPKN5clang4DeclEEEC2EOS5_.exit
 
 _ZNSt8functionIFbPKN5clang4DeclEEEC2EOS5_.exit:   ; preds = %"_ZNSt8functionIFbPKN5clang4DeclEEEaSIZNS0_5index25createIndexingASTConsumerESt10shared_ptrINS7_17IndexDataConsumerEERKNS7_15IndexingOptionsES8_INS0_12PreprocessorEEE3$_1EENSt9enable_ifIXsr9_CallableIT_EE5valueERS5_E4typeEOSI_.exit", %4

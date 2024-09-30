@@ -1153,7 +1153,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %3
   %138 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %129, %128 ]
   %139 = load ptr, ptr %32, align 8, !alias.scope !174, !noalias !177, !nonnull !15, !noundef !15
   %140 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %139, i64 %138
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   %141 = load i64, ptr %33, align 8, !alias.scope !174, !noalias !177, !noundef !15
   %142 = add i64 %141, 1
   store i64 %142, ptr %33, align 8, !alias.scope !174, !noalias !177
@@ -1192,7 +1192,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %3
   %153 = phi i64 [ %.pre.i43, %._crit_edge.i42 ], [ %144, %143 ]
   %154 = load ptr, ptr %22, align 8, !alias.scope !179, !noalias !182, !nonnull !15, !noundef !15
   %155 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %154, i64 %153
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %155, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %155, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   %156 = load i64, ptr %23, align 8, !alias.scope !179, !noalias !182, !noundef !15
   %157 = add i64 %156, 1
   store i64 %157, ptr %23, align 8, !alias.scope !179, !noalias !182
@@ -1721,7 +1721,7 @@ define void @_ZN9sourcegen12CommentBlock16extract_untagged17hb1ccbeb853a3a7a4E(p
   %80 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %71, %70 ]
   %81 = load ptr, ptr %16, align 8, !alias.scope !304, !noalias !307, !nonnull !15, !noundef !15
   %82 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i64, i8, [7 x i8] }, ptr %81, i64 %80
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %82, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %82, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false)
   %83 = add i64 %80, 1
   store i64 %83, ptr %17, align 8, !alias.scope !304, !noalias !307
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
@@ -1870,7 +1870,7 @@ define void @_ZN9sourcegen12CommentBlock16extract_untagged17hb1ccbeb853a3a7a4E(p
   %145 = phi i64 [ %.pre.i88, %._crit_edge.i87 ], [ %137, %135 ]
   %146 = load ptr, ptr %16, align 8, !alias.scope !323, !noalias !326, !nonnull !15, !noundef !15
   %147 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i64, i8, [7 x i8] }, ptr %146, i64 %145
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %147, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %147, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 64, i1 false)
   %148 = add i64 %145, 1
   store i64 %148, ptr %17, align 8, !alias.scope !323, !noalias !326
   br label %133
@@ -2038,7 +2038,7 @@ define void @_ZN9sourcegen12CommentBlock16extract_untagged17hb1ccbeb853a3a7a4E(p
   %221 = phi i64 [ %.pre.i104, %._crit_edge.i103 ], [ %212, %208 ]
   %222 = load ptr, ptr %37, align 8, !alias.scope !348, !noalias !351, !nonnull !15, !noundef !15
   %223 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %222, i64 %221
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %223, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %223, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   %224 = load i64, ptr %36, align 8, !alias.scope !348, !noalias !351, !noundef !15
   %225 = add i64 %224, 1
   store i64 %225, ptr %36, align 8, !alias.scope !348, !noalias !351
@@ -4722,9 +4722,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hb9d63dd7cff2ead8E.llvm.13239422733809814115"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #1

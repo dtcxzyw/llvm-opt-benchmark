@@ -1920,7 +1920,6 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %5 = alloca %"class.llvm::iterator_range.1012", align 8
   %6 = alloca %"class.llvm::iterator_range.1012", align 8
   %7 = alloca %"class.(anonymous namespace)::StmtComparer", align 8
-  %.sroa.779 = alloca %"class.clang::StmtIteratorBase", align 8
   %8 = alloca %"class.llvm::detail::zip_longest_iterator", align 8
   %9 = icmp ne ptr %1, null
   %10 = icmp ne ptr %2, null
@@ -2985,9 +2984,10 @@ _ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit: ; preds =
 _ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread: ; preds = %206, %137, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %136, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13UnaryOperatorES4_.exit, %148, %150, %152, %154, %156, %158, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8StmtExprES4_.exit, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13SourceLocExprES4_.exit, %174, %176, %178, %180, %182, %184, %186, %188, %190, %192, %194, %196, %198, %200, %202, %204, %210, %212, %214, %216, %218, %220, %222, %224, %226, %228, %230, %232, %234, %236, %238, %240, %242, %244, %246, %248, %250, %252, %254, %256, %258, %260, %262, %264, %266, %268, %270, %272, %274, %276, %278, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ExpressionTraitExprES4_.exit, %287, %289, %291, %293, %295, %297, %299, %301, %303, %305, %307, %309, %311, %313, %315, %317, %319, %321, %323, %325, %327, %329, %331, %333, %335, %337, %339, %341, %343, %345, %347, %349, %351, %353, %355, %357, %359, %361, %363, %365, %367, %369, %371, %373, %375, %377, %379, %381, %383, %385, %387, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14BinaryOperatorES4_.exit, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CompoundAssignOperatorES4_.exit, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AtomicExprES4_.exit, %410, %412, %414, %416, %418, %420, %422, %424, %426, %428, %432, %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.1012") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %.tr107117) #17, !noalias !24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.779, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %440 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.285.24.copyload = load ptr, ptr %440, align 8
+  %440 = getelementptr inbounds i8, ptr %8, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %440, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  %441 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sroa.285.24.copyload = load ptr, ptr %441, align 8
   %.sroa.486.24..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
   %.sroa.486.24.copyload = load i64, ptr %.sroa.486.24..sroa_idx, align 8
   %.sroa.587.24..sroa_idx = getelementptr inbounds i8, ptr %6, i64 40
@@ -2996,15 +2996,13 @@ _ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread: ; 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.1012") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %.tr108118) #17, !noalias !27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %441 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sroa.289.24.copyload = load ptr, ptr %441, align 8
+  %442 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sroa.289.24.copyload = load ptr, ptr %442, align 8
   %.sroa.490.24..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
   %.sroa.490.24.copyload = load i64, ptr %.sroa.490.24..sroa_idx, align 8
   %.sroa.591.24..sroa_idx = getelementptr inbounds i8, ptr %5, i64 40
   %.sroa.591.24.copyload = load ptr, ptr %.sroa.591.24..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  %442 = getelementptr inbounds i8, ptr %8, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %442, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.779, i64 24, i1 false)
   %443 = getelementptr inbounds i8, ptr %8, i64 72
   store ptr %.sroa.285.24.copyload, ptr %443, align 8
   %.sroa.12.72..sroa_idx = getelementptr inbounds i8, ptr %8, i64 80
@@ -3023,7 +3021,7 @@ _ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread: ; 
   br label %448
 
 448:                                              ; preds = %481, %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread
-  %449 = load ptr, ptr %442, align 8
+  %449 = load ptr, ptr %440, align 8
   %450 = icmp ne ptr %449, %.sroa.285.24.copyload
   %451 = load i64, ptr %445, align 8
   %452 = icmp ne i64 %451, %.sroa.486.24.copyload
@@ -3052,7 +3050,7 @@ _ZNK4llvm20iterator_facade_baseINS_6detail20zip_longest_iteratorIJN5clang17Const
   br i1 %463, label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit.i.i.i, label %464
 
 464:                                              ; preds = %461
-  %465 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %442) #17, !noalias !30
+  %465 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %440) #17, !noalias !30
   br label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit.i.i.i
 
 _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit.i.i.i: ; preds = %464, %461
@@ -3092,7 +3090,7 @@ _ZNK4llvm6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES3_EEdeEv.exi
 481:                                              ; preds = %478
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @_ZNK4llvm6detail20zip_longest_iteratorIJN5clang17ConstStmtIteratorES3_EE7tup_incIJLm0ELm1EEEESt5tupleIJS3_S3_EESt16integer_sequenceImJXspT_EEE(ptr dead_on_unwind nonnull writable sret(%"class.std::tuple.641") align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %442, ptr noundef nonnull align 8 dereferenceable(24) %447, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %440, ptr noundef nonnull align 8 dereferenceable(24) %447, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   br label %448

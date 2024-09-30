@@ -374,11 +374,11 @@ define hidden void @"_ZN14cranelift_isle10trie_again14RuleSetBuilder29normalize_
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %6, align 8, !nonnull !3, !align !12, !noundef !3
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)
+  %12 = load ptr, ptr %6, align 8, !nonnull !3, !align !12, !noundef !3
   store i16 %5, ptr %3, align 16
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb9f971c6d271dd5fE"(ptr nonnull align 8 %11, ptr nonnull align 16 %3)
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb9f971c6d271dd5fE"(ptr nonnull align 8 %12, ptr nonnull align 16 %3)
   br label %13
 
 13:                                               ; preds = %10, %2

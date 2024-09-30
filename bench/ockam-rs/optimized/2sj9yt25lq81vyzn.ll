@@ -281,7 +281,7 @@ define hidden void @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$4i
   br i1 %trunc.i.i, label %18, label %16
 
 16:                                               ; preds = %13
-  %17 = call noundef nonnull ptr @_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17h9084acc10508bce9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(1112) %5, i64 noundef %12), !noalias !50
+  %17 = call noundef nonnull ptr @_ZN5tokio7runtime9scheduler14current_thread6Handle5spawn17h9084acc10508bce9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(1112) %6, i64 noundef %12)
   br label %_ZN5tokio7runtime6handle6Handle11spawn_named17h3ea1613f80ef1af5E.exit
 
 18:                                               ; preds = %13

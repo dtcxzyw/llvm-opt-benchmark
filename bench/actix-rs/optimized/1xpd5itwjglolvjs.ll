@@ -796,7 +796,6 @@ define void @_ZN15actix_multipart6server9Multipart8boundary17h4a7f5a09292cb55eE(
   %6 = alloca { i64, [10 x i64] }, align 8
   %7 = alloca { { ptr, i64 }, i8, [7 x i8] }, align 8
   %8 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.5 = alloca [32 x i8], align 8
   %9 = alloca { i64, [5 x i64] }, align 8
   %10 = alloca { i64, [5 x i64] }, align 8
   %.sroa.79 = alloca [6 x i64], align 8
@@ -840,8 +839,8 @@ define void @_ZN15actix_multipart6server9Multipart8boundary17h4a7f5a09292cb55eE(
   %.sroa.788.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.79, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.788.0..sroa_idx, i64 48, i1 false)
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 56
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8.0..sroa_idx, i64 32, i1 false)
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8.0..sroa_idx, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   store i64 2, ptr %9, align 8
@@ -852,9 +851,6 @@ define void @_ZN15actix_multipart6server9Multipart8boundary17h4a7f5a09292cb55eE(
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.7, i64 48, i1 false)
   store i64 %22, ptr %11, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @anon.5007fb1ca41d1123f19426ceed96f3e3.24, i64 24, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !205)
@@ -1051,7 +1047,7 @@ define void @_ZN15actix_multipart6server9Multipart10from_error17h5db24a0aca621d5
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 -9223372036854775808, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)

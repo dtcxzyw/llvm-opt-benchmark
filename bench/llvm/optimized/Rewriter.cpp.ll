@@ -212,214 +212,210 @@ define dso_local void @_ZNK5clang8Rewriter16getRewrittenTextB5cxx11ENS_15CharSou
   %7 = alloca %"class.std::allocator.82", align 1
   %8 = alloca %"class.llvm::RopePieceBTreeIterator", align 8
   %9 = alloca %"class.llvm::RopePieceBTreeIterator", align 8
-  %10 = alloca %"class.llvm::RopePieceBTreeIterator", align 8
-  %11 = alloca %"class.llvm::RopePieceBTreeIterator", align 8
-  %12 = alloca %"class.std::allocator.82", align 1
+  %10 = alloca %"class.std::allocator.82", align 1
   %.sroa.041.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.4.0.extract.shift = lshr i64 %2, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  %13 = and i64 %2, -9223372034707292160
-  %or.cond = icmp eq i64 %13, 0
-  br i1 %or.cond, label %15, label %14
+  %11 = and i64 %2, -9223372034707292160
+  %or.cond = icmp eq i64 %11, 0
+  br i1 %or.cond, label %13, label %12
 
-14:                                               ; preds = %4
+12:                                               ; preds = %4
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
-  br label %102
+  br label %100
 
-15:                                               ; preds = %4
-  %16 = load ptr, ptr %1, align 8
-  %17 = tail call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %16, i32 %.sroa.041.0.extract.trunc)
-  %.sroa.01.0.extract.trunc.i = trunc i64 %17 to i32
-  %.sroa.2.0.extract.shift.i = lshr i64 %17, 32
+13:                                               ; preds = %4
+  %14 = load ptr, ptr %1, align 8
+  %15 = tail call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %14, i32 %.sroa.041.0.extract.trunc)
+  %.sroa.01.0.extract.trunc.i = trunc i64 %15 to i32
+  %.sroa.2.0.extract.shift.i = lshr i64 %15, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
-  %18 = load ptr, ptr %1, align 8
-  %19 = tail call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %18, i32 %.sroa.4.0.extract.trunc)
-  %.sroa.01.0.extract.trunc.i24 = trunc i64 %19 to i32
-  %.sroa.2.0.extract.shift.i25 = lshr i64 %19, 32
+  %16 = load ptr, ptr %1, align 8
+  %17 = tail call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %16, i32 %.sroa.4.0.extract.trunc)
+  %.sroa.01.0.extract.trunc.i24 = trunc i64 %17 to i32
+  %.sroa.2.0.extract.shift.i25 = lshr i64 %17, 32
   %.sroa.2.0.extract.trunc.i26 = trunc nuw i64 %.sroa.2.0.extract.shift.i25 to i32
   %.not = icmp eq i32 %.sroa.01.0.extract.trunc.i, %.sroa.01.0.extract.trunc.i24
-  br i1 %.not, label %21, label %20
+  br i1 %.not, label %19, label %18
 
-20:                                               ; preds = %15
+18:                                               ; preds = %13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
-  br label %102
+  br label %100
 
-21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
-  %.not10.i.i.i = icmp eq ptr %23, null
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %.not10.i.i.i = icmp eq ptr %21, null
   br i1 %.not10.i.i.i, label %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %21, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %23, %21 ]
-  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %24, %21 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp slt i32 %26, %.sroa.01.0.extract.trunc.i
-  %.19.i.i.i = select i1 %27, ptr %.0811.i.i.i, ptr %.012.i.i.i
-  %.1.in.v.i.i.i = select i1 %27, i64 24, i64 16
+.lr.ph.i.i.i:                                     ; preds = %19, %.lr.ph.i.i.i
+  %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %21, %19 ]
+  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %22, %19 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp slt i32 %24, %.sroa.01.0.extract.trunc.i
+  %.19.i.i.i = select i1 %25, ptr %.0811.i.i.i, ptr %.012.i.i.i
+  %.1.in.v.i.i.i = select i1 %25, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
   br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIN5clang6FileIDESt4pairIKS1_N4llvm13RewriteBufferEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
 _ZNKSt8_Rb_treeIN5clang6FileIDESt4pairIKS1_N4llvm13RewriteBufferEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i: ; preds = %.lr.ph.i.i.i
-  %28 = icmp eq ptr %.19.i.i.i, %24
-  br i1 %28, label %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread, label %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit
+  %26 = icmp eq ptr %.19.i.i.i, %22
+  br i1 %26, label %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread, label %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit
 
 _ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit: ; preds = %_ZNKSt8_Rb_treeIN5clang6FileIDESt4pairIKS1_N4llvm13RewriteBufferEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp sgt i32 %30, %.sroa.01.0.extract.trunc.i
-  br i1 %31, label %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread, label %48
+  %27 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp sgt i32 %28, %.sroa.01.0.extract.trunc.i
+  br i1 %29, label %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread, label %46
 
-_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread: ; preds = %21, %_ZNKSt8_Rb_treeIN5clang6FileIDESt4pairIKS1_N4llvm13RewriteBufferEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit
-  %32 = load ptr, ptr %1, align 8
-  %33 = tail call noundef ptr @_ZNK5clang13SourceManager16getCharacterDataENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %32, i32 %.sroa.041.0.extract.trunc, ptr noundef null) #15
-  %34 = trunc i8 %3 to i1
-  br i1 %34, label %35, label %41
+_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread: ; preds = %19, %_ZNKSt8_Rb_treeIN5clang6FileIDESt4pairIKS1_N4llvm13RewriteBufferEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS6_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit
+  %30 = load ptr, ptr %1, align 8
+  %31 = tail call noundef ptr @_ZNK5clang13SourceManager16getCharacterDataENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %30, i32 %.sroa.041.0.extract.trunc, ptr noundef null) #15
+  %32 = trunc i8 %3 to i1
+  br i1 %32, label %33, label %39
 
-35:                                               ; preds = %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread
-  %36 = load ptr, ptr %1, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef i32 @_ZN5clang5Lexer18MeasureTokenLengthENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsE(i32 %.sroa.4.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(696) %36, ptr noundef nonnull align 8 dereferenceable(841) %38) #15
-  %40 = add i32 %39, %.sroa.2.0.extract.trunc.i26
-  br label %41
+33:                                               ; preds = %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread
+  %34 = load ptr, ptr %1, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call noundef i32 @_ZN5clang5Lexer18MeasureTokenLengthENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsE(i32 %.sroa.4.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(696) %34, ptr noundef nonnull align 8 dereferenceable(841) %36) #15
+  %38 = add i32 %37, %.sroa.2.0.extract.trunc.i26
+  br label %39
 
-41:                                               ; preds = %35, %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread
-  %.0 = phi i32 [ %40, %35 ], [ %.sroa.2.0.extract.trunc.i26, %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread ]
-  %42 = zext i32 %.0 to i64
-  %43 = getelementptr inbounds i8, ptr %33, i64 %42
-  %44 = sub nsw i64 0, %.sroa.2.0.extract.shift.i
-  %45 = getelementptr inbounds i8, ptr %43, i64 %44
+39:                                               ; preds = %33, %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread
+  %.0 = phi i32 [ %38, %33 ], [ %.sroa.2.0.extract.trunc.i26, %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread ]
+  %40 = zext i32 %.0 to i64
+  %41 = getelementptr inbounds i8, ptr %31, i64 %40
+  %42 = sub nsw i64 0, %.sroa.2.0.extract.shift.i
+  %43 = getelementptr inbounds i8, ptr %41, i64 %42
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
-  %46 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, ptr noundef nonnull align 1 dereferenceable(1) %7) #15
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %47, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %33, ptr noundef %45)
+  %44 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %7) #15
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %45, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %31, ptr noundef %43)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
-  br label %102
+  br label %100
 
-48:                                               ; preds = %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit
-  %49 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
-  %50 = shl i32 %.sroa.2.0.extract.trunc.i26, 1
-  %51 = or disjoint i32 %50, 1
-  %52 = tail call noundef i32 @_ZNK4llvm9DeltaTree10getDeltaAtEj(ptr noundef nonnull align 8 dereferenceable(8) %49, i32 noundef %51) #15
-  %53 = add i32 %52, %.sroa.2.0.extract.trunc.i26
-  %54 = shl i32 %.sroa.2.0.extract.trunc.i, 1
-  %55 = tail call noundef i32 @_ZNK4llvm9DeltaTree10getDeltaAtEj(ptr noundef nonnull align 8 dereferenceable(8) %49, i32 noundef %54) #15
-  %56 = add i32 %55, %.sroa.2.0.extract.trunc.i
-  %57 = trunc i8 %3 to i1
-  br i1 %57, label %58, label %64
+46:                                               ; preds = %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit
+  %47 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
+  %48 = shl i32 %.sroa.2.0.extract.trunc.i26, 1
+  %49 = or disjoint i32 %48, 1
+  %50 = tail call noundef i32 @_ZNK4llvm9DeltaTree10getDeltaAtEj(ptr noundef nonnull align 8 dereferenceable(8) %47, i32 noundef %49) #15
+  %51 = add i32 %50, %.sroa.2.0.extract.trunc.i26
+  %52 = shl i32 %.sroa.2.0.extract.trunc.i, 1
+  %53 = tail call noundef i32 @_ZNK4llvm9DeltaTree10getDeltaAtEj(ptr noundef nonnull align 8 dereferenceable(8) %47, i32 noundef %52) #15
+  %54 = add i32 %53, %.sroa.2.0.extract.trunc.i
+  %55 = trunc i8 %3 to i1
+  br i1 %55, label %56, label %62
 
-58:                                               ; preds = %48
-  %59 = load ptr, ptr %1, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call noundef i32 @_ZN5clang5Lexer18MeasureTokenLengthENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsE(i32 %.sroa.4.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(696) %59, ptr noundef nonnull align 8 dereferenceable(841) %61) #15
-  %63 = add i32 %62, %53
-  br label %64
+56:                                               ; preds = %46
+  %57 = load ptr, ptr %1, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call noundef i32 @_ZN5clang5Lexer18MeasureTokenLengthENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsE(i32 %.sroa.4.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(696) %57, ptr noundef nonnull align 8 dereferenceable(841) %59) #15
+  %61 = add i32 %60, %51
+  br label %62
 
-64:                                               ; preds = %58, %48
-  %.1 = phi i32 [ %63, %58 ], [ %53, %48 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 48
-  %66 = load ptr, ptr %65, align 8, !noalias !6
-  call void @_ZN4llvm22RopePieceBTreeIteratorC1EPKv(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef %66) #15
-  %.not1.i.i = icmp eq i32 %56, 0
+62:                                               ; preds = %56, %46
+  %.1 = phi i32 [ %61, %56 ], [ %51, %46 ]
+  %63 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 48
+  %64 = load ptr, ptr %63, align 8, !noalias !6
+  call void @_ZN4llvm22RopePieceBTreeIteratorC1EPKv(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef %64) #15
+  %.not1.i.i = icmp eq i32 %54, 0
   br i1 %.not1.i.i, label %_ZSt7advanceIN4llvm22RopePieceBTreeIteratorEjEvRT_T0_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %64
-  %67 = zext i32 %56 to i64
-  %68 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %69 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  br label %70
+.lr.ph.i.i:                                       ; preds = %62
+  %65 = zext i32 %54 to i64
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  br label %68
 
-70:                                               ; preds = %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i, %.lr.ph.i.i
-  %.02.i.i = phi i64 [ %67, %.lr.ph.i.i ], [ %71, %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i ]
-  %71 = add nsw i64 %.02.i.i, -1
-  %72 = load i32, ptr %68, align 8
-  %73 = add i32 %72, 1
-  %74 = load ptr, ptr %69, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 12
-  %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %78 = load i32, ptr %77, align 8
-  %79 = sub i32 %76, %78
-  %80 = icmp ult i32 %73, %79
-  br i1 %80, label %81, label %82
+68:                                               ; preds = %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i, %.lr.ph.i.i
+  %.02.i.i = phi i64 [ %65, %.lr.ph.i.i ], [ %69, %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i ]
+  %69 = add nsw i64 %.02.i.i, -1
+  %70 = load i32, ptr %66, align 8
+  %71 = add i32 %70, 1
+  %72 = load ptr, ptr %67, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 12
+  %74 = load i32, ptr %73, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %76 = load i32, ptr %75, align 8
+  %77 = sub i32 %74, %76
+  %78 = icmp ult i32 %71, %77
+  br i1 %78, label %79, label %80
 
-81:                                               ; preds = %70
-  store i32 %73, ptr %68, align 8
+79:                                               ; preds = %68
+  store i32 %71, ptr %66, align 8
   br label %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i
 
-82:                                               ; preds = %70
+80:                                               ; preds = %68
   call void @_ZN4llvm22RopePieceBTreeIterator15MoveToNextPieceEv(ptr noundef nonnull align 8 dereferenceable(20) %8) #15
   br label %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i
 
-_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i:    ; preds = %82, %81
-  %.not.i.i = icmp eq i64 %71, 0
-  br i1 %.not.i.i, label %_ZSt7advanceIN4llvm22RopePieceBTreeIteratorEjEvRT_T0_.exit, label %70, !llvm.loop !13
+_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i:    ; preds = %80, %79
+  %.not.i.i = icmp eq i64 %69, 0
+  br i1 %.not.i.i, label %_ZSt7advanceIN4llvm22RopePieceBTreeIteratorEjEvRT_T0_.exit, label %68, !llvm.loop !13
 
-_ZSt7advanceIN4llvm22RopePieceBTreeIteratorEjEvRT_T0_.exit: ; preds = %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i, %64
+_ZSt7advanceIN4llvm22RopePieceBTreeIteratorEjEvRT_T0_.exit: ; preds = %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i, %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %.not1.i.i30 = icmp eq i32 %.1, %56
+  %.not1.i.i30 = icmp eq i32 %.1, %54
   br i1 %.not1.i.i30, label %_ZSt7advanceIN4llvm22RopePieceBTreeIteratorEjEvRT_T0_.exit35, label %.lr.ph.i.i31
 
 .lr.ph.i.i31:                                     ; preds = %_ZSt7advanceIN4llvm22RopePieceBTreeIteratorEjEvRT_T0_.exit
-  %83 = sub i32 %.1, %56
-  %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %86 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br label %87
+  %81 = sub i32 %.1, %54
+  %82 = zext i32 %81 to i64
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  br label %85
 
-87:                                               ; preds = %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i33, %.lr.ph.i.i31
-  %.02.i.i32 = phi i64 [ %84, %.lr.ph.i.i31 ], [ %88, %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i33 ]
-  %88 = add nsw i64 %.02.i.i32, -1
-  %89 = load i32, ptr %85, align 8
-  %90 = add i32 %89, 1
-  %91 = load ptr, ptr %86, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
-  %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %95 = load i32, ptr %94, align 8
-  %96 = sub i32 %93, %95
-  %97 = icmp ult i32 %90, %96
-  br i1 %97, label %98, label %99
+85:                                               ; preds = %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i33, %.lr.ph.i.i31
+  %.02.i.i32 = phi i64 [ %82, %.lr.ph.i.i31 ], [ %86, %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i33 ]
+  %86 = add nsw i64 %.02.i.i32, -1
+  %87 = load i32, ptr %83, align 8
+  %88 = add i32 %87, 1
+  %89 = load ptr, ptr %84, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 12
+  %91 = load i32, ptr %90, align 4
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %93 = load i32, ptr %92, align 8
+  %94 = sub i32 %91, %93
+  %95 = icmp ult i32 %88, %94
+  br i1 %95, label %96, label %97
 
-98:                                               ; preds = %87
-  store i32 %90, ptr %85, align 8
+96:                                               ; preds = %85
+  store i32 %88, ptr %83, align 8
   br label %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i33
 
-99:                                               ; preds = %87
+97:                                               ; preds = %85
   call void @_ZN4llvm22RopePieceBTreeIterator15MoveToNextPieceEv(ptr noundef nonnull align 8 dereferenceable(20) %9) #15
   br label %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i33
 
-_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i33:  ; preds = %99, %98
-  %.not.i.i34 = icmp eq i64 %88, 0
-  br i1 %.not.i.i34, label %_ZSt7advanceIN4llvm22RopePieceBTreeIteratorEjEvRT_T0_.exit35, label %87, !llvm.loop !13
+_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i33:  ; preds = %97, %96
+  %.not.i.i34 = icmp eq i64 %86, 0
+  br i1 %.not.i.i34, label %_ZSt7advanceIN4llvm22RopePieceBTreeIteratorEjEvRT_T0_.exit35, label %85, !llvm.loop !13
 
 _ZSt7advanceIN4llvm22RopePieceBTreeIteratorEjEvRT_T0_.exit35: ; preds = %_ZN4llvm22RopePieceBTreeIteratorppEv.exit.i.i33, %_ZSt7advanceIN4llvm22RopePieceBTreeIteratorEjEvRT_T0_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  %100 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %100, ptr noundef nonnull align 1 dereferenceable(1) %12) #15
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %101, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #15
+  %98 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %98, ptr noundef nonnull align 1 dereferenceable(1) %10) #15
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %99, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIN4llvm22RopePieceBTreeIteratorEEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull byval(%"class.llvm::RopePieceBTreeIterator") align 8 %6, ptr noundef nonnull byval(%"class.llvm::RopePieceBTreeIterator") align 8 %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #15
-  br label %102
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #15
+  br label %100
 
-102:                                              ; preds = %_ZSt7advanceIN4llvm22RopePieceBTreeIteratorEjEvRT_T0_.exit35, %41, %20, %14
+100:                                              ; preds = %_ZSt7advanceIN4llvm22RopePieceBTreeIteratorEjEvRT_T0_.exit35, %39, %18, %12
   ret void
 }
 

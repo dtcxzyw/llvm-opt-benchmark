@@ -3257,7 +3257,7 @@ hwloc_memory_tier_type_sscanf.exit.i:             ; preds = %54, %52, %50, %48, 
 hwloc__force_memory_tiers.exit:                   ; preds = %hwloc_memory_tier_type_sscanf.exit.i
   tail call void @free(ptr noundef %9) #27
   tail call void @hwloc_bitmap_free(ptr noundef nonnull %19) #27
-  br label %364
+  br label %360
 
 hwloc__force_memory_tiers.exit.thread:            ; preds = %11, %68, %2
   %69 = tail call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %0, i32 noundef -3) #28
@@ -3584,8 +3584,8 @@ hwloc__memattr_target_get_initiator.exit307.i:    ; preds = %match_internal_loca
   tail call void @qsort(ptr noundef nonnull %100, i64 noundef %98, i64 noundef 40, ptr noundef nonnull @compare_node_infos_by_type_and_bw) #27
   %192 = getelementptr inbounds i8, ptr %100, i64 32
   store i32 0, ptr %192, align 8
-  %.not422.i = icmp eq i32 %69, 1
-  br i1 %.not422.i, label %._crit_edge345.i, label %.lr.ph344.preheader.i
+  %.not424.i = icmp eq i32 %69, 1
+  br i1 %.not424.i, label %._crit_edge345.i, label %.lr.ph344.preheader.i
 
 .lr.ph344.preheader.i:                            ; preds = %._crit_edge.i31
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %100, i64 24
@@ -3670,7 +3670,7 @@ hwloc__memattr_target_get_initiator.exit307.i:    ; preds = %match_internal_loca
   %235 = zext i32 %234 to i64
   %236 = tail call noalias ptr @calloc(i64 noundef %235, i64 noundef 48) #32
   %.not251.i = icmp eq ptr %236, null
-  br i1 %.not251.i, label %272, label %.preheader324.i
+  br i1 %.not251.i, label %268, label %.preheader324.i
 
 .preheader324.i:                                  ; preds = %._crit_edge345.i
   %.not355.i = icmp eq i32 %234, 0
@@ -3692,8 +3692,8 @@ hwloc__memattr_target_get_initiator.exit307.i:    ; preds = %match_internal_loca
   %exitcond390.not.i = icmp eq i64 %indvars.iv.next387.i, %235
   br i1 %exitcond390.not.i, label %.preheader323.i, label %.lr.ph347.i, !llvm.loop !33
 
-.lr.ph349.i:                                      ; preds = %.preheader323.i, %268
-  %indvars.iv396.i = phi i64 [ %indvars.iv.next397.i, %268 ], [ 0, %.preheader323.i ]
+.lr.ph349.i:                                      ; preds = %.preheader323.i, %.lr.ph349.i
+  %indvars.iv396.i = phi i64 [ %indvars.iv.next397.i, %.lr.ph349.i ], [ 0, %.preheader323.i ]
   %240 = getelementptr inbounds %struct.hwloc_memory_node_info_s, ptr %100, i64 %indvars.iv396.i
   %241 = getelementptr inbounds i8, ptr %240, i64 32
   %242 = load i32, ptr %241, align 8
@@ -3713,463 +3713,447 @@ hwloc__memattr_target_get_initiator.exit307.i:    ; preds = %match_internal_loca
   %.not252.i = icmp eq i64 %254, 0
   %255 = getelementptr inbounds i8, ptr %240, i64 8
   %256 = load i64, ptr %255, align 8
-  br i1 %.not252.i, label %257, label %.lr.ph349._crit_edge.i
-
-257:                                              ; preds = %.lr.ph349.i
-  store i64 %256, ptr %253, align 8
-  br label %.lr.ph349._crit_edge.i
-
-.lr.ph349._crit_edge.i:                           ; preds = %257, %.lr.ph349.i
-  %258 = getelementptr inbounds i8, ptr %244, i64 16
-  store i64 %256, ptr %258, align 8
-  %259 = getelementptr inbounds i8, ptr %244, i64 24
-  %260 = load i64, ptr %259, align 8
+  %spec.store.select.i = select i1 %.not252.i, i64 %256, i64 %254
+  store i64 %spec.store.select.i, ptr %253, align 8
+  %257 = getelementptr inbounds i8, ptr %244, i64 16
+  store i64 %256, ptr %257, align 8
+  %258 = getelementptr inbounds i8, ptr %244, i64 24
+  %259 = load i64, ptr %258, align 8
   %.phi.trans.insert404.i = getelementptr inbounds i8, ptr %240, i64 16
   %.pre405.i = load i64, ptr %.phi.trans.insert404.i, align 8
-  %261 = freeze i64 %.pre405.i
-  %262 = add i64 %260, -1
-  %or.cond421.not.i = icmp ult i64 %262, %261
-  br i1 %or.cond421.not.i, label %263, label %._crit_edge403.i
-
-._crit_edge403.i:                                 ; preds = %.lr.ph349._crit_edge.i
-  store i64 %261, ptr %259, align 8
-  br label %263
-
-263:                                              ; preds = %._crit_edge403.i, %.lr.ph349._crit_edge.i
-  %264 = getelementptr inbounds i8, ptr %244, i64 32
-  %265 = load i64, ptr %264, align 8
-  %.not254.i = icmp eq i64 %265, 0
-  %266 = icmp ugt i64 %261, %265
-  %or.cond.i = or i1 %.not254.i, %266
-  br i1 %or.cond.i, label %267, label %268
-
-267:                                              ; preds = %263
-  store i64 %261, ptr %264, align 8
-  br label %268
-
-268:                                              ; preds = %267, %263
+  %260 = freeze i64 %.pre405.i
+  %261 = add i64 %259, -1
+  %or.cond422.not.i = icmp ult i64 %261, %260
+  %spec.store.select423.i = select i1 %or.cond422.not.i, i64 %259, i64 %260
+  store i64 %spec.store.select423.i, ptr %258, align 8
+  %262 = getelementptr inbounds i8, ptr %244, i64 32
+  %263 = load i64, ptr %262, align 8
+  %.not254.i = icmp eq i64 %263, 0
+  %264 = tail call i64 @llvm.umax.i64(i64 %260, i64 %263)
+  %spec.store.select421.i = select i1 %.not254.i, i64 %260, i64 %264
+  store i64 %spec.store.select421.i, ptr %262, align 8
   %indvars.iv.next397.i = add nuw nsw i64 %indvars.iv396.i, 1
   %exitcond400.not.i = icmp eq i64 %indvars.iv.next397.i, %98
   br i1 %exitcond400.not.i, label %.loopexit, label %.lr.ph349.i, !llvm.loop !34
 
 .preheader.i33:                                   ; preds = %.lr.ph347.i, %.preheader.i33
   %indvars.iv391.i = phi i64 [ %indvars.iv.next392.i, %.preheader.i33 ], [ 0, %.lr.ph347.i ]
-  %269 = getelementptr inbounds %struct.hwloc_memory_tier_s, ptr %236, i64 %indvars.iv391.i
-  %270 = load ptr, ptr %269, align 8
-  tail call void @hwloc_bitmap_free(ptr noundef %270) #27
+  %265 = getelementptr inbounds %struct.hwloc_memory_tier_s, ptr %236, i64 %indvars.iv391.i
+  %266 = load ptr, ptr %265, align 8
+  tail call void @hwloc_bitmap_free(ptr noundef %266) #27
   %indvars.iv.next392.i = add nuw nsw i64 %indvars.iv391.i, 1
   %exitcond395.not.i = icmp eq i64 %indvars.iv.next392.i, %235
-  br i1 %exitcond395.not.i, label %271, label %.preheader.i33, !llvm.loop !35
+  br i1 %exitcond395.not.i, label %267, label %.preheader.i33, !llvm.loop !35
 
-271:                                              ; preds = %.preheader.i33
+267:                                              ; preds = %.preheader.i33
   tail call void @free(ptr noundef nonnull %236) #27
-  br label %272
+  br label %268
 
-272:                                              ; preds = %271, %._crit_edge345.i
+268:                                              ; preds = %267, %._crit_edge345.i
   tail call void @free(ptr noundef %100) #27
   br label %hwloc__group_memory_tiers.exit.thread
 
-.loopexit:                                        ; preds = %268, %.preheader323.i
+.loopexit:                                        ; preds = %.lr.ph349.i, %.preheader323.i
   tail call void @free(ptr noundef %100) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %273 = tail call ptr @getenv(ptr noundef nonnull @.str.38) #27
-  %.not.i34 = icmp eq ptr %273, null
-  br i1 %.not.i34, label %282, label %274
+  %269 = tail call ptr @getenv(ptr noundef nonnull @.str.38) #27
+  %.not.i34 = icmp eq ptr %269, null
+  br i1 %.not.i34, label %278, label %270
 
-274:                                              ; preds = %.loopexit
-  %275 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %273, ptr noundef nonnull dereferenceable(5) @.str.9) #28
-  %.not63.i = icmp eq i32 %275, 0
-  br i1 %.not63.i, label %hwloc__guess_memory_tiers_types.exit, label %276
+270:                                              ; preds = %.loopexit
+  %271 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %269, ptr noundef nonnull dereferenceable(5) @.str.9) #28
+  %.not63.i = icmp eq i32 %271, 0
+  br i1 %.not63.i, label %hwloc__guess_memory_tiers_types.exit, label %272
 
-276:                                              ; preds = %274
-  %277 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %273, ptr noundef nonnull dereferenceable(4) @.str.39) #28
-  %.not64.i = icmp eq i32 %277, 0
+272:                                              ; preds = %270
+  %273 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %269, ptr noundef nonnull dereferenceable(4) @.str.39) #28
+  %.not64.i = icmp eq i32 %273, 0
   %spec.select.i35 = sext i1 %.not64.i to i64
-  %278 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %273, ptr noundef nonnull dereferenceable(1) @.str.40) #28
-  %.not65.i = icmp eq ptr %278, null
-  %279 = select i1 %.not64.i, i64 -1, i64 2
-  %spec.select1.i = select i1 %.not65.i, i64 %spec.select.i35, i64 %279
-  %280 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %273, ptr noundef nonnull dereferenceable(1) @.str.42) #28
-  %.not66.i = icmp ne ptr %280, null
-  %281 = zext i1 %.not66.i to i64
-  %spec.select2.i = or i64 %spec.select1.i, %281
-  br label %282
+  %274 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %269, ptr noundef nonnull dereferenceable(1) @.str.40) #28
+  %.not65.i = icmp eq ptr %274, null
+  %275 = select i1 %.not64.i, i64 -1, i64 2
+  %spec.select1.i = select i1 %.not65.i, i64 %spec.select.i35, i64 %275
+  %276 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %269, ptr noundef nonnull dereferenceable(1) @.str.42) #28
+  %.not66.i = icmp ne ptr %276, null
+  %277 = zext i1 %.not66.i to i64
+  %spec.select2.i = or i64 %spec.select1.i, %277
+  br label %278
 
-282:                                              ; preds = %276, %.loopexit
-  %.058.i = phi i64 [ 0, %.loopexit ], [ %spec.select2.i, %276 ]
-  %283 = icmp eq i32 %233, 0
-  br i1 %283, label %hwloc__guess_memory_tiers_types.exit, label %284
+278:                                              ; preds = %272, %.loopexit
+  %.058.i = phi i64 [ 0, %.loopexit ], [ %spec.select2.i, %272 ]
+  %279 = icmp eq i32 %233, 0
+  br i1 %279, label %hwloc__guess_memory_tiers_types.exit, label %280
 
-284:                                              ; preds = %282
-  %285 = getelementptr inbounds i8, ptr %4, i64 8
+280:                                              ; preds = %278
+  %281 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   br i1 %.not355.i, label %hwloc__guess_memory_tiers_types.exit, label %.lr.ph.i39
 
-.lr.ph.i39:                                       ; preds = %284, %299
-  %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i41, %299 ], [ 0, %284 ]
-  %.05110.i = phi ptr [ %.152.i, %299 ], [ null, %284 ]
-  %.0539.i = phi i32 [ %.154.i, %299 ], [ 0, %284 ]
-  %.0558.i = phi i32 [ %.156.i, %299 ], [ 0, %284 ]
-  %286 = getelementptr inbounds %struct.hwloc_memory_tier_s, ptr %236, i64 %indvars.iv.i40
-  %287 = getelementptr inbounds i8, ptr %286, i64 40
-  %288 = load i64, ptr %287, align 8
-  switch i64 %288, label %299 [
-    i64 0, label %289
-    i64 8, label %296
-    i64 2, label %298
-    i64 1, label %298
+.lr.ph.i39:                                       ; preds = %280, %295
+  %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i41, %295 ], [ 0, %280 ]
+  %.05110.i = phi ptr [ %.152.i, %295 ], [ null, %280 ]
+  %.0539.i = phi i32 [ %.154.i, %295 ], [ 0, %280 ]
+  %.0558.i = phi i32 [ %.156.i, %295 ], [ 0, %280 ]
+  %282 = getelementptr inbounds %struct.hwloc_memory_tier_s, ptr %236, i64 %indvars.iv.i40
+  %283 = getelementptr inbounds i8, ptr %282, i64 40
+  %284 = load i64, ptr %283, align 8
+  switch i64 %284, label %295 [
+    i64 0, label %285
+    i64 8, label %292
+    i64 2, label %294
+    i64 1, label %294
   ]
 
-289:                                              ; preds = %.lr.ph.i39
-  %290 = icmp ult i32 %.0558.i, 2
-  br i1 %290, label %291, label %294
+285:                                              ; preds = %.lr.ph.i39
+  %286 = icmp ult i32 %.0558.i, 2
+  br i1 %286, label %287, label %290
 
-291:                                              ; preds = %289
-  %292 = zext nneg i32 %.0558.i to i64
-  %293 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %292
-  store ptr %286, ptr %293, align 8
-  br label %294
+287:                                              ; preds = %285
+  %288 = zext nneg i32 %.0558.i to i64
+  %289 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %288
+  store ptr %282, ptr %289, align 8
+  br label %290
 
-294:                                              ; preds = %291, %289
-  %295 = add i32 %.0558.i, 1
-  br label %299
+290:                                              ; preds = %287, %285
+  %291 = add i32 %.0558.i, 1
+  br label %295
 
-296:                                              ; preds = %.lr.ph.i39
-  %297 = add i32 %.0539.i, 1
-  br label %299
+292:                                              ; preds = %.lr.ph.i39
+  %293 = add i32 %.0539.i, 1
+  br label %295
 
-298:                                              ; preds = %.lr.ph.i39, %.lr.ph.i39
+294:                                              ; preds = %.lr.ph.i39, %.lr.ph.i39
   tail call void @abort() #34
   unreachable
 
-299:                                              ; preds = %296, %294, %.lr.ph.i39
-  %.156.i = phi i32 [ %.0558.i, %.lr.ph.i39 ], [ %.0558.i, %296 ], [ %295, %294 ]
-  %.154.i = phi i32 [ %.0539.i, %.lr.ph.i39 ], [ %297, %296 ], [ %.0539.i, %294 ]
-  %.152.i = phi ptr [ %.05110.i, %.lr.ph.i39 ], [ %286, %296 ], [ %.05110.i, %294 ]
+295:                                              ; preds = %292, %290, %.lr.ph.i39
+  %.156.i = phi i32 [ %.0558.i, %.lr.ph.i39 ], [ %.0558.i, %292 ], [ %291, %290 ]
+  %.154.i = phi i32 [ %.0539.i, %.lr.ph.i39 ], [ %293, %292 ], [ %.0539.i, %290 ]
+  %.152.i = phi ptr [ %.05110.i, %.lr.ph.i39 ], [ %282, %292 ], [ %.05110.i, %290 ]
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, %235
   br i1 %exitcond.not.i42, label %._crit_edge.i43, label %.lr.ph.i39, !llvm.loop !36
 
-._crit_edge.i43:                                  ; preds = %299
-  %300 = icmp ne i32 %.156.i, 2
-  %301 = icmp ne i32 %.154.i, 0
-  %or.cond.i44 = select i1 %300, i1 true, i1 %301
-  br i1 %or.cond.i44, label %322, label %302
+._crit_edge.i43:                                  ; preds = %295
+  %296 = icmp ne i32 %.156.i, 2
+  %297 = icmp ne i32 %.154.i, 0
+  %or.cond.i = select i1 %296, i1 true, i1 %297
+  br i1 %or.cond.i, label %318, label %298
 
-302:                                              ; preds = %._crit_edge.i43
-  %303 = load ptr, ptr %4, align 16
-  %304 = load ptr, ptr %285, align 8
-  %305 = getelementptr inbounds i8, ptr %303, i64 8
-  %306 = load i64, ptr %305, align 8
-  %.not.i.i45 = icmp eq i64 %306, 0
-  br i1 %.not.i.i45, label %hwloc__guess_dram_hbm_tiers.exit.i, label %307
+298:                                              ; preds = %._crit_edge.i43
+  %299 = load ptr, ptr %4, align 16
+  %300 = load ptr, ptr %281, align 8
+  %301 = getelementptr inbounds i8, ptr %299, i64 8
+  %302 = load i64, ptr %301, align 8
+  %.not.i.i44 = icmp eq i64 %302, 0
+  br i1 %.not.i.i44, label %hwloc__guess_dram_hbm_tiers.exit.i, label %303
 
-307:                                              ; preds = %302
-  %308 = getelementptr inbounds i8, ptr %304, i64 8
-  %309 = load i64, ptr %308, align 8
-  %.not21.i.i = icmp eq i64 %309, 0
-  br i1 %.not21.i.i, label %hwloc__guess_dram_hbm_tiers.exit.i, label %310
+303:                                              ; preds = %298
+  %304 = getelementptr inbounds i8, ptr %300, i64 8
+  %305 = load i64, ptr %304, align 8
+  %.not21.i.i = icmp eq i64 %305, 0
+  br i1 %.not21.i.i, label %hwloc__guess_dram_hbm_tiers.exit.i, label %306
 
-310:                                              ; preds = %307
-  %311 = icmp ugt i64 %306, %309
-  %spec.select.i.i = select i1 %311, ptr %303, ptr %304
-  %spec.select25.i.i = select i1 %311, ptr %304, ptr %303
-  %312 = getelementptr inbounds i8, ptr %spec.select25.i.i, i64 16
-  %313 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 8
-  %314 = load i64, ptr %313, align 8
-  %315 = load i64, ptr %312, align 8
-  %316 = shl i64 %315, 1
-  %.not22.i.i = icmp ugt i64 %314, %316
-  br i1 %.not22.i.i, label %317, label %hwloc__guess_dram_hbm_tiers.exit.i
+306:                                              ; preds = %303
+  %307 = icmp ugt i64 %302, %305
+  %spec.select.i.i = select i1 %307, ptr %299, ptr %300
+  %spec.select25.i.i = select i1 %307, ptr %300, ptr %299
+  %308 = getelementptr inbounds i8, ptr %spec.select25.i.i, i64 16
+  %309 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 8
+  %310 = load i64, ptr %309, align 8
+  %311 = load i64, ptr %308, align 8
+  %312 = shl i64 %311, 1
+  %.not22.i.i = icmp ugt i64 %310, %312
+  br i1 %.not22.i.i, label %313, label %hwloc__guess_dram_hbm_tiers.exit.i
 
-317:                                              ; preds = %310
-  %318 = and i64 %.058.i, 1
-  %.not23.i.i = icmp eq i64 %318, 0
-  br i1 %.not23.i.i, label %hwloc__guess_dram_hbm_tiers.exit.sink.split.i, label %319
+313:                                              ; preds = %306
+  %314 = and i64 %.058.i, 1
+  %.not23.i.i = icmp eq i64 %314, 0
+  br i1 %.not23.i.i, label %hwloc__guess_dram_hbm_tiers.exit.sink.split.i, label %315
 
-319:                                              ; preds = %317
-  %320 = load ptr, ptr %spec.select.i.i, align 8
-  %321 = tail call i32 @hwloc_bitmap_isset(ptr noundef %320, i32 noundef 0) #28
-  %.not24.i.i = icmp eq i32 %321, 0
+315:                                              ; preds = %313
+  %316 = load ptr, ptr %spec.select.i.i, align 8
+  %317 = tail call i32 @hwloc_bitmap_isset(ptr noundef %316, i32 noundef 0) #28
+  %.not24.i.i = icmp eq i32 %317, 0
   br i1 %.not24.i.i, label %hwloc__guess_dram_hbm_tiers.exit.sink.split.i, label %hwloc__guess_dram_hbm_tiers.exit.i
 
-322:                                              ; preds = %._crit_edge.i43
-  %323 = icmp eq i32 %.156.i, 1
-  %324 = icmp eq i32 %.154.i, 1
-  %or.cond3.i = select i1 %323, i1 %324, i1 false
-  br i1 %or.cond3.i, label %325, label %hwloc__guess_dram_hbm_tiers.exit.i
+318:                                              ; preds = %._crit_edge.i43
+  %319 = icmp eq i32 %.156.i, 1
+  %320 = icmp eq i32 %.154.i, 1
+  %or.cond3.i = select i1 %319, i1 %320, i1 false
+  br i1 %or.cond3.i, label %321, label %hwloc__guess_dram_hbm_tiers.exit.i
 
-325:                                              ; preds = %322
-  %326 = load ptr, ptr %4, align 16
-  %327 = getelementptr inbounds i8, ptr %326, i64 8
-  %328 = load i64, ptr %327, align 8
-  %.not.i70.i = icmp eq i64 %328, 0
-  br i1 %.not.i70.i, label %hwloc__guess_dram_hbm_tiers.exit.i, label %329
+321:                                              ; preds = %318
+  %322 = load ptr, ptr %4, align 16
+  %323 = getelementptr inbounds i8, ptr %322, i64 8
+  %324 = load i64, ptr %323, align 8
+  %.not.i70.i = icmp eq i64 %324, 0
+  br i1 %.not.i70.i, label %hwloc__guess_dram_hbm_tiers.exit.i, label %325
 
-329:                                              ; preds = %325
-  %330 = getelementptr inbounds i8, ptr %.152.i, i64 8
-  %331 = load i64, ptr %330, align 8
-  %.not21.i71.i = icmp eq i64 %331, 0
-  br i1 %.not21.i71.i, label %hwloc__guess_dram_hbm_tiers.exit.i, label %332
+325:                                              ; preds = %321
+  %326 = getelementptr inbounds i8, ptr %.152.i, i64 8
+  %327 = load i64, ptr %326, align 8
+  %.not21.i71.i = icmp eq i64 %327, 0
+  br i1 %.not21.i71.i, label %hwloc__guess_dram_hbm_tiers.exit.i, label %328
 
-332:                                              ; preds = %329
-  %333 = icmp ugt i64 %328, %331
-  %spec.select.i72.i = select i1 %333, ptr %326, ptr %.152.i
-  %spec.select25.i73.i = select i1 %333, ptr %.152.i, ptr %326
-  %334 = getelementptr inbounds i8, ptr %spec.select25.i73.i, i64 16
-  %335 = getelementptr inbounds i8, ptr %spec.select.i72.i, i64 8
-  %336 = load i64, ptr %335, align 8
-  %337 = load i64, ptr %334, align 8
-  %338 = shl i64 %337, 1
-  %.not22.i74.i = icmp ugt i64 %336, %338
-  br i1 %.not22.i74.i, label %339, label %hwloc__guess_dram_hbm_tiers.exit.i
+328:                                              ; preds = %325
+  %329 = icmp ugt i64 %324, %327
+  %spec.select.i72.i = select i1 %329, ptr %322, ptr %.152.i
+  %spec.select25.i73.i = select i1 %329, ptr %.152.i, ptr %322
+  %330 = getelementptr inbounds i8, ptr %spec.select25.i73.i, i64 16
+  %331 = getelementptr inbounds i8, ptr %spec.select.i72.i, i64 8
+  %332 = load i64, ptr %331, align 8
+  %333 = load i64, ptr %330, align 8
+  %334 = shl i64 %333, 1
+  %.not22.i74.i = icmp ugt i64 %332, %334
+  br i1 %.not22.i74.i, label %335, label %hwloc__guess_dram_hbm_tiers.exit.i
 
-339:                                              ; preds = %332
-  %340 = and i64 %.058.i, 1
-  %.not23.i76.i = icmp eq i64 %340, 0
-  br i1 %.not23.i76.i, label %hwloc__guess_dram_hbm_tiers.exit.sink.split.i, label %341
+335:                                              ; preds = %328
+  %336 = and i64 %.058.i, 1
+  %.not23.i76.i = icmp eq i64 %336, 0
+  br i1 %.not23.i76.i, label %hwloc__guess_dram_hbm_tiers.exit.sink.split.i, label %337
 
-341:                                              ; preds = %339
-  %342 = load ptr, ptr %spec.select.i72.i, align 8
-  %343 = tail call i32 @hwloc_bitmap_isset(ptr noundef %342, i32 noundef 0) #28
-  %.not24.i77.i = icmp eq i32 %343, 0
+337:                                              ; preds = %335
+  %338 = load ptr, ptr %spec.select.i72.i, align 8
+  %339 = tail call i32 @hwloc_bitmap_isset(ptr noundef %338, i32 noundef 0) #28
+  %.not24.i77.i = icmp eq i32 %339, 0
   br i1 %.not24.i77.i, label %hwloc__guess_dram_hbm_tiers.exit.sink.split.i, label %hwloc__guess_dram_hbm_tiers.exit.i
 
-hwloc__guess_dram_hbm_tiers.exit.sink.split.i:    ; preds = %341, %339, %319, %317
-  %spec.select25.i73.sink.i = phi ptr [ %spec.select25.i.i, %319 ], [ %spec.select25.i.i, %317 ], [ %spec.select25.i73.i, %341 ], [ %spec.select25.i73.i, %339 ]
-  %spec.select.i72.sink.i = phi ptr [ %spec.select.i.i, %319 ], [ %spec.select.i.i, %317 ], [ %spec.select.i72.i, %341 ], [ %spec.select.i72.i, %339 ]
-  %344 = getelementptr inbounds i8, ptr %spec.select25.i73.sink.i, i64 40
-  store i64 2, ptr %344, align 8
-  %345 = getelementptr inbounds i8, ptr %spec.select.i72.sink.i, i64 40
-  store i64 1, ptr %345, align 8
+hwloc__guess_dram_hbm_tiers.exit.sink.split.i:    ; preds = %337, %335, %315, %313
+  %spec.select25.i73.sink.i = phi ptr [ %spec.select25.i.i, %315 ], [ %spec.select25.i.i, %313 ], [ %spec.select25.i73.i, %337 ], [ %spec.select25.i73.i, %335 ]
+  %spec.select.i72.sink.i = phi ptr [ %spec.select.i.i, %315 ], [ %spec.select.i.i, %313 ], [ %spec.select.i72.i, %337 ], [ %spec.select.i72.i, %335 ]
+  %340 = getelementptr inbounds i8, ptr %spec.select25.i73.sink.i, i64 40
+  store i64 2, ptr %340, align 8
+  %341 = getelementptr inbounds i8, ptr %spec.select.i72.sink.i, i64 40
+  store i64 1, ptr %341, align 8
   br label %hwloc__guess_dram_hbm_tiers.exit.i
 
-hwloc__guess_dram_hbm_tiers.exit.i:               ; preds = %hwloc__guess_dram_hbm_tiers.exit.sink.split.i, %341, %332, %329, %325, %322, %319, %310, %307, %302
-  %346 = and i64 %.058.i, 2
-  %.not67.not.i = icmp eq i64 %346, 0
+hwloc__guess_dram_hbm_tiers.exit.i:               ; preds = %hwloc__guess_dram_hbm_tiers.exit.sink.split.i, %337, %328, %325, %321, %318, %315, %306, %303, %298
+  %342 = and i64 %.058.i, 2
+  %.not67.not.i = icmp eq i64 %342, 0
   br i1 %.not67.not.i, label %.loopexit4.i, label %.lr.ph15.i
 
-.lr.ph15.i:                                       ; preds = %hwloc__guess_dram_hbm_tiers.exit.i, %351
-  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %351 ], [ 0, %hwloc__guess_dram_hbm_tiers.exit.i ]
-  %347 = getelementptr inbounds %struct.hwloc_memory_tier_s, ptr %236, i64 %indvars.iv24.i, i32 5
-  %348 = load i64, ptr %347, align 8
-  %349 = icmp eq i64 %348, 8
-  br i1 %349, label %350, label %351
+.lr.ph15.i:                                       ; preds = %hwloc__guess_dram_hbm_tiers.exit.i, %347
+  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %347 ], [ 0, %hwloc__guess_dram_hbm_tiers.exit.i ]
+  %343 = getelementptr inbounds %struct.hwloc_memory_tier_s, ptr %236, i64 %indvars.iv24.i, i32 5
+  %344 = load i64, ptr %343, align 8
+  %345 = icmp eq i64 %344, 8
+  br i1 %345, label %346, label %347
 
-350:                                              ; preds = %.lr.ph15.i
-  store i64 1, ptr %347, align 8
-  br label %351
+346:                                              ; preds = %.lr.ph15.i
+  store i64 1, ptr %343, align 8
+  br label %347
 
-351:                                              ; preds = %350, %.lr.ph15.i
+347:                                              ; preds = %346, %.lr.ph15.i
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next25.i, %235
   br i1 %exitcond28.not.i, label %.loopexit4.i, label %.lr.ph15.i, !llvm.loop !37
 
-.loopexit4.i:                                     ; preds = %351, %hwloc__guess_dram_hbm_tiers.exit.i
-  %352 = and i64 %.058.i, 1
-  %.not68.i36.not = icmp eq i64 %352, 0
+.loopexit4.i:                                     ; preds = %347, %hwloc__guess_dram_hbm_tiers.exit.i
+  %348 = and i64 %.058.i, 1
+  %.not68.i36.not = icmp eq i64 %348, 0
   br i1 %.not68.i36.not, label %hwloc__guess_memory_tiers_types.exit, label %.lr.ph18.i
 
-.lr.ph18.i:                                       ; preds = %.loopexit4.i, %362
-  %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %362 ], [ 0, %.loopexit4.i ]
-  %353 = getelementptr inbounds %struct.hwloc_memory_tier_s, ptr %236, i64 %indvars.iv29.i
-  %354 = load ptr, ptr %353, align 8
-  %355 = tail call i32 @hwloc_bitmap_isset(ptr noundef %354, i32 noundef 0) #28
-  %.not69.i37 = icmp eq i32 %355, 0
-  br i1 %.not69.i37, label %362, label %356
+.lr.ph18.i:                                       ; preds = %.loopexit4.i, %358
+  %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %358 ], [ 0, %.loopexit4.i ]
+  %349 = getelementptr inbounds %struct.hwloc_memory_tier_s, ptr %236, i64 %indvars.iv29.i
+  %350 = load ptr, ptr %349, align 8
+  %351 = tail call i32 @hwloc_bitmap_isset(ptr noundef %350, i32 noundef 0) #28
+  %.not69.i37 = icmp eq i32 %351, 0
+  br i1 %.not69.i37, label %358, label %352
 
-356:                                              ; preds = %.lr.ph18.i
-  %357 = getelementptr inbounds i8, ptr %353, i64 40
-  %358 = load i64, ptr %357, align 8
-  %359 = icmp eq i64 %358, 0
-  br i1 %359, label %360, label %362
+352:                                              ; preds = %.lr.ph18.i
+  %353 = getelementptr inbounds i8, ptr %349, i64 40
+  %354 = load i64, ptr %353, align 8
+  %355 = icmp eq i64 %354, 0
+  br i1 %355, label %356, label %358
 
-360:                                              ; preds = %356
-  %361 = getelementptr inbounds i8, ptr %353, i64 40
-  store i64 2, ptr %361, align 8
+356:                                              ; preds = %352
+  %357 = getelementptr inbounds i8, ptr %349, i64 40
+  store i64 2, ptr %357, align 8
   br label %hwloc__guess_memory_tiers_types.exit
 
-362:                                              ; preds = %356, %.lr.ph18.i
+358:                                              ; preds = %352, %.lr.ph18.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %235
   br i1 %exitcond33.not.i, label %hwloc__guess_memory_tiers_types.exit, label %.lr.ph18.i, !llvm.loop !38
 
-hwloc__guess_memory_tiers_types.exit:             ; preds = %362, %284, %274, %282, %.loopexit4.i, %360
+hwloc__guess_memory_tiers_types.exit:             ; preds = %358, %280, %270, %278, %.loopexit4.i, %356
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   tail call void @qsort(ptr noundef nonnull %236, i64 noundef %235, i64 noundef 48, ptr noundef nonnull @compare_tiers_by_bw_and_type) #27
-  %363 = icmp ne i32 %1, 0
-  br label %364
+  %359 = icmp ne i32 %1, 0
+  br label %360
 
-364:                                              ; preds = %hwloc__force_memory_tiers.exit, %hwloc__guess_memory_tiers_types.exit
+360:                                              ; preds = %hwloc__force_memory_tiers.exit, %hwloc__guess_memory_tiers_types.exit
   %.1 = phi i32 [ %234, %hwloc__guess_memory_tiers_types.exit ], [ %60, %hwloc__force_memory_tiers.exit ]
   %.018 = phi ptr [ %236, %hwloc__guess_memory_tiers_types.exit ], [ %24, %hwloc__force_memory_tiers.exit ]
-  %.0 = phi i1 [ %363, %hwloc__guess_memory_tiers_types.exit ], [ true, %hwloc__force_memory_tiers.exit ]
+  %.0 = phi i1 [ %359, %hwloc__guess_memory_tiers_types.exit ], [ true, %hwloc__force_memory_tiers.exit ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
-  %365 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 13) #27
-  %or.cond.i44.i = icmp ugt i32 %365, -3
+  %361 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 13) #27
+  %or.cond.i44.i = icmp ugt i32 %361, -3
   br i1 %or.cond.i44.i, label %hwloc__apply_memory_tiers_subtypes.exit, label %.lr.ph46.i
 
-.lr.ph46.i:                                       ; preds = %364
+.lr.ph46.i:                                       ; preds = %360
   %.not48.i = icmp eq i32 %.1, 0
-  %366 = icmp ugt i32 %.1, 1
+  %362 = icmp ugt i32 %.1, 1
   br i1 %.not48.i, label %.lr.ph46.split.i, label %.lr.ph46.split.us.preheader.i
 
 .lr.ph46.split.us.preheader.i:                    ; preds = %.lr.ph46.i
-  %wide.trip.count.i46 = zext i32 %.1 to i64
+  %wide.trip.count.i45 = zext i32 %.1 to i64
   br label %.lr.ph46.split.us.i
 
 .lr.ph46.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph46.split.us.preheader.i
-  %367 = phi i32 [ %402, %..loopexit_crit_edge.us.i ], [ %365, %.lr.ph46.split.us.preheader.i ]
+  %363 = phi i32 [ %398, %..loopexit_crit_edge.us.i ], [ %361, %.lr.ph46.split.us.preheader.i ]
   %.045.us.i = phi ptr [ %.0.i.us.i, %..loopexit_crit_edge.us.i ], [ null, %.lr.ph46.split.us.preheader.i ]
   %.not.i.i.us.i = icmp eq ptr %.045.us.i, null
-  br i1 %.not.i.i.us.i, label %374, label %368
+  br i1 %.not.i.i.us.i, label %370, label %364
 
-368:                                              ; preds = %.lr.ph46.split.us.i
-  %369 = getelementptr inbounds i8, ptr %.045.us.i, i64 48
-  %370 = load i32, ptr %369, align 8
-  %.not7.i.i.us.i = icmp eq i32 %370, %367
-  br i1 %.not7.i.i.us.i, label %371, label %hwloc__apply_memory_tiers_subtypes.exit
+364:                                              ; preds = %.lr.ph46.split.us.i
+  %365 = getelementptr inbounds i8, ptr %.045.us.i, i64 48
+  %366 = load i32, ptr %365, align 8
+  %.not7.i.i.us.i = icmp eq i32 %366, %363
+  br i1 %.not7.i.i.us.i, label %367, label %hwloc__apply_memory_tiers_subtypes.exit
 
-371:                                              ; preds = %368
-  %372 = getelementptr inbounds i8, ptr %.045.us.i, i64 56
-  %373 = load ptr, ptr %372, align 8
+367:                                              ; preds = %364
+  %368 = getelementptr inbounds i8, ptr %.045.us.i, i64 56
+  %369 = load ptr, ptr %368, align 8
   br label %hwloc_get_next_obj_by_type.exit.us.i
 
-374:                                              ; preds = %.lr.ph46.split.us.i
-  %375 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %367, i32 noundef 0) #28
+370:                                              ; preds = %.lr.ph46.split.us.i
+  %371 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %363, i32 noundef 0) #28
   br label %hwloc_get_next_obj_by_type.exit.us.i
 
-hwloc_get_next_obj_by_type.exit.us.i:             ; preds = %374, %371
-  %.0.i.us.i = phi ptr [ %373, %371 ], [ %375, %374 ]
+hwloc_get_next_obj_by_type.exit.us.i:             ; preds = %370, %367
+  %.0.i.us.i = phi ptr [ %369, %367 ], [ %371, %370 ]
   %.not.us.i = icmp eq ptr %.0.i.us.i, null
   br i1 %.not.us.i, label %hwloc__apply_memory_tiers_subtypes.exit, label %.preheader.us.i
 
-376:                                              ; preds = %.preheader.us.i, %403
-  %indvars.iv.i47 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i48, %403 ]
-  %377 = getelementptr inbounds %struct.hwloc_memory_tier_s, ptr %.018, i64 %indvars.iv.i47
-  %378 = load ptr, ptr %377, align 8
-  %379 = call i32 @hwloc_bitmap_isset(ptr noundef %378, i32 noundef %405) #28
-  %.not32.us.i = icmp eq i32 %379, 0
-  br i1 %.not32.us.i, label %403, label %380
+372:                                              ; preds = %.preheader.us.i, %399
+  %indvars.iv.i46 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i47, %399 ]
+  %373 = getelementptr inbounds %struct.hwloc_memory_tier_s, ptr %.018, i64 %indvars.iv.i46
+  %374 = load ptr, ptr %373, align 8
+  %375 = call i32 @hwloc_bitmap_isset(ptr noundef %374, i32 noundef %401) #28
+  %.not32.us.i = icmp eq i32 %375, 0
+  br i1 %.not32.us.i, label %399, label %376
 
-380:                                              ; preds = %376
-  %381 = trunc nuw i64 %indvars.iv.i47 to i32
-  %382 = getelementptr inbounds i8, ptr %377, i64 40
-  %383 = load i64, ptr %382, align 8
-  switch i64 %383, label %.thread.us.i [
+376:                                              ; preds = %372
+  %377 = trunc nuw i64 %indvars.iv.i46 to i32
+  %378 = getelementptr inbounds i8, ptr %373, i64 40
+  %379 = load i64, ptr %378, align 8
+  switch i64 %379, label %.thread.us.i [
     i64 2, label %hwloc_memory_tier_type_snprintf.exit.us.i
-    i64 1, label %392
-    i64 4, label %391
-    i64 8, label %390
-    i64 16, label %389
-    i64 32, label %388
-    i64 34, label %388
-    i64 33, label %387
-    i64 36, label %386
-    i64 40, label %385
-    i64 48, label %384
+    i64 1, label %388
+    i64 4, label %387
+    i64 8, label %386
+    i64 16, label %385
+    i64 32, label %384
+    i64 34, label %384
+    i64 33, label %383
+    i64 36, label %382
+    i64 40, label %381
+    i64 48, label %380
   ]
 
-384:                                              ; preds = %380
+380:                                              ; preds = %376
   br label %hwloc_memory_tier_type_snprintf.exit.us.i
 
-385:                                              ; preds = %380
+381:                                              ; preds = %376
   br label %hwloc_memory_tier_type_snprintf.exit.us.i
 
-386:                                              ; preds = %380
+382:                                              ; preds = %376
   br label %hwloc_memory_tier_type_snprintf.exit.us.i
 
-387:                                              ; preds = %380
+383:                                              ; preds = %376
   br label %hwloc_memory_tier_type_snprintf.exit.us.i
 
-388:                                              ; preds = %380, %380
+384:                                              ; preds = %376, %376
   br label %hwloc_memory_tier_type_snprintf.exit.us.i
 
-389:                                              ; preds = %380
+385:                                              ; preds = %376
   br label %hwloc_memory_tier_type_snprintf.exit.us.i
 
-390:                                              ; preds = %380
+386:                                              ; preds = %376
   br label %hwloc_memory_tier_type_snprintf.exit.us.i
 
-391:                                              ; preds = %380
+387:                                              ; preds = %376
   br label %hwloc_memory_tier_type_snprintf.exit.us.i
 
-392:                                              ; preds = %380
+388:                                              ; preds = %376
   br label %hwloc_memory_tier_type_snprintf.exit.us.i
 
-hwloc_memory_tier_type_snprintf.exit.us.i:        ; preds = %392, %391, %390, %389, %388, %387, %386, %385, %384, %380
-  %.0.i34.us.i = phi ptr [ @.str.27, %384 ], [ @.str.26, %385 ], [ @.str.25, %386 ], [ @.str.24, %387 ], [ @.str.23, %388 ], [ @.str.22, %389 ], [ @.str.21, %390 ], [ @.str.20, %391 ], [ @.str.19, %392 ], [ @.str.18, %380 ]
-  %393 = getelementptr inbounds i8, ptr %.0.i.us.i, i64 8
-  %394 = load ptr, ptr %393, align 8
-  %395 = icmp eq ptr %394, null
-  %or.cond.us.i = or i1 %.0, %395
-  br i1 %or.cond.us.i, label %396, label %.thread.us.i
+hwloc_memory_tier_type_snprintf.exit.us.i:        ; preds = %388, %387, %386, %385, %384, %383, %382, %381, %380, %376
+  %.0.i34.us.i = phi ptr [ @.str.27, %380 ], [ @.str.26, %381 ], [ @.str.25, %382 ], [ @.str.24, %383 ], [ @.str.23, %384 ], [ @.str.22, %385 ], [ @.str.21, %386 ], [ @.str.20, %387 ], [ @.str.19, %388 ], [ @.str.18, %376 ]
+  %389 = getelementptr inbounds i8, ptr %.0.i.us.i, i64 8
+  %390 = load ptr, ptr %389, align 8
+  %391 = icmp eq ptr %390, null
+  %or.cond.us.i = or i1 %.0, %391
+  br i1 %or.cond.us.i, label %392, label %.thread.us.i
 
-396:                                              ; preds = %hwloc_memory_tier_type_snprintf.exit.us.i
-  call void @free(ptr noundef %394) #27
-  %397 = call noalias ptr @strdup(ptr noundef nonnull %.0.i34.us.i) #27
-  store ptr %397, ptr %393, align 8
+392:                                              ; preds = %hwloc_memory_tier_type_snprintf.exit.us.i
+  call void @free(ptr noundef %390) #27
+  %393 = call noalias ptr @strdup(ptr noundef nonnull %.0.i34.us.i) #27
+  store ptr %393, ptr %389, align 8
   br label %.thread.us.i
 
-.thread.us.i:                                     ; preds = %396, %hwloc_memory_tier_type_snprintf.exit.us.i, %380
-  br i1 %366, label %398, label %..loopexit_crit_edge.us.i
+.thread.us.i:                                     ; preds = %392, %hwloc_memory_tier_type_snprintf.exit.us.i, %376
+  br i1 %362, label %394, label %..loopexit_crit_edge.us.i
 
-398:                                              ; preds = %.thread.us.i
-  %399 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 20, ptr noundef nonnull @.str.57, i32 noundef %381) #27
-  %400 = getelementptr inbounds i8, ptr %.0.i.us.i, i64 216
-  %401 = call i32 @hwloc__replace_infos(ptr noundef nonnull %400, ptr noundef nonnull @.str.58, ptr noundef nonnull %3) #27
+394:                                              ; preds = %.thread.us.i
+  %395 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 20, ptr noundef nonnull @.str.57, i32 noundef %377) #27
+  %396 = getelementptr inbounds i8, ptr %.0.i.us.i, i64 216
+  %397 = call i32 @hwloc__replace_infos(ptr noundef nonnull %396, ptr noundef nonnull @.str.58, ptr noundef nonnull %3) #27
   br label %..loopexit_crit_edge.us.i
 
-..loopexit_crit_edge.us.i:                        ; preds = %403, %398, %.thread.us.i
-  %402 = call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 13) #27
-  %or.cond.i.us.i = icmp ugt i32 %402, -3
+..loopexit_crit_edge.us.i:                        ; preds = %399, %394, %.thread.us.i
+  %398 = call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 13) #27
+  %or.cond.i.us.i = icmp ugt i32 %398, -3
   br i1 %or.cond.i.us.i, label %hwloc__apply_memory_tiers_subtypes.exit, label %.lr.ph46.split.us.i, !llvm.loop !39
 
-403:                                              ; preds = %376
-  %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
-  %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, %wide.trip.count.i46
-  br i1 %exitcond.not.i49, label %..loopexit_crit_edge.us.i, label %376, !llvm.loop !40
+399:                                              ; preds = %372
+  %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
+  %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, %wide.trip.count.i45
+  br i1 %exitcond.not.i48, label %..loopexit_crit_edge.us.i, label %372, !llvm.loop !40
 
 .preheader.us.i:                                  ; preds = %hwloc_get_next_obj_by_type.exit.us.i
-  %404 = getelementptr inbounds i8, ptr %.0.i.us.i, i64 16
-  %405 = load i32, ptr %404, align 8
-  br label %376
+  %400 = getelementptr inbounds i8, ptr %.0.i.us.i, i64 16
+  %401 = load i32, ptr %400, align 8
+  br label %372
 
-.lr.ph46.split.i:                                 ; preds = %.lr.ph46.i, %.preheader.i52
-  %406 = phi i32 [ %415, %.preheader.i52 ], [ %365, %.lr.ph46.i ]
-  %.045.i = phi ptr [ %.0.i.i, %.preheader.i52 ], [ null, %.lr.ph46.i ]
-  %.not.i.i.i50 = icmp eq ptr %.045.i, null
-  br i1 %.not.i.i.i50, label %407, label %409
+.lr.ph46.split.i:                                 ; preds = %.lr.ph46.i, %.preheader.i51
+  %402 = phi i32 [ %411, %.preheader.i51 ], [ %361, %.lr.ph46.i ]
+  %.045.i = phi ptr [ %.0.i.i, %.preheader.i51 ], [ null, %.lr.ph46.i ]
+  %.not.i.i.i49 = icmp eq ptr %.045.i, null
+  br i1 %.not.i.i.i49, label %403, label %405
 
-407:                                              ; preds = %.lr.ph46.split.i
-  %408 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %406, i32 noundef 0) #28
+403:                                              ; preds = %.lr.ph46.split.i
+  %404 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %0, i32 noundef %402, i32 noundef 0) #28
   br label %hwloc_get_next_obj_by_type.exit.i
 
-409:                                              ; preds = %.lr.ph46.split.i
-  %410 = getelementptr inbounds i8, ptr %.045.i, i64 48
-  %411 = load i32, ptr %410, align 8
-  %.not7.i.i.i = icmp eq i32 %411, %406
-  br i1 %.not7.i.i.i, label %412, label %hwloc__apply_memory_tiers_subtypes.exit
+405:                                              ; preds = %.lr.ph46.split.i
+  %406 = getelementptr inbounds i8, ptr %.045.i, i64 48
+  %407 = load i32, ptr %406, align 8
+  %.not7.i.i.i = icmp eq i32 %407, %402
+  br i1 %.not7.i.i.i, label %408, label %hwloc__apply_memory_tiers_subtypes.exit
 
-412:                                              ; preds = %409
-  %413 = getelementptr inbounds i8, ptr %.045.i, i64 56
-  %414 = load ptr, ptr %413, align 8
+408:                                              ; preds = %405
+  %409 = getelementptr inbounds i8, ptr %.045.i, i64 56
+  %410 = load ptr, ptr %409, align 8
   br label %hwloc_get_next_obj_by_type.exit.i
 
-hwloc_get_next_obj_by_type.exit.i:                ; preds = %412, %407
-  %.0.i.i = phi ptr [ %414, %412 ], [ %408, %407 ]
-  %.not.i51 = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i51, label %hwloc__apply_memory_tiers_subtypes.exit, label %.preheader.i52
+hwloc_get_next_obj_by_type.exit.i:                ; preds = %408, %403
+  %.0.i.i = phi ptr [ %410, %408 ], [ %404, %403 ]
+  %.not.i50 = icmp eq ptr %.0.i.i, null
+  br i1 %.not.i50, label %hwloc__apply_memory_tiers_subtypes.exit, label %.preheader.i51
 
-.preheader.i52:                                   ; preds = %hwloc_get_next_obj_by_type.exit.i
-  %415 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 13) #27
-  %or.cond.i.i = icmp ugt i32 %415, -3
+.preheader.i51:                                   ; preds = %hwloc_get_next_obj_by_type.exit.i
+  %411 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 13) #27
+  %or.cond.i.i = icmp ugt i32 %411, -3
   br i1 %or.cond.i.i, label %hwloc__apply_memory_tiers_subtypes.exit, label %.lr.ph46.split.i, !llvm.loop !39
 
-hwloc__apply_memory_tiers_subtypes.exit:          ; preds = %368, %hwloc_get_next_obj_by_type.exit.us.i, %..loopexit_crit_edge.us.i, %409, %hwloc_get_next_obj_by_type.exit.i, %.preheader.i52, %364
+hwloc__apply_memory_tiers_subtypes.exit:          ; preds = %364, %hwloc_get_next_obj_by_type.exit.us.i, %..loopexit_crit_edge.us.i, %405, %hwloc_get_next_obj_by_type.exit.i, %.preheader.i51, %360
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
-  %.not92 = icmp eq i32 %.1, 0
-  br i1 %.not92, label %._crit_edge, label %.lr.ph.preheader
+  %.not91 = icmp eq i32 %.1, 0
+  br i1 %.not91, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %hwloc__apply_memory_tiers_subtypes.exit
   %wide.trip.count = zext i32 %.1 to i64
@@ -4177,9 +4161,9 @@ hwloc__apply_memory_tiers_subtypes.exit:          ; preds = %368, %hwloc_get_nex
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %416 = getelementptr inbounds %struct.hwloc_memory_tier_s, ptr %.018, i64 %indvars.iv
-  %417 = load ptr, ptr %416, align 8
-  call void @hwloc_bitmap_free(ptr noundef %417) #27
+  %412 = getelementptr inbounds %struct.hwloc_memory_tier_s, ptr %.018, i64 %indvars.iv
+  %413 = load ptr, ptr %412, align 8
+  call void @hwloc_bitmap_free(ptr noundef %413) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
@@ -4188,7 +4172,7 @@ hwloc__apply_memory_tiers_subtypes.exit:          ; preds = %368, %hwloc_get_nex
   call void @free(ptr noundef %.018) #27
   br label %hwloc__group_memory_tiers.exit.thread
 
-hwloc__group_memory_tiers.exit.thread:            ; preds = %97, %272, %6, %._crit_edge
+hwloc__group_memory_tiers.exit.thread:            ; preds = %97, %268, %6, %._crit_edge
   ret i32 0
 }
 
@@ -4475,6 +4459,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25

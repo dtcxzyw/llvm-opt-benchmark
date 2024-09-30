@@ -988,9 +988,9 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h93b2266d5b021a
   tail call void @llvm.experimental.noalias.scope.decl(metadata !394)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0.i), !noalias !397
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !397
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.0, i64 24, i1 false), !noalias !394
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   store i8 %.sroa.5.0.copyload6, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8, !noalias !394
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0.sroa.6, i64 23, i1 false), !noalias !394
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.0..sroa_idx7, i64 23, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !399
   %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !403
   %23 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef 48, i64 noundef 8) #17, !noalias !403
@@ -1152,9 +1152,9 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17had2fc0cefd039b
   tail call void @llvm.experimental.noalias.scope.decl(metadata !469)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0.i), !noalias !472
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !472
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.0, i64 24, i1 false), !noalias !469
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   store i8 %.sroa.5.0.copyload6, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8, !noalias !469
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0.sroa.6, i64 23, i1 false), !noalias !469
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.0..sroa_idx7, i64 23, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !474
   %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !478
   %23 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef 48, i64 noundef 8) #17, !noalias !478
@@ -1349,9 +1349,9 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h01
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.sroa.6, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.0..sroa_idx21, i64 23, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !546
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   store i8 %.sroa.5.0.copyload20, ptr %.sroa.4.sroa.5.0..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.sroa.6, i64 23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.0..sroa_idx21, i64 23, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !549
   %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !553
   %18 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef 48, i64 noundef 8) #17, !noalias !553
@@ -1461,9 +1461,9 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h06
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.sroa.6, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.0..sroa_idx21, i64 23, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !562
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   store i8 %.sroa.5.0.copyload20, ptr %.sroa.4.sroa.5.0..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.sroa.6, i64 23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7.0..sroa_idx21, i64 23, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !565
   %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !569
   %18 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef 48, i64 noundef 8) #17, !noalias !569

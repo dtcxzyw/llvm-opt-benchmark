@@ -5134,7 +5134,7 @@ _ZN7openvdb5v11_04tree11NodeManagerINS1_4TreeINS1_8RootNodeINS1_12InternalNodeIN
 invoke.cont:                                      ; preds = %_ZN7openvdb5v11_04tree11NodeManagerINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELj1EEC2ERSE_b.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %transform.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %transform.i.i, ptr noundef nonnull align 8 dereferenceable(24) %op, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %transform.i.i, ptr noundef nonnull align 8 dereferenceable(24) %tol, i64 24, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
   %2 = load i64, ptr %mList0.i, align 8, !noalias !87
   store i64 %2, ptr %ref.tmp.i.i, align 8, !alias.scope !87

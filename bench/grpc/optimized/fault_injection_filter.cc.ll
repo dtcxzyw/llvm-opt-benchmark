@@ -1009,14 +1009,14 @@ invoke.cont16:                                    ; preds = %if.end.i
   br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i.i
 
 _ZN9grpc_core12_GLOBAL__N_111FaultHandleD2Ev.exit.i.i.i.i.i.i: ; preds = %invoke.cont16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %next_factory.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %next_factory.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %decision, i64 16, i1 false)
   br label %invoke.cont18
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont16
   %abort_request_3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp12, i64 16
   %29 = load i64, ptr %abort_request_3.i.i.i.i.i.i, align 8, !noalias !12
   store i64 54, ptr %abort_request_3.i.i.i.i.i.i, align 8, !noalias !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %next_factory.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %next_factory.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %decision, i64 16, i1 false)
   store i64 %29, ptr %.sink16.i.i.i.i.i.i.i.sroa.gep, align 16, !alias.scope !12
   br label %invoke.cont18
 

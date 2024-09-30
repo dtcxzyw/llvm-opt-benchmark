@@ -6368,7 +6368,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
           to label %common.resume unwind label %60
 
 50:                                               ; preds = %46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %51 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %47, ptr %51, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -6815,7 +6815,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
           to label %common.resume unwind label %70
 
 51:                                               ; preds = %47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %52 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %48, ptr %52, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)

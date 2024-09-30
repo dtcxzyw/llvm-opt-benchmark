@@ -443,7 +443,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 154:                                              ; preds = %157, %156, %153
   %155 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %21) #12
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %21) #11
           to label %.thread494 unwind label %160
 
 156:                                              ; preds = %153
@@ -465,7 +465,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 160:                                              ; preds = %.thread494, %207, %193, %191, %183, %154
   %161 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 162:                                              ; preds = %152
@@ -536,7 +536,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 183:                                              ; preds = %180
   %184 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h88615bc2dd44b6cdE"(ptr nonnull align 8 %18) #12
+  invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h88615bc2dd44b6cdE"(ptr nonnull align 8 %18) #11
           to label %.thread494 unwind label %160
 
 185:                                              ; preds = %180
@@ -555,13 +555,13 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 191:                                              ; preds = %159
   %192 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %25) #12
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %25) #11
           to label %.thread494 unwind label %160
 
 193:                                              ; preds = %168
   %194 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %24) #12
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %24) #11
           to label %.thread494 unwind label %160
 
 195:                                              ; preds = %65
@@ -610,7 +610,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 207:                                              ; preds = %204
   %208 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h88615bc2dd44b6cdE"(ptr nonnull align 8 %28) #12
+  invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h88615bc2dd44b6cdE"(ptr nonnull align 8 %28) #11
           to label %.thread494 unwind label %160
 
 209:                                              ; preds = %204
@@ -747,7 +747,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 250:                                              ; preds = %249
   %251 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr37drop_in_place$LT$syn..lit..LitStr$GT$17h64de0513db3091d6E"(ptr nonnull align 8 %4) #12
+  invoke void @"_ZN4core3ptr37drop_in_place$LT$syn..lit..LitStr$GT$17h64de0513db3091d6E"(ptr nonnull align 8 %4) #11
           to label %.thread494 unwind label %253
 
 252:                                              ; preds = %249
@@ -762,7 +762,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 253:                                              ; preds = %250
   %254 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 255:                                              ; preds = %241
@@ -879,7 +879,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 
 .thread494:                                       ; preds = %183, %162, %154, %193, %191, %207, %250, %.thread498
   %.pn472493 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread498 ], [ %251, %250 ], [ %155, %154 ], [ %163, %162 ], [ %194, %193 ], [ %192, %191 ], [ %208, %207 ], [ %184, %183 ]
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %40) #12
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %40) #11
           to label %280 unwind label %160
 }
 
@@ -992,13 +992,13 @@ define void @"_ZN69_$LT$wiggle_generate..config..Config$u20$as$u20$syn..parse..P
 29:                                               ; preds = %17
   %30 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr90drop_in_place$LT$syn..punctuated..IntoIter$LT$wiggle_generate..config..ConfigField$GT$$GT$17h54b853ac3723ce40E"(ptr nonnull align 8 %3) #12
+  invoke void @"_ZN4core3ptr90drop_in_place$LT$syn..punctuated..IntoIter$LT$wiggle_generate..config..ConfigField$GT$$GT$17h54b853ac3723ce40E"(ptr nonnull align 8 %3) #11
           to label %.thread unwind label %31
 
 31:                                               ; preds = %.thread, %29
   %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 33:                                               ; preds = %2
@@ -1019,7 +1019,7 @@ define void @"_ZN69_$LT$wiggle_generate..config..Config$u20$as$u20$syn..parse..P
 
 .thread:                                          ; preds = %19, %29, %.thread37
   %.pn35 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread37 ], [ %20, %19 ], [ %30, %29 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %8) #12
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %8) #11
           to label %37 unwind label %31
 }
 
@@ -1130,7 +1130,7 @@ define void @"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Pa
 17:                                               ; preds = %19, %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr92drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..lit..LitStr$C$syn..token..Comma$GT$$GT$17hf02e6ff4336768e7E"(ptr nonnull align 8 %5) #12
+  invoke void @"_ZN4core3ptr92drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..lit..LitStr$C$syn..token..Comma$GT$$GT$17hf02e6ff4336768e7E"(ptr nonnull align 8 %5) #11
           to label %.thread unwind label %28
 
 19:                                               ; preds = %15
@@ -1160,7 +1160,7 @@ define void @"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Pa
 28:                                               ; preds = %.thread, %17
   %29 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 30:                                               ; preds = %2
@@ -1181,7 +1181,7 @@ define void @"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Pa
 
 .thread:                                          ; preds = %17, %.thread22
   %.pn21 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread22 ], [ %18, %17 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %7) #12
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %7) #11
           to label %34 unwind label %28
 }
 
@@ -1228,7 +1228,7 @@ define void @"_ZN70_$LT$wiggle_generate..config..Literal$u20$as$u20$syn..parse..
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr37drop_in_place$LT$syn..lit..LitStr$GT$17h64de0513db3091d6E"(ptr nonnull align 8 %4) #12
+  invoke void @"_ZN4core3ptr37drop_in_place$LT$syn..lit..LitStr$GT$17h64de0513db3091d6E"(ptr nonnull align 8 %4) #11
           to label %20 unwind label %18
 
 15:                                               ; preds = %10
@@ -1244,7 +1244,7 @@ define void @"_ZN70_$LT$wiggle_generate..config..Literal$u20$as$u20$syn..parse..
 18:                                               ; preds = %13
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 20:                                               ; preds = %13
@@ -1355,7 +1355,7 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
 
 48:                                               ; preds = %57, %49
   %.pn31 = phi { ptr, i32 } [ %50, %49 ], [ %.pn29, %57 ]
-  invoke void @"_ZN4core3ptr125drop_in_place$LT$std..collections..hash..map..HashMap$LT$proc_macro2..Ident$C$wiggle_generate..config..ErrorConfField$GT$$GT$17h145d53ded8c883c2E"(ptr nonnull align 8 %26) #12
+  invoke void @"_ZN4core3ptr125drop_in_place$LT$std..collections..hash..map..HashMap$LT$proc_macro2..Ident$C$wiggle_generate..config..ErrorConfField$GT$$GT$17h145d53ded8c883c2E"(ptr nonnull align 8 %26) #11
           to label %.thread unwind label %106
 
 49:                                               ; preds = %104, %61, %45
@@ -1383,7 +1383,7 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
 
 57:                                               ; preds = %.loopexit, %.loopexit.split-lp, %64
   %.pn29 = phi { ptr, i32 } [ %.pn, %64 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$syn..punctuated..IntoIter$LT$wiggle_generate..config..ErrorConfField$GT$$GT$17h46274eb2b5b288fdE"(ptr nonnull align 8 %23) #12
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$syn..punctuated..IntoIter$LT$wiggle_generate..config..ErrorConfField$GT$$GT$17h46274eb2b5b288fdE"(ptr nonnull align 8 %23) #11
           to label %48 unwind label %106
 
 .loopexit:                                        ; preds = %56, %87
@@ -1415,7 +1415,7 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
 
 64:                                               ; preds = %.loopexit78, %.loopexit.split-lp79, %.body, %.body.thread, %88
   %.pn = phi { ptr, i32 } [ %89, %88 ], [ %eh.lpad-body69, %.body.thread ], [ %lpad.thr_comm.split-lp72, %.body ], [ %lpad.loopexit80, %.loopexit78 ], [ %lpad.loopexit.split-lp81, %.loopexit.split-lp79 ]
-  invoke void @"_ZN4core3ptr60drop_in_place$LT$wiggle_generate..config..ErrorConfField$GT$17hdca0e0e7df1d1effE"(ptr nonnull align 8 %21) #12
+  invoke void @"_ZN4core3ptr60drop_in_place$LT$wiggle_generate..config..ErrorConfField$GT$17hdca0e0e7df1d1effE"(ptr nonnull align 8 %21) #11
           to label %57 unwind label %106
 
 .loopexit78:                                      ; preds = %65
@@ -1460,13 +1460,13 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
 72:                                               ; preds = %.noexc
   %73 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %8) #12
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %8) #11
           to label %.body.thread unwind label %74, !noalias !13
 
 74:                                               ; preds = %72
   %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13, !noalias !13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12, !noalias !13
   unreachable
 
 "_ZN87_$LT$wiggle_generate..config..TrappableErrorConfField$u20$as$u20$core..clone..Clone$GT$5clone17h60be3e55316f8078E.exit.i": ; preds = %.noexc
@@ -1496,13 +1496,13 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
 78:                                               ; preds = %.noexc35
   %79 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #12
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %5) #11
           to label %.body.thread unwind label %80, !noalias !16
 
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13, !noalias !16
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12, !noalias !16
   unreachable
 
 "_ZN82_$LT$wiggle_generate..config..UserErrorConfField$u20$as$u20$core..clone..Clone$GT$5clone17hf78fc3c1aaf68b2cE.exit.i": ; preds = %.noexc35
@@ -1544,7 +1544,7 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
 88:                                               ; preds = %100, %99, %90
   %89 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr60drop_in_place$LT$wiggle_generate..config..ErrorConfField$GT$17hdca0e0e7df1d1effE"(ptr nonnull align 8 %17) #12
+  invoke void @"_ZN4core3ptr60drop_in_place$LT$wiggle_generate..config..ErrorConfField$GT$17hdca0e0e7df1d1effE"(ptr nonnull align 8 %17) #11
           to label %64 unwind label %106
 
 90:                                               ; preds = %84
@@ -1601,18 +1601,18 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
 106:                                              ; preds = %.thread, %108, %.body.thread, %88, %64, %57, %48
   %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 .body.thread:                                     ; preds = %72, %78, %.body.thread73
   %eh.lpad-body69 = phi { ptr, i32 } [ %lpad.thr_comm71, %.body.thread73 ], [ %79, %78 ], [ %73, %72 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %19) #12
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %19) #11
           to label %64 unwind label %106
 
 108:                                              ; preds = %43, %40
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr115drop_in_place$LT$syn..punctuated..Punctuated$LT$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$GT$$GT$17h5963c739184fc434E"(ptr nonnull align 8 %28) #12
+  invoke void @"_ZN4core3ptr115drop_in_place$LT$syn..punctuated..Punctuated$LT$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$GT$$GT$17h5963c739184fc434E"(ptr nonnull align 8 %28) #11
           to label %.thread unwind label %106
 
 109:                                              ; preds = %105, %.thread76
@@ -1624,7 +1624,7 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
 
 .thread:                                          ; preds = %48, %42, %108, %.thread53
   %.pn31.pn.pn52 = phi { ptr, i32 } [ %35, %.thread53 ], [ %lpad.thr_comm.split-lp, %42 ], [ %lpad.thr_comm, %108 ], [ %.pn31, %48 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %30) #12
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %30) #11
           to label %110 unwind label %106
 }
 
@@ -1722,7 +1722,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..ErrorConfField$u20$as$u20$syn..
 32:                                               ; preds = %48, %36, %35, %19
   %33 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %6) #12
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %6) #11
           to label %.thread115 unwind label %59
 
 34:                                               ; preds = %19
@@ -1822,7 +1822,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..ErrorConfField$u20$as$u20$syn..
 59:                                               ; preds = %.thread115, %32
   %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 61:                                               ; preds = %.thread115
@@ -1830,7 +1830,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..ErrorConfField$u20$as$u20$syn..
 
 .thread115:                                       ; preds = %32, %.thread120
   %.pn119 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread120 ], [ %33, %32 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %9) #12
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %9) #11
           to label %61 unwind label %59
 }
 
@@ -1925,7 +1925,7 @@ define void @_ZN15wiggle_generate6config9AsyncConf3get17h9e80bbf2791eb6a3E(ptr n
 21:                                               ; preds = %25, %18
   %22 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..Asyncness$GT$17h33d436e8d9faceecE"(ptr nonnull align 8 %8) #12
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..Asyncness$GT$17h33d436e8d9faceecE"(ptr nonnull align 8 %8) #11
           to label %31 unwind label %29
 
 23:                                               ; preds = %18
@@ -1952,7 +1952,7 @@ define void @_ZN15wiggle_generate6config9AsyncConf3get17h9e80bbf2791eb6a3E(ptr n
 29:                                               ; preds = %21
   %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 31:                                               ; preds = %21
@@ -2013,7 +2013,7 @@ define noundef zeroext i1 @_ZN15wiggle_generate6config9AsyncConf14contains_async
 
 25:                                               ; preds = %.loopexit.split-lp, %.loopexit19
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit19 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..rc..Rc$LT$witx..ast..InterfaceFunc$GT$$GT$17h57e5145b8fcd01a0E"(ptr nonnull align 8 %4) #12
+  invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..rc..Rc$LT$witx..ast..InterfaceFunc$GT$$GT$17h57e5145b8fcd01a0E"(ptr nonnull align 8 %4) #11
           to label %36 unwind label %34
 
 26:                                               ; preds = %16
@@ -2042,7 +2042,7 @@ define noundef zeroext i1 @_ZN15wiggle_generate6config9AsyncConf14contains_async
 34:                                               ; preds = %25
   %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 36:                                               ; preds = %25
@@ -2134,13 +2134,13 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 
 46:                                               ; preds = %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
-  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr nonnull align 1 @anon.6580ba8d5d51603e51413ec3bf3dd64c.0, i64 43, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.1, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.27) #14
+  invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr nonnull align 1 @anon.6580ba8d5d51603e51413ec3bf3dd64c.0, i64 43, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.1, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.27) #13
           to label %49 unwind label %47
 
 47:                                               ; preds = %46
   %48 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr38drop_in_place$LT$syn..error..Error$GT$17hf67e0106b88111ccE"(ptr nonnull align 8 %3) #12
+  invoke void @"_ZN4core3ptr38drop_in_place$LT$syn..error..Error$GT$17hf67e0106b88111ccE"(ptr nonnull align 8 %3) #11
           to label %.thread68 unwind label %50
 
 49:                                               ; preds = %46
@@ -2149,7 +2149,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 50:                                               ; preds = %47
   %51 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 52:                                               ; preds = %43
@@ -2200,7 +2200,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 
 68:                                               ; preds = %77, %69
   %.pn57 = phi { ptr, i32 } [ %70, %69 ], [ %.pn55, %77 ]
-  invoke void @"_ZN4core3ptr133drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h8ce2175e64347077E"(ptr nonnull align 8 %21) #12
+  invoke void @"_ZN4core3ptr133drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h8ce2175e64347077E"(ptr nonnull align 8 %21) #11
           to label %.thread68 unwind label %117
 
 69:                                               ; preds = %83, %65
@@ -2222,7 +2222,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 
 77:                                               ; preds = %99, %78
   %.pn55 = phi { ptr, i32 } [ %79, %78 ], [ %.pn, %99 ]
-  invoke void @"_ZN4core3ptr92drop_in_place$LT$syn..punctuated..IntoIter$LT$wiggle_generate..config..FunctionField$GT$$GT$17h63ca0bd43b121597E"(ptr nonnull align 8 %18) #12
+  invoke void @"_ZN4core3ptr92drop_in_place$LT$syn..punctuated..IntoIter$LT$wiggle_generate..config..FunctionField$GT$$GT$17h63ca0bd43b121597E"(ptr nonnull align 8 %18) #11
           to label %68 unwind label %117
 
 78:                                               ; preds = %115, %76
@@ -2283,7 +2283,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 
 99:                                               ; preds = %.thread102, %116, %103, %100
   %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp101, %116 ], [ %104, %103 ], [ %101, %100 ], [ %lpad.thr_comm100, %.thread102 ]
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$wiggle_generate..config..FunctionField$GT$17h00786b1656e7c70dE"(ptr nonnull align 8 %16) #12
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$wiggle_generate..config..FunctionField$GT$17h00786b1656e7c70dE"(ptr nonnull align 8 %16) #11
           to label %77 unwind label %117
 
 100:                                              ; preds = %84
@@ -2298,7 +2298,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 103:                                              ; preds = %105, %102
   %104 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h681ccb8b83f291a8E"(ptr nonnull align 8 %15) #12
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h681ccb8b83f291a8E"(ptr nonnull align 8 %15) #11
           to label %99 unwind label %117
 
 105:                                              ; preds = %102
@@ -2342,19 +2342,19 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 116:                                              ; preds = %109
   %lpad.thr_comm.split-lp101 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h681ccb8b83f291a8E"(ptr nonnull align 8 %15) #12
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h681ccb8b83f291a8E"(ptr nonnull align 8 %15) #11
           to label %99 unwind label %117
 
 117:                                              ; preds = %127, %.thread68, %119, %116, %103, %99, %77, %68
   %118 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 119:                                              ; preds = %63, %62
   %120 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr114drop_in_place$LT$syn..punctuated..Punctuated$LT$wiggle_generate..config..FunctionField$C$syn..token..Comma$GT$$GT$17h2a4d42c4f4050b4bE"(ptr nonnull align 8 %23) #12
+  invoke void @"_ZN4core3ptr114drop_in_place$LT$syn..punctuated..Punctuated$LT$wiggle_generate..config..FunctionField$C$syn..token..Comma$GT$$GT$17h2a4d42c4f4050b4bE"(ptr nonnull align 8 %23) #11
           to label %.thread68 unwind label %117
 
 121:                                              ; preds = %59, %54
@@ -2377,14 +2377,14 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 .thread68:                                        ; preds = %68, %119, %47, %.thread73
   %.pn57.pn.pn67 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread73 ], [ %48, %47 ], [ %120, %119 ], [ %.pn57, %68 ]
   %.166 = phi i8 [ %.049.ph, %.thread73 ], [ 0, %47 ], [ 1, %119 ], [ 1, %68 ]
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %25) #12
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %25) #11
           to label %93 unwind label %117
 
 126:                                              ; preds = %127, %93
   resume { ptr, i32 } %.pn61
 
 127:                                              ; preds = %93
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %26) #12
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %26) #11
           to label %126 unwind label %117
 }
 
@@ -2527,11 +2527,11 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
   %.0 = phi i1 [ false, %56 ], [ true, %52 ]
   %55 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %6) #12
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %6) #11
           to label %60 unwind label %58
 
 56:                                               ; preds = %52
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17ha209a8558fe978f8E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %5, ptr nonnull align 8 %53, i64 1)
           to label %57 unwind label %54
 
@@ -2547,14 +2547,14 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
 58:                                               ; preds = %93, %.thread99, %.thread119, %88, %75, %61, %54
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 60:                                               ; preds = %54
   br i1 %.0, label %61, label %.thread99
 
 61:                                               ; preds = %60
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %8) #12
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %8) #11
           to label %.thread99 unwind label %58
 
 .sink.split:                                      ; preds = %49, %65
@@ -2607,7 +2607,7 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
 75:                                               ; preds = %77, %73
   %76 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %10) #12
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %10) #11
           to label %88 unwind label %58
 
 77:                                               ; preds = %73
@@ -2649,7 +2649,7 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
   br label %85
 
 88:                                               ; preds = %75
-  invoke void @"_ZN4core3ptr94drop_in_place$LT$syn..punctuated..Punctuated$LT$proc_macro2..Ident$C$syn..token..Comma$GT$$GT$17h980db70f8aa297eaE"(ptr nonnull align 8 %12) #12
+  invoke void @"_ZN4core3ptr94drop_in_place$LT$syn..punctuated..Punctuated$LT$proc_macro2..Ident$C$syn..token..Comma$GT$$GT$17h980db70f8aa297eaE"(ptr nonnull align 8 %12) #11
           to label %.thread119 unwind label %58
 
 89:                                               ; preds = %70
@@ -2666,13 +2666,13 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
 .thread119:                                       ; preds = %88, %.thread129
   %.pn124 = phi { ptr, i32 } [ %lpad.thr_comm127, %.thread129 ], [ %76, %88 ]
   %.6123 = phi i1 [ %.4.ph, %.thread129 ], [ false, %88 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %14) #12
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %14) #11
           to label %.thread99 unwind label %58
 
 .thread99:                                        ; preds = %64, %60, %61, %.thread119, %.thread106
   %.pn93104 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread106 ], [ %55, %60 ], [ %55, %61 ], [ %lpad.thr_comm.split-lp128, %64 ], [ %.pn124, %.thread119 ]
   %.3103 = phi i1 [ %.282.ph, %.thread106 ], [ false, %60 ], [ false, %61 ], [ true, %64 ], [ %.6123, %.thread119 ]
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %15) #12
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %15) #11
           to label %25 unwind label %58
 
 92:                                               ; preds = %93, %25
@@ -2681,7 +2681,7 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
 
 93:                                               ; preds = %.thread, %.thread139, %25
   %.pn95143 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.thread139 ], [ %.pn93104, %25 ], [ %lpad.thr_comm144, %.thread ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %18) #12
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %18) #11
           to label %92 unwind label %58
 }
 
@@ -2764,13 +2764,13 @@ define void @"_ZN77_$LT$wiggle_generate..config..WasmtimeConfig$u20$as$u20$syn..
 29:                                               ; preds = %17
   %30 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr98drop_in_place$LT$syn..punctuated..IntoIter$LT$wiggle_generate..config..WasmtimeConfigField$GT$$GT$17he264acba0e07dfd4E"(ptr nonnull align 8 %3) #12
+  invoke void @"_ZN4core3ptr98drop_in_place$LT$syn..punctuated..IntoIter$LT$wiggle_generate..config..WasmtimeConfigField$GT$$GT$17he264acba0e07dfd4E"(ptr nonnull align 8 %3) #11
           to label %.thread unwind label %31
 
 31:                                               ; preds = %.thread, %29
   %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 33:                                               ; preds = %2
@@ -2791,7 +2791,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..WasmtimeConfig$u20$as$u20$syn..
 
 .thread:                                          ; preds = %19, %29, %.thread37
   %.pn35 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread37 ], [ %20, %19 ], [ %30, %29 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %8) #12
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %8) #11
           to label %37 unwind label %31
 }
 
@@ -3009,7 +3009,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
 
 42:                                               ; preds = %59, %.thread111, %43
   %.pn102 = phi { ptr, i32 } [ %44, %43 ], [ %.pn98.pn.pn114, %.thread111 ], [ %60, %59 ]
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %24) #12
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %24) #11
           to label %125 unwind label %116
 
 43:                                               ; preds = %123, %96, %48, %47, %46, %28
@@ -3120,7 +3120,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
 
 76:                                               ; preds = %85, %77
   %.pn98 = phi { ptr, i32 } [ %78, %77 ], [ %.pn96, %85 ]
-  invoke void @"_ZN4core3ptr133drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h8ce2175e64347077E"(ptr nonnull align 8 %18) #12
+  invoke void @"_ZN4core3ptr133drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h8ce2175e64347077E"(ptr nonnull align 8 %18) #11
           to label %.thread111 unwind label %116
 
 77:                                               ; preds = %91, %73
@@ -3142,7 +3142,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
 
 85:                                               ; preds = %98, %86
   %.pn96 = phi { ptr, i32 } [ %87, %86 ], [ %.pn, %98 ]
-  invoke void @"_ZN4core3ptr92drop_in_place$LT$syn..punctuated..IntoIter$LT$wiggle_generate..config..FunctionField$GT$$GT$17h63ca0bd43b121597E"(ptr nonnull align 8 %15) #12
+  invoke void @"_ZN4core3ptr92drop_in_place$LT$syn..punctuated..IntoIter$LT$wiggle_generate..config..FunctionField$GT$$GT$17h63ca0bd43b121597E"(ptr nonnull align 8 %15) #11
           to label %76 unwind label %116
 
 86:                                               ; preds = %114, %84
@@ -3179,7 +3179,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
 
 98:                                               ; preds = %.thread127, %115, %102, %99
   %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %115 ], [ %103, %102 ], [ %100, %99 ], [ %lpad.thr_comm, %.thread127 ]
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$wiggle_generate..config..FunctionField$GT$17h00786b1656e7c70dE"(ptr nonnull align 8 %13) #12
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$wiggle_generate..config..FunctionField$GT$17h00786b1656e7c70dE"(ptr nonnull align 8 %13) #11
           to label %85 unwind label %116
 
 99:                                               ; preds = %92
@@ -3194,7 +3194,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
 102:                                              ; preds = %104, %101
   %103 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h681ccb8b83f291a8E"(ptr nonnull align 8 %12) #12
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h681ccb8b83f291a8E"(ptr nonnull align 8 %12) #11
           to label %98 unwind label %116
 
 104:                                              ; preds = %101
@@ -3238,19 +3238,19 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
 115:                                              ; preds = %108
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h681ccb8b83f291a8E"(ptr nonnull align 8 %12) #12
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h681ccb8b83f291a8E"(ptr nonnull align 8 %12) #11
           to label %98 unwind label %116
 
 116:                                              ; preds = %.thread111, %118, %115, %102, %98, %85, %76, %42
   %117 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 118:                                              ; preds = %71, %70
   %119 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr114drop_in_place$LT$syn..punctuated..Punctuated$LT$wiggle_generate..config..FunctionField$C$syn..token..Comma$GT$$GT$17h2a4d42c4f4050b4bE"(ptr nonnull align 8 %20) #12
+  invoke void @"_ZN4core3ptr114drop_in_place$LT$syn..punctuated..Punctuated$LT$wiggle_generate..config..FunctionField$C$syn..token..Comma$GT$$GT$17h2a4d42c4f4050b4bE"(ptr nonnull align 8 %20) #11
           to label %.thread111 unwind label %116
 
 120:                                              ; preds = %61
@@ -3275,7 +3275,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
 
 .thread111:                                       ; preds = %76, %118, %.thread115
   %.pn98.pn.pn114 = phi { ptr, i32 } [ %66, %.thread115 ], [ %119, %118 ], [ %.pn98, %76 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %22) #12
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %22) #11
           to label %42 unwind label %116
 
 125:                                              ; preds = %42
@@ -3314,7 +3314,7 @@ define hidden void @"_ZN73_$LT$wiggle_generate..config..AsyncConf$u20$as$u20$cor
 14:                                               ; preds = %13
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h88615bc2dd44b6cdE"(ptr nonnull align 8 %5) #12
+  invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h88615bc2dd44b6cdE"(ptr nonnull align 8 %5) #11
           to label %21 unwind label %19
 
 16:                                               ; preds = %13
@@ -3335,7 +3335,7 @@ define hidden void @"_ZN73_$LT$wiggle_generate..config..AsyncConf$u20$as$u20$cor
 19:                                               ; preds = %14
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 21:                                               ; preds = %14
@@ -3358,7 +3358,7 @@ define hidden void @"_ZN77_$LT$wiggle_generate..config..AsyncConf$u20$as$u20$cor
 5:                                                ; preds = %.noexc, %1
   %6 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h88615bc2dd44b6cdE"(ptr nonnull align 8 %3) #12
+  invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h88615bc2dd44b6cdE"(ptr nonnull align 8 %3) #11
           to label %13 unwind label %11
 
 7:                                                ; preds = %.noexc
@@ -3377,7 +3377,7 @@ define hidden void @"_ZN77_$LT$wiggle_generate..config..AsyncConf$u20$as$u20$cor
 11:                                               ; preds = %5
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 13:                                               ; preds = %5
@@ -3819,11 +3819,8 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #11
+declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -3835,11 +3832,10 @@ attributes #6 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inli
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #12 = { cold }
-attributes #13 = { cold noreturn nounwind }
-attributes #14 = { noreturn }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #11 = { cold }
+attributes #12 = { cold noreturn nounwind }
+attributes #13 = { noreturn }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

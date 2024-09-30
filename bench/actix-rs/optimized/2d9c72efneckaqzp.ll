@@ -201,7 +201,7 @@ define hidden void @"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$3new17ha2703d
           to label %18 unwind label %16
 
 11:                                               ; preds = %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull align 8 dereferenceable(440) %4, i64 440, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef nonnull align 8 dereferenceable(440) %1, i64 440, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 440
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 104, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 880
@@ -254,7 +254,7 @@ define hidden void @"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$3new17he65b83
           to label %"_ZN4core3ptr318drop_in_place$LT$tokio_util..codec..framed_read..FramedRead$LT$h2..codec..framed_write..FramedWrite$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$C$h2..proto..streams..prioritize..Prioritized$LT$bytes..bytes..Bytes$GT$$GT$$C$tokio_util..codec..length_delimited..LengthDelimitedCodec$GT$$GT$17hd62c73a946bdf04aE.exit3" unwind label %16
 
 11:                                               ; preds = %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef nonnull align 8 dereferenceable(432) %4, i64 432, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef nonnull align 8 dereferenceable(432) %1, i64 432, i1 false)
   %12 = getelementptr inbounds i8, ptr %0, i64 432
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 104, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 872

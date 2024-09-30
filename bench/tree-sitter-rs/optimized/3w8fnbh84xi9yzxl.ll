@@ -2408,7 +2408,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   %206 = phi i64 [ %.pre.i, %._crit_edge.i120 ], [ %197, %196 ]
   %207 = load ptr, ptr %51, align 8, !alias.scope !315, !noalias !318, !nonnull !4, !noundef !4
   %208 = getelementptr inbounds { ptr, i64, { { i64, ptr }, i64 } }, ptr %207, i64 %206
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %208, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %208, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false)
   %209 = add i64 %206, 1
   store i64 %209, ptr %52, align 8, !alias.scope !315, !noalias !318
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28)
@@ -2625,7 +2625,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   %272 = phi i64 [ %.pre.i135, %._crit_edge.i134 ], [ %263, %261 ]
   %273 = load ptr, ptr %49, align 8, !alias.scope !342, !noalias !345, !nonnull !4, !noundef !4
   %274 = getelementptr inbounds { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, ptr, ptr, i64 }, ptr %273, i64 %272
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %274, ptr noundef nonnull align 8 dereferenceable(240) %25, i64 240, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %274, ptr noundef nonnull align 8 dereferenceable(240) %25, i64 240, i1 false)
   %275 = add i64 %272, 1
   store i64 %275, ptr %50, align 8, !alias.scope !342, !noalias !345
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %25)
@@ -4365,7 +4365,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
   %474 = phi i64 [ %.pre.i309.i, %._crit_edge.i.i ], [ %465, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit.thread.i" ]
   %475 = load ptr, ptr %182, align 8, !alias.scope !514, !noalias !517, !nonnull !4, !noundef !4
   %476 = getelementptr inbounds { { { i64, ptr }, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %475, i64 %474
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %476, ptr noundef nonnull align 8 dereferenceable(48) %42, i64 48, i1 false), !noalias !410
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %476, ptr noundef nonnull align 8 dereferenceable(48) %43, i64 48, i1 false), !noalias !410
   %477 = load i64, ptr %183, align 8, !alias.scope !514, !noalias !517, !noundef !4
   %478 = add i64 %477, 1
   store i64 %478, ptr %183, align 8, !alias.scope !514, !noalias !517
@@ -4728,7 +4728,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
   %577 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %563, %._crit_edge.i321.i._crit_edge ]
   %578 = load ptr, ptr %65, align 8, !alias.scope !552, !noalias !555, !nonnull !4, !noundef !4
   %579 = getelementptr inbounds { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, ptr, ptr, i64 }, ptr %578, i64 %577
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %579, ptr noundef nonnull align 8 dereferenceable(240) %30, i64 240, i1 false), !noalias !410
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %579, ptr noundef nonnull align 8 dereferenceable(240) %30, i64 240, i1 false), !noalias !410
   %580 = add i64 %576, 1
   store i64 %580, ptr %64, align 8, !alias.scope !552, !noalias !555
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %30), !noalias !546
@@ -4836,7 +4836,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
   br i1 %618, label %571, label %._crit_edge.i321.i
 
 619:                                              ; preds = %608, %606
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %603, ptr noundef nonnull align 8 dereferenceable(240) %32, i64 240, i1 false), !noalias !410
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %603, ptr noundef nonnull align 8 dereferenceable(240) %32, i64 240, i1 false), !noalias !410
   %620 = add i64 %598, 1
   store i64 %620, ptr %64, align 8, !alias.scope !558, !noalias !561
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %32), !noalias !546

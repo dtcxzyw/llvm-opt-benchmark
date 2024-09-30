@@ -34459,7 +34459,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_13CXXRecordDeclEEENS1_15
   %.sroa.025 = alloca [12 x i8], align 8
   %8 = alloca %"class.clang::ast_matchers::internal::Matcher.408", align 8
   %9 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.1271", align 8
-  %.sroa.0 = alloca [12 x i8], align 8
   %10 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21, !noalias !3167
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false), !noalias !3167
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal38matcher_isTemplateInstantiationMatcherINS_13CXXRecordDeclEEE, i64 16), ptr %10, align 8, !noalias !3167
@@ -34691,7 +34690,6 @@ _ZN5clang12ast_matchers8internal15BindableMatcherINS_4DeclEED2Ev.exit11: ; preds
   br label %_ZN5clang12ast_matchers8internal7MatcherINS_13CXXRecordDeclEED2Ev.exit
 
 _ZN5clang12ast_matchers8internal7MatcherINS_13CXXRecordDeclEED2Ev.exit: ; preds = %_ZN5clang12ast_matchers8internal15BindableMatcherINS_4DeclEED2Ev.exit11, %106
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false)
   %110 = load ptr, ptr %67, align 8, !noalias !3207
   %.not.i.i.i.i.i.i.i13 = icmp eq ptr %110, null
   br i1 %.not.i.i.i.i.i.i.i13, label %_ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_18HasAncestorMatcherENS1_8TypeListIJNS_4DeclENS_22NestedNameSpecifierLocENS_4StmtENS_7TypeLocENS_4AttrEEEESA_EclIS5_EENS1_34ArgumentAdaptingMatcherFuncAdaptorIS3_T_SA_EERKNS1_7MatcherISE_EE.exit, label %111
@@ -34706,7 +34704,7 @@ _ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_18HasAncestor
   %114 = load i32, ptr @_ZN5clang12ast_matchers5anyOfE, align 4, !noalias !3212
   store i32 %114, ptr %9, align 8, !alias.scope !3212
   %115 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %115, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %115, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false)
   %116 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %110, ptr %116, align 8, !alias.scope !3212
   %117 = getelementptr inbounds i8, ptr %9, i64 32

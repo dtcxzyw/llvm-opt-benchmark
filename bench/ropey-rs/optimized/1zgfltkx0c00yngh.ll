@@ -2160,7 +2160,7 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit44: ; preds = %.lr.ph
   %.sroa.02.0 = select i1 %90, ptr inttoptr (i64 1 to ptr), ptr %.sroa.0.0
   %.sroa.6.0 = extractvalue { ptr, i64 } %.pn, 1
   %.sroa.3.0 = select i1 %90, i64 0, i64 %.sroa.6.0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.02.0, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2617,7 +2617,7 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit44: ; preds = %.lr.ph
   %.sroa.02.0 = select i1 %90, ptr inttoptr (i64 1 to ptr), ptr %.sroa.0.0
   %.sroa.6.0 = extractvalue { ptr, i64 } %.pn, 1
   %.sroa.3.0 = select i1 %90, i64 0, i64 %.sroa.6.0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false)
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.02.0, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %0, i64 56
@@ -3620,7 +3620,7 @@ _ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit: ; preds = %.prehead
   %.sroa.6.0 = extractvalue { ptr, i64 } %13, 1
   %.sroa.3.0 = select i1 %316, i64 0, i64 %.sroa.6.0
   %317 = add i64 %.sroa.0.0.i, %.sroa.0.0.i50
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false)
   %318 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.03.0, ptr %318, align 8
   %319 = getelementptr inbounds i8, ptr %0, i64 56

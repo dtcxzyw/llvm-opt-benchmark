@@ -5586,17 +5586,16 @@ define internal fastcc noundef zeroext i1 @ip6_redirect_nh_match(ptr %.0.val, pt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ip6_redirect(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 %4) #1 align 16 {
   %6 = alloca %struct.ip6rd_flowi, align 8
-  %7 = alloca [4 x i32], align 8
-  %8 = alloca [4 x i32], align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 200
-  %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef align 4 dereferenceable(16) %12, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef align 4 dereferenceable(16) %11, i64 16, i1 false)
-  %13 = load i32, ptr %10, align 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 200
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef align 4 dereferenceable(16) %10, i64 16, i1 false)
+  %12 = getelementptr inbounds i8, ptr %6, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef align 4 dereferenceable(16) %9, i64 16, i1 false)
+  %13 = load i32, ptr %8, align 4
   %14 = and i32 %13, -241
   %15 = getelementptr inbounds i8, ptr %0, i64 192
   %16 = load ptr, ptr %15, align 8
@@ -5605,7 +5604,6 @@ define dso_local void @ip6_redirect(ptr noundef %0, ptr noundef %1, i32 noundef 
   %19 = zext i16 %18 to i64
   %20 = getelementptr i8, ptr %16, i64 %19
   %21 = getelementptr inbounds i8, ptr %20, i64 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #22
   store i32 %2, ptr %6, align 8
   %22 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 1, ptr %22, align 4
@@ -5621,26 +5619,20 @@ define dso_local void @ip6_redirect(ptr noundef %0, ptr noundef %1, i32 noundef 
   store i32 0, ptr %27, align 4
   %28 = getelementptr inbounds i8, ptr %6, i64 32
   store i64 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  %30 = getelementptr inbounds i8, ptr %6, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  %31 = getelementptr inbounds i8, ptr %6, i64 72
-  store i32 %14, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 76
+  %29 = getelementptr inbounds i8, ptr %6, i64 72
+  store i32 %14, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %6, i64 76
+  store i32 0, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %6, i64 80
+  store i32 0, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %6, i64 84
   store i32 0, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %6, i64 80
-  store i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 84
-  store i32 0, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %6, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %35, ptr noundef align 4 dereferenceable(16) %21, i64 16, i1 false)
-  %36 = call ptr @fib6_rule_lookup(ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @__ip6_route_redirect) #22
+  %33 = getelementptr inbounds i8, ptr %6, i64 88
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %33, ptr noundef align 4 dereferenceable(16) %21, i64 16, i1 false)
+  %34 = call ptr @fib6_rule_lookup(ptr noundef %1, ptr noundef nonnull %6, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @__ip6_route_redirect) #22
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #22
-  call void @rt6_do_redirect(ptr noundef %36, ptr poison, ptr noundef %0)
-  call void @dst_release(ptr noundef %36) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @rt6_do_redirect(ptr noundef %34, ptr poison, ptr noundef %0)
+  call void @dst_release(ptr noundef %34) #22
   ret void
 }
 
@@ -5885,70 +5877,61 @@ define internal void @rt6_do_redirect(ptr noundef %0, ptr nocapture readnone %1,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ip6_redirect_no_header(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = alloca %struct.ip6rd_flowi, align 8
-  %5 = alloca [4 x i32], align 8
-  %6 = alloca [4 x i32], align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 180
-  %10 = load i16, ptr %9, align 4
-  %11 = zext i16 %10 to i64
-  %12 = getelementptr i8, ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 178
-  %14 = load i16, ptr %13, align 2
-  %15 = zext i16 %14 to i64
-  %16 = getelementptr i8, ptr %8, i64 %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef align 4 dereferenceable(16) %17, i64 16, i1 false)
-  %18 = getelementptr inbounds i8, ptr %12, i64 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef align 4 dereferenceable(16) %19, i64 16, i1 false)
+  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 180
+  %8 = load i16, ptr %7, align 4
+  %9 = zext i16 %8 to i64
+  %10 = getelementptr i8, ptr %6, i64 %9
+  %11 = getelementptr inbounds i8, ptr %0, i64 178
+  %12 = load i16, ptr %11, align 2
+  %13 = zext i16 %12 to i64
+  %14 = getelementptr i8, ptr %6, i64 %13
+  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %16 = getelementptr inbounds i8, ptr %4, i64 40
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef align 4 dereferenceable(16) %15, i64 16, i1 false)
+  %17 = getelementptr inbounds i8, ptr %10, i64 8
+  %18 = getelementptr inbounds i8, ptr %10, i64 24
+  %19 = getelementptr inbounds i8, ptr %4, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef align 4 dereferenceable(16) %18, i64 16, i1 false)
   store i32 %2, ptr %4, align 8
   %20 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 1, ptr %20, align 4
   %21 = getelementptr inbounds i8, ptr %4, i64 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  %23 = getelementptr inbounds i8, ptr %4, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
-  %25 = getelementptr inbounds i8, ptr %4, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %25, ptr noundef align 4 dereferenceable(16) %18, i64 16, i1 false)
-  %26 = call ptr @fib6_rule_lookup(ptr noundef %1, ptr noundef nonnull %4, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @__ip6_route_redirect) #22
+  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %23 = getelementptr inbounds i8, ptr %4, i64 88
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %23, ptr noundef align 4 dereferenceable(16) %17, i64 16, i1 false)
+  %24 = call ptr @fib6_rule_lookup(ptr noundef %1, ptr noundef nonnull %4, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @__ip6_route_redirect) #22
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #22
-  call void @rt6_do_redirect(ptr noundef %26, ptr poison, ptr noundef %0)
-  call void @dst_release(ptr noundef %26) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @rt6_do_redirect(ptr noundef %24, ptr poison, ptr noundef %0)
+  call void @dst_release(ptr noundef %24) #22
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ip6_sk_redirect(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = alloca %struct.ip6rd_flowi, align 8
-  %4 = alloca [4 x i32], align 8
-  %5 = alloca [4 x i32], align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 20
-  %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 452
-  %11 = load volatile i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 560
-  %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 200
-  %15 = load ptr, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef align 4 dereferenceable(16) %17, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef align 4 dereferenceable(16) %16, i64 16, i1 false)
-  %18 = load i32, ptr %15, align 4
+  %4 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %1, i64 20
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds i8, ptr %1, i64 452
+  %9 = load volatile i32, ptr %8, align 4
+  %10 = getelementptr inbounds i8, ptr %1, i64 560
+  %11 = load i32, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 200
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds i8, ptr %13, i64 24
+  %16 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef align 4 dereferenceable(16) %15, i64 16, i1 false)
+  %17 = getelementptr inbounds i8, ptr %3, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef align 4 dereferenceable(16) %14, i64 16, i1 false)
+  %18 = load i32, ptr %13, align 4
   %19 = and i32 %18, -241
   %20 = getelementptr inbounds i8, ptr %0, i64 192
   %21 = load ptr, ptr %20, align 8
@@ -5957,42 +5940,35 @@ define dso_local void @ip6_sk_redirect(ptr noundef %0, ptr noundef %1) #1 align 
   %24 = zext i16 %23 to i64
   %25 = getelementptr i8, ptr %21, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #22
-  store i32 %9, ptr %3, align 8
+  store i32 %7, ptr %3, align 8
   %27 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 1, ptr %27, align 4
   %28 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 0, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %3, i64 12
-  store i32 %11, ptr %29, align 4
+  store i32 %9, ptr %29, align 4
   %30 = getelementptr inbounds i8, ptr %3, i64 16
   %31 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 0, ptr %30, align 8
-  store i32 %13, ptr %31, align 8
+  store i32 %11, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %3, i64 28
   store i32 0, ptr %32, align 4
   %33 = getelementptr inbounds i8, ptr %3, i64 32
   store i64 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  %35 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  %36 = getelementptr inbounds i8, ptr %3, i64 72
-  store i32 %19, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 76
+  %34 = getelementptr inbounds i8, ptr %3, i64 72
+  store i32 %19, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %3, i64 76
+  store i32 0, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %3, i64 80
+  store i32 0, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %3, i64 84
   store i32 0, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %3, i64 80
-  store i32 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %3, i64 84
-  store i32 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %3, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %40, ptr noundef align 4 dereferenceable(16) %26, i64 16, i1 false)
-  %41 = call ptr @fib6_rule_lookup(ptr noundef %7, ptr noundef nonnull %3, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @__ip6_route_redirect) #22
+  %38 = getelementptr inbounds i8, ptr %3, i64 88
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %38, ptr noundef align 4 dereferenceable(16) %26, i64 16, i1 false)
+  %39 = call ptr @fib6_rule_lookup(ptr noundef %5, ptr noundef nonnull %3, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @__ip6_route_redirect) #22
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #22
-  call void @rt6_do_redirect(ptr noundef %41, ptr poison, ptr noundef %0)
-  call void @dst_release(ptr noundef %41) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @rt6_do_redirect(ptr noundef %39, ptr poison, ptr noundef %0)
+  call void @dst_release(ptr noundef %39) #22
   ret void
 }
 

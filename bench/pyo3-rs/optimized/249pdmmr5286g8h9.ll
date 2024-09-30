@@ -3049,7 +3049,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_21default_cross_compile
   %.sroa.024.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.024.sroa.3.0..sroa_idx, align 8
   %.sroa.024.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.024.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.024.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   %.sroa.024.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.024.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   %.sroa.024.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72

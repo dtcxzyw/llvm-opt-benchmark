@@ -1439,12 +1439,12 @@ entry:
   store i32 %p, ptr %p.addr, align 4
   store i32 %n, ptr %n.addr, align 4
   %call = tail call ptr @BN_GENCB_get_arg(ptr noundef %cb) #7
-  %0 = getelementptr inbounds i8, ptr %params, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %0, i8 0, i64 40, i1 false)
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.15, ptr noundef nonnull %p.addr) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %arrayidx1 = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2, ptr noundef nonnull @.str.16, ptr noundef nonnull %n.addr) #7
+  %0 = getelementptr inbounds i8, ptr %params, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1, ptr noundef nonnull align 8 dereferenceable(40) %tmp2, i64 40, i1 false)
   %cb3 = getelementptr inbounds i8, ptr %call, i64 96
   %1 = load ptr, ptr %cb3, align 8

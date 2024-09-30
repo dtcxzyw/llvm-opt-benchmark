@@ -2117,7 +2117,6 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout..MaybeTimeout$LT$T$GT$$GT$13maybe_timeout17h9bd1167ad11abaa8E"(ptr noalias nocapture noundef writeonly sret({ i64, [299 x i64] }) align 8 dereferenceable(2400) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(2360) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, [42 x i64] }, { i64, [42 x i64] }, { i64, [25 x i64] }, { i16, [55 x i16] }, { ptr, [5 x i64] }, i8, i8, [6 x i8] }, ptr, ptr, ptr, i8, [1271 x i8] }, align 8
-  %.sroa.0 = alloca { { { i64, [42 x i64] }, { i64, [42 x i64] }, { i64, [25 x i64] }, { i16, [55 x i16] }, { ptr, [5 x i64] }, i8, i8, [6 x i8] }, ptr, ptr, ptr, i8, [1271 x i8] }, align 8
   %5 = alloca { { { { ptr, ptr } }, {}, {} } }, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !noundef !10
@@ -2146,7 +2145,6 @@ define hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout.
   %17 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %16, ptr %17, align 8
   %18 = load i64, ptr %2, align 8, !noundef !10
-  call void @llvm.lifetime.start.p0(i64 2360, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 2360, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2360) %4, ptr noundef nonnull align 8 dereferenceable(2360) %1, i64 2360, i1 false)
   %19 = invoke { ptr, ptr } @"_ZN105_$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$u20$as$u20$aws_smithy_async..rt..sleep..AsyncSleep$GT$5sleep17hefb79bb07be9c6fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, i64 noundef %18, i32 noundef %11)
@@ -2161,9 +2159,8 @@ define hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout.
 22:                                               ; preds = %12
   %23 = extractvalue { ptr, ptr } %19, 0
   %24 = extractvalue { ptr, ptr } %19, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2360) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(2360) %4, i64 2360, i1 false)
   call void @llvm.lifetime.end.p0(i64 2360, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2360) %0, ptr noundef nonnull align 8 dereferenceable(2360) %.sroa.0, i64 2360, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2360) %0, ptr noundef nonnull align 8 dereferenceable(2360) %1, i64 2360, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 2360
   store ptr %23, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 2368
@@ -2174,7 +2171,6 @@ define hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout.
   store i64 %18, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 2384
   store i32 %11, ptr %27, align 8
-  call void @llvm.lifetime.end.p0(i64 2360, ptr nonnull %.sroa.0)
   %28 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !358
   %29 = icmp eq i64 %28, 1
   br i1 %29, label %30, label %.thread
@@ -2221,7 +2217,6 @@ define hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout..MaybeTimeout$LT$T$GT$$GT$13maybe_timeout17he5c6aa1a11882e5eE"(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [251 x i32] }) align 8 dereferenceable(1016) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(976) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, ptr, ptr, ptr, ptr, i8, [935 x i8] }, align 8
-  %.sroa.0 = alloca { ptr, ptr, ptr, ptr, ptr, i8, [935 x i8] }, align 8
   %5 = alloca { { { { ptr, ptr } }, {}, {} } }, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !noundef !10
@@ -2251,7 +2246,6 @@ define hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout.
   %18 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %17, ptr %18, align 8
   %19 = load i64, ptr %2, align 8, !noundef !10
-  call void @llvm.lifetime.start.p0(i64 976, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 976, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(976) %4, ptr noundef nonnull align 8 dereferenceable(976) %1, i64 976, i1 false)
   %20 = invoke { ptr, ptr } @"_ZN105_$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$u20$as$u20$aws_smithy_async..rt..sleep..AsyncSleep$GT$5sleep17hefb79bb07be9c6fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, i64 noundef %19, i32 noundef %12)
@@ -2266,10 +2260,9 @@ define hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout.
 23:                                               ; preds = %13
   %24 = extractvalue { ptr, ptr } %20, 0
   %25 = extractvalue { ptr, ptr } %20, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(976) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(976) %4, i64 976, i1 false)
   call void @llvm.lifetime.end.p0(i64 976, ptr nonnull %4)
   %26 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(976) %26, ptr noundef nonnull align 8 dereferenceable(976) %.sroa.0, i64 976, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(976) %26, ptr noundef nonnull align 8 dereferenceable(976) %1, i64 976, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 992
   store ptr %24, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1000
@@ -2279,7 +2272,6 @@ define hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout.
   store i64 %19, ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %12, ptr %28, align 8
-  call void @llvm.lifetime.end.p0(i64 976, ptr nonnull %.sroa.0)
   %29 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !372
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %31, label %.thread

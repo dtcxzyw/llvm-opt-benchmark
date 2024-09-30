@@ -2052,7 +2052,7 @@ define void @_ZN4ring4test15parse_test_case17h56558da9db1a9fdaE(ptr noalias noca
   %87 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %78, %74 ]
   %88 = load ptr, ptr %15, align 8, !alias.scope !335, !noalias !338, !nonnull !8, !noundef !8
   %89 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 } }, i8, [7 x i8] }, ptr %88, i64 %87
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %89, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %89, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false)
   %90 = add i64 %87, 1
   store i64 %90, ptr %16, align 8, !alias.scope !335, !noalias !338
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)

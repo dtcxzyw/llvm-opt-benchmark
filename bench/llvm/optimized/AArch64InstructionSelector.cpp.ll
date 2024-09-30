@@ -12895,7 +12895,6 @@ define internal fastcc void @_ZNK12_GLOBAL__N_126AArch64InstructionSelector21sel
   %11 = alloca [2 x %"class.std::function"], align 8
   %12 = alloca %"class.llvm::SmallVector.189", align 8
   %13 = alloca [2 x %"class.std::function"], align 8
-  %.sroa.080 = alloca %"class.llvm::MachineOperand", align 8
   %14 = alloca %"class.std::optional.183", align 8
   %15 = alloca %"class.llvm::SmallVector.189", align 8
   %16 = alloca [2 x %"class.std::function"], align 8
@@ -13301,13 +13300,12 @@ _ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEED2Ev.exit55: ; preds = %215, %22
   br i1 %222, label %.loopexit, label %215
 
 223:                                              ; preds = %201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.080, ptr noundef nonnull align 8 dereferenceable(32) %175, i64 32, i1 false)
   %224 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %225 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %226 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 0, ptr %226, align 8
   %227 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %227, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.080, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %227, ptr noundef nonnull align 8 dereferenceable(32) %175, i64 32, i1 false)
   store ptr %227, ptr %13, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNK12_GLOBAL__N_126AArch64InstructionSelector21selectAddrModeIndexedERNS0_14MachineOperandEjE3$_4E9_M_invokeERKSt9_Any_dataS2_", ptr %225, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNK12_GLOBAL__N_126AArch64InstructionSelector21selectAddrModeIndexedERNS0_14MachineOperandEjE3$_4E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %224, align 8
@@ -13537,7 +13535,6 @@ declare noundef zeroext i1 @_ZNK4llvm20GIMatchTableExecutor24isBaseWithConstantO
 define internal fastcc void @_ZNK12_GLOBAL__N_126AArch64InstructionSelector22selectAddrModeUnscaledERN4llvm14MachineOperandEj(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1480) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.189", align 8
   %5 = alloca [2 x %"class.std::function"], align 8
-  %.sroa.023 = alloca %"class.llvm::MachineOperand", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -13609,13 +13606,12 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %42
 56:                                               ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit
   %57 = load ptr, ptr %23, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.023, ptr noundef nonnull align 8 dereferenceable(32) %58, i64 32, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %61 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 0, ptr %61, align 8
   %62 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.023, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %58, i64 32, i1 false)
   store ptr %62, ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNK12_GLOBAL__N_126AArch64InstructionSelector22selectAddrModeUnscaledERNS0_14MachineOperandEjE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %60, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNK12_GLOBAL__N_126AArch64InstructionSelector22selectAddrModeUnscaledERNS0_14MachineOperandEjE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %59, align 8
@@ -17162,7 +17158,6 @@ define internal fastcc void @_ZNK12_GLOBAL__N_126AArch64InstructionSelector17sel
   %6 = alloca %"class.llvm::MachineIRBuilder", align 8
   %7 = alloca %"class.llvm::SmallVector.189", align 8
   %8 = alloca [3 x %"class.std::function"], align 8
-  %.sroa.034 = alloca %"class.llvm::MachineOperand", align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %10) #24
@@ -17244,13 +17239,12 @@ _ZNSt8optionalIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj
   %53 = call fastcc i32 @_ZNK12_GLOBAL__N_126AArch64InstructionSelector18moveScalarRegClassEN4llvm8RegisterERKNS1_19TargetRegisterClassERNS1_16MachineIRBuilderE(ptr noundef nonnull align 8 dereferenceable(1480) %1, i32 %52, ptr noundef nonnull align 8 dereferenceable(56) @_ZN4llvm7AArch6413GPR32RegClassE, ptr noundef nonnull align 8 dereferenceable(88) %6)
   %54 = icmp eq i32 %45, 11
   %55 = zext i1 %54 to i32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.034, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %58 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 0, ptr %58, align 8
   %59 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.034, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false)
   store ptr %59, ptr %8, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNK12_GLOBAL__N_126AArch64InstructionSelector17selectAddrModeWROERNS0_14MachineOperandEjE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %57, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm19MachineInstrBuilderEEZNK12_GLOBAL__N_126AArch64InstructionSelector17selectAddrModeWROERNS0_14MachineOperandEjE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %56, align 8

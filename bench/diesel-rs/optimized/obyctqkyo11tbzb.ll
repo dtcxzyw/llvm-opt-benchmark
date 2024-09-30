@@ -148,7 +148,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hd8e03250ced6bd
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hb73da21b232e22c4E.exit": ; preds = %23, %30, %12
   %18 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %18, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
   br label %8

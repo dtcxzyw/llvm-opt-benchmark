@@ -14090,10 +14090,10 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeI
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 4 %8, i64 %7, i1 false)
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #16
   %13 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %7, i64 noundef 4) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 4 %12, i64 %7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 4 %8, i64 %7, i1 false)
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #16
   %14 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %7, i64 noundef 4) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 4 %13, i64 %7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 4 %8, i64 %7, i1 false)
   %15 = freeze i32 %10
   %16 = icmp eq i32 %15, 0
   br label %"_ZZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS1_11MachineLoopEEN3$_1C2ERKS6_.exit.i.i.i"

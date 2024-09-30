@@ -1504,7 +1504,6 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE24constructQuadraticFormNsIJLm0ELm1EEEEvRKN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEES8_St16integer_sequenceImJXspT_EEE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Eigen::Product.387", align 8
   %5 = alloca %"struct.Eigen::internal::add_assign_op", align 1
-  %.sroa.012.i = alloca %"class.Eigen::MapBase.base.39", align 8
   %6 = alloca %"class.Eigen::Product.387", align 8
   %7 = alloca %"struct.Eigen::internal::add_assign_op", align 1
   %8 = alloca %"class.Eigen::Product.419", align 8
@@ -1610,7 +1609,6 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEELi0ENS_6StrideILi0EL
 
 _ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE23constructQuadraticFormNILi0EEEvRKN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEES8_.exit: ; preds = %3, %19, %_ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEELi0ENS_6StrideILi0ELi0EEEEENS_10MatrixBaseEEpLINS_7ProductINS_9TransposeIKNS1_INS2_IdLi1ELi6ELi1ELi1ELi6EEELi16ES5_EEEENSB_IKNSA_ISF_NS2_IdLi1ELi1ELi0ELi1ELi1EEELi0EEEEELi0EEEEERS6_RKNS7_IT_EE.exit.i.i.i, %_ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEELi0ENS_6StrideILi0ELi0EEEEENS_10MatrixBaseEEpLINS_7ProductINSA_INS_9TransposeIKNS1_INS2_IdLi1ELi6ELi1ELi1ELi6EEELi16ES5_EEEENS2_IdLi1ELi1ELi0ELi1ELi1EEELi0EEESD_Li0EEEEERS6_RKNS7_IT_EE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %.sroa.020.i)
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %.sroa.012.i)
   %66 = load ptr, ptr %12, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
@@ -1620,7 +1618,8 @@ _ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE23constructQuadraticFormNIL
   br i1 %71, label %_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE23constructQuadraticFormNILi1EEEvRKN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEES8_.exit, label %72
 
 72:                                               ; preds = %_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE23constructQuadraticFormNILi0EEEvRKN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEES8_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.012.i, ptr noundef nonnull align 8 dereferenceable(10) %15, i64 10, i1 false)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %4, ptr noundef nonnull align 8 dereferenceable(10) %15, i64 10, i1 false)
   %.sroa.015.sroa.0.0.copyload.i5 = load ptr, ptr %15, align 8
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 144
   %74 = load <2 x double>, ptr %.sroa.015.sroa.0.0.copyload.i5, align 16
@@ -1652,11 +1651,9 @@ _ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE23constructQuadraticFormNIL
   %98 = fadd <2 x double> %97, %96
   store <2 x double> %98, ptr %90, align 16
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %99, ptr noundef nonnull align 8 dereferenceable(10) %15, i64 10, i1 false)
   %100 = getelementptr inbounds nuw i8, ptr %68, i64 128
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %4, ptr noundef nonnull align 8 dereferenceable(10) %.sroa.012.i, i64 10, i1 false)
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %101, align 8, !alias.scope !112
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3MapINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS8_INS_9TransposeIKNS2_INS3_IdLi1ELi6ELi1ELi1ELi6EEELi16ES6_EEEENS3_IdLi1ELi1ELi0ELi1ELi1EEELi0EEESB_Li1EEENS0_13add_assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(12) %100, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
@@ -1665,7 +1662,6 @@ _ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE23constructQuadraticFormNIL
   br label %_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE23constructQuadraticFormNILi1EEEvRKN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEES8_.exit
 
 _ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE23constructQuadraticFormNILi1EEEvRKN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEES8_.exit: ; preds = %_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE23constructQuadraticFormNILi0EEEvRKN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEES8_.exit, %72
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %.sroa.012.i)
   ret void
 }
 

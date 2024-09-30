@@ -2347,7 +2347,7 @@ define hidden void @"_ZN136_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h98c64bd50e241557E.exit.i": ; preds = %.noexc.i, %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !629
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !629
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   invoke void @_ZN4core4iter6traits8iterator8Iterator4fold17h5a1171f2fe7dcc5bE.llvm.2919776409019166437(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
           to label %25 unwind label %23
 

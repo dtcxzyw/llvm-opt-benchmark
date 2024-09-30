@@ -5539,8 +5539,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { { i8, [31 x i8] }, {} }, align 8
-  %.sroa.6 = alloca [31 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !906)
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !909)
@@ -5578,13 +5576,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %23 = load i64, ptr %22, align 8, !alias.scope !906, !noalias !927, !noundef !7
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8, !alias.scope !906, !noalias !927
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false), !noalias !906
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %21, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store i8 %.sroa.0.0.copyload1.i.i.i, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
   %25 = load i8, ptr %1, align 8, !range !114, !alias.scope !928, !noundef !7
   %26 = icmp eq i8 %25, 22
   br i1 %26, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1852a58cafef357aE.exit", label %27
@@ -5594,7 +5591,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1852a58cafef357aE.exit" unwind label %39
 
 28:                                               ; preds = %38, %18
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.6)
   ret void
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h1852a58cafef357aE.exit": ; preds = %27, %20
@@ -5714,8 +5710,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { { i8, [31 x i8] }, {} }, align 8
-  %.sroa.6 = alloca [31 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !953)
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !956)
@@ -5753,13 +5747,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %23 = load i64, ptr %22, align 8, !alias.scope !953, !noalias !974, !noundef !7
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8, !alias.scope !953, !noalias !974
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false), !noalias !953
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %21, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store i8 %.sroa.0.0.copyload1.i.i.i, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
   %25 = load i8, ptr %1, align 8, !range !114, !alias.scope !975, !noundef !7
   %26 = icmp eq i8 %25, 22
   br i1 %26, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hbce1cb93f8f23d7eE.exit", label %27
@@ -5769,7 +5762,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hbce1cb93f8f23d7eE.exit" unwind label %39
 
 28:                                               ; preds = %38, %18
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.6)
   ret void
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hbce1cb93f8f23d7eE.exit": ; preds = %27, %20
@@ -5830,8 +5822,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { { i8, [31 x i8] }, {} }, align 8
-  %.sroa.6 = alloca [31 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !984)
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !987)
@@ -5869,13 +5859,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %23 = load i64, ptr %22, align 8, !alias.scope !984, !noalias !1005, !noundef !7
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8, !alias.scope !984, !noalias !1005
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false), !noalias !984
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %21, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store i8 %.sroa.0.0.copyload1.i.i.i, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
   %25 = load i8, ptr %1, align 8, !range !114, !alias.scope !1006, !noundef !7
   %26 = icmp eq i8 %25, 22
   br i1 %26, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h5f898f245d3d8c20E.exit", label %27
@@ -5885,7 +5874,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h5f898f245d3d8c20E.exit" unwind label %39
 
 28:                                               ; preds = %38, %18
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.6)
   ret void
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h5f898f245d3d8c20E.exit": ; preds = %27, %20
@@ -5946,8 +5934,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { { i8, [31 x i8] }, {} }, align 8
-  %.sroa.6 = alloca [31 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1014)
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1017)
@@ -5985,13 +5971,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %23 = load i64, ptr %22, align 8, !alias.scope !1014, !noalias !1035, !noundef !7
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8, !alias.scope !1014, !noalias !1035
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false), !noalias !1014
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %21, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store i8 %.sroa.0.0.copyload1.i.i.i, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
   %25 = load i8, ptr %1, align 8, !range !114, !alias.scope !1036, !noundef !7
   %26 = icmp eq i8 %25, 22
   br i1 %26, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h5ed5230dda736822E.exit", label %27
@@ -6001,7 +5986,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h5ed5230dda736822E.exit" unwind label %39
 
 28:                                               ; preds = %38, %18
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.6)
   ret void
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h5ed5230dda736822E.exit": ; preds = %27, %20
@@ -6062,8 +6046,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { { i8, [31 x i8] }, {} }, align 8
-  %.sroa.6 = alloca [31 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1044)
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1047)
@@ -6101,13 +6083,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %23 = load i64, ptr %22, align 8, !alias.scope !1044, !noalias !1065, !noundef !7
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8, !alias.scope !1044, !noalias !1065
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false), !noalias !1044
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %21, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store i8 %.sroa.0.0.copyload1.i.i.i, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
   %25 = load i8, ptr %1, align 8, !range !114, !alias.scope !1066, !noundef !7
   %26 = icmp eq i8 %25, 22
   br i1 %26, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb33a072725cb0c8eE.exit", label %27
@@ -6117,7 +6098,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb33a072725cb0c8eE.exit" unwind label %39
 
 28:                                               ; preds = %38, %18
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.6)
   ret void
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hb33a072725cb0c8eE.exit": ; preds = %27, %20
@@ -6178,8 +6158,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { { i8, [31 x i8] }, {} }, align 8
-  %.sroa.6 = alloca [31 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1074)
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1077)
@@ -6217,13 +6195,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %23 = load i64, ptr %22, align 8, !alias.scope !1074, !noalias !1095, !noundef !7
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8, !alias.scope !1074, !noalias !1095
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false), !noalias !1074
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %21, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store i8 %.sroa.0.0.copyload1.i.i.i, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
   %25 = load i8, ptr %1, align 8, !range !114, !alias.scope !1096, !noundef !7
   %26 = icmp eq i8 %25, 22
   br i1 %26, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hd0a933e6684e4267E.exit", label %27
@@ -6233,7 +6210,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hd0a933e6684e4267E.exit" unwind label %39
 
 28:                                               ; preds = %38, %18
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.6)
   ret void
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hd0a933e6684e4267E.exit": ; preds = %27, %20
@@ -6294,8 +6270,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = alloca { i8, [31 x i8] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { { i8, [31 x i8] }, {} }, align 8
-  %.sroa.6 = alloca [31 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1105)
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1108)
@@ -6331,13 +6305,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %22 = load i64, ptr %21, align 8, !alias.scope !1105, !noalias !1126, !noundef !7
   %23 = add i64 %22, 1
   store i64 %23, ptr %21, align 8, !alias.scope !1105, !noalias !1126
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false), !noalias !1105
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %20, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store i8 %.sroa.0.0.copyload1.i.i.i, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
   %24 = load i8, ptr %1, align 8, !range !114, !alias.scope !1127, !noundef !7
   %25 = icmp eq i8 %24, 22
   br i1 %25, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6c6539e6e7f6db79E.exit", label %26
@@ -6347,7 +6320,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6c6539e6e7f6db79E.exit" unwind label %35
 
 27:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2b326a269e6802e0E.exit", %18
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.6)
   ret void
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6c6539e6e7f6db79E.exit": ; preds = %26, %19
@@ -6404,8 +6376,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { { i8, [31 x i8] }, {} }, align 8
-  %.sroa.6 = alloca [31 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1137)
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1140)
@@ -6443,13 +6413,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %23 = load i64, ptr %22, align 8, !alias.scope !1137, !noalias !1158, !noundef !7
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8, !alias.scope !1137, !noalias !1158
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false), !noalias !1137
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %21, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store i8 %.sroa.0.0.copyload1.i.i.i, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
   %25 = load i8, ptr %1, align 8, !range !114, !alias.scope !1159, !noundef !7
   %26 = icmp eq i8 %25, 22
   br i1 %26, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hdff500c83e5f933fE.exit", label %27
@@ -6459,7 +6428,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hdff500c83e5f933fE.exit" unwind label %39
 
 28:                                               ; preds = %38, %18
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.6)
   ret void
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hdff500c83e5f933fE.exit": ; preds = %27, %20
@@ -6520,8 +6488,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { { i8, [31 x i8] }, {} }, align 8
-  %.sroa.6 = alloca [31 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1167)
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1170)
@@ -6559,13 +6525,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %23 = load i64, ptr %22, align 8, !alias.scope !1167, !noalias !1188, !noundef !7
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8, !alias.scope !1167, !noalias !1188
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false), !noalias !1167
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %21, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store i8 %.sroa.0.0.copyload1.i.i.i, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
   %25 = load i8, ptr %1, align 8, !range !114, !alias.scope !1189, !noundef !7
   %26 = icmp eq i8 %25, 22
   br i1 %26, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h2fa0a620a540d99eE.exit", label %27
@@ -6575,7 +6540,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h2fa0a620a540d99eE.exit" unwind label %39
 
 28:                                               ; preds = %38, %18
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.6)
   ret void
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h2fa0a620a540d99eE.exit": ; preds = %27, %20
@@ -6636,8 +6600,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { { i8, [31 x i8] }, {} }, align 8
-  %.sroa.6 = alloca [31 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1197)
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1200)
@@ -6675,13 +6637,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %23 = load i64, ptr %22, align 8, !alias.scope !1197, !noalias !1218, !noundef !7
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8, !alias.scope !1197, !noalias !1218
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false), !noalias !1197
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %21, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store i8 %.sroa.0.0.copyload1.i.i.i, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
   %25 = load i8, ptr %1, align 8, !range !114, !alias.scope !1219, !noundef !7
   %26 = icmp eq i8 %25, 22
   br i1 %26, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17he54d14cd03b4da39E.exit", label %27
@@ -6691,7 +6652,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17he54d14cd03b4da39E.exit" unwind label %39
 
 28:                                               ; preds = %38, %18
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.6)
   ret void
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17he54d14cd03b4da39E.exit": ; preds = %27, %20
@@ -6752,8 +6712,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { { i8, [31 x i8] }, {} }, align 8
-  %.sroa.6 = alloca [31 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1227)
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1230)
@@ -6791,13 +6749,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %23 = load i64, ptr %22, align 8, !alias.scope !1227, !noalias !1248, !noundef !7
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8, !alias.scope !1227, !noalias !1248
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false), !noalias !1227
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %21, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store i8 %.sroa.0.0.copyload1.i.i.i, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
   %25 = load i8, ptr %1, align 8, !range !114, !alias.scope !1249, !noundef !7
   %26 = icmp eq i8 %25, 22
   br i1 %26, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hff3617f2de6d96d6E.exit", label %27
@@ -6807,7 +6764,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hff3617f2de6d96d6E.exit" unwind label %39
 
 28:                                               ; preds = %38, %18
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.6)
   ret void
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hff3617f2de6d96d6E.exit": ; preds = %27, %20
@@ -6868,8 +6824,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = alloca { i8, [31 x i8] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { { i8, [31 x i8] }, {} }, align 8
-  %.sroa.6 = alloca [31 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1258)
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1261)
@@ -6905,13 +6859,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %22 = load i64, ptr %21, align 8, !alias.scope !1258, !noalias !1279, !noundef !7
   %23 = add i64 %22, 1
   store i64 %23, ptr %21, align 8, !alias.scope !1258, !noalias !1279
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false), !noalias !1258
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %20, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store i8 %.sroa.0.0.copyload1.i.i.i, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
   %24 = load i8, ptr %1, align 8, !range !114, !alias.scope !1280, !noundef !7
   %25 = icmp eq i8 %24, 22
   br i1 %25, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6154c453cf1246c0E.exit", label %26
@@ -6921,7 +6874,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6154c453cf1246c0E.exit" unwind label %35
 
 27:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1efcea7bb65985e4E.exit", %18
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.6)
   ret void
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6154c453cf1246c0E.exit": ; preds = %26, %19
@@ -7037,8 +6989,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { { i8, [31 x i8] }, {} }, align 8
-  %.sroa.6 = alloca [31 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1305)
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1308)
@@ -7076,13 +7026,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %23 = load i64, ptr %22, align 8, !alias.scope !1305, !noalias !1326, !noundef !7
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8, !alias.scope !1305, !noalias !1326
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false), !noalias !1305
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %21, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store i8 %.sroa.0.0.copyload1.i.i.i, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
   %25 = load i8, ptr %1, align 8, !range !114, !alias.scope !1327, !noundef !7
   %26 = icmp eq i8 %25, 22
   br i1 %26, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h80d8cf99e79459c0E.exit", label %27
@@ -7092,7 +7041,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h80d8cf99e79459c0E.exit" unwind label %39
 
 28:                                               ; preds = %38, %18
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.6)
   ret void
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h80d8cf99e79459c0E.exit": ; preds = %27, %20
@@ -7265,8 +7213,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = alloca { { i8, [31 x i8] }, {} }, align 8
-  %.sroa.6 = alloca [31 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1369)
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1372)
@@ -7304,13 +7250,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %23 = load i64, ptr %22, align 8, !alias.scope !1369, !noalias !1390, !noundef !7
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8, !alias.scope !1369, !noalias !1390
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false), !noalias !1369
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %21, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store i8 %.sroa.0.0.copyload1.i.i.i, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6, i64 31, i1 false)
   %25 = load i8, ptr %1, align 8, !range !114, !alias.scope !1391, !noundef !7
   %26 = icmp eq i8 %25, 22
   br i1 %26, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hdd8f1225e38c5edfE.exit", label %27
@@ -7320,7 +7265,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
           to label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hdd8f1225e38c5edfE.exit" unwind label %39
 
 28:                                               ; preds = %38, %18
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.6)
   ret void
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hdd8f1225e38c5edfE.exit": ; preds = %27, %20
@@ -7497,7 +7441,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
 define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_entry_seed17h32fc690f45007542E"(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = alloca { { i8, [31 x i8] }, {} }, align 8
   %4 = alloca { { i8, [31 x i8] }, {} }, align 8
-  %.sroa.4 = alloca [31 x i8], align 1
   %5 = alloca { { i8, [31 x i8] }, {} }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1431)
   %6 = getelementptr inbounds i8, ptr %1, i64 32
@@ -7536,20 +7479,17 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   %22 = load i64, ptr %21, align 8, !alias.scope !1431, !noalias !1452, !noundef !7
   %23 = add i64 %22, 1
   store i64 %23, ptr %21, align 8, !alias.scope !1431, !noalias !1452
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !1453
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i.i, i64 31, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(32) %20, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !1453
   store i8 %.sroa.0.0.copyload1.i.i.i, ptr %4, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4, i64 31, i1 false)
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h403e1e77a0cad8c6E.llvm.774313995428851812"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
           to label %24 unwind label %27
 
 24:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !1453
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1460
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h403e1e77a0cad8c6E.llvm.774313995428851812"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
@@ -11180,7 +11120,6 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %3 = alloca {}, align 1
   %4 = alloca { { i8, [31 x i8] }, {} }, align 8
   %5 = alloca { { i8, [31 x i8] }, {} }, align 8
-  %.sroa.2 = alloca [31 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2662)
   %6 = load ptr, ptr %1, align 8, !alias.scope !2662, !noalias !2665, !noundef !7
   %7 = icmp eq ptr %6, null
@@ -11210,15 +11149,14 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
 
 18:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h447cf2243c7a13c6E.llvm.4213059994663518309.exit.i.i"
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds i8, ptr %12, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i, i64 31, i1 false)
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx2.i.i, i64 31, i1 false)
   %19 = getelementptr inbounds i8, ptr %1, i64 32
   %20 = load i64, ptr %19, align 8, !noundef !7
   %21 = add i64 %20, 1
   store i64 %21, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store i8 %.sroa.0.0.copyload1.i.i, ptr %5, align 8, !alias.scope !2678
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2, i64 31, i1 false), !alias.scope !2678
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2682)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2685)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2688)

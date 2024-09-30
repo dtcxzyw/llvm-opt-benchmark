@@ -431,9 +431,9 @@ if.end159:                                        ; preds = %if.then151, %if.the
   br i1 %cmp160, label %if.then161, label %if.end167
 
 if.then161:                                       ; preds = %if.end159
-  %24 = getelementptr inbounds i8, ptr %params, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %24, i8 0, i64 48, i1 false)
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.66, ptr noundef nonnull %pvk_encr) #6
+  %24 = getelementptr inbounds i8, ptr %params, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %call162 = call i32 @OSSL_ENCODER_CTX_set_params(ptr noundef %call137, ptr noundef nonnull %params) #6
   %tobool163.not = icmp eq i32 %call162, 0

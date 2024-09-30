@@ -2566,7 +2566,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h023fb7c18e668f0cE.exit340:
   %.sroa.0106.88..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0106, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0106.88..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false)
   %.sroa.0106.112..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0106, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0106.112..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0106.112..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.698, i64 24, i1 false)
   %.sroa.0106.136..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0106, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0106.136..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0106, ptr noundef nonnull align 8 dereferenceable(88) %44, i64 88, i1 false)

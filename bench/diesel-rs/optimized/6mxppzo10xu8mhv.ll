@@ -722,7 +722,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..ColumnDef$u20$as$u20$syn..par
   %.sroa.044.48..sroa_idx = getelementptr inbounds i8, ptr %.sroa.044, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.044.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(80) %7, i64 80, i1 false)
   %.sroa.044.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.044, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.044.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.044.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %50, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.044, i64 160, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %.sroa.056.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8

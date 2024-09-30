@@ -20639,7 +20639,7 @@ define hidden void @"_ZN210_$LT$tokenizers..tokenizer..encoding..Encoding$u20$as
 
 34:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h23762b01146c2d67E.exit53.i.i"
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %11, ptr noundef nonnull align 8 dereferenceable(384) %13, i64 384, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %11, ptr noundef nonnull align 8 dereferenceable(384) %1, i64 384, i1 false)
   %35 = getelementptr inbounds i8, ptr %11, i64 320
   %36 = getelementptr inbounds i8, ptr %11, i64 344
   %37 = getelementptr inbounds i8, ptr %11, i64 328
@@ -20961,7 +20961,7 @@ _ZN4core3ops8function6FnOnce9call_once17h04e312a3d499d39dE.exit.i: ; preds = %"_
   %136 = add i64 %135, 1
   store i64 %136, ptr %50, align 8, !alias.scope !4450
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %137 = load i64, ptr %53, align 8, !alias.scope !4453, !noalias !4456, !noundef !4
   %138 = load i64, ptr %52, align 8, !alias.scope !4453, !noalias !4456, !noundef !4
   %139 = icmp eq i64 %137, %138
@@ -20991,7 +20991,7 @@ _ZN4core3ops8function6FnOnce9call_once17h04e312a3d499d39dE.exit.i: ; preds = %"_
   %146 = phi i64 [ %.pre.i18, %._crit_edge.i ], [ %137, %131 ]
   %147 = load ptr, ptr %54, align 8, !alias.scope !4453, !noalias !4456, !nonnull !4, !noundef !4
   %148 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %147, i64 %146
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %148, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %148, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %149 = load i64, ptr %53, align 8, !alias.scope !4453, !noalias !4456, !noundef !4
   %150 = add i64 %149, 1
   store i64 %150, ptr %53, align 8, !alias.scope !4453, !noalias !4456

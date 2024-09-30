@@ -41648,7 +41648,7 @@ _ZN7hir_def8ModuleId7def_map17h12ba535c1628be3bE.exit110.i: ; preds = %270
   %336 = phi i64 [ %.pre.i120.i, %._crit_edge.i.i ], [ %327, %326 ]
   %337 = load ptr, ptr %217, align 8, !alias.scope !9795, !noalias !9798, !nonnull !4, !noundef !4
   %338 = getelementptr inbounds { { i32, i32, i32 }, [1 x i32], { { i8, [23 x i8] } } }, ptr %337, i64 %336
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %338, ptr noundef nonnull align 8 dereferenceable(40) %34, i64 40, i1 false), !noalias !9654
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %338, ptr noundef nonnull align 8 dereferenceable(40) %34, i64 40, i1 false), !noalias !9654
   %339 = add i64 %336, 1
   store i64 %339, ptr %218, align 8, !alias.scope !9795, !noalias !9798
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %34), !noalias !9644

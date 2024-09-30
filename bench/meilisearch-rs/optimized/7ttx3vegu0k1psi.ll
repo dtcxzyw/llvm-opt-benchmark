@@ -3503,7 +3503,7 @@ _ZN16meilisearch_auth5store18try_split_array_at17hb26671a61838af6bE.exit: ; pred
   %20 = getelementptr inbounds i8, ptr %1, i64 8
   %21 = load i64, ptr %20, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(16) %18, i64 16, i1 false)
   invoke void @_ZN16meilisearch_auth5store20generate_key_as_hexa17heb639d1db71edbb0E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %7, ptr noalias nocapture noundef nonnull align 1 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %21)
           to label %23 unwind label %14
 

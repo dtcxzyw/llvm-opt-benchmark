@@ -12878,13 +12878,11 @@ _ZNK2c43yml4Tree12_lookup_pathEPNS1_13lookup_resultE.exit: ; preds = %_ZNK2c43ym
   %29 = load i64, ptr %8, align 8
   %30 = icmp eq i64 %29, %spec.select
   %or.cond7 = select i1 %28, i1 %30, i1 false
-  br i1 %or.cond7, label %31, label %.critedge
-
-31:                                               ; preds = %_ZNK2c43yml4Tree12_lookup_pathEPNS1_13lookup_resultE.exit
-  store i64 -1, ptr %8, align 8
+  %spec.store.select = select i1 %or.cond7, i64 -1, i64 %29
+  store i64 %spec.store.select, ptr %8, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %5, %_ZNK2c43yml4Tree12_lookup_pathEPNS1_13lookup_resultE.exit, %31
+.critedge:                                        ; preds = %_ZNK2c43yml4Tree12_lookup_pathEPNS1_13lookup_resultE.exit, %5
   ret void
 }
 

@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [6 x i8] c"10001\00", align 1
 @.str.6 = private unnamed_addr constant [23 x i8] c"  RSA key validation: \00", align 1
 @.str.8 = private unnamed_addr constant [30 x i8] c"passed\0A  PKCS#1 encryption : \00", align 1
-@.str.9 = private unnamed_addr constant [25 x i8] c"\AA\BB\CC\03\02\01\00\FF\FF\FF\FF\FF\11\223\0A\0B\0C\CC\DD\DD\DD\DD\DD\00", align 1
+@.str.9 = private unnamed_addr constant [25 x i8] c"\AA\BB\CC\03\02\01\00\FF\FF\FF\FF\FF\11\223\0A\0B\0C\CC\DD\DD\DD\DD\DD\00", align 16
 @.str.10 = private unnamed_addr constant [30 x i8] c"passed\0A  PKCS#1 decryption : \00", align 1
 @.str.12 = private unnamed_addr constant [23 x i8] c"  PKCS#1 data sign  : \00", align 1
 @.str.13 = private unnamed_addr constant [30 x i8] c"passed\0A  PKCS#1 sig. verify: \00", align 1
@@ -2955,8 +2955,8 @@ mbedtls_rsa_import.exit65.thread:                 ; preds = %33
   br label %50
 
 50:                                               ; preds = %48, %47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, ptr noundef nonnull align 1 dereferenceable(24) @.str.9, i64 24, i1 false)
-  %51 = call i32 @mbedtls_rsa_pkcs1_encrypt(ptr noundef nonnull %3, ptr noundef nonnull @myrand, ptr noundef null, i64 noundef 24, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, ptr noundef nonnull align 16 dereferenceable(24) @.str.9, i64 24, i1 false)
+  %51 = call i32 @mbedtls_rsa_pkcs1_encrypt(ptr noundef nonnull %3, ptr noundef nonnull @myrand, ptr noundef null, i64 noundef 24, ptr noundef nonnull @.str.9, ptr noundef nonnull %6)
   %.not42 = icmp eq i32 %51, 0
   br i1 %.not42, label %54, label %52
 

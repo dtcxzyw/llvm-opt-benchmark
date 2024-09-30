@@ -4809,10 +4809,8 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGH
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK5boost5graph6detail23depth_first_search_implINS_14filtered_graphIN3ue216undirected_graphINS4_8NGHolderERKS6_EENS_8keep_allENS4_17bad_vertex_filterISt13unordered_setINS4_12graph_detail17vertex_descriptorINS4_9ue2_graphIS6_NS4_19NFAGraphVertexPropsENS4_17NFAGraphEdgePropsEEEEESt4hashISJ_ESt8equal_toISJ_ESaISJ_EEEEEEEclINS_9parameter3aux8arg_listINSV_15tagged_argumentINS0_8keywords3tag7visitorEKNS_6detail19components_recorderINS_24associative_property_mapISt3mapISJ_jSt4lessISJ_ESaISt4pairIKSJ_jEEEEEEEEENSV_14empty_arg_listESt17integral_constantIbLb1EEEEEEvRKSR_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %g, ptr noundef nonnull align 8 dereferenceable(8) %arg_pack) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.boost::detail::components_recorder", align 8
   %agg.tmp5 = alloca %"class.boost::shared_array_property_map", align 8
   %0 = load ptr, ptr %arg_pack, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %1 = load ptr, ptr %g, align 8, !noalias !14
   %2 = load ptr, ptr %1, align 8, !noalias !14
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -4970,7 +4968,7 @@ invoke.cont13:                                    ; preds = %cond.false.i.i.i, %
   %call1.pn.i.i.i = phi { ptr, i64 } [ %.fca.1.insert.i.i.i.i.i.i.i.i.i, %cond.false.i.i.i ], [ zeroinitializer, %_ZN5boost8verticesIN3ue216undirected_graphINS1_8NGHolderERKS3_EENS_8keep_allENS1_17bad_vertex_filterISt13unordered_setINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphIS3_NS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEESt4hashISG_ESt8equal_toISG_ESaISG_EEEEEESt4pairINS_14filtered_graphIT_T0_T1_E15vertex_iteratorESU_ERKST_.exit.i.i.i ]
   %27 = extractvalue { ptr, i64 } %call1.pn.i.i.i, 0
   %28 = extractvalue { ptr, i64 } %call1.pn.i.i.i, 1
-  invoke void @_ZN5boost18depth_first_searchINS_14filtered_graphIN3ue216undirected_graphINS2_8NGHolderERKS4_EENS_8keep_allENS2_17bad_vertex_filterISt13unordered_setINS2_12graph_detail17vertex_descriptorINS2_9ue2_graphIS4_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt4hashISH_ESt8equal_toISH_ESaISH_EEEEEENS_6detail19components_recorderINS_24associative_property_mapISt3mapISH_jSt4lessISH_ESaISt4pairIKSH_jEEEEEEENS_25shared_array_property_mapINS_18default_color_typeENSG_8prop_mapIRKmSE_EEEEEEvRKT_T0_T1_NS_12graph_traitsIS1A_E17vertex_descriptorE(ptr noundef nonnull align 8 dereferenceable(24) %g, ptr noundef nonnull byval(%"class.boost::detail::components_recorder") align 8 %agg.tmp, ptr noundef nonnull %agg.tmp5, ptr %27, i64 %28)
+  invoke void @_ZN5boost18depth_first_searchINS_14filtered_graphIN3ue216undirected_graphINS2_8NGHolderERKS4_EENS_8keep_allENS2_17bad_vertex_filterISt13unordered_setINS2_12graph_detail17vertex_descriptorINS2_9ue2_graphIS4_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt4hashISH_ESt8equal_toISH_ESaISH_EEEEEENS_6detail19components_recorderINS_24associative_property_mapISt3mapISH_jSt4lessISH_ESaISt4pairIKSH_jEEEEEEENS_25shared_array_property_mapINS_18default_color_typeENSG_8prop_mapIRKmSE_EEEEEEvRKT_T0_T1_NS_12graph_traitsIS1A_E17vertex_descriptorE(ptr noundef nonnull align 8 dereferenceable(24) %g, ptr noundef nonnull byval(%"class.boost::detail::components_recorder") align 8 %0, ptr noundef nonnull %agg.tmp5, ptr %27, i64 %28)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont13

@@ -660,7 +660,6 @@ declare void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17LowMemoryDetector17detect_low_memoryEP10MemoryPool(ptr noundef %0) local_unnamed_addr #1 align 2 {
-  %.sroa.5 = alloca { i64, i64 }, align 8
   %2 = alloca %class.MemoryUsage, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
@@ -699,8 +698,6 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %15, %17
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %21 = freeze i64 %.sroa.2.0.copyload
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
   %22 = load ptr, ptr %7, align 8
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
@@ -753,7 +750,7 @@ _ZN16ThresholdSupport24is_low_threshold_crossedE11MemoryUsage.exit.i: ; preds = 
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
   store i64 %21, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
   br i1 %45, label %49, label %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit
 
 49:                                               ; preds = %46
@@ -788,12 +785,10 @@ _ZN16ThresholdSupport24is_low_threshold_crossedE11MemoryUsage.exit.i: ; preds = 
 _ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit.thread: ; preds = %51, %58
   %62 = add nuw nsw i32 %56, 1
   store i32 %62, ptr %55, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5)
   br label %69
 
 _ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit: ; preds = %._ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit_crit_edge, %46, %49, %58
   %63 = phi i32 [ %.pre, %._ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit_crit_edge ], [ %44, %46 ], [ 0, %49 ], [ %56, %58 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5)
   %64 = getelementptr inbounds i8, ptr %4, i64 24
   %65 = load i32, ptr %64, align 8
   %66 = icmp sgt i32 %65, 0
@@ -819,7 +814,6 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %72, %71, %1, %6, %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17LowMemoryDetector22detect_after_gc_memoryEP10MemoryPool(ptr noundef %0) local_unnamed_addr #1 align 2 {
-  %.sroa.5 = alloca { i64, i64 }, align 8
   %2 = alloca %class.MemoryUsage, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
@@ -858,8 +852,6 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %15, %17
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %21 = freeze i64 %.sroa.2.0.copyload
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
   %22 = load ptr, ptr %7, align 8
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
@@ -903,7 +895,7 @@ _ZN16ThresholdSupport24is_low_threshold_crossedE11MemoryUsage.exit.thread.i: ; p
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
   store i64 %21, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
   %42 = getelementptr inbounds i8, ptr %4, i64 28
   store i32 0, ptr %42, align 4
   br label %_ZN10SensorInfo24set_counter_sensor_levelE11MemoryUsageP16ThresholdSupport.exit
@@ -932,7 +924,6 @@ _ZN16ThresholdSupport24is_low_threshold_crossedE11MemoryUsage.exit.thread.i: ; p
   br label %_ZN10SensorInfo24set_counter_sensor_levelE11MemoryUsageP16ThresholdSupport.exit
 
 _ZN10SensorInfo24set_counter_sensor_levelE11MemoryUsageP16ThresholdSupport.exit: ; preds = %_ZN16ThresholdSupport25is_high_threshold_crossedE11MemoryUsage.exit.thread.i, %_ZN16ThresholdSupport24is_low_threshold_crossedE11MemoryUsage.exit.thread23.i, %_ZN16ThresholdSupport24is_low_threshold_crossedE11MemoryUsage.exit.thread.i, %37, %43, %47, %54
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5)
   %58 = getelementptr inbounds i8, ptr %4, i64 24
   %59 = load i32, ptr %58, align 8
   %60 = icmp sgt i32 %59, 0

@@ -3630,7 +3630,7 @@ entry:
   %4 = getelementptr inbounds i8, ptr %3, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %cameraFromRender, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false)
   %mInv3.i.i = getelementptr inbounds i8, ptr %cameraFromRender, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i, ptr noundef nonnull align 4 dereferenceable(64) %renderFromCamera, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i, ptr noundef nonnull align 4 dereferenceable(64) %3, i64 64, i1 false)
   %shutterOpen.i.i19.i.i.i = getelementptr inbounds i8, ptr %3, i64 824
   %5 = load float, ptr %shutterOpen.i.i19.i.i.i, align 8
   %shutterClose.i.i20.i.i.i = getelementptr inbounds i8, ptr %3, i64 828

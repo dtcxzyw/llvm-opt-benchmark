@@ -6750,7 +6750,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   %129 = phi i64 [ %.pre.i5.i, %._crit_edge.i.i ], [ %114, %112 ]
   %130 = load ptr, ptr %7, align 8, !alias.scope !285, !noalias !288, !nonnull !4, !noundef !4
   %131 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, {} }, ptr %130, i64 %129
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !283
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !283
   %132 = load i64, ptr %9, align 8, !alias.scope !285, !noalias !288, !noundef !4
   %133 = add i64 %132, 1
   store i64 %133, ptr %9, align 8, !alias.scope !285, !noalias !288

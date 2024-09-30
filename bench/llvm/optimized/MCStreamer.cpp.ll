@@ -1615,63 +1615,55 @@ define dso_local void @_ZN4llvm10MCStreamer23emitDwarfFile0DirectiveENS_9StringR
   %9 = alloca %"class.std::tuple.288", align 8
   %10 = alloca %"class.std::tuple.291", align 1
   %11 = alloca i32, align 4
-  %12 = alloca %"class.std::optional.159", align 8
-  %13 = alloca %"class.std::optional", align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %13, ptr noundef nonnull align 8 dereferenceable(17) %5, i64 17, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 %7, ptr %11, align 4
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1712
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1712
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  %17 = getelementptr inbounds i8, ptr %15, i64 1728
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 1720
-  %.not10.i.i.i.i.i.i = icmp eq ptr %18, null
+  %15 = getelementptr inbounds i8, ptr %13, i64 1728
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %13, i64 1720
+  %.not10.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not10.i.i.i.i.i.i, label %.critedge.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %8, %.lr.ph.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %18, %8 ]
-  %.0811.i.i.i.i.i.i = phi ptr [ %.19.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %19, %8 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 32
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp ult i32 %21, %7
-  %.19.i.i.i.i.i.i = select i1 %22, ptr %.0811.i.i.i.i.i.i, ptr %.012.i.i.i.i.i.i
-  %.1.in.v.i.i.i.i.i.i = select i1 %22, i64 24, i64 16
+  %.012.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %16, %8 ]
+  %.0811.i.i.i.i.i.i = phi ptr [ %.19.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %17, %8 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 32
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp ult i32 %19, %7
+  %.19.i.i.i.i.i.i = select i1 %20, ptr %.0811.i.i.i.i.i.i, ptr %.012.i.i.i.i.i.i
+  %.1.in.v.i.i.i.i.i.i = select i1 %20, i64 24, i64 16
   %.1.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i.i
   %.1.i.i.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt3mapIjN4llvm16MCDwarfLineTableESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !12
 
 _ZNSt3mapIjN4llvm16MCDwarfLineTableESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %23 = icmp eq ptr %.19.i.i.i.i.i.i, %19
-  br i1 %23, label %.critedge.i.i.i, label %24
+  %21 = icmp eq ptr %.19.i.i.i.i.i.i, %17
+  br i1 %21, label %.critedge.i.i.i, label %22
 
-24:                                               ; preds = %_ZNSt3mapIjN4llvm16MCDwarfLineTableESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i, i64 32
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp ult i32 %7, %26
-  br i1 %27, label %.critedge.i.i.i, label %_ZN4llvm9MCContext22setMCLineTableRootFileEjNS_9StringRefES1_St8optionalINS_3MD59MD5ResultEES2_IS1_E.exit
+22:                                               ; preds = %_ZNSt3mapIjN4llvm16MCDwarfLineTableESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i, i64 32
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp ult i32 %7, %24
+  br i1 %25, label %.critedge.i.i.i, label %_ZN4llvm9MCContext22setMCLineTableRootFileEjNS_9StringRefES1_St8optionalINS_3MD59MD5ResultEES2_IS1_E.exit
 
-.critedge.i.i.i:                                  ; preds = %24, %_ZNSt3mapIjN4llvm16MCDwarfLineTableESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i.i, %8
-  %.08.lcssa.i.i.i10.i.i.i = phi ptr [ %.19.i.i.i.i.i.i, %_ZNSt3mapIjN4llvm16MCDwarfLineTableESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i.i ], [ %.19.i.i.i.i.i.i, %24 ], [ %19, %8 ]
+.critedge.i.i.i:                                  ; preds = %22, %_ZNSt3mapIjN4llvm16MCDwarfLineTableESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i.i, %8
+  %.08.lcssa.i.i.i10.i.i.i = phi ptr [ %.19.i.i.i.i.i.i, %_ZNSt3mapIjN4llvm16MCDwarfLineTableESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i.i.i ], [ %.19.i.i.i.i.i.i, %22 ], [ %17, %8 ]
   store ptr %11, ptr %9, align 8
-  %28 = call ptr @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt10_Select1stIS4_ESt4lessIjESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr %.08.lcssa.i.i.i10.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  %26 = call ptr @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm16MCDwarfLineTableEESt10_Select1stIS4_ESt4lessIjESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr %.08.lcssa.i.i.i10.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
   br label %_ZN4llvm9MCContext22setMCLineTableRootFileEjNS_9StringRefES1_St8optionalINS_3MD59MD5ResultEES2_IS1_E.exit
 
-_ZN4llvm9MCContext22setMCLineTableRootFileEjNS_9StringRefES1_St8optionalINS_3MD59MD5ResultEES2_IS1_E.exit: ; preds = %24, %.critedge.i.i.i
-  %.sroa.05.0.i.i.i = phi ptr [ %28, %.critedge.i.i.i ], [ %.19.i.i.i.i.i.i, %24 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i.i, i64 40
+_ZN4llvm9MCContext22setMCLineTableRootFileEjNS_9StringRefES1_St8optionalINS_3MD59MD5ResultEES2_IS1_E.exit: ; preds = %22, %.critedge.i.i.i
+  %.sroa.05.0.i.i.i = phi ptr [ %26, %.critedge.i.i.i ], [ %.19.i.i.i.i.i.i, %22 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i.i, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @_ZN4llvm16MCDwarfLineTable11setRootFileENS_9StringRefES1_St8optionalINS_3MD59MD5ResultEES2_IS1_E(ptr noundef nonnull align 8 dereferenceable(560) %29, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"class.std::optional") align 8 %13, ptr noundef nonnull byval(%"class.std::optional.159") align 8 %12)
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
+  call void @_ZN4llvm16MCDwarfLineTable11setRootFileENS_9StringRefES1_St8optionalINS_3MD59MD5ResultEES2_IS1_E(ptr noundef nonnull align 8 dereferenceable(560) %27, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"class.std::optional") align 8 %5, ptr noundef nonnull byval(%"class.std::optional.159") align 8 %6)
   ret void
 }
 

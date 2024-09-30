@@ -43716,6 +43716,10 @@ _ZN5Catch10RunContext24handleUnfinishedSectionsEv.exit: ; preds = %_ZSt8_Destroy
 52:                                               ; preds = %43
   %53 = load ptr, ptr %40, align 8
   %54 = load ptr, ptr %53, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
   %55 = load ptr, ptr %15, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #56
@@ -43724,12 +43728,8 @@ _ZN5Catch10RunContext24handleUnfinishedSectionsEv.exit: ; preds = %_ZSt8_Destroy
   store i64 0, ptr %56, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
   store i64 1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i8 0, i64 24, i1 false)
   %.sroa.315.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 48
   store i64 1, ptr %.sroa.315.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
   %57 = getelementptr inbounds i8, ptr %11, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %12) #56
   %58 = getelementptr inbounds i8, ptr %11, i64 104
@@ -108845,7 +108845,7 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:             ; preds = %_ZNSt6vectorImSaImE
   br i1 %.not.i.i.i2, label %59, label %44
 
 44:                                               ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   %45 = load i32, ptr %3, align 8
   %46 = icmp eq i32 %45, 11
   br i1 %46, label %47, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -108863,10 +108863,10 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:             ; preds = %_ZNSt6vectorImSaImE
   br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %54
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %3, i64 16
-  %56 = getelementptr inbounds i8, ptr %41, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
-  store ptr %53, ptr %56, align 8
+  %55 = getelementptr inbounds i8, ptr %41, i64 32
+  %56 = getelementptr inbounds i8, ptr %2, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false)
+  store ptr %53, ptr %55, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
 
@@ -109216,7 +109216,7 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   br i1 %.not.i.i.i, label %29, label %14
 
 14:                                               ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %15 = load i32, ptr %2, align 8
   %16 = icmp eq i32 %15, 11
   br i1 %16, label %17, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -109234,10 +109234,10 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %24
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
-  %26 = getelementptr inbounds i8, ptr %11, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
-  store ptr %23, ptr %26, align 8
+  %25 = getelementptr inbounds i8, ptr %11, i64 32
+  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
+  store ptr %23, ptr %25, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
 
@@ -111630,7 +111630,7 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   br i1 %.not.i.i.i, label %28, label %13
 
 13:                                               ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   %14 = load i32, ptr %5, align 8
   %15 = icmp eq i32 %14, 11
   br i1 %15, label %16, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -111648,10 +111648,10 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %23
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
-  %25 = getelementptr inbounds i8, ptr %10, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
-  store ptr %22, ptr %25, align 8
+  %24 = getelementptr inbounds i8, ptr %10, i64 32
+  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
+  store ptr %22, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
 
@@ -113908,7 +113908,7 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   br i1 %.not.i.i.i, label %27, label %12
 
 12:                                               ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   %13 = load i32, ptr %3, align 8
   %14 = icmp eq i32 %13, 11
   br i1 %14, label %15, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -113926,10 +113926,10 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %22
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
-  %24 = getelementptr inbounds i8, ptr %9, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  store ptr %21, ptr %24, align 8
+  %23 = getelementptr inbounds i8, ptr %9, i64 32
+  %24 = getelementptr inbounds i8, ptr %2, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
+  store ptr %21, ptr %23, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
 
@@ -114045,7 +114045,7 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   br i1 %.not.i.i.i, label %29, label %14
 
 14:                                               ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   %15 = load i32, ptr %4, align 8
   %16 = icmp eq i32 %15, 11
   br i1 %16, label %17, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -114063,10 +114063,10 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %24
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
-  %26 = getelementptr inbounds i8, ptr %11, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
-  store ptr %23, ptr %26, align 8
+  %25 = getelementptr inbounds i8, ptr %11, i64 32
+  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
+  store ptr %23, ptr %25, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
 
@@ -115481,7 +115481,7 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:             ; preds = %17, %13
   br i1 %.not.i.i.i, label %45, label %30
 
 30:                                               ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   %31 = load i32, ptr %4, align 8
   %32 = icmp eq i32 %31, 11
   br i1 %32, label %33, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -115499,10 +115499,10 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:             ; preds = %17, %13
   br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %40
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %4, i64 16
-  %42 = getelementptr inbounds i8, ptr %27, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false)
-  store ptr %39, ptr %42, align 8
+  %41 = getelementptr inbounds i8, ptr %27, i64 32
+  %42 = getelementptr inbounds i8, ptr %3, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
+  store ptr %39, ptr %41, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
 
@@ -127733,7 +127733,7 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   br i1 %.not.i.i.i, label %30, label %15
 
 15:                                               ; preds = %_ZNSt8__detail6_StateIcEC2EOS1_.exit
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   %16 = load i32, ptr %5, align 8
   %17 = icmp eq i32 %16, 11
   br i1 %17, label %18, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
@@ -127751,10 +127751,10 @@ _ZNSt8__detail6_StateIcEC2EOS1_.exit:
   br i1 %.not.i.i.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i, label %25
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
-  %27 = getelementptr inbounds i8, ptr %12, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
-  store ptr %24, ptr %27, align 8
+  %26 = getelementptr inbounds i8, ptr %12, i64 32
+  %27 = getelementptr inbounds i8, ptr %4, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
+  store ptr %24, ptr %26, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   br label %_ZNSt16allocator_traitsISaINSt8__detail6_StateIcEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i
 

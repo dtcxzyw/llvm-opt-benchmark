@@ -2608,22 +2608,22 @@ _ZNSt6vectorIdSaIdEED2Ev.exit45.i:                ; preds = %269, %.body.i
 
 .noexc.i71:                                       ; preds = %277
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !31
-  %283 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %284 = load ptr, ptr %283, align 8, !noalias !34
-  store i64 1, ptr %4, align 8, !noalias !34
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !34
-  %285 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %285, align 8, !noalias !34
-  %286 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %21, ptr %286, align 8, !noalias !34
-  %287 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !31
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !31
+  %283 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %21, ptr %283, align 8, !noalias !31
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !31
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !31
+  %284 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %285 = load ptr, ptr %284, align 8, !noalias !34
+  %286 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %286, align 8, !noalias !34
+  %287 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %21, ptr %287, align 8, !noalias !34
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !34
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !34
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %279, ptr noundef nonnull align 8 dereferenceable(64) %284, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %279, ptr noundef nonnull align 8 dereferenceable(64) %285, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !31
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 
@@ -5957,22 +5957,22 @@ _ZNSt6vectorIdSaIdEED2Ev.exit45.i:                ; preds = %245, %.body.i
 
 .noexc.i71:                                       ; preds = %253
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !140
-  %259 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %260 = load ptr, ptr %259, align 8, !noalias !143
-  store i64 1, ptr %4, align 8, !noalias !143
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !143
-  %261 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %261, align 8, !noalias !143
-  %262 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %21, ptr %262, align 8, !noalias !143
-  %263 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !140
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !140
+  %259 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %21, ptr %259, align 8, !noalias !140
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !140
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !140
+  %260 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %261 = load ptr, ptr %260, align 8, !noalias !143
+  %262 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %262, align 8, !noalias !143
+  %263 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %21, ptr %263, align 8, !noalias !143
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !143
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !143
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %255, ptr noundef nonnull align 8 dereferenceable(64) %260, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %255, ptr noundef nonnull align 8 dereferenceable(64) %261, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !140
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 
@@ -6825,22 +6825,22 @@ _ZNSt6vectorIdSaIdEED2Ev.exit45.i:                ; preds = %269, %.body.i
 
 .noexc.i71:                                       ; preds = %277
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !170
-  %283 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %284 = load ptr, ptr %283, align 8, !noalias !173
-  store i64 1, ptr %4, align 8, !noalias !173
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !173
-  %285 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %285, align 8, !noalias !173
-  %286 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %21, ptr %286, align 8, !noalias !173
-  %287 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !170
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !170
+  %283 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %21, ptr %283, align 8, !noalias !170
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !170
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !170
+  %284 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %285 = load ptr, ptr %284, align 8, !noalias !173
+  %286 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %286, align 8, !noalias !173
+  %287 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %21, ptr %287, align 8, !noalias !173
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !173
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !173
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %279, ptr noundef nonnull align 8 dereferenceable(64) %284, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %279, ptr noundef nonnull align 8 dereferenceable(64) %285, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !170
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 
@@ -7694,22 +7694,22 @@ _ZNSt6vectorIdSaIdEED2Ev.exit45.i:                ; preds = %271, %.body.i
 
 .noexc.i71:                                       ; preds = %279
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !200
-  %285 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %286 = load ptr, ptr %285, align 8, !noalias !203
-  store i64 1, ptr %4, align 8, !noalias !203
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !203
-  %287 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %287, align 8, !noalias !203
-  %288 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %21, ptr %288, align 8, !noalias !203
-  %289 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !200
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !200
+  %285 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %21, ptr %285, align 8, !noalias !200
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !200
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !200
+  %286 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %287 = load ptr, ptr %286, align 8, !noalias !203
+  %288 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %288, align 8, !noalias !203
+  %289 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %21, ptr %289, align 8, !noalias !203
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !203
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !203
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %281, ptr noundef nonnull align 8 dereferenceable(64) %286, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %281, ptr noundef nonnull align 8 dereferenceable(64) %287, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !200
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 
@@ -8517,22 +8517,22 @@ _ZNSt6vectorIdSaIdEED2Ev.exit45.i:                ; preds = %257, %.body.i
 
 .noexc.i71:                                       ; preds = %265
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !238
-  %271 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %272 = load ptr, ptr %271, align 8, !noalias !241
-  store i64 1, ptr %4, align 8, !noalias !241
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !241
-  %273 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %273, align 8, !noalias !241
-  %274 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %21, ptr %274, align 8, !noalias !241
-  %275 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !238
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !238
+  %271 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %21, ptr %271, align 8, !noalias !238
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !238
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !238
+  %272 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %273 = load ptr, ptr %272, align 8, !noalias !241
+  %274 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %274, align 8, !noalias !241
+  %275 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %21, ptr %275, align 8, !noalias !241
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !241
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !241
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %267, ptr noundef nonnull align 8 dereferenceable(64) %272, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %267, ptr noundef nonnull align 8 dereferenceable(64) %273, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !238
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 
@@ -9807,22 +9807,22 @@ _ZNSt6vectorIdSaIdEED2Ev.exit45.i:                ; preds = %276, %.body.i
 
 .noexc.i68:                                       ; preds = %284
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !280
-  %290 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %291 = load ptr, ptr %290, align 8, !noalias !283
-  store i64 1, ptr %4, align 8, !noalias !283
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !283
-  %292 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %292, align 8, !noalias !283
-  %293 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %20, ptr %293, align 8, !noalias !283
-  %294 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !280
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !280
+  %290 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %20, ptr %290, align 8, !noalias !280
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !280
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !280
+  %291 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %292 = load ptr, ptr %291, align 8, !noalias !283
+  %293 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %293, align 8, !noalias !283
+  %294 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %20, ptr %294, align 8, !noalias !283
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !283
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !283
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %21, ptr noundef %286, ptr noundef nonnull align 8 dereferenceable(64) %291, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %21, ptr noundef %286, ptr noundef nonnull align 8 dereferenceable(64) %292, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !280
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 
@@ -13436,22 +13436,22 @@ _ZNSt6vectorIdSaIdEED2Ev.exit45.i:                ; preds = %250, %.body.i
 
 .noexc.i71:                                       ; preds = %258
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !351
-  %264 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %265 = load ptr, ptr %264, align 8, !noalias !354
-  store i64 1, ptr %4, align 8, !noalias !354
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !354
-  %266 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %266, align 8, !noalias !354
-  %267 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %21, ptr %267, align 8, !noalias !354
-  %268 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !351
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !351
+  %264 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %21, ptr %264, align 8, !noalias !351
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !351
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !351
+  %265 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %266 = load ptr, ptr %265, align 8, !noalias !354
+  %267 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %267, align 8, !noalias !354
+  %268 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %21, ptr %268, align 8, !noalias !354
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !354
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !354
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %260, ptr noundef nonnull align 8 dereferenceable(64) %265, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %260, ptr noundef nonnull align 8 dereferenceable(64) %266, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !351
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 
@@ -14245,22 +14245,22 @@ _ZNSt6vectorIdSaIdEED2Ev.exit45.i:                ; preds = %248, %.body.i
 
 .noexc.i71:                                       ; preds = %256
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !389
-  %262 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %263 = load ptr, ptr %262, align 8, !noalias !392
-  store i64 1, ptr %4, align 8, !noalias !392
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !392
-  %264 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %264, align 8, !noalias !392
-  %265 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %21, ptr %265, align 8, !noalias !392
-  %266 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !389
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !389
+  %262 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %21, ptr %262, align 8, !noalias !389
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !389
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !389
+  %263 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %264 = load ptr, ptr %263, align 8, !noalias !392
+  %265 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %265, align 8, !noalias !392
+  %266 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %21, ptr %266, align 8, !noalias !392
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !392
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !392
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %258, ptr noundef nonnull align 8 dereferenceable(64) %263, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %258, ptr noundef nonnull align 8 dereferenceable(64) %264, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !389
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 
@@ -15050,22 +15050,22 @@ _ZNSt6vectorIdSaIdEED2Ev.exit45.i:                ; preds = %248, %.body.i
 
 .noexc.i71:                                       ; preds = %256
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !427
-  %262 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %263 = load ptr, ptr %262, align 8, !noalias !430
-  store i64 1, ptr %4, align 8, !noalias !430
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !430
-  %264 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %264, align 8, !noalias !430
-  %265 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %21, ptr %265, align 8, !noalias !430
-  %266 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !427
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !427
+  %262 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %21, ptr %262, align 8, !noalias !427
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !427
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !427
+  %263 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %264 = load ptr, ptr %263, align 8, !noalias !430
+  %265 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %265, align 8, !noalias !430
+  %266 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %21, ptr %266, align 8, !noalias !430
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !430
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !430
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %258, ptr noundef nonnull align 8 dereferenceable(64) %263, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %258, ptr noundef nonnull align 8 dereferenceable(64) %264, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !427
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 
@@ -16057,22 +16057,22 @@ _ZNSt6vectorIdSaIdEED2Ev.exit45.i:                ; preds = %273, %.body.i
 
 .noexc.i71:                                       ; preds = %281
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !460
-  %287 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %288 = load ptr, ptr %287, align 8, !noalias !463
-  store i64 1, ptr %4, align 8, !noalias !463
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !463
-  %289 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %289, align 8, !noalias !463
-  %290 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %21, ptr %290, align 8, !noalias !463
-  %291 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !460
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !460
+  %287 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %21, ptr %287, align 8, !noalias !460
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !460
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !460
+  %288 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %289 = load ptr, ptr %288, align 8, !noalias !463
+  %290 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %290, align 8, !noalias !463
+  %291 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %21, ptr %291, align 8, !noalias !463
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !463
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !463
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %283, ptr noundef nonnull align 8 dereferenceable(64) %288, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %22, ptr noundef %283, ptr noundef nonnull align 8 dereferenceable(64) %289, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !460
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 
@@ -17249,22 +17249,22 @@ _ZNSt6vectorIdSaIdEED2Ev.exit46.i:                ; preds = %298, %.body.i
 
 .noexc.i73:                                       ; preds = %306
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !495
-  %312 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %313 = load ptr, ptr %312, align 8, !noalias !498
-  store i64 1, ptr %4, align 8, !noalias !498
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !498
-  %314 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %314, align 8, !noalias !498
-  %315 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %29, ptr %315, align 8, !noalias !498
-  %316 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !495
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !495
+  %312 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %29, ptr %312, align 8, !noalias !495
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !495
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !495
+  %313 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %314 = load ptr, ptr %313, align 8, !noalias !498
+  %315 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %315, align 8, !noalias !498
+  %316 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %29, ptr %316, align 8, !noalias !498
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !498
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !498
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %30, ptr noundef %308, ptr noundef nonnull align 8 dereferenceable(64) %313, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %30, ptr noundef %308, ptr noundef nonnull align 8 dereferenceable(64) %314, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !495
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 
@@ -18219,22 +18219,22 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 
 .noexc.i:                                         ; preds = %61
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18), !noalias !519
-  %67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %68 = load ptr, ptr %67, align 8, !noalias !522
-  store i64 1, ptr %18, align 8, !noalias !522
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !522
-  %69 = getelementptr inbounds i8, ptr %18, i64 16
-  store i64 2, ptr %69, align 8, !noalias !522
-  %70 = getelementptr inbounds i8, ptr %18, i64 24
-  store ptr %20, ptr %70, align 8, !noalias !522
-  %71 = getelementptr inbounds i8, ptr %18, i64 32
+  store i64 1, ptr %18, align 8, !noalias !519
+  %.sroa.2131.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  store i64 2, ptr %.sroa.2131.0..sroa_idx, align 8, !noalias !519
+  %67 = getelementptr inbounds i8, ptr %18, i64 32
+  store ptr %20, ptr %67, align 8, !noalias !519
+  %.sroa.9135.32..sroa_idx = getelementptr inbounds i8, ptr %18, i64 40
+  store i64 2, ptr %.sroa.9135.32..sroa_idx, align 8, !noalias !519
+  %.sroa.10136.32..sroa_idx = getelementptr inbounds i8, ptr %18, i64 48
+  store i32 -65536, ptr %.sroa.10136.32..sroa_idx, align 8, !noalias !519
+  %68 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %69 = load ptr, ptr %68, align 8, !noalias !522
+  %70 = getelementptr inbounds i8, ptr %18, i64 16
+  store i64 2, ptr %70, align 8, !noalias !522
+  %71 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %20, ptr %71, align 8, !noalias !522
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !522
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !522
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %21, ptr noundef %63, ptr noundef nonnull align 8 dereferenceable(64) %68, ptr noundef nonnull %18, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %21, ptr noundef %63, ptr noundef nonnull align 8 dereferenceable(64) %69, ptr noundef nonnull %18, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %18), !noalias !519
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 
@@ -18259,8 +18259,8 @@ _ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInf
 
 78:                                               ; preds = %77
   %.pr = load ptr, ptr %22, align 8
-  %.not162 = icmp eq ptr %.pr, null
-  br i1 %.not162, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %79
+  %.not160 = icmp eq ptr %.pr, null
+  br i1 %.not160, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %79
 
 79:                                               ; preds = %78
   %80 = load i8, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
@@ -18333,13 +18333,13 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit77: ; preds = %.noexc76, %_ZN4dmlc
           to label %109 unwind label %430
 
 104:                                              ; preds = %97
-  %.pr140 = load ptr, ptr %22, align 8
-  %.not.i = icmp eq ptr %.pr140, null
+  %.pr138 = load ptr, ptr %22, align 8
+  %.not.i = icmp eq ptr %.pr138, null
   br i1 %.not.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i: ; preds = %104
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.pr140) #16
-  call void @_ZdlPvm(ptr noundef nonnull %.pr140, i64 noundef 32) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.pr138) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr138, i64 noundef 32) #32
   br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %73, %78, %104, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
@@ -18410,9 +18410,9 @@ _ZNK7xgboost16HostDeviceVectorIfE13ConstHostSpanEv.exit: ; preds = %111
 
 134:                                              ; preds = %128
   call void @_ZN4dmlc14LogCheckFormatImiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.122") align 8 %28, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 4 dereferenceable(4) %29)
-  %.pr144 = load ptr, ptr %28, align 8
-  %.not160 = icmp eq ptr %.pr144, null
-  br i1 %.not160, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit90, label %135
+  %.pr142 = load ptr, ptr %28, align 8
+  %.not158 = icmp eq ptr %.pr142, null
+  br i1 %.not158, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit90, label %135
 
 135:                                              ; preds = %134
   %136 = load i8, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
@@ -18480,13 +18480,13 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit87: ; preds = %.noexc86, %_ZN4dmlc
           to label %416 unwind label %430
 
 158:                                              ; preds = %153
-  %.pr147 = load ptr, ptr %28, align 8
-  %.not.i88 = icmp eq ptr %.pr147, null
+  %.pr145 = load ptr, ptr %28, align 8
+  %.not.i88 = icmp eq ptr %.pr145, null
   br i1 %.not.i88, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit90, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i89
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i89: ; preds = %158
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.pr147) #16
-  call void @_ZdlPvm(ptr noundef nonnull %.pr147, i64 noundef 32) #32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.pr145) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr145, i64 noundef 32) #32
   br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit90
 
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit90: ; preds = %128, %134, %158, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i89
@@ -18873,11 +18873,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i:                                ; preds = %288
   %297 = udiv i32 %289, %291
   %298 = mul i32 %297, %291
-  %.recomposed212 = urem i32 %289, %291
+  %.recomposed210 = urem i32 %289, %291
   br label %299
 
 299:                                              ; preds = %.split.i8.i.i.i.i, %.split.us.i11.i.i.i.i
-  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed212, %.split.i8.i.i.i.i ], [ %296, %.split.us.i11.i.i.i.i ]
+  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed210, %.split.i8.i.i.i.i ], [ %296, %.split.us.i11.i.i.i.i ]
   %.us-phi22.i10.i.i.i.i = phi i32 [ %297, %.split.i8.i.i.i.i ], [ %295, %.split.us.i11.i.i.i.i ]
   %.sroa.3.1.le.i.i.i.i.i = zext i32 %.us-phi.i9.i.i.i.i to i64
   %300 = zext i32 %.us-phi22.i10.i.i.i.i to i64
@@ -19174,90 +19174,90 @@ _ZNSt6vectorIdSaIdEED2Ev.exit46.i:                ; preds = %373, %.body.i
   %383 = getelementptr inbounds i8, ptr %2, i64 56
   %384 = load i32, ptr %383, align 8, !noalias !567
   %385 = icmp eq i32 %384, 0
-  br i1 %385, label %.noexc.i110, label %391
+  br i1 %385, label %.noexc.i108, label %391
 
-.noexc.i110:                                      ; preds = %381
+.noexc.i108:                                      ; preds = %381
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !567
-  %386 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %387 = load ptr, ptr %386, align 8, !noalias !570
-  store i64 1, ptr %4, align 8, !noalias !570
-  %.sroa.0.i108.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i108.sroa.4.0..sroa_idx, align 8, !noalias !570
-  %388 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %388, align 8, !noalias !570
-  %389 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %34, ptr %389, align 8, !noalias !570
-  %390 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !567
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !567
+  %386 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %34, ptr %386, align 8, !noalias !567
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !567
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !567
+  %387 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %388 = load ptr, ptr %387, align 8, !noalias !570
+  %389 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %389, align 8, !noalias !570
+  %390 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %34, ptr %390, align 8, !noalias !570
-  %.sroa.6.i109.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i109.sroa.4.0..sroa_idx, align 8, !noalias !570
-  %.sroa.6.i109.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i109.sroa.5.0..sroa_idx, align 8, !noalias !570
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %35, ptr noundef %113, ptr noundef nonnull align 8 dereferenceable(64) %387, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %35, ptr noundef %113, ptr noundef nonnull align 8 dereferenceable(64) %388, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !567
-  br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit113
+  br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit111
 
 391:                                              ; preds = %381
   store ptr null, ptr %35, align 8, !alias.scope !573
-  br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit113
+  br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit111
 
-_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit113: ; preds = %391, %.noexc.i110
+_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit111: ; preds = %391, %.noexc.i108
   invoke void @_ZN7xgboost10collective8SafeCollERKNS0_6ResultE(ptr noundef nonnull align 8 dereferenceable(8) %35)
           to label %392 unwind label %417
 
-392:                                              ; preds = %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit113
+392:                                              ; preds = %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit111
   store i32 0, ptr %37, align 4
   %393 = load double, ptr %382, align 8
   %394 = fcmp ogt double %393, 0.000000e+00
-  br i1 %394, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit123, label %395
+  br i1 %394, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit121, label %395
 
 395:                                              ; preds = %392
   invoke void @_ZN4dmlc14LogCheckFormatIdiEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS7_EERKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.122") align 8 %36, ptr noundef nonnull align 8 dereferenceable(8) %382, ptr noundef nonnull align 4 dereferenceable(4) %37)
           to label %396 unwind label %417
 
 396:                                              ; preds = %395
-  %.pr153 = load ptr, ptr %36, align 8
-  %.not161 = icmp eq ptr %.pr153, null
-  br i1 %.not161, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit123, label %397
+  %.pr151 = load ptr, ptr %36, align 8
+  %.not159 = icmp eq ptr %.pr151, null
+  br i1 %.not159, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit121, label %397
 
 397:                                              ; preds = %396
   %398 = load i8, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
   %399 = icmp eq i8 %398, 0
-  br i1 %399, label %400, label %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i114, !prof !8
+  br i1 %399, label %400, label %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i112, !prof !8
 
 400:                                              ; preds = %397
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result)
-          to label %.noexc115 unwind label %419
+          to label %.noexc113 unwind label %419
 
-.noexc115:                                        ; preds = %400
+.noexc113:                                        ; preds = %400
   %401 = call i32 @__cxa_thread_atexit(ptr nonnull @_ZN4dmlc15LogMessageFatal5EntryD2Ev, ptr nonnull @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, ptr nonnull @__dso_handle) #16
   store i8 1, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
-  br label %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i114
+  br label %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i112
 
-_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i114:   ; preds = %.noexc115, %397
+_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i112:   ; preds = %.noexc113, %397
   %402 = call noundef nonnull align 8 dereferenceable(376) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result)
   invoke void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %402, ptr noundef nonnull @.str.57, i32 noundef 484)
-          to label %_ZN4dmlc15LogMessageFatalC2EPKci.exit117 unwind label %419
+          to label %_ZN4dmlc15LogMessageFatalC2EPKci.exit115 unwind label %419
 
-_ZN4dmlc15LogMessageFatalC2EPKci.exit117:         ; preds = %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i114
+_ZN4dmlc15LogMessageFatalC2EPKci.exit115:         ; preds = %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i112
   %403 = load i8, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
   %404 = icmp eq i8 %403, 0
-  br i1 %404, label %405, label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit120, !prof !8
+  br i1 %404, label %405, label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit118, !prof !8
 
-405:                                              ; preds = %_ZN4dmlc15LogMessageFatalC2EPKci.exit117
+405:                                              ; preds = %_ZN4dmlc15LogMessageFatalC2EPKci.exit115
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result)
-          to label %.noexc119 unwind label %421
+          to label %.noexc117 unwind label %421
 
-.noexc119:                                        ; preds = %405
+.noexc117:                                        ; preds = %405
   %406 = call i32 @__cxa_thread_atexit(ptr nonnull @_ZN4dmlc15LogMessageFatal5EntryD2Ev, ptr nonnull @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, ptr nonnull @__dso_handle) #16
   store i8 1, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
-  br label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit120
+  br label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit118
 
-_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit120: ; preds = %.noexc119, %_ZN4dmlc15LogMessageFatalC2EPKci.exit117
+_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit118: ; preds = %.noexc117, %_ZN4dmlc15LogMessageFatalC2EPKci.exit115
   %407 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %402, ptr noundef nonnull @.str.58)
           to label %408 unwind label %421
 
-408:                                              ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit120
+408:                                              ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit118
   %409 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %407, ptr noundef nonnull @.str.99)
           to label %410 unwind label %421
 
@@ -19279,40 +19279,40 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit120: ; preds = %.noexc119, %_ZN4dm
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #16
   br label %.body
 
-417:                                              ; preds = %395, %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit113
+417:                                              ; preds = %395, %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit111
   %418 = landingpad { ptr, i32 }
           cleanup
   br label %429
 
-419:                                              ; preds = %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i114, %400, %415
+419:                                              ; preds = %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i112, %400, %415
   %420 = landingpad { ptr, i32 }
           cleanup
   br label %428
 
-421:                                              ; preds = %405, %413, %410, %408, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit120
+421:                                              ; preds = %405, %413, %410, %408, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit118
   %422 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %38)
           to label %428 unwind label %430
 
 423:                                              ; preds = %415
-  %.pr156 = load ptr, ptr %36, align 8
-  %.not.i121 = icmp eq ptr %.pr156, null
-  br i1 %.not.i121, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit123, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i122
+  %.pr154 = load ptr, ptr %36, align 8
+  %.not.i119 = icmp eq ptr %.pr154, null
+  br i1 %.not.i119, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit121, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i120
 
-_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i122: ; preds = %423
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.pr156) #16
-  call void @_ZdlPvm(ptr noundef nonnull %.pr156, i64 noundef 32) #32
-  br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit123
+_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i120: ; preds = %423
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.pr154) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr154, i64 noundef 32) #32
+  br label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit121
 
-_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit123: ; preds = %392, %396, %423, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i122
+_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit121: ; preds = %392, %396, %423, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i120
   store ptr null, ptr %36, align 8
   %424 = load double, ptr %34, align 8
   %425 = load double, ptr %382, align 8
   %426 = fdiv double %424, %425
   %427 = load ptr, ptr %35, align 8
-  %.not.i.i124 = icmp eq ptr %427, null
-  br i1 %.not.i.i124, label %_ZN7xgboost10collective6ResultD2Ev.exit, label %_ZN7xgboost10collective6ResultD2Ev.exit.sink.split
+  %.not.i.i122 = icmp eq ptr %427, null
+  br i1 %.not.i.i122, label %_ZN7xgboost10collective6ResultD2Ev.exit, label %_ZN7xgboost10collective6ResultD2Ev.exit.sink.split
 
 428:                                              ; preds = %421, %419
   %.pn59 = phi { ptr, i32 } [ %420, %419 ], [ %422, %421 ]
@@ -19324,15 +19324,15 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #16
   br label %.body
 
-_ZN7xgboost10collective6ResultD2Ev.exit.sink.split: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit123, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %.sink187 = phi ptr [ %108, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ], [ %427, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit123 ]
-  %.0.ph = phi double [ %107, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ], [ %426, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit123 ]
-  call void @_ZN7xgboost10collective6detail10ResultImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink187) #16
-  call void @_ZdlPvm(ptr noundef nonnull %.sink187, i64 noundef 56) #32
+_ZN7xgboost10collective6ResultD2Ev.exit.sink.split: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit121, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
+  %.sink185 = phi ptr [ %108, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ], [ %427, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit121 ]
+  %.0.ph = phi double [ %107, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ], [ %426, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit121 ]
+  call void @_ZN7xgboost10collective6detail10ResultImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink185) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.sink185, i64 noundef 56) #32
   br label %_ZN7xgboost10collective6ResultD2Ev.exit
 
-_ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %_ZN7xgboost10collective6ResultD2Ev.exit.sink.split, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit123, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
-  %.0 = phi double [ %107, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ], [ %426, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit123 ], [ %.0.ph, %_ZN7xgboost10collective6ResultD2Ev.exit.sink.split ]
+_ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %_ZN7xgboost10collective6ResultD2Ev.exit.sink.split, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit121, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
+  %.0 = phi double [ %107, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ], [ %426, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit121 ], [ %.0.ph, %_ZN7xgboost10collective6ResultD2Ev.exit.sink.split ]
   ret double %.0
 
 .body:                                            ; preds = %377, %_ZNSt6vectorIdSaIdEED2Ev.exit46.i, %429, %416, %56, %110

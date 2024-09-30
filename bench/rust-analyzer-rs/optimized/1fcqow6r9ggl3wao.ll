@@ -602,7 +602,7 @@ common.resume:                                    ; preds = %81, %66
 
 76:                                               ; preds = %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17h9eb137f04ffd488fE.llvm.16646241683577740079.exit.i.i.i", %46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !73
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false), !noalias !73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i2.i, i64 32, i1 false), !noalias !73
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !76
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i2.i)

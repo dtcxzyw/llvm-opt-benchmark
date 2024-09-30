@@ -4800,7 +4800,6 @@ _ZN4pbrt5ErrorIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKNS_7
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt17BasicSceneBuilder7SamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 64 dereferenceable(3544) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef %params, ptr noundef byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp67 = alloca %"struct.pbrt::FileLoc", align 8
   %dict = alloca %"class.pbrt::ParameterDictionary", align 8
   %agg.tmp = alloca %"class.pbrt::InlinedVector", align 8
   %ref.tmp = alloca %"struct.pbrt::SceneEntity", align 8
@@ -4931,21 +4930,18 @@ invoke.cont5:                                     ; preds = %for.body.lr.ph.i.i,
   %colorSpace.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 96
   %colorSpace3.i = getelementptr inbounds i8, ptr %dict, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %colorSpace.i, ptr noundef nonnull align 8 dereferenceable(12) %colorSpace3.i, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp67)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp67, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 24, i1 false)
   %call.i.i8 = invoke noundef ptr @_ZN4pbrt11InternCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS6_EE6LookupIZNS9_6LookupERKS6_EUlN4pstd3pmr21polymorphic_allocatorISt4byteEESC_E_EEPSB_SC_T_(ptr noundef nonnull align 64 dereferenceable(168) @_ZN4pbrt11SceneEntity15internedStringsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %call.i.i.noexc unwind label %lpad7
 
 call.i.i.noexc:                                   ; preds = %invoke.cont5
   store ptr %call.i.i8, ptr %ref.tmp, align 8
   %loc3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc3.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp67, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc3.i, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 24, i1 false)
   %parameters4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   invoke void @_ZN4pbrt19ParameterDictionaryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(108) %parameters4.i, ptr noundef nonnull align 8 dereferenceable(108) %agg.tmp4)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %call.i.i.noexc
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp67)
   %sampler = getelementptr inbounds i8, ptr %this, i64 1824
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %sampler, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   %parameters.i = getelementptr inbounds i8, ptr %this, i64 1856
@@ -6112,7 +6108,6 @@ entry:
   %agg.tmp13 = alloca %"class.pbrt::InlinedVector", align 8
   %agg.tmp18 = alloca %"struct.pbrt::TransformedSceneEntity", align 8
   %agg.tmp19 = alloca %"class.pbrt::ParameterDictionary", align 8
-  %agg.tmp22 = alloca %"struct.pbrt::FileLoc", align 8
   %ref.tmp23 = alloca %"class.pbrt::AnimatedTransform", align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %origName)
   invoke void @_ZN4pbrt13NormalizeUTF8ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %name, ptr noundef nonnull %agg.tmp)
@@ -6323,7 +6318,6 @@ invoke.cont21:                                    ; preds = %for.body.lr.ph.i.i,
   %colorSpace.i = getelementptr inbounds i8, ptr %agg.tmp19, i64 96
   %colorSpace3.i = getelementptr inbounds i8, ptr %dict, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %colorSpace.i, ptr noundef nonnull align 8 dereferenceable(12) %colorSpace3.i, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp22, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 24, i1 false)
   invoke void @_ZNK4pbrt17BasicSceneBuilder16RenderFromObjectEv(ptr nonnull sret(%"class.pbrt::AnimatedTransform") align 4 %ref.tmp23, ptr noundef nonnull align 64 dereferenceable(3544) %this)
           to label %invoke.cont25 unwind label %lpad24
 
@@ -6339,7 +6333,7 @@ invoke.cont25:                                    ; preds = %invoke.cont21
 call.i.i.noexc.i:                                 ; preds = %.noexc
   store ptr %call.i.i2.i, ptr %agg.tmp18, align 8
   %loc3.i.i = getelementptr inbounds i8, ptr %agg.tmp18, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc3.i.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp22, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc3.i.i, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 24, i1 false)
   %parameters4.i.i = getelementptr inbounds i8, ptr %agg.tmp18, i64 32
   invoke void @_ZN4pbrt19ParameterDictionaryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(108) %parameters4.i.i, ptr noundef nonnull align 8 dereferenceable(108) %agg.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -6924,7 +6918,6 @@ entry:
   %agg.tmp = alloca %"class.pbrt::InlinedVector", align 8
   %agg.tmp3 = alloca %"struct.pbrt::LightSceneEntity", align 8
   %agg.tmp4 = alloca %"class.pbrt::ParameterDictionary", align 8
-  %agg.tmp7 = alloca %"struct.pbrt::FileLoc", align 8
   %ref.tmp = alloca %"class.pbrt::AnimatedTransform", align 4
   %currentBlock = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %currentBlock, align 8
@@ -7041,13 +7034,12 @@ invoke.cont6:                                     ; preds = %for.body.lr.ph.i.i,
   %colorSpace.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 96
   %colorSpace3.i = getelementptr inbounds i8, ptr %dict, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %colorSpace.i, ptr noundef nonnull align 8 dereferenceable(12) %colorSpace3.i, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp7, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 24, i1 false)
   invoke void @_ZNK4pbrt17BasicSceneBuilder16RenderFromObjectEv(ptr nonnull sret(%"class.pbrt::AnimatedTransform") align 4 %ref.tmp, ptr noundef nonnull align 64 dereferenceable(3544) %this)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont6
   %currentOutsideMedium = getelementptr inbounds i8, ptr %this, i64 64
-  invoke void @_ZN4pbrt16LightSceneEntityC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_19ParameterDictionaryENS_7FileLocERKNS_17AnimatedTransformES8_(ptr noundef nonnull align 8 dereferenceable(872) %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %agg.tmp4, ptr noundef nonnull byval(%"struct.pbrt::FileLoc") align 8 %agg.tmp7, ptr noundef nonnull align 4 dereferenceable(696) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %currentOutsideMedium)
+  invoke void @_ZN4pbrt16LightSceneEntityC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_19ParameterDictionaryENS_7FileLocERKNS_17AnimatedTransformES8_(ptr noundef nonnull align 8 dereferenceable(872) %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %agg.tmp4, ptr noundef nonnull byval(%"struct.pbrt::FileLoc") align 8 %loc, ptr noundef nonnull align 4 dereferenceable(696) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %currentOutsideMedium)
           to label %invoke.cont11 unwind label %lpad8
 
 invoke.cont11:                                    ; preds = %invoke.cont9
@@ -9475,7 +9467,7 @@ if.then29:                                        ; preds = %if.end24
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %if.then29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i12, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i12, ptr noundef nonnull align 8 dereferenceable(32) %entity, i64 32, i1 false)
   %shapes.i.i = getelementptr inbounds i8, ptr %call.i12, i64 32
   store ptr %16, ptr %shapes.i.i, align 8
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i12, i64 40
@@ -11065,7 +11057,7 @@ if.then29:                                        ; preds = %delete.notnull
           to label %call.i.noexc unwind label %lpad33
 
 call.i.noexc:                                     ; preds = %if.then29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i110, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp31, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i110, ptr noundef nonnull align 8 dereferenceable(32) %entity, i64 32, i1 false)
   %shapes.i.i102 = getelementptr inbounds i8, ptr %call.i110, i64 32
   store ptr %54, ptr %shapes.i.i102, align 8
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i110, i64 40
@@ -12283,7 +12275,6 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt17BasicSceneBuilder11PixelFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 64 dereferenceable(3544) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef %params, ptr noundef byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp67 = alloca %"struct.pbrt::FileLoc", align 8
   %dict = alloca %"class.pbrt::ParameterDictionary", align 8
   %agg.tmp = alloca %"class.pbrt::InlinedVector", align 8
   %ref.tmp = alloca %"struct.pbrt::SceneEntity", align 8
@@ -12414,21 +12405,18 @@ invoke.cont5:                                     ; preds = %for.body.lr.ph.i.i,
   %colorSpace.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 96
   %colorSpace3.i = getelementptr inbounds i8, ptr %dict, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %colorSpace.i, ptr noundef nonnull align 8 dereferenceable(12) %colorSpace3.i, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp67)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp67, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 24, i1 false)
   %call.i.i8 = invoke noundef ptr @_ZN4pbrt11InternCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS6_EE6LookupIZNS9_6LookupERKS6_EUlN4pstd3pmr21polymorphic_allocatorISt4byteEESC_E_EEPSB_SC_T_(ptr noundef nonnull align 64 dereferenceable(168) @_ZN4pbrt11SceneEntity15internedStringsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %call.i.i.noexc unwind label %lpad7
 
 call.i.i.noexc:                                   ; preds = %invoke.cont5
   store ptr %call.i.i8, ptr %ref.tmp, align 8
   %loc3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc3.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp67, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc3.i, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 24, i1 false)
   %parameters4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   invoke void @_ZN4pbrt19ParameterDictionaryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(108) %parameters4.i, ptr noundef nonnull align 8 dereferenceable(108) %agg.tmp4)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %call.i.i.noexc
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp67)
   %filter = getelementptr inbounds i8, ptr %this, i64 2256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %filter, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   %parameters.i = getelementptr inbounds i8, ptr %this, i64 2288
@@ -12542,7 +12530,6 @@ eh.resume:                                        ; preds = %ehcleanup11, %lpad
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt17BasicSceneBuilder4FilmERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 64 dereferenceable(3544) %this, ptr noundef nonnull align 8 dereferenceable(32) %type, ptr nocapture noundef %params, ptr noundef byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp67 = alloca %"struct.pbrt::FileLoc", align 8
   %dict = alloca %"class.pbrt::ParameterDictionary", align 8
   %agg.tmp = alloca %"class.pbrt::InlinedVector", align 8
   %ref.tmp = alloca %"struct.pbrt::SceneEntity", align 8
@@ -12673,21 +12660,18 @@ invoke.cont5:                                     ; preds = %for.body.lr.ph.i.i,
   %colorSpace.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 96
   %colorSpace3.i = getelementptr inbounds i8, ptr %dict, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %colorSpace.i, ptr noundef nonnull align 8 dereferenceable(12) %colorSpace3.i, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp67)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp67, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 24, i1 false)
   %call.i.i8 = invoke noundef ptr @_ZN4pbrt11InternCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS6_EE6LookupIZNS9_6LookupERKS6_EUlN4pstd3pmr21polymorphic_allocatorISt4byteEESC_E_EEPSB_SC_T_(ptr noundef nonnull align 64 dereferenceable(168) @_ZN4pbrt11SceneEntity15internedStringsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %type)
           to label %call.i.i.noexc unwind label %lpad7
 
 call.i.i.noexc:                                   ; preds = %invoke.cont5
   store ptr %call.i.i8, ptr %ref.tmp, align 8
   %loc3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc3.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp67, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc3.i, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 24, i1 false)
   %parameters4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   invoke void @_ZN4pbrt19ParameterDictionaryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(108) %parameters4.i, ptr noundef nonnull align 8 dereferenceable(108) %agg.tmp4)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %call.i.i.noexc
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp67)
   %film = getelementptr inbounds i8, ptr %this, i64 1968
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %film, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   %parameters.i = getelementptr inbounds i8, ptr %this, i64 2000
@@ -12833,7 +12817,6 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt17BasicSceneBuilder11AcceleratorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 64 dereferenceable(3544) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef %params, ptr noundef byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp67 = alloca %"struct.pbrt::FileLoc", align 8
   %dict = alloca %"class.pbrt::ParameterDictionary", align 8
   %agg.tmp = alloca %"class.pbrt::InlinedVector", align 8
   %ref.tmp = alloca %"struct.pbrt::SceneEntity", align 8
@@ -12964,21 +12947,18 @@ invoke.cont5:                                     ; preds = %for.body.lr.ph.i.i,
   %colorSpace.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 96
   %colorSpace3.i = getelementptr inbounds i8, ptr %dict, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %colorSpace.i, ptr noundef nonnull align 8 dereferenceable(12) %colorSpace3.i, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp67)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp67, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 24, i1 false)
   %call.i.i8 = invoke noundef ptr @_ZN4pbrt11InternCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS6_EE6LookupIZNS9_6LookupERKS6_EUlN4pstd3pmr21polymorphic_allocatorISt4byteEESC_E_EEPSB_SC_T_(ptr noundef nonnull align 64 dereferenceable(168) @_ZN4pbrt11SceneEntity15internedStringsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %call.i.i.noexc unwind label %lpad7
 
 call.i.i.noexc:                                   ; preds = %invoke.cont5
   store ptr %call.i.i8, ptr %ref.tmp, align 8
   %loc3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc3.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp67, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc3.i, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 24, i1 false)
   %parameters4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   invoke void @_ZN4pbrt19ParameterDictionaryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(108) %parameters4.i, ptr noundef nonnull align 8 dereferenceable(108) %agg.tmp4)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %call.i.i.noexc
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp67)
   %accelerator = getelementptr inbounds i8, ptr %this, i64 2400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %accelerator, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   %parameters.i = getelementptr inbounds i8, ptr %this, i64 2432
@@ -13092,7 +13072,6 @@ eh.resume:                                        ; preds = %ehcleanup11, %lpad
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt17BasicSceneBuilder10IntegratorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 64 dereferenceable(3544) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef %params, ptr noundef byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp67 = alloca %"struct.pbrt::FileLoc", align 8
   %dict = alloca %"class.pbrt::ParameterDictionary", align 8
   %agg.tmp = alloca %"class.pbrt::InlinedVector", align 8
   %ref.tmp = alloca %"struct.pbrt::SceneEntity", align 8
@@ -13223,21 +13202,18 @@ invoke.cont5:                                     ; preds = %for.body.lr.ph.i.i,
   %colorSpace.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 96
   %colorSpace3.i = getelementptr inbounds i8, ptr %dict, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %colorSpace.i, ptr noundef nonnull align 8 dereferenceable(12) %colorSpace3.i, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp67)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp67, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 24, i1 false)
   %call.i.i8 = invoke noundef ptr @_ZN4pbrt11InternCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS6_EE6LookupIZNS9_6LookupERKS6_EUlN4pstd3pmr21polymorphic_allocatorISt4byteEESC_E_EEPSB_SC_T_(ptr noundef nonnull align 64 dereferenceable(168) @_ZN4pbrt11SceneEntity15internedStringsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %call.i.i.noexc unwind label %lpad7
 
 call.i.i.noexc:                                   ; preds = %invoke.cont5
   store ptr %call.i.i8, ptr %ref.tmp, align 8
   %loc3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc3.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp67, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc3.i, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 24, i1 false)
   %parameters4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   invoke void @_ZN4pbrt19ParameterDictionaryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(108) %parameters4.i, ptr noundef nonnull align 8 dereferenceable(108) %agg.tmp4)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %call.i.i.noexc
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp67)
   %integrator = getelementptr inbounds i8, ptr %this, i64 2112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %integrator, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   %parameters.i = getelementptr inbounds i8, ptr %this, i64 2144
@@ -15666,7 +15642,6 @@ ehcleanup73:                                      ; preds = %ehcleanup71, %ehcle
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt17BasicSceneBuilder8MaterialERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorISB_EEEENS_7FileLocE(ptr noundef nonnull align 64 dereferenceable(3544) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef %params, ptr noundef byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp76 = alloca %"struct.pbrt::FileLoc", align 8
   %dict = alloca %"class.pbrt::ParameterDictionary", align 8
   %agg.tmp = alloca %"class.pbrt::InlinedVector", align 8
   %agg.tmp3 = alloca %"struct.pbrt::SceneEntity", align 8
@@ -15786,21 +15761,18 @@ invoke.cont6:                                     ; preds = %for.body.lr.ph.i.i,
   %colorSpace.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 96
   %colorSpace3.i = getelementptr inbounds i8, ptr %dict, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %colorSpace.i, ptr noundef nonnull align 8 dereferenceable(12) %colorSpace3.i, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp76)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp76, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 24, i1 false)
   %call.i.i7 = invoke noundef ptr @_ZN4pbrt11InternCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS6_EE6LookupIZNS9_6LookupERKS6_EUlN4pstd3pmr21polymorphic_allocatorISt4byteEESC_E_EEPSB_SC_T_(ptr noundef nonnull align 64 dereferenceable(168) @_ZN4pbrt11SceneEntity15internedStringsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %call.i.i.noexc unwind label %lpad8
 
 call.i.i.noexc:                                   ; preds = %invoke.cont6
   store ptr %call.i.i7, ptr %agg.tmp3, align 8
   %loc3.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc3.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp76, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %loc3.i, ptr noundef nonnull align 8 dereferenceable(24) %loc, i64 24, i1 false)
   %parameters4.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 32
   invoke void @_ZN4pbrt19ParameterDictionaryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(108) %parameters4.i, ptr noundef nonnull align 8 dereferenceable(108) %agg.tmp4)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %call.i.i.noexc
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp76)
   %call = invoke noundef i32 @_ZN4pbrt10BasicScene11AddMaterialENS_11SceneEntityE(ptr noundef nonnull align 8 dereferenceable(1520) %15, ptr noundef nonnull %agg.tmp3)
           to label %invoke.cont11 unwind label %lpad10
 

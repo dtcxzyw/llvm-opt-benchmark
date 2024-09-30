@@ -546,7 +546,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %.05.i = phi ptr [ %16, %63 ], [ %.sink2.i.i, %54 ]
   %.0.i = phi ptr [ %64, %63 ], [ %.sink3.i.i, %54 ]
   %72 = getelementptr inbounds { { i64, [12 x i64] }, { [2 x i64], i64, [10 x i64] }, { { ptr, i64 }, i64, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, { { [36 x i64] }, i64 }, ptr, { i64, i64 }, i8, i8, i8, [5 x i8] }, ptr %.0.i, i64 %71
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %72, ptr noundef nonnull align 8 dereferenceable(608) %3, i64 608, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(608) %72, ptr noundef nonnull align 8 dereferenceable(608) %3, i64 608, i1 false)
   %73 = load i64, ptr %.05.i, align 8, !alias.scope !136, !noalias !145, !noundef !4
   %74 = add i64 %73, 1
   store i64 %74, ptr %.05.i, align 8, !alias.scope !136, !noalias !145

@@ -20202,7 +20202,6 @@ declare noundef i64 @_ZN6memory19get_allocation_sizeEv() local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3sat9lookahead8simplifyEb(ptr noundef nonnull align 8 dereferenceable(1160) %this, i1 noundef zeroext %learned) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp164.sroa.5.i.i = alloca <{ [4 x i8], i64, i32, [4 x i8] }>, align 4
   %agg.tmp21.i = alloca %"class.sat::justification", align 8
   %_scoped_ext = alloca %"class.sat::lookahead::scoped_ext", align 8
   %roots = alloca %class.svector.1, align 8
@@ -20340,9 +20339,9 @@ invoke.cont6:                                     ; preds = %call7.i.noexc, %.no
 
 for.cond.preheader:                               ; preds = %invoke.cont6
   %m_trail = getelementptr inbounds i8, ptr %this, i64 200
+  %agg.tmp2.sroa.2.0.agg.tmp21.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp21.i, i64 4
   %agg.tmp2.sroa.22.0.agg.tmp21.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp21.i, i64 8
   %agg.tmp2.sroa.3.0.agg.tmp21.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp21.i, i64 16
-  %agg.tmp2.sroa.2.0.agg.tmp21.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp21.i, i64 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
@@ -20415,16 +20414,14 @@ sw.bb10.i.i:                                      ; preds = %if.then29
           to label %invoke.cont33 unwind label %lpad2.loopexit
 
 sw.bb14.i.i:                                      ; preds = %if.then29
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %agg.tmp164.sroa.5.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp164.sroa.5.i.i, ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp2.sroa.2.0.agg.tmp21.sroa_idx.i, i64 20, i1 false)
   %cmp.i.i.i = icmp eq i32 %26, 0
-  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i
+  br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %invoke.cont33
 
 land.lhs.true.i.i.i:                              ; preds = %sw.bb14.i.i
   %m_trim.i.i.i = getelementptr inbounds i8, ptr %19, i64 3976
   %28 = load i8, ptr %m_trim.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %28 to i1
-  br i1 %tobool.i.i.i, label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i, label %if.then.i.i.i
+  br i1 %tobool.i.i.i, label %invoke.cont33, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %m_justification.i.i.i = getelementptr inbounds i8, ptr %19, i64 3448
@@ -20432,14 +20429,10 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %arrayidx.i.i6.i.i = getelementptr inbounds %"class.sat::justification", ptr %29, i64 %idxprom.i.i28
   store i32 0, ptr %arrayidx.i.i6.i.i, align 8
   %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i6.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.i.i, i64 16, i1 false)
-  br label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i
-
-_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i: ; preds = %if.then.i.i.i, %land.lhs.true.i.i.i, %sw.bb14.i.i
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %agg.tmp164.sroa.5.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp2.sroa.2.0.agg.tmp21.sroa_idx.i, i64 16, i1 false)
   br label %invoke.cont33
 
-invoke.cont33:                                    ; preds = %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i, %if.then29, %sw.bb.i.i, %sw.bb10.i.i
+invoke.cont33:                                    ; preds = %if.then.i.i.i, %land.lhs.true.i.i.i, %sw.bb14.i.i, %if.then29, %sw.bb.i.i, %sw.bb10.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp21.i)
   %inc = add i32 %num_units.0, 1
   br label %for.inc

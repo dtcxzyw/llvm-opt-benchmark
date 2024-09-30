@@ -335,7 +335,6 @@ return:                                           ; preds = %if.then.i.i, %if.th
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core11SliceBuffer6AppendERKS0_(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i = alloca %struct.grpc_slice, align 8
   %agg.tmp = alloca %"class.grpc_core::Slice", align 8
   %count.i = getelementptr inbounds i8, ptr %other, i64 16
   %0 = load i64, ptr %count.i, align 8
@@ -359,14 +358,11 @@ if.then.i.i:                                      ; preds = %for.body
   br label %_ZNK9grpc_core11SliceBuffer8RefSliceEm.exit
 
 _ZNK9grpc_core11SliceBuffer8RefSliceEm.exit:      ; preds = %for.body, %if.then.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false), !noalias !10
-  invoke void @grpc_slice_buffer_add(ptr noundef nonnull %this, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %agg.tmp.i)
+  invoke void @grpc_slice_buffer_add(ptr noundef nonnull %this, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %arrayidx.i)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %lpad
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %_ZNK9grpc_core11SliceBuffer8RefSliceEm.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %.pre = load i64, ptr %count.i, align 8
   %inc = add nuw i64 %i.07, 1
   %cmp = icmp ult i64 %inc, %.pre

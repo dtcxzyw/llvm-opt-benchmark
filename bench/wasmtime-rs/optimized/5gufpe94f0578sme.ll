@@ -51,8 +51,8 @@ default.unreachable17:                            ; preds = %tailrecurse
 11:                                               ; preds = %tailrecurse
   %12 = getelementptr inbounds i8, ptr %.tr, i64 96
   %13 = getelementptr inbounds i8, ptr %.tr, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
   %14 = getelementptr inbounds i8, ptr %.tr, i64 40
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
   %15 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %2, i64 32

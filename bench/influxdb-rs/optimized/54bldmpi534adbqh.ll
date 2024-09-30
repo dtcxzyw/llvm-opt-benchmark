@@ -15527,7 +15527,7 @@ common.ret:                                       ; preds = %349, %285, %60, %32
   %92 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %82, %80 ]
   %93 = load ptr, ptr %70, align 8, !alias.scope !2601, !noalias !2604, !nonnull !23, !noundef !23
   %94 = getelementptr inbounds { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i64, i64, i64, i32, [1 x i32] }, ptr %93, i64 %92
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %94, ptr noundef nonnull align 8 dereferenceable(96) %17, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %94, ptr noundef nonnull align 8 dereferenceable(96) %17, i64 96, i1 false)
   %95 = load i64, ptr %81, align 8, !alias.scope !2601, !noalias !2604, !noundef !23
   %96 = add i64 %95, 1
   store i64 %96, ptr %81, align 8, !alias.scope !2601, !noalias !2604
@@ -16105,7 +16105,7 @@ common.ret:                                       ; preds = %349, %285, %60, %32
   %300 = phi i64 [ %.pre.i205, %._crit_edge.i204 ], [ %290, %288 ]
   %301 = load ptr, ptr %284, align 8, !alias.scope !2717, !noalias !2720, !nonnull !23, !noundef !23
   %302 = getelementptr inbounds { { { { { ptr, i64 }, i64 } } }, i64, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { i32, i32 }, i32 }, {} }, [1 x i32] }, ptr %301, i64 %300
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %302, ptr noundef nonnull align 8 dereferenceable(96) %22, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %302, ptr noundef nonnull align 8 dereferenceable(96) %22, i64 96, i1 false)
   %303 = load i64, ptr %289, align 8, !alias.scope !2717, !noalias !2720, !noundef !23
   %304 = add i64 %303, 1
   store i64 %304, ptr %289, align 8, !alias.scope !2717, !noalias !2720

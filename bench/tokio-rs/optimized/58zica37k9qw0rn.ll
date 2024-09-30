@@ -2725,7 +2725,6 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_ent
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h1c4db08f4ccde8e5E"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(48) %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(24) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.410 = alloca { ptr, ptr, i64 }, align 8
   %.sroa.0 = alloca { ptr, ptr, i64 }, align 8
   %5 = alloca i64, align 8
   store i64 %2, ptr %5, align 8
@@ -2841,7 +2840,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h1c
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
   %58 = getelementptr inbounds i8, ptr %57, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %58, i64 24, i1 false)
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   br label %59
@@ -2852,8 +2851,6 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h1c
 60:                                               ; preds = %45, %50
   %61 = phi i8 [ %.pre, %50 ], [ %48, %45 ]
   %.sroa.4.0.ph = phi i64 [ %55, %50 ], [ %.sroa.6.1.i.i, %45 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.410)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.410, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !443)
   %62 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.4.0.ph
   %63 = and i8 %61, 1
@@ -2876,8 +2873,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h1c
   %76 = getelementptr inbounds i8, ptr %75, i64 -32
   store i64 %2, ptr %76, align 8, !noalias !443
   %.sroa.410.0..sroa_idx = getelementptr inbounds i8, ptr %75, i64 -24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.410.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.410, i64 24, i1 false), !noalias !443
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.410)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.410.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store ptr null, ptr %0, align 8
   br label %59
 

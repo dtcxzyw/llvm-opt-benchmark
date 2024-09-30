@@ -15838,13 +15838,11 @@ land.lhs.true64.i.i:                              ; preds = %for.body58.i.i
   %type67.i.i = getelementptr inbounds i8, ptr %arrayidx60.i.i, i64 4
   %10 = load i32, ptr %type67.i.i, align 4
   %cmp68.not.i.i = icmp eq i32 %10, 1
-  br i1 %cmp68.not.i.i, label %for.inc75.i.i, label %if.then70.i.i
-
-if.then70.i.i:                                    ; preds = %land.lhs.true64.i.i
-  store i32 2, ptr %type67.i.i, align 4
+  %spec.store.select = select i1 %cmp68.not.i.i, i32 1, i32 2
+  store i32 %spec.store.select, ptr %type67.i.i, align 4
   br label %for.inc75.i.i
 
-for.inc75.i.i:                                    ; preds = %if.then70.i.i, %land.lhs.true64.i.i, %for.body58.i.i
+for.inc75.i.i:                                    ; preds = %land.lhs.true64.i.i, %for.body58.i.i
   %indvars.iv.next66.i.i = add nuw nsw i64 %indvars.iv65.i.i, 1
   %exitcond69.not.i.i = icmp eq i64 %indvars.iv.next66.i.i, %wide.trip.count63.i.i
   br i1 %exitcond69.not.i.i, label %if.end.i21, label %for.body58.i.i, !llvm.loop !113

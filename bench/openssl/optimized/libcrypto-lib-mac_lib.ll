@@ -179,9 +179,9 @@ entry:
   br i1 %cmp.not.i, label %get_size_t_ctx_param.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %params.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %1, i8 0, i64 48, i1 false)
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %sz.i) #6
+  %1 = getelementptr inbounds i8, ptr %params.i, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %2 = load ptr, ptr %ctx, align 8
   %get_ctx_params.i = getelementptr inbounds i8, ptr %2, i64 120
@@ -234,9 +234,9 @@ entry:
   br i1 %cmp.not.i, label %get_size_t_ctx_param.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %params.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %1, i8 0, i64 48, i1 false)
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.2, ptr noundef nonnull %sz.i) #6
+  %1 = getelementptr inbounds i8, ptr %params.i, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %2 = load ptr, ptr %ctx, align 8
   %get_ctx_params.i = getelementptr inbounds i8, ptr %2, i64 120
@@ -353,9 +353,9 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp.not.i.i, label %EVP_MAC_CTX_get_mac_size.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end5
-  %3 = getelementptr inbounds i8, ptr %params.i.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 48, i1 false)
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %sz.i.i) #6
+  %3 = getelementptr inbounds i8, ptr %params.i.i, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i, i64 40, i1 false)
   %4 = load ptr, ptr %ctx, align 8
   %get_ctx_params.i.i = getelementptr inbounds i8, ptr %4, i64 120

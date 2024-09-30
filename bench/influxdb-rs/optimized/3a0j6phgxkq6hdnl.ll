@@ -2656,7 +2656,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr73drop
   %115 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %107, %.noexc ]
   %116 = load ptr, ptr %27, align 8, !alias.scope !448, !noalias !451, !nonnull !4, !noundef !4
   %117 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %116, i64 %115
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   %118 = load i64, ptr %94, align 8, !alias.scope !448, !noalias !451, !noundef !4
   %119 = add i64 %118, 1
   store i64 %119, ptr %94, align 8, !alias.scope !448, !noalias !451

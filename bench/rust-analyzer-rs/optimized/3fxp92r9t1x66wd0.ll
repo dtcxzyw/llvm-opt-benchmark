@@ -1722,7 +1722,6 @@ define hidden void @"_ZN99_$LT$itertools..adaptors..Update$LT$I$C$F$GT$$u20$as$u
   %3 = alloca {}, align 1
   %4 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, align 8
   %5 = alloca { i64, [6 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03a4152ab6f4f870E.llvm.6969479408765091135"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %6 = load i64, ptr %5, align 8, !range !279, !noundef !9
   %.not = icmp eq i64 %6, -9223372036854775808
@@ -1748,7 +1747,7 @@ define hidden void @"_ZN99_$LT$itertools..adaptors..Update$LT$I$C$F$GT$$u20$as$u
 
 .thread:                                          ; preds = %7
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !280
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   br label %18
 
@@ -1766,7 +1765,6 @@ define hidden void @"_ZN99_$LT$itertools..adaptors..Update$LT$I$C$F$GT$$u20$as$u
   resume { ptr, i32 } %13
 
 18:                                               ; preds = %14, %.thread
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   ret void
 }
 

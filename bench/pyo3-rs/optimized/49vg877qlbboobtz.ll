@@ -99,7 +99,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %31, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %33, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %33, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
   store i64 %30, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx, align 8
@@ -341,7 +341,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %31, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %33, ptr noundef nonnull align 8 dereferenceable(192) %6, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %33, ptr noundef nonnull align 8 dereferenceable(192) %6, i64 192, i1 false)
   store i64 %30, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx, align 8
@@ -526,7 +526,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %31, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %33, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %33, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
   store i64 %30, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx, align 8
@@ -635,7 +635,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %32, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   store i64 %31, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %34, ptr %.sroa.2.0..sroa_idx, align 8
@@ -743,7 +743,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %31, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
   store i64 %30, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx, align 8
@@ -851,7 +851,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %31, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
   store i64 %30, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1221,7 +1221,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 31:                                               ; preds = %25
   %32 = load ptr, ptr %30, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %32, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %32, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
   store i64 %29, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %32, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1325,7 +1325,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %31, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
   store i64 %30, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1433,7 +1433,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %31, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
   store i64 %30, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1541,7 +1541,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %31, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %33, ptr noundef nonnull align 8 dereferenceable(352) %6, i64 352, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %33, ptr noundef nonnull align 8 dereferenceable(352) %6, i64 352, i1 false)
   store i64 %30, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2185,7 +2185,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %31, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %33, ptr noundef nonnull align 8 dereferenceable(112) %6, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %33, ptr noundef nonnull align 8 dereferenceable(112) %6, i64 112, i1 false)
   store i64 %30, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2504,7 +2504,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %31, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
   store i64 %30, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2613,7 +2613,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %32, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   store i64 %31, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %34, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2721,7 +2721,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %31, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %33, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %33, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false)
   store i64 %30, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2906,7 +2906,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %31, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %33, ptr noundef nonnull align 8 dereferenceable(328) %6, i64 328, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %33, ptr noundef nonnull align 8 dereferenceable(328) %6, i64 328, i1 false)
   store i64 %30, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx, align 8
@@ -3014,7 +3014,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %31, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
   store i64 %30, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx, align 8
@@ -3122,7 +3122,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %31, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
   store i64 %30, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx, align 8
@@ -3230,7 +3230,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %31, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
   store i64 %30, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx, align 8
@@ -3694,7 +3694,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %31, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %33, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
   store i64 %30, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx, align 8
@@ -7460,7 +7460,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h11b1798776073e
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha61f78214a75c4adE.exit": ; preds = %23, %30, %12
   %18 = load ptr, ptr %7, align 8
   %19 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { { { i64, ptr, {} }, i64 } }, { i64, [14 x i64] } }, ptr %18, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %19, ptr noundef nonnull align 8 dereferenceable(192) %4, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %19, ptr noundef nonnull align 8 dereferenceable(192) %4, i64 192, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
   br label %8
@@ -7549,7 +7549,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h19663726fc06a3
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h50026cb9c2ac3a14E.exit": ; preds = %23, %30, %12
   %18 = load ptr, ptr %7, align 8
   %19 = getelementptr inbounds { { i64, [13 x i64] }, { i64, [2 x i64] }, ptr }, ptr %18, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %19, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %19, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
   br label %8
@@ -7638,7 +7638,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h19f022c4cc28f4
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd6778c9b9fb5fea7E.exit": ; preds = %23, %30, %12
   %18 = load ptr, ptr %7, align 8
   %19 = getelementptr inbounds { { i64, [13 x i64] } }, ptr %18, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %19, ptr noundef nonnull align 8 dereferenceable(112) %4, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %19, ptr noundef nonnull align 8 dereferenceable(112) %4, i64 112, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
   br label %8
@@ -7727,7 +7727,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h19fb2d9954d7c9
 18:                                               ; preds = %24, %12
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %19, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
   br label %8
@@ -7809,7 +7809,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h1a217abfb7d9b0
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h11b310faffdc8c90E.exit": ; preds = %23, %30, %12
   %18 = load ptr, ptr %7, align 8
   %19 = getelementptr inbounds { i64, [15 x i64] }, ptr %18, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %19, ptr noundef nonnull align 8 dereferenceable(128) %4, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %19, ptr noundef nonnull align 8 dereferenceable(128) %4, i64 128, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
   br label %8
@@ -7898,7 +7898,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h263c2d8dfd1ae2
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd5dc894b6eb5d317E.exit": ; preds = %23, %30, %12
   %18 = load ptr, ptr %7, align 8
   %19 = getelementptr inbounds { i32, [15 x i32] }, ptr %18, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
   br label %8
@@ -7987,7 +7987,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h287aa21a97340c
 18:                                               ; preds = %24, %12
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %19, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
   br label %8
@@ -8069,7 +8069,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h29c3fb0d6e4756
 18:                                               ; preds = %24, %12
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds { i32, [7 x i32] }, ptr %19, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
   br label %8
@@ -8151,7 +8151,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h2b7d2310ac6610
 18:                                               ; preds = %24, %12
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds { i32, [7 x i32] }, ptr %19, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
   br label %8
@@ -8233,7 +8233,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h451720507c5195
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf0c704cdfe56ea75E.exit": ; preds = %23, %30, %12
   %18 = load ptr, ptr %7, align 8
   %19 = getelementptr inbounds { i64, [6 x i64] }, ptr %18, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
   br label %8
@@ -8322,7 +8322,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h4ae945537e4518
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2ecafb57b1e55bf8E.exit": ; preds = %23, %30, %12
   %18 = load ptr, ptr %7, align 8
   %19 = getelementptr inbounds { i32, [15 x i32] }, ptr %18, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
   br label %8
@@ -8494,7 +8494,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h622536a6b4a54c
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf8537f2e507af284E.exit": ; preds = %23, %30, %12
   %18 = load ptr, ptr %7, align 8
   %19 = getelementptr inbounds { { { i64, [6 x i64] }, { [16 x i8], i8, [15 x i8] } }, ptr }, ptr %18, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
   br label %8
@@ -8583,7 +8583,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h6866f87fad75f9
 18:                                               ; preds = %24, %12
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %19, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
   br label %8
@@ -8665,7 +8665,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h6db692d76c26da
 18:                                               ; preds = %24, %12
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %19, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
   br label %8
@@ -8747,7 +8747,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h74b6a711b2e85e
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbe96edfb011c1199E.exit": ; preds = %23, %30, %12
   %18 = load ptr, ptr %7, align 8
   %19 = getelementptr inbounds { i64, [6 x i64] }, ptr %18, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
   br label %8
@@ -8836,7 +8836,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h78b6e0ddd75a9a
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb3630048dc73874E.exit": ; preds = %23, %30, %12
   %18 = load ptr, ptr %7, align 8
   %19 = getelementptr inbounds { i64, [40 x i64] }, ptr %18, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %19, ptr noundef nonnull align 8 dereferenceable(328) %4, i64 328, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %19, ptr noundef nonnull align 8 dereferenceable(328) %4, i64 328, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
   br label %8
@@ -8925,7 +8925,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h8bf9d1739c379b
 18:                                               ; preds = %24, %12
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %19, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
   br label %8
@@ -9058,7 +9058,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h959582f896a631
 18:                                               ; preds = %24, %12
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds { i32, [7 x i32] }, ptr %19, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
   br label %8
@@ -9140,7 +9140,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17ha24e4a1100bd6d
 18:                                               ; preds = %24, %12
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds { i32, [7 x i32] }, ptr %19, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
   br label %8
@@ -9222,7 +9222,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17ha6a08ca160ae57
 18:                                               ; preds = %24, %12
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %19, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
   br label %8
@@ -9304,7 +9304,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17ha6a1e1e75f2828
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h95605c8ebcb51c51E.exit": ; preds = %23, %30, %12
   %18 = load ptr, ptr %7, align 8
   %19 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } }, i32, [1 x i32] } }, ptr %18, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
   br label %8
@@ -9476,7 +9476,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hb9cf902844f572
 18:                                               ; preds = %24, %12
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %19, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
   br label %8
@@ -9558,7 +9558,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hbb35fd0b2eb5cf
 18:                                               ; preds = %24, %12
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %19, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
   br label %8
@@ -9641,7 +9641,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hce95563b97787f
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h4a7d744f6a787051E.exit": ; preds = %24, %31, %13
   %19 = load ptr, ptr %8, align 8
   %20 = getelementptr inbounds { ptr, { { i32, [1 x i32] }, { i32, [1 x i32] }, { [16 x i8], i8, [15 x i8] } } }, ptr %19, i64 %14
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   %21 = add i64 %14, 1
   store i64 %21, ptr %7, align 8
   br label %9
@@ -9730,7 +9730,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hdce2e147911d10
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd69274fc56c5fe15E.exit": ; preds = %23, %30, %12
   %18 = load ptr, ptr %7, align 8
   %19 = getelementptr inbounds { i64, [43 x i64] }, ptr %18, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %19, ptr noundef nonnull align 8 dereferenceable(352) %4, i64 352, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %19, ptr noundef nonnull align 8 dereferenceable(352) %4, i64 352, i1 false)
   %20 = add i64 %13, 1
   store i64 %20, ptr %6, align 8
   br label %8
@@ -9819,7 +9819,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he02c22127b7856
 18:                                               ; preds = %24, %12
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds { i32, [7 x i32] }, ptr %19, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
   br label %8
@@ -9901,7 +9901,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he09deb50eb87cf
 18:                                               ; preds = %24, %12
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %19, i64 %13
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %4, i64 256, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %6, align 8
   br label %8
@@ -9984,7 +9984,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17heb46a6f89831c9
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17habf7ee029e6618baE.exit": ; preds = %24, %31, %13
   %19 = load ptr, ptr %8, align 8
   %20 = getelementptr inbounds { [16 x i8], i8, [15 x i8] }, ptr %19, i64 %14
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %21 = add i64 %14, 1
   store i64 %21, ptr %7, align 8
   br label %9
@@ -10062,7 +10062,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hf2190ac097eaec
 18:                                               ; preds = %25, %13
   %19 = load ptr, ptr %11, align 8
   %20 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %19, i64 %14
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %5, i64 256, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %5, i64 256, i1 false)
   %21 = add i64 %14, 1
   store i64 %21, ptr %10, align 8
   call void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha23489ef32a65635E"(ptr nonnull sret([256 x i8]) align 8 %6, ptr nonnull align 8 %7)
@@ -10141,7 +10141,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hf980b8a7d16573
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h4a7d744f6a787051E.exit": ; preds = %24, %31, %13
   %19 = load ptr, ptr %8, align 8
   %20 = getelementptr inbounds { ptr, { { i32, [1 x i32] }, { i32, [1 x i32] }, { [16 x i8], i8, [15 x i8] } } }, ptr %19, i64 %14
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   %21 = add i64 %14, 1
   store i64 %21, ptr %7, align 8
   br label %9
@@ -14593,17 +14593,17 @@ declare void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hab19cdf39c74131aE"(ptr sret([56 x i8]) align 8, ptr align 8) unnamed_addr #3
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -14616,9 +14616,9 @@ attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #8 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { cold }
 attributes #15 = { noreturn }
 attributes #16 = { cold noreturn nounwind }

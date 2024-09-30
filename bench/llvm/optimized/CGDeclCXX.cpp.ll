@@ -6,12 +6,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon.546 }
 %struct.anon.546 = type { ptr, i64 }
+%"struct.clang::CodeGen::TBAAAccessInfo" = type { i32, ptr, ptr, i64, i64 }
 %"class.clang::CodeGen::Address" = type { %"class.llvm::PointerIntPair.48", ptr, %"class.clang::CharUnits", %"class.clang::CodeGen::CGPointerAuthInfo", ptr }
 %"class.llvm::PointerIntPair.48" = type { %"struct.llvm::detail::PunnedPointer.49" }
 %"struct.llvm::detail::PunnedPointer.49" = type { [8 x i8] }
 %"class.clang::CharUnits" = type { i64 }
 %"class.clang::CodeGen::CGPointerAuthInfo" = type { i8, ptr }
-%"struct.clang::CodeGen::TBAAAccessInfo" = type { i32, ptr, ptr, i64, i64 }
 %"class.clang::CodeGen::CodeGenFunction" = type { %"struct.clang::CodeGen::CodeGenTypeCache", ptr, ptr, ptr, %"class.clang::CodeGen::LoopInfoStack", %"class.clang::CodeGen::CGBuilderTy", %"class.clang::CodeGen::VarBypassDetector", %"class.llvm::SmallVector.24", %"class.llvm::SmallVector.29", %"class.llvm::SmallVector.34", i32, ptr, ptr, ptr, %"class.clang::QualType", ptr, %"class.llvm::SmallVector.39", %"struct.clang::CodeGen::CodeGenFunction::CGCoroInfo", %"struct.clang::CodeGen::CodeGenFunction::AwaitSuspendWrapperInfo", %"class.clang::GlobalDecl", %"class.clang::CodeGen::EHScopeStack::stable_iterator", %"struct.clang::CodeGen::CodeGenFunction::JumpDest", %"class.clang::CodeGen::Address", %"class.clang::CodeGen::Address", ptr, %"class.llvm::AssertingVH", %"class.llvm::AssertingVH", ptr, %"struct.clang::SanitizerSet", i8, i8, i8, i8, [4 x i8], %"class.clang::GlobalDecl", i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, %"class.llvm::DenseMap.50", ptr, %"class.llvm::DenseMap.53", %"class.clang::CodeGen::EHScopeStack", %"class.llvm::SmallVector.61", %"class.llvm::SmallVector.67", %"class.llvm::SmallVector.72", ptr, %"class.clang::CodeGen::RawAddress", i32, ptr, ptr, ptr, %"class.llvm::SmallVector.77", ptr, ptr, ptr, ptr, ptr, ptr, i8, %"class.clang::FPOptions", %"class.llvm::SmallVector.82", %"class.clang::CodeGen::EHScopeStack::stable_iterator", ptr, i32, i8, i8, ptr, %"class.llvm::DenseMap.87", %"class.llvm::DenseMap.90", %"class.llvm::SmallDenseMap", %"class.llvm::DenseMap.94", %"class.llvm::DenseMap.97", %"class.llvm::SmallVector.100", %"class.clang::CodeGen::CodeGenFunction::OpenMPCancelExitStack", %"class.clang::CodeGen::CodeGenPGO", %"class.clang::CodeGen::Address", ptr, ptr, ptr, ptr, %"class.llvm::DenseMap.146", %"class.llvm::DenseMap.149", %"class.llvm::DenseMap.152", ptr, i32, i32, %"class.clang::SourceLocation", %"class.clang::CurrentSourceLocExprScope", ptr, ptr, ptr, %"class.clang::CharUnits", %"class.clang::CharUnits", %"class.clang::CodeGen::Address", ptr, %"class.clang::CodeGen::CallArgList", ptr, ptr, ptr, ptr, %"class.clang::SourceLocation", [4 x i8], %"class.llvm::DenseMap.170", ptr, %"class.clang::CodeGen::Address", ptr, ptr, %"class.llvm::SmallVector.173", %"class.llvm::MapVector", i32, i8, ptr, %"class.llvm::SmallVector.186" }
 %"struct.clang::CodeGen::CodeGenTypeCache" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %union.anon, %union.anon.0, %union.anon.1, %union.anon.2, ptr, %union.anon.3, i8, %union.anon.4, %union.anon.5, i32, i32 }
 %union.anon = type { ptr }
@@ -463,8 +463,8 @@ declare noundef ptr @_ZN5clang7CodeGen13CodeGenModule12getIntrinsicEjN4llvm8Arra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24EmitCXXGlobalVarDeclInitERKNS_7VarDeclEPN4llvm14GlobalVariableEb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
-  %5 = alloca %"class.clang::CodeGen::Address", align 8
-  %6 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
+  %5 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
+  %6 = alloca %"class.clang::CodeGen::Address", align 8
   %7 = alloca %"class.clang::CodeGen::CodeGenFunction", align 8
   %8 = alloca %"class.clang::CodeGen::Address", align 8
   %9 = alloca [1 x ptr], align 8
@@ -590,8 +590,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24EmitCXXGlobalVarDeclI
 _ZNK5clang4Decl7hasAttrINS_24OMPThreadPrivateDeclAttrEEEbv.exit: ; preds = %.lr.ph.i4.i.i.i.i, %.lr.ph.i.i.i.i.i
   %.sroa.07.0.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %72, %.lr.ph.i4.i.i.i.i ]
   %.sroa.0.0.i.i.i.i = phi ptr [ %74, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.1.i.i.i.i, %.lr.ph.i4.i.i.i.i ]
-  %.not107 = icmp eq ptr %.sroa.07.0.i.i.i.i, %.sroa.0.0.i.i.i.i
-  br i1 %.not107, label %_ZNK5clang4Decl7hasAttrINS_24OMPThreadPrivateDeclAttrEEEbv.exit.thread, label %89
+  %.not101 = icmp eq ptr %.sroa.07.0.i.i.i.i, %.sroa.0.0.i.i.i.i
+  br i1 %.not101, label %_ZNK5clang4Decl7hasAttrINS_24OMPThreadPrivateDeclAttrEEEbv.exit.thread, label %89
 
 89:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_24OMPThreadPrivateDeclAttrEEEbv.exit
   %90 = load ptr, ptr %24, align 8
@@ -630,8 +630,8 @@ _ZNK5clang4Decl7hasAttrINS_24OMPThreadPrivateDeclAttrEEEbv.exit: ; preds = %.lr.
   br i1 %109, label %_ZN5clangneENS_22specific_attr_iteratorINS_24OMPThreadPrivateDeclAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, label %.lr.ph.i.i.i.i.i39
 
 .lr.ph.i.i.i.i.i39:                               ; preds = %.lr.ph.i.i.i.i.i39.preheader, %.lr.ph.i.i.i.i.i39
-  %.sroa.07.1.i.i.i.i40115 = phi ptr [ %110, %.lr.ph.i.i.i.i.i39 ], [ %102, %.lr.ph.i.i.i.i.i39.preheader ]
-  %110 = getelementptr inbounds i8, ptr %.sroa.07.1.i.i.i.i40115, i64 8
+  %.sroa.07.1.i.i.i.i40109 = phi ptr [ %110, %.lr.ph.i.i.i.i.i39 ], [ %102, %.lr.ph.i.i.i.i.i39.preheader ]
+  %110 = getelementptr inbounds i8, ptr %.sroa.07.1.i.i.i.i40109, i64 8
   %.not.i.i.i.i.i41 = icmp ne ptr %110, %104
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i41)
   %111 = load ptr, ptr %110, align 8
@@ -650,8 +650,8 @@ _ZNK5clang4Decl7hasAttrINS_24OMPThreadPrivateDeclAttrEEEbv.exit: ; preds = %.lr.
   br i1 %119, label %_ZN5clangneENS_22specific_attr_iteratorINS_24OMPThreadPrivateDeclAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, label %.lr.ph.i4.i.i.i.i34
 
 .lr.ph.i4.i.i.i.i34:                              ; preds = %115, %.lr.ph.i4.i.i.i.i34
-  %.sroa.0.1.i.i.i.i35114 = phi ptr [ %120, %.lr.ph.i4.i.i.i.i34 ], [ %104, %115 ]
-  %120 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i.i.i35114, i64 8
+  %.sroa.0.1.i.i.i.i35108 = phi ptr [ %120, %.lr.ph.i4.i.i.i.i34 ], [ %104, %115 ]
+  %120 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i.i.i35108, i64 8
   %.not.i5.i.i.i.i36 = icmp ne ptr %120, %102
   tail call void @llvm.assume(i1 %.not.i5.i.i.i.i36)
   %121 = load ptr, ptr %120, align 8
@@ -887,9 +887,9 @@ _ZN5clang7CodeGen13CodeGenModule14getObjCRuntimeEv.exit31.i: ; preds = %192, %18
   store i8 0, ptr %.sroa.5.sroa.5.0..sroa.6.0..sroa_idx.i.sroa_idx.i, align 8
   %.sroa.5.sroa.6.0..sroa.6.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.sroa.6.0..sroa.6.0..sroa_idx.i.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6.i, i64 23, i1 false)
-  %.not108 = icmp eq i64 %.sink10.i.i, 0
+  %.not102 = icmp eq i64 %.sink10.i.i, 0
   %205 = or disjoint i64 %.sink10.i.i, 4
-  %spec.select.i.i = select i1 %.not108, i64 0, i64 %205
+  %spec.select.i.i = select i1 %.not102, i64 0, i64 %205
   store i64 %spec.select.i.i, ptr %18, align 8, !alias.scope !16
   %206 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store i64 %168, ptr %206, align 8, !alias.scope !19
@@ -1166,24 +1166,24 @@ _ZL15EmitDeclDestroyRN5clang7CodeGen15CodeGenFunctionERKNS_7VarDeclENS0_15Consta
   %.sink10.i56 = select i1 %351, i64 %352, i64 0
   %.sink.i57 = select i1 %351, ptr %42, ptr null
   %storemerge.i58 = select i1 %351, i64 %46, i64 0
-  %.sroa.6.7..sroa_idx149 = getelementptr inbounds i8, ptr %.sroa.6, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.6.7..sroa_idx149, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  store i64 %.sink10.i56, ptr %5, align 8
-  %.sroa.497.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %.sink.i57, ptr %.sroa.497.0..sroa_idx, align 8
-  %.sroa.598.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 %storemerge.i58, ptr %.sroa.598.0..sroa_idx, align 8
-  %.sroa.699.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  store i8 0, ptr %.sroa.699.0..sroa_idx, align 8
-  %.sroa.7100.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.7100.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6, i64 23, i1 false)
+  %.sroa.6.7..sroa_idx = getelementptr inbounds i8, ptr %.sroa.6, i64 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.6.7..sroa_idx, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  store i64 %.sink10.i56, ptr %6, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %.sink.i57, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  store i64 %storemerge.i58, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  store i8 0, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6, i64 23, i1 false)
   %353 = load ptr, ptr %24, align 8
-  call void @_ZN5clang7CodeGen13CodeGenModule17getTBAAAccessInfoENS_8QualTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %6, ptr noundef nonnull align 8 dereferenceable(3600) %353, i64 %.sroa.0.0.copyload.i) #18
-  call void @_ZN5clang7CodeGen15CodeGenFunction17EmitStoreOfScalarEPN4llvm5ValueENS0_7AddressEbNS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoEbb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %350, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, i1 noundef zeroext false, i64 %.sroa.0.0.copyload.i, i32 2, ptr noundef nonnull byval(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %6, i1 noundef zeroext false, i1 noundef zeroext false) #18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @_ZN5clang7CodeGen13CodeGenModule17getTBAAAccessInfoENS_8QualTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %5, ptr noundef nonnull align 8 dereferenceable(3600) %353, i64 %.sroa.0.0.copyload.i) #18
+  call void @_ZN5clang7CodeGen15CodeGenFunction17EmitStoreOfScalarEPN4llvm5ValueENS0_7AddressEbNS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoEbb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %350, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %6, i1 noundef zeroext false, i64 %.sroa.0.0.copyload.i, i32 2, ptr noundef nonnull byval(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %5, i1 noundef zeroext false, i1 noundef zeroext false) #18
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %354
 
 354:                                              ; preds = %_ZL17EmitDeclInvariantRN5clang7CodeGen15CodeGenFunctionERKNS_7VarDeclEPN4llvm8ConstantE.exit, %_ZL15EmitDeclDestroyRN5clang7CodeGen15CodeGenFunctionERKNS_7VarDeclENS0_15ConstantAddressE.exit, %349

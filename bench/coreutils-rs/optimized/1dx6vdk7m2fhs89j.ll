@@ -2770,7 +2770,6 @@ define hidden void @_ZN7uu_shuf20NonrepeatingIterator3new17h5bb5e4ae01776e38E(pt
 define { i64, i64 } @"_ZN88_$LT$uu_shuf..NonrepeatingIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h784747e40957c528E"(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { i64, i64, i8, [7 x i8] }, align 8
-  %.sroa.5.i = alloca [3 x i64], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
   %5 = alloca { ptr, { i64, i64, i8, [7 x i8] } }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -2876,7 +2875,7 @@ _ZN4rand3rng3Rng9gen_range17hda06af3f6a31c48cE.exit.i: ; preds = %26
   %53 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %0, align 8, !alias.scope !763
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %75
 
 54:                                               ; preds = %48
@@ -2893,8 +2892,6 @@ _ZN4rand3rng3Rng9gen_range17hda06af3f6a31c48cE.exit.i: ; preds = %26
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h49147192b42b4b9eE.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h49147192b42b4b9eE.exit.i": ; preds = %58, %55
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !763
   call void @llvm.experimental.noalias.scope.decl(metadata !796)
   %59 = load ptr, ptr %0, align 8, !alias.scope !799, !noundef !4
   %.not.i.i = icmp eq ptr %59, null
@@ -2943,8 +2940,7 @@ _ZN4rand3rng3Rng9gen_range17hda06af3f6a31c48cE.exit.i: ; preds = %26
 
 "_ZN4core3ptr39drop_in_place$LT$uu_shuf..NumberSet$GT$17h934e18f32a28c4dbE.exit.i": ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h8b975f691ff24521E.exit.i.i", %.noexc.i, %61
   store ptr null, ptr %0, align 8, !alias.scope !763
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !763
   br label %_ZN7uu_shuf20NonrepeatingIterator7produce17h0d19692826d43762E.exit
 

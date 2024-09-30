@@ -77,7 +77,7 @@ define hidden { i64, ptr } @"_ZN10ockam_core5error1_77_$LT$impl$u20$serde..de..D
   resume { ptr, i32 } %10
 
 14:                                               ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 104, i1 false), !noalias !31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 104, i1 false)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %2), !noalias !25
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !16
   %15 = icmp ne ptr %8, null

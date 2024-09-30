@@ -32,20 +32,15 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @reftable_new_stack(ptr nocapture noundef writeonly %dest, ptr noundef %dir, ptr nocapture noundef byval(%struct.reftable_write_options) align 8 %config) local_unnamed_addr #0 {
-entry:
+strbuf_setlen.exit:
   %list_file_name = alloca %struct.strbuf, align 8
   %call = tail call ptr @reftable_calloc(i64 noundef 96) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %list_file_name, ptr noundef nonnull align 8 dereferenceable(24) @__const.remove_maybe_stale_table.table_path, i64 24, i1 false)
   %hash_id = getelementptr inbounds i8, ptr %config, i64 16
   %0 = load i32, ptr %hash_id, align 8
   %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %if.then, label %strbuf_setlen.exit
-
-if.then:                                          ; preds = %entry
-  store i32 1936220465, ptr %hash_id, align 8
-  br label %strbuf_setlen.exit
-
-strbuf_setlen.exit:                               ; preds = %entry, %if.then
+  %spec.store.select = select i1 %cmp, i32 1936220465, i32 %0
+  store i32 %spec.store.select, ptr %hash_id, align 8
   store ptr null, ptr %dest, align 8
   %len2.i = getelementptr inbounds i8, ptr %list_file_name, i64 8
   store i64 0, ptr %len2.i, align 8

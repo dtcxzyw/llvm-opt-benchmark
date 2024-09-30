@@ -3388,7 +3388,7 @@ if.then.i.i.i.i.i.i51.thread:                     ; preds = %if.then.i.i.i.i.i46
   %add.i.i.i.i.i.i.i50 = add nsw i32 %26, 1
   store i32 %add.i.i.i.i.i.i.i50, ptr %_M_use_count.i.i.i.i.i.i47, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %agg.tmp1.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
   store ptr %23, ptr %data.i.i.i49, align 8
   store ptr %24, ptr %_M_refcount.i.i.i.i22.i, align 8
   %_M_use_count.i.i.i.i.i.i.i484 = getelementptr inbounds i8, ptr %24, i64 8
@@ -3464,7 +3464,7 @@ if.then.i.i.i.i.i.i2.thread.i.i:                  ; preds = %if.then.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i.i58 = add nsw i32 %34, 1
   store i32 %add.i.i.i.i.i.i.i.i.i58, ptr %_M_use_count.i.i.i.i.i.i.i.i57, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %agg.tmp9.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1.i.i, i64 16, i1 false)
   store ptr %31, ptr %data.i.i.i.i.i, align 8
   store ptr %32, ptr %_M_refcount.i.i.i.i2.i.i.i, align 8
   br label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -4802,7 +4802,7 @@ if.then.i.i.i.i.i.i218.thread:                    ; preds = %if.then.i.i.i.i.i21
   %add.i.i.i.i.i.i.i217 = add nsw i32 %222, 1
   store i32 %add.i.i.i.i.i.i.i217, ptr %_M_use_count.i.i.i.i.i.i214, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp28.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp28.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %agg.tmp4.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp28.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp31, i64 16, i1 false)
   store ptr %219, ptr %data.i.i.i216, align 8
   store ptr %220, ptr %_M_refcount.i.i.i.i30.i, align 8
   %_M_refcount.i.i.i.i14.i64.i = getelementptr inbounds i8, ptr %agg.tmp6.i.i.i, i64 24
@@ -4952,7 +4952,7 @@ if.then.i.i.i.i.i.i6.thread.i.i.i:                ; preds = %if.then.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i.i.i231 = add nsw i32 %236, 1
   store i32 %add.i.i.i.i.i.i.i.i.i.i231, ptr %_M_use_count.i.i.i.i.i.i.i.i.i229, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %agg.tmp10.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp6.i.i.i, i64 16, i1 false)
   store ptr %233, ptr %data.i.i.i.i.i.i230, align 8
   store ptr %234, ptr %_M_refcount.i.i.i.i22.i.i.i.i, align 8
   br label %if.then.i.i.i.i.i.i.i.i.i.i.i232
@@ -13717,7 +13717,7 @@ if.then.i.i.i.i.i.i48.thread:                     ; preds = %if.then.i.i.i.i.i43
   %add.i.i.i.i.i.i.i47 = add nsw i32 %28, 1
   store i32 %add.i.i.i.i.i.i.i47, ptr %_M_use_count.i.i.i.i.i.i44, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %agg.tmp1.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
   store ptr %25, ptr %data.i.i.i46, align 8
   store ptr %26, ptr %_M_refcount.i.i.i.i22.i, align 8
   %_M_use_count.i.i.i.i.i.i.i482 = getelementptr inbounds i8, ptr %26, i64 8
@@ -13793,7 +13793,7 @@ if.then.i.i.i.i.i.i2.thread.i.i:                  ; preds = %if.then.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i.i55 = add nsw i32 %36, 1
   store i32 %add.i.i.i.i.i.i.i.i.i55, ptr %_M_use_count.i.i.i.i.i.i.i.i54, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %agg.tmp11.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1.i.i, i64 16, i1 false)
   store ptr %33, ptr %data.i.i.i.i.i, align 8
   store ptr %34, ptr %_M_refcount.i.i.i.i2.i.i.i, align 8
   br label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -15133,7 +15133,7 @@ if.then.i.i.i.i.i.i215.thread:                    ; preds = %if.then.i.i.i.i.i21
   %add.i.i.i.i.i.i.i214 = add nsw i32 %224, 1
   store i32 %add.i.i.i.i.i.i.i214, ptr %_M_use_count.i.i.i.i.i.i211, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp30.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp30.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %agg.tmp4.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp30.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp31, i64 16, i1 false)
   store ptr %221, ptr %data.i.i.i213, align 8
   store ptr %222, ptr %_M_refcount.i.i.i.i30.i, align 8
   %_M_refcount.i.i.i.i14.i64.i = getelementptr inbounds i8, ptr %agg.tmp6.i.i.i, i64 24
@@ -15284,7 +15284,7 @@ if.then.i.i.i.i.i.i6.thread.i.i.i:                ; preds = %if.then.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i.i.i229 = add nsw i32 %238, 1
   store i32 %add.i.i.i.i.i.i.i.i.i.i229, ptr %_M_use_count.i.i.i.i.i.i.i.i.i227, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %agg.tmp10.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp6.i.i.i, i64 16, i1 false)
   store ptr %235, ptr %data.i.i.i.i.i.i228, align 8
   store ptr %236, ptr %_M_refcount.i.i.i.i22.i.i.i.i, align 8
   br label %if.then.i.i.i.i.i.i.i.i.i.i.i230

@@ -1315,7 +1315,7 @@ define hidden noalias noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyh
 "_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$10from_adhoc17h0023729aa28f1658E.llvm.4549847536712129555.exit": ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
-  %5 = call noalias noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17hc7fcf96d1a4e9397E.llvm.4549847536712129555"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.57403e0d44a55e701bb2a0167213b4db.25.llvm.4549847536712129555, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %3)
+  %5 = call noalias noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17hc7fcf96d1a4e9397E.llvm.4549847536712129555"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.57403e0d44a55e701bb2a0167213b4db.25.llvm.4549847536712129555, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret ptr %5

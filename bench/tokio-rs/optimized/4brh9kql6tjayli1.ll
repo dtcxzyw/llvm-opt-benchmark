@@ -12209,7 +12209,7 @@ common.resume:                                    ; preds = %32, %.body
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio6signal12reusable_box26ReusableBoxFuture$LT$T$GT$3new17hbd88784ce9912be6E.exit": ; preds = %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %29, ptr noundef nonnull align 8 dereferenceable(160) %5, i64 160, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %29, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 160, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1974)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1977)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1980

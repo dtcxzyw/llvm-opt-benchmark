@@ -291,7 +291,7 @@ define hidden noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_w
   %44 = getelementptr inbounds i8, ptr %7, i64 16
   %45 = load ptr, ptr %44, align 8, !alias.scope !52, !noalias !55, !nonnull !4, !noundef !4
   %46 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %45, i64 %43
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !57
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
   %47 = load i64, ptr %18, align 8, !alias.scope !52, !noalias !55, !noundef !4
   %48 = add i64 %47, 1
   store i64 %48, ptr %18, align 8, !alias.scope !52, !noalias !55

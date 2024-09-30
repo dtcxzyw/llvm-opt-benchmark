@@ -21,12 +21,12 @@ entry:
   %params = alloca [3 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
   %tmp2 = alloca %struct.ossl_param_st, align 8
-  %0 = getelementptr inbounds i8, ptr %params, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %0, i8 0, i64 40, i1 false)
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str, ptr noundef %cipher_name, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %arrayidx1 = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2, ptr noundef nonnull @.str.1, ptr noundef %propquery, i64 noundef 0) #5
+  %0 = getelementptr inbounds i8, ptr %params, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1, ptr noundef nonnull align 8 dereferenceable(40) %tmp2, i64 40, i1 false)
   %call = call i32 @OSSL_ENCODER_CTX_set_params(ptr noundef %ctx, ptr noundef nonnull %params) #5
   ret i32 %call
@@ -314,12 +314,12 @@ land.lhs.true26:                                  ; preds = %land.lhs.true23, %i
   br i1 %tobool28.not, label %if.end35, label %if.then29
 
 if.then29:                                        ; preds = %land.lhs.true26
-  %14 = getelementptr inbounds i8, ptr %params, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %14, i8 0, i64 48, i1 false)
   %save_parameters30 = getelementptr inbounds i8, ptr %pkey, i64 72
-  %15 = load i32, ptr %save_parameters30, align 8
-  store i32 %15, ptr %save_parameters, align 4
+  %14 = load i32, ptr %save_parameters30, align 8
+  store i32 %14, ptr %save_parameters, align 4
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.4, ptr noundef nonnull %save_parameters) #5
+  %15 = getelementptr inbounds i8, ptr %params, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %call31 = call i32 @OSSL_ENCODER_CTX_set_params(ptr noundef nonnull %call, ptr noundef nonnull %params) #5
   br label %return

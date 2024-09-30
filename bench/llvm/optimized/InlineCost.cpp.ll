@@ -3889,7 +3889,7 @@ declare noundef ptr @_ZN4llvm12BlockAddress3getEPNS_10BasicBlockE(ptr noundef) l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4llvm15getInlineParamsEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::InlineParams") align 4 %0, i32 noundef %1) local_unnamed_addr #5 {
-_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit1:
+_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %3, align 4
@@ -3923,17 +3923,17 @@ _ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and
   store i8 1, ptr %6, align 4
   store i32 %18, ptr %17, align 4
   %19 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL27LocallyHotCallSiteThreshold, i64 8), align 8
-  %.not13 = icmp eq i16 %19, 0
-  br i1 %.not13, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit3, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit2
+  %.not18 = icmp eq i16 %19, 0
+  br i1 %.not18, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit3, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit2
 
-_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit2: ; preds = %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit1
+_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit2: ; preds = %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL27LocallyHotCallSiteThreshold, i64 128), align 8
   store i8 1, ptr %7, align 4
   store i32 %21, ptr %20, align 4
   br label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit3
 
-_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit3: ; preds = %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit2, %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit1
+_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit3: ; preds = %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit2, %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %23 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL21ColdCallSiteThreshold, i64 128), align 8
   store i8 1, ptr %8, align 4
@@ -3949,8 +3949,8 @@ _ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and
 
 26:                                               ; preds = %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit3
   %27 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13ColdThreshold, i64 8), align 8
-  %.not14 = icmp eq i16 %27, 0
-  br i1 %.not14, label %30, label %.sink.split
+  %.not19 = icmp eq i16 %27, 0
+  br i1 %.not19, label %30, label %.sink.split
 
 .sink.split:                                      ; preds = %26, %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -4000,8 +4000,8 @@ define dso_local void @_ZN4llvm15getInlineParamsEv(ptr dead_on_unwind noalias no
   store i8 1, ptr %7, align 4, !alias.scope !56
   store i32 %19, ptr %18, align 4, !alias.scope !56
   %20 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL27LocallyHotCallSiteThreshold, i64 8), align 8, !noalias !56
-  %.not13.i = icmp eq i16 %20, 0
-  br i1 %.not13.i, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit3.i, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit2.i
+  %.not18.i = icmp eq i16 %20, 0
+  br i1 %.not18.i, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit3.i, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit2.i
 
 _ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit2.i: ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -4026,8 +4026,8 @@ _ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and
 
 27:                                               ; preds = %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit3.i
   %28 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13ColdThreshold, i64 8), align 8, !noalias !56
-  %.not14.i = icmp eq i16 %28, 0
-  br i1 %.not14.i, label %_ZN4llvm15getInlineParamsEi.exit, label %.sink.split.i
+  %.not19.i = icmp eq i16 %28, 0
+  br i1 %.not19.i, label %_ZN4llvm15getInlineParamsEi.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %27, %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit4.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -4094,8 +4094,8 @@ _ZL29computeThresholdFromOptLevelsjj.exit:        ; preds = %3, %5, %6, %7
   store i8 1, ptr %13, align 4, !alias.scope !59
   store i32 %25, ptr %24, align 4, !alias.scope !59
   %26 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL27LocallyHotCallSiteThreshold, i64 8), align 8, !noalias !59
-  %.not13.i.not = icmp eq i16 %26, 0
-  br i1 %.not13.i.not, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit3.i, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit2.i
+  %.not18.i.not = icmp eq i16 %26, 0
+  br i1 %.not18.i.not, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit3.i, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit2.i
 
 _ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit2.i: ; preds = %_ZL29computeThresholdFromOptLevelsjj.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -4120,8 +4120,8 @@ _ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and
 
 33:                                               ; preds = %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit3.i
   %34 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13ColdThreshold, i64 8), align 8, !noalias !59
-  %.not14.i = icmp eq i16 %34, 0
-  br i1 %.not14.i, label %_ZN4llvm15getInlineParamsEi.exit, label %.sink.split.i
+  %.not19.i = icmp eq i16 %34, 0
+  br i1 %.not19.i, label %_ZN4llvm15getInlineParamsEi.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %33, %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit4.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -4131,22 +4131,16 @@ _ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and
   br label %_ZN4llvm15getInlineParamsEi.exit
 
 _ZN4llvm15getInlineParamsEi.exit:                 ; preds = %33, %.sink.split.i
-  br i1 %4, label %37, label %41
+  br i1 %4, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit, label %39
 
-37:                                               ; preds = %_ZN4llvm15getInlineParamsEi.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL27LocallyHotCallSiteThreshold, i64 128), align 8
-  br i1 %.not13.i.not, label %40, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit
-
-40:                                               ; preds = %37
+_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit: ; preds = %_ZN4llvm15getInlineParamsEi.exit
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL27LocallyHotCallSiteThreshold, i64 128), align 8
   store i8 1, ptr %14, align 4
-  br label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit
+  store i32 %38, ptr %37, align 4
+  br label %39
 
-_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit: ; preds = %37, %40
-  store i32 %39, ptr %38, align 4
-  br label %41
-
-41:                                               ; preds = %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit, %_ZN4llvm15getInlineParamsEi.exit
+39:                                               ; preds = %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit, %_ZN4llvm15getInlineParamsEi.exit
   ret void
 }
 
@@ -4236,8 +4230,8 @@ _ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEaSIbEERbRKT_.exit: ; preds = %4
   store i8 1, ptr %35, align 4, !alias.scope !68
   store i32 %47, ptr %46, align 4, !alias.scope !68
   %48 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL27LocallyHotCallSiteThreshold, i64 8), align 8, !noalias !68
-  %.not13.i.i = icmp eq i16 %48, 0
-  br i1 %.not13.i.i, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit3.i.i, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit2.i.i
+  %.not18.i.i = icmp eq i16 %48, 0
+  br i1 %.not18.i.i, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit3.i.i, label %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit2.i.i
 
 _ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit2.i.i: ; preds = %_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEaSIbEERbRKT_.exit
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 44
@@ -4262,8 +4256,8 @@ _ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and
 
 55:                                               ; preds = %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit3.i.i
   %56 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13ColdThreshold, i64 8), align 8, !noalias !68
-  %.not14.i.i = icmp eq i16 %56, 0
-  br i1 %.not14.i.i, label %_ZN4llvm15getInlineParamsEv.exit, label %.sink.split.i.i
+  %.not19.i.i = icmp eq i16 %56, 0
+  br i1 %.not19.i.i, label %_ZN4llvm15getInlineParamsEv.exit, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %55, %_ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit4.i.i
   %57 = getelementptr inbounds nuw i8, ptr %11, i64 12

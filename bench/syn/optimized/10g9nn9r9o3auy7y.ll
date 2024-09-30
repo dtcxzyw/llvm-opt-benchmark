@@ -6947,7 +6947,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i341: ; preds = %961,
   unreachable
 
 .thread893:                                       ; preds = %1149
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %1150, ptr noundef nonnull align 8 dereferenceable(176) %19, i64 176, i1 false), !noalias !1069
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %1150, ptr noundef nonnull align 8 dereferenceable(176) %20, i64 176, i1 false), !noalias !1060
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %19), !noalias !1063
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %20), !noalias !1051
   br label %1163

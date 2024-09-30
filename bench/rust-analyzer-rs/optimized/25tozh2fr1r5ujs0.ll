@@ -374,7 +374,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17haaff645ab0d52ab5E.exit.i.i": ; preds = %59, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he98f9d02a4d98efaE.exit.i.i", %40
   %45 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !37, !nonnull !4, !noundef !4
   %46 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %45, i64 %41
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %47 = add i64 %41, 1
   store i64 %47, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !37
@@ -661,7 +661,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17haaff645ab0d52ab5E.exit.i.i": ; preds = %59, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h483f15051a3524d6E.exit.i.i", %40
   %45 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !76, !nonnull !4, !noundef !4
   %46 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %45, i64 %41
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %47 = add i64 %41, 1
   store i64 %47, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !76
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !76

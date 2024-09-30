@@ -1577,8 +1577,8 @@ define internal fastcc void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderC
   %13 = getelementptr inbounds i8, ptr %8, i64 168
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.45.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.56.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.56.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.68.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
   br label %16
 
 ._crit_edge:                                      ; preds = %"_ZN76_$LT$sha3..Shake128ReaderCore$u20$as$u20$digest..core_api..XofReaderCore$GT$10read_block17h3d480bbe4aa12fe4E.exit", %2
@@ -1626,43 +1626,43 @@ define internal fastcc void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderC
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !368
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !373
   store ptr %9, ptr %5, align 8, !noalias !377
-  store i64 168, ptr %.sroa.45.0..sroa_idx.i, align 8, !noalias !377
-  store i64 8, ptr %.sroa.56.0..sroa_idx.i, align 8, !noalias !377
+  store i64 168, ptr %.sroa.56.0..sroa_idx.i, align 8, !noalias !377
+  store i64 8, ptr %.sroa.68.0..sroa_idx.i, align 8, !noalias !377
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !378
   call void @"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h932c2a773619fa13E.llvm.16339748825870905331"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5), !noalias !384
   %23 = load i64, ptr %4, align 8, !noalias !378, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !378
   %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %23, i64 25)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !373
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %"_ZN76_$LT$sha3..Shake128ReaderCore$u20$as$u20$digest..core_api..XofReaderCore$GT$10read_block17h3d480bbe4aa12fe4E.exit", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit.i"
+  %.not.i = icmp eq i64 %23, 0
+  br i1 %.not.i, label %"_ZN76_$LT$sha3..Shake128ReaderCore$u20$as$u20$digest..core_api..XofReaderCore$GT$10read_block17h3d480bbe4aa12fe4E.exit", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit.i": ; preds = %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17h0ae427aac1fc6738E.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit.i"
-  %.sroa.9.018.i = phi i64 [ %30, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit.i" ], [ 0, %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17h0ae427aac1fc6738E.exit.i" ]
-  %25 = getelementptr inbounds i64, ptr %18, i64 %.sroa.9.018.i
+  %.sroa.11.020.i = phi i64 [ %24, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit.i" ], [ 0, %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17h0ae427aac1fc6738E.exit.i" ]
+  %24 = add nuw nsw i64 %.sroa.11.020.i, 1
+  %25 = shl i64 %.sroa.11.020.i, 3
+  %26 = sub nuw nsw i64 168, %25
+  %.0.sroa.speculated.i.i.i3.i = call noundef i64 @llvm.umin.i64(i64 %26, i64 8)
+  %27 = getelementptr inbounds i8, ptr %9, i64 %25
+  %28 = getelementptr inbounds i64, ptr %18, i64 %.sroa.11.020.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i)
-  %26 = load i64, ptr %25, align 8, !alias.scope !365, !noalias !385, !noundef !4
-  store i64 %26, ptr %.sroa.0.i, align 8, !noalias !386
-  %27 = shl i64 %.sroa.9.018.i, 3
-  %28 = sub nuw nsw i64 168, %27
-  %.0.sroa.speculated.i.i.i3.i = call noundef i64 @llvm.umin.i64(i64 %28, i64 8)
-  %29 = getelementptr inbounds i8, ptr %9, i64 %27
-  %30 = add nuw nsw i64 %.sroa.9.018.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull readonly align 8 %.sroa.0.i, i64 %.0.sroa.speculated.i.i.i3.i, i1 false), !alias.scope !390, !noalias !394
+  %29 = load i64, ptr %28, align 8, !alias.scope !365, !noalias !385, !noundef !4
+  store i64 %29, ptr %.sroa.0.i, align 8, !noalias !386
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 8 %.sroa.0.i, i64 %.0.sroa.speculated.i.i.i3.i, i1 false), !alias.scope !390, !noalias !394
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
-  %exitcond.not.i = icmp eq i64 %30, %.0.sroa.speculated.i.i.i.i
+  %exitcond.not.i = icmp eq i64 %24, %.0.sroa.speculated.i.i.i.i
   br i1 %exitcond.not.i, label %"_ZN76_$LT$sha3..Shake128ReaderCore$u20$as$u20$digest..core_api..XofReaderCore$GT$10read_block17h3d480bbe4aa12fe4E.exit", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit.i"
 
 "_ZN76_$LT$sha3..Shake128ReaderCore$u20$as$u20$digest..core_api..XofReaderCore$GT$10read_block17h3d480bbe4aa12fe4E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit.i", %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17h0ae427aac1fc6738E.exit.i"
-  %31 = getelementptr inbounds i8, ptr %18, i64 200
-  %32 = load i64, ptr %31, align 8, !alias.scope !365, !noalias !385, !noundef !4
-  call void @_ZN6keccak5p160017h35a362d99768c31aE(ptr noalias noundef nonnull align 8 dereferenceable(200) %18, i64 noundef %32), !noalias !385
+  %30 = getelementptr inbounds i8, ptr %18, i64 200
+  %31 = load i64, ptr %30, align 8, !alias.scope !365, !noalias !385, !noundef !4
+  call void @_ZN6keccak5p160017h35a362d99768c31aE(ptr noalias noundef nonnull align 8 dereferenceable(200) %18, i64 noundef %31), !noalias !385
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.01, ptr noundef nonnull align 1 dereferenceable(168) %9, i64 168, i1 false), !noalias !365
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %9), !noalias !368
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(168) %.sroa.0.04, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.01, i64 168, i1 false)
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %.sroa.01)
-  %33 = icmp eq ptr %17, %10
-  br i1 %33, label %._crit_edge, label %16
+  %32 = icmp eq ptr %17, %10
+  br i1 %32, label %._crit_edge, label %16
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1686,8 +1686,8 @@ define internal fastcc void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderC
   %13 = getelementptr inbounds i8, ptr %8, i64 136
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.45.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.56.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.56.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.68.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
   br label %16
 
 ._crit_edge:                                      ; preds = %"_ZN76_$LT$sha3..Shake256ReaderCore$u20$as$u20$digest..core_api..XofReaderCore$GT$10read_block17hd6a717d6f9de8450E.exit", %2
@@ -1735,43 +1735,43 @@ define internal fastcc void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderC
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !399
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !404
   store ptr %9, ptr %5, align 8, !noalias !408
-  store i64 136, ptr %.sroa.45.0..sroa_idx.i, align 8, !noalias !408
-  store i64 8, ptr %.sroa.56.0..sroa_idx.i, align 8, !noalias !408
+  store i64 136, ptr %.sroa.56.0..sroa_idx.i, align 8, !noalias !408
+  store i64 8, ptr %.sroa.68.0..sroa_idx.i, align 8, !noalias !408
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !409
   call void @"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h932c2a773619fa13E.llvm.16339748825870905331"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5), !noalias !415
   %23 = load i64, ptr %4, align 8, !noalias !409, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !409
   %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %23, i64 25)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !404
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %"_ZN76_$LT$sha3..Shake256ReaderCore$u20$as$u20$digest..core_api..XofReaderCore$GT$10read_block17hd6a717d6f9de8450E.exit", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit.i"
+  %.not.i = icmp eq i64 %23, 0
+  br i1 %.not.i, label %"_ZN76_$LT$sha3..Shake256ReaderCore$u20$as$u20$digest..core_api..XofReaderCore$GT$10read_block17hd6a717d6f9de8450E.exit", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit.i": ; preds = %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17hccf9327189f8a1c8E.exit.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit.i"
-  %.sroa.9.018.i = phi i64 [ %30, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit.i" ], [ 0, %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17hccf9327189f8a1c8E.exit.i" ]
-  %25 = getelementptr inbounds i64, ptr %18, i64 %.sroa.9.018.i
+  %.sroa.11.020.i = phi i64 [ %24, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit.i" ], [ 0, %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17hccf9327189f8a1c8E.exit.i" ]
+  %24 = add nuw nsw i64 %.sroa.11.020.i, 1
+  %25 = shl i64 %.sroa.11.020.i, 3
+  %26 = sub nuw nsw i64 136, %25
+  %.0.sroa.speculated.i.i.i3.i = call noundef i64 @llvm.umin.i64(i64 %26, i64 8)
+  %27 = getelementptr inbounds i8, ptr %9, i64 %25
+  %28 = getelementptr inbounds i64, ptr %18, i64 %.sroa.11.020.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i)
-  %26 = load i64, ptr %25, align 8, !alias.scope !396, !noalias !416, !noundef !4
-  store i64 %26, ptr %.sroa.0.i, align 8, !noalias !417
-  %27 = shl i64 %.sroa.9.018.i, 3
-  %28 = sub nuw nsw i64 136, %27
-  %.0.sroa.speculated.i.i.i3.i = call noundef i64 @llvm.umin.i64(i64 %28, i64 8)
-  %29 = getelementptr inbounds i8, ptr %9, i64 %27
-  %30 = add nuw nsw i64 %.sroa.9.018.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull readonly align 8 %.sroa.0.i, i64 %.0.sroa.speculated.i.i.i3.i, i1 false), !alias.scope !421, !noalias !425
+  %29 = load i64, ptr %28, align 8, !alias.scope !396, !noalias !416, !noundef !4
+  store i64 %29, ptr %.sroa.0.i, align 8, !noalias !417
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 8 %.sroa.0.i, i64 %.0.sroa.speculated.i.i.i3.i, i1 false), !alias.scope !421, !noalias !425
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
-  %exitcond.not.i = icmp eq i64 %30, %.0.sroa.speculated.i.i.i.i
+  %exitcond.not.i = icmp eq i64 %24, %.0.sroa.speculated.i.i.i.i
   br i1 %exitcond.not.i, label %"_ZN76_$LT$sha3..Shake256ReaderCore$u20$as$u20$digest..core_api..XofReaderCore$GT$10read_block17hd6a717d6f9de8450E.exit", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit.i"
 
 "_ZN76_$LT$sha3..Shake256ReaderCore$u20$as$u20$digest..core_api..XofReaderCore$GT$10read_block17hd6a717d6f9de8450E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit.i", %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17hccf9327189f8a1c8E.exit.i"
-  %31 = getelementptr inbounds i8, ptr %18, i64 200
-  %32 = load i64, ptr %31, align 8, !alias.scope !396, !noalias !416, !noundef !4
-  call void @_ZN6keccak5p160017h35a362d99768c31aE(ptr noalias noundef nonnull align 8 dereferenceable(200) %18, i64 noundef %32), !noalias !416
+  %30 = getelementptr inbounds i8, ptr %18, i64 200
+  %31 = load i64, ptr %30, align 8, !alias.scope !396, !noalias !416, !noundef !4
+  call void @_ZN6keccak5p160017h35a362d99768c31aE(ptr noalias noundef nonnull align 8 dereferenceable(200) %18, i64 noundef %31), !noalias !416
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.01, ptr noundef nonnull align 1 dereferenceable(136) %9, i64 136, i1 false), !noalias !396
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %9), !noalias !399
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(136) %.sroa.0.04, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.01, i64 136, i1 false)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %.sroa.01)
-  %33 = icmp eq ptr %17, %10
-  br i1 %33, label %._crit_edge, label %16
+  %32 = icmp eq ptr %17, %10
+  br i1 %32, label %._crit_edge, label %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

@@ -110701,7 +110701,6 @@ entry:
   %sampleRate.i.i = alloca i32, align 4
   %internalLengthInPCMFrames.i = alloca i64, align 8
   %decoderConfig = alloca %struct.ma_decoder_config, align 8
-  %tmp.sroa.7 = alloca %struct.ma_allocation_callbacks, align 8
   %data = getelementptr inbounds i8, ptr %pJob, i64 24
   %0 = load ptr, ptr %data, align 8
   %pResourceManager2 = getelementptr inbounds i8, ptr %0, i64 72
@@ -110735,7 +110734,10 @@ if.end6:                                          ; preds = %ma_resource_manager
   %6 = load i32, ptr %decodedChannels.i, align 4, !noalias !883
   %decodedSampleRate.i = getelementptr inbounds i8, ptr %1, i64 48
   %7 = load i32, ptr %decodedSampleRate.i, align 8, !noalias !883
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmp.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  %tmp.sroa.4.0.decoderConfig.sroa_idx = getelementptr inbounds i8, ptr %decoderConfig, i64 12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %tmp.sroa.4.0.decoderConfig.sroa_idx, i8 0, i64 60, i1 false)
+  %tmp.sroa.7.0.decoderConfig.sroa_idx = getelementptr inbounds i8, ptr %decoderConfig, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmp.sroa.7.0.decoderConfig.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %ppCustomDecodingBackendVTables.i = getelementptr inbounds i8, ptr %1, i64 80
   %8 = load ptr, ptr %ppCustomDecodingBackendVTables.i, align 8, !noalias !883
   %customDecodingBackendCount.i = getelementptr inbounds i8, ptr %1, i64 88
@@ -110747,14 +110749,10 @@ if.end6:                                          ; preds = %ma_resource_manager
   store i32 %6, ptr %tmp.sroa.2.0.decoderConfig.sroa_idx, align 4
   %tmp.sroa.3.0.decoderConfig.sroa_idx = getelementptr inbounds i8, ptr %decoderConfig, i64 8
   store i32 %7, ptr %tmp.sroa.3.0.decoderConfig.sroa_idx, align 8
-  %tmp.sroa.4.0.decoderConfig.sroa_idx = getelementptr inbounds i8, ptr %decoderConfig, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %tmp.sroa.4.0.decoderConfig.sroa_idx, i8 0, i64 60, i1 false)
   %tmp.sroa.5.0.decoderConfig.sroa_idx = getelementptr inbounds i8, ptr %decoderConfig, i64 72
   store i32 4, ptr %tmp.sroa.5.0.decoderConfig.sroa_idx, align 8
   %tmp.sroa.6.0.decoderConfig.sroa_idx = getelementptr inbounds i8, ptr %decoderConfig, i64 76
   store i32 0, ptr %tmp.sroa.6.0.decoderConfig.sroa_idx, align 4
-  %tmp.sroa.7.0.decoderConfig.sroa_idx = getelementptr inbounds i8, ptr %decoderConfig, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tmp.sroa.7.0.decoderConfig.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %tmp.sroa.7, i64 32, i1 false)
   %tmp.sroa.8.0.decoderConfig.sroa_idx = getelementptr inbounds i8, ptr %decoderConfig, i64 112
   store i64 0, ptr %tmp.sroa.8.0.decoderConfig.sroa_idx, align 8
   %tmp.sroa.9.0.decoderConfig.sroa_idx = getelementptr inbounds i8, ptr %decoderConfig, i64 120

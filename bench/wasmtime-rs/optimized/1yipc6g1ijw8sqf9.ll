@@ -8193,7 +8193,6 @@ _ZN5alloc11collections5btree4node13move_to_slice17hf09867801f7e24afE.exit: ; pre
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$15bulk_steal_left17hc24cbac1b319c588E"(ptr nocapture readonly align 8 %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, i64 }, align 8
-  %.sroa.4 = alloca { i64, [6 x i64] }, align 8
   %4 = alloca { i64, [6 x i64] }, align 8
   %5 = alloca { i64, [6 x i64] }, align 8
   %.not = icmp eq i64 %1, 0
@@ -8315,9 +8314,8 @@ _ZN5alloc11collections5btree4node13move_to_slice17he276f451ae42c770E.exit: ; pre
   %86 = load i64, ptr %85, align 8, !noundef !3
   store ptr %72, ptr %81, align 8
   store i64 %74, ptr %85, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(56) %83, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %83, i64 56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull readonly align 8 dereferenceable(56) %5, i64 56, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4, i64 56, i1 false)
   %87 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
   %88 = invoke align 8 ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h16fbcb9b976b6cb1E"(i64 %48, ptr nonnull %87, i64 11)
           to label %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17hbec49545c4d958c1E.exit" unwind label %89
@@ -8338,7 +8336,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17he276f451ae42c770E.exit: ; pre
           to label %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17hc8a2e43ebbc6e400E.exit" unwind label %89
 
 "_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12val_area_mut17hc8a2e43ebbc6e400E.exit": ; preds = %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17hbec49545c4d958c1E.exit"
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %94, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %94, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   %95 = getelementptr inbounds i8, ptr %0, i64 32
   %96 = load i64, ptr %95, align 8, !noundef !3
   %97 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3

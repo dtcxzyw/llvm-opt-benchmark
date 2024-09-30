@@ -1205,7 +1205,6 @@ declare void @_ZN2dd6solver8simplifyEv(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3sat14anf_simplifier11anf2clausesERN2dd6solverE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(208) %solver) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp164.sroa.5.i.i = alloca <{ [4 x i8], i64, i32, [4 x i8] }>, align 4
   %agg.tmp21.i = alloca %"class.sat::justification", align 8
   %agg.tmp1.i = alloca %"class.sat::justification", align 8
   %ctx = alloca %class.union_find_default_ctx, align 8
@@ -1300,9 +1299,9 @@ _ZNK6vectorIPN2dd6solver8equationELb0EjE3endEv.exit: ; preds = %invoke.cont6
   br i1 %cmp13.not210, label %for.end66, label %invoke.cont17.lr.ph
 
 invoke.cont17.lr.ph:                              ; preds = %_ZNK6vectorIPN2dd6solver8equationELb0EjE3endEv.exit
+  %agg.tmp2.sroa.2.0.agg.tmp21.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp21.i, i64 4
   %agg.tmp2.sroa.22.0.agg.tmp21.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp21.i, i64 8
   %agg.tmp2.sroa.3.0.agg.tmp21.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp21.i, i64 16
-  %agg.tmp2.sroa.2.0.agg.tmp21.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp21.i, i64 4
   br label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %invoke.cont17.lr.ph, %for.inc
@@ -1421,12 +1420,10 @@ sw.bb10.i.i:                                      ; preds = %_ZN2dd3pddD2Ev.exit
           to label %invoke.cont32 unwind label %lpad2.loopexit
 
 land.lhs.true.i.i.i:                              ; preds = %_ZN2dd3pddD2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %agg.tmp164.sroa.5.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp164.sroa.5.i.i, ptr noundef nonnull align 4 dereferenceable(20) %agg.tmp2.sroa.2.0.agg.tmp21.sroa_idx.i, i64 20, i1 false)
   %m_trim.i.i.i = getelementptr inbounds i8, ptr %19, i64 3976
   %22 = load i8, ptr %m_trim.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %22 to i1
-  br i1 %tobool.i.i.i, label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i, label %if.then.i.i.i32
+  br i1 %tobool.i.i.i, label %invoke.cont32, label %if.then.i.i.i32
 
 if.then.i.i.i32:                                  ; preds = %land.lhs.true.i.i.i
   %m_justification.i.i.i = getelementptr inbounds i8, ptr %19, i64 3448
@@ -1436,14 +1433,10 @@ if.then.i.i.i32:                                  ; preds = %land.lhs.true.i.i.i
   %arrayidx.i.i6.i.i = getelementptr inbounds %"class.sat::justification", ptr %23, i64 %idxprom.i.i5.i.i
   store i32 0, ptr %arrayidx.i.i6.i.i, align 8
   %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i6.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.i.i, i64 16, i1 false)
-  br label %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i
-
-_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i: ; preds = %if.then.i.i.i32, %land.lhs.true.i.i.i
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %agg.tmp164.sroa.5.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp164.sroa.5.0.arrayidx.i.i6.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %agg.tmp2.sroa.2.0.agg.tmp21.sroa_idx.i, i64 16, i1 false)
   br label %invoke.cont32
 
-invoke.cont32:                                    ; preds = %_ZN3sat6solver13update_assignENS_7literalENS_13justificationE.exit.i.i, %_ZN2dd3pddD2Ev.exit, %sw.bb.i.i, %sw.bb10.i.i
+invoke.cont32:                                    ; preds = %if.then.i.i.i32, %land.lhs.true.i.i.i, %_ZN2dd3pddD2Ev.exit, %sw.bb.i.i, %sw.bb10.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp21.i)
   %24 = load i32, ptr %m_stats, align 8
   %inc = add i32 %24, 1

@@ -817,7 +817,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10pu
   %48 = getelementptr inbounds i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8, !nonnull !4, !noundef !4
   %50 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %49, i64 %..i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 
 51:                                               ; preds = %30
@@ -6305,7 +6305,7 @@ define hidden void @"_ZN10actix_http8requests7request16Request$LT$P$GT$12with_pa
 
 10:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 32

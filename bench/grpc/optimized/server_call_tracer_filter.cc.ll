@@ -2831,7 +2831,7 @@ _ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call23OnClientInitialMetadat
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false), !noalias !85
   store ptr %17, ptr %client_initial_metadata_outstanding.i.i.i, align 8, !noalias !88
   %polling_entity.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i, i64 32, i1 false), !noalias !88
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %polling_entity.i, i64 32, i1 false)
   %_M_manager.i.i.i1.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i17, label %if.end.i2.i.i

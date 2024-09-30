@@ -1401,7 +1401,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1caa876bf058f9dcE.exit.i1.i.i.i: ; pred
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6e73ed325a259157E.exit.i.i": ; preds = %149, %116
   %144 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !375, !noalias !376, !nonnull !7, !noundef !7
   %145 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %144, i64 %117
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %146 = add i64 %117, 1
   store i64 %146, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !375, !noalias !376
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !374

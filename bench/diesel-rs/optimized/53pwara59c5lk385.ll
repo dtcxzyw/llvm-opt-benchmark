@@ -300,7 +300,7 @@ define hidden void @"_ZN128_$LT$diesel..query_dsl..load_dsl..private..LoadIter$L
 23:                                               ; preds = %16
   %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10, !noalias !62
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9, !noalias !62
   unreachable
 
 "_ZN4core3ptr55drop_in_place$LT$diesel..pg..connection..row..PgRow$GT$17h222b703773e0de07E.exit.i": ; preds = %16
@@ -510,13 +510,13 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 44:                                               ; preds = %43
   %45 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h4aa9a72490a78bebE"(ptr noalias noundef align 8 dereferenceable(24) %9) #11
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h4aa9a72490a78bebE"(ptr noalias noundef align 8 dereferenceable(24) %9) #10
           to label %97 unwind label %46
 
 46:                                               ; preds = %44
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
 48:                                               ; preds = %36
@@ -538,13 +538,13 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 53:                                               ; preds = %52
   %54 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h4aa9a72490a78bebE"(ptr noalias noundef align 8 dereferenceable(24) %10) #11
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h4aa9a72490a78bebE"(ptr noalias noundef align 8 dereferenceable(24) %10) #10
           to label %97 unwind label %55
 
 55:                                               ; preds = %53
   %56 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
 57:                                               ; preds = %._crit_edge.i, %39
@@ -552,7 +552,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %59 = getelementptr inbounds i8, ptr %1, i64 32
   %60 = load ptr, ptr %59, align 8, !alias.scope !107, !noalias !110, !nonnull !5, !noundef !5
   %61 = getelementptr inbounds { i64, [2 x i64] }, ptr %60, i64 %58
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %62 = load i64, ptr %38, align 8, !alias.scope !107, !noalias !110, !noundef !5
   %63 = add i64 %62, 1
   store i64 %63, ptr %38, align 8, !alias.scope !107, !noalias !110
@@ -580,13 +580,13 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 70:                                               ; preds = %69
   %71 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$diesel..pg..backend..PgTypeMetadata$GT$17hb258f6a2927e13aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #11
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$diesel..pg..backend..PgTypeMetadata$GT$17hb258f6a2927e13aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #10
           to label %.body unwind label %72
 
 72:                                               ; preds = %70
   %73 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
 74:                                               ; preds = %._crit_edge.i23, %48
@@ -594,7 +594,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %76 = getelementptr inbounds i8, ptr %1, i64 32
   %77 = load ptr, ptr %76, align 8, !alias.scope !112, !noalias !115, !nonnull !5, !noundef !5
   %78 = getelementptr inbounds { i64, [2 x i64] }, ptr %77, i64 %75
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %79 = load i64, ptr %38, align 8, !alias.scope !112, !noalias !115, !noundef !5
   %80 = add i64 %79, 1
   store i64 %80, ptr %38, align 8, !alias.scope !112, !noalias !115
@@ -606,7 +606,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %83 = getelementptr inbounds i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8, !alias.scope !117, !noalias !120, !nonnull !5, !noundef !5
   %85 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %84, i64 %82
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   %86 = load i64, ptr %65, align 8, !alias.scope !117, !noalias !120, !noundef !5
   %87 = add i64 %86, 1
   store i64 %87, ptr %65, align 8, !alias.scope !117, !noalias !120
@@ -642,13 +642,13 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 97:                                               ; preds = %44, %53
   %.1.lpad-body.ph = phi i8 [ 0, %53 ], [ 1, %44 ]
   %eh.lpad-body.ph = phi { ptr, i32 } [ %54, %53 ], [ %45, %44 ]
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$diesel..pg..backend..PgTypeMetadata$GT$17hb258f6a2927e13aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11) #11
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$diesel..pg..backend..PgTypeMetadata$GT$17hb258f6a2927e13aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11) #10
           to label %.body unwind label %98
 
 98:                                               ; preds = %101, %97
   %99 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
 100:                                              ; preds = %101, %.body
@@ -657,7 +657,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 
 101:                                              ; preds = %.thread, %.body
   %.pn42 = phi { ptr, i32 } [ %20, %.thread ], [ %.pn, %.body ]
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h96b44d52bdeb93aaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #11
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h96b44d52bdeb93aaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #10
           to label %100 unwind label %98
 }
 
@@ -698,7 +698,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 .thread:                                          ; preds = %20, %15, %.noexc
   %19 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h96b44d52bdeb93aaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #11
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h96b44d52bdeb93aaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #10
           to label %.body unwind label %61
 
 20:                                               ; preds = %.noexc23, %5
@@ -734,13 +734,13 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 33:                                               ; preds = %32
   %34 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h4aa9a72490a78bebE"(ptr noalias noundef align 8 dereferenceable(24) %7) #11
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h4aa9a72490a78bebE"(ptr noalias noundef align 8 dereferenceable(24) %7) #10
           to label %60 unwind label %35
 
 35:                                               ; preds = %33
   %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
 37:                                               ; preds = %42
@@ -754,13 +754,13 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$diesel..pg..backend..PgTypeMetadata$GT$17hb258f6a2927e13aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #11
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$diesel..pg..backend..PgTypeMetadata$GT$17hb258f6a2927e13aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #10
           to label %.body unwind label %40
 
 40:                                               ; preds = %38
   %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
 42:                                               ; preds = %._crit_edge.i24, %26
@@ -768,7 +768,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %44 = getelementptr inbounds i8, ptr %1, i64 32
   %45 = load ptr, ptr %44, align 8, !alias.scope !147, !noalias !150, !nonnull !5, !noundef !5
   %46 = getelementptr inbounds { i64, [2 x i64] }, ptr %45, i64 %43
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %47 = load i64, ptr %28, align 8, !alias.scope !147, !noalias !150, !noundef !5
   %48 = add i64 %47, 1
   store i64 %48, ptr %28, align 8, !alias.scope !147, !noalias !150
@@ -786,7 +786,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %55 = getelementptr inbounds i8, ptr %1, i64 8
   %56 = load ptr, ptr %55, align 8, !alias.scope !155, !noalias !152, !nonnull !5, !noundef !5
   %57 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %56, i64 %54
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %58 = load i64, ptr %49, align 8, !alias.scope !155, !noalias !152, !noundef !5
   %59 = add i64 %58, 1
   store i64 %59, ptr %49, align 8, !alias.scope !155, !noalias !152
@@ -797,13 +797,13 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   ret void
 
 60:                                               ; preds = %33
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$diesel..pg..backend..PgTypeMetadata$GT$17hb258f6a2927e13aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #11
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$diesel..pg..backend..PgTypeMetadata$GT$17hb258f6a2927e13aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #10
           to label %.body unwind label %61
 
 61:                                               ; preds = %.thread, %60
   %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
 .body:                                            ; preds = %60, %38, %.thread
@@ -850,7 +850,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 .thread:                                          ; preds = %21, %16, %.noexc
   %20 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h96b44d52bdeb93aaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #11
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h96b44d52bdeb93aaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #10
           to label %.body unwind label %62
 
 21:                                               ; preds = %.noexc23, %5
@@ -886,13 +886,13 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 34:                                               ; preds = %33
   %35 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h4aa9a72490a78bebE"(ptr noalias noundef align 8 dereferenceable(24) %7) #11
+  invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h4aa9a72490a78bebE"(ptr noalias noundef align 8 dereferenceable(24) %7) #10
           to label %61 unwind label %36
 
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
 38:                                               ; preds = %43
@@ -906,13 +906,13 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
 39:                                               ; preds = %38
   %40 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$diesel..pg..backend..PgTypeMetadata$GT$17hb258f6a2927e13aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #11
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$diesel..pg..backend..PgTypeMetadata$GT$17hb258f6a2927e13aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #10
           to label %.body unwind label %41
 
 41:                                               ; preds = %39
   %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
 43:                                               ; preds = %._crit_edge.i24, %27
@@ -920,7 +920,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %45 = getelementptr inbounds i8, ptr %1, i64 32
   %46 = load ptr, ptr %45, align 8, !alias.scope !181, !noalias !184, !nonnull !5, !noundef !5
   %47 = getelementptr inbounds { i64, [2 x i64] }, ptr %46, i64 %44
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %48 = load i64, ptr %29, align 8, !alias.scope !181, !noalias !184, !noundef !5
   %49 = add i64 %48, 1
   store i64 %49, ptr %29, align 8, !alias.scope !181, !noalias !184
@@ -938,7 +938,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %56 = getelementptr inbounds i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8, !alias.scope !189, !noalias !186, !nonnull !5, !noundef !5
   %58 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %57, i64 %55
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %59 = load i64, ptr %50, align 8, !alias.scope !189, !noalias !186, !noundef !5
   %60 = add i64 %59, 1
   store i64 %60, ptr %50, align 8, !alias.scope !189, !noalias !186
@@ -949,13 +949,13 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   ret void
 
 61:                                               ; preds = %34
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$diesel..pg..backend..PgTypeMetadata$GT$17hb258f6a2927e13aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #11
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$diesel..pg..backend..PgTypeMetadata$GT$17hb258f6a2927e13aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #10
           to label %.body unwind label %62
 
 62:                                               ; preds = %.thread, %61
   %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
 .body:                                            ; preds = %61, %39, %.thread
@@ -1504,7 +1504,7 @@ define hidden void @"_ZN6diesel9query_dsl8load_dsl7private31LoadIter$LT$U$C$C$C$
 24:                                               ; preds = %15
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
 "_ZN4core3ptr55drop_in_place$LT$diesel..pg..connection..row..PgRow$GT$17h222b703773e0de07E.exit": ; preds = %15
@@ -1620,7 +1620,7 @@ define hidden void @"_ZN6diesel9query_dsl8load_dsl7private31LoadIter$LT$U$C$C$C$
 23:                                               ; preds = %18
   %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #9
   unreachable
 
 "_ZN4core3ptr55drop_in_place$LT$diesel..pg..connection..row..PgRow$GT$17h222b703773e0de07E.exit": ; preds = %18
@@ -1838,9 +1838,6 @@ declare void @llvm.assume(i1 noundef) #7
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
-
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -1850,9 +1847,8 @@ attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #6 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { cold noreturn nounwind }
-attributes #11 = { cold }
+attributes #9 = { cold noreturn nounwind }
+attributes #10 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

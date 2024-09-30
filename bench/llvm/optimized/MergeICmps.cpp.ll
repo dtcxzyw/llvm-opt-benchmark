@@ -479,12 +479,12 @@ _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit: ; preds = %63
   %80 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %81 = getelementptr inbounds i8, ptr %31, i64 24
   %82 = getelementptr inbounds i8, ptr %31, i64 32
-  %83 = getelementptr inbounds i8, ptr %32, i64 24
-  %84 = getelementptr inbounds i8, ptr %32, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  %84 = getelementptr inbounds i8, ptr %32, i64 24
+  %85 = getelementptr inbounds i8, ptr %32, i64 32
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
-  %85 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %86 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %87 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %88 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %89 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %90 = getelementptr inbounds nuw i8, ptr %33, i64 80
@@ -891,11 +891,13 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i.i.i:         ; preds = %297
 
 316:                                              ; preds = %312
   %317 = call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm11Instruction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.26.80.copyload.i.i.i) #15, !noalias !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(20) %31, i64 20, i1 false), !noalias !19
   %318 = load i32, ptr %82, align 8, !noalias !19
   %319 = load i64, ptr %81, align 8, !noalias !19
   store i32 0, ptr %82, align 8, !noalias !19
-  %320 = load i32, ptr %84, align 8, !noalias !19
-  %321 = load i64, ptr %83, align 8, !noalias !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %83, ptr noundef nonnull align 8 dereferenceable(20) %32, i64 20, i1 false), !noalias !19
+  %320 = load i32, ptr %85, align 8, !noalias !19
+  %321 = load i64, ptr %84, align 8, !noalias !19
   %322 = load ptr, ptr %309, align 8, !noalias !19
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %324 = load ptr, ptr %323, align 8, !noalias !19
@@ -906,10 +908,8 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i.i.i:         ; preds = %297
   store i8 %.fca.1.extract.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !noalias !19
   %326 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %34) #15, !noalias !19
   %327 = trunc i64 %326 to i32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %33, ptr noundef nonnull align 8 dereferenceable(20) %31, i64 20, i1 false), !noalias !19
-  store i32 %318, ptr %86, align 8, !noalias !19
-  store i64 %319, ptr %85, align 8, !noalias !19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %87, ptr noundef nonnull align 8 dereferenceable(20) %32, i64 20, i1 false), !noalias !19
+  store i32 %318, ptr %87, align 8, !noalias !19
+  store i64 %319, ptr %86, align 8, !noalias !19
   store i32 %320, ptr %89, align 8, !noalias !19
   store i64 %321, ptr %88, align 8, !noalias !19
   store i32 %327, ptr %90, align 8, !noalias !19
@@ -924,15 +924,15 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i.i.i:         ; preds = %297
   br i1 %331, label %334, label %_ZN12_GLOBAL__N_17BCEAtomD2Ev.exit21.thread.i.i.i.i
 
 _ZNK12_GLOBAL__N_17BCEAtomltERKS0_.exit.i.i.i.i.i: ; preds = %316
-  %332 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %88, ptr noundef nonnull readonly align 8 dereferenceable(12) %85) #18, !noalias !19
+  %332 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(12) %88, ptr noundef nonnull readonly align 8 dereferenceable(12) %86) #18, !noalias !19
   %333 = icmp slt i32 %332, 0
   br i1 %333, label %334, label %_ZN12_GLOBAL__N_17BCEAtomD2Ev.exit21.thread.i.i.i.i
 
 334:                                              ; preds = %_ZNK12_GLOBAL__N_17BCEAtomltERKS0_.exit.i.i.i.i.i, %330
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %87, align 8, !noalias !19
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %83, align 8, !noalias !19
   %.sroa.2.0.copyload.i.i.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !19
   %335 = load ptr, ptr %33, align 8, !noalias !19
-  store ptr %335, ptr %87, align 8, !noalias !19
+  store ptr %335, ptr %83, align 8, !noalias !19
   %336 = load ptr, ptr %94, align 8, !noalias !19
   store ptr %336, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !19
   store i32 %329, ptr %92, align 8, !noalias !19
@@ -940,7 +940,7 @@ _ZNK12_GLOBAL__N_17BCEAtomltERKS0_.exit.i.i.i.i.i: ; preds = %316
   store ptr %.sroa.0.0.copyload.i.i.i.i.i.i, ptr %33, align 8, !noalias !19
   store ptr %.sroa.2.0.copyload.i.i.i.i.i.i, ptr %94, align 8, !noalias !19
   store i32 %328, ptr %93, align 8, !noalias !19
-  store i64 %321, ptr %85, align 8, !noalias !19
+  store i64 %321, ptr %86, align 8, !noalias !19
   br label %_ZN12_GLOBAL__N_17BCEAtomD2Ev.exit21.thread.i.i.i.i
 
 _ZN12_GLOBAL__N_17BCEAtomD2Ev.exit21.thread.i.i.i.i: ; preds = %334, %_ZNK12_GLOBAL__N_17BCEAtomltERKS0_.exit.i.i.i.i.i, %330
@@ -952,16 +952,16 @@ _ZN12_GLOBAL__N_17BCEAtomD2Ev.exit21.thread.i.i.i.i: ; preds = %334, %_ZNK12_GLO
   %340 = phi i32 [ %320, %334 ], [ %318, %_ZNK12_GLOBAL__N_17BCEAtomltERKS0_.exit.i.i.i.i.i ], [ %318, %330 ]
   %.sroa.061.0.copyload.i.i.i = load ptr, ptr %33, align 8, !noalias !16
   %.sroa.4.0.copyload.i.i.i = load ptr, ptr %94, align 8, !noalias !16
-  store i32 0, ptr %86, align 8, !noalias !19
-  %.sroa.12.40.copyload.i.i.i = load ptr, ptr %87, align 8, !noalias !16
+  store i32 0, ptr %87, align 8, !noalias !19
+  %.sroa.12.40.copyload.i.i.i = load ptr, ptr %83, align 8, !noalias !16
   %.sroa.16.40.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !16
   store i32 0, ptr %89, align 8, !noalias !19
   %.sroa.24.80.copyload.i.i.i = load i64, ptr %90, align 8, !noalias !16
   br label %_ZN12_GLOBAL__N_17BCEAtomD2Ev.exit23.i.i.i.i
 
 _ZN12_GLOBAL__N_17BCEAtomD2Ev.exit21.i.i.i.i:     ; preds = %312
-  %.val15.pre.i.i.i.i = load ptr, ptr %83, align 8, !noalias !19
-  %.val16.pre.i.i.i.i = load i32, ptr %84, align 8, !noalias !19
+  %.val15.pre.i.i.i.i = load ptr, ptr %84, align 8, !noalias !19
+  %.val16.pre.i.i.i.i = load i32, ptr %85, align 8, !noalias !19
   %341 = icmp ult i32 %.val16.pre.i.i.i.i, 65
   %342 = icmp eq ptr %.val15.pre.i.i.i.i, null
   %or.cond.i22.i.i.i.i = select i1 %341, i1 true, i1 %342

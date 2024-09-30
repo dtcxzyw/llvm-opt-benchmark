@@ -1359,54 +1359,54 @@ _ZN2cv4Mat_INS_3VecIfLi4EEEEC2ERKNS_3MatE.exit70: ; preds = %_ZN2cv4Mat_INS_3Vec
   br label %.body71
 
 92:                                               ; preds = %_ZN2cv4Mat_INS_3VecIfLi4EEEEC2ERKNS_3MatE.exit70
-  %93 = getelementptr inbounds i8, ptr %0, i64 40
-  %94 = shl nuw i32 1, %6
-  %95 = sitofp i32 %94 to float
-  %96 = fdiv float 1.000000e+00, %95
-  %97 = load float, ptr %93, align 8
-  %98 = fmul float %96, %97
-  %99 = getelementptr inbounds i8, ptr %0, i64 44
-  %100 = load float, ptr %99, align 4
-  %101 = fmul float %96, %100
-  %102 = getelementptr inbounds i8, ptr %0, i64 48
-  %103 = load float, ptr %102, align 8
-  %104 = fmul float %96, %103
-  %105 = getelementptr inbounds i8, ptr %0, i64 52
-  %106 = load float, ptr %105, align 4
-  %107 = fmul float %96, %106
-  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %98, i64 0
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %101, i64 1
-  %.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %104, i64 0
-  %.sroa.3.12.vec.insert.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i, float %107, i64 1
-  %108 = getelementptr inbounds i8, ptr %0, i64 36
-  %109 = load float, ptr %108, align 4
-  %110 = fmul float %109, %109
-  %111 = getelementptr inbounds i8, ptr %0, i64 32
-  %112 = load float, ptr %111, align 8
-  %113 = call noundef float @cosf(float noundef %112) #22
+  %93 = getelementptr inbounds i8, ptr %21, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
+  %94 = getelementptr inbounds i8, ptr %0, i64 40
+  %95 = shl nuw i32 1, %6
+  %96 = sitofp i32 %95 to float
+  %97 = fdiv float 1.000000e+00, %96
+  %98 = load float, ptr %94, align 8
+  %99 = fmul float %97, %98
+  %100 = getelementptr inbounds i8, ptr %0, i64 44
+  %101 = load float, ptr %100, align 4
+  %102 = fmul float %97, %101
+  %103 = getelementptr inbounds i8, ptr %0, i64 48
+  %104 = load float, ptr %103, align 8
+  %105 = fmul float %97, %104
+  %106 = getelementptr inbounds i8, ptr %0, i64 52
+  %107 = load float, ptr %106, align 4
+  %108 = fmul float %97, %107
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %99, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %102, i64 1
+  %.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %105, i64 0
+  %.sroa.3.12.vec.insert.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i, float %108, i64 1
+  %109 = getelementptr inbounds i8, ptr %0, i64 36
+  %110 = load float, ptr %109, align 4
+  %111 = fmul float %110, %110
+  %112 = getelementptr inbounds i8, ptr %0, i64 32
+  %113 = load float, ptr %112, align 8
+  %114 = call noundef float @cosf(float noundef %113) #22
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv5kinfu12GetAbInvokerE, i64 16), ptr %21, align 8
-  %114 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr %15, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %21, i64 16
-  store ptr %16, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %21, i64 24
-  store ptr %17, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %21, i64 32
-  store ptr %18, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %21, i64 40
-  store ptr %19, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %21, i64 48
-  store ptr %20, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %21, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %120, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
+  %115 = getelementptr inbounds i8, ptr %21, i64 8
+  store ptr %15, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %21, i64 16
+  store ptr %16, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %21, i64 24
+  store ptr %17, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %21, i64 32
+  store ptr %18, ptr %118, align 8
+  %119 = getelementptr inbounds i8, ptr %21, i64 40
+  store ptr %19, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %21, i64 48
+  store ptr %20, ptr %120, align 8
   %121 = getelementptr inbounds i8, ptr %21, i64 120
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %121, align 8
   %.sroa.2.0..sroa_idx.i76 = getelementptr inbounds i8, ptr %21, i64 128
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.2.0..sroa_idx.i76, align 8
   %122 = getelementptr inbounds i8, ptr %21, i64 136
-  store float %110, ptr %122, align 8
+  store float %111, ptr %122, align 8
   %123 = getelementptr inbounds i8, ptr %21, i64 140
-  store float %113, ptr %123, align 4
+  store float %114, ptr %123, align 4
   %124 = getelementptr inbounds i8, ptr %3, i64 8
   %125 = load i32, ptr %124, align 8
   store i32 0, ptr %22, align 4

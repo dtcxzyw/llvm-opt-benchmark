@@ -663,7 +663,6 @@ declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %data, ptr noundef %hostname, i32 noundef %port, i1 noundef zeroext %allowDOH, ptr nocapture noundef writeonly %entry1) local_unnamed_addr #0 {
 entry:
-  %sa6.sroa.4.i.i = alloca [4 x i32], align 4
   %ipv6.i.i = alloca [16 x i8], align 16
   %ipv4.i = alloca i32, align 4
   %dns = alloca ptr, align 8
@@ -844,7 +843,6 @@ if.end7.i:                                        ; preds = %if.end.i
   %ai_canonname.i = getelementptr inbounds i8, ptr %call5.i, i64 24
   store ptr %add.ptr10.i, ptr %ai_canonname.i, align 8
   %call12.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr10.i, ptr noundef nonnull readonly dereferenceable(1) %hostname) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sa6.sroa.4.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ipv6.i.i)
   %call.i.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %hostname) #12
   %12 = load ptr, ptr @Curl_ccalloc, align 8
@@ -859,12 +857,10 @@ if.end.i.i:                                       ; preds = %if.end7.i
   br i1 %cmp.i.i, label %get_localhost6.exit.thread.i, label %if.end16.i
 
 get_localhost6.exit.thread.i:                     ; preds = %if.end.i.i, %if.end7.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sa6.sroa.4.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ipv6.i.i)
   br label %get_localhost.exit
 
 if.end16.i:                                       ; preds = %if.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sa6.sroa.4.i.i, ptr noundef nonnull align 16 dereferenceable(16) %ipv6.i.i, i64 16, i1 false)
   store i32 0, ptr %call2.i.i, align 8
   %ai_family.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 4
   store i32 10, ptr %ai_family.i.i, align 4
@@ -885,14 +881,13 @@ if.end16.i:                                       ; preds = %if.end.i.i
   %sa6.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 52
   store i32 0, ptr %sa6.sroa.3.0..sroa_idx.i.i, align 2
   %sa6.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %sa6.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %sa6.sroa.4.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %sa6.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 16 dereferenceable(16) %ipv6.i.i, i64 16, i1 false)
   %sa6.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 72
   store i32 0, ptr %sa6.sroa.5.0..sroa_idx.i.i, align 2
   %add.ptr11.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 76
   %ai_canonname.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 24
   store ptr %add.ptr11.i.i, ptr %ai_canonname.i.i, align 8
   %call13.i.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr11.i.i, ptr noundef nonnull readonly dereferenceable(1) %hostname) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %sa6.sroa.4.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ipv6.i.i)
   store ptr %call5.i, ptr %ai_next.i.i, align 8
   br label %get_localhost.exit

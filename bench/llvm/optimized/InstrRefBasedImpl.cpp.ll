@@ -4503,7 +4503,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIttEjNS_12DenseMapInfoIS3_vEENS_6deta
 define dso_local noundef zeroext i1 @_ZN15LiveDebugValues16InstrRefBasedLDV18transferDebugValueERKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(2312) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.LiveDebugValues::DbgOp", align 8
   %4 = alloca %"class.llvm::SmallVector.348", align 8
-  %.sroa.0 = alloca %"class.llvm::MachineOperand", align 8
   %5 = alloca %"class.LiveDebugValues::DbgValueProperties", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %7 = load i16, ptr %6, align 4
@@ -4699,9 +4698,8 @@ _ZN15LiveDebugValues10DbgOpIDMap6insertENS_5DbgOpE.exit: ; preds = %86, %87
   br label %_ZN15LiveDebugValues10DbgOpIDMap6insertENS_5DbgOpE.exit54
 
 _ZN15LiveDebugValues10DbgOpIDMap6insertENS_5DbgOpE.exit54: ; preds = %67, %67, %92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %.03873, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.03873, i64 32, i1 false)
   store i8 1, ptr %.sroa.2.0..sroa_idx, align 8
   %95 = call i32 @_ZN15LiveDebugValues10DbgOpIDMap13insertConstOpERN4llvm14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(80) %65, ptr noundef nonnull align 8 dereferenceable(32) %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
@@ -5845,7 +5843,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   br label %327
 
 326:                                              ; preds = %314
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.077, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.077, i64 32, i1 false)
   store i8 1, ptr %311, align 8
   br label %327
 
@@ -14318,12 +14316,10 @@ define dso_local void @_ZN15LiveDebugValues16InstrRefBasedLDV21accumulateFragmen
   %7 = alloca %"struct.std::pair.596", align 8
   %8 = alloca %"struct.std::pair.607", align 8
   %9 = alloca %"struct.std::pair.613", align 8
-  %.sroa.244 = alloca %"struct.llvm::DbgVariableFragmentInfo", align 8
   %10 = alloca %"class.llvm::SmallVector.617", align 8
   %11 = alloca %"struct.std::pair.609", align 8
   %12 = alloca %"struct.std::pair.609", align 8
   %13 = alloca %"struct.std::pair.613", align 8
-  %.sroa.241 = alloca %"struct.llvm::DbgVariableFragmentInfo", align 8
   %14 = alloca %"class.llvm::SmallVector.617", align 8
   %15 = alloca %"struct.std::pair.596", align 8
   %16 = tail call noundef ptr @_ZNK4llvm12MachineInstr16getDebugVariableEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #21
@@ -14624,12 +14620,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableENS_8SmallSetINS_23Dbg
 _ZNSt4pairIPKN4llvm15DILocalVariableENS0_8SmallSetINS0_23DbgVariableFragmentInfoELj4ESt4lessIS5_EEEED2Ev.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableENS_8SmallSetINS_23DbgVariableFragmentInfoELj4ESt4lessIS6_EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E6insertEOSt4pairIS4_S9_E.exit, %161
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 2048
   %163 = load ptr, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.244, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  %.sroa.244.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.244.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %164 = getelementptr inbounds i8, ptr %10, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %164, i64 noundef 1) #21
   store ptr %163, ptr %9, align 8
-  %.sroa.244.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.244.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.244, i64 16, i1 false)
   %165 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %166 = getelementptr inbounds i8, ptr %9, i64 40
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %165, ptr noundef nonnull %166, i64 noundef 1) #21
@@ -14676,12 +14671,11 @@ _ZN4llvm11SmallVectorINS_23DbgVariableFragmentInfoELj1EED2Ev.exit: ; preds = %_Z
 
 184:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DILocalVariableENS_8SmallSetINS_23DbgVariableFragmentInfoELj4ESt4lessIS6_EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E4findES4_.exit
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.241, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  %.sroa.241.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.241.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %186 = getelementptr inbounds i8, ptr %14, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %186, i64 noundef 1) #21
   store ptr %62, ptr %13, align 8
-  %.sroa.241.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.241.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.241, i64 16, i1 false)
   %187 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %188 = getelementptr inbounds i8, ptr %13, i64 40
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %187, ptr noundef nonnull %188, i64 noundef 1) #21

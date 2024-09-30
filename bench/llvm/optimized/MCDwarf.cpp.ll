@@ -567,8 +567,6 @@ _ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EE9push_backERKS1_.exit: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm13MCLineSection11addEndEntryEPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %.sroa.0 = alloca %"class.llvm::MCDwarfLoc", align 8
-  %.sroa.5 = alloca [7 x i8], align 1
   %3 = load ptr, ptr %1, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %4, label %_ZNK4llvm8MCSymbol10getSectionEv.exit
@@ -667,9 +665,7 @@ _ZN4llvm9MapVectorIPNS_9MCSectionESt6vectorINS_16MCDwarfLineEntryESaIS4_EENS_8De
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 -32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 -7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, i64 7, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %61 = load ptr, ptr %60, align 8
   %.not.i = icmp eq ptr %58, %61
@@ -718,13 +714,13 @@ _ZNKSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; p
 _ZNSt12_Vector_baseIN4llvm16MCDwarfLineEntryESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %77, %_ZNKSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %80 = phi ptr [ %79, %77 ], [ null, %_ZNKSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   %81 = getelementptr inbounds %"class.llvm::MCDwarfLineEntry", ptr %80, i64 %72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false)
   %.sroa.3.0..sroa_idx9 = getelementptr inbounds i8, ptr %81, i64 16
   store ptr %1, ptr %.sroa.3.0..sroa_idx9, align 8
   %.sroa.4.0..sroa_idx13 = getelementptr inbounds i8, ptr %81, i64 24
   store i8 1, ptr %.sroa.4.0..sroa_idx13, align 8
   %.sroa.5.0..sroa_idx16 = getelementptr inbounds i8, ptr %81, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx16, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5, i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx16, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, i64 7, i1 false)
   %.not10.i.i.i.i.i = icmp eq ptr %66, %58
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 

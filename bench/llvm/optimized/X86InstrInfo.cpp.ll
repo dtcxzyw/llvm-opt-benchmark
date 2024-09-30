@@ -31221,7 +31221,7 @@ _ZNK4llvm14MCRegisterInfo17isSuperRegisterEqENS_10MCRegisterES1_.exit108: ; pred
 
 .loopexit195:                                     ; preds = %.lr.ph.i.i.i.i.i.i104, %131
   %158 = getelementptr inbounds i8, ptr %133, i64 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %158, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %158, i64 32, i1 false)
   %.sroa.2139.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %.sroa.2139.0..sroa_idx, align 8
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -31447,7 +31447,7 @@ _ZNK4llvm14MCRegisterInfo15isSubRegisterEqENS_10MCRegisterES1_.exit: ; preds = %
   %273 = phi ptr [ %.pre, %270 ], [ %266, %.loopexit197 ]
   %.0170 = phi ptr [ %271, %270 ], [ %265, %.loopexit197 ]
   %274 = getelementptr inbounds i8, ptr %273, i64 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %274, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %274, i64 32, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %.0170, ptr %.sroa.2.0..sroa_idx, align 8
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 40

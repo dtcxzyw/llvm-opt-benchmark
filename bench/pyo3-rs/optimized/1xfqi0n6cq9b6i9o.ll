@@ -168,7 +168,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 27:                                               ; preds = %17
   %28 = load i64, ptr %22, align 8
-  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #12
+  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #11
           to label %40 unwind label %42
 
 29:                                               ; preds = %23
@@ -211,13 +211,13 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
   %.sroa.06.1.ph = phi i1 [ true, %23 ], [ true, %29 ], [ false, %33 ], [ false, %34 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %11) #13
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %11) #12
           to label %41 unwind label %38
 
 38:                                               ; preds = %.thread29, %42, %37
   %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 40:                                               ; preds = %27
@@ -229,7 +229,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 42:                                               ; preds = %27, %2
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$proc_macro2..TokenStream$C$syn..token..Not$RP$$GT$$GT$17h51809680b2327616E"(ptr nonnull align 8 %1) #13
+  invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$proc_macro2..TokenStream$C$syn..token..Not$RP$$GT$$GT$17h51809680b2327616E"(ptr nonnull align 8 %1) #12
           to label %.thread29 unwind label %38
 
 44:                                               ; preds = %.thread29, %41
@@ -238,7 +238,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 .thread29:                                        ; preds = %42, %41
   %.pn1833 = phi { ptr, i32 } [ %lpad.thr_comm, %41 ], [ %43, %42 ]
-  invoke void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$proc_macro2..TokenStream$GT$$GT$$GT$17h814484cf90a1ba54E"(ptr nonnull align 8 %14) #13
+  invoke void @"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$proc_macro2..TokenStream$GT$$GT$$GT$17h814484cf90a1ba54E"(ptr nonnull align 8 %14) #12
           to label %44 unwind label %38
 }
 
@@ -286,7 +286,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 27:                                               ; preds = %17
   %28 = load i64, ptr %22, align 8
-  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #12
+  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #11
           to label %40 unwind label %42
 
 29:                                               ; preds = %23
@@ -329,13 +329,13 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
   %.sroa.06.1.ph = phi i1 [ true, %23 ], [ true, %29 ], [ false, %33 ], [ false, %34 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$GT$$GT$17hea3445e0008bfa0dE"(ptr nonnull align 8 %11) #13
+  invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$GT$$GT$17hea3445e0008bfa0dE"(ptr nonnull align 8 %11) #12
           to label %41 unwind label %38
 
 38:                                               ; preds = %.thread29, %42, %37
   %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 40:                                               ; preds = %27
@@ -347,7 +347,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 42:                                               ; preds = %27, %2
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr125drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$GT$$GT$17h575db594f709c8ddE"(ptr nonnull align 8 %1) #13
+  invoke void @"_ZN4core3ptr125drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$GT$$GT$17h575db594f709c8ddE"(ptr nonnull align 8 %1) #12
           to label %.thread29 unwind label %38
 
 44:                                               ; preds = %.thread29, %41
@@ -356,7 +356,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 .thread29:                                        ; preds = %42, %41
   %.pn1833 = phi { ptr, i32 } [ %lpad.thr_comm, %41 ], [ %43, %42 ]
-  invoke void @"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$GT$$GT$$GT$17h9d784696fc168807E"(ptr nonnull align 8 %14) #13
+  invoke void @"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$GT$$GT$$GT$17h9d784696fc168807E"(ptr nonnull align 8 %14) #12
           to label %44 unwind label %38
 }
 
@@ -406,7 +406,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 27:                                               ; preds = %17
   %28 = load i64, ptr %22, align 8
-  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #12
+  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #11
           to label %40 unwind label %42
 
 29:                                               ; preds = %23
@@ -454,13 +454,13 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
   %.sroa.07.1.ph = phi i1 [ true, %23 ], [ true, %29 ], [ false, %33 ], [ false, %34 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$GT$$GT$17h8162327003fb6a62E"(ptr nonnull align 8 %11) #13
+  invoke void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$GT$$GT$17h8162327003fb6a62E"(ptr nonnull align 8 %11) #12
           to label %41 unwind label %38
 
 38:                                               ; preds = %.thread33, %42, %37
   %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 40:                                               ; preds = %27
@@ -472,7 +472,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 42:                                               ; preds = %27, %2
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$RP$$GT$$GT$17h3f1b31d238a45915E"(ptr nonnull align 8 %1) #13
+  invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$RP$$GT$$GT$17h3f1b31d238a45915E"(ptr nonnull align 8 %1) #12
           to label %.thread33 unwind label %38
 
 44:                                               ; preds = %.thread33, %41
@@ -481,7 +481,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 .thread33:                                        ; preds = %42, %41
   %.pn2237 = phi { ptr, i32 } [ %lpad.thr_comm, %41 ], [ %43, %42 ]
-  invoke void @"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$GT$$GT$$GT$17h910864258467d809E"(ptr nonnull align 8 %14) #13
+  invoke void @"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$GT$$GT$$GT$17h910864258467d809E"(ptr nonnull align 8 %14) #12
           to label %44 unwind label %38
 }
 
@@ -529,7 +529,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 27:                                               ; preds = %17
   %28 = load i64, ptr %22, align 8
-  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #12
+  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #11
           to label %40 unwind label %42
 
 29:                                               ; preds = %23
@@ -572,13 +572,13 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
   %.sroa.06.1.ph = phi i1 [ true, %23 ], [ true, %29 ], [ false, %33 ], [ false, %34 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$GT$$GT$17hed00f22a32d1c430E"(ptr nonnull align 8 %11) #13
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$GT$$GT$17hed00f22a32d1c430E"(ptr nonnull align 8 %11) #12
           to label %41 unwind label %38
 
 38:                                               ; preds = %.thread29, %42, %37
   %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 40:                                               ; preds = %27
@@ -590,7 +590,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 42:                                               ; preds = %27, %2
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr123drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$syn..token..Comma$RP$$GT$$GT$17h6aae7c4f13d61e78E"(ptr nonnull align 8 %1) #13
+  invoke void @"_ZN4core3ptr123drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$syn..token..Comma$RP$$GT$$GT$17h6aae7c4f13d61e78E"(ptr nonnull align 8 %1) #12
           to label %.thread29 unwind label %38
 
 44:                                               ; preds = %.thread29, %41
@@ -599,7 +599,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 .thread29:                                        ; preds = %42, %41
   %.pn1833 = phi { ptr, i32 } [ %lpad.thr_comm, %41 ], [ %43, %42 ]
-  invoke void @"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$GT$$GT$$GT$17he32651b1aeaf8151E"(ptr nonnull align 8 %14) #13
+  invoke void @"_ZN4core3ptr125drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$GT$$GT$$GT$17he32651b1aeaf8151E"(ptr nonnull align 8 %14) #12
           to label %44 unwind label %38
 }
 
@@ -647,7 +647,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 27:                                               ; preds = %17
   %28 = load i64, ptr %22, align 8
-  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #12
+  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #11
           to label %40 unwind label %42
 
 29:                                               ; preds = %23
@@ -690,13 +690,13 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
   %.sroa.06.1.ph = phi i1 [ true, %23 ], [ true, %29 ], [ false, %33 ], [ false, %34 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$$GT$17h8e6d5177613b07d3E"(ptr nonnull align 8 %11) #13
+  invoke void @"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$$GT$17h8e6d5177613b07d3E"(ptr nonnull align 8 %11) #12
           to label %41 unwind label %38
 
 38:                                               ; preds = %.thread29, %42, %37
   %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 40:                                               ; preds = %27
@@ -708,7 +708,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 42:                                               ; preds = %27, %2
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr131drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$GT$$GT$17hd59a3e469ae20f05E"(ptr nonnull align 8 %1) #13
+  invoke void @"_ZN4core3ptr131drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$GT$$GT$17hd59a3e469ae20f05E"(ptr nonnull align 8 %1) #12
           to label %.thread29 unwind label %38
 
 44:                                               ; preds = %.thread29, %41
@@ -717,7 +717,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 .thread29:                                        ; preds = %42, %41
   %.pn1833 = phi { ptr, i32 } [ %lpad.thr_comm, %41 ], [ %43, %42 ]
-  invoke void @"_ZN4core3ptr133drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$$GT$$GT$17h48fb6c69799a7abaE"(ptr nonnull align 8 %14) #13
+  invoke void @"_ZN4core3ptr133drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$$GT$$GT$17h48fb6c69799a7abaE"(ptr nonnull align 8 %14) #12
           to label %44 unwind label %38
 }
 
@@ -765,7 +765,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 27:                                               ; preds = %17
   %28 = load i64, ptr %22, align 8
-  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #12
+  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #11
           to label %40 unwind label %42
 
 29:                                               ; preds = %23
@@ -808,13 +808,13 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
   %.sroa.06.1.ph = phi i1 [ true, %23 ], [ true, %29 ], [ false, %33 ], [ false, %34 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..module..PyModulePyO3Option$GT$$GT$17hb74520315180fceaE"(ptr nonnull align 8 %11) #13
+  invoke void @"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..module..PyModulePyO3Option$GT$$GT$17hb74520315180fceaE"(ptr nonnull align 8 %11) #12
           to label %41 unwind label %38
 
 38:                                               ; preds = %.thread29, %42, %37
   %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 40:                                               ; preds = %27
@@ -826,7 +826,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 42:                                               ; preds = %27, %2
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr119drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$GT$$GT$17h8b907abcf2d29df2E"(ptr nonnull align 8 %1) #13
+  invoke void @"_ZN4core3ptr119drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$GT$$GT$17h8b907abcf2d29df2E"(ptr nonnull align 8 %1) #12
           to label %.thread29 unwind label %38
 
 44:                                               ; preds = %.thread29, %41
@@ -835,7 +835,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 .thread29:                                        ; preds = %42, %41
   %.pn1833 = phi { ptr, i32 } [ %lpad.thr_comm, %41 ], [ %43, %42 ]
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..module..PyModulePyO3Option$GT$$GT$$GT$17h710ddbcc8a1335a7E"(ptr nonnull align 8 %14) #13
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..module..PyModulePyO3Option$GT$$GT$$GT$17h710ddbcc8a1335a7E"(ptr nonnull align 8 %14) #12
           to label %44 unwind label %38
 }
 
@@ -883,7 +883,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 27:                                               ; preds = %17
   %28 = load i64, ptr %22, align 8
-  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #12
+  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #11
           to label %40 unwind label %42
 
 29:                                               ; preds = %23
@@ -926,13 +926,13 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
   %.sroa.06.1.ph = phi i1 [ true, %23 ], [ true, %29 ], [ false, %33 ], [ false, %34 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$GT$$GT$17h00e352b2bc8f4e12E"(ptr nonnull align 8 %11) #13
+  invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$GT$$GT$17h00e352b2bc8f4e12E"(ptr nonnull align 8 %11) #12
           to label %41 unwind label %38
 
 38:                                               ; preds = %.thread29, %42, %37
   %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 40:                                               ; preds = %27
@@ -944,7 +944,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 42:                                               ; preds = %27, %2
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr117drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$RP$$GT$$GT$17h7ed1faa46f634c79E"(ptr nonnull align 8 %1) #13
+  invoke void @"_ZN4core3ptr117drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$RP$$GT$$GT$17h7ed1faa46f634c79E"(ptr nonnull align 8 %1) #12
           to label %.thread29 unwind label %38
 
 44:                                               ; preds = %.thread29, %41
@@ -953,7 +953,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 .thread29:                                        ; preds = %42, %41
   %.pn1833 = phi { ptr, i32 } [ %lpad.thr_comm, %41 ], [ %43, %42 ]
-  invoke void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$GT$$GT$$GT$17hef267c08de802709E"(ptr nonnull align 8 %14) #13
+  invoke void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$GT$$GT$$GT$17hef267c08de802709E"(ptr nonnull align 8 %14) #12
           to label %44 unwind label %38
 }
 
@@ -1001,7 +1001,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 27:                                               ; preds = %17
   %28 = load i64, ptr %22, align 8
-  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #12
+  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #11
           to label %40 unwind label %42
 
 29:                                               ; preds = %23
@@ -1044,13 +1044,13 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
   %.sroa.06.1.ph = phi i1 [ true, %23 ], [ true, %29 ], [ false, %33 ], [ false, %34 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$GT$$GT$17hf94bf2d1750af537E"(ptr nonnull align 8 %11) #13
+  invoke void @"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$GT$$GT$17hf94bf2d1750af537E"(ptr nonnull align 8 %11) #12
           to label %41 unwind label %38
 
 38:                                               ; preds = %.thread29, %42, %37
   %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 40:                                               ; preds = %27
@@ -1062,7 +1062,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 42:                                               ; preds = %27, %2
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr119drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$RP$$GT$$GT$17h51877914e2728b14E"(ptr nonnull align 8 %1) #13
+  invoke void @"_ZN4core3ptr119drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$RP$$GT$$GT$17h51877914e2728b14E"(ptr nonnull align 8 %1) #12
           to label %.thread29 unwind label %38
 
 44:                                               ; preds = %.thread29, %41
@@ -1071,7 +1071,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 .thread29:                                        ; preds = %42, %41
   %.pn1833 = phi { ptr, i32 } [ %lpad.thr_comm, %41 ], [ %43, %42 ]
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$GT$$GT$$GT$17h62f4f06e14dc28fbE"(ptr nonnull align 8 %14) #13
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$GT$$GT$$GT$17h62f4f06e14dc28fbE"(ptr nonnull align 8 %14) #12
           to label %44 unwind label %38
 }
 
@@ -1121,7 +1121,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 27:                                               ; preds = %17
   %28 = load i64, ptr %22, align 8
-  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #12
+  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #11
           to label %40 unwind label %42
 
 29:                                               ; preds = %23
@@ -1169,13 +1169,13 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
   %.sroa.07.1.ph = phi i1 [ true, %23 ], [ true, %29 ], [ false, %33 ], [ false, %34 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$GT$$GT$17h113d3e8d7b77424aE"(ptr nonnull align 8 %11) #13
+  invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$GT$$GT$17h113d3e8d7b77424aE"(ptr nonnull align 8 %11) #12
           to label %41 unwind label %38
 
 38:                                               ; preds = %.thread33, %42, %37
   %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 40:                                               ; preds = %27
@@ -1187,7 +1187,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 42:                                               ; preds = %27, %2
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr117drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$GT$$GT$17h8a3548bfc8fdee86E"(ptr nonnull align 8 %1) #13
+  invoke void @"_ZN4core3ptr117drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$GT$$GT$17h8a3548bfc8fdee86E"(ptr nonnull align 8 %1) #12
           to label %.thread33 unwind label %38
 
 44:                                               ; preds = %.thread33, %41
@@ -1196,7 +1196,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 .thread33:                                        ; preds = %42, %41
   %.pn2237 = phi { ptr, i32 } [ %lpad.thr_comm, %41 ], [ %43, %42 ]
-  invoke void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$GT$$GT$$GT$17h980ee311b20addc6E"(ptr nonnull align 8 %14) #13
+  invoke void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$GT$$GT$$GT$17h980ee311b20addc6E"(ptr nonnull align 8 %14) #12
           to label %44 unwind label %38
 }
 
@@ -1244,7 +1244,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 27:                                               ; preds = %17
   %28 = load i64, ptr %22, align 8
-  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #12
+  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #11
           to label %40 unwind label %42
 
 29:                                               ; preds = %23
@@ -1287,13 +1287,13 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
   %.sroa.06.1.ph = phi i1 [ true, %23 ], [ true, %29 ], [ false, %33 ], [ false, %34 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$GT$$GT$17hf71f8927432fe9abE"(ptr nonnull align 8 %11) #13
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$GT$$GT$17hf71f8927432fe9abE"(ptr nonnull align 8 %11) #12
           to label %41 unwind label %38
 
 38:                                               ; preds = %.thread29, %42, %37
   %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 40:                                               ; preds = %27
@@ -1305,7 +1305,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 42:                                               ; preds = %27, %2
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$RP$$GT$$GT$17h74439229c0da240bE"(ptr nonnull align 8 %1) #13
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$RP$$GT$$GT$17h74439229c0da240bE"(ptr nonnull align 8 %1) #12
           to label %.thread29 unwind label %38
 
 44:                                               ; preds = %.thread29, %41
@@ -1314,7 +1314,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 .thread29:                                        ; preds = %42, %41
   %.pn1833 = phi { ptr, i32 } [ %lpad.thr_comm, %41 ], [ %43, %42 ]
-  invoke void @"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$GT$$GT$$GT$17h9502c0e2b773816dE"(ptr nonnull align 8 %14) #13
+  invoke void @"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$GT$$GT$$GT$17h9502c0e2b773816dE"(ptr nonnull align 8 %14) #12
           to label %44 unwind label %38
 }
 
@@ -1362,7 +1362,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 27:                                               ; preds = %17
   %28 = load i64, ptr %22, align 8
-  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #12
+  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %21, i64 %28) #11
           to label %40 unwind label %42
 
 29:                                               ; preds = %23
@@ -1405,13 +1405,13 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
   %.sroa.06.1.ph = phi i1 [ true, %23 ], [ true, %29 ], [ false, %33 ], [ false, %34 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr101drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$GT$$GT$17h02932fcab0051753E"(ptr nonnull align 8 %11) #13
+  invoke void @"_ZN4core3ptr101drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$GT$$GT$17h02932fcab0051753E"(ptr nonnull align 8 %11) #12
           to label %41 unwind label %38
 
 38:                                               ; preds = %.thread29, %42, %37
   %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 40:                                               ; preds = %27
@@ -1423,7 +1423,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 42:                                               ; preds = %27, %2
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr129drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$GT$$GT$17ha80c39e6589828f2E"(ptr nonnull align 8 %1) #13
+  invoke void @"_ZN4core3ptr129drop_in_place$LT$alloc..vec..Vec$LT$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$GT$$GT$17ha80c39e6589828f2E"(ptr nonnull align 8 %1) #12
           to label %.thread29 unwind label %38
 
 44:                                               ; preds = %.thread29, %41
@@ -1432,7 +1432,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 .thread29:                                        ; preds = %42, %41
   %.pn1833 = phi { ptr, i32 } [ %lpad.thr_comm, %41 ], [ %43, %42 ]
-  invoke void @"_ZN4core3ptr131drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$GT$$GT$$GT$17hfe901b05db6101ecE"(ptr nonnull align 8 %14) #13
+  invoke void @"_ZN4core3ptr131drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$GT$$GT$$GT$17hfe901b05db6101ecE"(ptr nonnull align 8 %14) #12
           to label %44 unwind label %38
 }
 
@@ -1761,7 +1761,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h0da373c
 8:                                                ; preds = %2
   store ptr null, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %9 = getelementptr inbounds i8, ptr %3, i64 32
   store i32 %1, ptr %9, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd5c16053f7f2a5e3E"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
@@ -1777,13 +1777,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h0da373c
   store ptr inttoptr (i64 8 to ptr), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
   unreachable
 
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h670990a0c10d3ce2E"(ptr nonnull align 8 %4) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h670990a0c10d3ce2E"(ptr nonnull align 8 %4) #12
           to label %20 unwind label %18
 
 17:                                               ; preds = %8
@@ -1793,7 +1793,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h0da373c
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 20:                                               ; preds = %15
@@ -1813,7 +1813,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h468863a
 8:                                                ; preds = %2
   store ptr null, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %9 = getelementptr inbounds i8, ptr %3, i64 32
   store i32 %1, ptr %9, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha89a2aa794973accE"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
@@ -1829,13 +1829,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h468863a
   store ptr inttoptr (i64 8 to ptr), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
   unreachable
 
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc3ad7a912f9de5e8E"(ptr nonnull align 8 %4) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc3ad7a912f9de5e8E"(ptr nonnull align 8 %4) #12
           to label %20 unwind label %18
 
 17:                                               ; preds = %8
@@ -1845,7 +1845,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h468863a
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 20:                                               ; preds = %15
@@ -1865,7 +1865,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h554789c
 8:                                                ; preds = %2
   store ptr null, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %7, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %7, i64 112, i1 false)
   %9 = getelementptr inbounds i8, ptr %3, i64 112
   store i32 %1, ptr %9, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5b79deeceab2fddcE"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
@@ -1881,13 +1881,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h554789c
   store ptr inttoptr (i64 8 to ptr), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
   unreachable
 
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f0bc3ef7191dc57E"(ptr nonnull align 8 %4) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f0bc3ef7191dc57E"(ptr nonnull align 8 %4) #12
           to label %20 unwind label %18
 
 17:                                               ; preds = %8
@@ -1897,7 +1897,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h554789c
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 20:                                               ; preds = %15
@@ -1917,7 +1917,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h5ec4214
 8:                                                ; preds = %2
   store ptr null, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %9 = getelementptr inbounds i8, ptr %3, i64 32
   store i32 %1, ptr %9, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he650e6f81e902597E"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
@@ -1933,13 +1933,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h5ec4214
   store ptr inttoptr (i64 8 to ptr), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
   unreachable
 
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h670990a0c10d3ce2E"(ptr nonnull align 8 %4) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h670990a0c10d3ce2E"(ptr nonnull align 8 %4) #12
           to label %20 unwind label %18
 
 17:                                               ; preds = %8
@@ -1949,7 +1949,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h5ec4214
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 20:                                               ; preds = %15
@@ -1969,7 +1969,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h60f6a3f
 8:                                                ; preds = %2
   store ptr null, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
   %9 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 %1, ptr %9, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3e07108c6cbdb868E"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
@@ -1985,13 +1985,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h60f6a3f
   store ptr inttoptr (i64 8 to ptr), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
   unreachable
 
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcc9ac5b71e507e78E"(ptr nonnull align 8 %4) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcc9ac5b71e507e78E"(ptr nonnull align 8 %4) #12
           to label %20 unwind label %18
 
 17:                                               ; preds = %8
@@ -2001,7 +2001,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h60f6a3f
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 20:                                               ; preds = %15
@@ -2021,7 +2021,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h65fedf9
 8:                                                ; preds = %2
   store ptr null, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   %9 = getelementptr inbounds i8, ptr %3, i64 64
   store i32 %1, ptr %9, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc2dd60047a50d818E"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
@@ -2037,13 +2037,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h65fedf9
   store ptr inttoptr (i64 8 to ptr), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
   unreachable
 
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h27c815e90bd32350E"(ptr nonnull align 8 %4) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h27c815e90bd32350E"(ptr nonnull align 8 %4) #12
           to label %20 unwind label %18
 
 17:                                               ; preds = %8
@@ -2053,7 +2053,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h65fedf9
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 20:                                               ; preds = %15
@@ -2073,7 +2073,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h897ffb8
 8:                                                ; preds = %2
   store ptr null, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
   %9 = getelementptr inbounds i8, ptr %3, i64 40
   store i32 %1, ptr %9, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h787914ee091bcf72E"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
@@ -2089,13 +2089,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h897ffb8
   store ptr inttoptr (i64 8 to ptr), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
   unreachable
 
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9b1511d6228cee5E"(ptr nonnull align 8 %4) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9b1511d6228cee5E"(ptr nonnull align 8 %4) #12
           to label %20 unwind label %18
 
 17:                                               ; preds = %8
@@ -2105,7 +2105,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h897ffb8
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 20:                                               ; preds = %15
@@ -2125,7 +2125,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h926213e
 8:                                                ; preds = %2
   store ptr null, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
   %9 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 %1, ptr %9, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he9a7846758bba418E"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
@@ -2141,13 +2141,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h926213e
   store ptr inttoptr (i64 8 to ptr), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
   unreachable
 
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9c52181bd2073556E"(ptr nonnull align 8 %4) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9c52181bd2073556E"(ptr nonnull align 8 %4) #12
           to label %20 unwind label %18
 
 17:                                               ; preds = %8
@@ -2157,7 +2157,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h926213e
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 20:                                               ; preds = %15
@@ -2177,7 +2177,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h9a5318c
 8:                                                ; preds = %2
   store ptr null, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
   %9 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 %1, ptr %9, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h22786184d8606746E"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
@@ -2193,13 +2193,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h9a5318c
   store ptr inttoptr (i64 8 to ptr), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
   unreachable
 
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hde94ce924626d40dE"(ptr nonnull align 8 %4) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hde94ce924626d40dE"(ptr nonnull align 8 %4) #12
           to label %20 unwind label %18
 
 17:                                               ; preds = %8
@@ -2209,7 +2209,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h9a5318c
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 20:                                               ; preds = %15
@@ -2229,7 +2229,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hb282da1
 8:                                                ; preds = %2
   store ptr null, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   %9 = getelementptr inbounds i8, ptr %3, i64 64
   store i32 %1, ptr %9, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb8e6b1a9ee359fbbE"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
@@ -2245,13 +2245,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hb282da1
   store ptr inttoptr (i64 8 to ptr), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
   unreachable
 
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h34afbccaa55cdd38E"(ptr nonnull align 8 %4) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h34afbccaa55cdd38E"(ptr nonnull align 8 %4) #12
           to label %20 unwind label %18
 
 17:                                               ; preds = %8
@@ -2261,7 +2261,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hb282da1
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 20:                                               ; preds = %15
@@ -2281,7 +2281,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17he40d7a6
 8:                                                ; preds = %2
   store ptr null, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %7, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %7, i64 112, i1 false)
   %9 = getelementptr inbounds i8, ptr %3, i64 112
   store i32 %1, ptr %9, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc9964b7ff960a300E"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
@@ -2297,13 +2297,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17he40d7a6
   store ptr inttoptr (i64 8 to ptr), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
   unreachable
 
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4e0a5bb9f2ffa94eE"(ptr nonnull align 8 %4) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4e0a5bb9f2ffa94eE"(ptr nonnull align 8 %4) #12
           to label %20 unwind label %18
 
 17:                                               ; preds = %8
@@ -2313,7 +2313,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17he40d7a6
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 20:                                               ; preds = %15
@@ -2333,7 +2333,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17he4b00e7
 8:                                                ; preds = %2
   store ptr null, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
   %9 = getelementptr inbounds i8, ptr %3, i64 56
   store i32 %1, ptr %9, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h918b5831f869bcdfE"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
@@ -2349,13 +2349,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17he4b00e7
   store ptr inttoptr (i64 8 to ptr), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
   unreachable
 
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hde04df00bcb95717E"(ptr nonnull align 8 %4) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hde04df00bcb95717E"(ptr nonnull align 8 %4) #12
           to label %20 unwind label %18
 
 17:                                               ; preds = %8
@@ -2365,7 +2365,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17he4b00e7
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 20:                                               ; preds = %15
@@ -2385,7 +2385,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hea3625a
 8:                                                ; preds = %2
   store ptr null, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %9 = getelementptr inbounds i8, ptr %3, i64 32
   store i32 %1, ptr %9, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4fffe5f97eb6736aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
@@ -2401,13 +2401,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hea3625a
   store ptr inttoptr (i64 8 to ptr), ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
   unreachable
 
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb868a8cb1d8da9f4E"(ptr nonnull align 8 %4) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb868a8cb1d8da9f4E"(ptr nonnull align 8 %4) #12
           to label %20 unwind label %18
 
 17:                                               ; preds = %8
@@ -2417,7 +2417,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hea3625a
 18:                                               ; preds = %15
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 20:                                               ; preds = %15
@@ -2443,7 +2443,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h117e55c
   store ptr inttoptr (i64 8 to ptr), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %11, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #11
           to label %18 unwind label %23
 
 12:                                               ; preds = %2
@@ -2454,13 +2454,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h117e55c
 14:                                               ; preds = %12
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$GT$17h3c8c40b1f80c5cc3E"(ptr nonnull align 8 %3) #13
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$GT$17h3c8c40b1f80c5cc3E"(ptr nonnull align 8 %3) #12
           to label %22 unwind label %16
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 18:                                               ; preds = %7
@@ -2488,13 +2488,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h117e55c
 23:                                               ; preds = %7
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$GT$17h3c8c40b1f80c5cc3E"(ptr align 8 %1) #13
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$GT$17h3c8c40b1f80c5cc3E"(ptr align 8 %1) #12
           to label %22 unwind label %25
 
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 }
 
@@ -2517,7 +2517,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h21e648f
   store ptr inttoptr (i64 8 to ptr), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %11, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #11
           to label %18 unwind label %23
 
 12:                                               ; preds = %2
@@ -2528,13 +2528,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h21e648f
 14:                                               ; preds = %12
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$GT$17h0436cd89c04544b1E"(ptr nonnull align 8 %3) #13
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$GT$17h0436cd89c04544b1E"(ptr nonnull align 8 %3) #12
           to label %22 unwind label %16
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 18:                                               ; preds = %7
@@ -2562,13 +2562,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h21e648f
 23:                                               ; preds = %7
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$GT$17h0436cd89c04544b1E"(ptr align 8 %1) #13
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$GT$17h0436cd89c04544b1E"(ptr align 8 %1) #12
           to label %22 unwind label %25
 
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 }
 
@@ -2591,7 +2591,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h4160c43
   store ptr inttoptr (i64 8 to ptr), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %11, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #11
           to label %18 unwind label %23
 
 12:                                               ; preds = %2
@@ -2602,13 +2602,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h4160c43
 14:                                               ; preds = %12
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr72drop_in_place$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$GT$17h357ae1b4537a0885E"(ptr nonnull align 8 %3) #13
+  invoke void @"_ZN4core3ptr72drop_in_place$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$GT$17h357ae1b4537a0885E"(ptr nonnull align 8 %3) #12
           to label %22 unwind label %16
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 18:                                               ; preds = %7
@@ -2636,13 +2636,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h4160c43
 23:                                               ; preds = %7
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr72drop_in_place$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$GT$17h357ae1b4537a0885E"(ptr align 8 %1) #13
+  invoke void @"_ZN4core3ptr72drop_in_place$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$GT$17h357ae1b4537a0885E"(ptr align 8 %1) #12
           to label %22 unwind label %25
 
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 }
 
@@ -2665,7 +2665,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h6c92793
   store ptr inttoptr (i64 8 to ptr), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %11, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #11
           to label %18 unwind label %23
 
 12:                                               ; preds = %2
@@ -2676,13 +2676,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h6c92793
 14:                                               ; preds = %12
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr66drop_in_place$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$GT$17hdf265217ab75dfcfE"(ptr nonnull align 8 %3) #13
+  invoke void @"_ZN4core3ptr66drop_in_place$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$GT$17hdf265217ab75dfcfE"(ptr nonnull align 8 %3) #12
           to label %22 unwind label %16
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 18:                                               ; preds = %7
@@ -2710,13 +2710,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h6c92793
 23:                                               ; preds = %7
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr66drop_in_place$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$GT$17hdf265217ab75dfcfE"(ptr align 8 %1) #13
+  invoke void @"_ZN4core3ptr66drop_in_place$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$GT$17hdf265217ab75dfcfE"(ptr align 8 %1) #12
           to label %22 unwind label %25
 
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 }
 
@@ -2739,7 +2739,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h80d2e3f
   store ptr inttoptr (i64 8 to ptr), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %11, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #11
           to label %18 unwind label %23
 
 12:                                               ; preds = %2
@@ -2750,13 +2750,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h80d2e3f
 14:                                               ; preds = %12
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$GT$17h1f1c09674d8869a4E"(ptr nonnull align 8 %3) #13
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$GT$17h1f1c09674d8869a4E"(ptr nonnull align 8 %3) #12
           to label %22 unwind label %16
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 18:                                               ; preds = %7
@@ -2784,13 +2784,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h80d2e3f
 23:                                               ; preds = %7
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$GT$17h1f1c09674d8869a4E"(ptr align 8 %1) #13
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$GT$17h1f1c09674d8869a4E"(ptr align 8 %1) #12
           to label %22 unwind label %25
 
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 }
 
@@ -2813,7 +2813,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h8a4718c
   store ptr inttoptr (i64 8 to ptr), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %11, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #11
           to label %18 unwind label %23
 
 12:                                               ; preds = %2
@@ -2824,13 +2824,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h8a4718c
 14:                                               ; preds = %12
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr66drop_in_place$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$GT$17h5a5c759cd2bdbbdcE"(ptr nonnull align 8 %3) #13
+  invoke void @"_ZN4core3ptr66drop_in_place$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$GT$17h5a5c759cd2bdbbdcE"(ptr nonnull align 8 %3) #12
           to label %22 unwind label %16
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 18:                                               ; preds = %7
@@ -2858,13 +2858,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h8a4718c
 23:                                               ; preds = %7
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr66drop_in_place$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$GT$17h5a5c759cd2bdbbdcE"(ptr align 8 %1) #13
+  invoke void @"_ZN4core3ptr66drop_in_place$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$GT$17h5a5c759cd2bdbbdcE"(ptr align 8 %1) #12
           to label %22 unwind label %25
 
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 }
 
@@ -2887,7 +2887,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h902d4b5
   store ptr inttoptr (i64 8 to ptr), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %11, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #11
           to label %18 unwind label %23
 
 12:                                               ; preds = %2
@@ -2898,13 +2898,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h902d4b5
 14:                                               ; preds = %12
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$pyo3_macros_backend..pyfunction..signature..SignatureItem$GT$17hf7bd02c46e01a24bE"(ptr nonnull align 8 %3) #13
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$pyo3_macros_backend..pyfunction..signature..SignatureItem$GT$17hf7bd02c46e01a24bE"(ptr nonnull align 8 %3) #12
           to label %22 unwind label %16
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 18:                                               ; preds = %7
@@ -2932,13 +2932,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h902d4b5
 23:                                               ; preds = %7
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$pyo3_macros_backend..pyfunction..signature..SignatureItem$GT$17hf7bd02c46e01a24bE"(ptr align 8 %1) #13
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$pyo3_macros_backend..pyfunction..signature..SignatureItem$GT$17hf7bd02c46e01a24bE"(ptr align 8 %1) #12
           to label %22 unwind label %25
 
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 }
 
@@ -2961,7 +2961,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17ha62c278
   store ptr inttoptr (i64 8 to ptr), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %11, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #11
           to label %18 unwind label %23
 
 12:                                               ; preds = %2
@@ -2972,13 +2972,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17ha62c278
 14:                                               ; preds = %12
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %3) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %3) #12
           to label %22 unwind label %16
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 18:                                               ; preds = %7
@@ -3006,13 +3006,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17ha62c278
 23:                                               ; preds = %7
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr align 8 %1) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr align 8 %1) #12
           to label %22 unwind label %25
 
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 }
 
@@ -3035,7 +3035,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hcab2c39
   store ptr inttoptr (i64 8 to ptr), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %11, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #11
           to label %18 unwind label %23
 
 12:                                               ; preds = %2
@@ -3046,13 +3046,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hcab2c39
 14:                                               ; preds = %12
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$GT$17h87ed631bab6b6700E"(ptr nonnull align 8 %3) #13
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$GT$17h87ed631bab6b6700E"(ptr nonnull align 8 %3) #12
           to label %22 unwind label %16
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 18:                                               ; preds = %7
@@ -3080,13 +3080,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hcab2c39
 23:                                               ; preds = %7
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$GT$17h87ed631bab6b6700E"(ptr align 8 %1) #13
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$GT$17h87ed631bab6b6700E"(ptr align 8 %1) #12
           to label %22 unwind label %25
 
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 }
 
@@ -3109,7 +3109,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hcd88637
   store ptr inttoptr (i64 8 to ptr), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %11, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #11
           to label %18 unwind label %23
 
 12:                                               ; preds = %2
@@ -3120,13 +3120,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hcd88637
 14:                                               ; preds = %12
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr80drop_in_place$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$17h2757980dea763a87E"(ptr nonnull align 8 %3) #13
+  invoke void @"_ZN4core3ptr80drop_in_place$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$17h2757980dea763a87E"(ptr nonnull align 8 %3) #12
           to label %22 unwind label %16
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 18:                                               ; preds = %7
@@ -3154,13 +3154,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hcd88637
 23:                                               ; preds = %7
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr80drop_in_place$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$17h2757980dea763a87E"(ptr align 8 %1) #13
+  invoke void @"_ZN4core3ptr80drop_in_place$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$17h2757980dea763a87E"(ptr align 8 %1) #12
           to label %22 unwind label %25
 
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 }
 
@@ -3183,7 +3183,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hdccf1e4
   store ptr inttoptr (i64 8 to ptr), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %11, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #11
           to label %18 unwind label %23
 
 12:                                               ; preds = %2
@@ -3194,13 +3194,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hdccf1e4
 14:                                               ; preds = %12
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$pyo3_macros_backend..module..PyModulePyO3Option$GT$17h237374c7f6b6502aE"(ptr nonnull align 8 %3) #13
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$pyo3_macros_backend..module..PyModulePyO3Option$GT$17h237374c7f6b6502aE"(ptr nonnull align 8 %3) #12
           to label %22 unwind label %16
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 18:                                               ; preds = %7
@@ -3228,13 +3228,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hdccf1e4
 23:                                               ; preds = %7
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$pyo3_macros_backend..module..PyModulePyO3Option$GT$17h237374c7f6b6502aE"(ptr align 8 %1) #13
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$pyo3_macros_backend..module..PyModulePyO3Option$GT$17h237374c7f6b6502aE"(ptr align 8 %1) #12
           to label %22 unwind label %25
 
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 }
 
@@ -3257,7 +3257,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hf27b228
   store ptr inttoptr (i64 8 to ptr), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %11, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #11
           to label %18 unwind label %23
 
 12:                                               ; preds = %2
@@ -3268,13 +3268,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hf27b228
 14:                                               ; preds = %12
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$GT$17h30bf97dfbfc5579cE"(ptr nonnull align 8 %3) #13
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$GT$17h30bf97dfbfc5579cE"(ptr nonnull align 8 %3) #12
           to label %22 unwind label %16
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 18:                                               ; preds = %7
@@ -3302,13 +3302,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hf27b228
 23:                                               ; preds = %7
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$GT$17h30bf97dfbfc5579cE"(ptr align 8 %1) #13
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$GT$17h30bf97dfbfc5579cE"(ptr align 8 %1) #12
           to label %22 unwind label %25
 
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 }
 
@@ -3331,7 +3331,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hfd7ac0a
   store ptr inttoptr (i64 8 to ptr), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %11, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.8) #11
           to label %18 unwind label %23
 
 12:                                               ; preds = %2
@@ -3342,13 +3342,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hfd7ac0a
 14:                                               ; preds = %12
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %3) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %3) #12
           to label %22 unwind label %16
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 18:                                               ; preds = %7
@@ -3376,13 +3376,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hfd7ac0a
 23:                                               ; preds = %7
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr align 8 %1) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr align 8 %1) #12
           to label %22 unwind label %25
 
 25:                                               ; preds = %23
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 }
 
@@ -3499,7 +3499,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %42
   %eh.lpad-body = phi { ptr, i32 } [ %43, %42 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr122drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$GT$$GT$17hc3cd201983c6f357E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr122drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$GT$$GT$17hc3cd201983c6f357E"(ptr nonnull align 8 %10) #12
           to label %56 unwind label %54
 
 20:                                               ; preds = %19
@@ -3544,7 +3544,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 36:                                               ; preds = %34
   store ptr null, ptr %11, align 8
   store ptr %35, ptr %5, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false)
   store i32 %.sroa.014.0.copyload, ptr %18, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha89a2aa794973accE"(ptr nonnull align 8 %10, ptr nonnull align 8 %4)
           to label %44 unwind label %42
@@ -3559,7 +3559,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   store ptr inttoptr (i64 8 to ptr), ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %41, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %37
@@ -3568,7 +3568,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 42:                                               ; preds = %36
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc3ad7a912f9de5e8E"(ptr nonnull align 8 %5) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc3ad7a912f9de5e8E"(ptr nonnull align 8 %5) #12
           to label %.body unwind label %45
 
 44:                                               ; preds = %36
@@ -3578,7 +3578,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 45:                                               ; preds = %42
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h468863a4c480a6b7E.exit": ; preds = %44
@@ -3611,7 +3611,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 54:                                               ; preds = %.body
   %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 56:                                               ; preds = %.body
@@ -3668,7 +3668,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %41
   %eh.lpad-body = phi { ptr, i32 } [ %42, %41 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr125drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$GT$$GT$17ha59a0da55b46266cE"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr125drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$GT$$GT$17ha59a0da55b46266cE"(ptr nonnull align 8 %10) #12
           to label %55 unwind label %53
 
 19:                                               ; preds = %18
@@ -3716,7 +3716,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 35:                                               ; preds = %33
   store ptr null, ptr %11, align 8
   store ptr %34, ptr %5, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %34, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %34, i64 64, i1 false)
   store i32 %.sroa.022.0.copyload, ptr %17, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb8e6b1a9ee359fbbE"(ptr nonnull align 8 %10, ptr nonnull align 8 %4)
           to label %43 unwind label %41
@@ -3731,7 +3731,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   store ptr inttoptr (i64 8 to ptr), ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %40, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %36
@@ -3740,7 +3740,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 41:                                               ; preds = %35
   %42 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h34afbccaa55cdd38E"(ptr nonnull align 8 %5) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h34afbccaa55cdd38E"(ptr nonnull align 8 %5) #12
           to label %.body unwind label %44
 
 43:                                               ; preds = %35
@@ -3750,7 +3750,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 44:                                               ; preds = %41
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hb282da13adccdf6eE.exit": ; preds = %43
@@ -3783,7 +3783,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 53:                                               ; preds = %.body
   %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 55:                                               ; preds = %.body
@@ -3840,7 +3840,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %40
   %eh.lpad-body = phi { ptr, i32 } [ %41, %40 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr123drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$GT$$GT$17hf767cc3ba2c524b6E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr123drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$GT$$GT$17hf767cc3ba2c524b6E"(ptr nonnull align 8 %10) #12
           to label %54 unwind label %52
 
 19:                                               ; preds = %18
@@ -3887,7 +3887,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 34:                                               ; preds = %32
   store ptr null, ptr %11, align 8
   store ptr %33, ptr %5, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %33, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %33, i64 56, i1 false)
   store i32 %.sroa.021.0.copyload, ptr %17, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h918b5831f869bcdfE"(ptr nonnull align 8 %10, ptr nonnull align 8 %4)
           to label %42 unwind label %40
@@ -3902,7 +3902,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   store ptr inttoptr (i64 8 to ptr), ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %39, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %35
@@ -3911,7 +3911,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 40:                                               ; preds = %34
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hde04df00bcb95717E"(ptr nonnull align 8 %5) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hde04df00bcb95717E"(ptr nonnull align 8 %5) #12
           to label %.body unwind label %43
 
 42:                                               ; preds = %34
@@ -3921,7 +3921,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17he4b00e7aeb77bc07E.exit": ; preds = %42
@@ -3954,7 +3954,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 52:                                               ; preds = %.body
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 54:                                               ; preds = %.body
@@ -4011,7 +4011,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %40
   %eh.lpad-body = phi { ptr, i32 } [ %41, %40 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr127drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$syn..token..Comma$GT$$GT$17h950982e5ea6426aeE"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr127drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$syn..token..Comma$GT$$GT$17h950982e5ea6426aeE"(ptr nonnull align 8 %10) #12
           to label %54 unwind label %52
 
 19:                                               ; preds = %18
@@ -4058,7 +4058,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 34:                                               ; preds = %32
   store ptr null, ptr %11, align 8
   store ptr %33, ptr %5, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %33, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %33, i64 56, i1 false)
   store i32 %.sroa.021.0.copyload, ptr %17, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h22786184d8606746E"(ptr nonnull align 8 %10, ptr nonnull align 8 %4)
           to label %42 unwind label %40
@@ -4073,7 +4073,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   store ptr inttoptr (i64 8 to ptr), ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %39, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %35
@@ -4082,7 +4082,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 40:                                               ; preds = %34
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hde94ce924626d40dE"(ptr nonnull align 8 %5) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hde94ce924626d40dE"(ptr nonnull align 8 %5) #12
           to label %.body unwind label %43
 
 42:                                               ; preds = %34
@@ -4092,7 +4092,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h9a5318c9fe251634E.exit": ; preds = %42
@@ -4125,7 +4125,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 52:                                               ; preds = %.body
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 54:                                               ; preds = %.body
@@ -4182,7 +4182,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %40
   %eh.lpad-body = phi { ptr, i32 } [ %41, %40 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$GT$$GT$17h79908d23bd63302bE"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$GT$$GT$17h79908d23bd63302bE"(ptr nonnull align 8 %10) #12
           to label %54 unwind label %52
 
 19:                                               ; preds = %18
@@ -4229,7 +4229,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 34:                                               ; preds = %32
   store ptr null, ptr %11, align 8
   store ptr %33, ptr %5, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %33, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %33, i64 56, i1 false)
   store i32 %.sroa.021.0.copyload, ptr %17, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3e07108c6cbdb868E"(ptr nonnull align 8 %10, ptr nonnull align 8 %4)
           to label %42 unwind label %40
@@ -4244,7 +4244,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   store ptr inttoptr (i64 8 to ptr), ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %39, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %35
@@ -4253,7 +4253,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 40:                                               ; preds = %34
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcc9ac5b71e507e78E"(ptr nonnull align 8 %5) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcc9ac5b71e507e78E"(ptr nonnull align 8 %5) #12
           to label %.body unwind label %43
 
 42:                                               ; preds = %34
@@ -4263,7 +4263,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h60f6a3fe68de67e6E.exit": ; preds = %42
@@ -4296,7 +4296,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 52:                                               ; preds = %.body
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 54:                                               ; preds = %.body
@@ -4351,7 +4351,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %40
   %eh.lpad-body = phi { ptr, i32 } [ %41, %40 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr98drop_in_place$LT$syn..punctuated..Punctuated$LT$proc_macro2..TokenStream$C$syn..token..Not$GT$$GT$17he90e1b2410cf8c41E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr98drop_in_place$LT$syn..punctuated..Punctuated$LT$proc_macro2..TokenStream$C$syn..token..Not$GT$$GT$17he90e1b2410cf8c41E"(ptr nonnull align 8 %10) #12
           to label %54 unwind label %52
 
 19:                                               ; preds = %18
@@ -4397,7 +4397,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 34:                                               ; preds = %32
   store ptr null, ptr %11, align 8
   store ptr %33, ptr %5, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32, i1 false)
   store i32 %.sroa.018.0.copyload, ptr %17, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he650e6f81e902597E"(ptr nonnull align 8 %10, ptr nonnull align 8 %4)
           to label %42 unwind label %40
@@ -4412,7 +4412,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   store ptr inttoptr (i64 8 to ptr), ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %39, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %35
@@ -4421,7 +4421,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 40:                                               ; preds = %34
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h670990a0c10d3ce2E"(ptr nonnull align 8 %5) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h670990a0c10d3ce2E"(ptr nonnull align 8 %5) #12
           to label %.body unwind label %43
 
 42:                                               ; preds = %34
@@ -4431,7 +4431,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h5ec421477311ec43E.exit": ; preds = %42
@@ -4464,7 +4464,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 52:                                               ; preds = %.body
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 54:                                               ; preds = %.body
@@ -4521,7 +4521,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %41
   %eh.lpad-body = phi { ptr, i32 } [ %42, %41 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr123drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$GT$$GT$17hfcd8d8ca0bdd4863E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr123drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$GT$$GT$17hfcd8d8ca0bdd4863E"(ptr nonnull align 8 %10) #12
           to label %55 unwind label %53
 
 19:                                               ; preds = %18
@@ -4569,7 +4569,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 35:                                               ; preds = %33
   store ptr null, ptr %11, align 8
   store ptr %34, ptr %5, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %34, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %34, i64 64, i1 false)
   store i32 %.sroa.022.0.copyload, ptr %17, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc2dd60047a50d818E"(ptr nonnull align 8 %10, ptr nonnull align 8 %4)
           to label %43 unwind label %41
@@ -4584,7 +4584,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   store ptr inttoptr (i64 8 to ptr), ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %40, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %36
@@ -4593,7 +4593,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 41:                                               ; preds = %35
   %42 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h27c815e90bd32350E"(ptr nonnull align 8 %5) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h27c815e90bd32350E"(ptr nonnull align 8 %5) #12
           to label %.body unwind label %44
 
 43:                                               ; preds = %35
@@ -4603,7 +4603,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 44:                                               ; preds = %41
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h65fedf98ff57a554E.exit": ; preds = %43
@@ -4636,7 +4636,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 53:                                               ; preds = %.body
   %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 55:                                               ; preds = %.body
@@ -4693,7 +4693,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %41
   %eh.lpad-body = phi { ptr, i32 } [ %42, %41 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr133drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyfunction..signature..SignatureItem$C$syn..token..Comma$GT$$GT$17h9e9ef3426a949027E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr133drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyfunction..signature..SignatureItem$C$syn..token..Comma$GT$$GT$17h9e9ef3426a949027E"(ptr nonnull align 8 %10) #12
           to label %55 unwind label %53
 
 19:                                               ; preds = %18
@@ -4742,7 +4742,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 35:                                               ; preds = %33
   store ptr null, ptr %11, align 8
   store ptr %34, ptr %5, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %34, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %34, i64 40, i1 false)
   store i32 %.sroa.023.0.copyload, ptr %17, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h787914ee091bcf72E"(ptr nonnull align 8 %10, ptr nonnull align 8 %4)
           to label %43 unwind label %41
@@ -4757,7 +4757,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   store ptr inttoptr (i64 8 to ptr), ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %40, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %36
@@ -4766,7 +4766,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 41:                                               ; preds = %35
   %42 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9b1511d6228cee5E"(ptr nonnull align 8 %5) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9b1511d6228cee5E"(ptr nonnull align 8 %5) #12
           to label %.body unwind label %44
 
 43:                                               ; preds = %35
@@ -4776,7 +4776,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 44:                                               ; preds = %41
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h897ffb88539bd2f9E.exit": ; preds = %43
@@ -4809,7 +4809,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 53:                                               ; preds = %.body
   %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 55:                                               ; preds = %.body
@@ -4863,7 +4863,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %42
   %eh.lpad-body = phi { ptr, i32 } [ %43, %42 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$GT$$GT$17hfebb5398f29226cbE"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$GT$$GT$17hfebb5398f29226cbE"(ptr nonnull align 8 %10) #12
           to label %56 unwind label %54
 
 20:                                               ; preds = %19
@@ -4908,7 +4908,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 36:                                               ; preds = %34
   store ptr null, ptr %11, align 8
   store ptr %35, ptr %5, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false)
   store i32 %.sroa.014.0.copyload, ptr %18, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4fffe5f97eb6736aE"(ptr nonnull align 8 %10, ptr nonnull align 8 %4)
           to label %44 unwind label %42
@@ -4923,7 +4923,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   store ptr inttoptr (i64 8 to ptr), ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %41, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %37
@@ -4932,7 +4932,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 42:                                               ; preds = %36
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb868a8cb1d8da9f4E"(ptr nonnull align 8 %5) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb868a8cb1d8da9f4E"(ptr nonnull align 8 %5) #12
           to label %.body unwind label %45
 
 44:                                               ; preds = %36
@@ -4942,7 +4942,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 45:                                               ; preds = %42
   %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hea3625ae2879eddcE.exit": ; preds = %44
@@ -4975,7 +4975,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 54:                                               ; preds = %.body
   %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 56:                                               ; preds = %.body
@@ -5032,7 +5032,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %40
   %eh.lpad-body = phi { ptr, i32 } [ %41, %40 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr135drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$GT$$GT$17h680aa24e057375c9E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr135drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$GT$$GT$17h680aa24e057375c9E"(ptr nonnull align 8 %10) #12
           to label %54 unwind label %52
 
 19:                                               ; preds = %18
@@ -5079,7 +5079,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 34:                                               ; preds = %32
   store ptr null, ptr %11, align 8
   store ptr %33, ptr %5, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(112) %33, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(112) %33, i64 112, i1 false)
   store i32 %.sroa.021.0.copyload, ptr %17, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc9964b7ff960a300E"(ptr nonnull align 8 %10, ptr nonnull align 8 %4)
           to label %42 unwind label %40
@@ -5094,7 +5094,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   store ptr inttoptr (i64 8 to ptr), ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %39, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %35
@@ -5103,7 +5103,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 40:                                               ; preds = %34
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4e0a5bb9f2ffa94eE"(ptr nonnull align 8 %5) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4e0a5bb9f2ffa94eE"(ptr nonnull align 8 %5) #12
           to label %.body unwind label %43
 
 42:                                               ; preds = %34
@@ -5113,7 +5113,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17he40d7a63713c08eeE.exit": ; preds = %42
@@ -5146,7 +5146,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 52:                                               ; preds = %.body
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 54:                                               ; preds = %.body
@@ -5203,7 +5203,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %40
   %eh.lpad-body = phi { ptr, i32 } [ %41, %40 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr129drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$GT$$GT$17h3f2ebd4f2e6e5146E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr129drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$GT$$GT$17h3f2ebd4f2e6e5146E"(ptr nonnull align 8 %10) #12
           to label %54 unwind label %52
 
 19:                                               ; preds = %18
@@ -5250,7 +5250,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 34:                                               ; preds = %32
   store ptr null, ptr %11, align 8
   store ptr %33, ptr %5, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(112) %33, i64 112, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(112) %33, i64 112, i1 false)
   store i32 %.sroa.021.0.copyload, ptr %17, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5b79deeceab2fddcE"(ptr nonnull align 8 %10, ptr nonnull align 8 %4)
           to label %42 unwind label %40
@@ -5265,7 +5265,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   store ptr inttoptr (i64 8 to ptr), ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %39, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %35
@@ -5274,7 +5274,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 40:                                               ; preds = %34
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f0bc3ef7191dc57E"(ptr nonnull align 8 %5) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f0bc3ef7191dc57E"(ptr nonnull align 8 %5) #12
           to label %.body unwind label %43
 
 42:                                               ; preds = %34
@@ -5284,7 +5284,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h554789c608ccf83aE.exit": ; preds = %42
@@ -5317,7 +5317,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 52:                                               ; preds = %.body
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 54:                                               ; preds = %.body
@@ -5374,7 +5374,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %40
   %eh.lpad-body = phi { ptr, i32 } [ %41, %40 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr133drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$GT$$GT$17h260a3898fe80f045E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr133drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$GT$$GT$17h260a3898fe80f045E"(ptr nonnull align 8 %10) #12
           to label %54 unwind label %52
 
 19:                                               ; preds = %18
@@ -5421,7 +5421,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 34:                                               ; preds = %32
   store ptr null, ptr %11, align 8
   store ptr %33, ptr %5, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %33, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %33, i64 56, i1 false)
   store i32 %.sroa.021.0.copyload, ptr %17, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he9a7846758bba418E"(ptr nonnull align 8 %10, ptr nonnull align 8 %4)
           to label %42 unwind label %40
@@ -5436,7 +5436,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   store ptr inttoptr (i64 8 to ptr), ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %39, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %35
@@ -5445,7 +5445,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 40:                                               ; preds = %34
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9c52181bd2073556E"(ptr nonnull align 8 %5) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9c52181bd2073556E"(ptr nonnull align 8 %5) #12
           to label %.body unwind label %43
 
 42:                                               ; preds = %34
@@ -5455,7 +5455,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h926213e64854c612E.exit": ; preds = %42
@@ -5488,7 +5488,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 52:                                               ; preds = %.body
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 54:                                               ; preds = %.body
@@ -5696,13 +5696,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h2b2803e91c36dd
 11:                                               ; preds = %8, %6
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$syn..generics..WherePredicate$GT$17hfde63dc88597e3b6E"(ptr align 8 %1) #13
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$syn..generics..WherePredicate$GT$17hfde63dc88597e3b6E"(ptr align 8 %1) #12
           to label %10 unwind label %12
 
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 }
 
@@ -5737,7 +5737,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h76bb32bacb21aa
 13:                                               ; preds = %11
   store ptr null, ptr %7, align 8
   store ptr %12, ptr %4, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
   %14 = getelementptr inbounds i8, ptr %3, i64 32
   store i32 %10, ptr %14, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd5c16053f7f2a5e3E"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
@@ -5753,7 +5753,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h76bb32bacb21aa
   store ptr inttoptr (i64 8 to ptr), ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %19, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #12
+  invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.3b94e12f121b73081b4d77df5c0115a4.5) #11
           to label %.noexc unwind label %.body.thread11
 
 .noexc:                                           ; preds = %15
@@ -5762,7 +5762,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h76bb32bacb21aa
 20:                                               ; preds = %13
   %21 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h670990a0c10d3ce2E"(ptr nonnull align 8 %4) #13
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h670990a0c10d3ce2E"(ptr nonnull align 8 %4) #12
           to label %.body.thread unwind label %23
 
 22:                                               ; preds = %13
@@ -5772,7 +5772,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h76bb32bacb21aa
 23:                                               ; preds = %20
   %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 "_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h0da373c3b4ee4513E.exit": ; preds = %22
@@ -5791,13 +5791,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h76bb32bacb21aa
 
 .body.thread:                                     ; preds = %20, %.body.thread11
   %eh.lpad-body10 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread11 ], [ %21, %20 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr align 8 %1) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr align 8 %1) #12
           to label %26 unwind label %27
 
 27:                                               ; preds = %.body.thread
   %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 }
 
@@ -5828,13 +5828,13 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17hbc07c3ad6b1066
 11:                                               ; preds = %8, %6
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$syn..generics..GenericParam$GT$17hfce63517294bdfa7E"(ptr align 8 %1) #13
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$syn..generics..GenericParam$GT$17hfce63517294bdfa7E"(ptr align 8 %1) #12
           to label %10 unwind label %12
 
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 }
 
@@ -5876,7 +5876,7 @@ define align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5first17hb2dd8e
 17:                                               ; preds = %.noexc, %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17hd8cca726d25ea5a0E.exit"
   %18 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr76drop_in_place$LT$syn..punctuated..Iter$LT$syn..path..GenericArgument$GT$$GT$17hf17295305aba95ddE"(ptr nonnull align 8 %2) #13
+  invoke void @"_ZN4core3ptr76drop_in_place$LT$syn..punctuated..Iter$LT$syn..path..GenericArgument$GT$$GT$17hf17295305aba95ddE"(ptr nonnull align 8 %2) #12
           to label %21 unwind label %19
 
 "_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0abfda0a2b7fb59dE.exit": ; preds = %.noexc
@@ -5886,7 +5886,7 @@ define align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5first17hb2dd8e
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 21:                                               ; preds = %17
@@ -6086,7 +6086,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h1d
 
 24:                                               ; preds = %31, %25
   %.pn31 = phi { ptr, i32 } [ %26, %25 ], [ %.pn, %31 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #12
           to label %59 unwind label %57
 
 25:                                               ; preds = %.invoke, %22
@@ -6107,7 +6107,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h1d
 
 31:                                               ; preds = %40, %32
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %41, %40 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #13
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #12
           to label %24 unwind label %57
 
 32:                                               ; preds = %.invoke35, %27
@@ -6137,7 +6137,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h1d
 40:                                               ; preds = %52, %45, %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr98drop_in_place$LT$syn..punctuated..Punctuated$LT$proc_macro2..TokenStream$C$syn..token..Not$GT$$GT$17he90e1b2410cf8c41E"(ptr nonnull align 8 %7) #13
+  invoke void @"_ZN4core3ptr98drop_in_place$LT$syn..punctuated..Punctuated$LT$proc_macro2..TokenStream$C$syn..token..Not$GT$$GT$17he90e1b2410cf8c41E"(ptr nonnull align 8 %7) #12
           to label %31 unwind label %57
 
 42:                                               ; preds = %37
@@ -6184,7 +6184,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h1d
 57:                                               ; preds = %40, %31, %24
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 59:                                               ; preds = %24
@@ -6226,7 +6226,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h33
 
 24:                                               ; preds = %31, %25
   %.pn31 = phi { ptr, i32 } [ %26, %25 ], [ %.pn, %31 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #12
           to label %59 unwind label %57
 
 25:                                               ; preds = %.invoke, %22
@@ -6247,7 +6247,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h33
 
 31:                                               ; preds = %40, %32
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %41, %40 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #13
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #12
           to label %24 unwind label %57
 
 32:                                               ; preds = %.invoke35, %27
@@ -6277,7 +6277,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h33
 40:                                               ; preds = %52, %45, %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr123drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$GT$$GT$17hfcd8d8ca0bdd4863E"(ptr nonnull align 8 %7) #13
+  invoke void @"_ZN4core3ptr123drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$GT$$GT$17hfcd8d8ca0bdd4863E"(ptr nonnull align 8 %7) #12
           to label %31 unwind label %57
 
 42:                                               ; preds = %37
@@ -6324,7 +6324,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h33
 57:                                               ; preds = %40, %31, %24
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 59:                                               ; preds = %24
@@ -6366,7 +6366,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h4f
 
 24:                                               ; preds = %31, %25
   %.pn31 = phi { ptr, i32 } [ %26, %25 ], [ %.pn, %31 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #12
           to label %59 unwind label %57
 
 25:                                               ; preds = %.invoke, %22
@@ -6387,7 +6387,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h4f
 
 31:                                               ; preds = %40, %32
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %41, %40 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #13
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #12
           to label %24 unwind label %57
 
 32:                                               ; preds = %.invoke35, %27
@@ -6417,7 +6417,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h4f
 40:                                               ; preds = %52, %45, %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr123drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$GT$$GT$17hf767cc3ba2c524b6E"(ptr nonnull align 8 %7) #13
+  invoke void @"_ZN4core3ptr123drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$GT$$GT$17hf767cc3ba2c524b6E"(ptr nonnull align 8 %7) #12
           to label %31 unwind label %57
 
 42:                                               ; preds = %37
@@ -6464,7 +6464,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h4f
 57:                                               ; preds = %40, %31, %24
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 59:                                               ; preds = %24
@@ -6506,7 +6506,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h54
 
 24:                                               ; preds = %31, %25
   %.pn31 = phi { ptr, i32 } [ %26, %25 ], [ %.pn, %31 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #12
           to label %59 unwind label %57
 
 25:                                               ; preds = %.invoke, %22
@@ -6527,7 +6527,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h54
 
 31:                                               ; preds = %40, %32
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %41, %40 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #13
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #12
           to label %24 unwind label %57
 
 32:                                               ; preds = %.invoke35, %27
@@ -6557,7 +6557,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h54
 40:                                               ; preds = %52, %45, %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr122drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$GT$$GT$17hc3cd201983c6f357E"(ptr nonnull align 8 %7) #13
+  invoke void @"_ZN4core3ptr122drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$GT$$GT$17hc3cd201983c6f357E"(ptr nonnull align 8 %7) #12
           to label %31 unwind label %57
 
 42:                                               ; preds = %37
@@ -6604,7 +6604,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h54
 57:                                               ; preds = %40, %31, %24
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 59:                                               ; preds = %24
@@ -6646,7 +6646,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h59
 
 24:                                               ; preds = %31, %25
   %.pn31 = phi { ptr, i32 } [ %26, %25 ], [ %.pn, %31 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #12
           to label %59 unwind label %57
 
 25:                                               ; preds = %.invoke, %22
@@ -6667,7 +6667,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h59
 
 31:                                               ; preds = %40, %32
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %41, %40 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #13
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #12
           to label %24 unwind label %57
 
 32:                                               ; preds = %.invoke35, %27
@@ -6697,7 +6697,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h59
 40:                                               ; preds = %52, %45, %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr127drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$syn..token..Comma$GT$$GT$17h950982e5ea6426aeE"(ptr nonnull align 8 %7) #13
+  invoke void @"_ZN4core3ptr127drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$syn..token..Comma$GT$$GT$17h950982e5ea6426aeE"(ptr nonnull align 8 %7) #12
           to label %31 unwind label %57
 
 42:                                               ; preds = %37
@@ -6744,7 +6744,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h59
 57:                                               ; preds = %40, %31, %24
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 59:                                               ; preds = %24
@@ -6786,7 +6786,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h6b
 
 24:                                               ; preds = %31, %25
   %.pn31 = phi { ptr, i32 } [ %26, %25 ], [ %.pn, %31 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #12
           to label %59 unwind label %57
 
 25:                                               ; preds = %.invoke, %22
@@ -6807,7 +6807,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h6b
 
 31:                                               ; preds = %40, %32
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %41, %40 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #13
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #12
           to label %24 unwind label %57
 
 32:                                               ; preds = %.invoke35, %27
@@ -6837,7 +6837,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h6b
 40:                                               ; preds = %52, %45, %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr125drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$GT$$GT$17ha59a0da55b46266cE"(ptr nonnull align 8 %7) #13
+  invoke void @"_ZN4core3ptr125drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$GT$$GT$17ha59a0da55b46266cE"(ptr nonnull align 8 %7) #12
           to label %31 unwind label %57
 
 42:                                               ; preds = %37
@@ -6884,7 +6884,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h6b
 57:                                               ; preds = %40, %31, %24
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 59:                                               ; preds = %24
@@ -6926,7 +6926,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h72
 
 24:                                               ; preds = %31, %25
   %.pn31 = phi { ptr, i32 } [ %26, %25 ], [ %.pn, %31 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #12
           to label %59 unwind label %57
 
 25:                                               ; preds = %.invoke, %22
@@ -6947,7 +6947,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h72
 
 31:                                               ; preds = %40, %32
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %41, %40 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #13
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #12
           to label %24 unwind label %57
 
 32:                                               ; preds = %.invoke35, %27
@@ -6977,7 +6977,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h72
 40:                                               ; preds = %52, %45, %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr129drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$GT$$GT$17h3f2ebd4f2e6e5146E"(ptr nonnull align 8 %7) #13
+  invoke void @"_ZN4core3ptr129drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$GT$$GT$17h3f2ebd4f2e6e5146E"(ptr nonnull align 8 %7) #12
           to label %31 unwind label %57
 
 42:                                               ; preds = %37
@@ -7024,7 +7024,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h72
 57:                                               ; preds = %40, %31, %24
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 59:                                               ; preds = %24
@@ -7066,7 +7066,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h9b
 
 24:                                               ; preds = %31, %25
   %.pn31 = phi { ptr, i32 } [ %26, %25 ], [ %.pn, %31 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #12
           to label %59 unwind label %57
 
 25:                                               ; preds = %.invoke, %22
@@ -7087,7 +7087,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h9b
 
 31:                                               ; preds = %40, %32
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %41, %40 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #13
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #12
           to label %24 unwind label %57
 
 32:                                               ; preds = %.invoke35, %27
@@ -7117,7 +7117,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h9b
 40:                                               ; preds = %52, %45, %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr133drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$GT$$GT$17h260a3898fe80f045E"(ptr nonnull align 8 %7) #13
+  invoke void @"_ZN4core3ptr133drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$GT$$GT$17h260a3898fe80f045E"(ptr nonnull align 8 %7) #12
           to label %31 unwind label %57
 
 42:                                               ; preds = %37
@@ -7164,7 +7164,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h9b
 57:                                               ; preds = %40, %31, %24
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 59:                                               ; preds = %24
@@ -7206,7 +7206,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17ha0
 
 24:                                               ; preds = %31, %25
   %.pn31 = phi { ptr, i32 } [ %26, %25 ], [ %.pn, %31 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #12
           to label %59 unwind label %57
 
 25:                                               ; preds = %.invoke, %22
@@ -7227,7 +7227,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17ha0
 
 31:                                               ; preds = %40, %32
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %41, %40 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #13
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #12
           to label %24 unwind label %57
 
 32:                                               ; preds = %.invoke35, %27
@@ -7257,7 +7257,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17ha0
 40:                                               ; preds = %52, %45, %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr135drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$GT$$GT$17h680aa24e057375c9E"(ptr nonnull align 8 %7) #13
+  invoke void @"_ZN4core3ptr135drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$GT$$GT$17h680aa24e057375c9E"(ptr nonnull align 8 %7) #12
           to label %31 unwind label %57
 
 42:                                               ; preds = %37
@@ -7304,7 +7304,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17ha0
 57:                                               ; preds = %40, %31, %24
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 59:                                               ; preds = %24
@@ -7346,7 +7346,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17hc1
 
 24:                                               ; preds = %31, %25
   %.pn31 = phi { ptr, i32 } [ %26, %25 ], [ %.pn, %31 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #12
           to label %59 unwind label %57
 
 25:                                               ; preds = %.invoke, %22
@@ -7367,7 +7367,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17hc1
 
 31:                                               ; preds = %40, %32
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %41, %40 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #13
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #12
           to label %24 unwind label %57
 
 32:                                               ; preds = %.invoke35, %27
@@ -7397,7 +7397,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17hc1
 40:                                               ; preds = %52, %45, %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$GT$$GT$17h79908d23bd63302bE"(ptr nonnull align 8 %7) #13
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$GT$$GT$17h79908d23bd63302bE"(ptr nonnull align 8 %7) #12
           to label %31 unwind label %57
 
 42:                                               ; preds = %37
@@ -7444,7 +7444,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17hc1
 57:                                               ; preds = %40, %31, %24
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 59:                                               ; preds = %24
@@ -7486,7 +7486,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17hee
 
 24:                                               ; preds = %31, %25
   %.pn31 = phi { ptr, i32 } [ %26, %25 ], [ %.pn, %31 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #13
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$syn..buffer..TokenBuffer$GT$17h2c6142c4fce37ed4E"(ptr nonnull align 8 %10) #12
           to label %59 unwind label %57
 
 25:                                               ; preds = %.invoke, %22
@@ -7507,7 +7507,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17hee
 
 31:                                               ; preds = %40, %32
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %41, %40 ]
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #13
+  invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h6fca0589d55d42dfE"(ptr nonnull align 8 %8) #12
           to label %24 unwind label %57
 
 32:                                               ; preds = %.invoke35, %27
@@ -7537,7 +7537,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17hee
 40:                                               ; preds = %52, %45, %37
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr121drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$GT$$GT$17hfebb5398f29226cbE"(ptr nonnull align 8 %7) #13
+  invoke void @"_ZN4core3ptr121drop_in_place$LT$syn..punctuated..Punctuated$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$GT$$GT$17hfebb5398f29226cbE"(ptr nonnull align 8 %7) #12
           to label %31 unwind label %57
 
 42:                                               ; preds = %37
@@ -7584,7 +7584,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17hee
 57:                                               ; preds = %40, %31, %24
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
   unreachable
 
 59:                                               ; preds = %24
@@ -7723,7 +7723,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -7755,7 +7755,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -7787,7 +7787,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -7819,7 +7819,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -7851,7 +7851,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -7883,7 +7883,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -7915,7 +7915,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -7947,7 +7947,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -8210,7 +8210,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h07d0a96eb4f2260
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -8241,7 +8241,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h3fc0d8c09768ee6
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -8272,7 +8272,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h579e56df1849fce
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -8303,7 +8303,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h770791efc858b52
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -8334,7 +8334,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h8d215f3346131d6
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -8365,7 +8365,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h9e6ac8c6cd77d20
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -8399,7 +8399,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17hb795e61d9920eca
   br i1 %15, label %16, label %.loopexit
 
 16:                                               ; preds = %13
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -8430,7 +8430,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17hce87652a33290f8
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -8461,7 +8461,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17hdc97f1b699f1072
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #15
+  tail call void @"_ZN4core3num7nonzero16NonZero$LT$T$GT$13new_unchecked18precondition_check17he33296d5805251a9E"() #14
   unreachable
 }
 
@@ -10797,17 +10797,14 @@ declare void @_ZN4core3ops8function6FnOnce9call_once17h757a7535f75991ceE(ptr sre
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare void @_ZN4core3ops8function6FnOnce9call_once17h4daf4273514219cdE(ptr sret([16 x i8]) align 8, ptr align 8) unnamed_addr #2
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -10818,13 +10815,12 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { inlinehint nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { noreturn }
-attributes #13 = { cold }
-attributes #14 = { cold noreturn nounwind }
-attributes #15 = { nounwind }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { noreturn }
+attributes #12 = { cold }
+attributes #13 = { cold noreturn nounwind }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

@@ -6182,22 +6182,22 @@ _ZN7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_14EvalAFTNLogLikINS_
 
 .noexc.i:                                         ; preds = %_ZN7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_14EvalAFTNLogLikINS_6common18NormalDistributionEEEE6ReduceERKNS_7ContextERKNS_16HostDeviceVectorIfEESD_SD_SD_.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !55
-  %112 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %113 = load ptr, ptr %112, align 8, !noalias !58
-  store i64 1, ptr %4, align 8, !noalias !58
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !58
-  %114 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %114, align 8, !noalias !58
-  %115 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %14, ptr %115, align 8, !noalias !58
-  %116 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !55
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !55
+  %112 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %14, ptr %112, align 8, !noalias !55
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !55
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !55
+  %113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %114 = load ptr, ptr %113, align 8, !noalias !58
+  %115 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %115, align 8, !noalias !58
+  %116 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %14, ptr %116, align 8, !noalias !58
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !58
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !58
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %15, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(64) %113, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %15, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(64) %114, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !55
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 
@@ -8052,22 +8052,22 @@ _ZN7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_14EvalAFTNLogLikINS_
 
 .noexc.i:                                         ; preds = %_ZN7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_14EvalAFTNLogLikINS_6common20LogisticDistributionEEEE6ReduceERKNS_7ContextERKNS_16HostDeviceVectorIfEESD_SD_SD_.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !91
-  %112 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %113 = load ptr, ptr %112, align 8, !noalias !94
-  store i64 1, ptr %4, align 8, !noalias !94
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !94
-  %114 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %114, align 8, !noalias !94
-  %115 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %14, ptr %115, align 8, !noalias !94
-  %116 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !91
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !91
+  %112 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %14, ptr %112, align 8, !noalias !91
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !91
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !91
+  %113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %114 = load ptr, ptr %113, align 8, !noalias !94
+  %115 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %115, align 8, !noalias !94
+  %116 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %14, ptr %116, align 8, !noalias !94
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !94
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !94
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %15, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(64) %113, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %15, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(64) %114, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !91
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 
@@ -9448,22 +9448,22 @@ _ZN7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_14EvalAFTNLogLikINS_
 
 .noexc.i:                                         ; preds = %_ZN7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_14EvalAFTNLogLikINS_6common19ExtremeDistributionEEEE6ReduceERKNS_7ContextERKNS_16HostDeviceVectorIfEESD_SD_SD_.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !120
-  %112 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %113 = load ptr, ptr %112, align 8, !noalias !123
-  store i64 1, ptr %4, align 8, !noalias !123
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !123
-  %114 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %114, align 8, !noalias !123
-  %115 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %14, ptr %115, align 8, !noalias !123
-  %116 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !120
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !120
+  %112 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %14, ptr %112, align 8, !noalias !120
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !120
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !120
+  %113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %114 = load ptr, ptr %113, align 8, !noalias !123
+  %115 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %115, align 8, !noalias !123
+  %116 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %14, ptr %116, align 8, !noalias !123
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !123
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !123
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %15, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(64) %113, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %15, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(64) %114, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !120
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 
@@ -11934,22 +11934,22 @@ _ZN7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_30EvalIntervalRegres
 
 .noexc.i:                                         ; preds = %_ZN7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_30EvalIntervalRegressionAccuracyEE6ReduceERKNS_7ContextERKNS_16HostDeviceVectorIfEESA_SA_SA_.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !208
-  %112 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
-  %113 = load ptr, ptr %112, align 8, !noalias !211
-  store i64 1, ptr %4, align 8, !noalias !211
-  %.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.0.i.sroa.4.0..sroa_idx, align 8, !noalias !211
-  %114 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 2, ptr %114, align 8, !noalias !211
-  %115 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %14, ptr %115, align 8, !noalias !211
-  %116 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 1, ptr %4, align 8, !noalias !208
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !208
+  %112 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %14, ptr %112, align 8, !noalias !208
+  %.sroa.9.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 2, ptr %.sroa.9.32..sroa_idx, align 8, !noalias !208
+  %.sroa.10.32..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
+  store i32 -65536, ptr %.sroa.10.32..sroa_idx, align 8, !noalias !208
+  %113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
+  %114 = load ptr, ptr %113, align 8, !noalias !211
+  %115 = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 2, ptr %115, align 8, !noalias !211
+  %116 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %14, ptr %116, align 8, !noalias !211
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 2, ptr %.sroa.6.i.sroa.4.0..sroa_idx, align 8, !noalias !211
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
-  store i32 -65536, ptr %.sroa.6.i.sroa.5.0..sroa_idx, align 8, !noalias !211
-  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %15, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(64) %113, ptr noundef nonnull %4, i32 noundef 2)
+  call void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %15, ptr noundef %107, ptr noundef nonnull align 8 dereferenceable(64) %114, ptr noundef nonnull %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !208
   br label %_ZN7xgboost10collective9GlobalSumIdLi1EEENS0_6ResultEPKNS_7ContextERKNS_8MetaInfoENS_6linalg10TensorViewIT_XT0_EEE.exit
 

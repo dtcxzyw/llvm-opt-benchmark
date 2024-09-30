@@ -5570,7 +5570,7 @@ define hidden void @"_ZN11tungstenite8protocol23WebSocket$LT$Stream$GT$15from_ra
           to label %13 unwind label %11
 
 9:                                                ; preds = %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %10, ptr noundef nonnull align 8 dereferenceable(256) %5, i64 256, i1 false)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
@@ -5604,7 +5604,7 @@ define hidden void @"_ZN11tungstenite8protocol23WebSocket$LT$Stream$GT$19from_pa
           to label %14 unwind label %12
 
 10:                                               ; preds = %5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %11, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
@@ -6925,7 +6925,7 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %23 = extractvalue { i64, i64 } %18, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %24 = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0, i64 40, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
@@ -7015,7 +7015,7 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %23 = extractvalue { i64, i64 } %18, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %24 = getelementptr inbounds i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0, i64 40, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
@@ -7078,11 +7078,12 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %12 = alloca { { ptr, i64 }, i64 }, align 8
   %13 = alloca { { { { { { i64, ptr }, ptr }, i32, [1 x i32] } } }, ptr, ptr }, align 8
   %14 = alloca { { { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, ptr, i16, i8, {}, [5 x i8] }, { ptr, [2 x i64] } }, align 8
-  %.sroa.4.sroa.032 = alloca [11 x i64], align 8
+  %.sroa.4.sroa.032.sroa.0 = alloca [5 x i64], align 8
+  %.sroa.4.sroa.032.sroa.4 = alloca [5 x i64], align 8
   %.sroa.4.sroa.7 = alloca [12 x i64], align 8
   %15 = alloca { { { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, ptr, i16, i8, {}, [5 x i8] }, { ptr, [2 x i64] } }, align 8
   %16 = alloca { i64, [18 x i64] }, align 8
-  %.sroa.620.sroa.10 = alloca [16 x i64], align 8
+  %.sroa.620.sroa.11 = alloca [16 x i64], align 8
   %17 = alloca { i64, [16 x i64] }, align 8
   %18 = alloca { i64, [1 x i64] }, align 8
   %19 = alloca { i64, i64 }, align 8
@@ -7220,7 +7221,7 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
 
 66:                                               ; preds = %61
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %.sroa.620.sroa.10)
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %.sroa.620.sroa.11)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %16)
   %67 = load ptr, ptr %20, align 8, !alias.scope !897, !nonnull !5, !noundef !5
   %68 = getelementptr inbounds i8, ptr %20, i64 16
@@ -7243,8 +7244,8 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %.sroa.620.sroa.0.0.copyload = load i64, ptr %76, align 8
   %.sroa.620.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
   %.sroa.620.sroa.7.0.copyload = load i64, ptr %.sroa.620.sroa.7.0..sroa_idx, align 8
-  %.sroa.620.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.620.sroa.10, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.620.sroa.10.0..sroa_idx, i64 128, i1 false)
+  %.sroa.620.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.620.sroa.11, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.620.sroa.11.0..sroa_idx, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %16)
   %.not.not = icmp eq i64 %.sroa.620.sroa.7.0.copyload, 3
   br i1 %.not.not, label %86, label %80
@@ -7253,24 +7254,24 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %.sroa.620.sroa.0.0.copyload286 = load i64, ptr %76, align 8
   %.sroa.620.sroa.7.0..sroa_idx288 = getelementptr inbounds i8, ptr %16, i64 16
   %.sroa.620.sroa.7.0.copyload289 = load i64, ptr %.sroa.620.sroa.7.0..sroa_idx288, align 8
-  %.sroa.620.sroa.10.0..sroa_idx293 = getelementptr inbounds i8, ptr %16, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.620.sroa.10, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.620.sroa.10.0..sroa_idx293, i64 120, i1 false)
+  %.sroa.620.sroa.11.0..sroa_idx294 = getelementptr inbounds i8, ptr %16, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.620.sroa.11, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.620.sroa.11.0..sroa_idx294, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %16)
   %79 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.620.sroa.0.0.copyload286, ptr %79, align 8
   %.sroa.620.sroa.7.0..sroa_idx290 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.620.sroa.7.0.copyload289, ptr %.sroa.620.sroa.7.0..sroa_idx290, align 8
-  %.sroa.620.sroa.10.0..sroa_idx294 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.620.sroa.10.0..sroa_idx294, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.620.sroa.10, i64 120, i1 false)
+  %.sroa.620.sroa.11.0..sroa_idx295 = getelementptr inbounds i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.620.sroa.11.0..sroa_idx295, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.620.sroa.11, i64 120, i1 false)
   store i64 5, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %.sroa.620.sroa.10)
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %.sroa.620.sroa.11)
   br label %116
 
 80:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %15)
   store i64 %.sroa.620.sroa.7.0.copyload, ptr %15, align 8
-  %.sroa.620.sroa.10.8..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.620.sroa.10.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.620.sroa.10, i64 128, i1 false)
+  %.sroa.620.sroa.11.8..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.620.sroa.11.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.620.sroa.11, i64 128, i1 false)
   %81 = load i64, ptr %68, align 8, !alias.scope !903, !noundef !5
   %82 = load i64, ptr %70, align 8, !alias.scope !908, !noundef !5
   %83 = call i64 @llvm.usub.sat.i64(i64 %81, i64 %82)
@@ -7285,11 +7286,12 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   unreachable
 
 86:                                               ; preds = %77
-  %.sroa.027.48..sroa_idx = getelementptr inbounds i8, ptr %.sroa.4.sroa.032, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.027.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.sroa.032.sroa.4, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false)
   %87 = load i64, ptr %19, align 8, !noundef !5
   %88 = load i64, ptr %39, align 8, !noundef !5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.sroa.032, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.sroa.032.sroa.0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
+  %.sroa.4.sroa.032.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
+  %.sroa.4.sroa.032.sroa.3.0.copyload297 = load i64, ptr %.sroa.4.sroa.032.sroa.3.0..sroa_idx, align 8
   br label %99
 
 89:                                               ; preds = %80
@@ -7297,8 +7299,8 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   store i64 %90, ptr %70, align 8, !alias.scope !908
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %14)
   store i64 %.sroa.620.sroa.7.0.copyload, ptr %14, align 8
-  %.sroa.620.sroa.10.8..sroa_idx295 = getelementptr inbounds i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.620.sroa.10.8..sroa_idx295, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.620.sroa.10, i64 128, i1 false)
+  %.sroa.620.sroa.11.8..sroa_idx296 = getelementptr inbounds i8, ptr %14, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.620.sroa.11.8..sroa_idx296, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.620.sroa.11, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
@@ -7315,17 +7317,16 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
 
 93:                                               ; preds = %89
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
-  %.sroa.4.sroa.032.40..sroa_idx = getelementptr inbounds i8, ptr %.sroa.4.sroa.032, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.sroa.032.40..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %14, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.sroa.032.sroa.4, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.620.sroa.11, i64 40, i1 false)
   %.sroa.4.sroa.5.40..sroa_idx = getelementptr inbounds i8, ptr %14, i64 48
   %.sroa.4.sroa.5.40.copyload = load i64, ptr %.sroa.4.sroa.5.40..sroa_idx, align 8
   %.sroa.4.sroa.6.40..sroa_idx = getelementptr inbounds i8, ptr %14, i64 56
   %.sroa.4.sroa.6.40.copyload = load i64, ptr %.sroa.4.sroa.6.40..sroa_idx, align 8
-  %.sroa.4.sroa.7.40..sroa_idx = getelementptr inbounds i8, ptr %14, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.sroa.7, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.sroa.7.40..sroa_idx, i64 72, i1 false)
+  %.sroa.620.sroa.11.72..sroa_idx = getelementptr inbounds i8, ptr %.sroa.620.sroa.11, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.sroa.7, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.620.sroa.11.72..sroa_idx, i64 72, i1 false)
   %.sroa.022.0.copyload = load i64, ptr %13, align 8
   %.sroa.4.0..sroa_idx23 = getelementptr inbounds i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.sroa.032, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.0..sroa_idx23, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.sroa.032.sroa.0, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.0..sroa_idx23, i64 40, i1 false)
   %.sroa.4.sroa.7.176..sroa_idx = getelementptr inbounds i8, ptr %.sroa.4.sroa.7, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.sroa.7.176..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
@@ -7351,19 +7352,24 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
           to label %.thread223 unwind label %94
 
 99:                                               ; preds = %86, %93
-  %.sroa.6.sroa.7.0 = phi i64 [ %.sroa.4.sroa.6.40.copyload, %93 ], [ %88, %86 ]
-  %.sroa.6.sroa.6.0 = phi i64 [ %.sroa.4.sroa.5.40.copyload, %93 ], [ %87, %86 ]
-  %.sroa.014.0 = phi i64 [ %.sroa.022.0.copyload, %93 ], [ 4, %86 ]
+  %.sroa.4.sroa.032.sroa.3.0 = phi i64 [ %.sroa.4.sroa.032.sroa.3.0.copyload297, %86 ], [ %.sroa.620.sroa.7.0.copyload, %93 ]
+  %.sroa.6.sroa.7.0 = phi i64 [ %88, %86 ], [ %.sroa.4.sroa.6.40.copyload, %93 ]
+  %.sroa.6.sroa.6.0 = phi i64 [ %87, %86 ], [ %.sroa.4.sroa.5.40.copyload, %93 ]
+  %.sroa.014.0 = phi i64 [ 4, %86 ], [ %.sroa.022.0.copyload, %93 ]
   store i64 %.sroa.014.0, ptr %0, align 8
   %.sroa.6.0..sroa_idx16 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.6.0..sroa_idx16, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.4.sroa.032, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx16, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.sroa.032.sroa.0, i64 40, i1 false)
+  %.sroa.4.sroa.032.sroa.3.0..sroa.6.0..sroa_idx16.sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %.sroa.4.sroa.032.sroa.3.0, ptr %.sroa.4.sroa.032.sroa.3.0..sroa.6.0..sroa_idx16.sroa_idx, align 8
+  %.sroa.4.sroa.032.sroa.4.0..sroa.6.0..sroa_idx16.sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.sroa.032.sroa.4.0..sroa.6.0..sroa_idx16.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.sroa.032.sroa.4, i64 40, i1 false)
   %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx16.sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
   store i64 %.sroa.6.sroa.6.0, ptr %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx16.sroa_idx, align 8
   %.sroa.6.sroa.7.0..sroa.6.0..sroa_idx16.sroa_idx = getelementptr inbounds i8, ptr %0, i64 104
   store i64 %.sroa.6.sroa.7.0, ptr %.sroa.6.sroa.7.0..sroa.6.0..sroa_idx16.sroa_idx, align 8
   %.sroa.717.0..sroa_idx18 = getelementptr inbounds i8, ptr %0, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.717.0..sroa_idx18, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.4.sroa.7, i64 96, i1 false)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %.sroa.620.sroa.10)
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %.sroa.620.sroa.11)
   br label %100
 
 100:                                              ; preds = %99, %54
@@ -7725,13 +7731,13 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %12 = alloca { { ptr, i64 }, i64 }, align 8
   %13 = alloca { { { { { i64, ptr }, ptr }, i32, [1 x i32] } }, ptr, ptr }, align 8
   %14 = alloca { { { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, ptr, i8, {}, [7 x i8] }, {} }, align 8
-  %.sroa.433.sroa.0 = alloca [11 x i64], align 8
+  %.sroa.433.sroa.0.sroa.0 = alloca [5 x i64], align 8
+  %.sroa.433.sroa.0.sroa.4 = alloca [5 x i64], align 8
   %.sroa.433.sroa.7 = alloca [23 x i64], align 8
   %15 = alloca { { { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, ptr, i8, {}, [7 x i8] }, {} }, align 8
   %16 = alloca { [1 x i64], i64, [27 x i64] }, align 8
   %.sroa.724 = alloca [17 x i64], align 8
-  %.sroa.6 = alloca [17 x i64], align 8
-  %.sroa.7 = alloca [10 x i64], align 8
+  %.sroa.7 = alloca [27 x i64], align 8
   %17 = alloca { i64, [16 x i64] }, align 8
   %18 = alloca { i64, [1 x i64] }, align 8
   %19 = alloca { i64, i64 }, align 8
@@ -7869,8 +7875,7 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
 
 66:                                               ; preds = %61
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %16)
   %67 = load ptr, ptr %20, align 8, !alias.scope !985, !nonnull !5, !noundef !5
   %68 = getelementptr inbounds i8, ptr %20, i64 16
@@ -7894,9 +7899,10 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %.sroa.5117.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.724, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.5117.0..sroa_idx, i64 136, i1 false)
   %.sroa.6118.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6118.0..sroa_idx, i64 80, i1 false)
+  %.sroa.7.152..sroa_idx = getelementptr inbounds i8, ptr %.sroa.7, i64 136
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.7.152..sroa_idx, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6118.0..sroa_idx, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %16)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.724, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.724, i64 136, i1 false)
   %.not.not = icmp eq i64 %76, 3
   br i1 %.not.not, label %88, label %82
 
@@ -7907,17 +7913,14 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   %81 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %81, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.724, i64 136, i1 false)
   store i64 5, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %.sroa.7)
   br label %117
 
 82:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %15)
   store i64 %76, ptr %15, align 8
-  %.sroa.6.8..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6, i64 136, i1 false)
-  %.sroa.7.8..sroa_idx = getelementptr inbounds i8, ptr %15, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.7.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.7, i64 80, i1 false)
+  %.sroa.7.8..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.7.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.7, i64 216, i1 false)
   %83 = load i64, ptr %68, align 8, !alias.scope !992, !noundef !5
   %84 = load i64, ptr %70, align 8, !alias.scope !997, !noundef !5
   %85 = call i64 @llvm.usub.sat.i64(i64 %83, i64 %84)
@@ -7932,11 +7935,12 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   unreachable
 
 88:                                               ; preds = %78
-  %.sroa.037.48..sroa_idx = getelementptr inbounds i8, ptr %.sroa.433.sroa.0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.037.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.433.sroa.0.sroa.4, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false)
   %89 = load i64, ptr %19, align 8, !noundef !5
   %90 = load i64, ptr %39, align 8, !noundef !5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.433.sroa.0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.433.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
+  %.sroa.433.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
+  %.sroa.433.sroa.0.sroa.3.0.copyload301 = load i64, ptr %.sroa.433.sroa.0.sroa.3.0..sroa_idx, align 8
   br label %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17hc443d3f8574976f0E.exit"
 
 91:                                               ; preds = %82
@@ -7944,10 +7948,8 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
   store i64 %92, ptr %70, align 8, !alias.scope !997
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %14)
   store i64 %76, ptr %14, align 8
-  %.sroa.6.8..sroa_idx299 = getelementptr inbounds i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6.8..sroa_idx299, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.6, i64 136, i1 false)
-  %.sroa.7.8..sroa_idx300 = getelementptr inbounds i8, ptr %14, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.7.8..sroa_idx300, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.7, i64 80, i1 false)
+  %.sroa.7.8..sroa_idx300 = getelementptr inbounds i8, ptr %14, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.7.8..sroa_idx300, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.7, i64 216, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
@@ -7964,17 +7966,16 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
 
 95:                                               ; preds = %91
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
-  %.sroa.433.sroa.0.40..sroa_idx = getelementptr inbounds i8, ptr %.sroa.433.sroa.0, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.433.sroa.0.40..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %14, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.433.sroa.0.sroa.4, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.7, i64 40, i1 false)
   %.sroa.433.sroa.5.40..sroa_idx = getelementptr inbounds i8, ptr %14, i64 48
   %.sroa.433.sroa.5.40.copyload = load i64, ptr %.sroa.433.sroa.5.40..sroa_idx, align 8
   %.sroa.433.sroa.6.40..sroa_idx = getelementptr inbounds i8, ptr %14, i64 56
   %.sroa.433.sroa.6.40.copyload = load i64, ptr %.sroa.433.sroa.6.40..sroa_idx, align 8
-  %.sroa.433.sroa.7.40..sroa_idx = getelementptr inbounds i8, ptr %14, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.433.sroa.7, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.433.sroa.7.40..sroa_idx, i64 160, i1 false)
+  %.sroa.7.72..sroa_idx = getelementptr inbounds i8, ptr %.sroa.7, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.433.sroa.7, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.7.72..sroa_idx, i64 160, i1 false)
   %.sroa.032.0.copyload = load i64, ptr %13, align 8
   %.sroa.433.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.433.sroa.0, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.433.0..sroa_idx, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.433.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.433.0..sroa_idx, i64 40, i1 false)
   %.sroa.433.sroa.7.264..sroa_idx = getelementptr inbounds i8, ptr %.sroa.433.sroa.7, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.433.sroa.7.264..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
@@ -8000,20 +8001,24 @@ define hidden void @"_ZN11tungstenite9handshake7machine30HandshakeMachine$LT$Str
           to label %.thread235 unwind label %96
 
 "_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17hc443d3f8574976f0E.exit": ; preds = %88, %95
-  %.sroa.6.sroa.6.0 = phi i64 [ %.sroa.433.sroa.5.40.copyload, %95 ], [ %89, %88 ]
-  %.sroa.6.sroa.7.0 = phi i64 [ %.sroa.433.sroa.6.40.copyload, %95 ], [ %90, %88 ]
-  %.sroa.014.0 = phi i64 [ %.sroa.032.0.copyload, %95 ], [ 4, %88 ]
+  %.sroa.433.sroa.0.sroa.3.0 = phi i64 [ %.sroa.433.sroa.0.sroa.3.0.copyload301, %88 ], [ %76, %95 ]
+  %.sroa.6.sroa.6.0 = phi i64 [ %89, %88 ], [ %.sroa.433.sroa.5.40.copyload, %95 ]
+  %.sroa.6.sroa.7.0 = phi i64 [ %90, %88 ], [ %.sroa.433.sroa.6.40.copyload, %95 ]
+  %.sroa.014.0 = phi i64 [ 4, %88 ], [ %.sroa.032.0.copyload, %95 ]
   store i64 %.sroa.014.0, ptr %0, align 8
   %.sroa.6.0..sroa_idx16 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.6.0..sroa_idx16, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.433.sroa.0, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx16, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.433.sroa.0.sroa.0, i64 40, i1 false)
+  %.sroa.433.sroa.0.sroa.3.0..sroa.6.0..sroa_idx16.sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %.sroa.433.sroa.0.sroa.3.0, ptr %.sroa.433.sroa.0.sroa.3.0..sroa.6.0..sroa_idx16.sroa_idx, align 8
+  %.sroa.433.sroa.0.sroa.4.0..sroa.6.0..sroa_idx16.sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.433.sroa.0.sroa.4.0..sroa.6.0..sroa_idx16.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.433.sroa.0.sroa.4, i64 40, i1 false)
   %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx16.sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
   store i64 %.sroa.6.sroa.6.0, ptr %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx16.sroa_idx, align 8
   %.sroa.6.sroa.7.0..sroa.6.0..sroa_idx16.sroa_idx = getelementptr inbounds i8, ptr %0, i64 104
   store i64 %.sroa.6.sroa.7.0, ptr %.sroa.6.sroa.7.0..sroa.6.0..sroa_idx16.sroa_idx, align 8
   %.sroa.717.0..sroa_idx18 = getelementptr inbounds i8, ptr %0, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.sroa.717.0..sroa_idx18, ptr noundef nonnull align 8 dereferenceable(184) %.sroa.433.sroa.7, i64 184, i1 false)
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %.sroa.7)
   br label %101
 
 101:                                              ; preds = %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17hc443d3f8574976f0E.exit", %54

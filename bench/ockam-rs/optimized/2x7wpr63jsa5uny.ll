@@ -1931,8 +1931,8 @@ default.unreachable35:                            ; preds = %1
 
 76:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(i64 1384, ptr nonnull %2), !noalias !305
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1384) %2, ptr noundef nonnull align 8 dereferenceable(1384) %4, i64 1384, i1 false), !noalias !308
-  %77 = load i64, ptr %73, align 8, !range !309, !alias.scope !310, !noalias !313, !noundef !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1384) %2, ptr noundef nonnull align 8 dereferenceable(1384) %6, i64 1384, i1 false)
+  %77 = load i64, ptr %73, align 8, !range !308, !alias.scope !309, !noalias !312, !noundef !5
   %trunc.i.i.i = trunc nuw i64 %77 to i1
   %78 = getelementptr inbounds i8, ptr %73, i64 8
   br i1 %trunc.i.i.i, label %81, label %79
@@ -1949,12 +1949,12 @@ default.unreachable35:                            ; preds = %1
   %lpad.thr_comm.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr197drop_in_place$LT$futures_util..abortable..Abortable$LT$ockam_node..delayed..DelayedEvent$LT$alloc..vec..Vec$LT$u8$GT$$GT$..schedule..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he5cc0ddcb5aa2854E"(ptr noundef nonnull align 8 %4) #22
-          to label %.thread8 unwind label %84, !noalias !308
+          to label %.thread8 unwind label %84, !noalias !314
 
 84:                                               ; preds = %83
   %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #23, !noalias !308
+  call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #23, !noalias !314
   unreachable
 
 86:                                               ; preds = %81, %79
@@ -23732,13 +23732,13 @@ attributes #24 = { nounwind }
 !305 = !{!303, !306, !300, !307}
 !306 = distinct !{!306, !304, !"_ZN5tokio7runtime6handle6Handle11spawn_named17haae3c3eb57ca4fe4E.llvm.12508057877380552112: argument 1"}
 !307 = distinct !{!307, !301, !"_ZN5tokio7runtime6handle6Handle5spawn17hdec1ff57456a9df4E: argument 1"}
-!308 = !{!303, !300}
-!309 = !{i64 0, i64 2}
-!310 = !{!311, !303, !300}
-!311 = distinct !{!311, !312, !"_ZN5tokio7runtime9scheduler6Handle5spawn17hfc15497d8ee6b8d7E: argument 0"}
-!312 = distinct !{!312, !"_ZN5tokio7runtime9scheduler6Handle5spawn17hfc15497d8ee6b8d7E"}
-!313 = !{!314, !306, !307}
-!314 = distinct !{!314, !312, !"_ZN5tokio7runtime9scheduler6Handle5spawn17hfc15497d8ee6b8d7E: argument 1"}
+!308 = !{i64 0, i64 2}
+!309 = !{!310, !303, !300}
+!310 = distinct !{!310, !311, !"_ZN5tokio7runtime9scheduler6Handle5spawn17hfc15497d8ee6b8d7E: argument 0"}
+!311 = distinct !{!311, !"_ZN5tokio7runtime9scheduler6Handle5spawn17hfc15497d8ee6b8d7E"}
+!312 = !{!313, !306, !307}
+!313 = distinct !{!313, !311, !"_ZN5tokio7runtime9scheduler6Handle5spawn17hfc15497d8ee6b8d7E: argument 1"}
+!314 = !{!303, !300}
 !315 = !{!316, !318}
 !316 = distinct !{!316, !317, !"_ZN89_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h989e96d7c444628dE.llvm.12663281897316000666: argument 0"}
 !317 = distinct !{!317, !"_ZN89_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h989e96d7c444628dE.llvm.12663281897316000666"}

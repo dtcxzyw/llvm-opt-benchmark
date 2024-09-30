@@ -16,7 +16,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hbf904280ad9054e9E
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr344drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..serialize..Candidate$C$alloc..vec..Vec$LT$cranelift_isle..serialize..Candidate$GT$..extend_trusted$LT$core..array..iter..IntoIter$LT$cranelift_isle..serialize..Candidate$C$2_usize$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h60bf0c62073210bcE"(ptr nonnull align 8 %3) #8
+  invoke void @"_ZN4core3ptr344drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..serialize..Candidate$C$alloc..vec..Vec$LT$cranelift_isle..serialize..Candidate$GT$..extend_trusted$LT$core..array..iter..IntoIter$LT$cranelift_isle..serialize..Candidate$C$2_usize$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h60bf0c62073210bcE"(ptr nonnull align 8 %3) #7
           to label %9 unwind label %12
 
 8:                                                ; preds = %2
@@ -25,7 +25,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hbf904280ad9054e9E
 
 9:                                                ; preds = %10, %6
   %.pn.i = phi { ptr, i32 } [ %11, %10 ], [ %7, %6 ]
-  invoke void @"_ZN4core3ptr102drop_in_place$LT$core..array..iter..IntoIter$LT$cranelift_isle..serialize..Candidate$C$2_usize$GT$$GT$17hc738f423b7cf0cfbE"(ptr nonnull align 8 %0) #8
+  invoke void @"_ZN4core3ptr102drop_in_place$LT$core..array..iter..IntoIter$LT$cranelift_isle..serialize..Candidate$C$2_usize$GT$$GT$17hc738f423b7cf0cfbE"(ptr nonnull align 8 %0) #7
           to label %14 unwind label %12
 
 10:                                               ; preds = %8
@@ -36,7 +36,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hbf904280ad9054e9E
 12:                                               ; preds = %9, %6
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #9
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8
   unreachable
 
 14:                                               ; preds = %9
@@ -86,7 +86,7 @@ define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr344drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..serialize..Candidate$C$alloc..vec..Vec$LT$cranelift_isle..serialize..Candidate$GT$..extend_trusted$LT$core..array..iter..IntoIter$LT$cranelift_isle..serialize..Candidate$C$2_usize$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h60bf0c62073210bcE"(ptr nonnull align 8 %1) #8
+  invoke void @"_ZN4core3ptr344drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..serialize..Candidate$C$alloc..vec..Vec$LT$cranelift_isle..serialize..Candidate$GT$..extend_trusted$LT$core..array..iter..IntoIter$LT$cranelift_isle..serialize..Candidate$C$2_usize$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h60bf0c62073210bcE"(ptr nonnull align 8 %1) #7
           to label %9 unwind label %13
 
 8:                                                ; preds = %2
@@ -95,7 +95,7 @@ define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core
 
 9:                                                ; preds = %10, %6
   %.pn = phi { ptr, i32 } [ %11, %10 ], [ %7, %6 ]
-  invoke void @"_ZN4core3ptr102drop_in_place$LT$core..array..iter..IntoIter$LT$cranelift_isle..serialize..Candidate$C$2_usize$GT$$GT$17hc738f423b7cf0cfbE"(ptr nonnull align 8 %0) #8
+  invoke void @"_ZN4core3ptr102drop_in_place$LT$core..array..iter..IntoIter$LT$cranelift_isle..serialize..Candidate$C$2_usize$GT$$GT$17hc738f423b7cf0cfbE"(ptr nonnull align 8 %0) #7
           to label %15 unwind label %13
 
 10:                                               ; preds = %8
@@ -110,7 +110,7 @@ define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core
 13:                                               ; preds = %9, %6
   %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #9
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8
   unreachable
 
 15:                                               ; preds = %9
@@ -129,7 +129,7 @@ define i8 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..
 7:                                                ; preds = %2
   %8 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$core..array..iter..IntoIter$LT$bool$C$32_usize$GT$$GT$17h983ea0199d509fb5E"(ptr nonnull align 8 %0) #8
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$core..array..iter..IntoIter$LT$bool$C$32_usize$GT$$GT$17h983ea0199d509fb5E"(ptr nonnull align 8 %0) #7
           to label %12 unwind label %10
 
 9:                                                ; preds = %2
@@ -139,7 +139,7 @@ define i8 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #9
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8
   unreachable
 
 12:                                               ; preds = %7
@@ -169,7 +169,7 @@ define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core
   %7 = icmp ult i64 %1, 2
   tail call void @llvm.assume(i1 %7)
   %8 = getelementptr inbounds { [3 x i64] }, ptr %6, i64 %1
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h929ce1c3975b0e4fE"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
   ret void
 }
@@ -222,9 +222,6 @@ declare i8 @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h929ce1c3975b0e4fE"(ptr align 8, ptr align 8) unnamed_addr #0
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
-
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -232,9 +229,8 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { cold }
-attributes #9 = { cold noreturn nounwind }
+attributes #7 = { cold }
+attributes #8 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

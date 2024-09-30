@@ -43770,7 +43770,7 @@ _ZN4llvm8ExpectedIPN5clang22ObjCImplementationDeclEED2Ev.exit: ; preds = %390
   store ptr %.sink.i258, ptr %0, align 8
   br label %.critedge86
 
-.critedge86:                                      ; preds = %_ZN4llvm8ExpectedIPN5clang22ObjCImplementationDeclEED2Ev.exit.thread, %346, %399, %.critedge86.loopexit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i193
+.critedge86:                                      ; preds = %_ZN4llvm8ExpectedIPN5clang22ObjCImplementationDeclEED2Ev.exit.thread, %346, %.critedge86.loopexit, %399, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i193
   %401 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #23
   %402 = load ptr, ptr %17, align 8
   %403 = icmp eq ptr %402, %266
@@ -92087,10 +92087,10 @@ _ZSt8distanceIN5clang17ConstStmtIteratorEENSt15iterator_traitsIT_E15difference_t
   br label %_ZN4llvm15SmallVectorImplIPKN5clang4StmtEE7reserveEm.exit
 
 _ZN4llvm15SmallVectorImplIPKN5clang4StmtEE7reserveEm.exit: ; preds = %_ZSt8distanceIN5clang17ConstStmtIteratorEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit, %29
-  %31 = load ptr, ptr %0, align 8
-  %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  %31 = load ptr, ptr %0, align 8
+  %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %4, align 8
   %35 = icmp ne ptr %34, %.sroa.06.sroa.0.0.copyload

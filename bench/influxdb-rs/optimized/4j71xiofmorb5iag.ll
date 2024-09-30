@@ -1394,7 +1394,7 @@ define hidden void @"_ZN3csv6writer15Writer$LT$W$GT$3new17hef22d92ebda15527E"(pt
   %20 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %20, ptr noundef nonnull align 8 dereferenceable(288) %5, i64 288, i1 false)
   %21 = getelementptr inbounds i8, ptr %0, i64 352
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %22 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr %16, ptr %22, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 328

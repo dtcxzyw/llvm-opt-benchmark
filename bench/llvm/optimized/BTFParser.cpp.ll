@@ -2934,7 +2934,7 @@ _ZN4llvm5ErrorD2Ev.exit42:                        ; preds = %182
   store ptr %141, ptr %0, align 8, !alias.scope !219
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN4llvm5ErrorD2Ev.exit42, %.critedge.loopexit, %182, %170, %._crit_edge.thread
+.critedge:                                        ; preds = %.critedge.loopexit, %_ZN4llvm5ErrorD2Ev.exit42, %182, %170, %._crit_edge.thread
   %184 = load ptr, ptr %85, align 8
   %185 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %186 = load i32, ptr %185, align 8

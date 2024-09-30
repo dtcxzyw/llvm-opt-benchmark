@@ -17,7 +17,7 @@ define dso_local noundef ptr @find_executable_path() local_unnamed_addr #0 {
 
 get_executable_path_raw.exit.thread:              ; preds = %0
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2)
-  br label %30
+  br label %28
 
 get_executable_path_raw.exit.thread33:            ; preds = %0
   %4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
@@ -52,51 +52,46 @@ get_executable_path_raw.exit31:                   ; preds = %get_executable_path
   %.not = icmp slt i32 %5, 1
   br i1 %.not, label %.preheader.preheader, label %.lr.ph
 
-.lr.ph:                                           ; preds = %get_executable_path_raw.exit31, %21
-  %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %get_executable_path_raw.exit31 ]
+.lr.ph:                                           ; preds = %get_executable_path_raw.exit31, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %get_executable_path_raw.exit31 ]
   %17 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 92
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %.lr.ph
-  store i8 47, ptr %17, align 1
-  br label %21
-
-21:                                               ; preds = %.lr.ph, %20
+  %spec.store.select = select i1 %19, i8 47, i8 %18
+  store i8 %spec.store.select, ptr %17, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %15
   br i1 %exitcond.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !7
 
-.preheader.preheader:                             ; preds = %21, %get_executable_path_raw.exit31
+.preheader.preheader:                             ; preds = %.lr.ph, %get_executable_path_raw.exit31
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %23
-  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %23 ], [ %15, %.preheader.preheader ]
-  %22 = icmp sgt i64 %indvars.iv40, 0
-  br i1 %22, label %23, label %29
+.preheader:                                       ; preds = %.preheader.preheader, %21
+  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %21 ], [ %15, %.preheader.preheader ]
+  %20 = icmp sgt i64 %indvars.iv40, 0
+  br i1 %20, label %21, label %27
 
-23:                                               ; preds = %.preheader
+21:                                               ; preds = %.preheader
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, -1
-  %24 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.next41
-  %25 = load i8, ptr %24, align 1
-  switch i8 %25, label %.preheader [
-    i8 47, label %26
-    i8 92, label %26
+  %22 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.next41
+  %23 = load i8, ptr %22, align 1
+  switch i8 %23, label %.preheader [
+    i8 47, label %24
+    i8 92, label %24
   ], !llvm.loop !9
 
-26:                                               ; preds = %23, %23
-  %27 = and i64 %indvars.iv40, 4294967295
-  %28 = getelementptr inbounds i8, ptr %8, i64 %27
-  store i8 0, ptr %28, align 1
-  br label %30
+24:                                               ; preds = %21, %21
+  %25 = and i64 %indvars.iv40, 4294967295
+  %26 = getelementptr inbounds i8, ptr %8, i64 %25
+  store i8 0, ptr %26, align 1
+  br label %28
 
-29:                                               ; preds = %.preheader
+27:                                               ; preds = %.preheader
   store i8 0, ptr %16, align 1
-  br label %30
+  br label %28
 
-30:                                               ; preds = %get_executable_path_raw.exit.thread, %29, %26
-  %.025 = phi ptr [ %8, %26 ], [ %8, %29 ], [ @.str, %get_executable_path_raw.exit.thread ]
+28:                                               ; preds = %get_executable_path_raw.exit.thread, %27, %24
+  %.025 = phi ptr [ %8, %24 ], [ %8, %27 ], [ @.str, %get_executable_path_raw.exit.thread ]
   ret ptr %.025
 }
 

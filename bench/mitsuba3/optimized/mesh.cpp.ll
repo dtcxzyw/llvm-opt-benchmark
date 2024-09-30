@@ -1715,7 +1715,7 @@ _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findB8ne190000E
           to label %.lr.ph.i.preheader unwind label %_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13MeshAttributeD2Ev.exit72.thread
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.preheader.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %101, ptr nonnull align 4 %100, i64 %98, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %101, ptr align 1 %96, i64 %98, i1 false)
   br label %_ZN5drjit12DynamicArrayIfEC2ERKS1_.exit
 
 _ZN5drjit12DynamicArrayIfEC2ERKS1_.exit:          ; preds = %.lr.ph.i.preheader, %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findB8ne190000EPKcm.exit66.thread

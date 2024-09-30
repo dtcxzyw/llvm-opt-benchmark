@@ -21610,7 +21610,6 @@ if.then.i.i:                                      ; preds = %do.end
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i, %do.end
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %path4, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
   %start_time = getelementptr inbounds i8, ptr %call_args, i64 48
   store double 0.000000e+00, ptr %start_time, align 8
   %deadline = getelementptr inbounds i8, ptr %call_args, i64 56
@@ -21635,7 +21634,7 @@ invoke.cont:                                      ; preds = %if.then.i.i, %do.en
   %pollent.i = getelementptr inbounds i8, ptr %agg.tmp10, i64 8
   store ptr %4, ptr %pollent.i, align 8
   %path.i = getelementptr inbounds i8, ptr %agg.tmp10, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %path.i, ptr noundef nonnull align 8 dereferenceable(32) %path4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %path.i, ptr noundef nonnull align 8 dereferenceable(32) %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %path4, i8 0, i64 32, i1 false), !noalias !281
   %start_time.i = getelementptr inbounds i8, ptr %agg.tmp10, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %start_time.i, ptr noundef nonnull align 8 dereferenceable(40) %start_time, i64 40, i1 false)

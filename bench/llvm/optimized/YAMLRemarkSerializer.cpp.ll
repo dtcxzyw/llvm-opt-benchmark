@@ -1460,7 +1460,6 @@ define linkonce_odr hidden void @_ZN4llvm4yaml13MappingTraitsIPNS_7remarks6Remar
   %43 = alloca %"struct.std::pair.75", align 8
   %44 = alloca %"struct.std::pair.75", align 8
   %45 = alloca %"struct.std::pair.75", align 8
-  %.sroa.053 = alloca %"struct.std::_Optional_payload.17", align 8
   %46 = load ptr, ptr %1, align 8
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 1
@@ -1555,7 +1554,8 @@ define linkonce_odr hidden void @_ZN4llvm4yaml13MappingTraitsIPNS_7remarks6Remar
   %108 = load i32, ptr %45, align 8
   %109 = load ptr, ptr %1, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.053, ptr noundef nonnull align 8 dereferenceable(32) %110, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %110, i64 32, i1 false)
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 88
   %.sroa.03.0.copyload = load i64, ptr %111, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 96
@@ -1563,7 +1563,6 @@ define linkonce_odr hidden void @_ZN4llvm4yaml13MappingTraitsIPNS_7remarks6Remar
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 104
   %113 = load ptr, ptr %112, align 8
   %114 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %112) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38)
@@ -1572,7 +1571,6 @@ define linkonce_odr hidden void @_ZN4llvm4yaml13MappingTraitsIPNS_7remarks6Remar
   store ptr %113, ptr %41, align 8
   %.sroa.252.0..sroa_idx = getelementptr inbounds i8, ptr %41, i64 8
   store i64 %114, ptr %.sroa.252.0..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.053, i64 32, i1 false)
   store i64 %.sroa.03.0.copyload, ptr %37, align 8
   %115 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i8 %.sroa.24.0.copyload, ptr %115, align 8

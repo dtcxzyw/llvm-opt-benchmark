@@ -1705,7 +1705,7 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !248, !noalias !251, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds { i64, [2 x i64] }, ptr %15, i64 %13
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %17 = load i64, ptr %3, align 8, !alias.scope !248, !noalias !251, !noundef !4
   %18 = add i64 %17, 1
   store i64 %18, ptr %3, align 8, !alias.scope !248, !noalias !251
@@ -1915,7 +1915,7 @@ define noundef nonnull ptr @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$marku
   %.0 = phi ptr [ %.fca.0.extract.i.i.i, %32 ], [ null, %5 ]
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 72
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6), !noalias !273
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %.sroa.5.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.5, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %.sroa.5.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   %22 = zext i1 %4 to i8

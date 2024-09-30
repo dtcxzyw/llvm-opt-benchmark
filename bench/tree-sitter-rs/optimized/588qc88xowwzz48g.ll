@@ -168,7 +168,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf43cf66ca7fa7124E.exit.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfe93da408aff3015E.exit.i.i", %44
   %48 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !62, !noalias !63, !nonnull !15, !noundef !15
   %49 = getelementptr inbounds { { i32, i32 }, { ptr, [3 x i64] }, i8, i8, [6 x i8] }, ptr %48, i64 %45
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
   %50 = add i64 %45, 1
   store i64 %50, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !62, !noalias !63
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !61
@@ -664,7 +664,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17hbe9b6b734d4e83c4E"
   unreachable
 
 23:                                               ; preds = %15, %17
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %11, ptr noundef nonnull align 8 dereferenceable(136) %2, i64 136, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %11, ptr noundef nonnull align 8 dereferenceable(136) %2, i64 136, i1 false)
   %24 = add i64 %5, 1
   store i64 %24, ptr %4, align 8
   ret void

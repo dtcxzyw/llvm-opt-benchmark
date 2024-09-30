@@ -5946,7 +5946,7 @@ define hidden void @"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$3new17hf1ca8
   %10 = extractvalue { i64, ptr } %6, 0
   %11 = extractvalue { i64, ptr } %6, 1
   %12 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %2, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 64

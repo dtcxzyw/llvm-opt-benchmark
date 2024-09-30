@@ -2484,7 +2484,6 @@ entry:
   %ref.tmp = alloca %"class.std::vector.71", align 8
   %ref.tmp4 = alloca %"class.std::vector.71", align 8
   %ref.tmp25 = alloca %"class.std::vector.71", align 8
-  %ref.tmp27.sroa.0 = alloca [4 x i64], align 8
   %curr = alloca %"class.std::vector", align 8
   %ref.tmp46 = alloca %"class.std::vector.71", align 8
   %ref.tmp48.sroa.0 = alloca [4 x i64], align 8
@@ -2718,13 +2717,12 @@ for.body21.i.i.i:                                 ; preds = %for.cond19.i.i.i
   br i1 %cmp.i16.i.i.i, label %if.then24, label %for.cond19.i.i.i
 
 if.then24:                                        ; preds = %for.body21.i.i.i, %for.body.i.i.i, %if.end16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 32, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp25, align 8
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 32
   %_M_end_of_storage.i.i63 = getelementptr inbounds i8, ptr %ref.tmp25, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i63, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i2.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27.sroa.0, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call5.i.i.i.i2.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 32, i1 false)
   %_M_finish.i.i65 = getelementptr inbounds i8, ptr %ref.tmp25, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i65, align 8
   %_M_finish.i.i66 = getelementptr inbounds i8, ptr %paths, i64 8

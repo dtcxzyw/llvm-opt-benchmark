@@ -14873,32 +14873,30 @@ _ZN4llvm11raw_ostreamlsEPKc.exit25:               ; preds = %.lr.ph.i.i.i.i, %3,
 define internal fastcc void @_ZN12_GLOBAL__N_113ClobberWalker11addSearchesEPN4llvm9MemoryPhiERNS1_15SmallVectorImplIjEEj(ptr noundef nonnull align 8 dereferenceable(2384) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.(anonymous namespace)::ClobberWalker::DefPath", align 8
   %6 = alloca %"class.llvm::upward_defs_iterator", align 8
-  %.sroa.219 = alloca %"class.llvm::MemoryLocation", align 8
   %7 = alloca %"class.llvm::upward_defs_iterator", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = zext i32 %3 to i64
   %.val = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds %"struct.(anonymous namespace)::ClobberWalker::DefPath", ptr %.val, i64 %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.219, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 0, ptr %14, align 8, !alias.scope !249
-  store i64 -1, ptr %13, align 8, !alias.scope !249
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false), !alias.scope !249
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store ptr %1, ptr %16, align 8, !alias.scope !249
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store i32 0, ptr %17, align 8, !alias.scope !249
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.219, i64 48, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 0, ptr %15, align 8, !alias.scope !249
+  store i64 -1, ptr %14, align 8, !alias.scope !249
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false), !alias.scope !249
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store ptr %1, ptr %17, align 8, !alias.scope !249
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store i32 0, ptr %18, align 8, !alias.scope !249
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store ptr %1, ptr %19, align 8, !alias.scope !249
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store ptr %12, ptr %20, align 8, !alias.scope !249
+  store ptr %13, ptr %20, align 8, !alias.scope !249
   store ptr null, ptr %6, align 8, !alias.scope !249
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN4llvm17upward_defs_beginERKSt4pairIPNS_12MemoryAccessENS_14MemoryLocationEERNS_13DominatorTreeE.exit, label %21

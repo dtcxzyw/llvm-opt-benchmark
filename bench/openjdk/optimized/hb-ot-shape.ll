@@ -3169,30 +3169,30 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit.i.i.i: ; preds = %742, %733
 
 .lr.ph.preheader.i.i66.i:                         ; preds = %747
   %wide.trip.count.i.i67.i = zext i32 %727 to i64
+  %748 = load i32, ptr %6, align 4
   br label %.lr.ph.i.i68.i
 
 .lr.ph.i.i68.i:                                   ; preds = %_ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.thread.i.i.i, %.lr.ph.preheader.i.i66.i
   %indvars.iv.i.i69.i = phi i64 [ 0, %.lr.ph.preheader.i.i66.i ], [ %indvars.iv.next.i.i72.i, %_ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.thread.i.i.i ]
-  %748 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %728, i64 %indvars.iv.i.i69.i
-  %749 = getelementptr inbounds i8, ptr %748, i64 16
-  %750 = load i16, ptr %749, align 4
-  %751 = and i16 %750, 32
-  %.not.i18.i.i70.i = icmp eq i16 %751, 0
+  %749 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %728, i64 %indvars.iv.i.i69.i
+  %750 = getelementptr inbounds i8, ptr %749, i64 16
+  %751 = load i16, ptr %750, align 4
+  %752 = and i16 %751, 32
+  %.not.i18.i.i70.i = icmp eq i16 %752, 0
   br i1 %.not.i18.i.i70.i, label %_ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.thread.i.i.i, label %_ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.i.i.i
 
 _ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.i.i.i: ; preds = %.lr.ph.i.i68.i
-  %752 = getelementptr i8, ptr %748, i64 12
-  %.val.i.i.i71.i = load i16, ptr %752, align 4
-  %753 = and i16 %.val.i.i.i71.i, 16
-  %.not2.i.i.i.i = icmp eq i16 %753, 0
-  br i1 %.not2.i.i.i.i, label %754, label %_ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.thread.i.i.i
+  %753 = getelementptr i8, ptr %749, i64 12
+  %.val.i.i.i71.i = load i16, ptr %753, align 4
+  %754 = and i16 %.val.i.i.i71.i, 16
+  %.not2.i.i.i.i = icmp eq i16 %754, 0
+  br i1 %.not2.i.i.i.i, label %755, label %_ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.thread.i.i.i
 
-754:                                              ; preds = %_ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.i.i.i
-  %755 = load i32, ptr %6, align 4
-  store i32 %755, ptr %748, align 4
+755:                                              ; preds = %_ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.i.i.i
+  store i32 %748, ptr %749, align 4
   br label %_ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.thread.i.i.i
 
-_ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.thread.i.i.i: ; preds = %754, %_ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.i.i.i, %.lr.ph.i.i68.i
+_ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.thread.i.i.i: ; preds = %755, %_ZL35_hb_glyph_info_is_default_ignorablePK15hb_glyph_info_t.exit.i.i.i, %.lr.ph.i.i68.i
   %indvars.iv.next.i.i72.i = add nuw nsw i64 %indvars.iv.i.i69.i, 1
   %exitcond.not.i.i73.i = icmp eq i64 %indvars.iv.next.i.i72.i, %wide.trip.count.i.i67.i
   br i1 %exitcond.not.i.i73.i, label %_ZL29hb_ot_hide_default_ignorablesP11hb_buffer_tP9hb_font_t.exit.i.i, label %.lr.ph.i.i68.i, !llvm.loop !35

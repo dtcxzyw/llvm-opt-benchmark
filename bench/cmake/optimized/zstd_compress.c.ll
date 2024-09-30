@@ -2307,23 +2307,23 @@ define dso_local void @ZSTD_adjustCParams(ptr dead_on_unwind noalias nocapture w
   %spec.select = tail call i32 @llvm.umin.i32(i32 %.sroa.0.0.copyload3, i32 31)
   %.sroa.0.0 = select i1 %4, i32 10, i32 %spec.select
   %5 = icmp slt i32 %.sroa.6.0.copyload5, 6
-  %spec.select40 = tail call i32 @llvm.umin.i32(i32 %.sroa.6.0.copyload5, i32 30)
-  %.sroa.6.0 = select i1 %5, i32 6, i32 %spec.select40
+  %spec.select34 = tail call i32 @llvm.umin.i32(i32 %.sroa.6.0.copyload5, i32 30)
+  %.sroa.6.0 = select i1 %5, i32 6, i32 %spec.select34
   %6 = icmp slt i32 %.sroa.8.0.copyload7, 6
-  %spec.select41 = tail call i32 @llvm.umin.i32(i32 %.sroa.8.0.copyload7, i32 30)
-  %.sroa.8.0 = select i1 %6, i32 6, i32 %spec.select41
+  %spec.select35 = tail call i32 @llvm.umin.i32(i32 %.sroa.8.0.copyload7, i32 30)
+  %.sroa.8.0 = select i1 %6, i32 6, i32 %spec.select35
   %7 = icmp slt i32 %.sroa.10.0.copyload9, 1
-  %spec.select42 = tail call i32 @llvm.umin.i32(i32 %.sroa.10.0.copyload9, i32 30)
-  %.sroa.10.0 = select i1 %7, i32 1, i32 %spec.select42
+  %spec.select36 = tail call i32 @llvm.umin.i32(i32 %.sroa.10.0.copyload9, i32 30)
+  %.sroa.10.0 = select i1 %7, i32 1, i32 %spec.select36
   %8 = icmp slt i32 %.sroa.12.0.copyload11, 3
-  %spec.select43 = tail call i32 @llvm.umin.i32(i32 %.sroa.12.0.copyload11, i32 7)
-  %.sroa.12.0 = select i1 %8, i32 3, i32 %spec.select43
+  %spec.select37 = tail call i32 @llvm.umin.i32(i32 %.sroa.12.0.copyload11, i32 7)
+  %.sroa.12.0 = select i1 %8, i32 3, i32 %spec.select37
   %9 = icmp slt i32 %.sroa.14.0.copyload13, 0
-  %spec.select44 = tail call i32 @llvm.umin.i32(i32 %.sroa.14.0.copyload13, i32 131072)
-  %.sroa.14.0 = select i1 %9, i32 0, i32 %spec.select44
+  %spec.select38 = tail call i32 @llvm.umin.i32(i32 %.sroa.14.0.copyload13, i32 131072)
+  %.sroa.14.0 = select i1 %9, i32 0, i32 %spec.select38
   %10 = icmp slt i32 %.sroa.16.0.copyload15, 1
-  %spec.select45 = tail call i32 @llvm.umin.i32(i32 %.sroa.16.0.copyload15, i32 9)
-  %.sroa.16.0 = select i1 %10, i32 1, i32 %spec.select45
+  %spec.select39 = tail call i32 @llvm.umin.i32(i32 %.sroa.16.0.copyload15, i32 9)
+  %.sroa.16.0 = select i1 %10, i32 1, i32 %spec.select39
   store i32 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx10, align 8
   store i32 %.sroa.14.0, ptr %.sroa.14.0..sroa_idx12, align 4
   %11 = icmp eq i64 %2, 0
@@ -2342,78 +2342,78 @@ define dso_local void @ZSTD_adjustCParams(ptr dead_on_unwind noalias nocapture w
   %20 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %21 = sub nuw nsw i32 32, %20
   %22 = select i1 %17, i32 6, i32 %21
-  %spec.select46 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.0, i32 %22)
+  %spec.store.select40.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.0, i32 %22)
   br label %.thread.i
 
 23:                                               ; preds = %.sink.split.i
   %.not.i = icmp eq i64 %spec.store.select, -1
-  br i1 %.not.i, label %.thread, label %.thread.i
+  br i1 %.not.i, label %43, label %.thread.i
 
-.thread.i:                                        ; preds = %15, %23
-  %.sroa.018.0 = phi i32 [ %.sroa.0.0, %23 ], [ %spec.select46, %15 ]
-  %24 = icmp eq i64 %3, 0
-  br i1 %24, label %ZSTD_dictAndWindowLog.exit.i, label %25
+.thread.i:                                        ; preds = %23, %15
+  %24 = phi i32 [ %spec.store.select40.i, %15 ], [ %.sroa.0.0, %23 ]
+  %25 = icmp eq i64 %3, 0
+  br i1 %25, label %ZSTD_dictAndWindowLog.exit.i, label %26
 
-25:                                               ; preds = %.thread.i
-  %26 = zext nneg i32 %.sroa.018.0 to i64
-  %27 = shl nuw nsw i64 1, %26
-  %28 = add i64 %27, %3
-  %29 = add i64 %spec.store.select, %3
-  %.not.i.i = icmp ult i64 %27, %29
-  br i1 %.not.i.i, label %30, label %ZSTD_dictAndWindowLog.exit.i
+26:                                               ; preds = %.thread.i
+  %27 = zext nneg i32 %24 to i64
+  %28 = shl nuw nsw i64 1, %27
+  %29 = add i64 %28, %3
+  %30 = add i64 %spec.store.select, %3
+  %.not.i.i = icmp ult i64 %28, %30
+  br i1 %.not.i.i, label %31, label %ZSTD_dictAndWindowLog.exit.i
 
-30:                                               ; preds = %25
-  %31 = icmp ugt i64 %28, 2147483647
-  br i1 %31, label %ZSTD_dictAndWindowLog.exit.i, label %32
+31:                                               ; preds = %26
+  %32 = icmp ugt i64 %29, 2147483647
+  br i1 %32, label %ZSTD_dictAndWindowLog.exit.i, label %33
 
-32:                                               ; preds = %30
-  %33 = trunc nuw nsw i64 %28 to i32
-  %34 = add nsw i32 %33, -1
-  %35 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %34, i1 true)
-  %36 = sub nuw nsw i32 32, %35
+33:                                               ; preds = %31
+  %34 = trunc nuw nsw i64 %29 to i32
+  %35 = add nsw i32 %34, -1
+  %36 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %35, i1 true)
+  %37 = sub nuw nsw i32 32, %36
   br label %ZSTD_dictAndWindowLog.exit.i
 
-ZSTD_dictAndWindowLog.exit.i:                     ; preds = %32, %30, %25, %.thread.i
-  %.0.i.i = phi i32 [ %36, %32 ], [ %.sroa.018.0, %.thread.i ], [ %.sroa.018.0, %25 ], [ 31, %30 ]
-  %37 = icmp ugt i32 %.sroa.16.0, 5
-  %.neg.i.i = sext i1 %37 to i32
-  %38 = add nsw i32 %.sroa.6.0, %.neg.i.i
-  %39 = add nuw nsw i32 %.0.i.i, 1
-  %spec.select48 = tail call i32 @llvm.umin.i32(i32 %.sroa.8.0, i32 %39)
-  %40 = icmp ugt i32 %38, %.0.i.i
-  %41 = sub nsw i32 %.0.i.i, %.neg.i.i
-  %.sroa.820.0 = select i1 %40, i32 %41, i32 %.sroa.6.0
-  %spec.select50 = tail call i32 @llvm.umax.i32(i32 %.sroa.018.0, i32 10)
-  br label %.thread
+ZSTD_dictAndWindowLog.exit.i:                     ; preds = %33, %31, %26, %.thread.i
+  %.0.i.i = phi i32 [ %37, %33 ], [ %24, %.thread.i ], [ %24, %26 ], [ 31, %31 ]
+  %38 = icmp ugt i32 %.sroa.16.0, 5
+  %.neg.i.i = sext i1 %38 to i32
+  %39 = add nsw i32 %.sroa.6.0, %.neg.i.i
+  %40 = add nuw nsw i32 %.0.i.i, 1
+  %spec.store.select41.i = tail call i32 @llvm.umin.i32(i32 %.sroa.8.0, i32 %40)
+  %41 = icmp ugt i32 %39, %.0.i.i
+  %42 = sub nsw i32 %.0.i.i, %.neg.i.i
+  %spec.select40 = select i1 %41, i32 %42, i32 %.sroa.6.0
+  br label %43
 
-.thread:                                          ; preds = %ZSTD_dictAndWindowLog.exit.i, %23
-  %.sroa.1023.139 = phi i32 [ %.sroa.8.0, %23 ], [ %spec.select48, %ZSTD_dictAndWindowLog.exit.i ]
-  %.sroa.820.038 = phi i32 [ %.sroa.6.0, %23 ], [ %.sroa.820.0, %ZSTD_dictAndWindowLog.exit.i ]
-  %.sroa.018.2 = phi i32 [ %.sroa.0.0, %23 ], [ %spec.select50, %ZSTD_dictAndWindowLog.exit.i ]
-  %42 = add nsw i32 %.sroa.16.0, -6
-  %43 = icmp ult i32 %42, -3
-  br i1 %43, label %ZSTD_adjustCParams_internal.exit, label %44
+43:                                               ; preds = %ZSTD_dictAndWindowLog.exit.i, %23
+  %.sroa.720.0 = phi i32 [ %.sroa.6.0, %23 ], [ %spec.select40, %ZSTD_dictAndWindowLog.exit.i ]
+  %.sroa.9.0 = phi i32 [ %.sroa.8.0, %23 ], [ %spec.store.select41.i, %ZSTD_dictAndWindowLog.exit.i ]
+  %44 = phi i32 [ %.sroa.0.0, %23 ], [ %24, %ZSTD_dictAndWindowLog.exit.i ]
+  %45 = add nsw i32 %.sroa.16.0, -6
+  %46 = icmp ult i32 %45, -3
+  br i1 %46, label %ZSTD_adjustCParams_internal.exit, label %47
 
-44:                                               ; preds = %.thread
-  %45 = tail call i32 @llvm.umin.i32(i32 %.sroa.10.0, i32 6)
-  %46 = tail call i32 @llvm.umax.i32(i32 %45, i32 4)
-  %47 = or disjoint i32 %46, 24
-  %spec.select49 = tail call i32 @llvm.umin.i32(i32 %.sroa.1023.139, i32 %47)
+47:                                               ; preds = %43
+  %48 = tail call i32 @llvm.umin.i32(i32 %.sroa.10.0, i32 6)
+  %49 = tail call i32 @llvm.umax.i32(i32 %48, i32 4)
+  %50 = or disjoint i32 %49, 24
+  %spec.store.select44.i = tail call i32 @llvm.umin.i32(i32 %.sroa.9.0, i32 %50)
   br label %ZSTD_adjustCParams_internal.exit
 
-ZSTD_adjustCParams_internal.exit:                 ; preds = %44, %.thread
-  %.sroa.1023.2 = phi i32 [ %.sroa.1023.139, %.thread ], [ %spec.select49, %44 ]
-  store i32 %.sroa.018.2, ptr %0, align 4
-  %.sroa.820.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.820.038, ptr %.sroa.820.0..sroa_idx, align 4
-  %.sroa.1023.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.1023.2, ptr %.sroa.1023.0..sroa_idx, align 4
-  %.sroa.1427.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %.sroa.10.0, ptr %.sroa.1427.0..sroa_idx, align 4
-  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %12, ptr %.sroa.15.0..sroa_idx, align 4
-  %.sroa.1531.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %.sroa.16.0, ptr %.sroa.1531.0..sroa_idx, align 4
+ZSTD_adjustCParams_internal.exit:                 ; preds = %43, %47
+  %.sroa.9.1 = phi i32 [ %.sroa.9.0, %43 ], [ %spec.store.select44.i, %47 ]
+  %spec.store.select42.i = tail call i32 @llvm.umax.i32(i32 %44, i32 10)
+  store i32 %spec.store.select42.i, ptr %0, align 4
+  %.sroa.720.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sroa.720.0, ptr %.sroa.720.0..sroa_idx, align 4
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.9.1, ptr %.sroa.9.0..sroa_idx, align 4
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %.sroa.10.0, ptr %.sroa.13.0..sroa_idx, align 4
+  %.sroa.1428.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %12, ptr %.sroa.1428.0..sroa_idx, align 4
+  %.sroa.1430.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %.sroa.16.0, ptr %.sroa.1430.0..sroa_idx, align 4
   ret void
 }
 
@@ -2510,99 +2510,99 @@ ZSTD_overrideCParams.exit:                        ; preds = %8, %5
   %46 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %45, i1 true)
   %47 = sub nuw nsw i32 32, %46
   %48 = select i1 %43, i32 6, i32 %47
-  %spec.select40 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.1, i32 %48)
+  %spec.store.select40.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.1, i32 %48)
   br label %.thread.i
 
 49:                                               ; preds = %38
   %.not.i14 = icmp eq i64 %.0.i, -1
-  br i1 %.not.i14, label %68, label %.thread.i
+  br i1 %.not.i14, label %69, label %.thread.i
 
-.thread.i:                                        ; preds = %41, %49
-  %.sroa.028.0 = phi i32 [ %.sroa.0.1, %49 ], [ %spec.select40, %41 ]
-  %50 = icmp eq i64 %.030.i, 0
-  br i1 %50, label %ZSTD_dictAndWindowLog.exit.i, label %51
+.thread.i:                                        ; preds = %49, %41
+  %50 = phi i32 [ %spec.store.select40.i, %41 ], [ %.sroa.0.1, %49 ]
+  %51 = icmp eq i64 %.030.i, 0
+  br i1 %51, label %ZSTD_dictAndWindowLog.exit.i, label %52
 
-51:                                               ; preds = %.thread.i
-  %52 = zext nneg i32 %.sroa.028.0 to i64
-  %53 = shl nuw i64 1, %52
-  %54 = add i64 %53, %.030.i
-  %55 = add i64 %.0.i, %.030.i
-  %.not.i.i = icmp ult i64 %53, %55
-  br i1 %.not.i.i, label %56, label %ZSTD_dictAndWindowLog.exit.i
+52:                                               ; preds = %.thread.i
+  %53 = zext nneg i32 %50 to i64
+  %54 = shl nuw i64 1, %53
+  %55 = add i64 %54, %.030.i
+  %56 = add i64 %.0.i, %.030.i
+  %.not.i.i = icmp ult i64 %54, %56
+  br i1 %.not.i.i, label %57, label %ZSTD_dictAndWindowLog.exit.i
 
-56:                                               ; preds = %51
-  %57 = icmp ugt i64 %54, 2147483647
-  br i1 %57, label %ZSTD_dictAndWindowLog.exit.i, label %58
+57:                                               ; preds = %52
+  %58 = icmp ugt i64 %55, 2147483647
+  br i1 %58, label %ZSTD_dictAndWindowLog.exit.i, label %59
 
-58:                                               ; preds = %56
-  %59 = trunc nuw nsw i64 %54 to i32
-  %60 = add nsw i32 %59, -1
-  %61 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %60, i1 true)
-  %62 = sub nuw nsw i32 32, %61
+59:                                               ; preds = %57
+  %60 = trunc nuw nsw i64 %55 to i32
+  %61 = add nsw i32 %60, -1
+  %62 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %61, i1 true)
+  %63 = sub nuw nsw i32 32, %62
   br label %ZSTD_dictAndWindowLog.exit.i
 
-ZSTD_dictAndWindowLog.exit.i:                     ; preds = %58, %56, %51, %.thread.i
-  %.0.i.i = phi i32 [ %62, %58 ], [ %.sroa.028.0, %.thread.i ], [ %.sroa.028.0, %51 ], [ 31, %56 ]
-  %63 = icmp ugt i32 %.sroa.9.0, 5
-  %.neg.i.i = sext i1 %63 to i32
-  %64 = add i32 %.sroa.4.0, %.neg.i.i
-  %65 = add i32 %.0.i.i, 1
-  %spec.select42 = tail call i32 @llvm.umin.i32(i32 %.sroa.5.0, i32 %65)
-  %66 = icmp ugt i32 %64, %.0.i.i
-  %67 = sub i32 %.0.i.i, %.neg.i.i
-  %spec.select46 = select i1 %66, i32 %67, i32 %.sroa.4.0
-  br label %68
+ZSTD_dictAndWindowLog.exit.i:                     ; preds = %59, %57, %52, %.thread.i
+  %.0.i.i = phi i32 [ %63, %59 ], [ %50, %.thread.i ], [ %50, %52 ], [ 31, %57 ]
+  %64 = icmp ugt i32 %.sroa.9.0, 5
+  %.neg.i.i = sext i1 %64 to i32
+  %65 = add i32 %.sroa.4.0, %.neg.i.i
+  %66 = add i32 %.0.i.i, 1
+  %spec.store.select41.i = tail call i32 @llvm.umin.i32(i32 %.sroa.5.0, i32 %66)
+  %67 = icmp ugt i32 %65, %.0.i.i
+  %68 = sub i32 %.0.i.i, %.neg.i.i
+  %spec.select40 = select i1 %67, i32 %68, i32 %.sroa.4.0
+  br label %69
 
-68:                                               ; preds = %ZSTD_dictAndWindowLog.exit.i, %49
-  %.sroa.13.1 = phi i32 [ %.sroa.5.0, %49 ], [ %spec.select42, %ZSTD_dictAndWindowLog.exit.i ]
-  %.sroa.829.0 = phi i32 [ %.sroa.4.0, %49 ], [ %spec.select46, %ZSTD_dictAndWindowLog.exit.i ]
-  %.sroa.028.1 = phi i32 [ %.sroa.0.1, %49 ], [ %.sroa.028.0, %ZSTD_dictAndWindowLog.exit.i ]
-  %69 = icmp ne i32 %4, 2
-  %70 = add i32 %.sroa.9.0, -3
-  %narrow.i.i = icmp ult i32 %70, -2
-  %or.cond = select i1 %69, i1 true, i1 %narrow.i.i
-  br i1 %or.cond, label %._crit_edge.i, label %71
+69:                                               ; preds = %ZSTD_dictAndWindowLog.exit.i, %49
+  %.sroa.12.0 = phi i32 [ %.sroa.5.0, %49 ], [ %spec.store.select41.i, %ZSTD_dictAndWindowLog.exit.i ]
+  %.sroa.729.0 = phi i32 [ %.sroa.4.0, %49 ], [ %spec.select40, %ZSTD_dictAndWindowLog.exit.i ]
+  %70 = phi i32 [ %.sroa.0.1, %49 ], [ %50, %ZSTD_dictAndWindowLog.exit.i ]
+  %71 = icmp ne i32 %4, 2
+  %72 = add i32 %.sroa.9.0, -3
+  %narrow.i.i = icmp ult i32 %72, -2
+  %or.cond = select i1 %71, i1 true, i1 %narrow.i.i
+  br i1 %or.cond, label %._crit_edge.i, label %._crit_edge.i.thread
 
-71:                                               ; preds = %68
-  %spec.select44 = tail call i32 @llvm.umin.i32(i32 %.sroa.13.1, i32 24)
-  %spec.select47 = tail call i32 @llvm.umin.i32(i32 %.sroa.829.0, i32 24)
+._crit_edge.i.thread:                             ; preds = %69
+  %spec.store.select43.i = tail call i32 @llvm.umin.i32(i32 %.sroa.12.0, i32 24)
+  %spec.store.select45.i = tail call i32 @llvm.umin.i32(i32 %.sroa.729.0, i32 24)
   br label %ZSTD_adjustCParams_internal.exit
 
-._crit_edge.i:                                    ; preds = %68
-  %72 = add i32 %.sroa.9.0, -6
-  %73 = icmp ult i32 %72, -3
-  %74 = icmp ugt i32 %33, 1
-  %.not42.i = or i1 %74, %73
-  br i1 %.not42.i, label %ZSTD_adjustCParams_internal.exit, label %75
+._crit_edge.i:                                    ; preds = %69
+  %73 = add i32 %.sroa.9.0, -6
+  %74 = icmp ult i32 %73, -3
+  %75 = icmp ugt i32 %33, 1
+  %.not48.i = or i1 %75, %74
+  br i1 %.not48.i, label %ZSTD_adjustCParams_internal.exit, label %76
 
-75:                                               ; preds = %._crit_edge.i
-  %76 = tail call i32 @llvm.umin.i32(i32 %.sroa.6.0, i32 6)
-  %77 = tail call i32 @llvm.umax.i32(i32 %76, i32 4)
-  %78 = or disjoint i32 %77, 24
-  %spec.select45 = tail call i32 @llvm.umin.i32(i32 %.sroa.13.1, i32 %78)
+76:                                               ; preds = %._crit_edge.i
+  %77 = tail call i32 @llvm.umin.i32(i32 %.sroa.6.0, i32 6)
+  %78 = tail call i32 @llvm.umax.i32(i32 %77, i32 4)
+  %79 = or disjoint i32 %78, 24
+  %spec.store.select44.i = tail call i32 @llvm.umin.i32(i32 %.sroa.12.0, i32 %79)
   br label %ZSTD_adjustCParams_internal.exit
 
-ZSTD_adjustCParams_internal.exit:                 ; preds = %71, %75, %._crit_edge.i
-  %.sroa.829.138 = phi i32 [ %.sroa.829.0, %._crit_edge.i ], [ %.sroa.829.0, %75 ], [ %spec.select47, %71 ]
-  %.sroa.13.4 = phi i32 [ %.sroa.13.1, %._crit_edge.i ], [ %spec.select45, %75 ], [ %spec.select44, %71 ]
-  %spec.select43 = tail call i32 @llvm.umax.i32(i32 %.sroa.028.1, i32 10)
+ZSTD_adjustCParams_internal.exit:                 ; preds = %._crit_edge.i.thread, %._crit_edge.i, %76
+  %.sroa.729.138 = phi i32 [ %.sroa.729.0, %._crit_edge.i ], [ %.sroa.729.0, %76 ], [ %spec.store.select45.i, %._crit_edge.i.thread ]
+  %.sroa.12.2 = phi i32 [ %.sroa.12.0, %._crit_edge.i ], [ %spec.store.select44.i, %76 ], [ %spec.store.select43.i, %._crit_edge.i.thread ]
+  %spec.store.select42.i = tail call i32 @llvm.umax.i32(i32 %70, i32 10)
   %.not31.i = icmp eq i32 %29, 0
   %.sroa.8.0 = select i1 %.not31.i, i32 %.sroa.8.0.copyload, i32 %29
   %.not30.i = icmp eq i32 %27, 0
   %.sroa.7.0 = select i1 %.not30.i, i32 %.sroa.7.0.copyload, i32 %27
-  store i32 %spec.select43, ptr %0, align 4
-  %.sroa.829.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.829.138, ptr %.sroa.829.0..sroa_idx, align 4
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.13.4, ptr %.sroa.13.0..sroa_idx, align 4
-  %.sroa.20.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %.sroa.6.0, ptr %.sroa.20.0..sroa_idx, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %.sroa.7.0, ptr %.sroa.22.0..sroa_idx, align 4
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %.sroa.8.0, ptr %.sroa.23.0..sroa_idx, align 4
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %.sroa.9.0, ptr %.sroa.24.0..sroa_idx, align 4
+  store i32 %spec.store.select42.i, ptr %0, align 4
+  %.sroa.729.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sroa.729.138, ptr %.sroa.729.0..sroa_idx, align 4
+  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.12.2, ptr %.sroa.12.0..sroa_idx, align 4
+  %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %.sroa.6.0, ptr %.sroa.19.0..sroa_idx, align 4
+  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %.sroa.7.0, ptr %.sroa.21.0..sroa_idx, align 4
+  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %.sroa.8.0, ptr %.sroa.22.0..sroa_idx, align 4
+  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %.sroa.9.0, ptr %.sroa.23.0..sroa_idx, align 4
   ret void
 }
 
@@ -2691,97 +2691,97 @@ ZSTD_getCParamRowSize.exit:                       ; preds = %5, %8
   %40 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %39, i1 true)
   %41 = sub nuw nsw i32 32, %40
   %42 = select i1 %37, i32 6, i32 %41
-  %spec.select41 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.0.0.copyload, i32 %42)
+  %spec.store.select40.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.0.0.copyload, i32 %42)
   br label %.thread.i
 
 43:                                               ; preds = %32
   %.not.i = icmp eq i64 %.0.i, -1
-  br i1 %.not.i, label %62, label %.thread.i
+  br i1 %.not.i, label %63, label %.thread.i
 
-.thread.i:                                        ; preds = %35, %43
-  %.sroa.025.0 = phi i32 [ %.sroa.0.sroa.0.0.copyload, %43 ], [ %spec.select41, %35 ]
-  %44 = icmp eq i64 %.030.i, 0
-  br i1 %44, label %ZSTD_dictAndWindowLog.exit.i, label %45
+.thread.i:                                        ; preds = %43, %35
+  %44 = phi i32 [ %spec.store.select40.i, %35 ], [ %.sroa.0.sroa.0.0.copyload, %43 ]
+  %45 = icmp eq i64 %.030.i, 0
+  br i1 %45, label %ZSTD_dictAndWindowLog.exit.i, label %46
 
-45:                                               ; preds = %.thread.i
-  %46 = zext nneg i32 %.sroa.025.0 to i64
-  %47 = shl nuw i64 1, %46
-  %48 = add i64 %47, %.030.i
-  %49 = add i64 %.0.i, %.030.i
-  %.not.i.i = icmp ult i64 %47, %49
-  br i1 %.not.i.i, label %50, label %ZSTD_dictAndWindowLog.exit.i
+46:                                               ; preds = %.thread.i
+  %47 = zext nneg i32 %44 to i64
+  %48 = shl nuw i64 1, %47
+  %49 = add i64 %48, %.030.i
+  %50 = add i64 %.0.i, %.030.i
+  %.not.i.i = icmp ult i64 %48, %50
+  br i1 %.not.i.i, label %51, label %ZSTD_dictAndWindowLog.exit.i
 
-50:                                               ; preds = %45
-  %51 = icmp ugt i64 %48, 2147483647
-  br i1 %51, label %ZSTD_dictAndWindowLog.exit.i, label %52
+51:                                               ; preds = %46
+  %52 = icmp ugt i64 %49, 2147483647
+  br i1 %52, label %ZSTD_dictAndWindowLog.exit.i, label %53
 
-52:                                               ; preds = %50
-  %53 = trunc nuw nsw i64 %48 to i32
-  %54 = add nsw i32 %53, -1
-  %55 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %54, i1 true)
-  %56 = sub nuw nsw i32 32, %55
+53:                                               ; preds = %51
+  %54 = trunc nuw nsw i64 %49 to i32
+  %55 = add nsw i32 %54, -1
+  %56 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %55, i1 true)
+  %57 = sub nuw nsw i32 32, %56
   br label %ZSTD_dictAndWindowLog.exit.i
 
-ZSTD_dictAndWindowLog.exit.i:                     ; preds = %52, %50, %45, %.thread.i
-  %.0.i.i = phi i32 [ %56, %52 ], [ %.sroa.025.0, %.thread.i ], [ %.sroa.025.0, %45 ], [ 31, %50 ]
-  %57 = icmp ugt i32 %.sroa.3.0.copyload, 5
-  %.neg.i.i = sext i1 %57 to i32
-  %58 = add i32 %.sroa.0.sroa.2.0.copyload, %.neg.i.i
-  %59 = add i32 %.0.i.i, 1
-  %spec.select43 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.3.0.copyload, i32 %59)
-  %60 = icmp ugt i32 %58, %.0.i.i
-  %61 = sub i32 %.0.i.i, %.neg.i.i
-  %spec.select47 = select i1 %60, i32 %61, i32 %.sroa.0.sroa.2.0.copyload
-  br label %62
+ZSTD_dictAndWindowLog.exit.i:                     ; preds = %53, %51, %46, %.thread.i
+  %.0.i.i = phi i32 [ %57, %53 ], [ %44, %.thread.i ], [ %44, %46 ], [ 31, %51 ]
+  %58 = icmp ugt i32 %.sroa.3.0.copyload, 5
+  %.neg.i.i = sext i1 %58 to i32
+  %59 = add i32 %.sroa.0.sroa.2.0.copyload, %.neg.i.i
+  %60 = add i32 %.0.i.i, 1
+  %spec.store.select41.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.3.0.copyload, i32 %60)
+  %61 = icmp ugt i32 %59, %.0.i.i
+  %62 = sub i32 %.0.i.i, %.neg.i.i
+  %spec.select41 = select i1 %61, i32 %62, i32 %.sroa.0.sroa.2.0.copyload
+  br label %63
 
-62:                                               ; preds = %ZSTD_dictAndWindowLog.exit.i, %43
-  %.sroa.8.0 = phi i32 [ %.sroa.0.sroa.2.0.copyload, %43 ], [ %spec.select47, %ZSTD_dictAndWindowLog.exit.i ]
-  %.sroa.025.1 = phi i32 [ %.sroa.0.sroa.0.0.copyload, %43 ], [ %.sroa.025.0, %ZSTD_dictAndWindowLog.exit.i ]
-  %.sroa.12.1 = phi i32 [ %.sroa.0.sroa.3.0.copyload, %43 ], [ %spec.select43, %ZSTD_dictAndWindowLog.exit.i ]
-  %63 = icmp ne i32 %4, 2
-  %64 = add i32 %.sroa.3.0.copyload, -3
-  %narrow.i.i = icmp ult i32 %64, -2
-  %or.cond = select i1 %63, i1 true, i1 %narrow.i.i
-  br i1 %or.cond, label %._crit_edge.i, label %65
+63:                                               ; preds = %ZSTD_dictAndWindowLog.exit.i, %43
+  %.sroa.7.0 = phi i32 [ %.sroa.0.sroa.2.0.copyload, %43 ], [ %spec.select41, %ZSTD_dictAndWindowLog.exit.i ]
+  %.sroa.11.0 = phi i32 [ %.sroa.0.sroa.3.0.copyload, %43 ], [ %spec.store.select41.i, %ZSTD_dictAndWindowLog.exit.i ]
+  %64 = phi i32 [ %.sroa.0.sroa.0.0.copyload, %43 ], [ %44, %ZSTD_dictAndWindowLog.exit.i ]
+  %65 = icmp ne i32 %4, 2
+  %66 = add i32 %.sroa.3.0.copyload, -3
+  %narrow.i.i = icmp ult i32 %66, -2
+  %or.cond = select i1 %65, i1 true, i1 %narrow.i.i
+  br i1 %or.cond, label %._crit_edge.i, label %._crit_edge.i.thread
 
-65:                                               ; preds = %62
-  %spec.select45 = tail call i32 @llvm.umin.i32(i32 %.sroa.12.1, i32 24)
-  %spec.select48 = tail call i32 @llvm.umin.i32(i32 %.sroa.8.0, i32 24)
+._crit_edge.i.thread:                             ; preds = %63
+  %spec.store.select43.i = tail call i32 @llvm.umin.i32(i32 %.sroa.11.0, i32 24)
+  %spec.store.select45.i = tail call i32 @llvm.umin.i32(i32 %.sroa.7.0, i32 24)
   br label %ZSTD_adjustCParams_internal.exit
 
-._crit_edge.i:                                    ; preds = %62
-  %66 = add i32 %.sroa.3.0.copyload, -6
-  %67 = icmp ult i32 %66, -3
-  br i1 %67, label %ZSTD_adjustCParams_internal.exit, label %68
+._crit_edge.i:                                    ; preds = %63
+  %67 = add i32 %.sroa.3.0.copyload, -6
+  %68 = icmp ult i32 %67, -3
+  br i1 %68, label %ZSTD_adjustCParams_internal.exit, label %69
 
-68:                                               ; preds = %._crit_edge.i
-  %69 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.4.0.copyload, i32 6)
-  %70 = tail call i32 @llvm.umax.i32(i32 %69, i32 4)
-  %71 = or disjoint i32 %70, 24
-  %spec.select46 = tail call i32 @llvm.umin.i32(i32 %.sroa.12.1, i32 %71)
+69:                                               ; preds = %._crit_edge.i
+  %70 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.4.0.copyload, i32 6)
+  %71 = tail call i32 @llvm.umax.i32(i32 %70, i32 4)
+  %72 = or disjoint i32 %71, 24
+  %spec.store.select44.i = tail call i32 @llvm.umin.i32(i32 %.sroa.11.0, i32 %72)
   br label %ZSTD_adjustCParams_internal.exit
 
-ZSTD_adjustCParams_internal.exit:                 ; preds = %65, %68, %._crit_edge.i
-  %.sroa.8.139 = phi i32 [ %.sroa.8.0, %._crit_edge.i ], [ %.sroa.8.0, %68 ], [ %spec.select48, %65 ]
-  %.sroa.12.4 = phi i32 [ %.sroa.12.1, %._crit_edge.i ], [ %spec.select46, %68 ], [ %spec.select45, %65 ]
-  %spec.select44 = tail call i32 @llvm.umax.i32(i32 %.sroa.025.1, i32 10)
-  %72 = icmp slt i32 %1, 0
+ZSTD_adjustCParams_internal.exit:                 ; preds = %._crit_edge.i.thread, %._crit_edge.i, %69
+  %.sroa.7.139 = phi i32 [ %.sroa.7.0, %._crit_edge.i ], [ %.sroa.7.0, %69 ], [ %spec.store.select45.i, %._crit_edge.i.thread ]
+  %.sroa.11.2 = phi i32 [ %.sroa.11.0, %._crit_edge.i ], [ %spec.store.select44.i, %69 ], [ %spec.store.select43.i, %._crit_edge.i.thread ]
+  %spec.store.select42.i = tail call i32 @llvm.umax.i32(i32 %64, i32 10)
+  %73 = icmp slt i32 %1, 0
   %spec.select40 = tail call i32 @llvm.umax.i32(i32 %1, i32 -131072)
-  %73 = sub nsw i32 0, %spec.select40
-  %.sroa.2.0 = select i1 %72, i32 %73, i32 %.sroa.2.0.copyload
-  store i32 %spec.select44, ptr %0, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.8.139, ptr %.sroa.8.0..sroa_idx, align 4
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.12.4, ptr %.sroa.12.0..sroa_idx, align 4
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %.sroa.0.sroa.4.0.copyload, ptr %.sroa.18.0..sroa_idx, align 4
-  %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %.sroa.0.sroa.5.0.copyload, ptr %.sroa.19.0..sroa_idx, align 4
-  %.sroa.1934.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %.sroa.2.0, ptr %.sroa.1934.0..sroa_idx, align 4
-  %.sroa.20.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %.sroa.3.0.copyload, ptr %.sroa.20.0..sroa_idx, align 4
+  %74 = sub nsw i32 0, %spec.select40
+  %.sroa.2.0 = select i1 %73, i32 %74, i32 %.sroa.2.0.copyload
+  store i32 %spec.store.select42.i, ptr %0, align 4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sroa.7.139, ptr %.sroa.7.0..sroa_idx, align 4
+  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sroa.11.2, ptr %.sroa.11.0..sroa_idx, align 4
+  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %.sroa.0.sroa.4.0.copyload, ptr %.sroa.17.0..sroa_idx, align 4
+  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %.sroa.0.sroa.5.0.copyload, ptr %.sroa.18.0..sroa_idx, align 4
+  %.sroa.1834.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %.sroa.2.0, ptr %.sroa.1834.0..sroa_idx, align 4
+  %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %.sroa.3.0.copyload, ptr %.sroa.19.0..sroa_idx, align 4
   ret void
 }
 
@@ -3095,16 +3095,16 @@ ZSTD_estimateCCtxSize_usingCCtxParams.exit17:     ; preds = %ZSTD_resolveRowMatc
 define dso_local i64 @ZSTD_estimateCCtxSize(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.ZSTD_compressionParameters, align 8
   %3 = tail call i32 @llvm.smin.i32(i32 %0, i32 1)
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 4
-  %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.18.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 12
-  %.sroa.19.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
-  %.sroa.1934.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 20
-  %.sroa.20.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 4
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.17.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 12
+  %.sroa.18.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.1834.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 20
+  %.sroa.19.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
   br label %4
 
 4:                                                ; preds = %1, %ZSTD_estimateCCtxSize_internal.exit
-  %.014 = phi i32 [ %3, %1 ], [ %41, %ZSTD_estimateCCtxSize_internal.exit ]
+  %.014 = phi i32 [ %3, %1 ], [ %42, %ZSTD_estimateCCtxSize_internal.exit ]
   %.01013 = phi i64 [ 0, %1 ], [ %spec.select, %ZSTD_estimateCCtxSize_internal.exit ]
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2)
   %5 = icmp eq i32 %.014, 0
@@ -3117,9 +3117,9 @@ define dso_local i64 @ZSTD_estimateCCtxSize(i32 noundef %0) local_unnamed_addr #
   %.0.i = zext nneg i32 %narrow16 to i64
   br label %ZSTD_getCParamRowSize.exit.i
 
-ZSTD_getCParamRowSize.exit.i:                     ; preds = %39, %4
-  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %39 ]
-  %.09.i = phi i64 [ 0, %4 ], [ %40, %39 ]
+ZSTD_getCParamRowSize.exit.i:                     ; preds = %40, %4
+  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %40 ]
+  %.09.i = phi i64 [ 0, %4 ], [ %41, %40 ]
   %8 = getelementptr inbounds [4 x i64], ptr @ZSTD_estimateCCtxSize_internal.srcSizeTiers, i64 0, i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
@@ -3153,65 +3153,65 @@ ZSTD_getCParamRowSize.exit.i:                     ; preds = %39, %4
   %20 = add nsw i32 %19, -1
   %21 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %20, i1 true)
   %22 = sub nuw nsw i32 32, %21
-  %spec.select41.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.0.0.copyload.i, i32 %22)
+  %spec.store.select40.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.0.0.copyload.i, i32 %22)
   %23 = icmp ugt i32 %.sroa.3.0.copyload.i, 5
   %.neg.i.i.i = sext i1 %23 to i32
   %24 = add i32 %.sroa.0.sroa.2.0.copyload.i, %.neg.i.i.i
-  %25 = add nuw nsw i32 %spec.select41.i, 1
-  %spec.select43.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.3.0.copyload.i, i32 %25)
-  %26 = icmp ugt i32 %24, %spec.select41.i
-  %27 = sub nsw i32 %spec.select41.i, %.neg.i.i.i
-  %spec.select47.i = select i1 %26, i32 %27, i32 %.sroa.0.sroa.2.0.copyload.i
+  %25 = add nuw nsw i32 %spec.store.select40.i.i, 1
+  %spec.store.select41.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.3.0.copyload.i, i32 %25)
+  %26 = icmp ugt i32 %24, %spec.store.select40.i.i
+  %27 = sub nsw i32 %spec.store.select40.i.i, %.neg.i.i.i
+  %spec.select41.i = select i1 %26, i32 %27, i32 %.sroa.0.sroa.2.0.copyload.i
   br label %28
 
 28:                                               ; preds = %ZSTD_getCParamRowSize.exit.i, %.thread.i.i
-  %.sroa.8.0.i = phi i32 [ %spec.select47.i, %.thread.i.i ], [ %.sroa.0.sroa.2.0.copyload.i, %ZSTD_getCParamRowSize.exit.i ]
-  %.sroa.025.1.i = phi i32 [ %spec.select41.i, %.thread.i.i ], [ %.sroa.0.sroa.0.0.copyload.i, %ZSTD_getCParamRowSize.exit.i ]
-  %.sroa.12.1.i = phi i32 [ %spec.select43.i, %.thread.i.i ], [ %.sroa.0.sroa.3.0.copyload.i, %ZSTD_getCParamRowSize.exit.i ]
-  %29 = add i32 %.sroa.3.0.copyload.i, -6
-  %30 = icmp ult i32 %29, -3
-  br i1 %30, label %ZSTD_getCParams_internal.exit, label %31
+  %.sroa.7.0.i = phi i32 [ %spec.select41.i, %.thread.i.i ], [ %.sroa.0.sroa.2.0.copyload.i, %ZSTD_getCParamRowSize.exit.i ]
+  %.sroa.11.0.i = phi i32 [ %spec.store.select41.i.i, %.thread.i.i ], [ %.sroa.0.sroa.3.0.copyload.i, %ZSTD_getCParamRowSize.exit.i ]
+  %29 = phi i32 [ %spec.store.select40.i.i, %.thread.i.i ], [ %.sroa.0.sroa.0.0.copyload.i, %ZSTD_getCParamRowSize.exit.i ]
+  %30 = add i32 %.sroa.3.0.copyload.i, -6
+  %31 = icmp ult i32 %30, -3
+  br i1 %31, label %ZSTD_getCParams_internal.exit, label %32
 
-31:                                               ; preds = %28
-  %32 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.4.0.copyload.i, i32 6)
-  %33 = tail call i32 @llvm.umax.i32(i32 %32, i32 4)
-  %34 = or disjoint i32 %33, 24
-  %spec.select46.i = tail call i32 @llvm.umin.i32(i32 %.sroa.12.1.i, i32 %34)
+32:                                               ; preds = %28
+  %33 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.4.0.copyload.i, i32 6)
+  %34 = tail call i32 @llvm.umax.i32(i32 %33, i32 4)
+  %35 = or disjoint i32 %34, 24
+  %spec.store.select44.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.11.0.i, i32 %35)
   br label %ZSTD_getCParams_internal.exit
 
-ZSTD_getCParams_internal.exit:                    ; preds = %28, %31
-  %.sroa.12.4.i = phi i32 [ %.sroa.12.1.i, %28 ], [ %spec.select46.i, %31 ]
-  %spec.select44.i = tail call i32 @llvm.umax.i32(i32 %.sroa.025.1.i, i32 10)
+ZSTD_getCParams_internal.exit:                    ; preds = %28, %32
+  %.sroa.11.2.i = phi i32 [ %.sroa.11.0.i, %28 ], [ %spec.store.select44.i.i, %32 ]
+  %spec.store.select42.i.i = tail call i32 @llvm.umax.i32(i32 %29, i32 10)
   %.sroa.2.0.i = select i1 %6, i32 %7, i32 %.sroa.2.0.copyload.i
-  store i32 %spec.select44.i, ptr %2, align 8, !alias.scope !11
-  store i32 %.sroa.8.0.i, ptr %.sroa.8.0..sroa_idx.i, align 4, !alias.scope !11
-  store i32 %.sroa.12.4.i, ptr %.sroa.12.0..sroa_idx.i, align 8, !alias.scope !11
-  store i32 %.sroa.0.sroa.4.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 4, !alias.scope !11
-  store i32 %.sroa.0.sroa.5.0.copyload.i, ptr %.sroa.19.0..sroa_idx.i, align 8, !alias.scope !11
-  store i32 %.sroa.2.0.i, ptr %.sroa.1934.0..sroa_idx.i, align 4, !alias.scope !11
-  store i32 %.sroa.3.0.copyload.i, ptr %.sroa.20.0..sroa_idx.i, align 8, !alias.scope !11
-  %35 = tail call i64 @ZSTD_estimateCCtxSize_usingCParams(ptr noundef nonnull byval(%struct.ZSTD_compressionParameters) align 8 %2)
-  %36 = icmp ugt i64 %35, %.09.i
-  br i1 %36, label %37, label %39
+  store i32 %spec.store.select42.i.i, ptr %2, align 8, !alias.scope !11
+  store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 4, !alias.scope !11
+  store i32 %.sroa.11.2.i, ptr %.sroa.11.0..sroa_idx.i, align 8, !alias.scope !11
+  store i32 %.sroa.0.sroa.4.0.copyload.i, ptr %.sroa.17.0..sroa_idx.i, align 4, !alias.scope !11
+  store i32 %.sroa.0.sroa.5.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 8, !alias.scope !11
+  store i32 %.sroa.2.0.i, ptr %.sroa.1834.0..sroa_idx.i, align 4, !alias.scope !11
+  store i32 %.sroa.3.0.copyload.i, ptr %.sroa.19.0..sroa_idx.i, align 8, !alias.scope !11
+  %36 = tail call i64 @ZSTD_estimateCCtxSize_usingCParams(ptr noundef nonnull byval(%struct.ZSTD_compressionParameters) align 8 %2)
+  %37 = icmp ugt i64 %36, %.09.i
+  br i1 %37, label %38, label %40
 
-37:                                               ; preds = %ZSTD_getCParams_internal.exit
-  %38 = tail call i64 @ZSTD_estimateCCtxSize_usingCParams(ptr noundef nonnull byval(%struct.ZSTD_compressionParameters) align 8 %2)
-  br label %39
+38:                                               ; preds = %ZSTD_getCParams_internal.exit
+  %39 = tail call i64 @ZSTD_estimateCCtxSize_usingCParams(ptr noundef nonnull byval(%struct.ZSTD_compressionParameters) align 8 %2)
+  br label %40
 
-39:                                               ; preds = %37, %ZSTD_getCParams_internal.exit
-  %40 = phi i64 [ %38, %37 ], [ %.09.i, %ZSTD_getCParams_internal.exit ]
+40:                                               ; preds = %38, %ZSTD_getCParams_internal.exit
+  %41 = phi i64 [ %39, %38 ], [ %.09.i, %ZSTD_getCParams_internal.exit ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %ZSTD_estimateCCtxSize_internal.exit, label %ZSTD_getCParamRowSize.exit.i, !llvm.loop !14
 
-ZSTD_estimateCCtxSize_internal.exit:              ; preds = %39
+ZSTD_estimateCCtxSize_internal.exit:              ; preds = %40
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2)
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %40, i64 %.01013)
-  %41 = add i32 %.014, 1
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %41, i64 %.01013)
+  %42 = add i32 %.014, 1
   %exitcond.not = icmp eq i32 %.014, %0
-  br i1 %exitcond.not, label %42, label %4, !llvm.loop !16
+  br i1 %exitcond.not, label %43, label %4, !llvm.loop !16
 
-42:                                               ; preds = %ZSTD_estimateCCtxSize_internal.exit
+43:                                               ; preds = %ZSTD_estimateCCtxSize_internal.exit
   ret i64 %spec.select
 }
 
@@ -3408,12 +3408,12 @@ ZSTD_makeCCtxParamsFromCParams.exit:              ; preds = %ZSTD_resolveBlockSp
 define dso_local i64 @ZSTD_estimateCStreamSize(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.ZSTD_compressionParameters, align 8
   %3 = tail call i32 @llvm.smin.i32(i32 %0, i32 1)
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 4
-  %.sroa.12.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.18.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 12
-  %.sroa.19.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %.sroa.1934.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 20
-  %.sroa.20.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 4
+  %.sroa.11.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.17.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 12
+  %.sroa.18.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.1834.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 20
+  %.sroa.19.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 24
   br label %4
 
 4:                                                ; preds = %1, %ZSTD_estimateCStreamSize_internal.exit
@@ -3457,23 +3457,23 @@ define dso_local i64 @ZSTD_estimateCStreamSize(i32 noundef %0) local_unnamed_add
   %14 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.4.0.copyload.i.i, i32 6)
   %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 4)
   %16 = or disjoint i32 %15, 24
-  %spec.select46.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.3.0.copyload.i.i, i32 %16)
+  %spec.store.select44.i.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.3.0.copyload.i.i, i32 %16)
   br label %ZSTD_estimateCStreamSize_internal.exit
 
 ZSTD_estimateCStreamSize_internal.exit:           ; preds = %9, %13
-  %.sroa.12.4.i.i = phi i32 [ %.sroa.0.sroa.3.0.copyload.i.i, %9 ], [ %spec.select46.i.i, %13 ]
-  %spec.select44.i.i = tail call i32 @llvm.umax.i32(i32 %.sroa.0.sroa.0.0.copyload.i.i, i32 10)
+  %.sroa.11.2.i.i = phi i32 [ %.sroa.0.sroa.3.0.copyload.i.i, %9 ], [ %spec.store.select44.i.i.i, %13 ]
+  %spec.store.select42.i.i.i = tail call i32 @llvm.umax.i32(i32 %.sroa.0.sroa.0.0.copyload.i.i, i32 10)
   %17 = icmp slt i32 %.013, 0
   %spec.select40.i.i = tail call i32 @llvm.umax.i32(i32 %.013, i32 -131072)
   %18 = sub nsw i32 0, %spec.select40.i.i
   %.sroa.2.0.i.i = select i1 %17, i32 %18, i32 %.sroa.2.0.copyload.i.i
-  store i32 %spec.select44.i.i, ptr %2, align 8, !alias.scope !20
-  store i32 %.sroa.0.sroa.2.0.copyload.i.i, ptr %.sroa.8.0..sroa_idx.i.i, align 4, !alias.scope !20
-  store i32 %.sroa.12.4.i.i, ptr %.sroa.12.0..sroa_idx.i.i, align 8, !alias.scope !20
-  store i32 %.sroa.0.sroa.4.0.copyload.i.i, ptr %.sroa.18.0..sroa_idx.i.i, align 4, !alias.scope !20
-  store i32 %.sroa.0.sroa.5.0.copyload.i.i, ptr %.sroa.19.0..sroa_idx.i.i, align 8, !alias.scope !20
-  store i32 %.sroa.2.0.i.i, ptr %.sroa.1934.0..sroa_idx.i.i, align 4, !alias.scope !20
-  store i32 %.sroa.3.0.copyload.i.i, ptr %.sroa.20.0..sroa_idx.i.i, align 8, !alias.scope !20
+  store i32 %spec.store.select42.i.i.i, ptr %2, align 8, !alias.scope !20
+  store i32 %.sroa.0.sroa.2.0.copyload.i.i, ptr %.sroa.7.0..sroa_idx.i.i, align 4, !alias.scope !20
+  store i32 %.sroa.11.2.i.i, ptr %.sroa.11.0..sroa_idx.i.i, align 8, !alias.scope !20
+  store i32 %.sroa.0.sroa.4.0.copyload.i.i, ptr %.sroa.17.0..sroa_idx.i.i, align 4, !alias.scope !20
+  store i32 %.sroa.0.sroa.5.0.copyload.i.i, ptr %.sroa.18.0..sroa_idx.i.i, align 8, !alias.scope !20
+  store i32 %.sroa.2.0.i.i, ptr %.sroa.1834.0..sroa_idx.i.i, align 4, !alias.scope !20
+  store i32 %.sroa.3.0.copyload.i.i, ptr %.sroa.19.0..sroa_idx.i.i, align 8, !alias.scope !20
   %19 = tail call i64 @ZSTD_estimateCStreamSize_usingCParams(ptr noundef nonnull byval(%struct.ZSTD_compressionParameters) align 8 %2)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2)
   %spec.select = tail call i64 @llvm.umax.i64(i64 %19, i64 %.01012)
@@ -5720,7 +5720,7 @@ define internal fastcc range(i64 -119, 1) i64 @ZSTD_compressBegin_internal(ptr n
   %23 = getelementptr inbounds i8, ptr %5, i64 8
   %24 = load i64, ptr %23, align 8
   %.not58 = icmp eq i64 %24, 0
-  br i1 %.not58, label %257, label %25
+  br i1 %.not58, label %258, label %25
 
 25:                                               ; preds = %22
   %26 = icmp ult i64 %7, 131072
@@ -5737,13 +5737,13 @@ define internal fastcc range(i64 -119, 1) i64 @ZSTD_compressBegin_internal(ptr n
   %32 = getelementptr inbounds i8, ptr %5, i64 6068
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %257
+  br i1 %34, label %35, label %258
 
 35:                                               ; preds = %31, %27, %25
   %36 = getelementptr inbounds i8, ptr %6, i64 68
   %37 = load i32, ptr %36, align 4
   %.not59 = icmp eq i32 %37, 3
-  br i1 %.not59, label %257, label %38
+  br i1 %.not59, label %258, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %5, i64 244
@@ -5809,398 +5809,398 @@ ZSTD_shouldAttachDict.exit.thread17.i:            ; preds = %ZSTD_shouldAttachDi
   %66 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %65, i1 true)
   %67 = sub nuw nsw i32 32, %66
   %68 = select i1 %63, i32 6, i32 %67
-  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.0.0.copyload.i.i, i32 %68)
+  %spec.store.select40.i.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.0.0.copyload.i.i, i32 %68)
   br label %.thread.i.i.i
 
 69:                                               ; preds = %ZSTD_shouldAttachDict.exit.thread17.i
   %.not.i.i.i = icmp eq i64 %7, -1
-  br i1 %.not.i.i.i, label %75, label %.thread.i.i.i
+  br i1 %.not.i.i.i, label %76, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %69, %62
-  %.sroa.040.0.i.i = phi i32 [ %.sroa.0.sroa.0.0.copyload.i.i, %69 ], [ %spec.select.i.i, %62 ]
-  %70 = icmp ugt i32 %42, 5
-  %.neg.i.i.i.i = sext i1 %70 to i32
-  %71 = add i32 %.sroa.0.sroa.2.0.copyload.i.i, %.neg.i.i.i.i
-  %72 = add i32 %.sroa.040.0.i.i, 1
-  %spec.select49.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.2.0.i.i, i32 %72)
-  %73 = icmp ugt i32 %71, %.sroa.040.0.i.i
-  %74 = sub i32 %.sroa.040.0.i.i, %.neg.i.i.i.i
-  %spec.select52.i.i = select i1 %73, i32 %74, i32 %.sroa.0.sroa.2.0.copyload.i.i
-  br label %75
+  %70 = phi i32 [ %spec.store.select40.i.i.i, %62 ], [ %.sroa.0.sroa.0.0.copyload.i.i, %69 ]
+  %71 = icmp ugt i32 %42, 5
+  %.neg.i.i.i.i = sext i1 %71 to i32
+  %72 = add i32 %.sroa.0.sroa.2.0.copyload.i.i, %.neg.i.i.i.i
+  %73 = add i32 %70, 1
+  %spec.store.select41.i.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.2.0.i.i, i32 %73)
+  %74 = icmp ugt i32 %72, %70
+  %75 = sub i32 %70, %.neg.i.i.i.i
+  %spec.select.i.i = select i1 %74, i32 %75, i32 %.sroa.0.sroa.2.0.copyload.i.i
+  br label %76
 
-75:                                               ; preds = %.thread.i.i.i, %69
-  %.sroa.8.0.i.i = phi i32 [ %.sroa.0.sroa.2.0.copyload.i.i, %69 ], [ %spec.select52.i.i, %.thread.i.i.i ]
-  %.sroa.10.1.i.i = phi i32 [ %.sroa.2.0.i.i, %69 ], [ %spec.select49.i.i, %.thread.i.i.i ]
-  %76 = add i32 %42, -6
-  %77 = icmp ult i32 %76, -3
-  %78 = icmp ugt i32 %60, 1
-  %.not42.i.i.i = or i1 %77, %78
-  br i1 %.not42.i.i.i, label %ZSTD_adjustCParams_internal.exit.i.i, label %79
+76:                                               ; preds = %.thread.i.i.i, %69
+  %.sroa.7.0.i.i = phi i32 [ %.sroa.0.sroa.2.0.copyload.i.i, %69 ], [ %spec.select.i.i, %.thread.i.i.i ]
+  %.sroa.9.0.i.i = phi i32 [ %.sroa.2.0.i.i, %69 ], [ %spec.store.select41.i.i.i, %.thread.i.i.i ]
+  %77 = add i32 %42, -6
+  %78 = icmp ult i32 %77, -3
+  %79 = icmp ugt i32 %60, 1
+  %.not48.i.i.i = or i1 %78, %79
+  br i1 %.not48.i.i.i, label %ZSTD_adjustCParams_internal.exit.i.i, label %80
 
-79:                                               ; preds = %75
-  %80 = tail call i32 @llvm.umin.i32(i32 %.sroa.4.sroa.0.0.copyload.i.i, i32 6)
-  %81 = tail call i32 @llvm.umax.i32(i32 %80, i32 4)
-  %82 = or disjoint i32 %81, 24
-  %spec.select51.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.10.1.i.i, i32 %82)
+80:                                               ; preds = %76
+  %81 = tail call i32 @llvm.umin.i32(i32 %.sroa.4.sroa.0.0.copyload.i.i, i32 6)
+  %82 = tail call i32 @llvm.umax.i32(i32 %81, i32 4)
+  %83 = or disjoint i32 %82, 24
+  %spec.store.select44.i.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.9.0.i.i, i32 %83)
   br label %ZSTD_adjustCParams_internal.exit.i.i
 
-ZSTD_adjustCParams_internal.exit.i.i:             ; preds = %79, %75
-  %.sroa.10.2.i.i = phi i32 [ %.sroa.10.1.i.i, %75 ], [ %spec.select51.i.i, %79 ]
+ZSTD_adjustCParams_internal.exit.i.i:             ; preds = %80, %76
+  %.sroa.9.1.i.i = phi i32 [ %.sroa.9.0.i.i, %76 ], [ %spec.store.select44.i.i.i, %80 ]
   %.sroa.246.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 8
-  store i32 %.sroa.8.0.i.i, ptr %.sroa.246.0..sroa_idx.i.i, align 8
+  store i32 %.sroa.7.0.i.i, ptr %.sroa.246.0..sroa_idx.i.i, align 8
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 12
-  store i32 %.sroa.10.2.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 4
+  store i32 %.sroa.9.1.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 4
   %.sroa.4.0..sroa_idx47.i.i = getelementptr inbounds i8, ptr %11, i64 16
   store i32 %.sroa.4.sroa.0.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx47.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 20
   store i64 %57, ptr %.sroa.5.0..sroa_idx.i.i, align 4
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 28
   store i32 %42, ptr %.sroa.6.0..sroa_idx.i.i, align 4
-  %83 = getelementptr inbounds i8, ptr %5, i64 6072
-  %84 = load i32, ptr %83, align 8
-  store i32 %84, ptr %59, align 8
-  %85 = call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %0, ptr noundef nonnull %11, i64 noundef %7, i64 noundef 0, i32 noundef 0, i32 noundef %8)
-  %86 = icmp ult i64 %85, -119
-  br i1 %86, label %87, label %ZSTD_resetCCtx_byAttachingCDict.exit.i
+  %84 = getelementptr inbounds i8, ptr %5, i64 6072
+  %85 = load i32, ptr %84, align 8
+  store i32 %85, ptr %59, align 8
+  %86 = call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %0, ptr noundef nonnull %11, i64 noundef %7, i64 noundef 0, i32 noundef 0, i32 noundef %8)
+  %87 = icmp ult i64 %86, -119
+  br i1 %87, label %88, label %ZSTD_resetCCtx_byAttachingCDict.exit.i
 
-87:                                               ; preds = %ZSTD_adjustCParams_internal.exit.i.i
-  %88 = load ptr, ptr %55, align 8
-  %89 = getelementptr inbounds i8, ptr %5, i64 112
-  %90 = load ptr, ptr %89, align 8
-  %91 = ptrtoint ptr %88 to i64
-  %92 = ptrtoint ptr %90 to i64
-  %93 = sub i64 %91, %92
-  %94 = trunc i64 %93 to i32
-  %95 = getelementptr inbounds i8, ptr %5, i64 128
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp eq i32 %96, %94
-  br i1 %97, label %113, label %98
+88:                                               ; preds = %ZSTD_adjustCParams_internal.exit.i.i
+  %89 = load ptr, ptr %55, align 8
+  %90 = getelementptr inbounds i8, ptr %5, i64 112
+  %91 = load ptr, ptr %90, align 8
+  %92 = ptrtoint ptr %89 to i64
+  %93 = ptrtoint ptr %91 to i64
+  %94 = sub i64 %92, %93
+  %95 = trunc i64 %94 to i32
+  %96 = getelementptr inbounds i8, ptr %5, i64 128
+  %97 = load i32, ptr %96, align 8
+  %98 = icmp eq i32 %97, %95
+  br i1 %98, label %114, label %99
 
-98:                                               ; preds = %87
-  %99 = getelementptr inbounds i8, ptr %0, i64 3440
-  store ptr %55, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 3216
-  %101 = load i32, ptr %100, align 8
-  %102 = icmp ult i32 %101, %94
-  br i1 %102, label %103, label %110
+99:                                               ; preds = %88
+  %100 = getelementptr inbounds i8, ptr %0, i64 3440
+  store ptr %55, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %0, i64 3216
+  %102 = load i32, ptr %101, align 8
+  %103 = icmp ult i32 %102, %95
+  br i1 %103, label %104, label %111
 
-103:                                              ; preds = %98
-  %104 = getelementptr inbounds i8, ptr %0, i64 3192
-  %105 = getelementptr inbounds i8, ptr %0, i64 3200
-  %106 = load ptr, ptr %105, align 8
-  %107 = and i64 %93, 4294967295
-  %108 = getelementptr inbounds i8, ptr %106, i64 %107
-  store ptr %108, ptr %104, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 3220
-  store i32 %94, ptr %109, align 4
-  store i32 %94, ptr %100, align 8
-  br label %110
+104:                                              ; preds = %99
+  %105 = getelementptr inbounds i8, ptr %0, i64 3192
+  %106 = getelementptr inbounds i8, ptr %0, i64 3200
+  %107 = load ptr, ptr %106, align 8
+  %108 = and i64 %94, 4294967295
+  %109 = getelementptr inbounds i8, ptr %107, i64 %108
+  store ptr %109, ptr %105, align 8
+  %110 = getelementptr inbounds i8, ptr %0, i64 3220
+  store i32 %95, ptr %110, align 4
+  store i32 %95, ptr %101, align 8
+  br label %111
 
-110:                                              ; preds = %103, %98
-  %111 = phi i32 [ %94, %103 ], [ %101, %98 ]
-  %112 = getelementptr inbounds i8, ptr %0, i64 3232
-  store i32 %111, ptr %112, align 8
-  br label %113
+111:                                              ; preds = %104, %99
+  %112 = phi i32 [ %95, %104 ], [ %102, %99 ]
+  %113 = getelementptr inbounds i8, ptr %0, i64 3232
+  store i32 %112, ptr %113, align 8
+  br label %114
 
-113:                                              ; preds = %110, %87
-  %114 = getelementptr inbounds i8, ptr %5, i64 6064
-  %115 = load i32, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 640
-  store i32 %115, ptr %116, align 8
-  %117 = load i64, ptr %23, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 648
-  store i64 %117, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 3176
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %5, i64 408
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5632) %120, ptr noundef nonnull align 8 dereferenceable(5632) %121, i64 5632, i1 false)
+114:                                              ; preds = %111, %88
+  %115 = getelementptr inbounds i8, ptr %5, i64 6064
+  %116 = load i32, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %0, i64 640
+  store i32 %116, ptr %117, align 8
+  %118 = load i64, ptr %23, align 8
+  %119 = getelementptr inbounds i8, ptr %0, i64 648
+  store i64 %118, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %0, i64 3176
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds i8, ptr %5, i64 408
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5632) %121, ptr noundef nonnull align 8 dereferenceable(5632) %122, i64 5632, i1 false)
   br label %ZSTD_resetCCtx_byAttachingCDict.exit.i
 
-ZSTD_resetCCtx_byAttachingCDict.exit.i:           ; preds = %113, %ZSTD_adjustCParams_internal.exit.i.i
+ZSTD_resetCCtx_byAttachingCDict.exit.i:           ; preds = %114, %ZSTD_adjustCParams_internal.exit.i.i
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %11)
   br label %ZSTD_resetCCtx_usingCDict.exit
 
 ZSTD_shouldAttachDict.exit.thread.i:              ; preds = %ZSTD_shouldAttachDict.exit.i, %51, %49
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %10, ptr noundef nonnull readonly align 1 dereferenceable(208) %6, i64 208, i1 false)
-  %122 = getelementptr inbounds i8, ptr %5, i64 104
-  %123 = getelementptr inbounds i8, ptr %5, i64 360
-  %124 = getelementptr inbounds i8, ptr %10, i64 4
-  %125 = load i32, ptr %124, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %124, ptr noundef nonnull readonly align 4 dereferenceable(28) %123, i64 28, i1 false)
-  store i32 %125, ptr %124, align 4
-  %126 = getelementptr inbounds i8, ptr %5, i64 6072
-  %127 = load i32, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %10, i64 144
-  store i32 %127, ptr %128, align 8
-  %129 = call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %7, i64 noundef 0, i32 noundef 1, i32 noundef %8)
-  %130 = icmp ult i64 %129, -119
-  br i1 %130, label %131, label %ZSTD_resetCCtx_byCopyingCDict.exit.i
+  %123 = getelementptr inbounds i8, ptr %5, i64 104
+  %124 = getelementptr inbounds i8, ptr %5, i64 360
+  %125 = getelementptr inbounds i8, ptr %10, i64 4
+  %126 = load i32, ptr %125, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %125, ptr noundef nonnull readonly align 4 dereferenceable(28) %124, i64 28, i1 false)
+  store i32 %126, ptr %125, align 4
+  %127 = getelementptr inbounds i8, ptr %5, i64 6072
+  %128 = load i32, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %10, i64 144
+  store i32 %128, ptr %129, align 8
+  %130 = call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %7, i64 noundef 0, i32 noundef 1, i32 noundef %8)
+  %131 = icmp ult i64 %130, -119
+  br i1 %131, label %132, label %ZSTD_resetCCtx_byCopyingCDict.exit.i
 
-131:                                              ; preds = %ZSTD_shouldAttachDict.exit.thread.i
-  %132 = getelementptr inbounds i8, ptr %0, i64 672
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 688
-  store ptr %133, ptr %134, align 8
-  %135 = load i32, ptr %41, align 4
-  %.not4.i.i.i = icmp eq i32 %135, 1
+132:                                              ; preds = %ZSTD_shouldAttachDict.exit.thread.i
+  %133 = getelementptr inbounds i8, ptr %0, i64 672
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds i8, ptr %0, i64 688
+  store ptr %134, ptr %135, align 8
+  %136 = load i32, ptr %41, align 4
+  %.not4.i.i.i = icmp eq i32 %136, 1
   br i1 %.not4.i.i.i, label %ZSTD_allocateChainTable.exit.thread.thread74.i.i, label %ZSTD_allocateChainTable.exit.i.i
 
-ZSTD_allocateChainTable.exit.thread.thread74.i.i: ; preds = %131
-  %136 = getelementptr inbounds i8, ptr %5, i64 368
-  %137 = load i32, ptr %136, align 4
-  %138 = zext nneg i32 %137 to i64
-  %139 = shl nuw i64 1, %138
-  %140 = getelementptr inbounds i8, ptr %0, i64 3176
-  %141 = getelementptr inbounds i8, ptr %0, i64 3192
-  %142 = getelementptr inbounds i8, ptr %0, i64 3304
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %5, i64 216
-  %145 = load ptr, ptr %144, align 8
+ZSTD_allocateChainTable.exit.thread.thread74.i.i: ; preds = %132
+  %137 = getelementptr inbounds i8, ptr %5, i64 368
+  %138 = load i32, ptr %137, align 4
+  %139 = zext nneg i32 %138 to i64
+  %140 = shl nuw i64 1, %139
+  %141 = getelementptr inbounds i8, ptr %0, i64 3176
+  %142 = getelementptr inbounds i8, ptr %0, i64 3192
+  %143 = getelementptr inbounds i8, ptr %0, i64 3304
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds i8, ptr %5, i64 216
+  %146 = load ptr, ptr %145, align 8
   br label %.lr.ph.i.preheader.i.i
 
-ZSTD_allocateChainTable.exit.i.i:                 ; preds = %131
-  %146 = load i32, ptr %126, align 8
-  %147 = add i32 %135, -3
-  %148 = icmp ult i32 %147, 3
-  %149 = icmp eq i32 %146, 1
-  %.not8.i.not.i.i = and i1 %148, %149
+ZSTD_allocateChainTable.exit.i.i:                 ; preds = %132
+  %147 = load i32, ptr %127, align 8
+  %148 = add i32 %136, -3
+  %149 = icmp ult i32 %148, 3
+  %150 = icmp eq i32 %147, 1
+  %.not8.i.not.i.i = and i1 %149, %150
   br i1 %.not8.i.not.i.i, label %ZSTD_allocateChainTable.exit.thread.thread.i.i, label %ZSTD_allocateChainTable.exit.thread.i.i
 
 ZSTD_allocateChainTable.exit.thread.thread.i.i:   ; preds = %ZSTD_allocateChainTable.exit.i.i
-  %150 = getelementptr inbounds i8, ptr %5, i64 368
-  %151 = load i32, ptr %150, align 4
-  %152 = zext nneg i32 %151 to i64
-  %153 = shl nuw i64 1, %152
-  %154 = getelementptr inbounds i8, ptr %0, i64 3176
-  %155 = getelementptr inbounds i8, ptr %0, i64 3192
-  %156 = getelementptr inbounds i8, ptr %0, i64 3304
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %5, i64 216
-  %159 = load ptr, ptr %158, align 8
-  br label %185
+  %151 = getelementptr inbounds i8, ptr %5, i64 368
+  %152 = load i32, ptr %151, align 4
+  %153 = zext nneg i32 %152 to i64
+  %154 = shl nuw i64 1, %153
+  %155 = getelementptr inbounds i8, ptr %0, i64 3176
+  %156 = getelementptr inbounds i8, ptr %0, i64 3192
+  %157 = getelementptr inbounds i8, ptr %0, i64 3304
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds i8, ptr %5, i64 216
+  %160 = load ptr, ptr %159, align 8
+  br label %186
 
 ZSTD_allocateChainTable.exit.thread.i.i:          ; preds = %ZSTD_allocateChainTable.exit.i.i
-  %160 = getelementptr inbounds i8, ptr %5, i64 364
-  %161 = load i32, ptr %160, align 4
-  %162 = zext nneg i32 %161 to i64
-  %163 = shl nuw i64 1, %162
-  %164 = getelementptr inbounds i8, ptr %5, i64 368
-  %165 = load i32, ptr %164, align 4
-  %166 = zext nneg i32 %165 to i64
-  %167 = shl nuw i64 1, %166
-  %168 = getelementptr inbounds i8, ptr %0, i64 3176
-  %169 = getelementptr inbounds i8, ptr %0, i64 3192
-  %170 = getelementptr inbounds i8, ptr %0, i64 3304
-  %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %5, i64 216
-  %173 = load ptr, ptr %172, align 8
-  %narrow.i.i.i.i = icmp ult i32 %147, -2
-  br i1 %narrow.i.i.i.i, label %185, label %.lr.ph.i.preheader.i.i
+  %161 = getelementptr inbounds i8, ptr %5, i64 364
+  %162 = load i32, ptr %161, align 4
+  %163 = zext nneg i32 %162 to i64
+  %164 = shl nuw i64 1, %163
+  %165 = getelementptr inbounds i8, ptr %5, i64 368
+  %166 = load i32, ptr %165, align 4
+  %167 = zext nneg i32 %166 to i64
+  %168 = shl nuw i64 1, %167
+  %169 = getelementptr inbounds i8, ptr %0, i64 3176
+  %170 = getelementptr inbounds i8, ptr %0, i64 3192
+  %171 = getelementptr inbounds i8, ptr %0, i64 3304
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds i8, ptr %5, i64 216
+  %174 = load ptr, ptr %173, align 8
+  %narrow.i.i.i.i = icmp ult i32 %148, -2
+  br i1 %narrow.i.i.i.i, label %186, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %ZSTD_allocateChainTable.exit.thread.i.i, %ZSTD_allocateChainTable.exit.thread.thread74.i.i
-  %174 = phi ptr [ %145, %ZSTD_allocateChainTable.exit.thread.thread74.i.i ], [ %173, %ZSTD_allocateChainTable.exit.thread.i.i ]
-  %175 = phi ptr [ %143, %ZSTD_allocateChainTable.exit.thread.thread74.i.i ], [ %171, %ZSTD_allocateChainTable.exit.thread.i.i ]
-  %176 = phi ptr [ %141, %ZSTD_allocateChainTable.exit.thread.thread74.i.i ], [ %169, %ZSTD_allocateChainTable.exit.thread.i.i ]
-  %177 = phi ptr [ %140, %ZSTD_allocateChainTable.exit.thread.thread74.i.i ], [ %168, %ZSTD_allocateChainTable.exit.thread.i.i ]
-  %178 = phi i64 [ %139, %ZSTD_allocateChainTable.exit.thread.thread74.i.i ], [ %167, %ZSTD_allocateChainTable.exit.thread.i.i ]
-  %179 = phi i64 [ 0, %ZSTD_allocateChainTable.exit.thread.thread74.i.i ], [ %163, %ZSTD_allocateChainTable.exit.thread.i.i ]
+  %175 = phi ptr [ %146, %ZSTD_allocateChainTable.exit.thread.thread74.i.i ], [ %174, %ZSTD_allocateChainTable.exit.thread.i.i ]
+  %176 = phi ptr [ %144, %ZSTD_allocateChainTable.exit.thread.thread74.i.i ], [ %172, %ZSTD_allocateChainTable.exit.thread.i.i ]
+  %177 = phi ptr [ %142, %ZSTD_allocateChainTable.exit.thread.thread74.i.i ], [ %170, %ZSTD_allocateChainTable.exit.thread.i.i ]
+  %178 = phi ptr [ %141, %ZSTD_allocateChainTable.exit.thread.thread74.i.i ], [ %169, %ZSTD_allocateChainTable.exit.thread.i.i ]
+  %179 = phi i64 [ %140, %ZSTD_allocateChainTable.exit.thread.thread74.i.i ], [ %168, %ZSTD_allocateChainTable.exit.thread.i.i ]
+  %180 = phi i64 [ 0, %ZSTD_allocateChainTable.exit.thread.thread74.i.i ], [ %164, %ZSTD_allocateChainTable.exit.thread.i.i ]
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.preheader.i.i
-  %.01.i.i.i = phi i64 [ %184, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
-  %180 = getelementptr inbounds i32, ptr %174, i64 %.01.i.i.i
-  %181 = load i32, ptr %180, align 4
-  %182 = lshr i32 %181, 8
-  %183 = getelementptr inbounds i32, ptr %175, i64 %.01.i.i.i
-  store i32 %182, ptr %183, align 4
-  %184 = add nuw i64 %.01.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %184, %178
+  %.01.i.i.i = phi i64 [ %185, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
+  %181 = getelementptr inbounds i32, ptr %175, i64 %.01.i.i.i
+  %182 = load i32, ptr %181, align 4
+  %183 = lshr i32 %182, 8
+  %184 = getelementptr inbounds i32, ptr %176, i64 %.01.i.i.i
+  store i32 %183, ptr %184, align 4
+  %185 = add nuw i64 %.01.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %185, %179
   br i1 %exitcond.not.i.i.i, label %ZSTD_copyCDictTableIntoCCtx.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !36
 
-185:                                              ; preds = %ZSTD_allocateChainTable.exit.thread.i.i, %ZSTD_allocateChainTable.exit.thread.thread.i.i
-  %186 = phi ptr [ %159, %ZSTD_allocateChainTable.exit.thread.thread.i.i ], [ %173, %ZSTD_allocateChainTable.exit.thread.i.i ]
-  %187 = phi ptr [ %157, %ZSTD_allocateChainTable.exit.thread.thread.i.i ], [ %171, %ZSTD_allocateChainTable.exit.thread.i.i ]
-  %188 = phi ptr [ %155, %ZSTD_allocateChainTable.exit.thread.thread.i.i ], [ %169, %ZSTD_allocateChainTable.exit.thread.i.i ]
-  %189 = phi ptr [ %154, %ZSTD_allocateChainTable.exit.thread.thread.i.i ], [ %168, %ZSTD_allocateChainTable.exit.thread.i.i ]
-  %190 = phi i64 [ %153, %ZSTD_allocateChainTable.exit.thread.thread.i.i ], [ %167, %ZSTD_allocateChainTable.exit.thread.i.i ]
-  %191 = phi i64 [ %152, %ZSTD_allocateChainTable.exit.thread.thread.i.i ], [ %166, %ZSTD_allocateChainTable.exit.thread.i.i ]
-  %192 = phi i64 [ 0, %ZSTD_allocateChainTable.exit.thread.thread.i.i ], [ %163, %ZSTD_allocateChainTable.exit.thread.i.i ]
-  %193 = shl i64 4, %191
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %187, ptr readonly align 4 %186, i64 %193, i1 false)
+186:                                              ; preds = %ZSTD_allocateChainTable.exit.thread.i.i, %ZSTD_allocateChainTable.exit.thread.thread.i.i
+  %187 = phi ptr [ %160, %ZSTD_allocateChainTable.exit.thread.thread.i.i ], [ %174, %ZSTD_allocateChainTable.exit.thread.i.i ]
+  %188 = phi ptr [ %158, %ZSTD_allocateChainTable.exit.thread.thread.i.i ], [ %172, %ZSTD_allocateChainTable.exit.thread.i.i ]
+  %189 = phi ptr [ %156, %ZSTD_allocateChainTable.exit.thread.thread.i.i ], [ %170, %ZSTD_allocateChainTable.exit.thread.i.i ]
+  %190 = phi ptr [ %155, %ZSTD_allocateChainTable.exit.thread.thread.i.i ], [ %169, %ZSTD_allocateChainTable.exit.thread.i.i ]
+  %191 = phi i64 [ %154, %ZSTD_allocateChainTable.exit.thread.thread.i.i ], [ %168, %ZSTD_allocateChainTable.exit.thread.i.i ]
+  %192 = phi i64 [ %153, %ZSTD_allocateChainTable.exit.thread.thread.i.i ], [ %167, %ZSTD_allocateChainTable.exit.thread.i.i ]
+  %193 = phi i64 [ 0, %ZSTD_allocateChainTable.exit.thread.thread.i.i ], [ %164, %ZSTD_allocateChainTable.exit.thread.i.i ]
+  %194 = shl i64 4, %192
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %188, ptr readonly align 4 %187, i64 %194, i1 false)
   br label %ZSTD_copyCDictTableIntoCCtx.exit.i.i
 
-ZSTD_copyCDictTableIntoCCtx.exit.i.i:             ; preds = %.lr.ph.i.i.i, %185
-  %194 = phi ptr [ %188, %185 ], [ %176, %.lr.ph.i.i.i ]
-  %195 = phi ptr [ %189, %185 ], [ %177, %.lr.ph.i.i.i ]
-  %196 = phi i64 [ %190, %185 ], [ %178, %.lr.ph.i.i.i ]
-  %197 = phi i64 [ %192, %185 ], [ %179, %.lr.ph.i.i.i ]
-  %198 = getelementptr inbounds i8, ptr %0, i64 252
-  %199 = load i32, ptr %198, align 4
-  %.not4.i57.i.i = icmp eq i32 %199, 1
+ZSTD_copyCDictTableIntoCCtx.exit.i.i:             ; preds = %.lr.ph.i.i.i, %186
+  %195 = phi ptr [ %189, %186 ], [ %177, %.lr.ph.i.i.i ]
+  %196 = phi ptr [ %190, %186 ], [ %178, %.lr.ph.i.i.i ]
+  %197 = phi i64 [ %191, %186 ], [ %179, %.lr.ph.i.i.i ]
+  %198 = phi i64 [ %193, %186 ], [ %180, %.lr.ph.i.i.i ]
+  %199 = getelementptr inbounds i8, ptr %0, i64 252
+  %200 = load i32, ptr %199, align 4
+  %.not4.i57.i.i = icmp eq i32 %200, 1
   br i1 %.not4.i57.i.i, label %ZSTD_copyCDictTableIntoCCtx.exit65.i.i, label %ZSTD_allocateChainTable.exit59.i.i
 
 ZSTD_allocateChainTable.exit59.i.i:               ; preds = %ZSTD_copyCDictTableIntoCCtx.exit.i.i
-  %200 = getelementptr inbounds i8, ptr %0, i64 368
-  %201 = load i32, ptr %200, align 8
-  %202 = add i32 %199, -3
-  %203 = icmp ult i32 %202, 3
-  %204 = icmp eq i32 %201, 1
-  %.not8.i58.not.i.i = and i1 %203, %204
-  br i1 %.not8.i58.not.i.i, label %ZSTD_copyCDictTableIntoCCtx.exit65.i.i, label %205
+  %201 = getelementptr inbounds i8, ptr %0, i64 368
+  %202 = load i32, ptr %201, align 8
+  %203 = add i32 %200, -3
+  %204 = icmp ult i32 %203, 3
+  %205 = icmp eq i32 %202, 1
+  %.not8.i58.not.i.i = and i1 %204, %205
+  br i1 %.not8.i58.not.i.i, label %ZSTD_copyCDictTableIntoCCtx.exit65.i.i, label %206
 
-205:                                              ; preds = %ZSTD_allocateChainTable.exit59.i.i
-  %206 = getelementptr inbounds i8, ptr %0, i64 3320
-  %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %5, i64 232
-  %209 = load ptr, ptr %208, align 8
+206:                                              ; preds = %ZSTD_allocateChainTable.exit59.i.i
+  %207 = getelementptr inbounds i8, ptr %0, i64 3320
+  %208 = load ptr, ptr %207, align 8
+  %209 = getelementptr inbounds i8, ptr %5, i64 232
+  %210 = load ptr, ptr %209, align 8
   %.val56.i.i = load i32, ptr %41, align 4
-  %210 = add i32 %.val56.i.i, -3
-  %narrow.i.i60.i.i = icmp ult i32 %210, -2
-  br i1 %narrow.i.i60.i.i, label %216, label %.preheader.i61.i.i
+  %211 = add i32 %.val56.i.i, -3
+  %narrow.i.i60.i.i = icmp ult i32 %211, -2
+  br i1 %narrow.i.i60.i.i, label %217, label %.preheader.i61.i.i
 
-.preheader.i61.i.i:                               ; preds = %205
-  %.not.i.i15.i = icmp eq i64 %197, 0
+.preheader.i61.i.i:                               ; preds = %206
+  %.not.i.i15.i = icmp eq i64 %198, 0
   br i1 %.not.i.i15.i, label %ZSTD_copyCDictTableIntoCCtx.exit65.i.i, label %.lr.ph.i62.i.i
 
 .lr.ph.i62.i.i:                                   ; preds = %.preheader.i61.i.i, %.lr.ph.i62.i.i
-  %.01.i63.i.i = phi i64 [ %215, %.lr.ph.i62.i.i ], [ 0, %.preheader.i61.i.i ]
-  %211 = getelementptr inbounds i32, ptr %209, i64 %.01.i63.i.i
-  %212 = load i32, ptr %211, align 4
-  %213 = lshr i32 %212, 8
-  %214 = getelementptr inbounds i32, ptr %207, i64 %.01.i63.i.i
-  store i32 %213, ptr %214, align 4
-  %215 = add nuw i64 %.01.i63.i.i, 1
-  %exitcond.not.i64.i.i = icmp eq i64 %215, %197
+  %.01.i63.i.i = phi i64 [ %216, %.lr.ph.i62.i.i ], [ 0, %.preheader.i61.i.i ]
+  %212 = getelementptr inbounds i32, ptr %210, i64 %.01.i63.i.i
+  %213 = load i32, ptr %212, align 4
+  %214 = lshr i32 %213, 8
+  %215 = getelementptr inbounds i32, ptr %208, i64 %.01.i63.i.i
+  store i32 %214, ptr %215, align 4
+  %216 = add nuw i64 %.01.i63.i.i, 1
+  %exitcond.not.i64.i.i = icmp eq i64 %216, %198
   br i1 %exitcond.not.i64.i.i, label %ZSTD_copyCDictTableIntoCCtx.exit65.i.i, label %.lr.ph.i62.i.i, !llvm.loop !36
 
-216:                                              ; preds = %205
-  %217 = shl i64 %197, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %207, ptr readonly align 4 %209, i64 %217, i1 false)
+217:                                              ; preds = %206
+  %218 = shl i64 %198, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %208, ptr readonly align 4 %210, i64 %218, i1 false)
   br label %ZSTD_copyCDictTableIntoCCtx.exit65.i.i
 
-ZSTD_copyCDictTableIntoCCtx.exit65.i.i:           ; preds = %.lr.ph.i62.i.i, %216, %.preheader.i61.i.i, %ZSTD_allocateChainTable.exit59.i.i, %ZSTD_copyCDictTableIntoCCtx.exit.i.i
-  %218 = load i32, ptr %41, align 4
-  %219 = load i32, ptr %126, align 8
-  %220 = add i32 %218, -6
-  %221 = icmp ult i32 %220, -3
-  %222 = icmp ne i32 %219, 1
-  %.not71.i.i = or i1 %221, %222
-  br i1 %.not71.i.i, label %231, label %223
+ZSTD_copyCDictTableIntoCCtx.exit65.i.i:           ; preds = %.lr.ph.i62.i.i, %217, %.preheader.i61.i.i, %ZSTD_allocateChainTable.exit59.i.i, %ZSTD_copyCDictTableIntoCCtx.exit.i.i
+  %219 = load i32, ptr %41, align 4
+  %220 = load i32, ptr %127, align 8
+  %221 = add i32 %219, -6
+  %222 = icmp ult i32 %221, -3
+  %223 = icmp ne i32 %220, 1
+  %.not71.i.i = or i1 %222, %223
+  br i1 %.not71.i.i, label %232, label %224
 
-223:                                              ; preds = %ZSTD_copyCDictTableIntoCCtx.exit65.i.i
-  %224 = getelementptr inbounds i8, ptr %0, i64 3248
-  %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %5, i64 160
-  %227 = load ptr, ptr %226, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %225, ptr noundef nonnull align 1 dereferenceable(1) %227, i64 %196, i1 false)
-  %228 = getelementptr inbounds i8, ptr %5, i64 200
-  %229 = load i64, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %0, i64 3288
-  store i64 %229, ptr %230, align 8
-  br label %231
+224:                                              ; preds = %ZSTD_copyCDictTableIntoCCtx.exit65.i.i
+  %225 = getelementptr inbounds i8, ptr %0, i64 3248
+  %226 = load ptr, ptr %225, align 8
+  %227 = getelementptr inbounds i8, ptr %5, i64 160
+  %228 = load ptr, ptr %227, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %226, ptr noundef nonnull align 1 dereferenceable(1) %228, i64 %197, i1 false)
+  %229 = getelementptr inbounds i8, ptr %5, i64 200
+  %230 = load i64, ptr %229, align 8
+  %231 = getelementptr inbounds i8, ptr %0, i64 3288
+  store i64 %230, ptr %231, align 8
+  br label %232
 
-231:                                              ; preds = %223, %ZSTD_copyCDictTableIntoCCtx.exit65.i.i
-  %232 = getelementptr inbounds i8, ptr %0, i64 3240
-  %233 = load i32, ptr %232, align 8
-  %.not55.i.i = icmp eq i32 %233, 0
-  %234 = zext nneg i32 %233 to i64
-  %235 = shl i64 4, %234
-  %236 = getelementptr inbounds i8, ptr %0, i64 3312
-  %237 = load ptr, ptr %236, align 8
-  %238 = select i1 %.not55.i.i, i64 0, i64 %235
-  tail call void @llvm.memset.p0.i64(ptr align 4 %237, i8 0, i64 %238, i1 false)
-  %239 = load ptr, ptr %134, align 8
-  %240 = getelementptr inbounds i8, ptr %0, i64 680
-  %241 = load ptr, ptr %240, align 8
-  %242 = icmp ult ptr %239, %241
-  br i1 %242, label %243, label %ZSTD_cwksp_mark_tables_clean.exit.i.i
+232:                                              ; preds = %224, %ZSTD_copyCDictTableIntoCCtx.exit65.i.i
+  %233 = getelementptr inbounds i8, ptr %0, i64 3240
+  %234 = load i32, ptr %233, align 8
+  %.not55.i.i = icmp eq i32 %234, 0
+  %235 = zext nneg i32 %234 to i64
+  %236 = shl i64 4, %235
+  %237 = getelementptr inbounds i8, ptr %0, i64 3312
+  %238 = load ptr, ptr %237, align 8
+  %239 = select i1 %.not55.i.i, i64 0, i64 %236
+  tail call void @llvm.memset.p0.i64(ptr align 4 %238, i8 0, i64 %239, i1 false)
+  %240 = load ptr, ptr %135, align 8
+  %241 = getelementptr inbounds i8, ptr %0, i64 680
+  %242 = load ptr, ptr %241, align 8
+  %243 = icmp ult ptr %240, %242
+  br i1 %243, label %244, label %ZSTD_cwksp_mark_tables_clean.exit.i.i
 
-243:                                              ; preds = %231
-  store ptr %241, ptr %134, align 8
+244:                                              ; preds = %232
+  store ptr %242, ptr %135, align 8
   br label %ZSTD_cwksp_mark_tables_clean.exit.i.i
 
-ZSTD_cwksp_mark_tables_clean.exit.i.i:            ; preds = %243, %231
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %194, ptr noundef nonnull readonly align 8 dereferenceable(40) %122, i64 40, i1 false)
-  %244 = getelementptr inbounds i8, ptr %5, i64 148
-  %245 = load i32, ptr %244, align 4
-  %246 = getelementptr inbounds i8, ptr %0, i64 3236
-  store i32 %245, ptr %246, align 4
-  %247 = getelementptr inbounds i8, ptr %5, i64 144
-  %248 = load i32, ptr %247, align 8
-  %249 = getelementptr inbounds i8, ptr %0, i64 3232
-  store i32 %248, ptr %249, align 8
-  %250 = getelementptr inbounds i8, ptr %5, i64 6064
-  %251 = load i32, ptr %250, align 8
-  %252 = getelementptr inbounds i8, ptr %0, i64 640
-  store i32 %251, ptr %252, align 8
-  %253 = load i64, ptr %23, align 8
-  %254 = getelementptr inbounds i8, ptr %0, i64 648
-  store i64 %253, ptr %254, align 8
-  %255 = load ptr, ptr %195, align 8
-  %256 = getelementptr inbounds i8, ptr %5, i64 408
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5632) %255, ptr noundef nonnull readonly align 8 dereferenceable(5632) %256, i64 5632, i1 false)
+ZSTD_cwksp_mark_tables_clean.exit.i.i:            ; preds = %244, %232
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull readonly align 8 dereferenceable(40) %123, i64 40, i1 false)
+  %245 = getelementptr inbounds i8, ptr %5, i64 148
+  %246 = load i32, ptr %245, align 4
+  %247 = getelementptr inbounds i8, ptr %0, i64 3236
+  store i32 %246, ptr %247, align 4
+  %248 = getelementptr inbounds i8, ptr %5, i64 144
+  %249 = load i32, ptr %248, align 8
+  %250 = getelementptr inbounds i8, ptr %0, i64 3232
+  store i32 %249, ptr %250, align 8
+  %251 = getelementptr inbounds i8, ptr %5, i64 6064
+  %252 = load i32, ptr %251, align 8
+  %253 = getelementptr inbounds i8, ptr %0, i64 640
+  store i32 %252, ptr %253, align 8
+  %254 = load i64, ptr %23, align 8
+  %255 = getelementptr inbounds i8, ptr %0, i64 648
+  store i64 %254, ptr %255, align 8
+  %256 = load ptr, ptr %196, align 8
+  %257 = getelementptr inbounds i8, ptr %5, i64 408
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5632) %256, ptr noundef nonnull readonly align 8 dereferenceable(5632) %257, i64 5632, i1 false)
   br label %ZSTD_resetCCtx_byCopyingCDict.exit.i
 
 ZSTD_resetCCtx_byCopyingCDict.exit.i:             ; preds = %ZSTD_cwksp_mark_tables_clean.exit.i.i, %ZSTD_shouldAttachDict.exit.thread.i
-  %.0.i.i = phi i64 [ 0, %ZSTD_cwksp_mark_tables_clean.exit.i.i ], [ %129, %ZSTD_shouldAttachDict.exit.thread.i ]
+  %.0.i.i = phi i64 [ 0, %ZSTD_cwksp_mark_tables_clean.exit.i.i ], [ %130, %ZSTD_shouldAttachDict.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %10)
   br label %ZSTD_resetCCtx_usingCDict.exit
 
-257:                                              ; preds = %22, %31, %35
-  %258 = tail call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %0, ptr noundef %6, i64 noundef %7, i64 noundef %16, i32 noundef 0, i32 noundef %8)
-  %259 = icmp ult i64 %258, -119
-  br i1 %259, label %262, label %ZSTD_resetCCtx_usingCDict.exit
+258:                                              ; preds = %22, %31, %35
+  %259 = tail call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %0, ptr noundef %6, i64 noundef %7, i64 noundef %16, i32 noundef 0, i32 noundef %8)
+  %260 = icmp ult i64 %259, -119
+  br i1 %260, label %263, label %ZSTD_resetCCtx_usingCDict.exit
 
 .thread:                                          ; preds = %19
-  %260 = tail call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %0, ptr noundef %6, i64 noundef %7, i64 noundef %16, i32 noundef 0, i32 noundef %8)
-  %261 = icmp ult i64 %260, -119
-  br i1 %261, label %.thread62, label %ZSTD_resetCCtx_usingCDict.exit
+  %261 = tail call fastcc i64 @ZSTD_resetCCtx_internal(ptr noundef nonnull %0, ptr noundef %6, i64 noundef %7, i64 noundef %16, i32 noundef 0, i32 noundef %8)
+  %262 = icmp ult i64 %261, -119
+  br i1 %262, label %.thread62, label %ZSTD_resetCCtx_usingCDict.exit
 
-262:                                              ; preds = %257
-  %263 = getelementptr inbounds i8, ptr %0, i64 3176
-  %264 = load ptr, ptr %263, align 8
-  %265 = getelementptr inbounds i8, ptr %0, i64 3192
-  %266 = getelementptr inbounds i8, ptr %0, i64 1008
-  %267 = getelementptr inbounds i8, ptr %0, i64 656
-  %268 = getelementptr inbounds i8, ptr %0, i64 224
-  %269 = load ptr, ptr %5, align 8
-  %270 = getelementptr inbounds i8, ptr %5, i64 8
-  %271 = load i64, ptr %270, align 8
-  %272 = getelementptr inbounds i8, ptr %5, i64 16
-  %273 = load i32, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %0, i64 3496
-  %275 = load ptr, ptr %274, align 8
-  %276 = tail call fastcc i64 @ZSTD_compress_insertDictionary(ptr noundef %264, ptr noundef nonnull %265, ptr noundef nonnull %266, ptr noundef nonnull %267, ptr noundef nonnull %268, ptr noundef %269, i64 noundef %271, i32 noundef %273, i32 noundef %4, i32 noundef 0, ptr noundef %275)
-  br label %286
+263:                                              ; preds = %258
+  %264 = getelementptr inbounds i8, ptr %0, i64 3176
+  %265 = load ptr, ptr %264, align 8
+  %266 = getelementptr inbounds i8, ptr %0, i64 3192
+  %267 = getelementptr inbounds i8, ptr %0, i64 1008
+  %268 = getelementptr inbounds i8, ptr %0, i64 656
+  %269 = getelementptr inbounds i8, ptr %0, i64 224
+  %270 = load ptr, ptr %5, align 8
+  %271 = getelementptr inbounds i8, ptr %5, i64 8
+  %272 = load i64, ptr %271, align 8
+  %273 = getelementptr inbounds i8, ptr %5, i64 16
+  %274 = load i32, ptr %273, align 8
+  %275 = getelementptr inbounds i8, ptr %0, i64 3496
+  %276 = load ptr, ptr %275, align 8
+  %277 = tail call fastcc i64 @ZSTD_compress_insertDictionary(ptr noundef %265, ptr noundef nonnull %266, ptr noundef nonnull %267, ptr noundef nonnull %268, ptr noundef nonnull %269, ptr noundef %270, i64 noundef %272, i32 noundef %274, i32 noundef %4, i32 noundef 0, ptr noundef %276)
+  br label %287
 
 .thread62:                                        ; preds = %.thread
-  %277 = getelementptr inbounds i8, ptr %0, i64 3176
-  %278 = load ptr, ptr %277, align 8
-  %279 = getelementptr inbounds i8, ptr %0, i64 3192
-  %280 = getelementptr inbounds i8, ptr %0, i64 1008
-  %281 = getelementptr inbounds i8, ptr %0, i64 656
-  %282 = getelementptr inbounds i8, ptr %0, i64 224
-  %283 = getelementptr inbounds i8, ptr %0, i64 3496
-  %284 = load ptr, ptr %283, align 8
-  %285 = tail call fastcc i64 @ZSTD_compress_insertDictionary(ptr noundef %278, ptr noundef nonnull %279, ptr noundef nonnull %280, ptr noundef nonnull %281, ptr noundef nonnull %282, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 0, ptr noundef %284)
-  br label %286
+  %278 = getelementptr inbounds i8, ptr %0, i64 3176
+  %279 = load ptr, ptr %278, align 8
+  %280 = getelementptr inbounds i8, ptr %0, i64 3192
+  %281 = getelementptr inbounds i8, ptr %0, i64 1008
+  %282 = getelementptr inbounds i8, ptr %0, i64 656
+  %283 = getelementptr inbounds i8, ptr %0, i64 224
+  %284 = getelementptr inbounds i8, ptr %0, i64 3496
+  %285 = load ptr, ptr %284, align 8
+  %286 = tail call fastcc i64 @ZSTD_compress_insertDictionary(ptr noundef %279, ptr noundef nonnull %280, ptr noundef nonnull %281, ptr noundef nonnull %282, ptr noundef nonnull %283, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 0, ptr noundef %285)
+  br label %287
 
-286:                                              ; preds = %.thread62, %262
-  %287 = phi i64 [ %276, %262 ], [ %285, %.thread62 ]
-  %288 = icmp ult i64 %287, -119
-  br i1 %288, label %289, label %ZSTD_resetCCtx_usingCDict.exit
+287:                                              ; preds = %.thread62, %263
+  %288 = phi i64 [ %277, %263 ], [ %286, %.thread62 ]
+  %289 = icmp ult i64 %288, -119
+  br i1 %289, label %290, label %ZSTD_resetCCtx_usingCDict.exit
 
-289:                                              ; preds = %286
-  %290 = trunc i64 %287 to i32
-  %291 = getelementptr inbounds i8, ptr %0, i64 640
-  store i32 %290, ptr %291, align 8
-  %292 = getelementptr inbounds i8, ptr %0, i64 648
-  store i64 %16, ptr %292, align 8
+290:                                              ; preds = %287
+  %291 = trunc i64 %288 to i32
+  %292 = getelementptr inbounds i8, ptr %0, i64 640
+  store i32 %291, ptr %292, align 8
+  %293 = getelementptr inbounds i8, ptr %0, i64 648
+  store i64 %16, ptr %293, align 8
   br label %ZSTD_resetCCtx_usingCDict.exit
 
-ZSTD_resetCCtx_usingCDict.exit:                   ; preds = %.thread, %ZSTD_resetCCtx_byCopyingCDict.exit.i, %ZSTD_resetCCtx_byAttachingCDict.exit.i, %286, %257, %289
-  %.0 = phi i64 [ 0, %289 ], [ %258, %257 ], [ %287, %286 ], [ %85, %ZSTD_resetCCtx_byAttachingCDict.exit.i ], [ %.0.i.i, %ZSTD_resetCCtx_byCopyingCDict.exit.i ], [ %260, %.thread ]
+ZSTD_resetCCtx_usingCDict.exit:                   ; preds = %.thread, %ZSTD_resetCCtx_byCopyingCDict.exit.i, %ZSTD_resetCCtx_byAttachingCDict.exit.i, %287, %258, %290
+  %.0 = phi i64 [ 0, %290 ], [ %259, %258 ], [ %288, %287 ], [ %86, %ZSTD_resetCCtx_byAttachingCDict.exit.i ], [ %.0.i.i, %ZSTD_resetCCtx_byCopyingCDict.exit.i ], [ %261, %.thread ]
   ret i64 %.0
 }
 
@@ -6434,12 +6434,12 @@ ZSTD_getCParamRowSize.exit.i:
   %25 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.4.0.copyload.i, i32 6)
   %26 = tail call i32 @llvm.umax.i32(i32 %25, i32 4)
   %27 = or disjoint i32 %26, 24
-  %spec.select46.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.3.0.copyload.i, i32 %27)
+  %spec.store.select44.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.3.0.copyload.i, i32 %27)
   br label %ZSTD_getCParams_internal.exit
 
 ZSTD_getCParams_internal.exit:                    ; preds = %20, %24
-  %.sroa.12.4.i = phi i32 [ %.sroa.0.sroa.3.0.copyload.i, %20 ], [ %spec.select46.i, %24 ]
-  %spec.select44.i = tail call i32 @llvm.umax.i32(i32 %.sroa.0.sroa.0.0.copyload.i, i32 10)
+  %.sroa.11.2.i = phi i32 [ %.sroa.0.sroa.3.0.copyload.i, %20 ], [ %spec.store.select44.i.i, %24 ]
+  %spec.store.select42.i.i = tail call i32 @llvm.umax.i32(i32 %.sroa.0.sroa.0.0.copyload.i, i32 10)
   %28 = icmp slt i32 %3, 0
   %spec.select40.i = tail call i32 @llvm.umax.i32(i32 %3, i32 -131072)
   %29 = sub nsw i32 0, %spec.select40.i
@@ -6447,11 +6447,11 @@ ZSTD_getCParams_internal.exit:                    ; preds = %20, %24
   %30 = select i1 %16, i32 3, i32 %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %4, i8 0, i64 208, i1 false)
   %31 = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 %spec.select44.i, ptr %31, align 4
+  store i32 %spec.store.select42.i.i, ptr %31, align 4
   %.sroa.5.0..sroa_idx13 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %.sroa.0.sroa.2.0.copyload.i, ptr %.sroa.5.0..sroa_idx13, align 8
   %.sroa.5.sroa.2.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
-  store i32 %.sroa.12.4.i, ptr %.sroa.5.sroa.2.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
+  store i32 %.sroa.11.2.i, ptr %.sroa.5.sroa.2.0..sroa.5.0..sroa_idx13.sroa_idx, align 4
   %.sroa.5.sroa.3.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store i32 %.sroa.0.sroa.4.0.copyload.i, ptr %.sroa.5.sroa.3.0..sroa.5.0..sroa_idx13.sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx13.sroa_idx = getelementptr inbounds i8, ptr %4, i64 20

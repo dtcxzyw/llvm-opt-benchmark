@@ -570,7 +570,6 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN22color_test_format_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp519836 = alloca %"class.fmt::v10::text_style", align 8
   %agg.tmp520834 = alloca %"class.fmt::v10::text_style", align 8
   %ref.tmp.i748 = alloca %"class.fmt::v10::basic_string_view", align 8
   %ref.tmp1.i749 = alloca %"class.fmt::v10::format_arg_store.28", align 16
@@ -3637,13 +3636,10 @@ _ZN7testing15AssertionResultD2Ev.exit820:         ; preds = %if.end513, %_ZNKSt1
   %agg.tmp520.sroa.6.0.agg.tmp520834.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp520834, i64 18
   store i8 0, ptr %agg.tmp520.sroa.6.0.agg.tmp520834.sroa_idx, align 2
   %call.i835 = call noundef nonnull align 4 dereferenceable(19) ptr @_ZN3fmt3v1010text_styleoRERKS1_(ptr noundef nonnull align 4 dereferenceable(19) %agg.tmp520834, ptr noundef nonnull align 4 dereferenceable(19) %ref.tmp522), !noalias !212
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %agg.tmp519836)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %agg.tmp519836, ptr noundef nonnull align 4 dereferenceable(20) %call.i835, i64 20, i1 false)
+  %style.i.i837 = getelementptr inbounds i8, ptr %ref.tmp518, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %style.i.i837, ptr noundef nonnull align 4 dereferenceable(20) %call.i835, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %agg.tmp520834)
   store ptr @.str.91, ptr %ref.tmp518, align 8, !alias.scope !215
-  %style.i.i837 = getelementptr inbounds i8, ptr %ref.tmp518, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %style.i.i837, ptr noundef nonnull align 8 dereferenceable(20) %agg.tmp519836, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %agg.tmp519836)
   %253 = ptrtoint ptr %ref.tmp518 to i64
   store i64 %253, ptr %ref.tmp.i549, align 16, !noalias !218
   %254 = getelementptr inbounds i8, ptr %ref.tmp.i549, i64 8

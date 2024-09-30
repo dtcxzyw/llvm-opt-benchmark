@@ -3981,7 +3981,6 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %21 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.53", align 8
   %22 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %23 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
-  %.sroa.0.i.i.i.i.i.i = alloca [16 x double], align 8
   %24 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %25 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %26 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
@@ -3989,7 +3988,6 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %28 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.40", align 8
   %29 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", align 8
   %30 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", align 8
-  %.sroa.0.i.i.i.i.i = alloca [9 x double], align 8
   %31 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", align 8
   %32 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %33 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", align 8
@@ -3997,7 +3995,6 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %35 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.27", align 8
   %36 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", align 8
   %37 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", align 8
-  %.sroa.0.i.i.i.i = alloca [4 x double], align 8
   %38 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", align 8
   %39 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %40 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", align 8
@@ -4573,22 +4570,19 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.ex
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_10GfMatrix2dEEERKT_v.exit20.i.i: ; preds = %286, %280, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.exit.thread.i12.i.i
   %.0.i13.i.i = phi ptr [ %278, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix2dEEEbv.exit.thread.i12.i.i ], [ %285, %280 ], [ %287, %286 ]
   %288 = fpext float %0 to double
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38), !noalias !29
   %289 = fsub double 1.000000e+00, %288
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37), !noalias !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i.i, i64 32, i1 false), !noalias !37
   %290 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dmLEd(ptr noundef nonnull align 8 dereferenceable(32) %37, double noundef %289), !noalias !37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %290, i64 32, i1 false), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %290, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37), !noalias !32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36), !noalias !41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %.0.i13.i.i, i64 32, i1 false), !noalias !44
-  %291 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dmLEd(ptr noundef nonnull align 8 dereferenceable(32) %36, double noundef %288), !noalias !44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %291, i64 32, i1 false), !noalias !40
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36), !noalias !41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %.0.i13.i.i, i64 32, i1 false), !noalias !43
+  %291 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dmLEd(ptr noundef nonnull align 8 dereferenceable(32) %36, double noundef %288), !noalias !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %291, i64 32, i1 false), !noalias !46
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36), !noalias !40
   %292 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dpLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %38)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38), !noalias !29
   %293 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %294 = or disjoint i64 2, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_10GfMatrix2dEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
@@ -4990,22 +4984,19 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.ex
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_10GfMatrix3dEEERKT_v.exit20.i.i.i: ; preds = %450, %444, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.exit.thread.i12.i.i.i
   %.0.i13.i.i.i = phi ptr [ %442, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix3dEEEbv.exit.thread.i12.i.i.i ], [ %449, %444 ], [ %451, %450 ]
   %452 = fpext float %0 to double
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.0.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %31), !noalias !47
   %453 = fsub double 1.000000e+00, %452
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %30), !noalias !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i.i, i64 72, i1 false), !noalias !55
   %454 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dmLEd(ptr noundef nonnull align 8 dereferenceable(72) %30, double noundef %453), !noalias !55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %454, i64 72, i1 false), !noalias !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %454, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %30), !noalias !50
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %29), !noalias !59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr noundef nonnull align 8 dereferenceable(72) %.0.i13.i.i.i, i64 72, i1 false), !noalias !62
-  %455 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dmLEd(ptr noundef nonnull align 8 dereferenceable(72) %29, double noundef %452), !noalias !62
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr noundef nonnull align 8 dereferenceable(72) %455, i64 72, i1 false), !noalias !58
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %29), !noalias !59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.i.i.i.i.i, i64 72, i1 false)
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %29), !noalias !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr noundef nonnull align 8 dereferenceable(72) %.0.i13.i.i.i, i64 72, i1 false), !noalias !61
+  %455 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dmLEd(ptr noundef nonnull align 8 dereferenceable(72) %29, double noundef %452), !noalias !61
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr noundef nonnull align 8 dereferenceable(72) %455, i64 72, i1 false), !noalias !64
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %29), !noalias !58
   %456 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dpLERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(72) %31)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.0.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %31), !noalias !47
   %457 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %458 = or disjoint i64 2, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_10GfMatrix3dEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
@@ -5407,22 +5398,19 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.ex
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetINS_10GfMatrix4dEEERKT_v.exit20.i.i.i.i: ; preds = %614, %608, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.exit.thread.i12.i.i.i.i
   %.0.i13.i.i.i.i = phi ptr [ %606, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_10GfMatrix4dEEEbv.exit.thread.i12.i.i.i.i ], [ %613, %608 ], [ %615, %614 ]
   %616 = fpext float %0 to double
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %.sroa.0.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %24), !noalias !65
   %617 = fsub double 1.000000e+00, %616
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %23), !noalias !68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %23, ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i.i.i, i64 128, i1 false), !noalias !73
   %618 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLEd(ptr noundef nonnull align 8 dereferenceable(128) %23, double noundef %617), !noalias !73
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(128) %618, i64 128, i1 false), !noalias !76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %26, ptr noundef nonnull align 8 dereferenceable(128) %618, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %23), !noalias !68
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %22), !noalias !77
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %22, ptr noundef nonnull align 8 dereferenceable(128) %.0.i13.i.i.i.i, i64 128, i1 false), !noalias !80
-  %619 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLEd(ptr noundef nonnull align 8 dereferenceable(128) %22, double noundef %616), !noalias !80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %24, ptr noundef nonnull align 8 dereferenceable(128) %619, i64 128, i1 false), !noalias !76
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %22), !noalias !77
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %26, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0.i.i.i.i.i.i, i64 128, i1 false)
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %22), !noalias !76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %22, ptr noundef nonnull align 8 dereferenceable(128) %.0.i13.i.i.i.i, i64 128, i1 false), !noalias !79
+  %619 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLEd(ptr noundef nonnull align 8 dereferenceable(128) %22, double noundef %616), !noalias !79
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %24, ptr noundef nonnull align 8 dereferenceable(128) %619, i64 128, i1 false), !noalias !82
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %22), !noalias !76
   %620 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dpLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %26, ptr noundef nonnull align 8 dereferenceable(128) %24)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %.sroa.0.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %24), !noalias !65
   %621 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %622 = or disjoint i64 2, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_10GfMatrix4dEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
@@ -8782,7 +8770,6 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19HdResampleNeighborsINS_10GfMatrix2dEEENS_7VtArrayIT_EEfRKS4_S6_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtArray.27") align 8 %0, float noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", align 8
-  %.sroa.0.i.i = alloca [4 x double], align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", align 8
   %9 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
@@ -8809,7 +8796,6 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19HdResampleNeigh
           to label %20 unwind label %28
 
 20:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !153
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false), !noalias !161
@@ -8817,22 +8803,20 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19HdResampleNeigh
           to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false), !noalias !164
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !156
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !165
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false), !noalias !168
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !164
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false), !noalias !167
   %22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dmLEd(ptr noundef nonnull align 8 dereferenceable(32) %5, double noundef %10)
           to label %.noexc11 unwind label %28
 
 .noexc11:                                         ; preds = %.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false), !noalias !164
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !165
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false), !noalias !170
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !164
   %23 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dpLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %24 unwind label %28
 
 24:                                               ; preds = %.noexc11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !153
   %25 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0)
           to label %26 unwind label %28
@@ -9694,7 +9678,6 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19HdResampleNeighborsINS_10GfMatrix3dEEENS_7VtArrayIT_EEfRKS4_S6_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtArray.40") align 8 %0, float noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", align 8
-  %.sroa.0.i.i = alloca [9 x double], align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", align 8
   %9 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
@@ -9721,7 +9704,6 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19HdResampleNeigh
           to label %20 unwind label %28
 
 20:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7), !noalias !191
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6), !noalias !194
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %17, i64 72, i1 false), !noalias !199
@@ -9729,22 +9711,20 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19HdResampleNeigh
           to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(72) %21, i64 72, i1 false), !noalias !202
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %21, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !194
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !203
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %19, i64 72, i1 false), !noalias !206
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !202
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %19, i64 72, i1 false), !noalias !205
   %22 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dmLEd(ptr noundef nonnull align 8 dereferenceable(72) %5, double noundef %10)
           to label %.noexc11 unwind label %28
 
 .noexc11:                                         ; preds = %.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %22, i64 72, i1 false), !noalias !202
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !203
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.i.i, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %22, i64 72, i1 false), !noalias !208
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !202
   %23 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dpLERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) %7)
           to label %24 unwind label %28
 
 24:                                               ; preds = %.noexc11
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !191
   %25 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0)
           to label %26 unwind label %28
@@ -10506,7 +10486,6 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19HdResampleNeighborsINS_10GfMatrix4dEEENS_7VtArrayIT_EEfRKS4_S6_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtArray.53") align 8 %0, float noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
-  %.sroa.0.i.i = alloca [16 x double], align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %9 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
@@ -10533,7 +10512,6 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19HdResampleNeigh
           to label %20 unwind label %28
 
 20:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7), !noalias !229
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6), !noalias !232
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(128) %17, i64 128, i1 false), !noalias !237
@@ -10541,22 +10519,20 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19HdResampleNeigh
           to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(128) %21, i64 128, i1 false), !noalias !240
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef nonnull align 8 dereferenceable(128) %21, i64 128, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6), !noalias !232
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5), !noalias !241
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) %19, i64 128, i1 false), !noalias !244
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5), !noalias !240
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) %19, i64 128, i1 false), !noalias !243
   %22 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLEd(ptr noundef nonnull align 8 dereferenceable(128) %5, double noundef %10)
           to label %.noexc11 unwind label %28
 
 .noexc11:                                         ; preds = %.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull align 8 dereferenceable(128) %22, i64 128, i1 false), !noalias !240
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5), !noalias !241
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0.i.i, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull align 8 dereferenceable(128) %22, i64 128, i1 false), !noalias !246
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5), !noalias !240
   %23 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dpLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef nonnull align 8 dereferenceable(128) %7)
           to label %24 unwind label %28
 
 24:                                               ; preds = %.noexc11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7), !noalias !229
   %25 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %.0)
           to label %26 unwind label %28
@@ -23973,13 +23949,13 @@ attributes #19 = { builtin nounwind }
 !37 = !{!38, !33, !35, !30}
 !38 = distinct !{!38, !39, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix2dEd: argument 0"}
 !39 = distinct !{!39, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix2dEd"}
-!40 = !{!35, !30}
-!41 = !{!42, !35, !30}
-!42 = distinct !{!42, !43, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix2dE: argument 0"}
-!43 = distinct !{!43, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix2dE"}
-!44 = !{!45, !42, !35, !30}
-!45 = distinct !{!45, !46, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix2dEd: argument 0"}
-!46 = distinct !{!46, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix2dEd"}
+!40 = !{!41, !35, !30}
+!41 = distinct !{!41, !42, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix2dE: argument 0"}
+!42 = distinct !{!42, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix2dE"}
+!43 = !{!44, !41, !35, !30}
+!44 = distinct !{!44, !45, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix2dEd: argument 0"}
+!45 = distinct !{!45, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix2dEd"}
+!46 = !{!35, !30}
 !47 = !{!48}
 !48 = distinct !{!48, !49, !"_ZN32pxrInternal_v0_24__pxrReserved__19HdResampleNeighborsINS_10GfMatrix3dEEET_fRKS2_S4_: argument 0"}
 !49 = distinct !{!49, !"_ZN32pxrInternal_v0_24__pxrReserved__19HdResampleNeighborsINS_10GfMatrix3dEEET_fRKS2_S4_"}
@@ -23991,13 +23967,13 @@ attributes #19 = { builtin nounwind }
 !55 = !{!56, !51, !53, !48}
 !56 = distinct !{!56, !57, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix3dEd: argument 0"}
 !57 = distinct !{!57, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix3dEd"}
-!58 = !{!53, !48}
-!59 = !{!60, !53, !48}
-!60 = distinct !{!60, !61, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix3dE: argument 0"}
-!61 = distinct !{!61, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix3dE"}
-!62 = !{!63, !60, !53, !48}
-!63 = distinct !{!63, !64, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix3dEd: argument 0"}
-!64 = distinct !{!64, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix3dEd"}
+!58 = !{!59, !53, !48}
+!59 = distinct !{!59, !60, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix3dE: argument 0"}
+!60 = distinct !{!60, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix3dE"}
+!61 = !{!62, !59, !53, !48}
+!62 = distinct !{!62, !63, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix3dEd: argument 0"}
+!63 = distinct !{!63, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix3dEd"}
+!64 = !{!53, !48}
 !65 = !{!66}
 !66 = distinct !{!66, !67, !"_ZN32pxrInternal_v0_24__pxrReserved__19HdResampleNeighborsINS_10GfMatrix4dEEET_fRKS2_S4_: argument 0"}
 !67 = distinct !{!67, !"_ZN32pxrInternal_v0_24__pxrReserved__19HdResampleNeighborsINS_10GfMatrix4dEEET_fRKS2_S4_"}
@@ -24009,13 +23985,13 @@ attributes #19 = { builtin nounwind }
 !73 = !{!74, !69, !71, !66}
 !74 = distinct !{!74, !75, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix4dEd: argument 0"}
 !75 = distinct !{!75, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix4dEd"}
-!76 = !{!71, !66}
-!77 = !{!78, !71, !66}
-!78 = distinct !{!78, !79, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix4dE: argument 0"}
-!79 = distinct !{!79, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix4dE"}
-!80 = !{!81, !78, !71, !66}
-!81 = distinct !{!81, !82, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix4dEd: argument 0"}
-!82 = distinct !{!82, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix4dEd"}
+!76 = !{!77, !71, !66}
+!77 = distinct !{!77, !78, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix4dE: argument 0"}
+!78 = distinct !{!78, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix4dE"}
+!79 = !{!80, !77, !71, !66}
+!80 = distinct !{!80, !81, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix4dEd: argument 0"}
+!81 = distinct !{!81, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix4dEd"}
+!82 = !{!71, !66}
 !83 = !{!84}
 !84 = distinct !{!84, !85, !"_ZN32pxrInternal_v0_24__pxrReserved__19HdResampleNeighborsINS_7GfVec2fEEENS_7VtArrayIT_EEfRKS4_S6_: argument 0"}
 !85 = distinct !{!85, !"_ZN32pxrInternal_v0_24__pxrReserved__19HdResampleNeighborsINS_7GfVec2fEEENS_7VtArrayIT_EEfRKS4_S6_"}
@@ -24097,13 +24073,13 @@ attributes #19 = { builtin nounwind }
 !161 = !{!162, !157, !159, !154}
 !162 = distinct !{!162, !163, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix2dEd: argument 0"}
 !163 = distinct !{!163, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix2dEd"}
-!164 = !{!159, !154}
-!165 = !{!166, !159, !154}
-!166 = distinct !{!166, !167, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix2dE: argument 0"}
-!167 = distinct !{!167, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix2dE"}
-!168 = !{!169, !166, !159, !154}
-!169 = distinct !{!169, !170, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix2dEd: argument 0"}
-!170 = distinct !{!170, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix2dEd"}
+!164 = !{!165, !159, !154}
+!165 = distinct !{!165, !166, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix2dE: argument 0"}
+!166 = distinct !{!166, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix2dE"}
+!167 = !{!168, !165, !159, !154}
+!168 = distinct !{!168, !169, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix2dEd: argument 0"}
+!169 = distinct !{!169, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix2dEd"}
+!170 = !{!159, !154}
 !171 = distinct !{!171, !15}
 !172 = !{!173}
 !173 = distinct !{!173, !174, !"_ZN32pxrInternal_v0_24__pxrReserved__21Vt_DefaultValueHolder6CreateINS_7VtArrayINS_10GfMatrix2dEEEEES0_v: argument 0"}
@@ -24135,13 +24111,13 @@ attributes #19 = { builtin nounwind }
 !199 = !{!200, !195, !197, !192}
 !200 = distinct !{!200, !201, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix3dEd: argument 0"}
 !201 = distinct !{!201, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix3dEd"}
-!202 = !{!197, !192}
-!203 = !{!204, !197, !192}
-!204 = distinct !{!204, !205, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix3dE: argument 0"}
-!205 = distinct !{!205, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix3dE"}
-!206 = !{!207, !204, !197, !192}
-!207 = distinct !{!207, !208, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix3dEd: argument 0"}
-!208 = distinct !{!208, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix3dEd"}
+!202 = !{!203, !197, !192}
+!203 = distinct !{!203, !204, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix3dE: argument 0"}
+!204 = distinct !{!204, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix3dE"}
+!205 = !{!206, !203, !197, !192}
+!206 = distinct !{!206, !207, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix3dEd: argument 0"}
+!207 = distinct !{!207, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix3dEd"}
+!208 = !{!197, !192}
 !209 = distinct !{!209, !15}
 !210 = !{!211}
 !211 = distinct !{!211, !212, !"_ZN32pxrInternal_v0_24__pxrReserved__21Vt_DefaultValueHolder6CreateINS_7VtArrayINS_10GfMatrix3dEEEEES0_v: argument 0"}
@@ -24173,13 +24149,13 @@ attributes #19 = { builtin nounwind }
 !237 = !{!238, !233, !235, !230}
 !238 = distinct !{!238, !239, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix4dEd: argument 0"}
 !239 = distinct !{!239, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix4dEd"}
-!240 = !{!235, !230}
-!241 = !{!242, !235, !230}
-!242 = distinct !{!242, !243, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix4dE: argument 0"}
-!243 = distinct !{!243, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix4dE"}
-!244 = !{!245, !242, !235, !230}
-!245 = distinct !{!245, !246, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix4dEd: argument 0"}
-!246 = distinct !{!246, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix4dEd"}
+!240 = !{!241, !235, !230}
+!241 = distinct !{!241, !242, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix4dE: argument 0"}
+!242 = distinct !{!242, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_10GfMatrix4dE"}
+!243 = !{!244, !241, !235, !230}
+!244 = distinct !{!244, !245, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix4dEd: argument 0"}
+!245 = distinct !{!245, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix4dEd"}
+!246 = !{!235, !230}
 !247 = distinct !{!247, !15}
 !248 = !{!249}
 !249 = distinct !{!249, !250, !"_ZN32pxrInternal_v0_24__pxrReserved__21Vt_DefaultValueHolder6CreateINS_7VtArrayINS_10GfMatrix4dEEEEES0_v: argument 0"}

@@ -1132,7 +1132,7 @@ _ZN7hir_def15child_by_source13ChildBySource15child_by_source17h973d9c6cc8ca61c0E
   %100 = sub i64 %99, %97
   store i64 %100, ptr %98, align 8, !alias.scope !345, !noalias !338
   %101 = getelementptr inbounds i8, ptr %95, i64 -56
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %101, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !333
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %101, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !333
   %102 = getelementptr inbounds i8, ptr %.sroa.01.sroa.0.0.copyload, i64 24
   %103 = load i64, ptr %102, align 8, !alias.scope !345, !noalias !338, !noundef !212
   %104 = add i64 %103, 1
@@ -36994,11 +36994,11 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #33
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #34
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #35
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #32
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #35
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

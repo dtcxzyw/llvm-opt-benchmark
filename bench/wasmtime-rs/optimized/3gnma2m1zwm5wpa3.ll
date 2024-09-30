@@ -16273,7 +16273,7 @@ common.ret:                                       ; preds = %254, %153, %99, %38
   %307 = getelementptr inbounds i8, ptr %1, i64 184
   %308 = load ptr, ptr %307, align 8, !alias.scope !2406, !noalias !2409, !nonnull !4, !noundef !4
   %309 = getelementptr inbounds { { i64, i64, i32, i8, [3 x i8] }, { { { i64, ptr, {} }, i64 } } }, ptr %308, i64 %306
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %309, ptr noundef nonnull align 8 dereferenceable(48) %25, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %309, ptr noundef nonnull align 8 dereferenceable(48) %25, i64 48, i1 false)
   %310 = load i64, ptr %296, align 8, !alias.scope !2406, !noalias !2409, !noundef !4
   %311 = add i64 %310, 1
   store i64 %311, ptr %296, align 8, !alias.scope !2406, !noalias !2409
@@ -25224,9 +25224,6 @@ declare hidden void @"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$15copy_from_slice17he
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$6to_vec17h19979d8996c655e1E"(ptr noalias nocapture noundef sret({ i32, [15 x i32] }) align 8 dereferenceable(64), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$9get_range17h55ad9177f65a65d3E"(ptr noalias nocapture noundef sret({ ptr, [2 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef, i32 noundef) unnamed_addr #0

@@ -9429,7 +9429,6 @@ define void @_ZN5uu_cp15parse_path_args17h7d37e86ec6c19458E(ptr noalias nocaptur
   %7 = alloca { { { i64, ptr, {} }, i64 }, { { { { { i64, ptr, {} }, i64 } } } } }, align 8
   %8 = alloca { { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }, align 8
   %9 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
-  %.sroa.657 = alloca [2 x i64], align 8
   %10 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %11 = alloca [1 x { ptr, ptr }], align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -9540,7 +9539,6 @@ define void @_ZN5uu_cp15parse_path_args17h7d37e86ec6c19458E(ptr noalias nocaptur
           to label %65 unwind label %20
 
 51:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.657)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2718)
   %52 = add i64 %16, -1
   store i64 %52, ptr %15, align 8, !alias.scope !2718, !noalias !2721
@@ -9551,8 +9549,6 @@ define void @_ZN5uu_cp15parse_path_args17h7d37e86ec6c19458E(ptr noalias nocaptur
   %56 = load ptr, ptr %55, align 8, !alias.scope !2718, !noalias !2721, !nonnull !4, !noundef !4
   %57 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %56, i64 %52
   %.sroa.055.0.copyload56 = load i64, ptr %57, align 8, !noalias !2718
-  %.sroa.657.0..sroa_idx58 = getelementptr inbounds i8, ptr %57, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.657, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.657.0..sroa_idx58, i64 16, i1 false), !noalias !2718
   %58 = icmp eq i64 %.sroa.055.0.copyload56, -9223372036854775808
   br i1 %58, label %59, label %60
 
@@ -9561,10 +9557,10 @@ define void @_ZN5uu_cp15parse_path_args17h7d37e86ec6c19458E(ptr noalias nocaptur
           to label %35 unwind label %20
 
 60:                                               ; preds = %51
+  %.sroa.657.0..sroa_idx58 = getelementptr inbounds i8, ptr %57, i64 8
   store i64 %.sroa.055.0.copyload56, ptr %10, align 8
   %.sroa.657.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.657.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.657, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.657)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.657.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.657.0..sroa_idx58, i64 16, i1 false)
   br label %61
 
 61:                                               ; preds = %65, %60

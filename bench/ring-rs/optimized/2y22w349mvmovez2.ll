@@ -1620,10 +1620,10 @@ define void @_ZN4ring6digest20sha256_format_output17hab5dd42d6f6973e2E(ptr noali
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %5, i8 0, i64 64, i1 false), !noalias !244
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !246
   store ptr %5, ptr %4, align 8, !noalias !251
-  %.sroa.413.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 64, ptr %.sroa.413.0..sroa_idx.i, align 8, !noalias !251
-  %.sroa.514.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 4, ptr %.sroa.514.0..sroa_idx.i, align 8, !noalias !251
+  %.sroa.513.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 64, ptr %.sroa.513.0..sroa_idx.i, align 8, !noalias !251
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 4, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !251
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !252
   call void @"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0ad7f85685b438aeE.llvm.11941192184161370172"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, i64 } }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4), !noalias !259
   %6 = load i64, ptr %3, align 8, !noalias !252, !noundef !16
@@ -1661,10 +1661,10 @@ define void @_ZN4ring6digest20sha512_format_output17h84fc89429f17e182E(ptr noali
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %5, i8 0, i64 64, i1 false), !noalias !285
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !287
   store ptr %5, ptr %4, align 8, !noalias !292
-  %.sroa.413.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 64, ptr %.sroa.413.0..sroa_idx.i, align 8, !noalias !292
-  %.sroa.514.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 8, ptr %.sroa.514.0..sroa_idx.i, align 8, !noalias !292
+  %.sroa.513.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 64, ptr %.sroa.513.0..sroa_idx.i, align 8, !noalias !292
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
+  store i64 8, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !292
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !293
   call void @"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0ad7f85685b438aeE.llvm.11941192184161370172"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, i64 } }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4), !noalias !300
   %6 = load i64, ptr %3, align 8, !noalias !293, !noundef !16

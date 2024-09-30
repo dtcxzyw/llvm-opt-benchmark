@@ -8009,570 +8009,556 @@ declare void @_ZN15cmStateSnapshot23SetDirectoryDefinitionsEv(ptr noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7cmState23CreateDeferCallSnapshotERK15cmStateSnapshotRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%class.cmStateSnapshot) align 8 %0, ptr noundef nonnull align 8 dereferenceable(705) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.cmStateDetail::SnapshotDataType", align 8
-  %6 = alloca %"struct.cmStateDetail::SnapshotDataType", align 8
-  %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 456
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.05.0.copyload = load ptr, ptr %9, align 8
+  %6 = alloca %"class.std::__cxx11::basic_string", align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 456
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.05.0.copyload = load ptr, ptr %8, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 8
-  %10 = load ptr, ptr %.sroa.05.0.copyload, align 8
-  %11 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %10, i64 %.sroa.26.0.copyload
-  %12 = getelementptr i8, ptr %11, i64 -208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(208) %12, i64 208, i1 false)
+  %9 = load ptr, ptr %.sroa.05.0.copyload, align 8
+  %10 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %9, i64 %.sroa.26.0.copyload
+  %11 = getelementptr i8, ptr %10, i64 -208
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %6, i64 208, i1 false)
-  %13 = call { ptr, i64 } @_ZN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE9Push_implENS2_8iteratorEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr nonnull %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload, ptr noundef nonnull align 8 dereferenceable(208) %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %11, i64 208, i1 false)
+  %12 = call { ptr, i64 } @_ZN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE9Push_implENS2_8iteratorEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr nonnull %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload, ptr noundef nonnull align 8 dereferenceable(208) %5)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5)
-  %14 = extractvalue { ptr, i64 } %13, 0
-  %15 = extractvalue { ptr, i64 } %13, 1
-  %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %16, i64 %15
-  %18 = getelementptr i8, ptr %17, i64 -128
-  store i32 2, ptr %18, align 8
-  %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %19, i64 %15
-  %21 = getelementptr i8, ptr %20, i64 -124
-  store i8 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 360
-  %23 = load ptr, ptr %9, align 8
-  %24 = load i64, ptr %.sroa.26.0..sroa_idx, align 8
-  %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %25, i64 %24
-  %27 = getelementptr i8, ptr %26, i64 -120
-  %.sroa.01.0.copyload = load ptr, ptr %27, align 8
-  %.sroa.22.0..sroa_idx = getelementptr i8, ptr %26, i64 -112
+  %13 = extractvalue { ptr, i64 } %12, 0
+  %14 = extractvalue { ptr, i64 } %12, 1
+  %15 = load ptr, ptr %13, align 8
+  %16 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %15, i64 %14
+  %17 = getelementptr i8, ptr %16, i64 -128
+  store i32 2, ptr %17, align 8
+  %18 = load ptr, ptr %13, align 8
+  %19 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %18, i64 %14
+  %20 = getelementptr i8, ptr %19, i64 -124
+  store i8 0, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %1, i64 360
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i64, ptr %.sroa.26.0..sroa_idx, align 8
+  %24 = load ptr, ptr %22, align 8
+  %25 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %24, i64 %23
+  %26 = getelementptr i8, ptr %25, i64 -120
+  %.sroa.01.0.copyload = load ptr, ptr %26, align 8
+  %.sroa.22.0..sroa_idx = getelementptr i8, ptr %25, i64 -112
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  %28 = invoke { ptr, i64 } @_ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9Push_implENS6_8iteratorEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %29 unwind label %52
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %27 = invoke { ptr, i64 } @_ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9Push_implENS6_8iteratorEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %28 unwind label %51
 
-29:                                               ; preds = %4
-  %30 = load ptr, ptr %14, align 8
-  %31 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %30, i64 %15
-  %32 = extractvalue { ptr, i64 } %28, 1
-  %33 = extractvalue { ptr, i64 } %28, 0
-  %34 = getelementptr i8, ptr %31, i64 -120
-  store ptr %33, ptr %34, align 8
-  %.sroa.24.0..sroa_idx = getelementptr i8, ptr %31, i64 -112
-  store i64 %32, ptr %.sroa.24.0..sroa_idx, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
-  %35 = load ptr, ptr %14, align 8
-  %36 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %35, i64 %15
-  %37 = getelementptr i8, ptr %36, i64 -104
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr i8, ptr %36, i64 -96
-  %40 = load i64, ptr %39, align 8
-  %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %41, i64 %40
-  %43 = getelementptr i8, ptr %42, i64 -360
-  store ptr %14, ptr %43, align 8
-  %.sroa.8.0..sroa_idx = getelementptr i8, ptr %42, i64 -352
-  store i64 %15, ptr %.sroa.8.0..sroa_idx, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = load i64, ptr %.sroa.26.0..sroa_idx, align 8
-  %46 = load ptr, ptr %44, align 8
-  %47 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %46, i64 %45
-  %48 = getelementptr i8, ptr %47, i64 -176
-  %49 = load ptr, ptr %14, align 8
-  %50 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %49, i64 %15
-  %51 = getelementptr i8, ptr %50, i64 -144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
-  call void @_ZN15cmStateSnapshotC1EP7cmStateN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr nonnull %14, i64 %15)
+28:                                               ; preds = %4
+  %29 = load ptr, ptr %13, align 8
+  %30 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %29, i64 %14
+  %31 = extractvalue { ptr, i64 } %27, 1
+  %32 = extractvalue { ptr, i64 } %27, 0
+  %33 = getelementptr i8, ptr %30, i64 -120
+  store ptr %32, ptr %33, align 8
+  %.sroa.24.0..sroa_idx = getelementptr i8, ptr %30, i64 -112
+  store i64 %31, ptr %.sroa.24.0..sroa_idx, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
+  %34 = load ptr, ptr %13, align 8
+  %35 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %34, i64 %14
+  %36 = getelementptr i8, ptr %35, i64 -104
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr i8, ptr %35, i64 -96
+  %39 = load i64, ptr %38, align 8
+  %40 = load ptr, ptr %37, align 8
+  %41 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %40, i64 %39
+  %42 = getelementptr i8, ptr %41, i64 -360
+  store ptr %13, ptr %42, align 8
+  %.sroa.8.0..sroa_idx = getelementptr i8, ptr %41, i64 -352
+  store i64 %14, ptr %.sroa.8.0..sroa_idx, align 8
+  %43 = load ptr, ptr %8, align 8
+  %44 = load i64, ptr %.sroa.26.0..sroa_idx, align 8
+  %45 = load ptr, ptr %43, align 8
+  %46 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %45, i64 %44
+  %47 = getelementptr i8, ptr %46, i64 -176
+  %48 = load ptr, ptr %13, align 8
+  %49 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %48, i64 %14
+  %50 = getelementptr i8, ptr %49, i64 -144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
+  call void @_ZN15cmStateSnapshotC1EP7cmStateN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr nonnull %13, i64 %14)
   ret void
 
-52:                                               ; preds = %4
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %4
+  %52 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
-  resume { ptr, i32 } %53
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
+  resume { ptr, i32 } %52
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7cmState26CreateFunctionCallSnapshotERK15cmStateSnapshotRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%class.cmStateSnapshot) align 8 %0, ptr noundef nonnull align 8 dereferenceable(705) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.cmStateDetail::SnapshotDataType", align 8
-  %6 = alloca %"struct.cmStateDetail::SnapshotDataType", align 8
-  %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 456
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.013.0.copyload = load ptr, ptr %9, align 8
+  %6 = alloca %"class.std::__cxx11::basic_string", align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 456
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.013.0.copyload = load ptr, ptr %8, align 8
   %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.214.0.copyload = load i64, ptr %.sroa.214.0..sroa_idx, align 8
-  %10 = load ptr, ptr %.sroa.013.0.copyload, align 8
-  %11 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %10, i64 %.sroa.214.0.copyload
-  %12 = getelementptr i8, ptr %11, i64 -208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(208) %12, i64 208, i1 false)
+  %9 = load ptr, ptr %.sroa.013.0.copyload, align 8
+  %10 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %9, i64 %.sroa.214.0.copyload
+  %11 = getelementptr i8, ptr %10, i64 -208
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %6, i64 208, i1 false)
-  %13 = call { ptr, i64 } @_ZN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE9Push_implENS2_8iteratorEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr nonnull %.sroa.013.0.copyload, i64 %.sroa.214.0.copyload, ptr noundef nonnull align 8 dereferenceable(208) %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %11, i64 208, i1 false)
+  %12 = call { ptr, i64 } @_ZN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE9Push_implENS2_8iteratorEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr nonnull %.sroa.013.0.copyload, i64 %.sroa.214.0.copyload, ptr noundef nonnull align 8 dereferenceable(208) %5)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5)
-  %14 = extractvalue { ptr, i64 } %13, 0
-  %15 = extractvalue { ptr, i64 } %13, 1
-  %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %16, i64 %15
-  %18 = getelementptr i8, ptr %17, i64 -208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %19, i64 %15
-  %21 = getelementptr i8, ptr %20, i64 -128
-  store i32 3, ptr %21, align 8
-  %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %22, i64 %15
-  %24 = getelementptr i8, ptr %23, i64 -124
-  store i8 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 360
-  %26 = load ptr, ptr %9, align 8
-  %27 = load i64, ptr %.sroa.214.0..sroa_idx, align 8
-  %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %28, i64 %27
-  %30 = getelementptr i8, ptr %29, i64 -120
-  %.sroa.09.0.copyload = load ptr, ptr %30, align 8
-  %.sroa.210.0..sroa_idx = getelementptr i8, ptr %29, i64 -112
+  %13 = extractvalue { ptr, i64 } %12, 0
+  %14 = extractvalue { ptr, i64 } %12, 1
+  %15 = load ptr, ptr %13, align 8
+  %16 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %15, i64 %14
+  %17 = getelementptr i8, ptr %16, i64 -208
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  %18 = load ptr, ptr %13, align 8
+  %19 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %18, i64 %14
+  %20 = getelementptr i8, ptr %19, i64 -128
+  store i32 3, ptr %20, align 8
+  %21 = load ptr, ptr %13, align 8
+  %22 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %21, i64 %14
+  %23 = getelementptr i8, ptr %22, i64 -124
+  store i8 0, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %1, i64 360
+  %25 = load ptr, ptr %8, align 8
+  %26 = load i64, ptr %.sroa.214.0..sroa_idx, align 8
+  %27 = load ptr, ptr %25, align 8
+  %28 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %27, i64 %26
+  %29 = getelementptr i8, ptr %28, i64 -120
+  %.sroa.09.0.copyload = load ptr, ptr %29, align 8
+  %.sroa.210.0..sroa_idx = getelementptr i8, ptr %28, i64 -112
   %.sroa.210.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  %31 = invoke { ptr, i64 } @_ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9Push_implENS6_8iteratorEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %32 unwind label %70
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %30 = invoke { ptr, i64 } @_ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9Push_implENS6_8iteratorEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %31 unwind label %69
 
-32:                                               ; preds = %4
-  %33 = load ptr, ptr %14, align 8
-  %34 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %33, i64 %15
-  %35 = extractvalue { ptr, i64 } %31, 1
-  %36 = extractvalue { ptr, i64 } %31, 0
-  %37 = getelementptr i8, ptr %34, i64 -120
-  store ptr %36, ptr %37, align 8
-  %.sroa.212.0..sroa_idx = getelementptr i8, ptr %34, i64 -112
-  store i64 %35, ptr %.sroa.212.0..sroa_idx, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
-  %38 = load ptr, ptr %14, align 8
-  %39 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %38, i64 %15
-  %40 = getelementptr i8, ptr %39, i64 -104
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr i8, ptr %39, i64 -96
-  %43 = load i64, ptr %42, align 8
-  %44 = load ptr, ptr %41, align 8
-  %45 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %44, i64 %43
-  %46 = getelementptr i8, ptr %45, i64 -360
-  store ptr %14, ptr %46, align 8
-  %.sroa.11.0..sroa_idx = getelementptr i8, ptr %45, i64 -352
-  store i64 %15, ptr %.sroa.11.0..sroa_idx, align 8
-  %47 = load ptr, ptr %9, align 8
-  %48 = load i64, ptr %.sroa.214.0..sroa_idx, align 8
-  %49 = load ptr, ptr %47, align 8
-  %50 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %49, i64 %48
-  %51 = getelementptr i8, ptr %50, i64 -176
-  %52 = load ptr, ptr %14, align 8
-  %53 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %52, i64 %15
-  %54 = getelementptr i8, ptr %53, i64 -144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false)
-  %55 = load ptr, ptr %9, align 8
-  %56 = load i64, ptr %.sroa.214.0..sroa_idx, align 8
-  %57 = load ptr, ptr %55, align 8
-  %58 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %57, i64 %56
-  %59 = getelementptr i8, ptr %58, i64 -88
-  %.sroa.05.0.copyload = load ptr, ptr %59, align 8
-  %.sroa.3.0..sroa_idx = getelementptr i8, ptr %58, i64 -80
+31:                                               ; preds = %4
+  %32 = load ptr, ptr %13, align 8
+  %33 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %32, i64 %14
+  %34 = extractvalue { ptr, i64 } %30, 1
+  %35 = extractvalue { ptr, i64 } %30, 0
+  %36 = getelementptr i8, ptr %33, i64 -120
+  store ptr %35, ptr %36, align 8
+  %.sroa.212.0..sroa_idx = getelementptr i8, ptr %33, i64 -112
+  store i64 %34, ptr %.sroa.212.0..sroa_idx, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
+  %37 = load ptr, ptr %13, align 8
+  %38 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %37, i64 %14
+  %39 = getelementptr i8, ptr %38, i64 -104
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr i8, ptr %38, i64 -96
+  %42 = load i64, ptr %41, align 8
+  %43 = load ptr, ptr %40, align 8
+  %44 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %43, i64 %42
+  %45 = getelementptr i8, ptr %44, i64 -360
+  store ptr %13, ptr %45, align 8
+  %.sroa.11.0..sroa_idx = getelementptr i8, ptr %44, i64 -352
+  store i64 %14, ptr %.sroa.11.0..sroa_idx, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load i64, ptr %.sroa.214.0..sroa_idx, align 8
+  %48 = load ptr, ptr %46, align 8
+  %49 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %48, i64 %47
+  %50 = getelementptr i8, ptr %49, i64 -176
+  %51 = load ptr, ptr %13, align 8
+  %52 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %51, i64 %14
+  %53 = getelementptr i8, ptr %52, i64 -144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
+  %54 = load ptr, ptr %8, align 8
+  %55 = load i64, ptr %.sroa.214.0..sroa_idx, align 8
+  %56 = load ptr, ptr %54, align 8
+  %57 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %56, i64 %55
+  %58 = getelementptr i8, ptr %57, i64 -88
+  %.sroa.05.0.copyload = load ptr, ptr %58, align 8
+  %.sroa.3.0..sroa_idx = getelementptr i8, ptr %57, i64 -80
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %60 = load ptr, ptr %14, align 8
-  %61 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %60, i64 %15
-  %62 = getelementptr i8, ptr %61, i64 -56
-  store ptr %.sroa.05.0.copyload, ptr %62, align 8
-  %.sroa.3.0..sroa_idx7 = getelementptr i8, ptr %61, i64 -48
+  %59 = load ptr, ptr %13, align 8
+  %60 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %59, i64 %14
+  %61 = getelementptr i8, ptr %60, i64 -56
+  store ptr %.sroa.05.0.copyload, ptr %61, align 8
+  %.sroa.3.0..sroa_idx7 = getelementptr i8, ptr %60, i64 -48
   store i64 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx7, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 504
-  %64 = call { ptr, i64 } @_ZN12cmLinkedTreeI13cmDefinitionsE4PushENS1_8iteratorE(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr %.sroa.05.0.copyload, i64 %.sroa.3.0.copyload)
-  %65 = extractvalue { ptr, i64 } %64, 0
-  %66 = extractvalue { ptr, i64 } %64, 1
-  %67 = load ptr, ptr %14, align 8
-  %68 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %67, i64 %15
-  %69 = getelementptr i8, ptr %68, i64 -88
-  store ptr %65, ptr %69, align 8
-  %.sroa.24.0..sroa_idx = getelementptr i8, ptr %68, i64 -80
-  store i64 %66, ptr %.sroa.24.0..sroa_idx, align 8
-  call void @_ZN15cmStateSnapshotC1EP7cmStateN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr nonnull %14, i64 %15)
+  %62 = getelementptr inbounds i8, ptr %1, i64 504
+  %63 = call { ptr, i64 } @_ZN12cmLinkedTreeI13cmDefinitionsE4PushENS1_8iteratorE(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr %.sroa.05.0.copyload, i64 %.sroa.3.0.copyload)
+  %64 = extractvalue { ptr, i64 } %63, 0
+  %65 = extractvalue { ptr, i64 } %63, 1
+  %66 = load ptr, ptr %13, align 8
+  %67 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %66, i64 %14
+  %68 = getelementptr i8, ptr %67, i64 -88
+  store ptr %64, ptr %68, align 8
+  %.sroa.24.0..sroa_idx = getelementptr i8, ptr %67, i64 -80
+  store i64 %65, ptr %.sroa.24.0..sroa_idx, align 8
+  call void @_ZN15cmStateSnapshotC1EP7cmStateN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr nonnull %13, i64 %14)
   ret void
 
-70:                                               ; preds = %4
-  %71 = landingpad { ptr, i32 }
+69:                                               ; preds = %4
+  %70 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
-  resume { ptr, i32 } %71
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
+  resume { ptr, i32 } %70
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7cmState23CreateMacroCallSnapshotERK15cmStateSnapshotRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%class.cmStateSnapshot) align 8 %0, ptr noundef nonnull align 8 dereferenceable(705) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.cmStateDetail::SnapshotDataType", align 8
-  %6 = alloca %"struct.cmStateDetail::SnapshotDataType", align 8
-  %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 456
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.05.0.copyload = load ptr, ptr %9, align 8
+  %6 = alloca %"class.std::__cxx11::basic_string", align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 456
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.05.0.copyload = load ptr, ptr %8, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 8
-  %10 = load ptr, ptr %.sroa.05.0.copyload, align 8
-  %11 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %10, i64 %.sroa.26.0.copyload
-  %12 = getelementptr i8, ptr %11, i64 -208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(208) %12, i64 208, i1 false)
+  %9 = load ptr, ptr %.sroa.05.0.copyload, align 8
+  %10 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %9, i64 %.sroa.26.0.copyload
+  %11 = getelementptr i8, ptr %10, i64 -208
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %6, i64 208, i1 false)
-  %13 = call { ptr, i64 } @_ZN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE9Push_implENS2_8iteratorEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr nonnull %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload, ptr noundef nonnull align 8 dereferenceable(208) %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %11, i64 208, i1 false)
+  %12 = call { ptr, i64 } @_ZN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE9Push_implENS2_8iteratorEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr nonnull %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload, ptr noundef nonnull align 8 dereferenceable(208) %5)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5)
-  %14 = extractvalue { ptr, i64 } %13, 0
-  %15 = extractvalue { ptr, i64 } %13, 1
-  %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %16, i64 %15
-  %18 = getelementptr i8, ptr %17, i64 -128
-  store i32 4, ptr %18, align 8
-  %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %19, i64 %15
-  %21 = getelementptr i8, ptr %20, i64 -124
-  store i8 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 360
-  %23 = load ptr, ptr %9, align 8
-  %24 = load i64, ptr %.sroa.26.0..sroa_idx, align 8
-  %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %25, i64 %24
-  %27 = getelementptr i8, ptr %26, i64 -120
-  %.sroa.01.0.copyload = load ptr, ptr %27, align 8
-  %.sroa.22.0..sroa_idx = getelementptr i8, ptr %26, i64 -112
+  %13 = extractvalue { ptr, i64 } %12, 0
+  %14 = extractvalue { ptr, i64 } %12, 1
+  %15 = load ptr, ptr %13, align 8
+  %16 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %15, i64 %14
+  %17 = getelementptr i8, ptr %16, i64 -128
+  store i32 4, ptr %17, align 8
+  %18 = load ptr, ptr %13, align 8
+  %19 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %18, i64 %14
+  %20 = getelementptr i8, ptr %19, i64 -124
+  store i8 0, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %1, i64 360
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i64, ptr %.sroa.26.0..sroa_idx, align 8
+  %24 = load ptr, ptr %22, align 8
+  %25 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %24, i64 %23
+  %26 = getelementptr i8, ptr %25, i64 -120
+  %.sroa.01.0.copyload = load ptr, ptr %26, align 8
+  %.sroa.22.0..sroa_idx = getelementptr i8, ptr %25, i64 -112
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  %28 = invoke { ptr, i64 } @_ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9Push_implENS6_8iteratorEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %29 unwind label %52
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %27 = invoke { ptr, i64 } @_ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9Push_implENS6_8iteratorEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %28 unwind label %51
 
-29:                                               ; preds = %4
-  %30 = load ptr, ptr %14, align 8
-  %31 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %30, i64 %15
-  %32 = extractvalue { ptr, i64 } %28, 1
-  %33 = extractvalue { ptr, i64 } %28, 0
-  %34 = getelementptr i8, ptr %31, i64 -120
-  store ptr %33, ptr %34, align 8
-  %.sroa.24.0..sroa_idx = getelementptr i8, ptr %31, i64 -112
-  store i64 %32, ptr %.sroa.24.0..sroa_idx, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
-  %35 = load ptr, ptr %14, align 8
-  %36 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %35, i64 %15
-  %37 = getelementptr i8, ptr %36, i64 -104
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr i8, ptr %36, i64 -96
-  %40 = load i64, ptr %39, align 8
-  %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %41, i64 %40
-  %43 = getelementptr i8, ptr %42, i64 -360
-  store ptr %14, ptr %43, align 8
-  %.sroa.8.0..sroa_idx = getelementptr i8, ptr %42, i64 -352
-  store i64 %15, ptr %.sroa.8.0..sroa_idx, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = load i64, ptr %.sroa.26.0..sroa_idx, align 8
-  %46 = load ptr, ptr %44, align 8
-  %47 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %46, i64 %45
-  %48 = getelementptr i8, ptr %47, i64 -176
-  %49 = load ptr, ptr %14, align 8
-  %50 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %49, i64 %15
-  %51 = getelementptr i8, ptr %50, i64 -144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
-  call void @_ZN15cmStateSnapshotC1EP7cmStateN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr nonnull %14, i64 %15)
+28:                                               ; preds = %4
+  %29 = load ptr, ptr %13, align 8
+  %30 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %29, i64 %14
+  %31 = extractvalue { ptr, i64 } %27, 1
+  %32 = extractvalue { ptr, i64 } %27, 0
+  %33 = getelementptr i8, ptr %30, i64 -120
+  store ptr %32, ptr %33, align 8
+  %.sroa.24.0..sroa_idx = getelementptr i8, ptr %30, i64 -112
+  store i64 %31, ptr %.sroa.24.0..sroa_idx, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
+  %34 = load ptr, ptr %13, align 8
+  %35 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %34, i64 %14
+  %36 = getelementptr i8, ptr %35, i64 -104
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr i8, ptr %35, i64 -96
+  %39 = load i64, ptr %38, align 8
+  %40 = load ptr, ptr %37, align 8
+  %41 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %40, i64 %39
+  %42 = getelementptr i8, ptr %41, i64 -360
+  store ptr %13, ptr %42, align 8
+  %.sroa.8.0..sroa_idx = getelementptr i8, ptr %41, i64 -352
+  store i64 %14, ptr %.sroa.8.0..sroa_idx, align 8
+  %43 = load ptr, ptr %8, align 8
+  %44 = load i64, ptr %.sroa.26.0..sroa_idx, align 8
+  %45 = load ptr, ptr %43, align 8
+  %46 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %45, i64 %44
+  %47 = getelementptr i8, ptr %46, i64 -176
+  %48 = load ptr, ptr %13, align 8
+  %49 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %48, i64 %14
+  %50 = getelementptr i8, ptr %49, i64 -144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
+  call void @_ZN15cmStateSnapshotC1EP7cmStateN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr nonnull %13, i64 %14)
   ret void
 
-52:                                               ; preds = %4
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %4
+  %52 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
-  resume { ptr, i32 } %53
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
+  resume { ptr, i32 } %52
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7cmState25CreateIncludeFileSnapshotERK15cmStateSnapshotRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%class.cmStateSnapshot) align 8 %0, ptr noundef nonnull align 8 dereferenceable(705) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.cmStateDetail::SnapshotDataType", align 8
-  %6 = alloca %"struct.cmStateDetail::SnapshotDataType", align 8
-  %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 456
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.05.0.copyload = load ptr, ptr %9, align 8
+  %6 = alloca %"class.std::__cxx11::basic_string", align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 456
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.05.0.copyload = load ptr, ptr %8, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 8
-  %10 = load ptr, ptr %.sroa.05.0.copyload, align 8
-  %11 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %10, i64 %.sroa.26.0.copyload
-  %12 = getelementptr i8, ptr %11, i64 -208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(208) %12, i64 208, i1 false)
+  %9 = load ptr, ptr %.sroa.05.0.copyload, align 8
+  %10 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %9, i64 %.sroa.26.0.copyload
+  %11 = getelementptr i8, ptr %10, i64 -208
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %6, i64 208, i1 false)
-  %13 = call { ptr, i64 } @_ZN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE9Push_implENS2_8iteratorEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr nonnull %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload, ptr noundef nonnull align 8 dereferenceable(208) %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %11, i64 208, i1 false)
+  %12 = call { ptr, i64 } @_ZN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE9Push_implENS2_8iteratorEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr nonnull %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload, ptr noundef nonnull align 8 dereferenceable(208) %5)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5)
-  %14 = extractvalue { ptr, i64 } %13, 0
-  %15 = extractvalue { ptr, i64 } %13, 1
-  %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %16, i64 %15
-  %18 = getelementptr i8, ptr %17, i64 -128
-  store i32 5, ptr %18, align 8
-  %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %19, i64 %15
-  %21 = getelementptr i8, ptr %20, i64 -124
-  store i8 1, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 360
-  %23 = load ptr, ptr %9, align 8
-  %24 = load i64, ptr %.sroa.26.0..sroa_idx, align 8
-  %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %25, i64 %24
-  %27 = getelementptr i8, ptr %26, i64 -120
-  %.sroa.01.0.copyload = load ptr, ptr %27, align 8
-  %.sroa.22.0..sroa_idx = getelementptr i8, ptr %26, i64 -112
+  %13 = extractvalue { ptr, i64 } %12, 0
+  %14 = extractvalue { ptr, i64 } %12, 1
+  %15 = load ptr, ptr %13, align 8
+  %16 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %15, i64 %14
+  %17 = getelementptr i8, ptr %16, i64 -128
+  store i32 5, ptr %17, align 8
+  %18 = load ptr, ptr %13, align 8
+  %19 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %18, i64 %14
+  %20 = getelementptr i8, ptr %19, i64 -124
+  store i8 1, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %1, i64 360
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i64, ptr %.sroa.26.0..sroa_idx, align 8
+  %24 = load ptr, ptr %22, align 8
+  %25 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %24, i64 %23
+  %26 = getelementptr i8, ptr %25, i64 -120
+  %.sroa.01.0.copyload = load ptr, ptr %26, align 8
+  %.sroa.22.0..sroa_idx = getelementptr i8, ptr %25, i64 -112
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  %28 = invoke { ptr, i64 } @_ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9Push_implENS6_8iteratorEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %29 unwind label %52
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %27 = invoke { ptr, i64 } @_ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9Push_implENS6_8iteratorEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %28 unwind label %51
 
-29:                                               ; preds = %4
-  %30 = load ptr, ptr %14, align 8
-  %31 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %30, i64 %15
-  %32 = extractvalue { ptr, i64 } %28, 1
-  %33 = extractvalue { ptr, i64 } %28, 0
-  %34 = getelementptr i8, ptr %31, i64 -120
-  store ptr %33, ptr %34, align 8
-  %.sroa.24.0..sroa_idx = getelementptr i8, ptr %31, i64 -112
-  store i64 %32, ptr %.sroa.24.0..sroa_idx, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
-  %35 = load ptr, ptr %14, align 8
-  %36 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %35, i64 %15
-  %37 = getelementptr i8, ptr %36, i64 -104
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr i8, ptr %36, i64 -96
-  %40 = load i64, ptr %39, align 8
-  %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %41, i64 %40
-  %43 = getelementptr i8, ptr %42, i64 -360
-  store ptr %14, ptr %43, align 8
-  %.sroa.8.0..sroa_idx = getelementptr i8, ptr %42, i64 -352
-  store i64 %15, ptr %.sroa.8.0..sroa_idx, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = load i64, ptr %.sroa.26.0..sroa_idx, align 8
-  %46 = load ptr, ptr %44, align 8
-  %47 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %46, i64 %45
-  %48 = getelementptr i8, ptr %47, i64 -176
-  %49 = load ptr, ptr %14, align 8
-  %50 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %49, i64 %15
-  %51 = getelementptr i8, ptr %50, i64 -144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
-  call void @_ZN15cmStateSnapshotC1EP7cmStateN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr nonnull %14, i64 %15)
+28:                                               ; preds = %4
+  %29 = load ptr, ptr %13, align 8
+  %30 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %29, i64 %14
+  %31 = extractvalue { ptr, i64 } %27, 1
+  %32 = extractvalue { ptr, i64 } %27, 0
+  %33 = getelementptr i8, ptr %30, i64 -120
+  store ptr %32, ptr %33, align 8
+  %.sroa.24.0..sroa_idx = getelementptr i8, ptr %30, i64 -112
+  store i64 %31, ptr %.sroa.24.0..sroa_idx, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
+  %34 = load ptr, ptr %13, align 8
+  %35 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %34, i64 %14
+  %36 = getelementptr i8, ptr %35, i64 -104
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr i8, ptr %35, i64 -96
+  %39 = load i64, ptr %38, align 8
+  %40 = load ptr, ptr %37, align 8
+  %41 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %40, i64 %39
+  %42 = getelementptr i8, ptr %41, i64 -360
+  store ptr %13, ptr %42, align 8
+  %.sroa.8.0..sroa_idx = getelementptr i8, ptr %41, i64 -352
+  store i64 %14, ptr %.sroa.8.0..sroa_idx, align 8
+  %43 = load ptr, ptr %8, align 8
+  %44 = load i64, ptr %.sroa.26.0..sroa_idx, align 8
+  %45 = load ptr, ptr %43, align 8
+  %46 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %45, i64 %44
+  %47 = getelementptr i8, ptr %46, i64 -176
+  %48 = load ptr, ptr %13, align 8
+  %49 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %48, i64 %14
+  %50 = getelementptr i8, ptr %49, i64 -144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
+  call void @_ZN15cmStateSnapshotC1EP7cmStateN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr nonnull %13, i64 %14)
   ret void
 
-52:                                               ; preds = %4
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %4
+  %52 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
-  resume { ptr, i32 } %53
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
+  resume { ptr, i32 } %52
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7cmState27CreateVariableScopeSnapshotERK15cmStateSnapshot(ptr dead_on_unwind noalias writable sret(%class.cmStateSnapshot) align 8 %0, ptr noundef nonnull align 8 dereferenceable(705) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"struct.cmStateDetail::SnapshotDataType", align 8
-  %5 = alloca %"struct.cmStateDetail::SnapshotDataType", align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 456
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.09.0.copyload = load ptr, ptr %7, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 456
+  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.09.0.copyload = load ptr, ptr %6, align 8
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.210.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8
-  %8 = load ptr, ptr %.sroa.09.0.copyload, align 8
-  %9 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %8, i64 %.sroa.210.0.copyload
-  %10 = getelementptr i8, ptr %9, i64 -208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %10, i64 208, i1 false)
+  %7 = load ptr, ptr %.sroa.09.0.copyload, align 8
+  %8 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %7, i64 %.sroa.210.0.copyload
+  %9 = getelementptr i8, ptr %8, i64 -208
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %5, i64 208, i1 false)
-  %11 = call { ptr, i64 } @_ZN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE9Push_implENS2_8iteratorEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload, ptr noundef nonnull align 8 dereferenceable(208) %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %9, i64 208, i1 false)
+  %10 = call { ptr, i64 } @_ZN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE9Push_implENS2_8iteratorEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr nonnull %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload, ptr noundef nonnull align 8 dereferenceable(208) %4)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4)
-  %12 = extractvalue { ptr, i64 } %11, 0
-  %13 = extractvalue { ptr, i64 } %11, 1
-  %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %14, i64 %13
-  %16 = getelementptr i8, ptr %15, i64 -208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  %17 = load ptr, ptr %12, align 8
-  %18 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %17, i64 %13
-  %19 = getelementptr i8, ptr %18, i64 -128
-  store i32 8, ptr %19, align 8
-  %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %20, i64 %13
-  %22 = getelementptr i8, ptr %21, i64 -124
-  store i8 0, ptr %22, align 4
-  %23 = load ptr, ptr %12, align 8
-  %24 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %23, i64 %13
-  %25 = getelementptr i8, ptr %24, i64 -104
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr i8, ptr %24, i64 -96
-  %28 = load i64, ptr %27, align 8
-  %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %29, i64 %28
-  %31 = getelementptr i8, ptr %30, i64 -360
-  store ptr %12, ptr %31, align 8
-  %.sroa.10.0..sroa_idx = getelementptr i8, ptr %30, i64 -352
-  store i64 %13, ptr %.sroa.10.0..sroa_idx, align 8
-  %32 = load ptr, ptr %7, align 8
-  %33 = load i64, ptr %.sroa.210.0..sroa_idx, align 8
-  %34 = load ptr, ptr %32, align 8
-  %35 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %34, i64 %33
-  %36 = getelementptr i8, ptr %35, i64 -176
-  %37 = load ptr, ptr %12, align 8
-  %38 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %37, i64 %13
-  %39 = getelementptr i8, ptr %38, i64 -144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
-  %40 = load ptr, ptr %7, align 8
-  %41 = load i64, ptr %.sroa.210.0..sroa_idx, align 8
-  %42 = load ptr, ptr %40, align 8
-  %43 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %42, i64 %41
-  %44 = getelementptr i8, ptr %43, i64 -88
-  %.sroa.05.0.copyload = load ptr, ptr %44, align 8
-  %.sroa.3.0..sroa_idx = getelementptr i8, ptr %43, i64 -80
+  %11 = extractvalue { ptr, i64 } %10, 0
+  %12 = extractvalue { ptr, i64 } %10, 1
+  %13 = load ptr, ptr %11, align 8
+  %14 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %13, i64 %12
+  %15 = getelementptr i8, ptr %14, i64 -208
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  %16 = load ptr, ptr %11, align 8
+  %17 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %16, i64 %12
+  %18 = getelementptr i8, ptr %17, i64 -128
+  store i32 8, ptr %18, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %19, i64 %12
+  %21 = getelementptr i8, ptr %20, i64 -124
+  store i8 0, ptr %21, align 4
+  %22 = load ptr, ptr %11, align 8
+  %23 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %22, i64 %12
+  %24 = getelementptr i8, ptr %23, i64 -104
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr i8, ptr %23, i64 -96
+  %27 = load i64, ptr %26, align 8
+  %28 = load ptr, ptr %25, align 8
+  %29 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %28, i64 %27
+  %30 = getelementptr i8, ptr %29, i64 -360
+  store ptr %11, ptr %30, align 8
+  %.sroa.10.0..sroa_idx = getelementptr i8, ptr %29, i64 -352
+  store i64 %12, ptr %.sroa.10.0..sroa_idx, align 8
+  %31 = load ptr, ptr %6, align 8
+  %32 = load i64, ptr %.sroa.210.0..sroa_idx, align 8
+  %33 = load ptr, ptr %31, align 8
+  %34 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %33, i64 %32
+  %35 = getelementptr i8, ptr %34, i64 -176
+  %36 = load ptr, ptr %11, align 8
+  %37 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %36, i64 %12
+  %38 = getelementptr i8, ptr %37, i64 -144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
+  %39 = load ptr, ptr %6, align 8
+  %40 = load i64, ptr %.sroa.210.0..sroa_idx, align 8
+  %41 = load ptr, ptr %39, align 8
+  %42 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %41, i64 %40
+  %43 = getelementptr i8, ptr %42, i64 -88
+  %.sroa.05.0.copyload = load ptr, ptr %43, align 8
+  %.sroa.3.0..sroa_idx = getelementptr i8, ptr %42, i64 -80
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %45 = load ptr, ptr %12, align 8
-  %46 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %45, i64 %13
-  %47 = getelementptr i8, ptr %46, i64 -56
-  store ptr %.sroa.05.0.copyload, ptr %47, align 8
-  %.sroa.3.0..sroa_idx7 = getelementptr i8, ptr %46, i64 -48
+  %44 = load ptr, ptr %11, align 8
+  %45 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %44, i64 %12
+  %46 = getelementptr i8, ptr %45, i64 -56
+  store ptr %.sroa.05.0.copyload, ptr %46, align 8
+  %.sroa.3.0..sroa_idx7 = getelementptr i8, ptr %45, i64 -48
   store i64 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx7, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 504
-  %49 = call { ptr, i64 } @_ZN12cmLinkedTreeI13cmDefinitionsE4PushENS1_8iteratorE(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr %.sroa.05.0.copyload, i64 %.sroa.3.0.copyload)
-  %50 = extractvalue { ptr, i64 } %49, 0
-  %51 = extractvalue { ptr, i64 } %49, 1
-  %52 = load ptr, ptr %12, align 8
-  %53 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %52, i64 %13
-  %54 = getelementptr i8, ptr %53, i64 -88
-  store ptr %50, ptr %54, align 8
-  %.sroa.24.0..sroa_idx = getelementptr i8, ptr %53, i64 -80
-  store i64 %51, ptr %.sroa.24.0..sroa_idx, align 8
-  call void @_ZN15cmStateSnapshotC1EP7cmStateN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr nonnull %12, i64 %13)
+  %47 = getelementptr inbounds i8, ptr %1, i64 504
+  %48 = call { ptr, i64 } @_ZN12cmLinkedTreeI13cmDefinitionsE4PushENS1_8iteratorE(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr %.sroa.05.0.copyload, i64 %.sroa.3.0.copyload)
+  %49 = extractvalue { ptr, i64 } %48, 0
+  %50 = extractvalue { ptr, i64 } %48, 1
+  %51 = load ptr, ptr %11, align 8
+  %52 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %51, i64 %12
+  %53 = getelementptr i8, ptr %52, i64 -88
+  store ptr %49, ptr %53, align 8
+  %.sroa.24.0..sroa_idx = getelementptr i8, ptr %52, i64 -80
+  store i64 %50, ptr %.sroa.24.0..sroa_idx, align 8
+  call void @_ZN15cmStateSnapshotC1EP7cmStateN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr nonnull %11, i64 %12)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7cmState28CreateInlineListFileSnapshotERK15cmStateSnapshotRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%class.cmStateSnapshot) align 8 %0, ptr noundef nonnull align 8 dereferenceable(705) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.cmStateDetail::SnapshotDataType", align 8
-  %6 = alloca %"struct.cmStateDetail::SnapshotDataType", align 8
-  %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 456
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.05.0.copyload = load ptr, ptr %9, align 8
+  %6 = alloca %"class.std::__cxx11::basic_string", align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 456
+  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.05.0.copyload = load ptr, ptr %8, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 8
-  %10 = load ptr, ptr %.sroa.05.0.copyload, align 8
-  %11 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %10, i64 %.sroa.26.0.copyload
-  %12 = getelementptr i8, ptr %11, i64 -208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(208) %12, i64 208, i1 false)
+  %9 = load ptr, ptr %.sroa.05.0.copyload, align 8
+  %10 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %9, i64 %.sroa.26.0.copyload
+  %11 = getelementptr i8, ptr %10, i64 -208
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %6, i64 208, i1 false)
-  %13 = call { ptr, i64 } @_ZN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE9Push_implENS2_8iteratorEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr nonnull %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload, ptr noundef nonnull align 8 dereferenceable(208) %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %11, i64 208, i1 false)
+  %12 = call { ptr, i64 } @_ZN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE9Push_implENS2_8iteratorEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr nonnull %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload, ptr noundef nonnull align 8 dereferenceable(208) %5)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5)
-  %14 = extractvalue { ptr, i64 } %13, 0
-  %15 = extractvalue { ptr, i64 } %13, 1
-  %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %16, i64 %15
-  %18 = getelementptr i8, ptr %17, i64 -128
-  store i32 6, ptr %18, align 8
-  %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %19, i64 %15
-  %21 = getelementptr i8, ptr %20, i64 -124
-  store i8 1, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 360
-  %23 = load ptr, ptr %9, align 8
-  %24 = load i64, ptr %.sroa.26.0..sroa_idx, align 8
-  %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %25, i64 %24
-  %27 = getelementptr i8, ptr %26, i64 -120
-  %.sroa.01.0.copyload = load ptr, ptr %27, align 8
-  %.sroa.22.0..sroa_idx = getelementptr i8, ptr %26, i64 -112
+  %13 = extractvalue { ptr, i64 } %12, 0
+  %14 = extractvalue { ptr, i64 } %12, 1
+  %15 = load ptr, ptr %13, align 8
+  %16 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %15, i64 %14
+  %17 = getelementptr i8, ptr %16, i64 -128
+  store i32 6, ptr %17, align 8
+  %18 = load ptr, ptr %13, align 8
+  %19 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %18, i64 %14
+  %20 = getelementptr i8, ptr %19, i64 -124
+  store i8 1, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %1, i64 360
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i64, ptr %.sroa.26.0..sroa_idx, align 8
+  %24 = load ptr, ptr %22, align 8
+  %25 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %24, i64 %23
+  %26 = getelementptr i8, ptr %25, i64 -120
+  %.sroa.01.0.copyload = load ptr, ptr %26, align 8
+  %.sroa.22.0..sroa_idx = getelementptr i8, ptr %25, i64 -112
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  %28 = invoke { ptr, i64 } @_ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9Push_implENS6_8iteratorEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %29 unwind label %52
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %27 = invoke { ptr, i64 } @_ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9Push_implENS6_8iteratorEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %28 unwind label %51
 
-29:                                               ; preds = %4
-  %30 = load ptr, ptr %14, align 8
-  %31 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %30, i64 %15
-  %32 = extractvalue { ptr, i64 } %28, 1
-  %33 = extractvalue { ptr, i64 } %28, 0
-  %34 = getelementptr i8, ptr %31, i64 -120
-  store ptr %33, ptr %34, align 8
-  %.sroa.24.0..sroa_idx = getelementptr i8, ptr %31, i64 -112
-  store i64 %32, ptr %.sroa.24.0..sroa_idx, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
-  %35 = load ptr, ptr %14, align 8
-  %36 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %35, i64 %15
-  %37 = getelementptr i8, ptr %36, i64 -104
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr i8, ptr %36, i64 -96
-  %40 = load i64, ptr %39, align 8
-  %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %41, i64 %40
-  %43 = getelementptr i8, ptr %42, i64 -360
-  store ptr %14, ptr %43, align 8
-  %.sroa.8.0..sroa_idx = getelementptr i8, ptr %42, i64 -352
-  store i64 %15, ptr %.sroa.8.0..sroa_idx, align 8
-  %44 = load ptr, ptr %9, align 8
-  %45 = load i64, ptr %.sroa.26.0..sroa_idx, align 8
-  %46 = load ptr, ptr %44, align 8
-  %47 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %46, i64 %45
-  %48 = getelementptr i8, ptr %47, i64 -176
-  %49 = load ptr, ptr %14, align 8
-  %50 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %49, i64 %15
-  %51 = getelementptr i8, ptr %50, i64 -144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
-  call void @_ZN15cmStateSnapshotC1EP7cmStateN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr nonnull %14, i64 %15)
+28:                                               ; preds = %4
+  %29 = load ptr, ptr %13, align 8
+  %30 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %29, i64 %14
+  %31 = extractvalue { ptr, i64 } %27, 1
+  %32 = extractvalue { ptr, i64 } %27, 0
+  %33 = getelementptr i8, ptr %30, i64 -120
+  store ptr %32, ptr %33, align 8
+  %.sroa.24.0..sroa_idx = getelementptr i8, ptr %30, i64 -112
+  store i64 %31, ptr %.sroa.24.0..sroa_idx, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
+  %34 = load ptr, ptr %13, align 8
+  %35 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %34, i64 %14
+  %36 = getelementptr i8, ptr %35, i64 -104
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr i8, ptr %35, i64 -96
+  %39 = load i64, ptr %38, align 8
+  %40 = load ptr, ptr %37, align 8
+  %41 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %40, i64 %39
+  %42 = getelementptr i8, ptr %41, i64 -360
+  store ptr %13, ptr %42, align 8
+  %.sroa.8.0..sroa_idx = getelementptr i8, ptr %41, i64 -352
+  store i64 %14, ptr %.sroa.8.0..sroa_idx, align 8
+  %43 = load ptr, ptr %8, align 8
+  %44 = load i64, ptr %.sroa.26.0..sroa_idx, align 8
+  %45 = load ptr, ptr %43, align 8
+  %46 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %45, i64 %44
+  %47 = getelementptr i8, ptr %46, i64 -176
+  %48 = load ptr, ptr %13, align 8
+  %49 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %48, i64 %14
+  %50 = getelementptr i8, ptr %49, i64 -144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
+  call void @_ZN15cmStateSnapshotC1EP7cmStateN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr nonnull %13, i64 %14)
   ret void
 
-52:                                               ; preds = %4
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %4
+  %52 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
-  resume { ptr, i32 } %53
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
+  resume { ptr, i32 } %52
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7cmState25CreatePolicyScopeSnapshotERK15cmStateSnapshot(ptr dead_on_unwind noalias writable sret(%class.cmStateSnapshot) align 8 %0, ptr noundef nonnull align 8 dereferenceable(705) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"struct.cmStateDetail::SnapshotDataType", align 8
-  %5 = alloca %"struct.cmStateDetail::SnapshotDataType", align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 456
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.01.0.copyload = load ptr, ptr %7, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 456
+  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.01.0.copyload = load ptr, ptr %6, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
-  %8 = load ptr, ptr %.sroa.01.0.copyload, align 8
-  %9 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %8, i64 %.sroa.22.0.copyload
-  %10 = getelementptr i8, ptr %9, i64 -208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %10, i64 208, i1 false)
+  %7 = load ptr, ptr %.sroa.01.0.copyload, align 8
+  %8 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %7, i64 %.sroa.22.0.copyload
+  %9 = getelementptr i8, ptr %8, i64 -208
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %5, i64 208, i1 false)
-  %11 = call { ptr, i64 } @_ZN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE9Push_implENS2_8iteratorEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, ptr noundef nonnull align 8 dereferenceable(208) %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %9, i64 208, i1 false)
+  %10 = call { ptr, i64 } @_ZN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE9Push_implENS2_8iteratorEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr nonnull %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, ptr noundef nonnull align 8 dereferenceable(208) %4)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4)
-  %12 = extractvalue { ptr, i64 } %11, 0
-  %13 = extractvalue { ptr, i64 } %11, 1
-  %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %14, i64 %13
-  %16 = getelementptr i8, ptr %15, i64 -128
-  store i32 7, ptr %16, align 8
-  %17 = load ptr, ptr %12, align 8
-  %18 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %17, i64 %13
-  %19 = getelementptr i8, ptr %18, i64 -124
-  store i8 0, ptr %19, align 4
-  %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %20, i64 %13
-  %22 = getelementptr i8, ptr %21, i64 -104
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr i8, ptr %21, i64 -96
-  %25 = load i64, ptr %24, align 8
-  %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %26, i64 %25
-  %28 = getelementptr i8, ptr %27, i64 -360
-  store ptr %12, ptr %28, align 8
-  %.sroa.7.0..sroa_idx = getelementptr i8, ptr %27, i64 -352
-  store i64 %13, ptr %.sroa.7.0..sroa_idx, align 8
-  %29 = load ptr, ptr %7, align 8
-  %30 = load i64, ptr %.sroa.22.0..sroa_idx, align 8
-  %31 = load ptr, ptr %29, align 8
-  %32 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %31, i64 %30
-  %33 = getelementptr i8, ptr %32, i64 -176
-  %34 = load ptr, ptr %12, align 8
-  %35 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %34, i64 %13
-  %36 = getelementptr i8, ptr %35, i64 -144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
-  call void @_ZN15cmStateSnapshotC1EP7cmStateN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr nonnull %12, i64 %13)
+  %11 = extractvalue { ptr, i64 } %10, 0
+  %12 = extractvalue { ptr, i64 } %10, 1
+  %13 = load ptr, ptr %11, align 8
+  %14 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %13, i64 %12
+  %15 = getelementptr i8, ptr %14, i64 -128
+  store i32 7, ptr %15, align 8
+  %16 = load ptr, ptr %11, align 8
+  %17 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %16, i64 %12
+  %18 = getelementptr i8, ptr %17, i64 -124
+  store i8 0, ptr %18, align 4
+  %19 = load ptr, ptr %11, align 8
+  %20 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %19, i64 %12
+  %21 = getelementptr i8, ptr %20, i64 -104
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr i8, ptr %20, i64 -96
+  %24 = load i64, ptr %23, align 8
+  %25 = load ptr, ptr %22, align 8
+  %26 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %25, i64 %24
+  %27 = getelementptr i8, ptr %26, i64 -360
+  store ptr %11, ptr %27, align 8
+  %.sroa.7.0..sroa_idx = getelementptr i8, ptr %26, i64 -352
+  store i64 %12, ptr %.sroa.7.0..sroa_idx, align 8
+  %28 = load ptr, ptr %6, align 8
+  %29 = load i64, ptr %.sroa.22.0..sroa_idx, align 8
+  %30 = load ptr, ptr %28, align 8
+  %31 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %30, i64 %29
+  %32 = getelementptr i8, ptr %31, i64 -176
+  %33 = load ptr, ptr %11, align 8
+  %34 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %33, i64 %12
+  %35 = getelementptr i8, ptr %34, i64 -144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
+  call void @_ZN15cmStateSnapshotC1EP7cmStateN12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr nonnull %11, i64 %12)
   ret void
 }
 

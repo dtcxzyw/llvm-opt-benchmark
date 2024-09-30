@@ -41,10 +41,10 @@ if.then:                                          ; preds = %if.end.i
   store ptr %provctx, ptr %call1.i, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
-  %0 = getelementptr inbounds i8, ptr %params.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, i8 0, i64 48, i1 false)
   %call.i3 = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #7
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef 0) #7
+  %0 = getelementptr inbounds i8, ptr %params.i, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %digest.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   %call2.i = call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %digest.i, ptr noundef nonnull %params.i, ptr noundef %call.i3) #7
@@ -189,10 +189,10 @@ entry:
   store ptr %0, ptr %vctx, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
-  %5 = getelementptr inbounds i8, ptr %params.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, i8 0, i64 48, i1 false)
   %call.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %0) #7
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef 0) #7
+  %5 = getelementptr inbounds i8, ptr %params.i, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %call2.i = call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %digest.i, ptr noundef nonnull %params.i, ptr noundef %call.i) #7
   %tobool.not.i = icmp eq i32 %call2.i, 0

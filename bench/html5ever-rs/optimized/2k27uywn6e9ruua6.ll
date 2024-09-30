@@ -438,13 +438,13 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue10push_front17h033e
 17:                                               ; preds = %16
   %18 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE.llvm.5646377590840740190"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #10
+  invoke void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE.llvm.5646377590840740190"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #9
           to label %.body unwind label %19
 
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
   unreachable
 
 21:                                               ; preds = %22, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.thread"
@@ -465,7 +465,7 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue10push_front17h033e
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !alias.scope !48, !noalias !51, !nonnull !15, !noundef !15
   %32 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %31, i64 %..i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %21
 
@@ -515,13 +515,13 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue9push_back17hdb0fb6
 17:                                               ; preds = %16
   %18 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE.llvm.5646377590840740190"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #10
+  invoke void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE.llvm.5646377590840740190"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #9
           to label %.body unwind label %19
 
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
   unreachable
 
 21:                                               ; preds = %22, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.thread"
@@ -539,7 +539,7 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue9push_back17hdb0fb6
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !alias.scope !56, !noalias !59, !nonnull !15, !noundef !15
   %31 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %30, i64 %.0.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %32 = load i64, ptr %12, align 8, !alias.scope !56, !noalias !59, !noundef !15
   %33 = add i64 %32, 1
   store i64 %33, ptr %12, align 8, !alias.scope !56, !noalias !59
@@ -657,7 +657,7 @@ define noundef range(i32 0, 1114113) i32 @_ZN11markup5ever4util12buffer_queue11B
   br i1 %67, label %.thread.i, label %"_ZN11markup5ever4util12buffer_queue11BufferQueue4peek28_$u7b$$u7b$closure$u7d$$u7d$17hb8321746d227a486E.exit"
 
 .thread.i:                                        ; preds = %56, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i", %4
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.d211918ee87746d75600bd815b17425b.8, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d211918ee87746d75600bd815b17425b.10) #12
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.d211918ee87746d75600bd815b17425b.8, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d211918ee87746d75600bd815b17425b.10) #11
   unreachable
 
 "_ZN11markup5ever4util12buffer_queue11BufferQueue4peek28_$u7b$$u7b$closure$u7d$$u7d$17hb8321746d227a486E.exit": ; preds = %1, %56, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit15.i.i", %44, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit13.i.i"
@@ -687,7 +687,7 @@ define noundef range(i32 0, 2097152) i32 @_ZN11markup5ever4util12buffer_queue11B
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %4
-  tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.d211918ee87746d75600bd815b17425b.11, i64 noundef 21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d211918ee87746d75600bd815b17425b.12) #12
+  tail call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.d211918ee87746d75600bd815b17425b.11, i64 noundef 21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d211918ee87746d75600bd815b17425b.12) #11
   unreachable
 
 15:                                               ; preds = %4
@@ -860,7 +860,7 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
 .noexc:                                           ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h1058aac47622e06aE.exit.i"
   %69 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7tendril5OFLOW17hdc69e70c4b83c50eE, i64 8), align 8, !noalias !93, !noundef !15
   %70 = load ptr, ptr @_ZN7tendril5OFLOW17hdc69e70c4b83c50eE, align 8, !noalias !93, !nonnull !15, !align !96, !noundef !15
-  call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 %70, i64 noundef %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d211918ee87746d75600bd815b17425b.4) #12
+  call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 %70, i64 noundef %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d211918ee87746d75600bd815b17425b.4) #11
   unreachable
 
 "_ZN75_$LT$tendril..tendril..NonAtomic$u20$as$u20$tendril..tendril..Atomicity$GT$9increment17hd9677b8a71d1b543E.exit.i": ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h1058aac47622e06aE.exit.i"
@@ -918,7 +918,7 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$17unsafe_subtendril17h61aa787dcca1b780E.exit"
 
 93:                                               ; preds = %48
-  call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.d211918ee87746d75600bd815b17425b.11, i64 noundef 21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d211918ee87746d75600bd815b17425b.13) #12
+  call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.d211918ee87746d75600bd815b17425b.11, i64 noundef 21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d211918ee87746d75600bd815b17425b.13) #11
   unreachable
 
 94:                                               ; preds = %48
@@ -939,7 +939,7 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
 103:                                              ; preds = %160, %161
   %104 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
+  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
   unreachable
 
 .thread113:                                       ; preds = %158, %160, %161
@@ -1113,7 +1113,7 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   store i64 %..i.i, ptr %14, align 8, !alias.scope !105
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 8
   store i64 %.sroa.4.i.i29.0..sroa.4.i.i29.0..sroa.4.i.i29.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i38, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !105
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %.sroa.072.0, i32 %.sroa.573.12.extract.trunc) #10
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %.sroa.072.0, i32 %.sroa.573.12.extract.trunc) #9
           to label %.thread113 unwind label %103
 }
 
@@ -1162,9 +1162,6 @@ declare hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4gr
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
-
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -1174,10 +1171,9 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { cold }
-attributes #11 = { cold noreturn nounwind }
-attributes #12 = { noreturn }
+attributes #9 = { cold }
+attributes #10 = { cold noreturn nounwind }
+attributes #11 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

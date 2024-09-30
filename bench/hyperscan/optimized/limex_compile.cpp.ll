@@ -1308,7 +1308,7 @@ if.then.i.i.i.i.i.i3.i.i.thread.i.i:              ; preds = %if.then.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i.i90.i.i = add nsw i32 %65, 1
   store i32 %add.i.i.i.i.i.i.i.i.i90.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i88.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %agg.tmp11.i.i.i.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1.i.i.i.i, i64 16, i1 false)
   store ptr %62, ptr %data.i.i.i.i.i.i.i, align 8
   store ptr %63, ptr %_M_refcount.i.i.i.i.i.i.i218.i.i, align 8
   br label %if.then.i.i.i.i.i.i.i.i.i.i.i.i

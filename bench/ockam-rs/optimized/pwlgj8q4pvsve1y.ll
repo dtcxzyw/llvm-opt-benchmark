@@ -8591,7 +8591,7 @@ common.ret:                                       ; preds = %314, %303
           to label %317 unwind label %315
 
 313:                                              ; preds = %308
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %.sroa.432, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.5.0..sroa_idx, i64 224, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %.sroa.432, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.6, i64 224, i1 false)
   br label %314
 
 314:                                              ; preds = %318, %313

@@ -1912,7 +1912,7 @@ _ZN4core4iter8adapters11try_process17h7ebfa4a417da4123E.exit: ; preds = %39
   unreachable
 
 75:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h63945f4143e430c7E.llvm.11644101286175177538.exit.i", %70
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %67, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %67, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false)
   %76 = add i64 %63, 1
   store i64 %76, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !450, !noalias !453
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)

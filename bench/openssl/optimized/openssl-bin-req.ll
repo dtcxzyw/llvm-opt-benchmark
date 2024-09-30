@@ -2443,10 +2443,10 @@ if.end165:                                        ; preds = %land.lhs.true159, %
 
 if.then168:                                       ; preds = %if.end156, %if.end165
   %keylen.2122 = phi i64 [ %14, %if.end165 ], [ %keylen.1106128, %if.end156 ]
-  %15 = getelementptr inbounds i8, ptr %params, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %15, i8 0, i64 48, i1 false)
   store i64 %keylen.2122, ptr %bits, align 8
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.239, ptr noundef nonnull %bits) #10
+  %15 = getelementptr inbounds i8, ptr %params, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %call170 = call i32 @EVP_PKEY_CTX_set_params(ptr noundef nonnull %gctx.1, ptr noundef nonnull %params) #10
   %cmp171 = icmp slt i32 %call170, 1

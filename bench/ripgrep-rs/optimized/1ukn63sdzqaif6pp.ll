@@ -1066,7 +1066,7 @@ _ZN12regex_syntax3hir3Hir7literal17h5f31c7f42fbac3c1E.exit: ; preds = %275, %285
   br i1 %.015.i, label %226, label %.thread.i
 
 226:                                              ; preds = %224
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(48) %181, i64 48, i1 false), !noalias !108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false)
   br label %"_ZN4core3ptr43drop_in_place$LT$regex_syntax..hir..Hir$GT$17h9af6366c8c6b49b3E.exit.i"
 
 .thread.i:                                        ; preds = %224, %210, %.critedge.i

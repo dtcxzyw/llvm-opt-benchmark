@@ -1545,7 +1545,7 @@ common.resume:                                    ; preds = %.body, %66, %70, %7
   ret void
 
 65:                                               ; preds = %.noexc.i27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.68, i64 48, i1 false)
   store i64 2, ptr %0, align 8
   %.sroa.435.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %37, ptr %.sroa.435.0..sroa_idx, align 8
@@ -3103,7 +3103,7 @@ common.resume:                                    ; preds = %.body, %43, %47, %5
   unreachable
 
 64:                                               ; preds = %.noexc.i12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(48) %33, i64 48, i1 false)
   %65 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 2, ptr %65, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -4453,14 +4453,14 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore13list_api_keys17hb34195a
 117:                                              ; preds = %103, %99
   %118 = load ptr, ptr %16, align 8, !alias.scope !972, !noalias !975, !nonnull !4, !noundef !4
   %119 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { [11 x i8], i8, [4 x i8] }, { [16 x i8] } }, ptr %118, i64 %100
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %119, ptr noundef nonnull align 8 dereferenceable(160) %7, i64 160, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %119, ptr noundef nonnull align 8 dereferenceable(160) %7, i64 160, i1 false)
   %120 = add i64 %100, 1
   store i64 %120, ptr %17, align 8, !alias.scope !972, !noalias !975
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %11)
   br label %64
 
 121:                                              ; preds = %.noexc.i69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %110, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %110, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.319.0..sroa_idx, i64 48, i1 false)
   store i64 2, ptr %0, align 8
   %.sroa.495.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %110, ptr %.sroa.495.0..sroa_idx, align 8
@@ -5111,7 +5111,7 @@ common.resume:                                    ; preds = %49, %.body193, %181
   unreachable
 
 159:                                              ; preds = %136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %137, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %137, ptr noundef nonnull align 8 dereferenceable(24) %81, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   store i64 2, ptr %0, align 8
   %.sroa.2169.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -5598,7 +5598,7 @@ common.resume:                                    ; preds = %.body, %122, %126, 
   ret void
 
 106:                                              ; preds = %.noexc.i82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.05, i64 48, i1 false)
   store i64 2, ptr %0, align 8
   %.sroa.4103.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %59, ptr %.sroa.4103.0..sroa_idx, align 8

@@ -954,13 +954,13 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h96bc56
           to label %46 unwind label %51
 
 46:                                               ; preds = %45
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   invoke void @_ZN22cranelift_codegen_meta6srcgen9Formatter11indent_push17h4b58db4c760eb653E(ptr nonnull align 8 %0)
           to label %.noexc.i unwind label %47
 
 .noexc.i:                                         ; preds = %46
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter10indent_pop17h8ea1ea47fdf15b2bE(ptr nonnull align 8 %0)

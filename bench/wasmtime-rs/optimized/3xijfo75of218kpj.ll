@@ -5696,7 +5696,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %82)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %83)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %84)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %125, ptr noundef nonnull align 8 dereferenceable(24) %124, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %125, ptr noundef nonnull align 8 dereferenceable(24) %131, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %726, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0313.i, i64 24, i1 false)
   store i64 %.sroa.3.0.i, ptr %.sroa.3.0..sroa_idx.i78, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false)
@@ -14187,233 +14187,231 @@ _ZN20wasmtime_wit_bindgen16TrappableImports8can_trap17hb6c02a2dd9fbe100E.exit.th
 define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator22extract_typed_function17hc536619ba7f34f58E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { { { { i64, ptr, {} }, i64 } }, i64 }, align 8
-  %6 = alloca { { { { i64, ptr, {} }, i64 } }, i64 }, align 8
-  %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %8 = alloca { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, align 8
+  %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
+  %7 = alloca { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, align 8
+  %8 = alloca { ptr, [1 x i64] }, align 8
   %9 = alloca { ptr, [1 x i64] }, align 8
-  %10 = alloca { ptr, [1 x i64] }, align 8
-  %11 = alloca { ptr, ptr, {} }, align 8
-  %12 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %13 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %14 = alloca { { { { i64, ptr, {} }, i64 } }, i64 }, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  %10 = alloca { ptr, ptr, {} }, align 8
+  %11 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
+  %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
+  %13 = alloca { { { { i64, ptr, {} }, i64 } }, i64 }, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i64 0, ptr %1, align 8
   %.sroa.322.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.322.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
-  %16 = load ptr, ptr %15, align 8, !nonnull !4, !align !32, !noundef !4
-  invoke fastcc void @_ZN20wasmtime_wit_bindgen15func_field_name17hec10c2278d854985E(ptr noalias align 8 %13, ptr nonnull align 8 %16, ptr align 8 %2)
-          to label %19 unwind label %.thread
+  %15 = load ptr, ptr %14, align 8, !nonnull !4, !align !32, !noundef !4
+  invoke fastcc void @_ZN20wasmtime_wit_bindgen15func_field_name17hec10c2278d854985E(ptr noalias align 8 %12, ptr nonnull align 8 %15, ptr align 8 %2)
+          to label %18 unwind label %.thread
 
-17:                                               ; preds = %66
-  br i1 %.2, label %.thread54, label %78
+16:                                               ; preds = %65
+  br i1 %.2, label %.thread54, label %77
 
 .thread:                                          ; preds = %3
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %.thread54
 
-19:                                               ; preds = %3
-  store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.493, ptr %12, align 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 32
-  store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %12, i64 24
-  store i64 0, ptr %23, align 8
-  %24 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %1, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %12)
-          to label %25 unwind label %.loopexit.split-lp.loopexit.split-lp
+18:                                               ; preds = %3
+  store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.493, ptr %11, align 8
+  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 1, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %11, i64 32
+  store ptr null, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr @anon.76daaaf5a2b6053e52b5bc759f8da9fb.14, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %11, i64 24
+  store i64 0, ptr %22, align 8
+  %23 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %1, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.23, ptr nonnull align 8 %11)
+          to label %24 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-25:                                               ; preds = %19
+24:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
-  br i1 %24, label %26, label %27
+  br i1 %23, label %25, label %26
 
-26:                                               ; preds = %25
+25:                                               ; preds = %24
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.0, i64 43, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.1, ptr nonnull align 8 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.494) #14
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc:                                           ; preds = %26
+.noexc:                                           ; preds = %25
   unreachable
 
-27:                                               ; preds = %25
+26:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
-  %28 = getelementptr inbounds i8, ptr %2, i64 88
-  %29 = load ptr, ptr %28, align 8, !nonnull !4, !noundef !4
-  %30 = getelementptr inbounds i8, ptr %2, i64 96
-  %31 = load i64, ptr %30, align 8, !noundef !4
-  %32 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %29, i64 %31
-  store ptr %29, ptr %11, align 8
-  %33 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %32, ptr %33, align 8
+  %27 = getelementptr inbounds i8, ptr %2, i64 88
+  %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
+  %29 = getelementptr inbounds i8, ptr %2, i64 96
+  %30 = load i64, ptr %29, align 8, !noundef !4
+  %31 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %28, i64 %30
+  store ptr %28, ptr %10, align 8
+  %32 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %31, ptr %32, align 8
   br label %"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit42"
 
-"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit42": ; preds = %77, %27
-  %34 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd73a44dabd09c5eaE"(ptr nonnull align 8 %11)
-          to label %35 unwind label %.loopexit.split-lp.loopexit
+"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit42": ; preds = %76, %26
+  %33 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd73a44dabd09c5eaE"(ptr nonnull align 8 %10)
+          to label %34 unwind label %.loopexit.split-lp.loopexit
 
-35:                                               ; preds = %"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit42"
-  %36 = icmp eq ptr %34, null
-  br i1 %36, label %37, label %38
+34:                                               ; preds = %"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit42"
+  %35 = icmp eq ptr %33, null
+  br i1 %35, label %36, label %37
 
-37:                                               ; preds = %35
+36:                                               ; preds = %34
   invoke void @_ZN20wasmtime_wit_bindgen6source6Source8push_str17h5ca59e1164b82f8cE(ptr nonnull align 8 %1, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.495, i64 4)
+          to label %39 unwind label %.loopexit.split-lp.loopexit.split-lp
+
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %33, i64 24
+  invoke void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr nonnull align 8 %1, ptr nonnull align 8 %38, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.498, i64 2)
+          to label %76 unwind label %.loopexit.split-lp.loopexit
+
+39:                                               ; preds = %36
+  invoke void @_ZN10wit_parser7Results10iter_types17h99cab0120625a1a1E(ptr nonnull sret({ ptr, [1 x i64] }) align 8 %9, ptr nonnull align 8 %2)
           to label %40 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %34, i64 24
-  invoke void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr nonnull align 8 %1, ptr nonnull align 8 %39, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.498, i64 2)
-          to label %77 unwind label %.loopexit.split-lp.loopexit
-
-40:                                               ; preds = %37
-  invoke void @_ZN10wit_parser7Results10iter_types17h99cab0120625a1a1E(ptr nonnull sret({ ptr, [1 x i64] }) align 8 %10, ptr nonnull align 8 %2)
-          to label %41 unwind label %.loopexit.split-lp.loopexit.split-lp
-
-41:                                               ; preds = %40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
+40:                                               ; preds = %39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
   br label %"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit"
 
-"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit": ; preds = %76, %41
-  %42 = invoke align 8 ptr @"_ZN86_$LT$wit_parser..ResultsTypeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb86ca4000c67c376E"(ptr nonnull align 8 %9)
-          to label %43 unwind label %.loopexit
+"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit": ; preds = %75, %40
+  %41 = invoke align 8 ptr @"_ZN86_$LT$wit_parser..ResultsTypeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb86ca4000c67c376E"(ptr nonnull align 8 %8)
+          to label %42 unwind label %.loopexit
 
-43:                                               ; preds = %"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit"
-  %44 = icmp eq ptr %42, null
-  br i1 %44, label %45, label %46
+42:                                               ; preds = %"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit"
+  %43 = icmp eq ptr %41, null
+  br i1 %43, label %44, label %45
 
-45:                                               ; preds = %43
+44:                                               ; preds = %42
   invoke void @_ZN20wasmtime_wit_bindgen6source6Source8push_str17h5ca59e1164b82f8cE(ptr nonnull align 8 %1, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.496, i64 4)
-          to label %47 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %46 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-46:                                               ; preds = %43
-  invoke void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr nonnull align 8 %1, ptr nonnull align 8 %42, ptr align 1 null, i64 undef)
-          to label %76 unwind label %.loopexit
+45:                                               ; preds = %42
+  invoke void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr nonnull align 8 %1, ptr nonnull align 8 %41, ptr align 1 null, i64 undef)
+          to label %75 unwind label %.loopexit
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %2, i64 64
-  %49 = load ptr, ptr %48, align 8, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds i8, ptr %2, i64 72
-  %51 = load i64, ptr %50, align 8, !noundef !4
-  invoke void @_ZN20wasmtime_wit_bindgen6source6Source8push_str17h5ca59e1164b82f8cE(ptr nonnull align 8 %1, ptr nonnull align 1 %49, i64 %51)
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds i8, ptr %2, i64 64
+  %48 = load ptr, ptr %47, align 8, !nonnull !4, !noundef !4
+  %49 = getelementptr inbounds i8, ptr %2, i64 72
+  %50 = load i64, ptr %49, align 8, !noundef !4
+  invoke void @_ZN20wasmtime_wit_bindgen6source6Source8push_str17h5ca59e1164b82f8cE(ptr nonnull align 8 %1, ptr nonnull align 1 %48, i64 %50)
+          to label %51 unwind label %.loopexit.split-lp.loopexit.split-lp
+
+51:                                               ; preds = %46
+  invoke void @_ZN20wasmtime_wit_bindgen6source6Source8push_str17h5ca59e1164b82f8cE(ptr nonnull align 8 %1, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.497, i64 10)
           to label %52 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-52:                                               ; preds = %47
-  invoke void @_ZN20wasmtime_wit_bindgen6source6Source8push_str17h5ca59e1164b82f8cE(ptr nonnull align 8 %1, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.497, i64 10)
-          to label %53 unwind label %.loopexit.split-lp.loopexit.split-lp
-
-53:                                               ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+52:                                               ; preds = %51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i64 0, ptr %1, align 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.322.0..sroa_idx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
-  %54 = invoke { ptr, i64 } @"_ZN80_$LT$wasmtime_wit_bindgen..source..Source$u20$as$u20$core..ops..deref..Deref$GT$5deref17hba58ef121c50d1c4E"(ptr nonnull align 8 %6)
-          to label %57 unwind label %55
+  %53 = invoke { ptr, i64 } @"_ZN80_$LT$wasmtime_wit_bindgen..source..Source$u20$as$u20$core..ops..deref..Deref$GT$5deref17hba58ef121c50d1c4E"(ptr nonnull align 8 %5)
+          to label %56 unwind label %54
 
-55:                                               ; preds = %57, %53
-  %56 = landingpad { ptr, i32 }
+54:                                               ; preds = %56, %52
+  %55 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %7) #12
-          to label %75 unwind label %73
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %6) #12
+          to label %74 unwind label %72
 
-57:                                               ; preds = %53
-  %58 = extractvalue { ptr, i64 } %54, 1
-  %59 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h67c4390d3745334fE"(i64 %58, i1 zeroext false)
-          to label %60 unwind label %55
+56:                                               ; preds = %52
+  %57 = extractvalue { ptr, i64 } %53, 1
+  %58 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h67c4390d3745334fE"(i64 %57, i1 zeroext false)
+          to label %59 unwind label %54
 
-60:                                               ; preds = %57
-  %61 = extractvalue { ptr, i64 } %54, 0
-  %62 = extractvalue { i64, ptr } %59, 0
-  %63 = extractvalue { i64, ptr } %59, 1
-  %64 = icmp ne ptr %63, null
-  call void @llvm.assume(i1 %64)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr align 1 %61, i64 %58, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %65 = getelementptr inbounds i8, ptr %8, i64 24
-  store i64 %62, ptr %65, align 8
-  %.sroa.06.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr %63, ptr %.sroa.06.sroa.2.0..sroa_idx, align 8
-  %.sroa.06.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 40
-  store i64 %58, ptr %.sroa.06.sroa.3.0..sroa_idx, align 8
-  invoke void @"_ZN4core3ptr57drop_in_place$LT$wasmtime_wit_bindgen..source..Source$GT$17hea75298ac867bfc4E"(ptr nonnull align 8 %6)
-          to label %69 unwind label %67
+59:                                               ; preds = %56
+  %60 = extractvalue { ptr, i64 } %53, 0
+  %61 = extractvalue { i64, ptr } %58, 0
+  %62 = extractvalue { i64, ptr } %58, 1
+  %63 = icmp ne ptr %62, null
+  call void @llvm.assume(i1 %63)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr align 1 %60, i64 %57, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  %64 = getelementptr inbounds i8, ptr %7, i64 24
+  store i64 %61, ptr %64, align 8
+  %.sroa.06.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr %62, ptr %.sroa.06.sroa.2.0..sroa_idx, align 8
+  %.sroa.06.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 40
+  store i64 %57, ptr %.sroa.06.sroa.3.0..sroa_idx, align 8
+  invoke void @"_ZN4core3ptr57drop_in_place$LT$wasmtime_wit_bindgen..source..Source$GT$17hea75298ac867bfc4E"(ptr nonnull align 8 %5)
+          to label %68 unwind label %66
 
-66:                                               ; preds = %70, %67
-  %.2 = phi i1 [ false, %70 ], [ true, %67 ]
-  %.pn = phi { ptr, i32 } [ %71, %70 ], [ %68, %67 ]
-  invoke void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h512309f136a5650bE"(ptr nonnull align 8 %8) #12
-          to label %17 unwind label %73
+65:                                               ; preds = %69, %66
+  %.2 = phi i1 [ false, %69 ], [ true, %66 ]
+  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %67, %66 ]
+  invoke void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h512309f136a5650bE"(ptr nonnull align 8 %7) #12
+          to label %16 unwind label %72
 
-67:                                               ; preds = %60
-  %68 = landingpad { ptr, i32 }
+66:                                               ; preds = %59
+  %67 = landingpad { ptr, i32 }
           cleanup
-  br label %66
+  br label %65
 
-69:                                               ; preds = %60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
+68:                                               ; preds = %59
   invoke void @"_ZN4core3ptr57drop_in_place$LT$wasmtime_wit_bindgen..source..Source$GT$17hea75298ac867bfc4E"(ptr nonnull align 8 %1)
-          to label %72 unwind label %70
+          to label %71 unwind label %69
 
-70:                                               ; preds = %69
-  %71 = landingpad { ptr, i32 }
+69:                                               ; preds = %68
+  %70 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  br label %66
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
+  br label %65
 
-72:                                               ; preds = %69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
+71:                                               ; preds = %68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
   ret void
 
-73:                                               ; preds = %.thread54, %.loopexit.split-lp, %75, %66, %55
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %.thread54, %.loopexit.split-lp, %74, %65, %54
+  %73 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
-75:                                               ; preds = %55
-  invoke void @"_ZN4core3ptr57drop_in_place$LT$wasmtime_wit_bindgen..source..Source$GT$17hea75298ac867bfc4E"(ptr nonnull align 8 %6) #12
-          to label %.thread54 unwind label %73
+74:                                               ; preds = %54
+  invoke void @"_ZN4core3ptr57drop_in_place$LT$wasmtime_wit_bindgen..source..Source$GT$17hea75298ac867bfc4E"(ptr nonnull align 8 %5) #12
+          to label %.thread54 unwind label %72
 
-76:                                               ; preds = %46
+75:                                               ; preds = %45
   invoke void @_ZN20wasmtime_wit_bindgen6source6Source8push_str17h5ca59e1164b82f8cE(ptr nonnull align 8 %1, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.369, i64 2)
           to label %"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit" unwind label %.loopexit
 
-77:                                               ; preds = %38
+76:                                               ; preds = %37
   invoke void @_ZN20wasmtime_wit_bindgen6source6Source8push_str17h5ca59e1164b82f8cE(ptr nonnull align 8 %1, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.369, i64 2)
           to label %"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit42" unwind label %.loopexit.split-lp.loopexit
 
-.loopexit:                                        ; preds = %"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit", %46, %76
+.loopexit:                                        ; preds = %"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit", %45, %75
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %77, %38, %"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit42"
+.loopexit.split-lp.loopexit:                      ; preds = %76, %37, %"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit42"
   %lpad.loopexit57 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %26, %52, %47, %45, %40, %37, %19
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %25, %51, %46, %44, %39, %36, %18
   %lpad.loopexit.split-lp58 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit57, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp58, %.loopexit.split-lp.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %13) #12
-          to label %.thread54 unwind label %73
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %12) #12
+          to label %.thread54 unwind label %72
 
-78:                                               ; preds = %.thread54, %17
-  %.pn.pn.pn45 = phi { ptr, i32 } [ %.pn.pn.pn46, %.thread54 ], [ %.pn, %17 ]
+77:                                               ; preds = %.thread54, %16
+  %.pn.pn.pn45 = phi { ptr, i32 } [ %.pn.pn.pn46, %.thread54 ], [ %.pn, %16 ]
   resume { ptr, i32 } %.pn.pn.pn45
 
-.thread54:                                        ; preds = %.loopexit.split-lp, %75, %.thread, %17
-  %.pn.pn.pn46 = phi { ptr, i32 } [ %18, %.thread ], [ %.pn, %17 ], [ %56, %75 ], [ %lpad.phi, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr57drop_in_place$LT$wasmtime_wit_bindgen..source..Source$GT$17hea75298ac867bfc4E"(ptr nonnull align 8 %14) #12
-          to label %78 unwind label %73
+.thread54:                                        ; preds = %.loopexit.split-lp, %74, %.thread, %16
+  %.pn.pn.pn46 = phi { ptr, i32 } [ %17, %.thread ], [ %.pn, %16 ], [ %55, %74 ], [ %lpad.phi, %.loopexit.split-lp ]
+  invoke void @"_ZN4core3ptr57drop_in_place$LT$wasmtime_wit_bindgen..source..Source$GT$17hea75298ac867bfc4E"(ptr nonnull align 8 %13) #12
+          to label %77 unwind label %72
 }
 
 ; Function Attrs: nonlazybind uwtable

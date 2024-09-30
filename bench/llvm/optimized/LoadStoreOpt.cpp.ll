@@ -1226,19 +1226,19 @@ define dso_local noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKN
   %101 = select i1 %100, i64 -4611686018427387906, i64 %95
   %.sroa.013.0 = select i1 %64, i64 %62, i64 %101
   %102 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %102, i64 32, i1 false)
   store ptr %85, ptr %8, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %.sroa.014.0, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef nonnull align 8 dereferenceable(32) %102, i64 32, i1 false)
+  %104 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %.sroa.014.0, ptr %104, align 8
   %105 = and i64 %.sroa.0.0.copyload.i.i.i.i38, -8
   %106 = inttoptr i64 %105 to ptr
   %107 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(32) %107, i64 32, i1 false)
   store ptr %106, ptr %9, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %.sroa.013.0, ptr %108, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %107, i64 32, i1 false)
+  %109 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 %.sroa.013.0, ptr %109, align 8
   %110 = call i32 @_ZN4llvm9AAResults5aliasERKNS_14MemoryLocationES3_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %9) #18
   %111 = and i32 %110, 255
   %112 = icmp eq i32 %111, 0

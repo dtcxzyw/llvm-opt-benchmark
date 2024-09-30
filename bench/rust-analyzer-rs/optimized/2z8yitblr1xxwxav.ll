@@ -9906,7 +9906,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.exi
   %133 = phi i64 [ %.pre.i5.i, %._crit_edge.i.i7 ], [ %114, %112 ]
   %134 = load ptr, ptr %11, align 8, !alias.scope !2954, !noalias !2957, !nonnull !4, !noundef !4
   %135 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %134, i64 %133
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %136 = load i64, ptr %13, align 8, !alias.scope !2954, !noalias !2957, !noundef !4
   %137 = add i64 %136, 1
   store i64 %137, ptr %13, align 8, !alias.scope !2954, !noalias !2957
@@ -10226,7 +10226,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.exi
   %133 = phi i64 [ %.pre.i5.i, %._crit_edge.i.i7 ], [ %114, %112 ]
   %134 = load ptr, ptr %11, align 8, !alias.scope !3003, !noalias !3006, !nonnull !4, !noundef !4
   %135 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %134, i64 %133
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %136 = load i64, ptr %13, align 8, !alias.scope !3003, !noalias !3006, !noundef !4
   %137 = add i64 %136, 1
   store i64 %137, ptr %13, align 8, !alias.scope !3003, !noalias !3006
@@ -10548,7 +10548,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.exi
   %135 = phi i64 [ %.pre.i5.i, %._crit_edge.i.i7 ], [ %115, %113 ]
   %136 = load ptr, ptr %12, align 8, !alias.scope !3052, !noalias !3055, !nonnull !4, !noundef !4
   %137 = getelementptr inbounds { ptr, i64, { i32, i32 } }, ptr %136, i64 %135
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %137, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %137, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %138 = load i64, ptr %14, align 8, !alias.scope !3052, !noalias !3055, !noundef !4
   %139 = add i64 %138, 1
   store i64 %139, ptr %14, align 8, !alias.scope !3052, !noalias !3055
@@ -10868,7 +10868,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.exi
   %133 = phi i64 [ %.pre.i5.i, %._crit_edge.i.i7 ], [ %114, %112 ]
   %134 = load ptr, ptr %11, align 8, !alias.scope !3104, !noalias !3107, !nonnull !4, !noundef !4
   %135 = getelementptr inbounds { ptr, i64, { i32, { i32, i32 } }, [1 x i32] }, ptr %134, i64 %133
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !3100
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !3100
   %136 = load i64, ptr %13, align 8, !alias.scope !3104, !noalias !3107, !noundef !4
   %137 = add i64 %136, 1
   store i64 %137, ptr %13, align 8, !alias.scope !3104, !noalias !3107
@@ -11188,7 +11188,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.exi
   %133 = phi i64 [ %.pre.i5.i, %._crit_edge.i.i7 ], [ %114, %112 ]
   %134 = load ptr, ptr %11, align 8, !alias.scope !3154, !noalias !3157, !nonnull !4, !noundef !4
   %135 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %134, i64 %133
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %136 = load i64, ptr %13, align 8, !alias.scope !3154, !noalias !3157, !noundef !4
   %137 = add i64 %136, 1
   store i64 %137, ptr %13, align 8, !alias.scope !3154, !noalias !3157
@@ -11508,7 +11508,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.exi
   %133 = phi i64 [ %.pre.i5.i, %._crit_edge.i.i7 ], [ %114, %112 ]
   %134 = load ptr, ptr %11, align 8, !alias.scope !3203, !noalias !3206, !nonnull !4, !noundef !4
   %135 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %134, i64 %133
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %136 = load i64, ptr %13, align 8, !alias.scope !3203, !noalias !3206, !noundef !4
   %137 = add i64 %136, 1
   store i64 %137, ptr %13, align 8, !alias.scope !3203, !noalias !3206
@@ -11828,7 +11828,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.exi
   %133 = phi i64 [ %.pre.i5.i, %._crit_edge.i.i7 ], [ %114, %112 ]
   %134 = load ptr, ptr %11, align 8, !alias.scope !3252, !noalias !3255, !nonnull !4, !noundef !4
   %135 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %134, i64 %133
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %136 = load i64, ptr %13, align 8, !alias.scope !3252, !noalias !3255, !noundef !4
   %137 = add i64 %136, 1
   store i64 %137, ptr %13, align 8, !alias.scope !3252, !noalias !3255
@@ -12148,7 +12148,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hd9cd29ae39616fc9E.exi
   %133 = phi i64 [ %.pre.i5.i, %._crit_edge.i.i7 ], [ %114, %112 ]
   %134 = load ptr, ptr %11, align 8, !alias.scope !3301, !noalias !3304, !nonnull !4, !noundef !4
   %135 = getelementptr inbounds { ptr, i64, i32, [1 x i32] }, ptr %134, i64 %133
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %136 = load i64, ptr %13, align 8, !alias.scope !3301, !noalias !3304, !noundef !4
   %137 = add i64 %136, 1
   store i64 %137, ptr %13, align 8, !alias.scope !3301, !noalias !3304

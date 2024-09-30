@@ -5184,6 +5184,8 @@ _ZN5clang7CodeGen12AggValueSlot7forAddrENS0_7AddressENS_10QualifiersENS1_14IsDes
   call void @_ZN5clang7CodeGen15CodeGenFunction18LoadCXXThisAddressEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::Address") align 8 %3, ptr noundef nonnull align 8 dereferenceable(6488) %0)
   %.sroa.08.0.copyload = load i64, ptr %3, align 8
   %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.05.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.05.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.29.0..sroa_idx, i64 40, i1 false)
   %5 = icmp ugt i64 %.sroa.08.0.copyload, 7
   %6 = or i64 %.sroa.08.0.copyload, 4
   %spec.select = select i1 %5, i64 %6, i64 %.sroa.08.0.copyload
@@ -5192,8 +5194,6 @@ _ZN5clang7CodeGen12AggValueSlot7forAddrENS0_7AddressENS_10QualifiersENS1_14IsDes
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   store i64 %spec.select, ptr %4, align 8
-  %.sroa.05.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.05.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.29.0..sroa_idx, i64 40, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 48
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 56
@@ -5308,6 +5308,8 @@ _ZN5clang7CodeGen12AggValueSlot7forAddrENS0_7AddressENS_10QualifiersENS1_14IsDes
   call void @_ZN5clang7CodeGen15CodeGenFunction37GetAddressOfDirectBaseInCompleteClassENS0_7AddressEPKNS_13CXXRecordDeclES5_b(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::Address") align 8 %6, ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %5, ptr noundef %1, ptr noundef %13, i1 noundef zeroext %17)
   %.sroa.025.0.copyload = load i64, ptr %6, align 8
   %.sroa.226.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.022.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.022.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.226.0..sroa_idx, i64 40, i1 false)
   %28 = call noundef i32 @_ZN5clang7CodeGen15CodeGenFunction21getOverlapForBaseInitEPKNS_13CXXRecordDeclES4_b(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, ptr noundef %13, i1 noundef zeroext %17) #13
   %29 = icmp ugt i64 %.sroa.025.0.copyload, 7
   %30 = or i64 %.sroa.025.0.copyload, 4
@@ -5316,8 +5318,6 @@ _ZN5clang7CodeGen12AggValueSlot7forAddrENS0_7AddressENS_10QualifiersENS1_14IsDes
   %31 = select i1 %.not10.i, i8 1, i8 17
   %32 = load ptr, ptr %22, align 8
   store i64 %spec.select, ptr %7, align 8
-  %.sroa.022.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.022.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.226.0..sroa_idx, i64 40, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 48
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 56

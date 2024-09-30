@@ -11581,19 +11581,19 @@ define linkonce_odr hidden void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin
   %35 = getelementptr inbounds i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %.sroa.11.24..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.24..sroa_idx, i64 24, i1 false)
   %38 = load i64, ptr %37, align 8
   store ptr %34, ptr %10, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %30, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
   store i64 %32, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 48
   store ptr %36, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.24..sroa_idx, i64 24, i1 false)
   %.sroa.1132.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 80
   store i64 0, ptr %.sroa.1132.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 88

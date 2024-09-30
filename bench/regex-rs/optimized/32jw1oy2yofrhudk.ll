@@ -9221,7 +9221,7 @@ define void @_ZN14regex_automata3nfa8thompson7builder7Builder17add_capture_start
   %106 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %35, %34 ]
   %107 = load ptr, ptr %28, align 8, !alias.scope !1734, !noalias !1737, !nonnull !4, !noundef !4
   %108 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %107, i64 %106
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %109 = load i64, ptr %22, align 8, !alias.scope !1734, !noalias !1737, !noundef !4
   %110 = add i64 %109, 1
   store i64 %110, ptr %22, align 8, !alias.scope !1734, !noalias !1737
@@ -9451,7 +9451,7 @@ _ZN14regex_automata3nfa8thompson7builder5State12memory_usage17hb7e007d369ee87f9E
   %29 = getelementptr inbounds i8, ptr %1, i64 24
   %30 = load ptr, ptr %29, align 8, !alias.scope !1781, !noalias !1784, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds { i32, [7 x i32] }, ptr %30, i64 %28
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %32 = load i64, ptr %6, align 8, !alias.scope !1781, !noalias !1784, !noundef !4
   %33 = add i64 %32, 1
   store i64 %33, ptr %6, align 8, !alias.scope !1781, !noalias !1784
@@ -11847,9 +11847,6 @@ declare void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() unnamed
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #13
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #13

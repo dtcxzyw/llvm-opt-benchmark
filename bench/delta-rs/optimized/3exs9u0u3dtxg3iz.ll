@@ -1079,7 +1079,7 @@ define void @_ZN13deltalake_sql12logical_plan6Vacuum3new17h4a24444fd4959708E(ptr
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
   %23 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull align 8 dereferenceable(72) %8, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %2, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1158,7 +1158,7 @@ define void @_ZN13deltalake_sql12logical_plan15DescribeHistory3new17h725462ac106
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   store ptr %12, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   ret void
@@ -1230,7 +1230,7 @@ define void @_ZN13deltalake_sql12logical_plan15DescribeDetails3new17hacc55f88bdd
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   store ptr %12, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   ret void
@@ -1302,7 +1302,7 @@ define void @_ZN13deltalake_sql12logical_plan13DescribeFiles3new17h2ef3807ad814e
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   %20 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   store ptr %12, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   ret void

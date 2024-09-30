@@ -574,7 +574,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree4node115
   %11 = add nuw nsw i16 %5, 1
   store i16 %11, ptr %4, align 2
   %12 = getelementptr inbounds { [4 x i64] }, ptr %3, i64 %10
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %13 = getelementptr inbounds i8, ptr %3, i64 364
   ret ptr %13
 
@@ -644,7 +644,7 @@ define hidden void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..colle
   %19 = add nuw nsw i16 %15, 1
   store i16 %19, ptr %14, align 2
   %20 = getelementptr inbounds { [4 x i64] }, ptr %13, i64 %18
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %21 = add nuw nsw i64 %18, 1
   %22 = getelementptr inbounds i8, ptr %13, i64 368
   %23 = getelementptr inbounds ptr, ptr %22, i64 %21
@@ -4896,7 +4896,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %.sroa.11.0 = phi i64 [ %80, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h359df6d538f71cbbE.exit.thread" ], [ %20, %4 ]
   %.sroa.8.0 = phi i64 [ %77, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h359df6d538f71cbbE.exit.thread" ], [ %32, %4 ]
   %.sroa.0.0 = phi ptr [ %78, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h359df6d538f71cbbE.exit.thread" ], [ %14, %4 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %13, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
   %35 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.0.0, ptr %35, align 8
   %.sroa.424.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
@@ -5166,9 +5166,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %11 = alloca { { { ptr, i64 }, i64, {} }, { ptr, i64 }, { ptr, i64 } }, align 8
   %12 = alloca { { { ptr, i64 }, i64, {} }, { ptr, i64 }, { ptr, i64 } }, align 8
   %13 = alloca { { ptr, i64 }, i64, {} }, align 8
-  %.sroa.0 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
   %14 = alloca { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, {} }, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !702)
   %15 = load ptr, ptr %1, align 8, !alias.scope !702, !noalias !705, !nonnull !14, !noundef !14
   %16 = getelementptr inbounds i8, ptr %15, i64 362
@@ -5177,7 +5175,8 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %19 = getelementptr inbounds i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8, !alias.scope !702, !noalias !705, !noundef !14
   %21 = getelementptr inbounds { [4 x i64] }, ptr %15, i64 %20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false), !noalias !702
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
   %22 = getelementptr i8, ptr %21, i64 32
   %23 = xor i64 %20, -1
   %24 = add i64 %23, %18
@@ -5187,9 +5186,6 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   store i16 %26, ptr %16, align 2, !noalias !707
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   %28 = load i64, ptr %27, align 8, !alias.scope !702, !noalias !705, !noundef !14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
   %29 = icmp ult i16 %26, 5
   %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %7, i64 8
   %.sink.i.sroa.gep101 = getelementptr inbounds i8, ptr %6, i64 8
@@ -5701,7 +5697,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %.sroa.11.0 = phi i64 [ %79, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h359df6d538f71cbbE.exit.thread" ], [ %19, %3 ]
   %.sroa.8.0 = phi i64 [ %76, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h359df6d538f71cbbE.exit.thread" ], [ %31, %3 ]
   %.sroa.0.0 = phi ptr [ %77, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h359df6d538f71cbbE.exit.thread" ], [ %13, %3 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
   %34 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.0.0, ptr %34, align 8
   %.sroa.424.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
@@ -5971,7 +5967,7 @@ define hidden void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u20$alloc..
   %.sroa.11.0 = phi i64 [ %80, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h359df6d538f71cbbE.exit.thread" ], [ %20, %4 ]
   %.sroa.8.0 = phi i64 [ %77, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h359df6d538f71cbbE.exit.thread" ], [ %32, %4 ]
   %.sroa.0.0 = phi ptr [ %78, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h359df6d538f71cbbE.exit.thread" ], [ %14, %4 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %13, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
   %35 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.0.0, ptr %35, align 8
   %.sroa.424.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56

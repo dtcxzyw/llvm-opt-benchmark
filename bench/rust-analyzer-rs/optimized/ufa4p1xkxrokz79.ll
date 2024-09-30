@@ -277,11 +277,11 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
   ret { i1, i1 } %72
 
 73:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h07af414f35b8ec7bE.exit"
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.1.i.i, i64 noundef %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.22) #14
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.1.i.i, i64 noundef %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.22) #13
   unreachable
 
 select.unfold:                                    ; preds = %37, %50
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.23) #14
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.23) #13
   unreachable
 
 74:                                               ; preds = %53
@@ -353,7 +353,7 @@ select.unfold:                                    ; preds = %37, %50
   br i1 %.not61, label %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit", label %109
 
 108:                                              ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64aaa459e1d97467E.exit"
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.1.i.i70, i64 noundef %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.25) #14
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.1.i.i70, i64 noundef %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.25) #13
   unreachable
 
 109:                                              ; preds = %104
@@ -387,7 +387,7 @@ select.unfold:                                    ; preds = %37, %50
   br i1 %127, label %select.unfold105, label %128
 
 select.unfold105:                                 ; preds = %.noexc, %109
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.24) #14
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.24) #13
           to label %130 unwind label %.loopexit.split-lp
 
 128:                                              ; preds = %.noexc
@@ -419,13 +419,13 @@ select.unfold105:                                 ; preds = %.noexc, %109
 
 133:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #15
+  invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #14
           to label %132 unwind label %134
 
 134:                                              ; preds = %133
   %135 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable
 
 "_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit": ; preds = %104, %.thread
@@ -462,12 +462,12 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
 16:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %18 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #17
+  %18 = tail call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #16
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
-  invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 16) #14
+  invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 16) #13
           to label %.noexc unwind label %99
 
 .noexc:                                           ; preds = %20
@@ -476,7 +476,7 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
 21:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   store ptr null, ptr %12, align 8
-  invoke void @_ZN4core9panicking13assert_failed17hdc032fdcb945adf5E(i8 noundef 1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.26) #14
+  invoke void @_ZN4core9panicking13assert_failed17hdc032fdcb945adf5E(i8 noundef 1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.26) #13
           to label %96 unwind label %99
 
 22:                                               ; preds = %16
@@ -505,7 +505,7 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
           to label %38 unwind label %36
 
 29:                                               ; preds = %22
-  invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #14
+  invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #13
           to label %96 unwind label %94
 
 .body:                                            ; preds = %49, %36, %94
@@ -580,7 +580,7 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
 52:                                               ; preds = %49
   %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !120
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15, !noalias !120
   unreachable
 
 "_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17h4c6eaabfdd722ebfE.exit.i": ; preds = %47
@@ -608,7 +608,7 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
   %73 = sub i64 %72, %70
   store i64 %73, ptr %71, align 8, !alias.scope !134, !noalias !127
   %74 = getelementptr inbounds i8, ptr %68, i64 -32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !120
   %75 = getelementptr inbounds i8, ptr %.sroa.032.0.copyload, i64 24
   %76 = load i64, ptr %75, align 8, !alias.scope !134, !noalias !127, !noundef !5
   %77 = add i64 %76, 1
@@ -656,7 +656,7 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
 94:                                               ; preds = %29
   %95 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$GT$17h0ba7cfde524602c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #15
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$GT$17h0ba7cfde524602c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #14
           to label %.body unwind label %97
 
 96:                                               ; preds = %29, %21
@@ -665,7 +665,7 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
 97:                                               ; preds = %33, %99, %94
   %98 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable
 
 .noexc21:                                         ; preds = %33, %.body, %99
@@ -675,7 +675,7 @@ define noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph
 99:                                               ; preds = %20, %21
   %100 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$GT$17h0ba7cfde524602c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #15
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$GT$17h0ba7cfde524602c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #14
           to label %.noexc21 unwind label %97
 }
 
@@ -715,7 +715,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
 
 .body:                                            ; preds = %25, %33
   %.pn = phi { ptr, i32 } [ %lpad.phi, %33 ], [ %26, %25 ]
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef align 8 dereferenceable(16) %7) #15
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef align 8 dereferenceable(16) %7) #14
           to label %56 unwind label %54
 
 25:                                               ; preds = %"_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf8f7c8f16fa9283cE.llvm.12611796297594801985.exit.i", %24, %4
@@ -772,7 +772,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
 
 33:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr93drop_in_place$LT$smallvec..IntoIter$LT$$u5b$salsa..runtime..RuntimeId$u3b$$u20$4$u5d$$GT$$GT$17h7455aff19f0feb8aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6) #15
+  invoke void @"_ZN4core3ptr93drop_in_place$LT$smallvec..IntoIter$LT$$u5b$salsa..runtime..RuntimeId$u3b$$u20$4$u5d$$GT$$GT$17h7455aff19f0feb8aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6) #14
           to label %.body unwind label %54
 
 "_ZN69_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf8f7c8f16fa9283cE.llvm.12611796297594801985.exit.i": ; preds = %29
@@ -824,7 +824,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
   br i1 %52, label %53, label %"_ZN51_$LT$salsa..Cycle$u20$as$u20$core..clone..Clone$GT$5clone17hd5c0630ac31b016cE.exit"
 
 53:                                               ; preds = %50
-  invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #14
+  invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #13
           to label %.noexc10 unwind label %.loopexit.split-lp
 
 .noexc10:                                         ; preds = %53
@@ -838,7 +838,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
 54:                                               ; preds = %33, %.body
   %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable
 
 56:                                               ; preds = %.body
@@ -886,7 +886,7 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
 
 18:                                               ; preds = %.noexc2, %.noexc
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.6.i)
-  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.f309c0c276216067398eff0f085bab25.27, i64 noundef 11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.28) #14
+  invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.f309c0c276216067398eff0f085bab25.27, i64 noundef 11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.28) #13
           to label %24 unwind label %85
 
 19:                                               ; preds = %.noexc2
@@ -951,7 +951,7 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
 43:                                               ; preds = %38
   %44 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..raw_vec..RawVec$LT$salsa..runtime..ActiveQuery$GT$$GT$17h9f6f26fe49a6a3edE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #15
+  invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..raw_vec..RawVec$LT$salsa..runtime..ActiveQuery$GT$$GT$17h9f6f26fe49a6a3edE.llvm.12611796297594801985"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #14
           to label %.body.i.i unwind label %53
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h583213b5f632638eE.llvm.12611796297594801985.exit.i.i.i": ; preds = %38
@@ -973,13 +973,13 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr %5, align 8, !noalias !214, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %52, i64 noundef %49, i64 noundef %46) #17
+  call void @__rust_dealloc(ptr noundef nonnull %52, i64 noundef %49, i64 noundef %46) #16
   br label %57
 
 53:                                               ; preds = %43
   %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable
 
 55:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h583213b5f632638eE.llvm.12611796297594801985.exit.i.i.i"
@@ -989,7 +989,7 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
 
 .body.i.i:                                        ; preds = %55, %43
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %56, %55 ], [ %44, %43 ]
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef align 8 dereferenceable(16) %35) #15
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef align 8 dereferenceable(16) %35) #14
           to label %.body unwind label %67
 
 57:                                               ; preds = %51, %47, %.noexc.i.i
@@ -1021,7 +1021,7 @@ define internal fastcc void @_ZN5salsa7runtime16dependency_graph15DependencyGrap
 67:                                               ; preds = %.body.i.i
   %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable
 
 "_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$salsa..runtime..ActiveQuery$GT$$C$salsa..runtime..WaitResult$RP$$GT$$GT$17hb48d8406b963a492E.exit": ; preds = %59, %57, %34, %.noexc4
@@ -1063,7 +1063,7 @@ _ZN11parking_lot7condvar7Condvar10notify_one17hd7cf2c1fd33a2bd6E.exit: ; preds =
 83:                                               ; preds = %31, %85
   %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable
 
 .thread:                                          ; preds = %31, %.body, %85
@@ -1073,7 +1073,7 @@ _ZN11parking_lot7condvar7Condvar10notify_one17hd7cf2c1fd33a2bd6E.exit: ; preds =
 85:                                               ; preds = %18, %4, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h717442a0987903fbE.llvm.5552234135467064381.exit.i"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef align 8 dereferenceable(16) %10) #15
+  invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$salsa..runtime..WaitResult$GT$17hba0092ef78d62cdaE"(ptr noalias noundef align 8 dereferenceable(16) %10) #14
           to label %.thread unwind label %83
 }
 
@@ -1197,11 +1197,8 @@ declare hidden noundef ptr @_ZN4core4iter6traits12double_ended19DoubleEndedItera
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -1215,12 +1212,11 @@ attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #9 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { noreturn }
-attributes #15 = { cold }
-attributes #16 = { cold noreturn nounwind }
-attributes #17 = { nounwind }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { noreturn }
+attributes #14 = { cold }
+attributes #15 = { cold noreturn nounwind }
+attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

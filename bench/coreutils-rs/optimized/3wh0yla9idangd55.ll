@@ -4016,7 +4016,6 @@ define noundef ptr @_ZN5uu_dd7dd_copy17h55741dbb8caa262cE(ptr noalias nocapture 
   %27 = alloca { { i64, i32, [1 x i32] }, { i64, i64, i64, i32, [1 x i32] }, { i128, i64, i64 }, i8, [15 x i8] }, align 16
   %28 = alloca { [2 x i32], i32, [21 x i32] }, align 16
   %29 = alloca { i64, [5 x i64] }, align 16
-  %.sroa.4224 = alloca [3 x i8], align 1
   %30 = alloca { i64, [5 x i64] }, align 8
   %31 = alloca [1 x { ptr, ptr }], align 8
   %32 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -4471,10 +4470,7 @@ _ZN5uu_dd24flush_caches_full_length17hf085c8358d566aaeE.exit.thread: ; preds = %
   br label %208
 
 199:                                              ; preds = %175
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4224)
   %.sroa.0223.0.copyload = load i8, ptr %1, align 8
-  %.sroa.4224.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4224, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4224.0..sroa_idx, i64 3, i1 false)
   %.sroa.5225.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
   %.sroa.5225.0.copyload = load i32, ptr %.sroa.5225.0..sroa_idx, align 4
   %.sroa.6226.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
@@ -4538,11 +4534,11 @@ _ZN5uu_dd24flush_caches_full_length17hf085c8358d566aaeE.exit.thread: ; preds = %
   br label %228
 
 225:                                              ; preds = %199
+  %.sroa.4224.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 1
   %226 = extractvalue { i64, ptr } %202, 0
   %227 = extractvalue { i64, ptr } %202, 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4224, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4224)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4224.0..sroa_idx, i64 3, i1 false)
   store i64 %226, ptr %30, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %227, ptr %.sroa.4.0..sroa_idx, align 8

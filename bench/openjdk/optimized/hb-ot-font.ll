@@ -35533,452 +35533,450 @@ define linkonce_odr hidden void @_ZNK2OT14PaintColrGlyph11paint_glyphEPNS_18hb_p
   %3 = alloca %"struct.OT::VarStoreInstancer", align 8
   %4 = alloca i32, align 4
   %5 = alloca %struct.hb_glyph_extents_t, align 4
-  %6 = alloca %"struct.OT::VarStoreInstancer", align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 56
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
-  %9 = load i8, ptr %8, align 1
-  %10 = zext i8 %9 to i32
-  %11 = shl nuw nsw i32 %10, 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 2
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i32
-  %15 = or disjoint i32 %11, %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 96
-  %17 = load ptr, ptr %16, align 8
-  %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %.loopexit, label %18
+  %6 = getelementptr inbounds i8, ptr %1, i64 56
+  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = zext i8 %8 to i32
+  %10 = shl nuw nsw i32 %9, 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 2
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i32
+  %14 = or disjoint i32 %10, %13
+  %15 = getelementptr inbounds i8, ptr %1, i64 96
+  %16 = load ptr, ptr %15, align 8
+  %.not.i = icmp eq ptr %16, null
+  br i1 %.not.i, label %.loopexit, label %17
 
-18:                                               ; preds = %2
-  %19 = mul i32 %15, 506952113
-  %20 = and i32 %19, 1073741823
-  %21 = getelementptr inbounds i8, ptr %1, i64 84
-  %22 = load i32, ptr %21, align 4
-  %23 = urem i32 %20, %22
-  %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %17, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
-  %27 = load i32, ptr %26, align 4
-  %28 = and i32 %27, 2
-  %.not16.i.i = icmp eq i32 %28, 0
+17:                                               ; preds = %2
+  %18 = mul i32 %14, 506952113
+  %19 = and i32 %18, 1073741823
+  %20 = getelementptr inbounds i8, ptr %1, i64 84
+  %21 = load i32, ptr %20, align 4
+  %22 = urem i32 %19, %21
+  %23 = zext nneg i32 %22 to i64
+  %24 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %16, i64 %23
+  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = and i32 %26, 2
+  %.not16.i.i = icmp eq i32 %27, 0
   br i1 %.not16.i.i, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %1, i64 80
-  %30 = load i32, ptr %29, align 8
-  %31 = load i32, ptr %25, align 4
-  %32 = icmp eq i32 %31, %15
-  br i1 %32, label %._crit_edge.i, label %.lr.ph.i
+.lr.ph.i.i:                                       ; preds = %17
+  %28 = getelementptr inbounds i8, ptr %1, i64 80
+  %29 = load i32, ptr %28, align 8
+  %30 = load i32, ptr %24, align 4
+  %31 = icmp eq i32 %30, %14
+  br i1 %31, label %._crit_edge.i, label %.lr.ph.i
 
-33:                                               ; preds = %.lr.ph.i
-  %34 = load i32, ptr %41, align 4
-  %35 = icmp eq i32 %34, %15
-  br i1 %35, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !44
+32:                                               ; preds = %.lr.ph.i
+  %33 = load i32, ptr %40, align 4
+  %34 = icmp eq i32 %33, %14
+  br i1 %34, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !44
 
-._crit_edge.i:                                    ; preds = %33, %.lr.ph.i.i
-  %.lcssa15.i = phi i32 [ %27, %.lr.ph.i.i ], [ %43, %33 ]
-  %36 = and i32 %.lcssa15.i, 1
-  %.not12.i.i = icmp eq i32 %36, 0
+._crit_edge.i:                                    ; preds = %32, %.lr.ph.i.i
+  %.lcssa15.i = phi i32 [ %26, %.lr.ph.i.i ], [ %42, %32 ]
+  %35 = and i32 %.lcssa15.i, 1
+  %.not12.i.i = icmp eq i32 %35, 0
   br i1 %.not12.i.i, label %.loopexit, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %33
-  %.01017.i18.i = phi i32 [ %39, %33 ], [ %23, %.lr.ph.i.i ]
-  %.018.i17.i = phi i32 [ %37, %33 ], [ 0, %.lr.ph.i.i ]
-  %37 = add i32 %.018.i17.i, 1
-  %38 = add i32 %37, %.01017.i18.i
-  %39 = and i32 %38, %30
-  %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %17, i64 %40
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
-  %43 = load i32, ptr %42, align 4
-  %44 = and i32 %43, 2
-  %.not.i.i = icmp eq i32 %44, 0
-  br i1 %.not.i.i, label %.loopexit, label %33, !llvm.loop !44
+.lr.ph.i:                                         ; preds = %.lr.ph.i.i, %32
+  %.01017.i18.i = phi i32 [ %38, %32 ], [ %22, %.lr.ph.i.i ]
+  %.018.i17.i = phi i32 [ %36, %32 ], [ 0, %.lr.ph.i.i ]
+  %36 = add i32 %.018.i17.i, 1
+  %37 = add i32 %36, %.01017.i18.i
+  %38 = and i32 %37, %29
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %16, i64 %39
+  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = and i32 %42, 2
+  %.not.i.i = icmp eq i32 %43, 0
+  br i1 %.not.i.i, label %.loopexit, label %32, !llvm.loop !44
 
-.loopexit:                                        ; preds = %.lr.ph.i, %2, %18, %._crit_edge.i
-  store i32 %15, ptr %4, align 4
-  %45 = mul i32 %15, -1640531535
-  %46 = call noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIRKjS3_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %45, ptr noundef nonnull align 4 dereferenceable(4) @minus_1, i1 noundef zeroext true)
-  %47 = getelementptr inbounds i8, ptr %1, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 24
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 32
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 32
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 44
-  %56 = load atomic i32, ptr %55 monotonic, align 4
-  %.not.i.i28 = icmp eq i32 %56, 0
-  br i1 %.not.i.i28, label %57, label %_ZNK9hb_face_t8get_upemEv.exit.i
+.loopexit:                                        ; preds = %.lr.ph.i, %2, %17, %._crit_edge.i
+  store i32 %14, ptr %4, align 4
+  %44 = mul i32 %14, -1640531535
+  %45 = call noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIRKjS3_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %44, ptr noundef nonnull align 4 dereferenceable(4) @minus_1, i1 noundef zeroext true)
+  %46 = getelementptr inbounds i8, ptr %1, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %1, i64 24
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %1, i64 32
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 32
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 44
+  %55 = load atomic i32, ptr %54 monotonic, align 4
+  %.not.i.i28 = icmp eq i32 %55, 0
+  br i1 %.not.i.i28, label %56, label %_ZNK9hb_face_t8get_upemEv.exit.i
 
-57:                                               ; preds = %.loopexit
-  %58 = call noundef i32 @_ZNK9hb_face_t9load_upemEv(ptr noundef nonnull align 8 dereferenceable(416) %54)
+56:                                               ; preds = %.loopexit
+  %57 = call noundef i32 @_ZNK9hb_face_t9load_upemEv(ptr noundef nonnull align 8 dereferenceable(416) %53)
   br label %_ZNK9hb_face_t8get_upemEv.exit.i
 
-_ZNK9hb_face_t8get_upemEv.exit.i:                 ; preds = %57, %.loopexit
-  %.0.i.i = phi i32 [ %58, %57 ], [ %56, %.loopexit ]
-  %59 = getelementptr inbounds i8, ptr %52, i64 40
-  %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %52, i64 44
-  %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %52, i64 72
-  %64 = load float, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %48, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %48, i64 128
-  %68 = load ptr, ptr %67, align 8
-  %.not.i18.i = icmp eq ptr %68, null
-  br i1 %.not.i18.i, label %_ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit, label %69
+_ZNK9hb_face_t8get_upemEv.exit.i:                 ; preds = %56, %.loopexit
+  %.0.i.i = phi i32 [ %57, %56 ], [ %55, %.loopexit ]
+  %58 = getelementptr inbounds i8, ptr %51, i64 40
+  %59 = load i32, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %51, i64 44
+  %61 = load i32, ptr %60, align 4
+  %62 = getelementptr inbounds i8, ptr %51, i64 72
+  %63 = load float, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %47, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %47, i64 128
+  %67 = load ptr, ptr %66, align 8
+  %.not.i18.i = icmp eq ptr %67, null
+  br i1 %.not.i18.i, label %_ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit, label %68
 
-69:                                               ; preds = %_ZNK9hb_face_t8get_upemEv.exit.i
-  %70 = load ptr, ptr %68, align 8
+68:                                               ; preds = %_ZNK9hb_face_t8get_upemEv.exit.i
+  %69 = load ptr, ptr %67, align 8
   br label %_ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit
 
-_ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit: ; preds = %_ZNK9hb_face_t8get_upemEv.exit.i, %69
-  %71 = phi ptr [ %70, %69 ], [ null, %_ZNK9hb_face_t8get_upemEv.exit.i ]
-  %72 = uitofp i32 %.0.i.i to float
-  %.not17.i = icmp eq i32 %62, 0
-  %73 = sitofp i32 %62 to float
-  %74 = select i1 %.not17.i, float %72, float %73
-  %75 = fptosi float %74 to i32
-  %76 = sitofp i32 %75 to float
-  %77 = fdiv float %72, %76
-  %78 = fneg float %64
-  %79 = fmul float %72, %78
-  %.not.i29 = icmp eq i32 %60, 0
-  %80 = sitofp i32 %60 to float
-  %81 = select i1 %.not.i29, float %72, float %80
-  %82 = fptosi float %81 to i32
-  %83 = sitofp i32 %82 to float
-  %84 = fdiv float %79, %83
-  %85 = fdiv float %72, %83
-  call void %66(ptr noundef nonnull %48, ptr noundef %50, float noundef %85, float noundef 0.000000e+00, float noundef %84, float noundef %77, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %71)
-  %86 = load ptr, ptr %47, align 8
-  %87 = load ptr, ptr %49, align 8
-  %88 = load i8, ptr %8, align 1
-  %89 = zext i8 %88 to i32
-  %90 = shl nuw nsw i32 %89, 8
-  %91 = load i8, ptr %12, align 1
-  %92 = zext i8 %91 to i32
-  %93 = or disjoint i32 %90, %92
-  %94 = load ptr, ptr %51, align 8
-  %95 = getelementptr inbounds i8, ptr %86, i64 32
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %86, i64 128
-  %98 = load ptr, ptr %97, align 8
-  %.not.i30 = icmp eq ptr %98, null
-  br i1 %.not.i30, label %_ZN16hb_paint_funcs_t11color_glyphEPvjP9hb_font_t.exit, label %99
+_ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit: ; preds = %_ZNK9hb_face_t8get_upemEv.exit.i, %68
+  %70 = phi ptr [ %69, %68 ], [ null, %_ZNK9hb_face_t8get_upemEv.exit.i ]
+  %71 = uitofp i32 %.0.i.i to float
+  %.not17.i = icmp eq i32 %61, 0
+  %72 = sitofp i32 %61 to float
+  %73 = select i1 %.not17.i, float %71, float %72
+  %74 = fptosi float %73 to i32
+  %75 = sitofp i32 %74 to float
+  %76 = fdiv float %71, %75
+  %77 = fneg float %63
+  %78 = fmul float %71, %77
+  %.not.i29 = icmp eq i32 %59, 0
+  %79 = sitofp i32 %59 to float
+  %80 = select i1 %.not.i29, float %71, float %79
+  %81 = fptosi float %80 to i32
+  %82 = sitofp i32 %81 to float
+  %83 = fdiv float %78, %82
+  %84 = fdiv float %71, %82
+  call void %65(ptr noundef nonnull %47, ptr noundef %49, float noundef %84, float noundef 0.000000e+00, float noundef %83, float noundef %76, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %70)
+  %85 = load ptr, ptr %46, align 8
+  %86 = load ptr, ptr %48, align 8
+  %87 = load i8, ptr %7, align 1
+  %88 = zext i8 %87 to i32
+  %89 = shl nuw nsw i32 %88, 8
+  %90 = load i8, ptr %11, align 1
+  %91 = zext i8 %90 to i32
+  %92 = or disjoint i32 %89, %91
+  %93 = load ptr, ptr %50, align 8
+  %94 = getelementptr inbounds i8, ptr %85, i64 32
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %85, i64 128
+  %97 = load ptr, ptr %96, align 8
+  %.not.i30 = icmp eq ptr %97, null
+  br i1 %.not.i30, label %_ZN16hb_paint_funcs_t11color_glyphEPvjP9hb_font_t.exit, label %98
 
-99:                                               ; preds = %_ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit
-  %100 = getelementptr inbounds i8, ptr %98, i64 24
-  %101 = load ptr, ptr %100, align 8
+98:                                               ; preds = %_ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit
+  %99 = getelementptr inbounds i8, ptr %97, i64 24
+  %100 = load ptr, ptr %99, align 8
   br label %_ZN16hb_paint_funcs_t11color_glyphEPvjP9hb_font_t.exit
 
-_ZN16hb_paint_funcs_t11color_glyphEPvjP9hb_font_t.exit: ; preds = %_ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit, %99
-  %102 = phi ptr [ %101, %99 ], [ null, %_ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit ]
-  %103 = call noundef i32 %96(ptr noundef nonnull %86, ptr noundef %87, i32 noundef %93, ptr noundef %94, ptr noundef %102)
-  %.not61 = icmp eq i32 %103, 0
-  %104 = load ptr, ptr %47, align 8
-  %105 = load ptr, ptr %49, align 8
-  %106 = getelementptr inbounds i8, ptr %104, i64 24
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %104, i64 128
-  %109 = load ptr, ptr %108, align 8
-  %.not.i41 = icmp eq ptr %109, null
-  br i1 %.not61, label %153, label %110
+_ZN16hb_paint_funcs_t11color_glyphEPvjP9hb_font_t.exit: ; preds = %_ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit, %98
+  %101 = phi ptr [ %100, %98 ], [ null, %_ZN16hb_paint_funcs_t27push_inverse_root_transformEPvP9hb_font_t.exit ]
+  %102 = call noundef i32 %95(ptr noundef nonnull %85, ptr noundef %86, i32 noundef %92, ptr noundef %93, ptr noundef %101)
+  %.not61 = icmp eq i32 %102, 0
+  %103 = load ptr, ptr %46, align 8
+  %104 = load ptr, ptr %48, align 8
+  %105 = getelementptr inbounds i8, ptr %103, i64 24
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %103, i64 128
+  %108 = load ptr, ptr %107, align 8
+  %.not.i41 = icmp eq ptr %108, null
+  br i1 %.not61, label %152, label %109
 
-110:                                              ; preds = %_ZN16hb_paint_funcs_t11color_glyphEPvjP9hb_font_t.exit
-  br i1 %.not.i41, label %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, label %111
+109:                                              ; preds = %_ZN16hb_paint_funcs_t11color_glyphEPvjP9hb_font_t.exit
+  br i1 %.not.i41, label %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, label %110
 
-111:                                              ; preds = %110
-  %112 = getelementptr inbounds i8, ptr %109, i64 8
-  %113 = load ptr, ptr %112, align 8
+110:                                              ; preds = %109
+  %111 = getelementptr inbounds i8, ptr %108, i64 8
+  %112 = load ptr, ptr %111, align 8
   br label %_ZN16hb_paint_funcs_t13pop_transformEPv.exit
 
-_ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %110, %111
-  %114 = phi ptr [ %113, %111 ], [ null, %110 ]
-  call void %107(ptr noundef nonnull %104, ptr noundef %105, ptr noundef %114)
-  %115 = load i8, ptr %8, align 1
-  %116 = zext i8 %115 to i32
-  %117 = shl nuw nsw i32 %116, 8
-  %118 = load i8, ptr %12, align 1
-  %119 = zext i8 %118 to i32
-  %120 = or disjoint i32 %117, %119
-  %121 = load ptr, ptr %16, align 8
-  %.not.i32 = icmp eq ptr %121, null
-  br i1 %.not.i32, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, label %122
+_ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %109, %110
+  %113 = phi ptr [ %112, %110 ], [ null, %109 ]
+  call void %106(ptr noundef nonnull %103, ptr noundef %104, ptr noundef %113)
+  %114 = load i8, ptr %7, align 1
+  %115 = zext i8 %114 to i32
+  %116 = shl nuw nsw i32 %115, 8
+  %117 = load i8, ptr %11, align 1
+  %118 = zext i8 %117 to i32
+  %119 = or disjoint i32 %116, %118
+  %120 = load ptr, ptr %15, align 8
+  %.not.i32 = icmp eq ptr %120, null
+  br i1 %.not.i32, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, label %121
 
-122:                                              ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit
-  %123 = mul i32 %120, 506952113
-  %124 = and i32 %123, 1073741823
-  %125 = getelementptr inbounds i8, ptr %1, i64 84
-  %126 = load i32, ptr %125, align 4
-  %127 = urem i32 %124, %126
-  %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %121, i64 %128
-  %130 = getelementptr inbounds i8, ptr %129, i64 4
-  %131 = load i32, ptr %130, align 4
-  %132 = and i32 %131, 2
-  %.not16.i.i34 = icmp eq i32 %132, 0
+121:                                              ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit
+  %122 = mul i32 %119, 506952113
+  %123 = and i32 %122, 1073741823
+  %124 = getelementptr inbounds i8, ptr %1, i64 84
+  %125 = load i32, ptr %124, align 4
+  %126 = urem i32 %123, %125
+  %127 = zext nneg i32 %126 to i64
+  %128 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %120, i64 %127
+  %129 = getelementptr inbounds i8, ptr %128, i64 4
+  %130 = load i32, ptr %129, align 4
+  %131 = and i32 %130, 2
+  %.not16.i.i34 = icmp eq i32 %131, 0
   br i1 %.not16.i.i34, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, label %.lr.ph.i.i35
 
-.lr.ph.i.i35:                                     ; preds = %122
-  %133 = getelementptr inbounds i8, ptr %1, i64 80
-  %134 = load i32, ptr %133, align 8
-  %135 = load i32, ptr %129, align 4
-  %136 = icmp eq i32 %135, %120
-  br i1 %136, label %._crit_edge.i38, label %.lr.ph.i36
+.lr.ph.i.i35:                                     ; preds = %121
+  %132 = getelementptr inbounds i8, ptr %1, i64 80
+  %133 = load i32, ptr %132, align 8
+  %134 = load i32, ptr %128, align 4
+  %135 = icmp eq i32 %134, %119
+  br i1 %135, label %._crit_edge.i38, label %.lr.ph.i36
 
-137:                                              ; preds = %.lr.ph.i36
-  %138 = load i32, ptr %146, align 4
-  %139 = icmp eq i32 %138, %120
-  br i1 %139, label %._crit_edge.i38, label %.lr.ph.i36, !llvm.loop !44
+136:                                              ; preds = %.lr.ph.i36
+  %137 = load i32, ptr %145, align 4
+  %138 = icmp eq i32 %137, %119
+  br i1 %138, label %._crit_edge.i38, label %.lr.ph.i36, !llvm.loop !44
 
-._crit_edge.i38:                                  ; preds = %137, %.lr.ph.i.i35
-  %.lcssa9.i = phi i32 [ %131, %.lr.ph.i.i35 ], [ %148, %137 ]
-  %140 = phi i64 [ %128, %.lr.ph.i.i35 ], [ %145, %137 ]
-  %141 = and i32 %.lcssa9.i, 1
-  %.not12.i.i39 = icmp eq i32 %141, 0
+._crit_edge.i38:                                  ; preds = %136, %.lr.ph.i.i35
+  %.lcssa9.i = phi i32 [ %130, %.lr.ph.i.i35 ], [ %147, %136 ]
+  %139 = phi i64 [ %127, %.lr.ph.i.i35 ], [ %144, %136 ]
+  %140 = and i32 %.lcssa9.i, 1
+  %.not12.i.i39 = icmp eq i32 %140, 0
   br i1 %.not12.i.i39, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, label %_ZNK12hb_hashmap_tIjjLb1EE10fetch_itemERKjj.exit.i40
 
-.lr.ph.i36:                                       ; preds = %.lr.ph.i.i35, %137
-  %.01017.i12.i = phi i32 [ %144, %137 ], [ %127, %.lr.ph.i.i35 ]
-  %.018.i11.i = phi i32 [ %142, %137 ], [ 0, %.lr.ph.i.i35 ]
-  %142 = add i32 %.018.i11.i, 1
-  %143 = add i32 %142, %.01017.i12.i
-  %144 = and i32 %143, %134
-  %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %121, i64 %145
-  %147 = getelementptr inbounds i8, ptr %146, i64 4
-  %148 = load i32, ptr %147, align 4
-  %149 = and i32 %148, 2
-  %.not.i.i37 = icmp eq i32 %149, 0
-  br i1 %.not.i.i37, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, label %137, !llvm.loop !44
+.lr.ph.i36:                                       ; preds = %.lr.ph.i.i35, %136
+  %.01017.i12.i = phi i32 [ %143, %136 ], [ %126, %.lr.ph.i.i35 ]
+  %.018.i11.i = phi i32 [ %141, %136 ], [ 0, %.lr.ph.i.i35 ]
+  %141 = add i32 %.018.i11.i, 1
+  %142 = add i32 %141, %.01017.i12.i
+  %143 = and i32 %142, %133
+  %144 = zext i32 %143 to i64
+  %145 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %120, i64 %144
+  %146 = getelementptr inbounds i8, ptr %145, i64 4
+  %147 = load i32, ptr %146, align 4
+  %148 = and i32 %147, 2
+  %.not.i.i37 = icmp eq i32 %148, 0
+  br i1 %.not.i.i37, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, label %136, !llvm.loop !44
 
 _ZNK12hb_hashmap_tIjjLb1EE10fetch_itemERKjj.exit.i40: ; preds = %._crit_edge.i38
-  %150 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %121, i64 %140, i32 1
-  %151 = load i32, ptr %150, align 4
-  %152 = and i32 %151, -2
-  store i32 %152, ptr %150, align 4
+  %149 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %120, i64 %139, i32 1
+  %150 = load i32, ptr %149, align 4
+  %151 = and i32 %150, -2
+  store i32 %151, ptr %149, align 4
   br label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit.sink.split
 
-153:                                              ; preds = %_ZN16hb_paint_funcs_t11color_glyphEPvjP9hb_font_t.exit
-  br i1 %.not.i41, label %_ZN16hb_paint_funcs_t13pop_transformEPv.exit42, label %154
+152:                                              ; preds = %_ZN16hb_paint_funcs_t11color_glyphEPvjP9hb_font_t.exit
+  br i1 %.not.i41, label %_ZN16hb_paint_funcs_t13pop_transformEPv.exit42, label %153
 
-154:                                              ; preds = %153
-  %155 = getelementptr inbounds i8, ptr %109, i64 8
-  %156 = load ptr, ptr %155, align 8
+153:                                              ; preds = %152
+  %154 = getelementptr inbounds i8, ptr %108, i64 8
+  %155 = load ptr, ptr %154, align 8
   br label %_ZN16hb_paint_funcs_t13pop_transformEPv.exit42
 
-_ZN16hb_paint_funcs_t13pop_transformEPv.exit42:   ; preds = %153, %154
-  %157 = phi ptr [ %156, %154 ], [ null, %153 ]
-  call void %107(ptr noundef nonnull %104, ptr noundef %105, ptr noundef %157)
-  %158 = getelementptr inbounds i8, ptr %1, i64 8
-  %159 = load ptr, ptr %158, align 8
-  %160 = load i8, ptr %8, align 1
-  %161 = zext i8 %160 to i32
-  %162 = shl nuw nsw i32 %161, 8
-  %163 = load i8, ptr %12, align 1
-  %164 = zext i8 %163 to i32
-  %165 = or disjoint i32 %162, %164
-  %166 = call noundef ptr @_ZNK2OT4COLR20get_base_glyph_paintEj(ptr noundef nonnull align 1 dereferenceable(34) %159, i32 noundef %165)
+_ZN16hb_paint_funcs_t13pop_transformEPv.exit42:   ; preds = %152, %153
+  %156 = phi ptr [ %155, %153 ], [ null, %152 ]
+  call void %106(ptr noundef nonnull %103, ptr noundef %104, ptr noundef %156)
+  %157 = getelementptr inbounds i8, ptr %1, i64 8
+  %158 = load ptr, ptr %157, align 8
+  %159 = load i8, ptr %7, align 1
+  %160 = zext i8 %159 to i32
+  %161 = shl nuw nsw i32 %160, 8
+  %162 = load i8, ptr %11, align 1
+  %163 = zext i8 %162 to i32
+  %164 = or disjoint i32 %161, %163
+  %165 = call noundef ptr @_ZNK2OT4COLR20get_base_glyph_paintEj(ptr noundef nonnull align 1 dereferenceable(34) %158, i32 noundef %164)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %167 = load i8, ptr %8, align 1
-  %168 = zext i8 %167 to i32
-  %169 = shl nuw nsw i32 %168, 8
-  %170 = load i8, ptr %12, align 1
-  %171 = zext i8 %170 to i32
-  %172 = or disjoint i32 %169, %171
-  %173 = getelementptr inbounds i8, ptr %1, i64 48
-  %174 = load ptr, ptr %173, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %174, i64 32, i1 false)
+  %166 = load i8, ptr %7, align 1
+  %167 = zext i8 %166 to i32
+  %168 = shl nuw nsw i32 %167, 8
+  %169 = load i8, ptr %11, align 1
+  %170 = zext i8 %169 to i32
+  %171 = or disjoint i32 %168, %170
+  %172 = getelementptr inbounds i8, ptr %1, i64 48
+  %173 = load ptr, ptr %172, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %175 = getelementptr inbounds i8, ptr %159, i64 22
-  %176 = load i8, ptr %175, align 1
-  %177 = zext i8 %176 to i32
-  %178 = shl nuw i32 %177, 24
-  %179 = getelementptr inbounds i8, ptr %159, i64 23
-  %180 = load i8, ptr %179, align 1
-  %181 = zext i8 %180 to i32
-  %182 = shl nuw nsw i32 %181, 16
-  %183 = or disjoint i32 %182, %178
-  %184 = getelementptr inbounds i8, ptr %159, i64 24
-  %185 = load i8, ptr %184, align 1
-  %186 = zext i8 %185 to i32
-  %187 = shl nuw nsw i32 %186, 8
-  %188 = or disjoint i32 %183, %187
-  %189 = getelementptr inbounds i8, ptr %159, i64 25
-  %190 = load i8, ptr %189, align 1
-  %191 = zext i8 %190 to i32
-  %192 = or disjoint i32 %188, %191
-  %193 = icmp eq i32 %192, 0
-  %194 = zext i32 %192 to i64
-  %195 = getelementptr inbounds i8, ptr %159, i64 %194
-  %.0.i.i.i = select i1 %193, ptr @_hb_NullPool, ptr %195
-  %196 = call noundef zeroext i1 @_ZNK2OT8ClipList11get_extentsEjP18hb_glyph_extents_tRKNS_17VarStoreInstancerE(ptr noundef nonnull align 1 dereferenceable(12) %.0.i.i.i, i32 noundef %172, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %173, i64 32, i1 false)
+  %174 = getelementptr inbounds i8, ptr %158, i64 22
+  %175 = load i8, ptr %174, align 1
+  %176 = zext i8 %175 to i32
+  %177 = shl nuw i32 %176, 24
+  %178 = getelementptr inbounds i8, ptr %158, i64 23
+  %179 = load i8, ptr %178, align 1
+  %180 = zext i8 %179 to i32
+  %181 = shl nuw nsw i32 %180, 16
+  %182 = or disjoint i32 %181, %177
+  %183 = getelementptr inbounds i8, ptr %158, i64 24
+  %184 = load i8, ptr %183, align 1
+  %185 = zext i8 %184 to i32
+  %186 = shl nuw nsw i32 %185, 8
+  %187 = or disjoint i32 %182, %186
+  %188 = getelementptr inbounds i8, ptr %158, i64 25
+  %189 = load i8, ptr %188, align 1
+  %190 = zext i8 %189 to i32
+  %191 = or disjoint i32 %187, %190
+  %192 = icmp eq i32 %191, 0
+  %193 = zext i32 %191 to i64
+  %194 = getelementptr inbounds i8, ptr %158, i64 %193
+  %.0.i.i.i = select i1 %192, ptr @_hb_NullPool, ptr %194
+  %195 = call noundef zeroext i1 @_ZNK2OT8ClipList11get_extentsEjP18hb_glyph_extents_tRKNS_17VarStoreInstancerE(ptr noundef nonnull align 1 dereferenceable(12) %.0.i.i.i, i32 noundef %171, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  br i1 %196, label %197, label %221
+  br i1 %195, label %196, label %220
 
-197:                                              ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit42
-  %198 = load ptr, ptr %47, align 8
-  %199 = load ptr, ptr %49, align 8
-  %200 = load i32, ptr %5, align 4
-  %201 = sitofp i32 %200 to float
-  %202 = getelementptr inbounds i8, ptr %5, i64 4
-  %203 = load i32, ptr %202, align 4
-  %204 = getelementptr inbounds i8, ptr %5, i64 12
-  %205 = load i32, ptr %204, align 4
-  %206 = add nsw i32 %205, %203
-  %207 = sitofp i32 %206 to float
-  %208 = getelementptr inbounds i8, ptr %5, i64 8
-  %209 = load i32, ptr %208, align 4
-  %210 = add nsw i32 %209, %200
-  %211 = sitofp i32 %210 to float
-  %212 = sitofp i32 %203 to float
-  %213 = getelementptr inbounds i8, ptr %198, i64 48
-  %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %198, i64 128
-  %216 = load ptr, ptr %215, align 8
-  %.not.i43 = icmp eq ptr %216, null
-  br i1 %.not.i43, label %_ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit, label %217
+196:                                              ; preds = %_ZN16hb_paint_funcs_t13pop_transformEPv.exit42
+  %197 = load ptr, ptr %46, align 8
+  %198 = load ptr, ptr %48, align 8
+  %199 = load i32, ptr %5, align 4
+  %200 = sitofp i32 %199 to float
+  %201 = getelementptr inbounds i8, ptr %5, i64 4
+  %202 = load i32, ptr %201, align 4
+  %203 = getelementptr inbounds i8, ptr %5, i64 12
+  %204 = load i32, ptr %203, align 4
+  %205 = add nsw i32 %204, %202
+  %206 = sitofp i32 %205 to float
+  %207 = getelementptr inbounds i8, ptr %5, i64 8
+  %208 = load i32, ptr %207, align 4
+  %209 = add nsw i32 %208, %199
+  %210 = sitofp i32 %209 to float
+  %211 = sitofp i32 %202 to float
+  %212 = getelementptr inbounds i8, ptr %197, i64 48
+  %213 = load ptr, ptr %212, align 8
+  %214 = getelementptr inbounds i8, ptr %197, i64 128
+  %215 = load ptr, ptr %214, align 8
+  %.not.i43 = icmp eq ptr %215, null
+  br i1 %.not.i43, label %_ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit, label %216
 
-217:                                              ; preds = %197
-  %218 = getelementptr inbounds i8, ptr %216, i64 32
-  %219 = load ptr, ptr %218, align 8
+216:                                              ; preds = %196
+  %217 = getelementptr inbounds i8, ptr %215, i64 32
+  %218 = load ptr, ptr %217, align 8
   br label %_ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit
 
-_ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit: ; preds = %197, %217
-  %220 = phi ptr [ %219, %217 ], [ null, %197 ]
-  call void %214(ptr noundef nonnull %198, ptr noundef %199, float noundef %201, float noundef %207, float noundef %211, float noundef %212, ptr noundef %220)
-  br label %221
+_ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit: ; preds = %196, %216
+  %219 = phi ptr [ %218, %216 ], [ null, %196 ]
+  call void %213(ptr noundef nonnull %197, ptr noundef %198, float noundef %200, float noundef %206, float noundef %210, float noundef %211, ptr noundef %219)
+  br label %220
 
-221:                                              ; preds = %_ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit, %_ZN16hb_paint_funcs_t13pop_transformEPv.exit42
-  %.not = icmp eq ptr %166, null
-  br i1 %.not, label %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit, label %222
+220:                                              ; preds = %_ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit, %_ZN16hb_paint_funcs_t13pop_transformEPv.exit42
+  %.not = icmp eq ptr %165, null
+  br i1 %.not, label %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit, label %221
 
-222:                                              ; preds = %221
-  %223 = getelementptr inbounds i8, ptr %1, i64 152
-  %224 = load i32, ptr %223, align 8
-  %225 = icmp slt i32 %224, 1
-  br i1 %225, label %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit, label %226
+221:                                              ; preds = %220
+  %222 = getelementptr inbounds i8, ptr %1, i64 152
+  %223 = load i32, ptr %222, align 8
+  %224 = icmp slt i32 %223, 1
+  br i1 %224, label %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit, label %225
 
-226:                                              ; preds = %222
-  %227 = getelementptr inbounds i8, ptr %1, i64 156
-  %228 = load i32, ptr %227, align 4
-  %229 = icmp slt i32 %228, 1
-  br i1 %229, label %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit, label %230
+225:                                              ; preds = %221
+  %226 = getelementptr inbounds i8, ptr %1, i64 156
+  %227 = load i32, ptr %226, align 4
+  %228 = icmp slt i32 %227, 1
+  br i1 %228, label %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit, label %229
 
-230:                                              ; preds = %226
-  %231 = add nsw i32 %224, -1
-  store i32 %231, ptr %223, align 8
-  %232 = add nsw i32 %228, -1
-  store i32 %232, ptr %227, align 4
-  call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %166, ptr noundef nonnull %1)
-  %233 = load i32, ptr %223, align 8
-  %234 = add nsw i32 %233, 1
-  store i32 %234, ptr %223, align 8
+229:                                              ; preds = %225
+  %230 = add nsw i32 %223, -1
+  store i32 %230, ptr %222, align 8
+  %231 = add nsw i32 %227, -1
+  store i32 %231, ptr %226, align 4
+  call void @_ZNK2OT5Paint8dispatchINS_18hb_paint_context_tEJEEENT_8return_tEPS3_DpOT0_(ptr noundef nonnull align 1 dereferenceable(20) %165, ptr noundef nonnull %1)
+  %232 = load i32, ptr %222, align 8
+  %233 = add nsw i32 %232, 1
+  store i32 %233, ptr %222, align 8
   br label %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit
 
-_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %230, %226, %222, %221
-  br i1 %196, label %235, label %246
+_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit: ; preds = %229, %225, %221, %220
+  br i1 %195, label %234, label %245
 
-235:                                              ; preds = %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit
-  %236 = load ptr, ptr %47, align 8
-  %237 = load ptr, ptr %49, align 8
-  %238 = getelementptr inbounds i8, ptr %236, i64 56
-  %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds i8, ptr %236, i64 128
-  %241 = load ptr, ptr %240, align 8
-  %.not.i44 = icmp eq ptr %241, null
-  br i1 %.not.i44, label %_ZN16hb_paint_funcs_t8pop_clipEPv.exit, label %242
+234:                                              ; preds = %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit
+  %235 = load ptr, ptr %46, align 8
+  %236 = load ptr, ptr %48, align 8
+  %237 = getelementptr inbounds i8, ptr %235, i64 56
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds i8, ptr %235, i64 128
+  %240 = load ptr, ptr %239, align 8
+  %.not.i44 = icmp eq ptr %240, null
+  br i1 %.not.i44, label %_ZN16hb_paint_funcs_t8pop_clipEPv.exit, label %241
 
-242:                                              ; preds = %235
-  %243 = getelementptr inbounds i8, ptr %241, i64 40
-  %244 = load ptr, ptr %243, align 8
+241:                                              ; preds = %234
+  %242 = getelementptr inbounds i8, ptr %240, i64 40
+  %243 = load ptr, ptr %242, align 8
   br label %_ZN16hb_paint_funcs_t8pop_clipEPv.exit
 
-_ZN16hb_paint_funcs_t8pop_clipEPv.exit:           ; preds = %235, %242
-  %245 = phi ptr [ %244, %242 ], [ null, %235 ]
-  call void %239(ptr noundef nonnull %236, ptr noundef %237, ptr noundef %245)
-  br label %246
+_ZN16hb_paint_funcs_t8pop_clipEPv.exit:           ; preds = %234, %241
+  %244 = phi ptr [ %243, %241 ], [ null, %234 ]
+  call void %238(ptr noundef nonnull %235, ptr noundef %236, ptr noundef %244)
+  br label %245
 
-246:                                              ; preds = %_ZN16hb_paint_funcs_t8pop_clipEPv.exit, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit
-  %247 = load i8, ptr %8, align 1
-  %248 = zext i8 %247 to i32
-  %249 = shl nuw nsw i32 %248, 8
-  %250 = load i8, ptr %12, align 1
-  %251 = zext i8 %250 to i32
-  %252 = or disjoint i32 %249, %251
-  %253 = load ptr, ptr %16, align 8
-  %.not.i45 = icmp eq ptr %253, null
-  br i1 %.not.i45, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, label %254
+245:                                              ; preds = %_ZN16hb_paint_funcs_t8pop_clipEPv.exit, %_ZN2OT18hb_paint_context_t7recurseERKNS_5PaintE.exit
+  %246 = load i8, ptr %7, align 1
+  %247 = zext i8 %246 to i32
+  %248 = shl nuw nsw i32 %247, 8
+  %249 = load i8, ptr %11, align 1
+  %250 = zext i8 %249 to i32
+  %251 = or disjoint i32 %248, %250
+  %252 = load ptr, ptr %15, align 8
+  %.not.i45 = icmp eq ptr %252, null
+  br i1 %.not.i45, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, label %253
 
-254:                                              ; preds = %246
-  %255 = mul i32 %252, 506952113
-  %256 = and i32 %255, 1073741823
-  %257 = getelementptr inbounds i8, ptr %1, i64 84
-  %258 = load i32, ptr %257, align 4
-  %259 = urem i32 %256, %258
-  %260 = zext nneg i32 %259 to i64
-  %261 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %253, i64 %260
-  %262 = getelementptr inbounds i8, ptr %261, i64 4
-  %263 = load i32, ptr %262, align 4
-  %264 = and i32 %263, 2
-  %.not16.i.i47 = icmp eq i32 %264, 0
+253:                                              ; preds = %245
+  %254 = mul i32 %251, 506952113
+  %255 = and i32 %254, 1073741823
+  %256 = getelementptr inbounds i8, ptr %1, i64 84
+  %257 = load i32, ptr %256, align 4
+  %258 = urem i32 %255, %257
+  %259 = zext nneg i32 %258 to i64
+  %260 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %252, i64 %259
+  %261 = getelementptr inbounds i8, ptr %260, i64 4
+  %262 = load i32, ptr %261, align 4
+  %263 = and i32 %262, 2
+  %.not16.i.i47 = icmp eq i32 %263, 0
   br i1 %.not16.i.i47, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, label %.lr.ph.i.i48
 
-.lr.ph.i.i48:                                     ; preds = %254
-  %265 = getelementptr inbounds i8, ptr %1, i64 80
-  %266 = load i32, ptr %265, align 8
-  %267 = load i32, ptr %261, align 4
-  %268 = icmp eq i32 %267, %252
-  br i1 %268, label %._crit_edge.i53, label %.lr.ph.i49
+.lr.ph.i.i48:                                     ; preds = %253
+  %264 = getelementptr inbounds i8, ptr %1, i64 80
+  %265 = load i32, ptr %264, align 8
+  %266 = load i32, ptr %260, align 4
+  %267 = icmp eq i32 %266, %251
+  br i1 %267, label %._crit_edge.i53, label %.lr.ph.i49
 
-269:                                              ; preds = %.lr.ph.i49
-  %270 = load i32, ptr %278, align 4
-  %271 = icmp eq i32 %270, %252
-  br i1 %271, label %._crit_edge.i53, label %.lr.ph.i49, !llvm.loop !44
+268:                                              ; preds = %.lr.ph.i49
+  %269 = load i32, ptr %277, align 4
+  %270 = icmp eq i32 %269, %251
+  br i1 %270, label %._crit_edge.i53, label %.lr.ph.i49, !llvm.loop !44
 
-._crit_edge.i53:                                  ; preds = %269, %.lr.ph.i.i48
-  %.lcssa9.i54 = phi i32 [ %263, %.lr.ph.i.i48 ], [ %280, %269 ]
-  %272 = phi i64 [ %260, %.lr.ph.i.i48 ], [ %277, %269 ]
-  %273 = and i32 %.lcssa9.i54, 1
-  %.not12.i.i55 = icmp eq i32 %273, 0
+._crit_edge.i53:                                  ; preds = %268, %.lr.ph.i.i48
+  %.lcssa9.i54 = phi i32 [ %262, %.lr.ph.i.i48 ], [ %279, %268 ]
+  %271 = phi i64 [ %259, %.lr.ph.i.i48 ], [ %276, %268 ]
+  %272 = and i32 %.lcssa9.i54, 1
+  %.not12.i.i55 = icmp eq i32 %272, 0
   br i1 %.not12.i.i55, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, label %_ZNK12hb_hashmap_tIjjLb1EE10fetch_itemERKjj.exit.i56
 
-.lr.ph.i49:                                       ; preds = %.lr.ph.i.i48, %269
-  %.01017.i12.i50 = phi i32 [ %276, %269 ], [ %259, %.lr.ph.i.i48 ]
-  %.018.i11.i51 = phi i32 [ %274, %269 ], [ 0, %.lr.ph.i.i48 ]
-  %274 = add i32 %.018.i11.i51, 1
-  %275 = add i32 %274, %.01017.i12.i50
-  %276 = and i32 %275, %266
-  %277 = zext i32 %276 to i64
-  %278 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %253, i64 %277
-  %279 = getelementptr inbounds i8, ptr %278, i64 4
-  %280 = load i32, ptr %279, align 4
-  %281 = and i32 %280, 2
-  %.not.i.i52 = icmp eq i32 %281, 0
-  br i1 %.not.i.i52, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, label %269, !llvm.loop !44
+.lr.ph.i49:                                       ; preds = %.lr.ph.i.i48, %268
+  %.01017.i12.i50 = phi i32 [ %275, %268 ], [ %258, %.lr.ph.i.i48 ]
+  %.018.i11.i51 = phi i32 [ %273, %268 ], [ 0, %.lr.ph.i.i48 ]
+  %273 = add i32 %.018.i11.i51, 1
+  %274 = add i32 %273, %.01017.i12.i50
+  %275 = and i32 %274, %265
+  %276 = zext i32 %275 to i64
+  %277 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %252, i64 %276
+  %278 = getelementptr inbounds i8, ptr %277, i64 4
+  %279 = load i32, ptr %278, align 4
+  %280 = and i32 %279, 2
+  %.not.i.i52 = icmp eq i32 %280, 0
+  br i1 %.not.i.i52, label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit, label %268, !llvm.loop !44
 
 _ZNK12hb_hashmap_tIjjLb1EE10fetch_itemERKjj.exit.i56: ; preds = %._crit_edge.i53
-  %282 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %253, i64 %272, i32 1
-  %283 = load i32, ptr %282, align 4
-  %284 = and i32 %283, -2
-  store i32 %284, ptr %282, align 4
+  %281 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %252, i64 %271, i32 1
+  %282 = load i32, ptr %281, align 4
+  %283 = and i32 %282, -2
+  store i32 %283, ptr %281, align 4
   br label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit.sink.split
 
 _ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit.sink.split: ; preds = %_ZNK12hb_hashmap_tIjjLb1EE10fetch_itemERKjj.exit.i40, %_ZNK12hb_hashmap_tIjjLb1EE10fetch_itemERKjj.exit.i56
-  %285 = getelementptr inbounds i8, ptr %1, i64 72
-  %286 = load i32, ptr %285, align 8
-  %287 = and i32 %286, -2
-  %288 = add i32 %287, -2
-  %289 = and i32 %286, 1
-  %290 = or disjoint i32 %288, %289
-  store i32 %290, ptr %285, align 8
+  %284 = getelementptr inbounds i8, ptr %1, i64 72
+  %285 = load i32, ptr %284, align 8
+  %286 = and i32 %285, -2
+  %287 = add i32 %286, -2
+  %288 = and i32 %285, 1
+  %289 = or disjoint i32 %287, %288
+  store i32 %289, ptr %284, align 8
   br label %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit
 
-_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit:  ; preds = %.lr.ph.i36, %.lr.ph.i49, %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit.sink.split, %._crit_edge.i53, %254, %246, %._crit_edge.i38, %122, %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, %._crit_edge.i
+_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit:  ; preds = %.lr.ph.i36, %.lr.ph.i49, %_ZNK12hb_hashmap_tIjjLb1EE3hasIjEEbRKjPPT_.exit.sink.split, %._crit_edge.i53, %253, %245, %._crit_edge.i38, %121, %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, %._crit_edge.i
   ret void
 }
 

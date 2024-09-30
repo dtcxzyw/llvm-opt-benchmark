@@ -1010,7 +1010,7 @@ time_modify.exit:                                 ; preds = %17, %10
 
 30:                                               ; preds = %time_modify.exit
   %31 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %32, 7
   %34 = icmp ne i64 %33, 0
@@ -2372,7 +2372,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %time_s_alloc.exit, 
   %39 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 4, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %29, i64 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, 7
   %43 = icmp ne i64 %42, 0
@@ -11712,7 +11712,7 @@ time_modify.exit:                                 ; preds = %17, %24
   %33 = load i64, ptr %32, align 8
   call fastcc void @vtm_add_offset(ptr noundef nonnull %2, i64 noundef %.027, i32 noundef 1)
   %34 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %35, 7
   %37 = icmp ne i64 %36, 0
@@ -11882,7 +11882,7 @@ maybe_tzobj_p.exit.thread:                        ; preds = %rb_integer_type_p.e
 
 41:                                               ; preds = %maybe_tzobj_p.exit.thread
   %42 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   %43 = load i64, ptr %42, align 8
   %44 = and i64 %43, 7
   %45 = icmp ne i64 %44, 0
@@ -13576,7 +13576,7 @@ v2w.exit36:                                       ; preds = %rb_integer_type_p.e
   unreachable
 
 336:                                              ; preds = %v2w.exit36
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
   %337 = load i64, ptr %61, align 8
   %338 = and i64 %337, 7
   %339 = icmp ne i64 %338, 0
@@ -19590,14 +19590,14 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #15
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #17
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

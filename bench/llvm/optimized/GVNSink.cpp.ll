@@ -1687,10 +1687,10 @@ _ZZN12_GLOBAL__N_111ModelledPHIC1EPKN4llvm7PHINodeERKNS1_8DenseMapIPKNS1_10Basic
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %482, ptr nonnull align 8 %481, i64 %480, i1 false)
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #19
   %483 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %480, i64 noundef 8) #19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %483, ptr nonnull align 8 %482, i64 %480, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %483, ptr nonnull align 8 %481, i64 %480, i1 false)
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #19, !noalias !62
   %484 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %480, i64 noundef 8) #19, !noalias !62
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %484, ptr nonnull align 8 %483, i64 %480, i1 false), !noalias !62
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %484, ptr nonnull align 8 %481, i64 %480, i1 false)
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #19, !noalias !62
   %485 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %480, i64 noundef 8) #19, !noalias !62
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %485, ptr nonnull align 8 %484, i64 %480, i1 false), !noalias !62
@@ -9849,7 +9849,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111ModelledPHIC1EPKN4llvm7PH
   store ptr %45, ptr %6, align 8
   store i32 %31, ptr %39, align 8
   store i32 %32, ptr %40, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull align 8 %34, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull align 8 %30, i64 %29, i1 false)
   call fastcc void @_ZSt13__adjust_heapIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111ModelledPHIC1EPKNS1_7PHINodeERKNS1_8DenseMapIPKS2_jNS1_12DenseMapInfoISI_vEENS1_6detail12DenseMapPairISI_jEEEEEUlS6_S6_E_EEEvT_T0_SU_T1_T2_(ptr noundef nonnull %0, i64 noundef %.0.i.i.i, i64 noundef %35, ptr %.sroa.01.0.copyload.i.i.i, ptr %.sroa.22.0.copyload.i.i.i, ptr noundef %6)
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %45, i64 noundef %29, i64 noundef 8) #19
   %46 = icmp eq i64 %.0.i.i.i, 0

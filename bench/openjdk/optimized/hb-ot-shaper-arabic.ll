@@ -9070,249 +9070,231 @@ declare i32 @hb_font_get_nominal_glyph(ptr noundef, i32 noundef, ptr noundef) lo
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2OT6Layout9GSUB_impl11SubstLookup18serialize_ligatureEP22hb_serialize_context_tj17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2, ptr %3, i64 %4, ptr noundef byval(%struct.hb_array_t.126) align 8 %5, ptr noundef byval(%struct.hb_array_t.121) align 8 %6, ptr noundef byval(%struct.hb_array_t.126) align 8 %7, ptr noundef byval(%struct.hb_array_t.121) align 8 %8) local_unnamed_addr #4 comdat align 2 {
-  %10 = alloca %struct.hb_array_t.121, align 8
-  %11 = alloca %struct.hb_array_t.126, align 8
-  %12 = alloca %struct.hb_array_t.121, align 8
-  %13 = tail call noundef zeroext i1 @_ZN2OT6Lookup9serializeEP22hb_serialize_context_tjjj(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1, i32 noundef 4, i32 noundef %2, i32 noundef 1)
-  br i1 %13, label %14, label %_ZN22hb_serialize_context_t8add_linkIN2OT8OffsetToINS1_6Layout9GSUB_impl19SubstLookupSubTableENS1_7IntTypeItLj2EEELb1EEEEEvRT_jNS_8whence_tEj.exit
+  %10 = tail call noundef zeroext i1 @_ZN2OT6Lookup9serializeEP22hb_serialize_context_tjjj(ptr noundef nonnull align 1 dereferenceable(8) %0, ptr noundef %1, i32 noundef 4, i32 noundef %2, i32 noundef 1)
+  br i1 %10, label %11, label %_ZN22hb_serialize_context_t8add_linkIN2OT8OffsetToINS1_6Layout9GSUB_impl19SubstLookupSubTableENS1_7IntTypeItLj2EEELb1EEEEEvRT_jNS_8whence_tEj.exit
 
-14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %1, i64 44
-  %16 = load i32, ptr %15, align 4
-  %.not8.i = icmp eq i32 %16, 0
-  br i1 %.not8.i, label %17, label %_ZN22hb_serialize_context_t4pushIN2OT6Layout9GSUB_impl19SubstLookupSubTableEEEPT_v.exit
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds i8, ptr %1, i64 44
+  %13 = load i32, ptr %12, align 4
+  %.not8.i = icmp eq i32 %13, 0
+  br i1 %.not8.i, label %14, label %_ZN22hb_serialize_context_t4pushIN2OT6Layout9GSUB_impl19SubstLookupSubTableEEEPT_v.exit
+
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %1, i64 48
+  %16 = tail call noundef ptr @_ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE5allocEv(ptr noundef nonnull align 8 dereferenceable(24) %15)
+  %.not.i = icmp eq ptr %16, null
+  br i1 %.not.i, label %17, label %20
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 48
-  %19 = tail call noundef ptr @_ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE5allocEv(ptr noundef nonnull align 8 dereferenceable(24) %18)
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %20, label %23
+  %18 = load i32, ptr %12, align 4
+  %.not.i.i.not.i = icmp eq i32 %18, 0
+  br i1 %.not.i.i.not.i, label %19, label %_ZN22hb_serialize_context_t4pushIN2OT6Layout9GSUB_impl19SubstLookupSubTableEEEPT_v.exit
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr %15, align 4
-  %.not.i.i.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i.i.not.i, label %22, label %_ZN22hb_serialize_context_t4pushIN2OT6Layout9GSUB_impl19SubstLookupSubTableEEEPT_v.exit
-
-22:                                               ; preds = %20
-  store i32 1, ptr %15, align 4
+19:                                               ; preds = %17
+  store i32 1, ptr %12, align 4
   br label %_ZN22hb_serialize_context_t4pushIN2OT6Layout9GSUB_impl19SubstLookupSubTableEEEPT_v.exit
 
-23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %19, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %16, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %24, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 8
+  %28 = getelementptr inbounds i8, ptr %16, i64 48
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 72
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %19, i64 48
-  store ptr %30, ptr %31, align 8
-  store ptr %19, ptr %29, align 8
-  %.pre = load i32, ptr %15, align 4
-  %32 = icmp eq i32 %.pre, 0
+  store ptr %16, ptr %26, align 8
+  %.pre = load i32, ptr %12, align 4
+  %29 = icmp eq i32 %.pre, 0
   br label %_ZN22hb_serialize_context_t4pushIN2OT6Layout9GSUB_impl19SubstLookupSubTableEEEPT_v.exit
 
-_ZN22hb_serialize_context_t4pushIN2OT6Layout9GSUB_impl19SubstLookupSubTableEEEPT_v.exit: ; preds = %14, %20, %22, %23
-  %.not.i.i.i = phi i1 [ false, %14 ], [ false, %20 ], [ false, %22 ], [ %32, %23 ]
+_ZN22hb_serialize_context_t4pushIN2OT6Layout9GSUB_impl19SubstLookupSubTableEEEPT_v.exit: ; preds = %11, %17, %19, %20
+  %.not.i.i.i = phi i1 [ false, %11 ], [ false, %17 ], [ false, %19 ], [ %29, %20 ]
   %.0.in.i = getelementptr inbounds i8, ptr %1, i64 8
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  br i1 %.not.i.i.i, label %33, label %_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit.thread
+  br i1 %.not.i.i.i, label %30, label %_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit.thread
 
-33:                                               ; preds = %_ZN22hb_serialize_context_t4pushIN2OT6Layout9GSUB_impl19SubstLookupSubTableEEEPT_v.exit
-  %34 = ptrtoint ptr %.0.i to i64
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = ptrtoint ptr %36 to i64
-  %38 = sub i64 %37, %34
-  %39 = icmp slt i64 %38, 2
-  br i1 %39, label %40, label %_ZL9hb_memsetPvij.exit.i.i.i.i.i
+30:                                               ; preds = %_ZN22hb_serialize_context_t4pushIN2OT6Layout9GSUB_impl19SubstLookupSubTableEEEPT_v.exit
+  %31 = ptrtoint ptr %.0.i to i64
+  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = ptrtoint ptr %33 to i64
+  %35 = sub i64 %34, %31
+  %36 = icmp slt i64 %35, 2
+  br i1 %36, label %37, label %_ZL9hb_memsetPvij.exit.i.i.i.i.i
 
-40:                                               ; preds = %33
-  store i32 4, ptr %15, align 4
+37:                                               ; preds = %30
+  store i32 4, ptr %12, align 4
   br label %_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit.thread
 
-_ZL9hb_memsetPvij.exit.i.i.i.i.i:                 ; preds = %33
+_ZL9hb_memsetPvij.exit.i.i.i.i.i:                 ; preds = %30
   store i16 0, ptr %.0.i, align 1
   %.pre.i.i.i.i.i = load ptr, ptr %.0.in.i, align 8
-  %41 = getelementptr inbounds i8, ptr %.pre.i.i.i.i.i, i64 2
-  store ptr %41, ptr %.0.in.i, align 8
-  %42 = icmp eq ptr %.pre.i.i.i.i.i, null
-  br i1 %42, label %_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit.thread, label %_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit
-
-_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit.thread: ; preds = %_ZN22hb_serialize_context_t4pushIN2OT6Layout9GSUB_impl19SubstLookupSubTableEEEPT_v.exit, %40, %_ZL9hb_memsetPvij.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  br label %85
+  %38 = getelementptr inbounds i8, ptr %.pre.i.i.i.i.i, i64 2
+  store ptr %38, ptr %.0.in.i, align 8
+  %39 = icmp eq ptr %.pre.i.i.i.i.i, null
+  br i1 %39, label %_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit.thread, label %_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit
 
 _ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i.i.i
   store i16 256, ptr %.0.i, align 1
-  %43 = tail call noundef zeroext i1 @_ZN2OT6Layout9GSUB_impl22LigatureSubstFormat1_2INS0_10SmallTypesEE9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjESB_IS9_ESD_SE_(ptr noundef nonnull align 1 dereferenceable(8) %.0.i, ptr noundef nonnull %1, ptr %3, i64 %4, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull byval(%struct.hb_array_t.121) align 8 %12, ptr noundef nonnull byval(%struct.hb_array_t.126) align 8 %11, ptr noundef nonnull byval(%struct.hb_array_t.121) align 8 %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  br i1 %43, label %44, label %85
+  %40 = tail call noundef zeroext i1 @_ZN2OT6Layout9GSUB_impl22LigatureSubstFormat1_2INS0_10SmallTypesEE9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjESB_IS9_ESD_SE_(ptr noundef nonnull align 1 dereferenceable(8) %.0.i, ptr noundef nonnull %1, ptr %3, i64 %4, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull byval(%struct.hb_array_t.121) align 8 %6, ptr noundef nonnull byval(%struct.hb_array_t.126) align 8 %7, ptr noundef nonnull byval(%struct.hb_array_t.121) align 8 %8)
+  br i1 %40, label %41, label %_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit.thread
 
-44:                                               ; preds = %_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit
-  %45 = getelementptr inbounds i8, ptr %0, i64 4
-  %46 = load i8, ptr %45, align 1
-  %47 = zext i8 %46 to i32
-  %48 = shl nuw nsw i32 %47, 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 5
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i32
-  %52 = or disjoint i32 %48, %51
-  %.not.i13.not = icmp eq i32 %52, 0
-  br i1 %.not.i13.not, label %53, label %55
+41:                                               ; preds = %_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit
+  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i32
+  %45 = shl nuw nsw i32 %44, 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 5
+  %47 = load i8, ptr %46, align 1
+  %48 = zext i8 %47 to i32
+  %49 = or disjoint i32 %45, %48
+  %.not.i13.not = icmp eq i32 %49, 0
+  br i1 %.not.i13.not, label %50, label %52
 
-53:                                               ; preds = %44
-  %54 = load i16, ptr @_hb_NullPool, align 16
-  store i16 %54, ptr @_hb_CrapPool, align 16
+50:                                               ; preds = %41
+  %51 = load i16, ptr @_hb_NullPool, align 16
+  store i16 %51, ptr @_hb_CrapPool, align 16
   br label %_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
 
-55:                                               ; preds = %44
+52:                                               ; preds = %41
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !89
-  %56 = getelementptr inbounds i8, ptr %0, i64 6
+  %53 = getelementptr inbounds i8, ptr %0, i64 6
   br label %_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
 
-_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit: ; preds = %53, %55
-  %.0.i14 = phi ptr [ @_hb_CrapPool, %53 ], [ %56, %55 ]
-  %57 = tail call noundef i32 @_ZN22hb_serialize_context_t8pop_packEb(ptr noundef nonnull align 8 dereferenceable(144) %1, i1 noundef zeroext true)
-  %58 = load i32, ptr %15, align 4
-  %59 = icmp ne i32 %58, 0
-  %60 = icmp eq i32 %57, 0
-  %or.cond.not.i = or i1 %60, %59
-  br i1 %or.cond.not.i, label %_ZN22hb_serialize_context_t8add_linkIN2OT8OffsetToINS1_6Layout9GSUB_impl19SubstLookupSubTableENS1_7IntTypeItLj2EEELb1EEEEEvRT_jNS_8whence_tEj.exit, label %61
+_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit: ; preds = %50, %52
+  %.0.i14 = phi ptr [ @_hb_CrapPool, %50 ], [ %53, %52 ]
+  %54 = tail call noundef i32 @_ZN22hb_serialize_context_t8pop_packEb(ptr noundef nonnull align 8 dereferenceable(144) %1, i1 noundef zeroext true)
+  %55 = load i32, ptr %12, align 4
+  %56 = icmp ne i32 %55, 0
+  %57 = icmp eq i32 %54, 0
+  %or.cond.not.i = or i1 %57, %56
+  br i1 %or.cond.not.i, label %_ZN22hb_serialize_context_t8add_linkIN2OT8OffsetToINS1_6Layout9GSUB_impl19SubstLookupSubTableENS1_7IntTypeItLj2EEELb1EEEEEvRT_jNS_8whence_tEj.exit, label %58
 
-61:                                               ; preds = %_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
-  %62 = getelementptr inbounds i8, ptr %1, i64 72
-  %63 = load ptr, ptr %62, align 8
+58:                                               ; preds = %_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit
+  %59 = getelementptr inbounds i8, ptr %1, i64 72
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %62 = tail call noundef ptr @_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4pushEv(ptr noundef nonnull align 8 dereferenceable(16) %61)
+  %63 = load ptr, ptr %59, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 16
-  %65 = tail call noundef ptr @_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4pushEv(ptr noundef nonnull align 8 dereferenceable(16) %64)
-  %66 = load ptr, ptr %62, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
-  %68 = load i32, ptr %67, align 8
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %73
+  %65 = load i32, ptr %64, align 8
+  %66 = icmp slt i32 %65, 0
+  br i1 %66, label %67, label %70
 
-70:                                               ; preds = %61
-  %71 = load i32, ptr %15, align 4
-  %72 = or i32 %71, 1
-  store i32 %72, ptr %15, align 4
-  br label %73
+67:                                               ; preds = %58
+  %68 = load i32, ptr %12, align 4
+  %69 = or i32 %68, 1
+  store i32 %69, ptr %12, align 4
+  br label %70
 
-73:                                               ; preds = %70, %61
-  %74 = load i32, ptr %65, align 4
-  %75 = getelementptr inbounds i8, ptr %65, i64 8
-  store i32 %57, ptr %75, align 4
-  %76 = and i32 %74, -64
-  %77 = or disjoint i32 %76, 2
-  store i32 %77, ptr %65, align 4
-  %78 = load ptr, ptr %62, align 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = ptrtoint ptr %.0.i14 to i64
-  %81 = ptrtoint ptr %79 to i64
-  %82 = sub i64 %80, %81
-  %83 = trunc i64 %82 to i32
-  %84 = getelementptr inbounds i8, ptr %65, i64 4
-  store i32 %83, ptr %84, align 4
-  store i32 2, ptr %65, align 4
+70:                                               ; preds = %67, %58
+  %71 = load i32, ptr %62, align 4
+  %72 = getelementptr inbounds i8, ptr %62, i64 8
+  store i32 %54, ptr %72, align 4
+  %73 = and i32 %71, -64
+  %74 = or disjoint i32 %73, 2
+  store i32 %74, ptr %62, align 4
+  %75 = load ptr, ptr %59, align 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = ptrtoint ptr %.0.i14 to i64
+  %78 = ptrtoint ptr %76 to i64
+  %79 = sub i64 %77, %78
+  %80 = trunc i64 %79 to i32
+  %81 = getelementptr inbounds i8, ptr %62, i64 4
+  store i32 %80, ptr %81, align 4
+  store i32 2, ptr %62, align 4
   br label %_ZN22hb_serialize_context_t8add_linkIN2OT8OffsetToINS1_6Layout9GSUB_impl19SubstLookupSubTableENS1_7IntTypeItLj2EEELb1EEEEEvRT_jNS_8whence_tEj.exit
 
-85:                                               ; preds = %_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit.thread, %_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit
-  %86 = getelementptr inbounds i8, ptr %1, i64 72
-  %87 = load ptr, ptr %86, align 8
-  %.not.i15 = icmp eq ptr %87, null
-  br i1 %.not.i15, label %_ZN22hb_serialize_context_t8add_linkIN2OT8OffsetToINS1_6Layout9GSUB_impl19SubstLookupSubTableENS1_7IntTypeItLj2EEELb1EEEEEvRT_jNS_8whence_tEj.exit, label %88
+_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit.thread: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i.i.i, %37, %_ZN22hb_serialize_context_t4pushIN2OT6Layout9GSUB_impl19SubstLookupSubTableEEEPT_v.exit, %_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit
+  %82 = getelementptr inbounds i8, ptr %1, i64 72
+  %83 = load ptr, ptr %82, align 8
+  %.not.i15 = icmp eq ptr %83, null
+  br i1 %.not.i15, label %_ZN22hb_serialize_context_t8add_linkIN2OT8OffsetToINS1_6Layout9GSUB_impl19SubstLookupSubTableENS1_7IntTypeItLj2EEELb1EEEEEvRT_jNS_8whence_tEj.exit, label %84
 
-88:                                               ; preds = %85
-  %89 = load i32, ptr %15, align 4
-  %90 = tail call i32 @llvm.fshl.i32(i32 %89, i32 %89, i32 31)
-  switch i32 %90, label %_ZN22hb_serialize_context_t8add_linkIN2OT8OffsetToINS1_6Layout9GSUB_impl19SubstLookupSubTableENS1_7IntTypeItLj2EEELb1EEEEEvRT_jNS_8whence_tEj.exit [
+84:                                               ; preds = %_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit.thread
+  %85 = load i32, ptr %12, align 4
+  %86 = tail call i32 @llvm.fshl.i32(i32 %85, i32 %85, i32 31)
+  switch i32 %86, label %_ZN22hb_serialize_context_t8add_linkIN2OT8OffsetToINS1_6Layout9GSUB_impl19SubstLookupSubTableENS1_7IntTypeItLj2EEELb1EEEEEvRT_jNS_8whence_tEj.exit [
     i32 0, label %_ZNK22hb_serialize_context_t13only_overflowEv.exit.thread.i
     i32 1, label %_ZNK22hb_serialize_context_t13only_overflowEv.exit.thread.i
     i32 4, label %_ZNK22hb_serialize_context_t13only_overflowEv.exit.thread.i
     i32 8, label %_ZNK22hb_serialize_context_t13only_overflowEv.exit.thread.i
   ]
 
-_ZNK22hb_serialize_context_t13only_overflowEv.exit.thread.i: ; preds = %88, %88, %88, %88
-  %91 = getelementptr inbounds i8, ptr %87, i64 48
-  %92 = load ptr, ptr %91, align 8
-  store ptr %92, ptr %86, align 8
-  %93 = getelementptr inbounds i8, ptr %1, i64 32
-  %94 = load ptr, ptr %93, align 8
-  %.not7.i = icmp eq ptr %94, null
-  br i1 %.not7.i, label %95, label %97
+_ZNK22hb_serialize_context_t13only_overflowEv.exit.thread.i: ; preds = %84, %84, %84, %84
+  %87 = getelementptr inbounds i8, ptr %83, i64 48
+  %88 = load ptr, ptr %87, align 8
+  store ptr %88, ptr %82, align 8
+  %89 = getelementptr inbounds i8, ptr %1, i64 32
+  %90 = load ptr, ptr %89, align 8
+  %.not7.i = icmp eq ptr %90, null
+  br i1 %.not7.i, label %91, label %93
 
-95:                                               ; preds = %_ZNK22hb_serialize_context_t13only_overflowEv.exit.thread.i
-  %96 = load ptr, ptr %87, align 8
-  br label %97
+91:                                               ; preds = %_ZNK22hb_serialize_context_t13only_overflowEv.exit.thread.i
+  %92 = load ptr, ptr %83, align 8
+  br label %93
 
-97:                                               ; preds = %95, %_ZNK22hb_serialize_context_t13only_overflowEv.exit.thread.i
-  %98 = phi ptr [ %96, %95 ], [ %94, %_ZNK22hb_serialize_context_t13only_overflowEv.exit.thread.i ]
-  %.not.i.i = icmp eq i32 %89, 0
-  br i1 %.not.i.i, label %99, label %_ZN22hb_serialize_context_t6revertEPcS0_.exit.i
+93:                                               ; preds = %91, %_ZNK22hb_serialize_context_t13only_overflowEv.exit.thread.i
+  %94 = phi ptr [ %92, %91 ], [ %90, %_ZNK22hb_serialize_context_t13only_overflowEv.exit.thread.i ]
+  %.not.i.i = icmp eq i32 %85, 0
+  br i1 %.not.i.i, label %95, label %_ZN22hb_serialize_context_t6revertEPcS0_.exit.i
 
-99:                                               ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %87, i64 8
-  %101 = load ptr, ptr %100, align 8
-  store ptr %98, ptr %.0.in.i, align 8
-  %102 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %101, ptr %102, align 8
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds i8, ptr %83, i64 8
+  %97 = load ptr, ptr %96, align 8
+  store ptr %94, ptr %.0.in.i, align 8
+  %98 = getelementptr inbounds i8, ptr %1, i64 16
+  store ptr %97, ptr %98, align 8
   tail call void @_ZN22hb_serialize_context_t21discard_stale_objectsEv(ptr noundef nonnull align 8 dereferenceable(144) %1)
   br label %_ZN22hb_serialize_context_t6revertEPcS0_.exit.i
 
-_ZN22hb_serialize_context_t6revertEPcS0_.exit.i:  ; preds = %99, %97
-  store ptr null, ptr %93, align 8
-  %103 = getelementptr inbounds i8, ptr %87, i64 16
-  %104 = load i32, ptr %103, align 8
-  %.not.i.i.i16 = icmp eq i32 %104, 0
-  br i1 %.not.i.i.i16, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i, label %105
+_ZN22hb_serialize_context_t6revertEPcS0_.exit.i:  ; preds = %95, %93
+  store ptr null, ptr %89, align 8
+  %99 = getelementptr inbounds i8, ptr %83, i64 16
+  %100 = load i32, ptr %99, align 8
+  %.not.i.i.i16 = icmp eq i32 %100, 0
+  br i1 %.not.i.i.i16, label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i, label %101
 
-105:                                              ; preds = %_ZN22hb_serialize_context_t6revertEPcS0_.exit.i
-  %106 = getelementptr inbounds i8, ptr %87, i64 20
-  store i32 0, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %87, i64 24
-  %108 = load ptr, ptr %107, align 8
-  tail call void @free(ptr noundef %108) #27
+101:                                              ; preds = %_ZN22hb_serialize_context_t6revertEPcS0_.exit.i
+  %102 = getelementptr inbounds i8, ptr %83, i64 20
+  store i32 0, ptr %102, align 4
+  %103 = getelementptr inbounds i8, ptr %83, i64 24
+  %104 = load ptr, ptr %103, align 8
+  tail call void @free(ptr noundef %104) #27
   br label %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
 
-_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i: ; preds = %105, %_ZN22hb_serialize_context_t6revertEPcS0_.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, i8 0, i64 16, i1 false)
-  %109 = getelementptr inbounds i8, ptr %87, i64 32
-  %110 = load i32, ptr %109, align 8
-  %.not.i1.i.i = icmp eq i32 %110, 0
-  br i1 %.not.i1.i.i, label %_ZN22hb_serialize_context_t8object_t4finiEv.exit.i, label %111
+_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i: ; preds = %101, %_ZN22hb_serialize_context_t6revertEPcS0_.exit.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false)
+  %105 = getelementptr inbounds i8, ptr %83, i64 32
+  %106 = load i32, ptr %105, align 8
+  %.not.i1.i.i = icmp eq i32 %106, 0
+  br i1 %.not.i1.i.i, label %_ZN22hb_serialize_context_t8object_t4finiEv.exit.i, label %107
 
-111:                                              ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
-  %112 = getelementptr inbounds i8, ptr %87, i64 36
-  store i32 0, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %87, i64 40
-  %114 = load ptr, ptr %113, align 8
-  tail call void @free(ptr noundef %114) #27
+107:                                              ; preds = %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
+  %108 = getelementptr inbounds i8, ptr %83, i64 36
+  store i32 0, ptr %108, align 4
+  %109 = getelementptr inbounds i8, ptr %83, i64 40
+  %110 = load ptr, ptr %109, align 8
+  tail call void @free(ptr noundef %110) #27
   br label %_ZN22hb_serialize_context_t8object_t4finiEv.exit.i
 
-_ZN22hb_serialize_context_t8object_t4finiEv.exit.i: ; preds = %111, %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false)
-  %115 = getelementptr inbounds i8, ptr %1, i64 48
-  %116 = load ptr, ptr %115, align 8
-  store ptr %116, ptr %87, align 8
-  store ptr %87, ptr %115, align 8
+_ZN22hb_serialize_context_t8object_t4finiEv.exit.i: ; preds = %107, %_ZN11hb_vector_tIN22hb_serialize_context_t8object_t6link_tELb0EE4finiEv.exit.i.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
+  %111 = getelementptr inbounds i8, ptr %1, i64 48
+  %112 = load ptr, ptr %111, align 8
+  store ptr %112, ptr %83, align 8
+  store ptr %83, ptr %111, align 8
   br label %_ZN22hb_serialize_context_t8add_linkIN2OT8OffsetToINS1_6Layout9GSUB_impl19SubstLookupSubTableENS1_7IntTypeItLj2EEELb1EEEEEvRT_jNS_8whence_tEj.exit
 
-_ZN22hb_serialize_context_t8add_linkIN2OT8OffsetToINS1_6Layout9GSUB_impl19SubstLookupSubTableENS1_7IntTypeItLj2EEELb1EEEEEvRT_jNS_8whence_tEj.exit: ; preds = %_ZN22hb_serialize_context_t8object_t4finiEv.exit.i, %88, %85, %73, %_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit, %9
-  %.0 = phi i1 [ false, %9 ], [ true, %_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit ], [ true, %73 ], [ false, %85 ], [ false, %88 ], [ false, %_ZN22hb_serialize_context_t8object_t4finiEv.exit.i ]
+_ZN22hb_serialize_context_t8add_linkIN2OT8OffsetToINS1_6Layout9GSUB_impl19SubstLookupSubTableENS1_7IntTypeItLj2EEELb1EEEEEvRT_jNS_8whence_tEj.exit: ; preds = %_ZN22hb_serialize_context_t8object_t4finiEv.exit.i, %84, %_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit.thread, %70, %_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit, %9
+  %.0 = phi i1 [ false, %9 ], [ true, %_ZN2OT7ArrayOfINS_8OffsetToINS_6Layout9GSUB_impl19SubstLookupSubTableENS_7IntTypeItLj2EEELb1EEES6_EixEi.exit ], [ true, %70 ], [ false, %_ZN2OT6Layout9GSUB_impl13LigatureSubst9serializeEP22hb_serialize_context_t17hb_sorted_array_tIKNS_11HBGlyphID16EE10hb_array_tIKjES9_IS7_ESB_SC_.exit.thread ], [ false, %84 ], [ false, %_ZN22hb_serialize_context_t8object_t4finiEv.exit.i ]
   ret i1 %.0
 }
 

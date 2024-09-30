@@ -1327,8 +1327,8 @@ _ZZN3nix14computeClosureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %5, ptr %.sroa.4.0..sroa_idx, align 8
   store ptr %9, ptr %4, align 8
-  %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx38 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 0, ptr %.sroa.4.0..sroa_idx38, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr @_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZN3nix14computeClosureIS5_EEvSt3setIT_St4lessISC_ESaISC_EERSG_St8functionIFvRKSC_SI_IFvRSt7promiseISG_EEEEEEUlS7_E_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 24

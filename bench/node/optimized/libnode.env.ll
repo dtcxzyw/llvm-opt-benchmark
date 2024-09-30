@@ -76394,8 +76394,8 @@ if.end.i178:                                      ; preds = %if.end39
   br label %_ZN4node5DebugIJPKcEEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit
 
 _ZN4node5DebugIJPKcEEEvPNS_16EnabledDebugListENS_13DebugCategoryES2_DpOT_.exit: ; preds = %if.end39, %if.end.i178
-  %call44 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
+  %call44 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #24
   %options.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store i32 1, ptr %options.sroa.2.0.agg.tmp.sroa_idx, align 8
   %options.sroa.3.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 20

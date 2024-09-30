@@ -5449,7 +5449,7 @@ switch.lookup:                                    ; preds = %406
   store i8 %412, ptr %427, align 8
   %428 = getelementptr inbounds i8, ptr %27, i64 57
   store i8 %switch.masked, ptr %428, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %26, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %29, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26)
   %429 = load ptr, ptr %380, align 8, !align !153, !noundef !37
   invoke void @"_ZN9tiny_skia7painter43_$LT$impl$u20$tiny_skia..pixmap..Pixmap$GT$11stroke_path17h0bc523a60a10e469E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %27, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %36, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %429)
@@ -6096,7 +6096,7 @@ switch.lookup:                                    ; preds = %174
   store i8 %189, ptr %202, align 8
   %203 = getelementptr inbounds i8, ptr %9, i64 57
   store i8 %switch.masked, ptr %203, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %15, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   %204 = getelementptr inbounds i8, ptr %1, i64 64
   %205 = load ptr, ptr %204, align 8, !align !153, !noundef !37

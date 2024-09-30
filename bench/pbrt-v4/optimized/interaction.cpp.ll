@@ -11949,14 +11949,14 @@ ehcleanup44:                                      ; preds = %lpad35, %ehcleanup2
 define linkonce_odr dso_local void @_ZN4pbrt6detail11DispatchCPUIRZNKS_8Material7GetBSDFINS_25UniversalTextureEvaluatorEEENS_4BSDFET_NS_19MaterialEvalContextERNS_18SampledWavelengthsERNS_13ScratchBufferEEUlS6_E_S5_NS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialEJNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEvEEDaOS6_PKvi(ptr noalias sret(%"class.pbrt::BSDF") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef %ptr, i32 noundef %index) local_unnamed_addr #3 comdat {
 entry:
   %ref.tmp.sroa.2.i = alloca %"class.pbrt::SampledWavelengths", align 8
-  %ref.tmp.i189 = alloca %"class.pbrt::HairBxDF", align 4
-  %agg.tmp2.i190 = alloca %"struct.pbrt::MaterialEvalContext", align 8
+  %ref.tmp.i188 = alloca %"class.pbrt::HairBxDF", align 4
+  %agg.tmp2.i189 = alloca %"struct.pbrt::MaterialEvalContext", align 8
   %retval.i.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %texEval.i.i = alloca %"class.pbrt::UniversalTextureEvaluator", align 1
   %ref.tmp.i.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %agg.tmp.i.i = alloca %"class.pbrt::SpectrumTexture", align 8
   %agg.tmp3.i.i = alloca %"class.pbrt::SampledWavelengths", align 8
-  %agg.tmp2.i148 = alloca %"struct.pbrt::MaterialEvalContext", align 8
+  %agg.tmp22.i = alloca %"struct.pbrt::MaterialEvalContext", align 8
   %agg.tmp2.i106 = alloca %"struct.pbrt::MaterialEvalContext", align 8
   %ref.tmp.i64 = alloca %"class.pbrt::ConductorBxDF", align 4
   %agg.tmp2.i = alloca %"struct.pbrt::MaterialEvalContext", align 8
@@ -12281,12 +12281,12 @@ sw.bb3:                                           ; preds = %entry
 
 sw.bb4:                                           ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %agg.tmp2.i148)
   %56 = load ptr, ptr %func, align 8, !noalias !197
-  %call.i149 = tail call noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_11DiffuseBxDFEJEEENS_16AllocationTraitsIT_E12SingleObjectEDpOT0_(ptr noundef nonnull align 64 dereferenceable(40) %56), !noalias !197
+  %call.i148 = tail call noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_11DiffuseBxDFEJEEENS_16AllocationTraitsIT_E12SingleObjectEDpOT0_(ptr noundef nonnull align 64 dereferenceable(40) %56), !noalias !197
   %57 = getelementptr inbounds i8, ptr %func, i64 16
   %58 = load ptr, ptr %57, align 8, !noalias !197
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp2.i148, ptr noundef nonnull align 4 dereferenceable(112) %58, i64 112, i1 false), !noalias !197
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %agg.tmp22.i), !noalias !197
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp22.i, ptr noundef nonnull align 4 dereferenceable(112) %58, i64 112, i1 false), !noalias !197
   %59 = getelementptr inbounds i8, ptr %func, i64 24
   %60 = load ptr, ptr %59, align 8, !noalias !197
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %texEval.i.i), !noalias !197
@@ -12297,7 +12297,7 @@ sw.bb4:                                           ; preds = %entry
   %61 = load i64, ptr %reflectance.i.i, align 8, !noalias !197
   store i64 %61, ptr %agg.tmp.i.i, align 8, !noalias !197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i, ptr noundef nonnull align 4 dereferenceable(32) %60, i64 32, i1 false), !noalias !197
-  %call.i.i = call { <2 x float>, <2 x float> } @_ZN4pbrt25UniversalTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 1 dereferenceable(1) %texEval.i.i, ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp2.i148, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %agg.tmp3.i.i), !noalias !197
+  %call.i.i = call { <2 x float>, <2 x float> } @_ZN4pbrt25UniversalTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 1 dereferenceable(1) %texEval.i.i, ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp22.i, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %agg.tmp3.i.i), !noalias !197
   %62 = extractvalue { <2 x float>, <2 x float> } %call.i.i, 0
   store <2 x float> %62, ptr %ref.tmp.i.i, align 8, !noalias !197
   %63 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
@@ -12326,74 +12326,74 @@ _ZZNK4pbrt8Material7GetBSDFINS_25UniversalTextureEvaluatorEEENS_4BSDFET_NS_19Mat
   %.fca.1.gep.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.i, i64 8
   %.fca.1.load.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i.i, align 8, !noalias !197
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i), !noalias !197
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %agg.tmp22.i), !noalias !197
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %texEval.i.i), !noalias !197
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !197
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !197
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i), !noalias !197
-  store <2 x float> %.fca.0.load.i.i.i, ptr %call.i149, align 4, !noalias !197
-  %ref.tmp.sroa.2.0..sroa_idx.i150 = getelementptr inbounds i8, ptr %call.i149, i64 8
-  store <2 x float> %.fca.1.load.i.i.i, ptr %ref.tmp.sroa.2.0..sroa_idx.i150, align 4, !noalias !197
+  store <2 x float> %.fca.0.load.i.i.i, ptr %call.i148, align 4, !noalias !197
+  %ref.tmp.sroa.2.0..sroa_idx.i149 = getelementptr inbounds i8, ptr %call.i148, i64 8
+  store <2 x float> %.fca.1.load.i.i.i, ptr %ref.tmp.sroa.2.0..sroa_idx.i149, align 4, !noalias !197
   %66 = load ptr, ptr %57, align 8, !noalias !197
-  %ns.i151 = getelementptr inbounds i8, ptr %66, i64 88
-  %agg.tmp6.sroa.0.0.copyload.i = load <2 x float>, ptr %ns.i151, align 4, !noalias !197
+  %ns.i150 = getelementptr inbounds i8, ptr %66, i64 88
+  %agg.tmp6.sroa.0.0.copyload.i = load <2 x float>, ptr %ns.i150, align 4, !noalias !197
   %agg.tmp6.sroa.2.0.ns.sroa_idx.i = getelementptr inbounds i8, ptr %66, i64 96
   %agg.tmp6.sroa.2.0.copyload.i = load float, ptr %agg.tmp6.sroa.2.0.ns.sroa_idx.i, align 4, !noalias !197
-  %dpdus.i152 = getelementptr inbounds i8, ptr %66, i64 100
-  %agg.tmp7.sroa.0.0.copyload.i = load <2 x float>, ptr %dpdus.i152, align 4, !noalias !197
+  %dpdus.i151 = getelementptr inbounds i8, ptr %66, i64 100
+  %agg.tmp7.sroa.0.0.copyload.i = load <2 x float>, ptr %dpdus.i151, align 4, !noalias !197
   %agg.tmp7.sroa.2.0.dpdus.sroa_idx.i = getelementptr inbounds i8, ptr %66, i64 108
   %agg.tmp7.sroa.2.0.copyload.i = load float, ptr %agg.tmp7.sroa.2.0.dpdus.sroa_idx.i, align 4, !noalias !197
-  %67 = ptrtoint ptr %call.i149 to i64
-  %or.i.i.i153 = or i64 %67, 288230376151711744
-  store i64 %or.i.i.i153, ptr %agg.result, align 8, !alias.scope !197
-  %shadingFrame.i.i154 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %v.sroa.0.0.vec.extract.i.i.i.i.i155 = extractelement <2 x float> %agg.tmp7.sroa.0.0.copyload.i, i64 0
+  %67 = ptrtoint ptr %call.i148 to i64
+  %or.i.i.i152 = or i64 %67, 288230376151711744
+  store i64 %or.i.i.i152, ptr %agg.result, align 8, !alias.scope !197
+  %shadingFrame.i.i153 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %v.sroa.0.0.vec.extract.i.i.i.i.i154 = extractelement <2 x float> %agg.tmp7.sroa.0.0.copyload.i, i64 0
   %68 = fmul <2 x float> %agg.tmp7.sroa.0.0.copyload.i, %agg.tmp7.sroa.0.0.copyload.i
-  %mul.i.i.i.i.i.i156 = extractelement <2 x float> %68, i64 0
-  %v.sroa.0.4.vec.extract.i.i.i.i.i157 = extractelement <2 x float> %agg.tmp7.sroa.0.0.copyload.i, i64 1
-  %mul.i1.i.i.i.i.i158 = fmul float %v.sroa.0.4.vec.extract.i.i.i.i.i157, %v.sroa.0.4.vec.extract.i.i.i.i.i157
-  %add.i.i.i.i.i159 = fadd float %mul.i.i.i.i.i.i156, %mul.i1.i.i.i.i.i158
-  %mul.i2.i.i.i.i.i160 = fmul float %agg.tmp7.sroa.2.0.copyload.i, %agg.tmp7.sroa.2.0.copyload.i
-  %add3.i.i.i.i.i161 = fadd float %mul.i2.i.i.i.i.i160, %add.i.i.i.i.i159
-  %sqrt.i.i.i.i162 = call noundef float @llvm.sqrt.f32(float %add3.i.i.i.i.i161)
-  %div.i.i.i.i163 = fdiv float %v.sroa.0.0.vec.extract.i.i.i.i.i155, %sqrt.i.i.i.i162
-  %div2.i.i.i.i164 = fdiv float %v.sroa.0.4.vec.extract.i.i.i.i.i157, %sqrt.i.i.i.i162
-  %div3.i.i.i.i165 = fdiv float %agg.tmp7.sroa.2.0.copyload.i, %sqrt.i.i.i.i162
-  %retval.sroa.0.0.vec.insert.i.i.i.i166 = insertelement <2 x float> poison, float %div.i.i.i.i163, i64 0
-  %retval.sroa.0.4.vec.insert.i.i.i.i167 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i166, float %div2.i.i.i.i164, i64 1
-  %n.sroa.0.0.vec.extract.i.i.i168 = extractelement <2 x float> %agg.tmp6.sroa.0.0.copyload.i, i64 0
-  %n.sroa.0.4.vec.extract.i.i.i169 = extractelement <2 x float> %agg.tmp6.sroa.0.0.copyload.i, i64 1
-  %mul.i.i.i.i.i170 = fmul float %agg.tmp6.sroa.2.0.copyload.i, %div2.i.i.i.i164
-  %fneg.i.i.i.i.i171 = fneg float %mul.i.i.i.i.i170
-  %69 = call noundef float @llvm.fma.f32(float %n.sroa.0.4.vec.extract.i.i.i169, float %div3.i.i.i.i165, float %fneg.i.i.i.i.i171)
-  %fneg1.i.i.i.i.i172 = fneg float %agg.tmp6.sroa.2.0.copyload.i
-  %70 = call noundef float @llvm.fma.f32(float %fneg1.i.i.i.i.i172, float %div2.i.i.i.i164, float %mul.i.i.i.i.i170)
-  %add.i.i.i1.i.i173 = fadd float %69, %70
-  %mul.i11.i.i.i.i174 = fmul float %n.sroa.0.0.vec.extract.i.i.i168, %div3.i.i.i.i165
-  %fneg.i12.i.i.i.i175 = fneg float %mul.i11.i.i.i.i174
-  %71 = call noundef float @llvm.fma.f32(float %agg.tmp6.sroa.2.0.copyload.i, float %div.i.i.i.i163, float %fneg.i12.i.i.i.i175)
-  %fneg1.i13.i.i.i.i176 = fneg float %n.sroa.0.0.vec.extract.i.i.i168
-  %72 = call noundef float @llvm.fma.f32(float %fneg1.i13.i.i.i.i176, float %div3.i.i.i.i165, float %mul.i11.i.i.i.i174)
-  %add.i14.i.i.i.i177 = fadd float %71, %72
-  %mul.i15.i.i.i.i178 = fmul float %n.sroa.0.4.vec.extract.i.i.i169, %div.i.i.i.i163
-  %fneg.i16.i.i.i.i179 = fneg float %mul.i15.i.i.i.i178
-  %73 = call noundef float @llvm.fma.f32(float %n.sroa.0.0.vec.extract.i.i.i168, float %div2.i.i.i.i164, float %fneg.i16.i.i.i.i179)
-  %fneg1.i17.i.i.i.i180 = fneg float %n.sroa.0.4.vec.extract.i.i.i169
-  %74 = call noundef float @llvm.fma.f32(float %fneg1.i17.i.i.i.i180, float %div.i.i.i.i163, float %mul.i15.i.i.i.i178)
-  %add.i18.i.i.i.i181 = fadd float %73, %74
-  %retval.sroa.0.0.vec.insert.i.i2.i.i182 = insertelement <2 x float> poison, float %add.i.i.i1.i.i173, i64 0
-  %retval.sroa.0.4.vec.insert.i.i3.i.i183 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i2.i.i182, float %add.i14.i.i.i.i177, i64 1
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i167, ptr %shadingFrame.i.i154, align 8, !alias.scope !201
-  %x.sroa.2.0.x4.sroa_idx.i.i.i.i184 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store float %div3.i.i.i.i165, ptr %x.sroa.2.0.x4.sroa_idx.i.i.i.i184, align 8, !alias.scope !201
-  %y5.i.i.i.i185 = getelementptr inbounds i8, ptr %agg.result, i64 20
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i3.i.i183, ptr %y5.i.i.i.i185, align 4, !alias.scope !201
-  %y.sroa.2.0.y5.sroa_idx.i.i.i.i186 = getelementptr inbounds i8, ptr %agg.result, i64 28
-  store float %add.i18.i.i.i.i181, ptr %y.sroa.2.0.y5.sroa_idx.i.i.i.i186, align 4, !alias.scope !201
-  %z6.i.i.i.i187 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store <2 x float> %agg.tmp6.sroa.0.0.copyload.i, ptr %z6.i.i.i.i187, align 8, !alias.scope !201
-  %z.sroa.2.0.z6.sroa_idx.i.i.i.i188 = getelementptr inbounds i8, ptr %agg.result, i64 40
-  store float %agg.tmp6.sroa.2.0.copyload.i, ptr %z.sroa.2.0.z6.sroa_idx.i.i.i.i188, align 8, !alias.scope !201
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %agg.tmp2.i148)
+  %mul.i.i.i.i.i.i155 = extractelement <2 x float> %68, i64 0
+  %v.sroa.0.4.vec.extract.i.i.i.i.i156 = extractelement <2 x float> %agg.tmp7.sroa.0.0.copyload.i, i64 1
+  %mul.i1.i.i.i.i.i157 = fmul float %v.sroa.0.4.vec.extract.i.i.i.i.i156, %v.sroa.0.4.vec.extract.i.i.i.i.i156
+  %add.i.i.i.i.i158 = fadd float %mul.i.i.i.i.i.i155, %mul.i1.i.i.i.i.i157
+  %mul.i2.i.i.i.i.i159 = fmul float %agg.tmp7.sroa.2.0.copyload.i, %agg.tmp7.sroa.2.0.copyload.i
+  %add3.i.i.i.i.i160 = fadd float %mul.i2.i.i.i.i.i159, %add.i.i.i.i.i158
+  %sqrt.i.i.i.i161 = call noundef float @llvm.sqrt.f32(float %add3.i.i.i.i.i160)
+  %div.i.i.i.i162 = fdiv float %v.sroa.0.0.vec.extract.i.i.i.i.i154, %sqrt.i.i.i.i161
+  %div2.i.i.i.i163 = fdiv float %v.sroa.0.4.vec.extract.i.i.i.i.i156, %sqrt.i.i.i.i161
+  %div3.i.i.i.i164 = fdiv float %agg.tmp7.sroa.2.0.copyload.i, %sqrt.i.i.i.i161
+  %retval.sroa.0.0.vec.insert.i.i.i.i165 = insertelement <2 x float> poison, float %div.i.i.i.i162, i64 0
+  %retval.sroa.0.4.vec.insert.i.i.i.i166 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i165, float %div2.i.i.i.i163, i64 1
+  %n.sroa.0.0.vec.extract.i.i.i167 = extractelement <2 x float> %agg.tmp6.sroa.0.0.copyload.i, i64 0
+  %n.sroa.0.4.vec.extract.i.i.i168 = extractelement <2 x float> %agg.tmp6.sroa.0.0.copyload.i, i64 1
+  %mul.i.i.i.i.i169 = fmul float %agg.tmp6.sroa.2.0.copyload.i, %div2.i.i.i.i163
+  %fneg.i.i.i.i.i170 = fneg float %mul.i.i.i.i.i169
+  %69 = call noundef float @llvm.fma.f32(float %n.sroa.0.4.vec.extract.i.i.i168, float %div3.i.i.i.i164, float %fneg.i.i.i.i.i170)
+  %fneg1.i.i.i.i.i171 = fneg float %agg.tmp6.sroa.2.0.copyload.i
+  %70 = call noundef float @llvm.fma.f32(float %fneg1.i.i.i.i.i171, float %div2.i.i.i.i163, float %mul.i.i.i.i.i169)
+  %add.i.i.i1.i.i172 = fadd float %69, %70
+  %mul.i11.i.i.i.i173 = fmul float %n.sroa.0.0.vec.extract.i.i.i167, %div3.i.i.i.i164
+  %fneg.i12.i.i.i.i174 = fneg float %mul.i11.i.i.i.i173
+  %71 = call noundef float @llvm.fma.f32(float %agg.tmp6.sroa.2.0.copyload.i, float %div.i.i.i.i162, float %fneg.i12.i.i.i.i174)
+  %fneg1.i13.i.i.i.i175 = fneg float %n.sroa.0.0.vec.extract.i.i.i167
+  %72 = call noundef float @llvm.fma.f32(float %fneg1.i13.i.i.i.i175, float %div3.i.i.i.i164, float %mul.i11.i.i.i.i173)
+  %add.i14.i.i.i.i176 = fadd float %71, %72
+  %mul.i15.i.i.i.i177 = fmul float %n.sroa.0.4.vec.extract.i.i.i168, %div.i.i.i.i162
+  %fneg.i16.i.i.i.i178 = fneg float %mul.i15.i.i.i.i177
+  %73 = call noundef float @llvm.fma.f32(float %n.sroa.0.0.vec.extract.i.i.i167, float %div2.i.i.i.i163, float %fneg.i16.i.i.i.i178)
+  %fneg1.i17.i.i.i.i179 = fneg float %n.sroa.0.4.vec.extract.i.i.i168
+  %74 = call noundef float @llvm.fma.f32(float %fneg1.i17.i.i.i.i179, float %div.i.i.i.i162, float %mul.i15.i.i.i.i177)
+  %add.i18.i.i.i.i180 = fadd float %73, %74
+  %retval.sroa.0.0.vec.insert.i.i2.i.i181 = insertelement <2 x float> poison, float %add.i.i.i1.i.i172, i64 0
+  %retval.sroa.0.4.vec.insert.i.i3.i.i182 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i2.i.i181, float %add.i14.i.i.i.i176, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i166, ptr %shadingFrame.i.i153, align 8, !alias.scope !201
+  %x.sroa.2.0.x4.sroa_idx.i.i.i.i183 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store float %div3.i.i.i.i164, ptr %x.sroa.2.0.x4.sroa_idx.i.i.i.i183, align 8, !alias.scope !201
+  %y5.i.i.i.i184 = getelementptr inbounds i8, ptr %agg.result, i64 20
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i3.i.i182, ptr %y5.i.i.i.i184, align 4, !alias.scope !201
+  %y.sroa.2.0.y5.sroa_idx.i.i.i.i185 = getelementptr inbounds i8, ptr %agg.result, i64 28
+  store float %add.i18.i.i.i.i180, ptr %y.sroa.2.0.y5.sroa_idx.i.i.i.i185, align 4, !alias.scope !201
+  %z6.i.i.i.i186 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  store <2 x float> %agg.tmp6.sroa.0.0.copyload.i, ptr %z6.i.i.i.i186, align 8, !alias.scope !201
+  %z.sroa.2.0.z6.sroa_idx.i.i.i.i187 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  store float %agg.tmp6.sroa.2.0.copyload.i, ptr %z.sroa.2.0.z6.sroa_idx.i.i.i.i187, align 8, !alias.scope !201
   br label %return
 
 sw.bb5:                                           ; preds = %entry
@@ -12402,155 +12402,155 @@ sw.bb5:                                           ; preds = %entry
 
 sw.bb6:                                           ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
-  call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %ref.tmp.i189)
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %agg.tmp2.i190)
+  call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %ref.tmp.i188)
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %agg.tmp2.i189)
   %75 = load ptr, ptr %func, align 8, !noalias !204
-  %call.i191 = tail call noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_8HairBxDFEJEEENS_16AllocationTraitsIT_E12SingleObjectEDpOT0_(ptr noundef nonnull align 64 dereferenceable(40) %75), !noalias !204
+  %call.i190 = tail call noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_8HairBxDFEJEEENS_16AllocationTraitsIT_E12SingleObjectEDpOT0_(ptr noundef nonnull align 64 dereferenceable(40) %75), !noalias !204
   %76 = getelementptr inbounds i8, ptr %func, i64 16
   %77 = load ptr, ptr %76, align 8, !noalias !204
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp2.i190, ptr noundef nonnull align 4 dereferenceable(112) %77, i64 112, i1 false), !noalias !204
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp2.i189, ptr noundef nonnull align 4 dereferenceable(112) %77, i64 112, i1 false), !noalias !204
   %78 = getelementptr inbounds i8, ptr %func, i64 24
   %79 = load ptr, ptr %78, align 8, !noalias !204
-  call void @_ZNK4pbrt12HairMaterial7GetBxDFINS_25UniversalTextureEvaluatorEEENS_8HairBxDFET_NS_19MaterialEvalContextERNS_18SampledWavelengthsE(ptr nonnull sret(%"class.pbrt::HairBxDF") align 4 %ref.tmp.i189, ptr noundef nonnull align 8 dereferenceable(64) %ptr, ptr noundef nonnull byval(%"struct.pbrt::MaterialEvalContext") align 8 %agg.tmp2.i190, ptr noundef nonnull align 4 dereferenceable(32) %79), !noalias !204
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %call.i191, ptr noundef nonnull align 4 dereferenceable(76) %ref.tmp.i189, i64 76, i1 false), !noalias !204
+  call void @_ZNK4pbrt12HairMaterial7GetBxDFINS_25UniversalTextureEvaluatorEEENS_8HairBxDFET_NS_19MaterialEvalContextERNS_18SampledWavelengthsE(ptr nonnull sret(%"class.pbrt::HairBxDF") align 4 %ref.tmp.i188, ptr noundef nonnull align 8 dereferenceable(64) %ptr, ptr noundef nonnull byval(%"struct.pbrt::MaterialEvalContext") align 8 %agg.tmp2.i189, ptr noundef nonnull align 4 dereferenceable(32) %79), !noalias !204
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %call.i190, ptr noundef nonnull align 4 dereferenceable(76) %ref.tmp.i188, i64 76, i1 false), !noalias !204
   %80 = load ptr, ptr %76, align 8, !noalias !204
-  %ns.i192 = getelementptr inbounds i8, ptr %80, i64 88
-  %agg.tmp3.sroa.0.0.copyload.i193 = load <2 x float>, ptr %ns.i192, align 4, !noalias !204
-  %agg.tmp3.sroa.2.0.ns.sroa_idx.i194 = getelementptr inbounds i8, ptr %80, i64 96
-  %agg.tmp3.sroa.2.0.copyload.i195 = load float, ptr %agg.tmp3.sroa.2.0.ns.sroa_idx.i194, align 4, !noalias !204
-  %dpdus.i196 = getelementptr inbounds i8, ptr %80, i64 100
-  %agg.tmp4.sroa.0.0.copyload.i197 = load <2 x float>, ptr %dpdus.i196, align 4, !noalias !204
-  %agg.tmp4.sroa.2.0.dpdus.sroa_idx.i198 = getelementptr inbounds i8, ptr %80, i64 108
-  %agg.tmp4.sroa.2.0.copyload.i199 = load float, ptr %agg.tmp4.sroa.2.0.dpdus.sroa_idx.i198, align 4, !noalias !204
-  %81 = ptrtoint ptr %call.i191 to i64
-  %or.i.i.i200 = or i64 %81, 1008806316530991104
-  store i64 %or.i.i.i200, ptr %agg.result, align 8, !alias.scope !204
-  %shadingFrame.i.i201 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %v.sroa.0.0.vec.extract.i.i.i.i.i202 = extractelement <2 x float> %agg.tmp4.sroa.0.0.copyload.i197, i64 0
-  %82 = fmul <2 x float> %agg.tmp4.sroa.0.0.copyload.i197, %agg.tmp4.sroa.0.0.copyload.i197
-  %mul.i.i.i.i.i.i203 = extractelement <2 x float> %82, i64 0
-  %v.sroa.0.4.vec.extract.i.i.i.i.i204 = extractelement <2 x float> %agg.tmp4.sroa.0.0.copyload.i197, i64 1
-  %mul.i1.i.i.i.i.i205 = fmul float %v.sroa.0.4.vec.extract.i.i.i.i.i204, %v.sroa.0.4.vec.extract.i.i.i.i.i204
-  %add.i.i.i.i.i206 = fadd float %mul.i.i.i.i.i.i203, %mul.i1.i.i.i.i.i205
-  %mul.i2.i.i.i.i.i207 = fmul float %agg.tmp4.sroa.2.0.copyload.i199, %agg.tmp4.sroa.2.0.copyload.i199
-  %add3.i.i.i.i.i208 = fadd float %mul.i2.i.i.i.i.i207, %add.i.i.i.i.i206
-  %sqrt.i.i.i.i209 = call noundef float @llvm.sqrt.f32(float %add3.i.i.i.i.i208)
-  %div.i.i.i.i210 = fdiv float %v.sroa.0.0.vec.extract.i.i.i.i.i202, %sqrt.i.i.i.i209
-  %div2.i.i.i.i211 = fdiv float %v.sroa.0.4.vec.extract.i.i.i.i.i204, %sqrt.i.i.i.i209
-  %div3.i.i.i.i212 = fdiv float %agg.tmp4.sroa.2.0.copyload.i199, %sqrt.i.i.i.i209
-  %retval.sroa.0.0.vec.insert.i.i.i.i213 = insertelement <2 x float> poison, float %div.i.i.i.i210, i64 0
-  %retval.sroa.0.4.vec.insert.i.i.i.i214 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i213, float %div2.i.i.i.i211, i64 1
-  %n.sroa.0.0.vec.extract.i.i.i215 = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i193, i64 0
-  %n.sroa.0.4.vec.extract.i.i.i216 = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i193, i64 1
-  %mul.i.i.i.i.i217 = fmul float %agg.tmp3.sroa.2.0.copyload.i195, %div2.i.i.i.i211
-  %fneg.i.i.i.i.i218 = fneg float %mul.i.i.i.i.i217
-  %83 = call noundef float @llvm.fma.f32(float %n.sroa.0.4.vec.extract.i.i.i216, float %div3.i.i.i.i212, float %fneg.i.i.i.i.i218)
-  %fneg1.i.i.i.i.i219 = fneg float %agg.tmp3.sroa.2.0.copyload.i195
-  %84 = call noundef float @llvm.fma.f32(float %fneg1.i.i.i.i.i219, float %div2.i.i.i.i211, float %mul.i.i.i.i.i217)
-  %add.i.i.i1.i.i220 = fadd float %83, %84
-  %mul.i11.i.i.i.i221 = fmul float %n.sroa.0.0.vec.extract.i.i.i215, %div3.i.i.i.i212
-  %fneg.i12.i.i.i.i222 = fneg float %mul.i11.i.i.i.i221
-  %85 = call noundef float @llvm.fma.f32(float %agg.tmp3.sroa.2.0.copyload.i195, float %div.i.i.i.i210, float %fneg.i12.i.i.i.i222)
-  %fneg1.i13.i.i.i.i223 = fneg float %n.sroa.0.0.vec.extract.i.i.i215
-  %86 = call noundef float @llvm.fma.f32(float %fneg1.i13.i.i.i.i223, float %div3.i.i.i.i212, float %mul.i11.i.i.i.i221)
-  %add.i14.i.i.i.i224 = fadd float %85, %86
-  %mul.i15.i.i.i.i225 = fmul float %n.sroa.0.4.vec.extract.i.i.i216, %div.i.i.i.i210
-  %fneg.i16.i.i.i.i226 = fneg float %mul.i15.i.i.i.i225
-  %87 = call noundef float @llvm.fma.f32(float %n.sroa.0.0.vec.extract.i.i.i215, float %div2.i.i.i.i211, float %fneg.i16.i.i.i.i226)
-  %fneg1.i17.i.i.i.i227 = fneg float %n.sroa.0.4.vec.extract.i.i.i216
-  %88 = call noundef float @llvm.fma.f32(float %fneg1.i17.i.i.i.i227, float %div.i.i.i.i210, float %mul.i15.i.i.i.i225)
-  %add.i18.i.i.i.i228 = fadd float %87, %88
-  %retval.sroa.0.0.vec.insert.i.i2.i.i229 = insertelement <2 x float> poison, float %add.i.i.i1.i.i220, i64 0
-  %retval.sroa.0.4.vec.insert.i.i3.i.i230 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i2.i.i229, float %add.i14.i.i.i.i224, i64 1
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i214, ptr %shadingFrame.i.i201, align 8, !alias.scope !207
-  %x.sroa.2.0.x4.sroa_idx.i.i.i.i231 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store float %div3.i.i.i.i212, ptr %x.sroa.2.0.x4.sroa_idx.i.i.i.i231, align 8, !alias.scope !207
-  %y5.i.i.i.i232 = getelementptr inbounds i8, ptr %agg.result, i64 20
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i3.i.i230, ptr %y5.i.i.i.i232, align 4, !alias.scope !207
-  %y.sroa.2.0.y5.sroa_idx.i.i.i.i233 = getelementptr inbounds i8, ptr %agg.result, i64 28
-  store float %add.i18.i.i.i.i228, ptr %y.sroa.2.0.y5.sroa_idx.i.i.i.i233, align 4, !alias.scope !207
-  %z6.i.i.i.i234 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store <2 x float> %agg.tmp3.sroa.0.0.copyload.i193, ptr %z6.i.i.i.i234, align 8, !alias.scope !207
-  %z.sroa.2.0.z6.sroa_idx.i.i.i.i235 = getelementptr inbounds i8, ptr %agg.result, i64 40
-  store float %agg.tmp3.sroa.2.0.copyload.i195, ptr %z.sroa.2.0.z6.sroa_idx.i.i.i.i235, align 8, !alias.scope !207
-  call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %ref.tmp.i189)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %agg.tmp2.i190)
+  %ns.i191 = getelementptr inbounds i8, ptr %80, i64 88
+  %agg.tmp3.sroa.0.0.copyload.i192 = load <2 x float>, ptr %ns.i191, align 4, !noalias !204
+  %agg.tmp3.sroa.2.0.ns.sroa_idx.i193 = getelementptr inbounds i8, ptr %80, i64 96
+  %agg.tmp3.sroa.2.0.copyload.i194 = load float, ptr %agg.tmp3.sroa.2.0.ns.sroa_idx.i193, align 4, !noalias !204
+  %dpdus.i195 = getelementptr inbounds i8, ptr %80, i64 100
+  %agg.tmp4.sroa.0.0.copyload.i196 = load <2 x float>, ptr %dpdus.i195, align 4, !noalias !204
+  %agg.tmp4.sroa.2.0.dpdus.sroa_idx.i197 = getelementptr inbounds i8, ptr %80, i64 108
+  %agg.tmp4.sroa.2.0.copyload.i198 = load float, ptr %agg.tmp4.sroa.2.0.dpdus.sroa_idx.i197, align 4, !noalias !204
+  %81 = ptrtoint ptr %call.i190 to i64
+  %or.i.i.i199 = or i64 %81, 1008806316530991104
+  store i64 %or.i.i.i199, ptr %agg.result, align 8, !alias.scope !204
+  %shadingFrame.i.i200 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %v.sroa.0.0.vec.extract.i.i.i.i.i201 = extractelement <2 x float> %agg.tmp4.sroa.0.0.copyload.i196, i64 0
+  %82 = fmul <2 x float> %agg.tmp4.sroa.0.0.copyload.i196, %agg.tmp4.sroa.0.0.copyload.i196
+  %mul.i.i.i.i.i.i202 = extractelement <2 x float> %82, i64 0
+  %v.sroa.0.4.vec.extract.i.i.i.i.i203 = extractelement <2 x float> %agg.tmp4.sroa.0.0.copyload.i196, i64 1
+  %mul.i1.i.i.i.i.i204 = fmul float %v.sroa.0.4.vec.extract.i.i.i.i.i203, %v.sroa.0.4.vec.extract.i.i.i.i.i203
+  %add.i.i.i.i.i205 = fadd float %mul.i.i.i.i.i.i202, %mul.i1.i.i.i.i.i204
+  %mul.i2.i.i.i.i.i206 = fmul float %agg.tmp4.sroa.2.0.copyload.i198, %agg.tmp4.sroa.2.0.copyload.i198
+  %add3.i.i.i.i.i207 = fadd float %mul.i2.i.i.i.i.i206, %add.i.i.i.i.i205
+  %sqrt.i.i.i.i208 = call noundef float @llvm.sqrt.f32(float %add3.i.i.i.i.i207)
+  %div.i.i.i.i209 = fdiv float %v.sroa.0.0.vec.extract.i.i.i.i.i201, %sqrt.i.i.i.i208
+  %div2.i.i.i.i210 = fdiv float %v.sroa.0.4.vec.extract.i.i.i.i.i203, %sqrt.i.i.i.i208
+  %div3.i.i.i.i211 = fdiv float %agg.tmp4.sroa.2.0.copyload.i198, %sqrt.i.i.i.i208
+  %retval.sroa.0.0.vec.insert.i.i.i.i212 = insertelement <2 x float> poison, float %div.i.i.i.i209, i64 0
+  %retval.sroa.0.4.vec.insert.i.i.i.i213 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i212, float %div2.i.i.i.i210, i64 1
+  %n.sroa.0.0.vec.extract.i.i.i214 = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i192, i64 0
+  %n.sroa.0.4.vec.extract.i.i.i215 = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i192, i64 1
+  %mul.i.i.i.i.i216 = fmul float %agg.tmp3.sroa.2.0.copyload.i194, %div2.i.i.i.i210
+  %fneg.i.i.i.i.i217 = fneg float %mul.i.i.i.i.i216
+  %83 = call noundef float @llvm.fma.f32(float %n.sroa.0.4.vec.extract.i.i.i215, float %div3.i.i.i.i211, float %fneg.i.i.i.i.i217)
+  %fneg1.i.i.i.i.i218 = fneg float %agg.tmp3.sroa.2.0.copyload.i194
+  %84 = call noundef float @llvm.fma.f32(float %fneg1.i.i.i.i.i218, float %div2.i.i.i.i210, float %mul.i.i.i.i.i216)
+  %add.i.i.i1.i.i219 = fadd float %83, %84
+  %mul.i11.i.i.i.i220 = fmul float %n.sroa.0.0.vec.extract.i.i.i214, %div3.i.i.i.i211
+  %fneg.i12.i.i.i.i221 = fneg float %mul.i11.i.i.i.i220
+  %85 = call noundef float @llvm.fma.f32(float %agg.tmp3.sroa.2.0.copyload.i194, float %div.i.i.i.i209, float %fneg.i12.i.i.i.i221)
+  %fneg1.i13.i.i.i.i222 = fneg float %n.sroa.0.0.vec.extract.i.i.i214
+  %86 = call noundef float @llvm.fma.f32(float %fneg1.i13.i.i.i.i222, float %div3.i.i.i.i211, float %mul.i11.i.i.i.i220)
+  %add.i14.i.i.i.i223 = fadd float %85, %86
+  %mul.i15.i.i.i.i224 = fmul float %n.sroa.0.4.vec.extract.i.i.i215, %div.i.i.i.i209
+  %fneg.i16.i.i.i.i225 = fneg float %mul.i15.i.i.i.i224
+  %87 = call noundef float @llvm.fma.f32(float %n.sroa.0.0.vec.extract.i.i.i214, float %div2.i.i.i.i210, float %fneg.i16.i.i.i.i225)
+  %fneg1.i17.i.i.i.i226 = fneg float %n.sroa.0.4.vec.extract.i.i.i215
+  %88 = call noundef float @llvm.fma.f32(float %fneg1.i17.i.i.i.i226, float %div.i.i.i.i209, float %mul.i15.i.i.i.i224)
+  %add.i18.i.i.i.i227 = fadd float %87, %88
+  %retval.sroa.0.0.vec.insert.i.i2.i.i228 = insertelement <2 x float> poison, float %add.i.i.i1.i.i219, i64 0
+  %retval.sroa.0.4.vec.insert.i.i3.i.i229 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i2.i.i228, float %add.i14.i.i.i.i223, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i213, ptr %shadingFrame.i.i200, align 8, !alias.scope !207
+  %x.sroa.2.0.x4.sroa_idx.i.i.i.i230 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store float %div3.i.i.i.i211, ptr %x.sroa.2.0.x4.sroa_idx.i.i.i.i230, align 8, !alias.scope !207
+  %y5.i.i.i.i231 = getelementptr inbounds i8, ptr %agg.result, i64 20
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i3.i.i229, ptr %y5.i.i.i.i231, align 4, !alias.scope !207
+  %y.sroa.2.0.y5.sroa_idx.i.i.i.i232 = getelementptr inbounds i8, ptr %agg.result, i64 28
+  store float %add.i18.i.i.i.i227, ptr %y.sroa.2.0.y5.sroa_idx.i.i.i.i232, align 4, !alias.scope !207
+  %z6.i.i.i.i233 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  store <2 x float> %agg.tmp3.sroa.0.0.copyload.i192, ptr %z6.i.i.i.i233, align 8, !alias.scope !207
+  %z.sroa.2.0.z6.sroa_idx.i.i.i.i234 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  store float %agg.tmp3.sroa.2.0.copyload.i194, ptr %z.sroa.2.0.z6.sroa_idx.i.i.i.i234, align 8, !alias.scope !207
+  call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %ref.tmp.i188)
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %agg.tmp2.i189)
   br label %return
 
 sw.bb7:                                           ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.sroa.2.i)
   %89 = load ptr, ptr %func, align 8, !noalias !210
-  %call.i236 = tail call noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_12MeasuredBxDFEJEEENS_16AllocationTraitsIT_E12SingleObjectEDpOT0_(ptr noundef nonnull align 64 dereferenceable(40) %89), !noalias !210
+  %call.i235 = tail call noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_12MeasuredBxDFEJEEENS_16AllocationTraitsIT_E12SingleObjectEDpOT0_(ptr noundef nonnull align 64 dereferenceable(40) %89), !noalias !210
   %90 = getelementptr inbounds i8, ptr %func, i64 16
   %91 = getelementptr inbounds i8, ptr %func, i64 24
   %92 = load ptr, ptr %91, align 8, !noalias !210
   %brdf.i.i = getelementptr inbounds i8, ptr %ptr, i64 16
   %93 = load ptr, ptr %brdf.i.i, align 8, !noalias !213
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sroa.2.i, ptr noundef nonnull align 4 dereferenceable(32) %92, i64 32, i1 false), !noalias !210
-  store ptr %93, ptr %call.i236, align 8, !noalias !210
-  %ref.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %call.i236, i64 8
+  store ptr %93, ptr %call.i235, align 8, !noalias !210
+  %ref.tmp.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %call.i235, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sroa.2.0.call.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.sroa.2.i, i64 32, i1 false), !noalias !210
   %94 = load ptr, ptr %90, align 8, !noalias !210
-  %ns.i237 = getelementptr inbounds i8, ptr %94, i64 88
-  %agg.tmp3.sroa.0.0.copyload.i238 = load <2 x float>, ptr %ns.i237, align 4, !noalias !210
-  %agg.tmp3.sroa.2.0.ns.sroa_idx.i239 = getelementptr inbounds i8, ptr %94, i64 96
-  %agg.tmp3.sroa.2.0.copyload.i240 = load float, ptr %agg.tmp3.sroa.2.0.ns.sroa_idx.i239, align 4, !noalias !210
-  %dpdus.i241 = getelementptr inbounds i8, ptr %94, i64 100
-  %agg.tmp4.sroa.0.0.copyload.i242 = load <2 x float>, ptr %dpdus.i241, align 4, !noalias !210
-  %agg.tmp4.sroa.2.0.dpdus.sroa_idx.i243 = getelementptr inbounds i8, ptr %94, i64 108
-  %agg.tmp4.sroa.2.0.copyload.i244 = load float, ptr %agg.tmp4.sroa.2.0.dpdus.sroa_idx.i243, align 4, !noalias !210
-  %95 = ptrtoint ptr %call.i236 to i64
-  %or.i.i.i245 = or i64 %95, 1152921504606846976
-  store i64 %or.i.i.i245, ptr %agg.result, align 8, !alias.scope !210
-  %shadingFrame.i.i246 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %v.sroa.0.0.vec.extract.i.i.i.i.i247 = extractelement <2 x float> %agg.tmp4.sroa.0.0.copyload.i242, i64 0
-  %96 = fmul <2 x float> %agg.tmp4.sroa.0.0.copyload.i242, %agg.tmp4.sroa.0.0.copyload.i242
-  %mul.i.i.i.i.i.i248 = extractelement <2 x float> %96, i64 0
-  %v.sroa.0.4.vec.extract.i.i.i.i.i249 = extractelement <2 x float> %agg.tmp4.sroa.0.0.copyload.i242, i64 1
-  %mul.i1.i.i.i.i.i250 = fmul float %v.sroa.0.4.vec.extract.i.i.i.i.i249, %v.sroa.0.4.vec.extract.i.i.i.i.i249
-  %add.i.i.i.i.i251 = fadd float %mul.i.i.i.i.i.i248, %mul.i1.i.i.i.i.i250
-  %mul.i2.i.i.i.i.i252 = fmul float %agg.tmp4.sroa.2.0.copyload.i244, %agg.tmp4.sroa.2.0.copyload.i244
-  %add3.i.i.i.i.i253 = fadd float %mul.i2.i.i.i.i.i252, %add.i.i.i.i.i251
-  %sqrt.i.i.i.i254 = tail call noundef float @llvm.sqrt.f32(float %add3.i.i.i.i.i253)
-  %div.i.i.i.i255 = fdiv float %v.sroa.0.0.vec.extract.i.i.i.i.i247, %sqrt.i.i.i.i254
-  %div2.i.i.i.i256 = fdiv float %v.sroa.0.4.vec.extract.i.i.i.i.i249, %sqrt.i.i.i.i254
-  %div3.i.i.i.i257 = fdiv float %agg.tmp4.sroa.2.0.copyload.i244, %sqrt.i.i.i.i254
-  %retval.sroa.0.0.vec.insert.i.i.i.i258 = insertelement <2 x float> poison, float %div.i.i.i.i255, i64 0
-  %retval.sroa.0.4.vec.insert.i.i.i.i259 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i258, float %div2.i.i.i.i256, i64 1
-  %n.sroa.0.0.vec.extract.i.i.i260 = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i238, i64 0
-  %n.sroa.0.4.vec.extract.i.i.i261 = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i238, i64 1
-  %mul.i.i.i.i.i262 = fmul float %agg.tmp3.sroa.2.0.copyload.i240, %div2.i.i.i.i256
-  %fneg.i.i.i.i.i263 = fneg float %mul.i.i.i.i.i262
-  %97 = tail call noundef float @llvm.fma.f32(float %n.sroa.0.4.vec.extract.i.i.i261, float %div3.i.i.i.i257, float %fneg.i.i.i.i.i263)
-  %fneg1.i.i.i.i.i264 = fneg float %agg.tmp3.sroa.2.0.copyload.i240
-  %98 = tail call noundef float @llvm.fma.f32(float %fneg1.i.i.i.i.i264, float %div2.i.i.i.i256, float %mul.i.i.i.i.i262)
-  %add.i.i.i1.i.i265 = fadd float %97, %98
-  %mul.i11.i.i.i.i266 = fmul float %n.sroa.0.0.vec.extract.i.i.i260, %div3.i.i.i.i257
-  %fneg.i12.i.i.i.i267 = fneg float %mul.i11.i.i.i.i266
-  %99 = tail call noundef float @llvm.fma.f32(float %agg.tmp3.sroa.2.0.copyload.i240, float %div.i.i.i.i255, float %fneg.i12.i.i.i.i267)
-  %fneg1.i13.i.i.i.i268 = fneg float %n.sroa.0.0.vec.extract.i.i.i260
-  %100 = tail call noundef float @llvm.fma.f32(float %fneg1.i13.i.i.i.i268, float %div3.i.i.i.i257, float %mul.i11.i.i.i.i266)
-  %add.i14.i.i.i.i269 = fadd float %99, %100
-  %mul.i15.i.i.i.i270 = fmul float %n.sroa.0.4.vec.extract.i.i.i261, %div.i.i.i.i255
-  %fneg.i16.i.i.i.i271 = fneg float %mul.i15.i.i.i.i270
-  %101 = tail call noundef float @llvm.fma.f32(float %n.sroa.0.0.vec.extract.i.i.i260, float %div2.i.i.i.i256, float %fneg.i16.i.i.i.i271)
-  %fneg1.i17.i.i.i.i272 = fneg float %n.sroa.0.4.vec.extract.i.i.i261
-  %102 = tail call noundef float @llvm.fma.f32(float %fneg1.i17.i.i.i.i272, float %div.i.i.i.i255, float %mul.i15.i.i.i.i270)
-  %add.i18.i.i.i.i273 = fadd float %101, %102
-  %retval.sroa.0.0.vec.insert.i.i2.i.i274 = insertelement <2 x float> poison, float %add.i.i.i1.i.i265, i64 0
-  %retval.sroa.0.4.vec.insert.i.i3.i.i275 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i2.i.i274, float %add.i14.i.i.i.i269, i64 1
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i259, ptr %shadingFrame.i.i246, align 8, !alias.scope !216
-  %x.sroa.2.0.x4.sroa_idx.i.i.i.i276 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store float %div3.i.i.i.i257, ptr %x.sroa.2.0.x4.sroa_idx.i.i.i.i276, align 8, !alias.scope !216
-  %y5.i.i.i.i277 = getelementptr inbounds i8, ptr %agg.result, i64 20
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i3.i.i275, ptr %y5.i.i.i.i277, align 4, !alias.scope !216
-  %y.sroa.2.0.y5.sroa_idx.i.i.i.i278 = getelementptr inbounds i8, ptr %agg.result, i64 28
-  store float %add.i18.i.i.i.i273, ptr %y.sroa.2.0.y5.sroa_idx.i.i.i.i278, align 4, !alias.scope !216
-  %z6.i.i.i.i279 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store <2 x float> %agg.tmp3.sroa.0.0.copyload.i238, ptr %z6.i.i.i.i279, align 8, !alias.scope !216
-  %z.sroa.2.0.z6.sroa_idx.i.i.i.i280 = getelementptr inbounds i8, ptr %agg.result, i64 40
-  store float %agg.tmp3.sroa.2.0.copyload.i240, ptr %z.sroa.2.0.z6.sroa_idx.i.i.i.i280, align 8, !alias.scope !216
+  %ns.i236 = getelementptr inbounds i8, ptr %94, i64 88
+  %agg.tmp3.sroa.0.0.copyload.i237 = load <2 x float>, ptr %ns.i236, align 4, !noalias !210
+  %agg.tmp3.sroa.2.0.ns.sroa_idx.i238 = getelementptr inbounds i8, ptr %94, i64 96
+  %agg.tmp3.sroa.2.0.copyload.i239 = load float, ptr %agg.tmp3.sroa.2.0.ns.sroa_idx.i238, align 4, !noalias !210
+  %dpdus.i240 = getelementptr inbounds i8, ptr %94, i64 100
+  %agg.tmp4.sroa.0.0.copyload.i241 = load <2 x float>, ptr %dpdus.i240, align 4, !noalias !210
+  %agg.tmp4.sroa.2.0.dpdus.sroa_idx.i242 = getelementptr inbounds i8, ptr %94, i64 108
+  %agg.tmp4.sroa.2.0.copyload.i243 = load float, ptr %agg.tmp4.sroa.2.0.dpdus.sroa_idx.i242, align 4, !noalias !210
+  %95 = ptrtoint ptr %call.i235 to i64
+  %or.i.i.i244 = or i64 %95, 1152921504606846976
+  store i64 %or.i.i.i244, ptr %agg.result, align 8, !alias.scope !210
+  %shadingFrame.i.i245 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %v.sroa.0.0.vec.extract.i.i.i.i.i246 = extractelement <2 x float> %agg.tmp4.sroa.0.0.copyload.i241, i64 0
+  %96 = fmul <2 x float> %agg.tmp4.sroa.0.0.copyload.i241, %agg.tmp4.sroa.0.0.copyload.i241
+  %mul.i.i.i.i.i.i247 = extractelement <2 x float> %96, i64 0
+  %v.sroa.0.4.vec.extract.i.i.i.i.i248 = extractelement <2 x float> %agg.tmp4.sroa.0.0.copyload.i241, i64 1
+  %mul.i1.i.i.i.i.i249 = fmul float %v.sroa.0.4.vec.extract.i.i.i.i.i248, %v.sroa.0.4.vec.extract.i.i.i.i.i248
+  %add.i.i.i.i.i250 = fadd float %mul.i.i.i.i.i.i247, %mul.i1.i.i.i.i.i249
+  %mul.i2.i.i.i.i.i251 = fmul float %agg.tmp4.sroa.2.0.copyload.i243, %agg.tmp4.sroa.2.0.copyload.i243
+  %add3.i.i.i.i.i252 = fadd float %mul.i2.i.i.i.i.i251, %add.i.i.i.i.i250
+  %sqrt.i.i.i.i253 = tail call noundef float @llvm.sqrt.f32(float %add3.i.i.i.i.i252)
+  %div.i.i.i.i254 = fdiv float %v.sroa.0.0.vec.extract.i.i.i.i.i246, %sqrt.i.i.i.i253
+  %div2.i.i.i.i255 = fdiv float %v.sroa.0.4.vec.extract.i.i.i.i.i248, %sqrt.i.i.i.i253
+  %div3.i.i.i.i256 = fdiv float %agg.tmp4.sroa.2.0.copyload.i243, %sqrt.i.i.i.i253
+  %retval.sroa.0.0.vec.insert.i.i.i.i257 = insertelement <2 x float> poison, float %div.i.i.i.i254, i64 0
+  %retval.sroa.0.4.vec.insert.i.i.i.i258 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i257, float %div2.i.i.i.i255, i64 1
+  %n.sroa.0.0.vec.extract.i.i.i259 = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i237, i64 0
+  %n.sroa.0.4.vec.extract.i.i.i260 = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i237, i64 1
+  %mul.i.i.i.i.i261 = fmul float %agg.tmp3.sroa.2.0.copyload.i239, %div2.i.i.i.i255
+  %fneg.i.i.i.i.i262 = fneg float %mul.i.i.i.i.i261
+  %97 = tail call noundef float @llvm.fma.f32(float %n.sroa.0.4.vec.extract.i.i.i260, float %div3.i.i.i.i256, float %fneg.i.i.i.i.i262)
+  %fneg1.i.i.i.i.i263 = fneg float %agg.tmp3.sroa.2.0.copyload.i239
+  %98 = tail call noundef float @llvm.fma.f32(float %fneg1.i.i.i.i.i263, float %div2.i.i.i.i255, float %mul.i.i.i.i.i261)
+  %add.i.i.i1.i.i264 = fadd float %97, %98
+  %mul.i11.i.i.i.i265 = fmul float %n.sroa.0.0.vec.extract.i.i.i259, %div3.i.i.i.i256
+  %fneg.i12.i.i.i.i266 = fneg float %mul.i11.i.i.i.i265
+  %99 = tail call noundef float @llvm.fma.f32(float %agg.tmp3.sroa.2.0.copyload.i239, float %div.i.i.i.i254, float %fneg.i12.i.i.i.i266)
+  %fneg1.i13.i.i.i.i267 = fneg float %n.sroa.0.0.vec.extract.i.i.i259
+  %100 = tail call noundef float @llvm.fma.f32(float %fneg1.i13.i.i.i.i267, float %div3.i.i.i.i256, float %mul.i11.i.i.i.i265)
+  %add.i14.i.i.i.i268 = fadd float %99, %100
+  %mul.i15.i.i.i.i269 = fmul float %n.sroa.0.4.vec.extract.i.i.i260, %div.i.i.i.i254
+  %fneg.i16.i.i.i.i270 = fneg float %mul.i15.i.i.i.i269
+  %101 = tail call noundef float @llvm.fma.f32(float %n.sroa.0.0.vec.extract.i.i.i259, float %div2.i.i.i.i255, float %fneg.i16.i.i.i.i270)
+  %fneg1.i17.i.i.i.i271 = fneg float %n.sroa.0.4.vec.extract.i.i.i260
+  %102 = tail call noundef float @llvm.fma.f32(float %fneg1.i17.i.i.i.i271, float %div.i.i.i.i254, float %mul.i15.i.i.i.i269)
+  %add.i18.i.i.i.i272 = fadd float %101, %102
+  %retval.sroa.0.0.vec.insert.i.i2.i.i273 = insertelement <2 x float> poison, float %add.i.i.i1.i.i264, i64 0
+  %retval.sroa.0.4.vec.insert.i.i3.i.i274 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i2.i.i273, float %add.i14.i.i.i.i268, i64 1
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i258, ptr %shadingFrame.i.i245, align 8, !alias.scope !216
+  %x.sroa.2.0.x4.sroa_idx.i.i.i.i275 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store float %div3.i.i.i.i256, ptr %x.sroa.2.0.x4.sroa_idx.i.i.i.i275, align 8, !alias.scope !216
+  %y5.i.i.i.i276 = getelementptr inbounds i8, ptr %agg.result, i64 20
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i3.i.i274, ptr %y5.i.i.i.i276, align 4, !alias.scope !216
+  %y.sroa.2.0.y5.sroa_idx.i.i.i.i277 = getelementptr inbounds i8, ptr %agg.result, i64 28
+  store float %add.i18.i.i.i.i272, ptr %y.sroa.2.0.y5.sroa_idx.i.i.i.i277, align 4, !alias.scope !216
+  %z6.i.i.i.i278 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  store <2 x float> %agg.tmp3.sroa.0.0.copyload.i237, ptr %z6.i.i.i.i278, align 8, !alias.scope !216
+  %z.sroa.2.0.z6.sroa_idx.i.i.i.i279 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  store float %agg.tmp3.sroa.2.0.copyload.i239, ptr %z.sroa.2.0.z6.sroa_idx.i.i.i.i279, align 8, !alias.scope !216
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.sroa.2.i)
   br label %return
 
@@ -12591,15 +12591,14 @@ entry:
   %agg.tmp15.i = alloca %"class.pbrt::SpectrumTexture", align 8
   %agg.tmp17.i = alloca %"class.pbrt::SampledWavelengths", align 8
   %agg.tmp22 = alloca %"struct.pbrt::MaterialEvalContext", align 8
-  %agg.tmp2 = alloca %"struct.pbrt::MaterialEvalContext", align 8
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef ptr @_ZN4pbrt13ScratchBuffer5AllocINS_23DiffuseTransmissionBxDFEJEEENS_16AllocationTraitsIT_E12SingleObjectEDpOT0_(ptr noundef nonnull align 64 dereferenceable(40) %0)
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp2, ptr noundef nonnull align 4 dereferenceable(112) %2, i64 112, i1 false)
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %agg.tmp22)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp22, ptr noundef nonnull align 4 dereferenceable(112) %2, i64 112, i1 false)
   %3 = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %agg.tmp22)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %texEval.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
@@ -12607,14 +12606,13 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp12.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp15.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp17.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp22, ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp2, i64 112, i1 false)
   %scale.i = getelementptr inbounds i8, ptr %mtl, i64 32
   %5 = load float, ptr %scale.i, align 8, !noalias !224
   %reflectance.i = getelementptr inbounds i8, ptr %mtl, i64 16
   %6 = load i64, ptr %reflectance.i, align 8, !noalias !224
   store i64 %6, ptr %agg.tmp.i, align 8, !noalias !224
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4.i, ptr noundef nonnull align 4 dereferenceable(32) %4, i64 32, i1 false), !noalias !224
-  %call.i = call { <2 x float>, <2 x float> } @_ZN4pbrt25UniversalTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 1 dereferenceable(1) %texEval.i, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %agg.tmp4.i)
+  %call.i = call { <2 x float>, <2 x float> } @_ZN4pbrt25UniversalTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 1 dereferenceable(1) %texEval.i, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp22, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %agg.tmp4.i), !noalias !224
   %7 = extractvalue { <2 x float>, <2 x float> } %call.i, 0
   %8 = extractvalue { <2 x float>, <2 x float> } %call.i, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i), !noalias !224

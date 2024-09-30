@@ -618,9 +618,9 @@ land.lhs.true:                                    ; preds = %if.end5
   br i1 %cmp9.not, label %return, label %if.end13
 
 if.end13:                                         ; preds = %land.lhs.true
-  %4 = getelementptr inbounds i8, ptr %params, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %4, i8 0, i64 48, i1 false)
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.4, ptr noundef nonnull %expected_type.addr) #9
+  %4 = getelementptr inbounds i8, ptr %params, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %5 = load ptr, ptr %fetched_loader, align 8
   %p_set_ctx_params12 = getelementptr inbounds i8, ptr %5, i64 160

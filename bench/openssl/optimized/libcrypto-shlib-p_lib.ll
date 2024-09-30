@@ -1407,12 +1407,12 @@ if.end20:                                         ; preds = %cond.end
   br i1 %cmp23, label %if.then24, label %if.end31
 
 if.then24:                                        ; preds = %if.end20
-  %3 = getelementptr inbounds i8, ptr %params, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 48, i1 false)
   %call25 = call i32 @ERR_clear_last_mark() #12
   %tobool.not = icmp eq i32 %key_is_priv, 0
   %cond26 = select i1 %tobool.not, ptr @.str.13, ptr @.str.12
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull %cond26, ptr noundef %key, i64 noundef %len) #12
+  %3 = getelementptr inbounds i8, ptr %params, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %call27 = call i32 @EVP_PKEY_fromdata(ptr noundef nonnull %call17, ptr noundef nonnull %pkey, i32 noundef 135, ptr noundef nonnull %params) #12
   %cmp28.not = icmp eq i32 %call27, 1

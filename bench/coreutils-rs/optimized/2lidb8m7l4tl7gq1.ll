@@ -95,7 +95,7 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
 
 "_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17h40b2f11fe8c6542eE.exit": ; preds = %2, %.noexc.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !5
   call void @_ZN4core4iter6traits8iterator8Iterator4fold17h7eaa096d9e0fdc46E.llvm.16133818723342207735(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %0), !noalias !14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !8

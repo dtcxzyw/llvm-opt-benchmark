@@ -249,7 +249,7 @@ define hidden void @_ZN12darling_core5error5Error2at17h786dbd6ac117c256E(ptr noa
   unreachable
 
 36:                                               ; preds = %31, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8d77d8769a1bd71aE.llvm.12119415816518131457.exit.i"
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %37 = add i64 %23, 1
   store i64 %37, ptr %22, align 8, !alias.scope !26, !noalias !29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)

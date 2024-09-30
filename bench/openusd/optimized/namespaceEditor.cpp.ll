@@ -14071,7 +14071,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorC2ERKS0_.exit.i.i.i
   %155 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %87, ptr %155, align 4
   %156 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %156, ptr noundef nonnull readonly align 8 dereferenceable(24) %128, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %156, ptr noundef nonnull align 8 dereferenceable(24) %88, i64 24, i1 false)
   store ptr %91, ptr %7, align 8
   %157 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %94, ptr %157, align 8
@@ -14094,7 +14094,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorC2ERKS0_.exit4.i.i.
   %169 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %108, ptr %169, align 4
   %170 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %170, ptr noundef nonnull readonly align 8 dereferenceable(24) %142, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %170, ptr noundef nonnull align 8 dereferenceable(24) %109, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
@@ -14167,7 +14167,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorC2ERKS0_.exit.i.i.i
   %212 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %197, ptr %212, align 4
   %213 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %213, ptr noundef nonnull readonly align 8 dereferenceable(24) %156, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %213, ptr noundef nonnull align 8 dereferenceable(24) %88, i64 24, i1 false)
   store ptr %91, ptr %5, align 8
   %214 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %215 = load i32, ptr %157, align 8
@@ -14192,7 +14192,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorC2ERKS0_.exit8.i.i.
   %227 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %196, ptr %227, align 4
   %228 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %228, ptr noundef nonnull readonly align 8 dereferenceable(24) %170, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %228, ptr noundef nonnull align 8 dereferenceable(24) %109, i64 24, i1 false)
   %229 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %229, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_EE, i64 16), ptr %3, align 64
@@ -14219,7 +14219,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorC2ERKS0_.exit.i.i.i
   %243 = getelementptr inbounds nuw i8, ptr %3, i64 76
   store i32 %197, ptr %243, align 4
   %244 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %244, ptr noundef nonnull readonly align 8 dereferenceable(24) %213, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %244, ptr noundef nonnull align 8 dereferenceable(24) %88, i64 24, i1 false)
   %245 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store ptr %91, ptr %245, align 8
   %246 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -14243,7 +14243,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorC2ERKS0_.exit6.i.i.
   %258 = getelementptr inbounds nuw i8, ptr %3, i64 116
   store i32 %196, ptr %258, align 4
   %259 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %259, ptr noundef nonnull readonly align 8 dereferenceable(24) %228, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %259, ptr noundef nonnull align 8 dereferenceable(24) %109, i64 24, i1 false)
   %260 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store ptr %2, ptr %260, align 16
   %261 = getelementptr inbounds nuw i8, ptr %3, i64 152
@@ -16302,7 +16302,7 @@ _ZN3tbb6detail2d223for_each_iteration_taskIN32pxrInternal_v0_24__pxrReserved__22
   %149 = getelementptr inbounds nuw i8, ptr %.01219.i.i, i64 76
   store i32 %145, ptr %149, align 4
   %150 = getelementptr inbounds nuw i8, ptr %.01219.i.i, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %150, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %150, ptr noundef nonnull align 8 dereferenceable(24) %121, i64 24, i1 false)
   %151 = getelementptr inbounds nuw i8, ptr %.01219.i.i, i64 104
   store ptr %103, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %.01219.i.i, i64 112

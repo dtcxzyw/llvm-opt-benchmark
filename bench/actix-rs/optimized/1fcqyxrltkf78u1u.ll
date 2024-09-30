@@ -89,7 +89,7 @@ define hidden void @"_ZN111_$LT$$LP$http..header..name..HeaderName$C$V$RP$$u20$a
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.710)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.710, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.0..sroa_idx, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i8 %.sroa.0.0.copyload, ptr %.sroa.49.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 33

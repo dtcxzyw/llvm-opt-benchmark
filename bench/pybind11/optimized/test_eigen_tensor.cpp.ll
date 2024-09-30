@@ -46129,7 +46129,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail11type_casterI
   %4 = alloca %"class.pybind11::array", align 8
   %5 = alloca %"class.pybind11::dtype", align 8
   %6 = alloca %"class.pybind11::dtype", align 8
-  %.sroa.0 = alloca [3 x i64], align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN8pybind115arrayD2Ev.exit, label %7
 
@@ -46286,7 +46285,6 @@ _ZN8pybind115dtypeD2Ev.exit14:                    ; preds = %_ZN8pybind115dtypeD
 61:                                               ; preds = %58
   %62 = getelementptr inbounds i8, ptr %1, i64 32
   %63 = load ptr, ptr %62, align 8, !noalias !1297
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   %64 = load i32, ptr %15, align 8
   %65 = and i32 %64, 1024
   %.not27 = icmp eq i32 %65, 0
@@ -46301,7 +46299,7 @@ _ZN8pybind115dtypeD2Ev.exit14:                    ; preds = %_ZN8pybind115dtypeD
 70:                                               ; preds = %66
   store ptr %68, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %69, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   %72 = load ptr, ptr %0, align 8
   store ptr %69, ptr %0, align 8
   %.not.i.i18 = icmp eq ptr %72, null
@@ -47352,125 +47350,116 @@ define linkonce_odr hidden ptr @_ZZN8pybind1112cpp_function10initializeIZN17eige
 define linkonce_odr hidden ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi0EEEvRNS_7module_EEUlN5Eigen9TensorMapIKNS6_6TensorIdLi3ELi0ElEELi0ENS6_11MakePointerEEEE_S9_JSC_EJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESV_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::TensorMap.592", align 8
   %4 = alloca %"class.Eigen::TensorMap.592", align 8
-  %5 = alloca %"class.Eigen::TensorMap.592", align 8
-  %6 = alloca %"class.Eigen::TensorMap.592", align 8
-  %7 = alloca %"class.pybind11::detail::argument_loader.720", align 8
-  %8 = alloca %"class.Eigen::Tensor", align 8
-  %9 = alloca %"class.Eigen::Tensor", align 8
-  store ptr null, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = alloca %"class.pybind11::detail::argument_loader.720", align 8
+  %6 = alloca %"class.Eigen::Tensor", align 8
+  %7 = alloca %"class.Eigen::Tensor", align 8
+  store ptr null, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 32
   %11 = load ptr, ptr %10, align 8
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
-  %13 = load ptr, ptr %12, align 8
-  %14 = load i64, ptr %13, align 8
-  %15 = and i64 %14, 1
-  %16 = icmp ne i64 %15, 0
-  %17 = invoke noundef zeroext i1 @_ZN8pybind116detail11type_casterIN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEvE4loadENS_6handleEb(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr %.sroa.0.0.copyload.i.i, i1 noundef zeroext %16)
-          to label %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit unwind label %18
+  %12 = load i64, ptr %11, align 8
+  %13 = and i64 %12, 1
+  %14 = icmp ne i64 %13, 0
+  %15 = invoke noundef zeroext i1 @_ZN8pybind116detail11type_casterIN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEvE4loadENS_6handleEb(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %.sroa.0.0.copyload.i.i, i1 noundef zeroext %14)
+          to label %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit unwind label %16
 
 _ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit: ; preds = %2
-  br i1 %17, label %20, label %44
+  br i1 %15, label %18, label %41
 
-18:                                               ; preds = %32, %27, %2
-  %19 = landingpad { ptr, i32 }
+16:                                               ; preds = %30, %26, %2
+  %17 = landingpad { ptr, i32 }
           cleanup
-  br label %46
+  br label %43
 
-20:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit
-  %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 88
-  %23 = load i8, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 89
-  %25 = load i16, ptr %24, align 1
-  %26 = and i16 %25, 32
-  %.not = icmp eq i16 %26, 0
-  br i1 %.not, label %32, label %27
+18:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit
+  %19 = load ptr, ptr %1, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 88
+  %21 = load i8, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %19, i64 89
+  %23 = load i16, ptr %22, align 1
+  %24 = and i16 %23, 32
+  %.not = icmp eq i16 %24, 0
+  %25 = load ptr, ptr %5, align 8, !noalias !283
+  br i1 %.not, label %30, label %26
 
-27:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %28 = load ptr, ptr %7, align 8, !noalias !1342
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !noalias !1342
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !1342
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !1342
-  invoke void @_ZN5Eigen6TensorIdLi3ELi0ElEC2INS_9TensorMapIKS1_Li0ENS_11MakePointerEEEEERKNS_10TensorBaseIT_Li1EEE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %_ZN8pybind114noneD2Ev.exit unwind label %18
+26:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !1342
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false), !noalias !1342
+  invoke void @_ZN5Eigen6TensorIdLi3ELi0ElEC2INS_9TensorMapIKS1_Li0ENS_11MakePointerEEEEERKNS_10TensorBaseIT_Li1EEE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
+          to label %_ZN8pybind114noneD2Ev.exit unwind label %16
 
-_ZN8pybind114noneD2Ev.exit:                       ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1342
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %29 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %29) #28
-  %30 = load i64, ptr @_Py_NoneStruct, align 8
-  %31 = add nsw i64 %30, 1
-  store i64 %31, ptr @_Py_NoneStruct, align 8
-  br label %44
+_ZN8pybind114noneD2Ev.exit:                       ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !1342
+  %27 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %27) #28
+  %28 = load i64, ptr @_Py_NoneStruct, align 8
+  %29 = add nsw i64 %28, 1
+  store i64 %29, ptr @_Py_NoneStruct, align 8
+  br label %41
 
-32:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %33 = load ptr, ptr %7, align 8, !noalias !1347
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32, i1 false), !noalias !1347
+30:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1347
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !1347
-  invoke void @_ZN5Eigen6TensorIdLi3ELi0ElEC2INS_9TensorMapIKS1_Li0ENS_11MakePointerEEEEERKNS_10TensorBaseIT_Li1EEE(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %34 unwind label %18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false), !noalias !1347
+  invoke void @_ZN5Eigen6TensorIdLi3ELi0ElEC2INS_9TensorMapIKS1_Li0ENS_11MakePointerEEEEERKNS_10TensorBaseIT_Li1EEE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %31 unwind label %16
 
-34:                                               ; preds = %32
+31:                                               ; preds = %30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1347
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %35 = add i8 %23, -5
-  %or.cond.i = icmp ult i8 %35, 2
-  br i1 %or.cond.i, label %36, label %37
+  %32 = add i8 %21, -5
+  %or.cond.i = icmp ult i8 %32, 2
+  br i1 %or.cond.i, label %33, label %34
 
-36:                                               ; preds = %34
+33:                                               ; preds = %31
   invoke void @_ZN8pybind1113pybind11_failEPKc(ptr noundef nonnull @.str.194) #31
-          to label %.noexc unwind label %41
+          to label %.noexc unwind label %38
 
-.noexc:                                           ; preds = %36
+.noexc:                                           ; preds = %33
   unreachable
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %1, i64 88
-  %.sroa.01.0.copyload = load ptr, ptr %38, align 8
-  %39 = invoke ptr @_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi0ElEEvE9cast_implIS4_EENS_6handleEPT_NS_19return_value_policyES7_(ptr noundef nonnull %9, i8 noundef zeroext 4, ptr %.sroa.01.0.copyload)
-          to label %_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi0ElEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit unwind label %41
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds i8, ptr %1, i64 88
+  %.sroa.01.0.copyload = load ptr, ptr %35, align 8
+  %36 = invoke ptr @_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi0ElEEvE9cast_implIS4_EENS_6handleEPT_NS_19return_value_policyES7_(ptr noundef nonnull %7, i8 noundef zeroext 4, ptr %.sroa.01.0.copyload)
+          to label %_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi0ElEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit unwind label %38
 
-_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi0ElEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit: ; preds = %37
-  %40 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %40) #28
-  br label %44
+_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi0ElEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit: ; preds = %34
+  %37 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %37) #28
+  br label %41
 
-41:                                               ; preds = %37, %36
-  %42 = landingpad { ptr, i32 }
+38:                                               ; preds = %34, %33
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %43 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %43) #28
-  br label %46
+  %40 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %40) #28
+  br label %43
 
-44:                                               ; preds = %_ZN8pybind114noneD2Ev.exit, %_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi0ElEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit, %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit ], [ %39, %_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi0ElEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit ]
-  %45 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %45, null
+41:                                               ; preds = %_ZN8pybind114noneD2Ev.exit, %_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi0ElEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit, %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit ], [ %36, %_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi0ElEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit ]
+  %42 = load ptr, ptr %5, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEED2Ev.exit, label %_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi0ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi0ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i: ; preds = %44
-  call void @_ZdlPv(ptr noundef nonnull %45) #32
+_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi0ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i: ; preds = %41
+  call void @_ZdlPv(ptr noundef nonnull %42) #32
   br label %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEED2Ev.exit
 
-_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEED2Ev.exit: ; preds = %44, %_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi0ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i
+_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEED2Ev.exit: ; preds = %41, %_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi0ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i
   ret ptr %.sroa.0.0
 
-46:                                               ; preds = %41, %18
-  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %42, %41 ]
-  %47 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i.i.i19 = icmp eq ptr %47, null
+43:                                               ; preds = %38, %16
+  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %39, %38 ]
+  %44 = load ptr, ptr %5, align 8
+  %.not.i.i.i.i.i.i19 = icmp eq ptr %44, null
   br i1 %.not.i.i.i.i.i.i19, label %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEED2Ev.exit21, label %_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi0ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i20
 
-_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi0ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i20: ; preds = %46
-  call void @_ZdlPv(ptr noundef nonnull %47) #32
+_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi0ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i20: ; preds = %43
+  call void @_ZdlPv(ptr noundef nonnull %44) #32
   br label %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEED2Ev.exit21
 
-_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEED2Ev.exit21: ; preds = %46, %_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi0ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i20
+_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi0ElEELi0ENS2_11MakePointerEEEEED2Ev.exit21: ; preds = %43, %_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi0ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i20
   resume { ptr, i32 } %.pn
 }
 
@@ -47479,7 +47468,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail11type_casterI
   %4 = alloca %"class.pybind11::array", align 8
   %5 = alloca %"class.pybind11::dtype", align 8
   %6 = alloca %"class.pybind11::dtype", align 8
-  %.sroa.0 = alloca [3 x i64], align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN8pybind115arrayD2Ev.exit, label %7
 
@@ -47636,7 +47624,6 @@ _ZN8pybind115dtypeD2Ev.exit14:                    ; preds = %_ZN8pybind115dtypeD
 61:                                               ; preds = %58
   %62 = getelementptr inbounds i8, ptr %1, i64 32
   %63 = load ptr, ptr %62, align 8, !noalias !1369
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   %64 = getelementptr inbounds i8, ptr %1, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
@@ -47645,7 +47632,7 @@ _ZN8pybind115dtypeD2Ev.exit14:                    ; preds = %_ZN8pybind115dtypeD
 67:                                               ; preds = %61
   store ptr %65, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %66, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   %69 = load ptr, ptr %0, align 8
   store ptr %66, ptr %0, align 8
   %.not.i.i15 = icmp eq ptr %69, null
@@ -64148,7 +64135,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail11type_casterI
   %4 = alloca %"class.pybind11::array", align 8
   %5 = alloca %"class.pybind11::dtype", align 8
   %6 = alloca %"class.pybind11::dtype", align 8
-  %.sroa.0 = alloca [3 x i64], align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN8pybind115arrayD2Ev.exit, label %7
 
@@ -64305,7 +64291,6 @@ _ZN8pybind115dtypeD2Ev.exit14:                    ; preds = %_ZN8pybind115dtypeD
 61:                                               ; preds = %58
   %62 = getelementptr inbounds i8, ptr %1, i64 32
   %63 = load ptr, ptr %62, align 8, !noalias !2148
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   %64 = load i32, ptr %15, align 8
   %65 = and i32 %64, 1024
   %.not27 = icmp eq i32 %65, 0
@@ -64320,7 +64305,7 @@ _ZN8pybind115dtypeD2Ev.exit14:                    ; preds = %_ZN8pybind115dtypeD
 70:                                               ; preds = %66
   store ptr %68, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %69, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   %72 = load ptr, ptr %0, align 8
   store ptr %69, ptr %0, align 8
   %.not.i.i18 = icmp eq ptr %72, null
@@ -65336,125 +65321,116 @@ define linkonce_odr hidden ptr @_ZZN8pybind1112cpp_function10initializeIZN17eige
 define linkonce_odr hidden ptr @_ZZN8pybind1112cpp_function10initializeIZN17eigen_tensor_test18init_tensor_moduleILi1EEEvRNS_7module_EEUlN5Eigen9TensorMapIKNS6_6TensorIdLi3ELi1ElEELi0ENS6_11MakePointerEEEE_S9_JSC_EJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESV_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::TensorMap.1035", align 8
   %4 = alloca %"class.Eigen::TensorMap.1035", align 8
-  %5 = alloca %"class.Eigen::TensorMap.1035", align 8
-  %6 = alloca %"class.Eigen::TensorMap.1035", align 8
-  %7 = alloca %"class.pybind11::detail::argument_loader.1159", align 8
-  %8 = alloca %"class.Eigen::Tensor.879", align 8
-  %9 = alloca %"class.Eigen::Tensor.879", align 8
-  store ptr null, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = alloca %"class.pybind11::detail::argument_loader.1159", align 8
+  %6 = alloca %"class.Eigen::Tensor.879", align 8
+  %7 = alloca %"class.Eigen::Tensor.879", align 8
+  store ptr null, ptr %5, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 32
   %11 = load ptr, ptr %10, align 8
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
-  %13 = load ptr, ptr %12, align 8
-  %14 = load i64, ptr %13, align 8
-  %15 = and i64 %14, 1
-  %16 = icmp ne i64 %15, 0
-  %17 = invoke noundef zeroext i1 @_ZN8pybind116detail11type_casterIN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEvE4loadENS_6handleEb(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr %.sroa.0.0.copyload.i.i, i1 noundef zeroext %16)
-          to label %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit unwind label %18
+  %12 = load i64, ptr %11, align 8
+  %13 = and i64 %12, 1
+  %14 = icmp ne i64 %13, 0
+  %15 = invoke noundef zeroext i1 @_ZN8pybind116detail11type_casterIN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEvE4loadENS_6handleEb(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %.sroa.0.0.copyload.i.i, i1 noundef zeroext %14)
+          to label %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit unwind label %16
 
 _ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit: ; preds = %2
-  br i1 %17, label %20, label %44
+  br i1 %15, label %18, label %41
 
-18:                                               ; preds = %32, %27, %2
-  %19 = landingpad { ptr, i32 }
+16:                                               ; preds = %30, %26, %2
+  %17 = landingpad { ptr, i32 }
           cleanup
-  br label %46
+  br label %43
 
-20:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit
-  %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 88
-  %23 = load i8, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 89
-  %25 = load i16, ptr %24, align 1
-  %26 = and i16 %25, 32
-  %.not = icmp eq i16 %26, 0
-  br i1 %.not, label %32, label %27
+18:                                               ; preds = %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit
+  %19 = load ptr, ptr %1, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 88
+  %21 = load i8, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %19, i64 89
+  %23 = load i16, ptr %22, align 1
+  %24 = and i16 %23, 32
+  %.not = icmp eq i16 %24, 0
+  %25 = load ptr, ptr %5, align 8, !noalias !283
+  br i1 %.not, label %30, label %26
 
-27:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %28 = load ptr, ptr %7, align 8, !noalias !2193
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !noalias !2193
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !2193
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !2193
-  invoke void @_ZN5Eigen6TensorIdLi3ELi1ElEC2INS_9TensorMapIKS1_Li0ENS_11MakePointerEEEEERKNS_10TensorBaseIT_Li1EEE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %_ZN8pybind114noneD2Ev.exit unwind label %18
+26:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !2193
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false), !noalias !2193
+  invoke void @_ZN5Eigen6TensorIdLi3ELi1ElEC2INS_9TensorMapIKS1_Li0ENS_11MakePointerEEEEERKNS_10TensorBaseIT_Li1EEE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
+          to label %_ZN8pybind114noneD2Ev.exit unwind label %16
 
-_ZN8pybind114noneD2Ev.exit:                       ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2193
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %29 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %29) #28
-  %30 = load i64, ptr @_Py_NoneStruct, align 8
-  %31 = add nsw i64 %30, 1
-  store i64 %31, ptr @_Py_NoneStruct, align 8
-  br label %44
+_ZN8pybind114noneD2Ev.exit:                       ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !2193
+  %27 = load ptr, ptr %6, align 8
+  call void @free(ptr noundef %27) #28
+  %28 = load i64, ptr @_Py_NoneStruct, align 8
+  %29 = add nsw i64 %28, 1
+  store i64 %29, ptr @_Py_NoneStruct, align 8
+  br label %41
 
-32:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %33 = load ptr, ptr %7, align 8, !noalias !2198
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32, i1 false), !noalias !2198
+30:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !2198
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !2198
-  invoke void @_ZN5Eigen6TensorIdLi3ELi1ElEC2INS_9TensorMapIKS1_Li0ENS_11MakePointerEEEEERKNS_10TensorBaseIT_Li1EEE(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %34 unwind label %18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false), !noalias !2198
+  invoke void @_ZN5Eigen6TensorIdLi3ELi1ElEC2INS_9TensorMapIKS1_Li0ENS_11MakePointerEEEEERKNS_10TensorBaseIT_Li1EEE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %31 unwind label %16
 
-34:                                               ; preds = %32
+31:                                               ; preds = %30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !2198
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %35 = add i8 %23, -5
-  %or.cond.i = icmp ult i8 %35, 2
-  br i1 %or.cond.i, label %36, label %37
+  %32 = add i8 %21, -5
+  %or.cond.i = icmp ult i8 %32, 2
+  br i1 %or.cond.i, label %33, label %34
 
-36:                                               ; preds = %34
+33:                                               ; preds = %31
   invoke void @_ZN8pybind1113pybind11_failEPKc(ptr noundef nonnull @.str.194) #31
-          to label %.noexc unwind label %41
+          to label %.noexc unwind label %38
 
-.noexc:                                           ; preds = %36
+.noexc:                                           ; preds = %33
   unreachable
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %1, i64 88
-  %.sroa.01.0.copyload = load ptr, ptr %38, align 8
-  %39 = invoke ptr @_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi1ElEEvE9cast_implIS4_EENS_6handleEPT_NS_19return_value_policyES7_(ptr noundef nonnull %9, i8 noundef zeroext 4, ptr %.sroa.01.0.copyload)
-          to label %_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi1ElEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit unwind label %41
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds i8, ptr %1, i64 88
+  %.sroa.01.0.copyload = load ptr, ptr %35, align 8
+  %36 = invoke ptr @_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi1ElEEvE9cast_implIS4_EENS_6handleEPT_NS_19return_value_policyES7_(ptr noundef nonnull %7, i8 noundef zeroext 4, ptr %.sroa.01.0.copyload)
+          to label %_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi1ElEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit unwind label %38
 
-_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi1ElEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit: ; preds = %37
-  %40 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %40) #28
-  br label %44
+_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi1ElEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit: ; preds = %34
+  %37 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %37) #28
+  br label %41
 
-41:                                               ; preds = %37, %36
-  %42 = landingpad { ptr, i32 }
+38:                                               ; preds = %34, %33
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %43 = load ptr, ptr %9, align 8
-  call void @free(ptr noundef %43) #28
-  br label %46
+  %40 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %40) #28
+  br label %43
 
-44:                                               ; preds = %_ZN8pybind114noneD2Ev.exit, %_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi1ElEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit, %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit ], [ %39, %_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi1ElEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit ]
-  %45 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %45, null
+41:                                               ; preds = %_ZN8pybind114noneD2Ev.exit, %_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi1ElEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit, %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEE9load_argsERNS0_13function_callE.exit ], [ %36, %_ZN8pybind116detail11type_casterIN5Eigen6TensorIdLi3ELi1ElEEvE4castEOS4_NS_19return_value_policyENS_6handleE.exit ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit ]
+  %42 = load ptr, ptr %5, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEED2Ev.exit, label %_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi1ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi1ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i: ; preds = %44
-  call void @_ZdlPv(ptr noundef nonnull %45) #32
+_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi1ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i: ; preds = %41
+  call void @_ZdlPv(ptr noundef nonnull %42) #32
   br label %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEED2Ev.exit
 
-_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEED2Ev.exit: ; preds = %44, %_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi1ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i
+_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEED2Ev.exit: ; preds = %41, %_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi1ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i
   ret ptr %.sroa.0.0
 
-46:                                               ; preds = %41, %18
-  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %42, %41 ]
-  %47 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i.i.i19 = icmp eq ptr %47, null
+43:                                               ; preds = %38, %16
+  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %39, %38 ]
+  %44 = load ptr, ptr %5, align 8
+  %.not.i.i.i.i.i.i19 = icmp eq ptr %44, null
   br i1 %.not.i.i.i.i.i.i19, label %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEED2Ev.exit21, label %_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi1ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i20
 
-_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi1ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i20: ; preds = %46
-  call void @_ZdlPv(ptr noundef nonnull %47) #32
+_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi1ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i20: ; preds = %43
+  call void @_ZdlPv(ptr noundef nonnull %44) #32
   br label %_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEED2Ev.exit21
 
-_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEED2Ev.exit21: ; preds = %46, %_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi1ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i20
+_ZN8pybind116detail15argument_loaderIJN5Eigen9TensorMapIKNS2_6TensorIdLi3ELi1ElEELi0ENS2_11MakePointerEEEEED2Ev.exit21: ; preds = %43, %_ZNKSt14default_deleteIN5Eigen9TensorMapIKNS0_6TensorIdLi3ELi1ElEELi0ENS0_11MakePointerEEEEclEPS6_.exit.i.i.i.i.i.i20
   resume { ptr, i32 } %.pn
 }
 
@@ -65463,7 +65439,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail11type_casterI
   %4 = alloca %"class.pybind11::array", align 8
   %5 = alloca %"class.pybind11::dtype", align 8
   %6 = alloca %"class.pybind11::dtype", align 8
-  %.sroa.0 = alloca [3 x i64], align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN8pybind115arrayD2Ev.exit, label %7
 
@@ -65620,7 +65595,6 @@ _ZN8pybind115dtypeD2Ev.exit14:                    ; preds = %_ZN8pybind115dtypeD
 61:                                               ; preds = %58
   %62 = getelementptr inbounds i8, ptr %1, i64 32
   %63 = load ptr, ptr %62, align 8, !noalias !2220
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   %64 = getelementptr inbounds i8, ptr %1, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
@@ -65629,7 +65603,7 @@ _ZN8pybind115dtypeD2Ev.exit14:                    ; preds = %_ZN8pybind115dtypeD
 67:                                               ; preds = %61
   store ptr %65, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %66, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   %69 = load ptr, ptr %0, align 8
   store ptr %66, ptr %0, align 8
   %.not.i.i15 = icmp eq ptr %69, null

@@ -11288,7 +11288,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h600056773be0fe
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2142)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !2145
   store i64 %.sroa.05.0.copyload6, ptr %3, align 8, !noalias !2142
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.5, i64 24, i1 false), !noalias !2142
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx7, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2147)
   %21 = load i32, ptr %10, align 8, !alias.scope !2150, !noalias !2153, !noundef !4
   %22 = load i32, ptr %11, align 4, !noalias !2156, !noundef !4

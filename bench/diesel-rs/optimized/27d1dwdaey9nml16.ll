@@ -2005,7 +2005,7 @@ _ZN10serde_json2de12ParserNumber5visit17he559ebf9a20d4e5bE.exit42: ; preds = %15
   %222 = phi i64 [ %.pre.i.i25, %._crit_edge.i.i ], [ %214, %213 ]
   %223 = load ptr, ptr %179, align 8, !alias.scope !288, !noalias !291, !nonnull !4, !noundef !4
   %224 = getelementptr inbounds { i8, [31 x i8] }, ptr %223, i64 %222
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %224, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false), !noalias !259
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %224, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false), !noalias !259
   %225 = add i64 %222, 1
   store i64 %225, ptr %180, align 8, !alias.scope !288, !noalias !291
   %226 = load i64, ptr %64, align 8, !noalias !260, !noundef !4
@@ -3837,7 +3837,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$
   store i16 1, ptr %53, align 2, !noalias !658
   %54 = getelementptr inbounds i8, ptr %48, i64 360
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   store ptr %48, ptr %1, align 8, !noalias !656
   %55 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 0, ptr %55, align 8, !noalias !656
@@ -6281,15 +6281,15 @@ _ZN6diesel5mysql5value10MysqlValue10time_value17h70e069816a28c4d6E.exit: ; preds
 28:                                               ; preds = %_ZN6diesel5mysql5value10MysqlValue10time_value17h70e069816a28c4d6E.exit
   %.sroa.1124.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
   %.sroa.04.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 33
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.1124.0..sroa_idx, i64 16, i1 false)
+  %.sroa.711.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.711.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.04.sroa.5.0..sroa_idx.i, i64 15, i1 false)
   store ptr %.sroa.0.0.copyload, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.sroa.7.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.1124.0..sroa_idx, i64 16, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
   store i8 %.sroa.04.sroa.4.0.copyload.i, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.711.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 33
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.711.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.04.sroa.5.0..sroa_idx.i, i64 15, i1 false)
   %29 = ptrtoint ptr %.sroa.0.0.copyload to i64
   %30 = trunc i64 %29 to i32
   %31 = lshr i64 %29, 32

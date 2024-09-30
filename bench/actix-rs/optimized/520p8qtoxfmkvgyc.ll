@@ -5901,7 +5901,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17ha2
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %.sroa.0)
   %129 = getelementptr inbounds i8, ptr %128, i64 -176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(176) %129, i64 176, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %129, ptr noundef nonnull align 8 dereferenceable(176) %3, i64 176, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %129, ptr noundef nonnull align 8 dereferenceable(176) %3, i64 176, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %.sroa.0, i64 176, i1 false)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %.sroa.0)
   call void @llvm.experimental.noalias.scope.decl(metadata !1253)
@@ -11223,7 +11223,6 @@ _ZN10actix_http6header3map7Removed3new17hfd80cc8b9b80747cE.exit: ; preds = %4, %
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10actix_http6header3map9HeaderMap6append17heeb61e8216d45b51E(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, ptr noalias nocapture noundef align 8 dereferenceable(40) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.0.sroa.0 = alloca [16 x i8], align 8
-  %.sroa.547 = alloca [5 x i64], align 8
   %4 = alloca { [2 x i64], i64, i64 }, align 16
   %5 = alloca { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, align 8
   %6 = alloca { { { i64, [4 x i64] }, ptr, ptr } }, align 8
@@ -11605,8 +11604,6 @@ split:                                            ; preds = %85, %.noexc13.i._cr
   %.sroa.12.24.copyload = load ptr, ptr %.sroa.12.24..sroa_idx, align 8, !alias.scope !2359, !noalias !2291
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.547)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.547, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !2460)
   call void @llvm.experimental.noalias.scope.decl(metadata !2463)
   %170 = load i64, ptr %59, align 8, !alias.scope !2466, !noalias !2467, !noundef !4
@@ -11682,7 +11679,7 @@ split:                                            ; preds = %85, %.noexc13.i._cr
   %.sroa.446.0..sroa_idx = getelementptr inbounds i8, ptr %202, i64 -176
   store i64 0, ptr %.sroa.446.0..sroa_idx, align 8, !noalias !2481
   %.sroa.547.0..sroa_idx = getelementptr inbounds i8, ptr %202, i64 -168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.547.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.547, i64 40, i1 false), !noalias !2481
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.547.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   %.sroa.749.0..sroa_idx = getelementptr inbounds i8, ptr %202, i64 -8
   store i64 1, ptr %.sroa.749.0..sroa_idx, align 8, !noalias !2481
   %208 = getelementptr inbounds i8, ptr %0, i64 24
@@ -11690,7 +11687,6 @@ split:                                            ; preds = %85, %.noexc13.i._cr
   %210 = add i64 %209, 1
   store i64 %210, ptr %208, align 8, !alias.scope !2460, !noalias !2467
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.547)
   br label %166
 
 "_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h40c2fab987dd4094E.exit": ; preds = %141, %.body14, %144, %211
@@ -12142,13 +12138,13 @@ define void @"_ZN110_$LT$actix_http..header..map..HeaderMap$u20$as$u20$core..con
   br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h0ee10cfa5508cb17E.exit.i, label %128
 
 128:                                              ; preds = %126
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !2595
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx.i.i, i64 40, i1 false), !noalias !2588
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !2595
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false), !noalias !2588
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2595
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %124, i64 32, i1 false), !noalias !2588
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !2595
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx.i.i, i64 40, i1 false), !noalias !2588
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !2595
   %switch.i.i.i = icmp eq i64 %127, 0
   br i1 %switch.i.i.i, label %129, label %.critedge.i.i.i
@@ -12243,7 +12239,7 @@ define void @"_ZN110_$LT$actix_http..header..map..HeaderMap$u20$as$u20$core..con
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6.0..sroa_idx4.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6.i.i.i.i, i64 23, i1 false), !noalias !2595
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.6.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !2595
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !noalias !2595
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx.i.i, i64 40, i1 false), !noalias !2588
   invoke void @_ZN10actix_http6header3map9HeaderMap6append17heeb61e8216d45b51E(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4)
           to label %167 unwind label %146, !noalias !2621
 
@@ -12833,8 +12829,6 @@ define void @"_ZN92_$LT$actix_http..header..map..IntoIter$u20$as$u20$core..iter.
   %.sroa.031 = alloca [4 x i64], align 8
   %.sroa.733.sroa.4 = alloca [19 x i64], align 8
   %4 = alloca { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, align 8
-  %.sroa.021 = alloca [32 x i8], align 8
-  %.sroa.7 = alloca [7 x i8], align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = getelementptr inbounds i8, ptr %1, i64 208
   %7 = getelementptr inbounds i8, ptr %1, i64 216
@@ -12857,8 +12851,6 @@ tailrecurse:                                      ; preds = %"_ZN4core3ptr169dro
   br i1 %.not, label %34, label %19
 
 19:                                               ; preds = %tailrecurse
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.021)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.7)
   %20 = load i64, ptr %6, align 8, !alias.scope !2763, !noalias !2766, !noundef !4
   %21 = load i64, ptr %7, align 8, !alias.scope !2763, !noalias !2766, !noundef !4
   %22 = icmp eq i64 %20, %21
@@ -12885,11 +12877,8 @@ tailrecurse:                                      ; preds = %"_ZN4core3ptr169dro
 "_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h14ea2d0882445449E.exit": ; preds = %27, %29
   %.sink3.i.i = phi ptr [ %31, %29 ], [ %9, %27 ]
   %32 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %.sink3.i.i, i64 %20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.021, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false)
   %.sroa.522.0..sroa_idx23 = getelementptr inbounds i8, ptr %32, i64 32
   %.sroa.522.0.copyload24 = load i8, ptr %.sroa.522.0..sroa_idx23, align 8
-  %.sroa.7.0..sroa_idx25 = getelementptr inbounds i8, ptr %32, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx25, i64 7, i1 false)
   %33 = icmp eq i8 %.sroa.522.0.copyload24, 2
   br i1 %33, label %"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h14ea2d0882445449E.exit.thread", label %69
 
@@ -13000,12 +12989,13 @@ tailrecurse:                                      ; preds = %"_ZN4core3ptr169dro
           to label %"_ZN4core3ptr169drop_in_place$LT$core..option..Option$LT$$LP$http..header..name..HeaderName$C$smallvec..IntoIter$LT$$u5b$http..header..value..HeaderValue$u3b$$u20$4$u5d$$GT$$RP$$GT$$GT$17h2579b3430c1ce31dE.exit" unwind label %78
 
 69:                                               ; preds = %"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h14ea2d0882445449E.exit"
+  %.sroa.7.0..sroa_idx25.le = getelementptr inbounds i8, ptr %32, i64 33
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.021, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false)
   %.sroa.522.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
   store i8 %.sroa.522.0.copyload24, ptr %.sroa.522.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx25.le, i64 7, i1 false)
   %70 = load ptr, ptr %1, align 8, !noalias !2816, !noundef !4
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %74
@@ -13043,8 +13033,6 @@ tailrecurse:                                      ; preds = %"_ZN4core3ptr169dro
 
 "_ZN4core3ptr169drop_in_place$LT$core..option..Option$LT$$LP$http..header..name..HeaderName$C$smallvec..IntoIter$LT$$u5b$http..header..value..HeaderValue$u3b$$u20$4$u5d$$GT$$RP$$GT$$GT$17h2579b3430c1ce31dE.exit": ; preds = %"_ZN4core3ptr141drop_in_place$LT$$LP$http..header..name..HeaderName$C$smallvec..IntoIter$LT$$u5b$http..header..value..HeaderValue$u3b$$u20$4$u5d$$GT$$RP$$GT$17hf6f0d9141367d162E.exit.i"
   store i64 2, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.021)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7)
   br label %34
 
 "_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h40c2fab987dd4094E.exit": ; preds = %80, %.body
@@ -13079,8 +13067,6 @@ tailrecurse:                                      ; preds = %"_ZN4core3ptr169dro
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.021)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7)
   br label %91
 
 91:                                               ; preds = %.loopexit, %90

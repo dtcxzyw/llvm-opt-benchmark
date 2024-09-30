@@ -2015,8 +2015,8 @@ _ZZN3nix14computeClosureINS_9StorePathEEEvSt3setIT_St4lessIS3_ESaIS3_EERS7_St8fu
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %5, ptr %.sroa.4.0..sroa_idx, align 8
   store ptr %9, ptr %4, align 8
-  %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx38 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 0, ptr %.sroa.4.0..sroa_idx38, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr @_ZNSt17_Function_handlerIFvRKN3nix9StorePathEEZNS0_14computeClosureIS1_EEvSt3setIT_St4lessIS7_ESaIS7_EERSB_St8functionIFvRKS7_SD_IFvRSt7promiseISB_EEEEEEUlS3_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 24

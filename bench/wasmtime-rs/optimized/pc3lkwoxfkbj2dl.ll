@@ -3390,7 +3390,7 @@ define i64 @_ZN4core5slice4sort15partition_equal17h2bcd623e9d45a2ffE(ptr align 8
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %7, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef nonnull align 8 dereferenceable(104) %15, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef nonnull align 8 dereferenceable(104) %15, i64 104, i1 false)
   store ptr %6, ptr %5, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %15, ptr %16, align 8
@@ -3504,7 +3504,7 @@ define i64 @_ZN4core5slice4sort15partition_equal17h91b007b530198bf5E(ptr align 8
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %7, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   store ptr %6, ptr %5, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %15, ptr %16, align 8
@@ -9500,7 +9500,7 @@ define { i64, i1 } @_ZN4core5slice4sort9partition17h5936a4f7800a0de7E(ptr align 
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %7, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef nonnull align 8 dereferenceable(104) %15, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef nonnull align 8 dereferenceable(104) %15, i64 104, i1 false)
   store ptr %6, ptr %5, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %15, ptr %16, align 8
@@ -9612,7 +9612,7 @@ define { i64, i1 } @_ZN4core5slice4sort9partition17h9345c2e653d3312aE(ptr align 
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %7, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   store ptr %6, ptr %5, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %15, ptr %16, align 8

@@ -2516,7 +2516,7 @@ _ZN10ockam_core5error5inner12trace_config11TraceConfig3get17h1fbbb7a2607cc0b3E.e
   %53 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %44, %43 ]
   %54 = load ptr, ptr %22, align 8, !alias.scope !358, !noalias !361, !nonnull !4, !noundef !4
   %55 = getelementptr inbounds { { { { i64, [3 x i64] }, ptr } } }, ptr %54, i64 %53
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(40) %21, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(40) %21, i64 40, i1 false)
   %56 = add i64 %53, 1
   store i64 %56, ptr %26, align 8, !alias.scope !358, !noalias !361
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21)
@@ -2652,7 +2652,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit35:  ; preds = %68
   %89 = phi i64 [ %.pre.i38, %._crit_edge.i37 ], [ %80, %74 ]
   %90 = load ptr, ptr %19, align 8, !alias.scope !392, !noalias !395, !nonnull !4, !noundef !4
   %91 = getelementptr inbounds { [6 x i64], ptr, [2 x i64] }, ptr %90, i64 %89
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %91, ptr noundef nonnull align 8 dereferenceable(72) %12, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %91, ptr noundef nonnull align 8 dereferenceable(72) %12, i64 72, i1 false)
   %92 = add i64 %89, 1
   store i64 %92, ptr %40, align 8, !alias.scope !392, !noalias !395
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
@@ -2822,7 +2822,7 @@ common.resume:                                    ; preds = %18, %30
   %34 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %25, %20 ]
   %35 = load ptr, ptr %21, align 8, !alias.scope !413, !noalias !416, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds { [6 x i64], ptr, [2 x i64] }, ptr %35, i64 %34
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false)
   %37 = load i64, ptr %24, align 8, !alias.scope !413, !noalias !416, !noundef !4
   %38 = add i64 %37, 1
   store i64 %38, ptr %24, align 8, !alias.scope !413, !noalias !416
@@ -5086,7 +5086,7 @@ common.resume:                                    ; preds = %.body, %83
   %.0.i = sub nuw i64 %100, %101
   %102 = load ptr, ptr %7, align 8, !alias.scope !793, !noalias !796, !nonnull !4, !noundef !4
   %103 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %102, i64 %.0.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %104 = load i64, ptr %29, align 8, !alias.scope !793, !noalias !796, !noundef !4
   %105 = add i64 %104, 1
   store i64 %105, ptr %29, align 8, !alias.scope !793, !noalias !796

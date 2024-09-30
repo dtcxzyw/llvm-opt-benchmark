@@ -1582,7 +1582,7 @@ default.unreachable:                              ; preds = %101
   %127 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %118, %117 ]
   %128 = load ptr, ptr %66, align 8, !nonnull !4, !noundef !4
   %129 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %128, i64 %127
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %129, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %129, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 64, i1 false)
   %130 = add i64 %127, 1
   store i64 %130, ptr %67, align 8, !alias.scope !278, !noalias !281
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)

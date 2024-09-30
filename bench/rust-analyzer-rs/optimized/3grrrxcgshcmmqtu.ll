@@ -5119,7 +5119,7 @@ _ZN14proc_macro_api3msg4flat29serialize_span_data_index_map17hb8ea9999d749c310E.
   %138 = getelementptr inbounds i8, ptr %38, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %138, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   %139 = getelementptr inbounds i8, ptr %38, i64 384
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
   %140 = getelementptr inbounds i8, ptr %38, i64 408
   store i64 %88, ptr %140, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 416
@@ -5220,7 +5220,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.14009270277967323967.exi
           to label %.thread186 unwind label %305
 
 166:                                              ; preds = %155
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %157, ptr noundef nonnull align 8 dereferenceable(440) %25, i64 440, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %157, ptr noundef nonnull align 8 dereferenceable(440) %38, i64 440, i1 false)
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %25)
   %167 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %157, ptr %167, align 8

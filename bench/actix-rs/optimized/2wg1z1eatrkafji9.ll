@@ -637,7 +637,6 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h35a4f63939bc142eE(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.0.i.i.i.i = alloca { i64, [6 x i64] }, align 8
   %2 = alloca { { i64, [1 x i64] } }, align 8
   %3 = alloca { i64, [6 x i64] }, align 8
   %.sroa.01.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !42, !noundef !42
@@ -661,8 +660,6 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h35a4f63939bc142eE(ptr noalia
   store i64 %8, ptr %2, align 8, !noalias !128
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %9, ptr %10, align 8, !noalias !128
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !123
   %11 = getelementptr inbounds i8, ptr %.sroa.01.sroa.0.0.copyload, i64 8
   invoke void @"_ZN4core3ptr472drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$$LT$actix_http..encoding..decoder..Decoder$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1cb06b5e33978bedE.llvm.926505738866763462"(ptr noalias noundef nonnull align 8 dereferenceable(56) %11)
           to label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h42163142dfe6a8dbE.exit.i" unwind label %.body.i.i.i.i, !noalias !131
@@ -671,7 +668,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h35a4f63939bc142eE(ptr noalia
   %12 = landingpad { ptr, i32 }
           cleanup
           catch ptr null
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i, i64 56, i1 false), !noalias !128
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !123
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %.body unwind label %13, !noalias !128
 
@@ -689,8 +686,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h35a4f63939bc142eE(ptr noalia
           to label %.body unwind label %13, !noalias !123
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h42163142dfe6a8dbE.exit.i": ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i, i64 56, i1 false), !noalias !128
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !123
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %28 unwind label %17
 
@@ -823,7 +819,6 @@ __rust_try.llvm.13244384468531467415.exit:        ; preds = %.body.i.i.i.i
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h8a3d8d5440ddbe48E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.0.i.i.i.i.i = alloca { i64, [6 x i64] }, align 8
   %3 = alloca { { i64, [1 x i64] } }, align 8
   %4 = alloca { i64, [6 x i64] }, align 8
   %.val.i = load i64, ptr %0, align 8, !alias.scope !147, !noalias !150, !noundef !42
@@ -849,8 +844,6 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8a3d8d5440ddbe48E(ptr noalia
   store i64 %12, ptr %3, align 8, !noalias !156
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %13, ptr %14, align 8, !noalias !156
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.0.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false), !noalias !152
   %15 = getelementptr inbounds i8, ptr %.val1.i, i64 40
   invoke void @"_ZN4core3ptr472drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$$LT$actix_http..encoding..decoder..Decoder$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1cb06b5e33978bedE.llvm.926505738866763462"(ptr noalias noundef nonnull align 8 dereferenceable(56) %15)
           to label %"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h0da2732252957733E.exit.i.i.i.i" unwind label %.body.i.i.i.i.i, !noalias !159
@@ -859,7 +852,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8a3d8d5440ddbe48E(ptr noalia
   %16 = landingpad { ptr, i32 }
           cleanup
           catch ptr null
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i.i, i64 56, i1 false), !noalias !156
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false), !noalias !152
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
           to label %.body unwind label %17, !noalias !156
 
@@ -877,8 +870,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h8a3d8d5440ddbe48E(ptr noalia
           to label %.body unwind label %17, !noalias !152
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h0da2732252957733E.exit.i.i.i.i": ; preds = %11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i.i, i64 56, i1 false), !noalias !156
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false), !noalias !152
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
           to label %.noexc unwind label %26
 
@@ -935,7 +927,6 @@ __rust_try.llvm.13244384468531467415.exit:        ; preds = %.body
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h923ec4e8a22334e5E(ptr noundef nonnull align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.0.i.i.i.i.i = alloca { i64, [6 x i64] }, align 8
   %2 = alloca { { i64, [1 x i64] } }, align 8
   %3 = alloca { i64, [6 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
@@ -951,8 +942,6 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h923ec4e8a22334e5E(ptr nounde
   store i64 %7, ptr %2, align 8, !noalias !162
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %8, ptr %9, align 8, !noalias !162
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.0.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @"_ZN4core3ptr472drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$$LT$actix_http..encoding..decoder..Decoder$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1cb06b5e33978bedE.llvm.926505738866763462"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10)
           to label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc87be767cb0ccbcfE.exit.i" unwind label %.body.i.i.i.i.i, !noalias !165
@@ -961,7 +950,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h923ec4e8a22334e5E(ptr nounde
   %11 = landingpad { ptr, i32 }
           cleanup
           catch ptr null
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i.i, i64 56, i1 false), !noalias !162
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %.body unwind label %12, !noalias !162
 
@@ -979,8 +968,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h923ec4e8a22334e5E(ptr nounde
           to label %.body unwind label %12
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc87be767cb0ccbcfE.exit.i": ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i.i, i64 56, i1 false), !noalias !162
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %26 unwind label %16
 
@@ -1025,7 +1013,6 @@ __rust_try.llvm.13244384468531467415.exit:        ; preds = %.body
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN3std9panicking3try17hbf492eedb6051b42E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.0.i.i.i.i.i = alloca { i64, [6 x i64] }, align 8
   %2 = alloca { { i64, [1 x i64] } }, align 8
   %3 = alloca { i64, [6 x i64] }, align 8
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !168, !nonnull !42, !noundef !42
@@ -1043,8 +1030,6 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hbf492eedb6051b42E(ptr noalia
   store i64 %8, ptr %2, align 8, !noalias !174
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %9, ptr %10, align 8, !noalias !174
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.0.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !171
   %11 = getelementptr inbounds i8, ptr %.val.i, i64 40
   invoke void @"_ZN4core3ptr472drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$$LT$actix_http..encoding..decoder..Decoder$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1cb06b5e33978bedE.llvm.926505738866763462"(ptr noalias noundef nonnull align 8 dereferenceable(56) %11)
           to label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd138f6e482c42829E.exit.i" unwind label %.body.i.i.i.i.i, !noalias !177
@@ -1053,7 +1038,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hbf492eedb6051b42E(ptr noalia
   %12 = landingpad { ptr, i32 }
           cleanup
           catch ptr null
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i.i, i64 56, i1 false), !noalias !174
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !171
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %.body unwind label %13, !noalias !174
 
@@ -1071,8 +1056,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hbf492eedb6051b42E(ptr noalia
           to label %.body unwind label %13, !noalias !171
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd138f6e482c42829E.exit.i": ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i.i, i64 56, i1 false), !noalias !174
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.0.i.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !171
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %27 unwind label %17
 
@@ -1226,7 +1210,6 @@ define hidden void @_ZN3std9panicking3try7do_call17h1493345386286068E.llvm.13244
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try7do_call17h3a03318627a0e45dE.llvm.13244384468531467415(ptr nocapture noundef readonly %0) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %.sroa.0.i.i.i.i = alloca { i64, [6 x i64] }, align 8
   %2 = alloca { { i64, [1 x i64] } }, align 8
   %3 = alloca { i64, [6 x i64] }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !42, !align !188, !noundef !42
@@ -1255,8 +1238,6 @@ define hidden void @_ZN3std9panicking3try7do_call17h3a03318627a0e45dE.llvm.13244
   store i64 %14, ptr %2, align 8, !noalias !206
   %16 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %15, ptr %16, align 8, !noalias !206
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !202
   %17 = getelementptr inbounds i8, ptr %.val1, i64 40
   invoke void @"_ZN4core3ptr472drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$$LT$actix_http..encoding..decoder..Decoder$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1cb06b5e33978bedE.llvm.926505738866763462"(ptr noalias noundef nonnull align 8 dereferenceable(56) %17)
           to label %"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h0da2732252957733E.exit.i.i.i" unwind label %.body.i.i.i.i, !noalias !209
@@ -1264,7 +1245,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3a03318627a0e45dE.llvm.13244
 .body.i.i.i.i:                                    ; preds = %13
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i, i64 56, i1 false), !noalias !206
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !202
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %.thread.i.i.i.i unwind label %19, !noalias !206
 
@@ -1285,8 +1266,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3a03318627a0e45dE.llvm.13244
           to label %.thread.i.i.i.i unwind label %19, !noalias !202
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h0da2732252957733E.exit.i.i.i": ; preds = %13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i, i64 56, i1 false), !noalias !206
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !202
   call void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !206
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !206
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !202
@@ -1310,7 +1290,6 @@ define hidden void @_ZN3std9panicking3try7do_call17h3a03318627a0e45dE.llvm.13244
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try7do_call17h69dd69b6ef27a39eE.llvm.13244384468531467415(ptr nocapture noundef readonly %0) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %.sroa.0.i.i.i.i = alloca { i64, [6 x i64] }, align 8
   %2 = alloca { { i64, [1 x i64] } }, align 8
   %3 = alloca { i64, [6 x i64] }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !42, !align !188, !noundef !42
@@ -1327,8 +1306,6 @@ define hidden void @_ZN3std9panicking3try7do_call17h69dd69b6ef27a39eE.llvm.13244
   store i64 %8, ptr %2, align 8, !noalias !212
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %9, ptr %10, align 8, !noalias !212
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @"_ZN4core3ptr472drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$$LT$actix_http..encoding..decoder..Decoder$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1cb06b5e33978bedE.llvm.926505738866763462"(ptr noalias noundef nonnull align 8 dereferenceable(56) %11)
           to label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc87be767cb0ccbcfE.exit" unwind label %.body.i.i.i.i, !noalias !215
@@ -1336,7 +1313,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h69dd69b6ef27a39eE.llvm.13244
 .body.i.i.i.i:                                    ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i, i64 56, i1 false), !noalias !212
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %.thread.i.i.i.i unwind label %13, !noalias !212
 
@@ -1357,8 +1334,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h69dd69b6ef27a39eE.llvm.13244
           to label %.thread.i.i.i.i unwind label %13
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hc87be767cb0ccbcfE.exit": ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i, i64 56, i1 false), !noalias !212
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   call void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !212
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !212
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
@@ -1367,7 +1343,6 @@ define hidden void @_ZN3std9panicking3try7do_call17h69dd69b6ef27a39eE.llvm.13244
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try7do_call17h7636003355414e69E.llvm.13244384468531467415(ptr nocapture noundef readonly %0) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %.sroa.0.i.i.i.i = alloca { i64, [6 x i64] }, align 8
   %2 = alloca { { i64, [1 x i64] } }, align 8
   %3 = alloca { i64, [6 x i64] }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !42, !align !188, !noundef !42
@@ -1386,8 +1361,6 @@ define hidden void @_ZN3std9panicking3try7do_call17h7636003355414e69E.llvm.13244
   store i64 %9, ptr %2, align 8, !noalias !224
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %10, ptr %11, align 8, !noalias !224
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.0.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !221
   %12 = getelementptr inbounds i8, ptr %.val, i64 40
   invoke void @"_ZN4core3ptr472drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$$LT$actix_http..encoding..decoder..Decoder$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1cb06b5e33978bedE.llvm.926505738866763462"(ptr noalias noundef nonnull align 8 dereferenceable(56) %12)
           to label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd138f6e482c42829E.exit" unwind label %.body.i.i.i.i, !noalias !227
@@ -1395,7 +1368,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7636003355414e69E.llvm.13244
 .body.i.i.i.i:                                    ; preds = %8
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i, i64 56, i1 false), !noalias !224
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !221
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %.thread.i.i.i.i unwind label %14, !noalias !224
 
@@ -1416,8 +1389,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7636003355414e69E.llvm.13244
           to label %.thread.i.i.i.i unwind label %14, !noalias !221
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17hd138f6e482c42829E.exit": ; preds = %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i.i, i64 56, i1 false), !noalias !224
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !221
   call void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !224
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !224
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !221
@@ -1426,7 +1398,6 @@ define hidden void @_ZN3std9panicking3try7do_call17h7636003355414e69E.llvm.13244
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try7do_call17he5b188ed4a2817b0E.llvm.13244384468531467415(ptr nocapture noundef readonly %0) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %.sroa.0.i.i.i = alloca { i64, [6 x i64] }, align 8
   %2 = alloca { { i64, [1 x i64] } }, align 8
   %3 = alloca { i64, [6 x i64] }, align 8
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !42, !noundef !42
@@ -1446,8 +1417,6 @@ define hidden void @_ZN3std9panicking3try7do_call17he5b188ed4a2817b0E.llvm.13244
   store i64 %8, ptr %2, align 8, !noalias !235
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %9, ptr %10, align 8, !noalias !235
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !230
   %11 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 8
   invoke void @"_ZN4core3ptr472drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$$LT$actix_http..encoding..decoder..Decoder$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h1cb06b5e33978bedE.llvm.926505738866763462"(ptr noalias noundef nonnull align 8 dereferenceable(56) %11)
           to label %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h42163142dfe6a8dbE.exit" unwind label %.body.i.i.i, !noalias !238
@@ -1455,7 +1424,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he5b188ed4a2817b0E.llvm.13244
 .body.i.i.i:                                      ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i, i64 56, i1 false), !noalias !235
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !230
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %.thread.i.i.i unwind label %13, !noalias !235
 
@@ -1476,8 +1445,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he5b188ed4a2817b0E.llvm.13244
           to label %.thread.i.i.i unwind label %13, !noalias !230
 
 "_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h42163142dfe6a8dbE.exit": ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.i.i.i, i64 56, i1 false), !noalias !235
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false), !noalias !230
   call void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !235
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !235
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !230
@@ -8968,7 +8936,7 @@ define noundef nonnull align 8 dereferenceable(88) ptr @_ZN9actix_web6config13Se
   %45 = getelementptr inbounds i8, ptr %8, i64 40
   %46 = load ptr, ptr %45, align 8, !alias.scope !1725, !noalias !1729, !nonnull !42, !noundef !42
   %47 = getelementptr inbounds { { { { { { ptr, ptr } }, {} }, {} } }, ptr }, ptr %46, i64 %44
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !1722
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %48 = load i64, ptr %32, align 8, !alias.scope !1725, !noalias !1729, !noundef !42
   %49 = add i64 %48, 1
   store i64 %49, ptr %32, align 8, !alias.scope !1725, !noalias !1729

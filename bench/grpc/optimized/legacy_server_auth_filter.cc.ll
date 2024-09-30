@@ -2862,9 +2862,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i.i.i.i.i = add i64 %18, 1
   store i64 %inc.i.i.i.i.i.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %17, i64 %18
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i.i.i.i.i), !noalias !40
   %.pre.i.i.i.i = load i16, ptr %9, align 2, !noalias !40
@@ -2936,9 +2936,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i36.i.i.i.i = add i64 %27, 1
   store i64 %inc.i.i.i.i.i36.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i37.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %26, i64 %27
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i37.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i23.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i37.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i23.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i38.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i37.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i38.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i24.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i38.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i24.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i23.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i24.i.i.i.i), !noalias !40
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_I54
@@ -3021,9 +3021,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i67.i.i.i.i = add i64 %35, 1
   store i64 %inc.i.i.i.i.i67.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i68.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %34, i64 %35
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i68.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i55.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i68.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i55.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i69.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i68.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i69.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i56.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i69.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i56.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i55.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i56.i.i.i.i), !noalias !40
   %.pre819.i.i.i.i = load i16, ptr %arrayidx.i.i.i.i.i.i.i.i, align 2, !noalias !40
@@ -3098,9 +3098,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i100.i.i.i.i = add i64 %43, 1
   store i64 %inc.i.i.i.i.i100.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i101.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %42, i64 %43
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i101.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i84.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i101.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i84.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i102.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i101.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i102.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i85.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i102.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i85.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i84.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i85.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i.i.i.i.i.i), !noalias !40
@@ -3176,9 +3176,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i135.i.i.i.i = add i64 %51, 1
   store i64 %inc.i.i.i.i.i135.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i136.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %50, i64 %51
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i136.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i117.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i136.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i117.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i137.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i136.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i137.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i118.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i137.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i118.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i117.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i118.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i.i119.i.i.i.i), !noalias !40
@@ -3265,9 +3265,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i171.i.i.i.i = add i64 %59, 1
   store i64 %inc.i.i.i.i.i171.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i172.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %58, i64 %59
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i172.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i153.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i172.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i153.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i173.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i172.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i173.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i154.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i173.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i154.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i153.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i154.i.i.i.i), !noalias !40
   %.pre822.i.i.i.i = load i16, ptr %arrayidx.i.i.i.i.i.i.i.i, align 2, !noalias !40
@@ -3358,9 +3358,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i205.i.i.i.i = add i64 %67, 1
   store i64 %inc.i.i.i.i.i205.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i206.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %66, i64 %67
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i206.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i187.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i206.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i187.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i207.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i206.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i207.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i188.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i207.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i188.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i187.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i188.i.i.i.i), !noalias !40
   %.pre823.i.i.i.i = load i16, ptr %arrayidx.i.i.i.i.i.i.i.i, align 2, !noalias !40
@@ -3451,9 +3451,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i248.i.i.i.i = add i64 %75, 1
   store i64 %inc.i.i.i.i.i248.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i249.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %74, i64 %75
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i249.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i225.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i249.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i225.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i250.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i249.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i250.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i226.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i250.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i226.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i225.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i226.i.i.i.i), !noalias !40
   %.pre824.i.i.i.i = load i16, ptr %arrayidx.i.i.i.i.i.i.i.i, align 2, !noalias !40
@@ -3667,9 +3667,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i328.i.i.i.i = add i64 %101, 1
   store i64 %inc.i.i.i.i.i328.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i329.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %100, i64 %101
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i329.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i307.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i329.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i307.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i330.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i329.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i330.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i308.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i330.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i308.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i307.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i308.i.i.i.i), !noalias !40
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_345
@@ -3877,9 +3877,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i415.i.i.i.i = add i64 %127, 1
   store i64 %inc.i.i.i.i.i415.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i416.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %126, i64 %127
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i416.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i394.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i416.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i394.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i417.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i416.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i417.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i395.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i417.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i395.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i394.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i395.i.i.i.i), !noalias !40
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_432
@@ -3960,9 +3960,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i454.i.i.i.i = add i64 %135, 1
   store i64 %inc.i.i.i.i.i454.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i455.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %134, i64 %135
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i455.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i435.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i455.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i435.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i456.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i455.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i456.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i436.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i456.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i436.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i435.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i436.i.i.i.i), !noalias !40
   %.pre826.i.i.i.i = load i16, ptr %9, align 2, !noalias !40
@@ -4034,9 +4034,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i485.i.i.i.i = add i64 %144, 1
   store i64 %inc.i.i.i.i.i485.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i486.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %143, i64 %144
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i486.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i472.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i486.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i472.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i487.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i486.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i487.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i473.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i487.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i473.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i472.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i473.i.i.i.i), !noalias !40
   %.pre827.i.i.i.i = load i16, ptr %9, align 2, !noalias !40
@@ -4108,9 +4108,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i517.i.i.i.i = add i64 %153, 1
   store i64 %inc.i.i.i.i.i517.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i518.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %152, i64 %153
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i518.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i504.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i518.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i504.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i519.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i518.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i519.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i505.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i519.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i505.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i504.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i505.i.i.i.i), !noalias !40
   %.pre828.i.i.i.i = load i16, ptr %9, align 2, !noalias !40
@@ -4182,9 +4182,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i549.i.i.i.i = add i64 %162, 1
   store i64 %inc.i.i.i.i.i549.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i550.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %161, i64 %162
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i550.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i536.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i550.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i536.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i551.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i550.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i551.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i537.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i551.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i537.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i536.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i537.i.i.i.i), !noalias !40
   %.pre829.i.i.i.i = load i16, ptr %9, align 2, !noalias !40
@@ -4256,9 +4256,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i581.i.i.i.i = add i64 %171, 1
   store i64 %inc.i.i.i.i.i581.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i582.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %170, i64 %171
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i582.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i568.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i582.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i568.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i583.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i582.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i583.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i569.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i583.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i569.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i568.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i569.i.i.i.i), !noalias !40
   %.pre830.i.i.i.i = load i16, ptr %9, align 2, !noalias !40
@@ -4330,9 +4330,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i613.i.i.i.i = add i64 %180, 1
   store i64 %inc.i.i.i.i.i613.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i614.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %179, i64 %180
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i614.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i600.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i614.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i600.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i615.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i614.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i615.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i601.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i615.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i601.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i600.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i601.i.i.i.i), !noalias !40
   %.pre831.i.i.i.i = load i16, ptr %9, align 2, !noalias !40
@@ -4404,9 +4404,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i645.i.i.i.i = add i64 %189, 1
   store i64 %inc.i.i.i.i.i645.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i646.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %188, i64 %189
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i646.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i632.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i646.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i632.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i647.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i646.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i647.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i633.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i647.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i633.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i632.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i633.i.i.i.i), !noalias !40
   %.pre832.i.i.i.i = load i16, ptr %9, align 2, !noalias !40
@@ -4478,9 +4478,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i677.i.i.i.i = add i64 %198, 1
   store i64 %inc.i.i.i.i.i677.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i678.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %197, i64 %198
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i678.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i664.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i678.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i664.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i679.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i678.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i679.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i665.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i679.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i665.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i664.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i665.i.i.i.i), !noalias !40
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_695
@@ -4704,9 +4704,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i764.i.i.i.i = add i64 %227, 1
   store i64 %inc.i.i.i.i.i764.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i765.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %226, i64 %227
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i765.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i751.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i765.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i751.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i766.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i765.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i766.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i752.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i766.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i752.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i751.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i752.i.i.i.i), !noalias !40
   %.pre834.i.i.i.i = load i16, ptr %9, align 2, !noalias !40
@@ -4778,9 +4778,9 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %inc.i.i.i.i.i796.i.i.i.i = add i64 %236, 1
   store i64 %inc.i.i.i.i.i796.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i.i797.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %235, i64 %236
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i797.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i783.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i.i797.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i783.i.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i.i798.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i797.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i798.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i784.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i.i798.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i.i784.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i783.i.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i.i784.i.i.i.i), !noalias !40
   br label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_IN5
@@ -4862,9 +4862,9 @@ _ZN9grpc_core12_GLOBAL__N_112ArrayEncoder6EncodeERKNS_5SliceES4_.exit.i.i: ; pre
   %inc.i.i.i.i = add i64 %247, 1
   store i64 %inc.i.i.i.i, ptr %md, align 8, !alias.scope !40
   %arrayidx.i.i.i.i = getelementptr inbounds %struct.grpc_metadata, ptr %246, i64 %247
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i, i64 32, i1 false)
   %value24.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 32
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %value24.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !40
   %inc.i.i.i = add i64 %__begin3.sroa.5.06.i.i, 1
@@ -7750,11 +7750,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #22
-
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #23
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7778,8 +7778,8 @@ attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "n
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #22 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #23 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #24 = { noreturn }
 attributes #25 = { nounwind }
 attributes #26 = { builtin nounwind }

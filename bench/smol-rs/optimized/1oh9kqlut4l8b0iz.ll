@@ -3418,7 +3418,6 @@ _ZN10async_task5utils14abort_on_panic17hd2c6269897d6375bE.exit: ; preds = %"_ZN4
 define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17he20c54be1bad7089E"(ptr noalias nocapture noundef align 8 dereferenceable(280) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { { [16 x i8], i8, [103 x i8] }, ptr, i64, [136 x i8], i8, [7 x i8] }, align 8
-  %.sroa.3 = alloca { { [16 x i8], i8, [103 x i8] }, ptr, i64, [136 x i8], i8, [7 x i8] }, align 8
   %6 = alloca ptr, align 8
   store ptr %1, ptr %6, align 8
   %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
@@ -3441,8 +3440,6 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
   store i8 %12, ptr %.sroa.7.0..sroa_idx, align 8
   store ptr %1, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %.sroa.3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(280) %0, i64 280, i1 false)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %5), !noalias !484
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %5, ptr noundef nonnull align 8 dereferenceable(280) %0, i64 280, i1 false)
@@ -3485,10 +3482,9 @@ define hidden noalias noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$
 
 25:                                               ; preds = %11
   %26 = getelementptr inbounds i8, ptr %8, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %15, ptr noundef nonnull align 8 dereferenceable(280) %.sroa.3, i64 280, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %15, ptr noundef nonnull align 8 dereferenceable(280) %0, i64 280, i1 false)
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %5), !noalias !484
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %.sroa.3)
   store ptr %15, ptr %26, align 8
   ret ptr %8
 

@@ -3849,7 +3849,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entr
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8, !alias.scope !586, !noalias !589, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, i64 }, ptr %46, i64 %44
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   %48 = load i64, ptr %6, align 8, !alias.scope !586, !noalias !589, !noundef !4
   %49 = add i64 %48, 1
   store i64 %49, ptr %6, align 8, !alias.scope !586, !noalias !589

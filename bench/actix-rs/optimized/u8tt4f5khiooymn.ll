@@ -9804,7 +9804,6 @@ define void @"_ZN91_$LT$actix_http..h1..client..ClientCodec$u20$as$u20$tokio_uti
   %.sroa.0 = alloca [11 x i64], align 8
   %6 = alloca { [11 x i64], i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5)
   call void @"_ZN98_$LT$actix_http..responses..head..ResponseHead$u20$as$u20$actix_http..h1..decoder..MessageType$GT$6decode17h7f7a8d033d1c6d09E"(ptr noalias nocapture noundef nonnull sret({ [11 x i64], i64, [2 x i64] }) align 8 dereferenceable(112) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %7 = getelementptr inbounds i8, ptr %5, i64 88
@@ -9920,7 +9919,7 @@ _ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit.
           to label %.thread42 unwind label %21
 
 .thread42:                                        ; preds = %45, %36, %40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0, i64 88, i1 false)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   br label %"_ZN4core3ptr62drop_in_place$LT$actix_http..responses..head..ResponseHead$GT$17he9b7178532709f68E.exit"
 
@@ -9939,7 +9938,6 @@ _ZN10actix_http9responses4head12ResponseHead9conn_type17h672582f65b05fd2eE.exit.
   resume { ptr, i32 } %22
 
 "_ZN4core3ptr62drop_in_place$LT$actix_http..responses..head..ResponseHead$GT$17he9b7178532709f68E.exit": ; preds = %.thread42, %46, %12
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6)
   ret void
 }
@@ -10039,7 +10037,7 @@ define void @"_ZN98_$LT$actix_http..h1..client..ClientPayloadCodec$u20$as$u20$to
           to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h374780ec0ac323bfE.exit" unwind label %41
 
 _ZN10actix_http2h115reserve_readbuf17h0d7ae0da3921309eE.exit: ; preds = %26, %22, %31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.8..sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %20
 
@@ -11123,7 +11121,7 @@ define void @"_ZN81_$LT$actix_http..h1..payload..Payload$u20$as$u20$futures_core
 
 25:                                               ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h4291bc21f0d2a3c7E.exit.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !1403
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !1403
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false), !noalias !1403
   %26 = getelementptr inbounds i8, ptr %5, i64 16
   %27 = load i64, ptr %26, align 8, !noalias !1403, !noundef !5
   %28 = getelementptr inbounds i8, ptr %7, i64 96
@@ -11717,7 +11715,7 @@ define void @_ZN10actix_http2h17payload5Inner11unread_data17h589e8f04fb98289bE(p
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !alias.scope !1509, !noalias !1512, !nonnull !5, !noundef !5
   %35 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %34, i64 %..i.i
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }

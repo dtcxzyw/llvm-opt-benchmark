@@ -207,7 +207,6 @@ define hidden void @"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa9853b2902434d7E.llvm.14828715386332725032"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { i64, [302 x i64] }, align 8
   %2 = alloca { { i64, [1 x i64] } }, align 8
   %3 = alloca { i64, [302 x i64] }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
@@ -225,8 +224,6 @@ define hidden void @"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b
   store i64 %9, ptr %2, align 8, !noalias !37
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %10, ptr %11, align 8, !noalias !37
-  call void @llvm.lifetime.start.p0(i64 2424, ptr nonnull %.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2424) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(2424) %3, i64 2424, i1 false)
   %12 = getelementptr inbounds i8, ptr %4, i64 16
   invoke void @"_ZN4core3ptr216drop_in_place$LT$tokio..runtime..task..core..Stage$LT$awc..client..connection..H2ConnectionInner..new$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha2783a385da4891bE.llvm.14837436092785038340"(ptr noundef nonnull align 8 %12)
           to label %"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h205e467b24dbfe5bE.exit" unwind label %.body.i, !noalias !40
@@ -234,7 +231,7 @@ define hidden void @"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b
 .body.i:                                          ; preds = %8
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2424) %12, ptr noundef nonnull align 8 dereferenceable(2424) %.sroa.0.i, i64 2424, i1 false), !noalias !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2424) %12, ptr noundef nonnull align 8 dereferenceable(2424) %3, i64 2424, i1 false)
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %.thread.i unwind label %14, !noalias !37
 
@@ -255,8 +252,7 @@ define hidden void @"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b
           to label %.thread.i unwind label %14
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h205e467b24dbfe5bE.exit": ; preds = %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2424) %12, ptr noundef nonnull align 8 dereferenceable(2424) %.sroa.0.i, i64 2424, i1 false), !noalias !37
-  call void @llvm.lifetime.end.p0(i64 2424, ptr nonnull %.sroa.0.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2424) %12, ptr noundef nonnull align 8 dereferenceable(2424) %3, i64 2424, i1 false)
   call void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !37
   call void @llvm.lifetime.end.p0(i64 2424, ptr nonnull %3)
@@ -265,7 +261,6 @@ define hidden void @"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb07bb665a050e8a5E.llvm.14828715386332725032"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { i64, [4 x i64] }, align 8
   %2 = alloca { { i64, [1 x i64] } }, align 8
   %3 = alloca { i64, [4 x i64] }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
@@ -282,8 +277,6 @@ define hidden void @"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b
   store i64 %8, ptr %2, align 8, !noalias !43
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %9, ptr %10, align 8, !noalias !43
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @"_ZN4core3ptr226drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$actix_tls..connect..resolver..ResolverService..default_lookup$LT$http..uri..Uri$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h01364c52681a1e7bE.llvm.14837436092785038340"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
           to label %"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h544fdcc17cdf43d4E.exit" unwind label %.body.i, !noalias !46
@@ -291,7 +284,7 @@ define hidden void @"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b
 .body.i:                                          ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i, i64 40, i1 false), !noalias !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %.thread.i unwind label %13, !noalias !43
 
@@ -312,8 +305,7 @@ define hidden void @"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b
           to label %.thread.i unwind label %13
 
 "_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h544fdcc17cdf43d4E.exit": ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i, i64 40, i1 false), !noalias !43
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   call void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !43
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
@@ -12454,7 +12446,6 @@ define hidden void @"_ZN4core3ptr310drop_in_place$LT$core..pin..Pin$LT$alloc..bo
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr314drop_in_place$LT$tokio..runtime..task..harness..poll_future..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$awc..client..connection..H2ConnectionInner..new$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..sync..Arc$LT$tokio..task..local..Shared$GT$$GT$$GT$17h44ea6dbfc5ad34fbE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.0.i.i = alloca { i64, [302 x i64] }, align 8
   %2 = alloca { { i64, [1 x i64] } }, align 8
   %3 = alloca { i64, [302 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3498)
@@ -12473,8 +12464,6 @@ define hidden void @"_ZN4core3ptr314drop_in_place$LT$tokio..runtime..task..harne
   store i64 %9, ptr %2, align 8, !noalias !3501
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %10, ptr %11, align 8, !noalias !3501
-  call void @llvm.lifetime.start.p0(i64 2424, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2424) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(2424) %3, i64 2424, i1 false), !noalias !3498
   %12 = getelementptr inbounds i8, ptr %4, i64 16
   invoke void @"_ZN4core3ptr216drop_in_place$LT$tokio..runtime..task..core..Stage$LT$awc..client..connection..H2ConnectionInner..new$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha2783a385da4891bE.llvm.14837436092785038340"(ptr noundef nonnull align 8 %12)
           to label %"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa9853b2902434d7E.llvm.14828715386332725032.exit" unwind label %.body.i.i, !noalias !3504
@@ -12482,7 +12471,7 @@ define hidden void @"_ZN4core3ptr314drop_in_place$LT$tokio..runtime..task..harne
 .body.i.i:                                        ; preds = %8
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2424) %12, ptr noundef nonnull align 8 dereferenceable(2424) %.sroa.0.i.i, i64 2424, i1 false), !noalias !3501
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2424) %12, ptr noundef nonnull align 8 dereferenceable(2424) %3, i64 2424, i1 false), !noalias !3498
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %.thread.i.i unwind label %14, !noalias !3501
 
@@ -12503,8 +12492,7 @@ define hidden void @"_ZN4core3ptr314drop_in_place$LT$tokio..runtime..task..harne
           to label %.thread.i.i unwind label %14, !noalias !3498
 
 "_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa9853b2902434d7E.llvm.14828715386332725032.exit": ; preds = %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2424) %12, ptr noundef nonnull align 8 dereferenceable(2424) %.sroa.0.i.i, i64 2424, i1 false), !noalias !3501
-  call void @llvm.lifetime.end.p0(i64 2424, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2424) %12, ptr noundef nonnull align 8 dereferenceable(2424) %3, i64 2424, i1 false), !noalias !3498
   call void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !3501
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !3501
   call void @llvm.lifetime.end.p0(i64 2424, ptr nonnull %3), !noalias !3498
@@ -12519,7 +12507,6 @@ define hidden void @"_ZN4core3ptr318drop_in_place$LT$tokio_util..codec..framed_r
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr326drop_in_place$LT$tokio..runtime..task..harness..poll_future..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$tokio..runtime..blocking..task..BlockingTask$LT$actix_tls..connect..resolver..ResolverService..default_lookup$LT$http..uri..Uri$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$tokio..runtime..blocking..schedule..BlockingSchedule$GT$$GT$17he26c373d507f8ccaE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.0.i.i = alloca { i64, [4 x i64] }, align 8
   %2 = alloca { { i64, [1 x i64] } }, align 8
   %3 = alloca { i64, [4 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3507)
@@ -12537,8 +12524,6 @@ define hidden void @"_ZN4core3ptr326drop_in_place$LT$tokio..runtime..task..harne
   store i64 %8, ptr %2, align 8, !noalias !3510
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %9, ptr %10, align 8, !noalias !3510
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !3507
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @"_ZN4core3ptr226drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$actix_tls..connect..resolver..ResolverService..default_lookup$LT$http..uri..Uri$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h01364c52681a1e7bE.llvm.14837436092785038340"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
           to label %"_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb07bb665a050e8a5E.llvm.14828715386332725032.exit" unwind label %.body.i.i, !noalias !3513
@@ -12546,7 +12531,7 @@ define hidden void @"_ZN4core3ptr326drop_in_place$LT$tokio..runtime..task..harne
 .body.i.i:                                        ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i.i, i64 40, i1 false), !noalias !3510
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !3507
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %.thread.i.i unwind label %13, !noalias !3510
 
@@ -12567,8 +12552,7 @@ define hidden void @"_ZN4core3ptr326drop_in_place$LT$tokio..runtime..task..harne
           to label %.thread.i.i unwind label %13, !noalias !3507
 
 "_ZN133_$LT$tokio..runtime..task..harness..poll_future..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb07bb665a050e8a5E.llvm.14828715386332725032.exit": ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.i.i, i64 40, i1 false), !noalias !3510
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !3507
   call void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h789c64168a0847a0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !3510
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !3510
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !3507

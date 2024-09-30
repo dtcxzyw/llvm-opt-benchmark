@@ -1070,12 +1070,12 @@ entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %r = alloca i32, align 4
   %tmp = alloca %struct.ossl_param_st, align 8
-  %0 = getelementptr inbounds i8, ptr %params, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, i8 0, i64 48, i1 false)
   %parent1 = getelementptr inbounds i8, ptr %drbg, i64 48
-  %1 = load ptr, ptr %parent1, align 8
+  %0 = load ptr, ptr %parent1, align 8
   store i32 0, ptr %r, align 4
   call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.13, ptr noundef nonnull %r) #8
+  %1 = getelementptr inbounds i8, ptr %params, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %2 = load ptr, ptr %parent1, align 8
   %cmp.not.i = icmp eq ptr %2, null
@@ -1109,7 +1109,7 @@ if.then:                                          ; preds = %land.lhs.true3.i
 if.end:                                           ; preds = %land.lhs.true3.i, %land.lhs.true.i, %entry
   %parent_get_ctx_params = getelementptr inbounds i8, ptr %drbg, i64 80
   %5 = load ptr, ptr %parent_get_ctx_params, align 8
-  %call3 = call i32 %5(ptr noundef %1, ptr noundef nonnull %params) #8
+  %call3 = call i32 %5(ptr noundef %0, ptr noundef nonnull %params) #8
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.then5, label %if.end6
 

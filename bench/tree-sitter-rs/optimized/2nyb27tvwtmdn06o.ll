@@ -741,7 +741,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds { i64, [21 x i64] }, ptr %18, i64 %.0.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %19, ptr noundef nonnull align 8 dereferenceable(176) %1, i64 176, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %19, ptr noundef nonnull align 8 dereferenceable(176) %1, i64 176, i1 false)
   %20 = add i64 %12, 1
   store i64 %20, ptr %3, align 8
   ret void
@@ -791,7 +791,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds { { { i64, ptr }, i64 }, i64, i8, [7 x i8] }, ptr %18, i64 %.0.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   %20 = add i64 %12, 1
   store i64 %20, ptr %3, align 8
   ret void
@@ -841,7 +841,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds { { { i64, ptr }, i64 }, i64 }, ptr %18, i64 %.0.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %20 = add i64 %12, 1
   store i64 %20, ptr %3, align 8
   ret void

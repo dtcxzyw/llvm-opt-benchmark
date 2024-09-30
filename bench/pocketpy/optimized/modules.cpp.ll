@@ -6251,38 +6251,33 @@ define internal noundef ptr @"_ZZN4pkpy15add_module_mathEPNS_2VMEEN4$_238__invok
 define internal noundef ptr @"_ZZN4pkpy15add_module_mathEPNS_2VMEEN4$_248__invokeES1_NS_8ArgsViewE"(ptr noundef %0, ptr nocapture readonly %1, ptr nocapture readnone %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
-  %6 = alloca double, align 8
-  %7 = alloca %"struct.pkpy::Tuple", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  %8 = load ptr, ptr %1, align 8
-  %9 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %8)
-  %10 = call double @modf(double noundef %9, ptr noundef nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store double %10, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %11, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  %6 = alloca %"struct.pkpy::Tuple", align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  %7 = load ptr, ptr %1, align 8
+  %8 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %13 = load double, ptr %6, align 8
-  store double %13, ptr %4, align 8
-  %14 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %11, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %9 = call double @modf(double noundef %8, ptr noundef nonnull %4) #26
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  store double %9, ptr %5, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %10, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %10, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @_ZN4pkpy5TupleC1EPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef %12, ptr noundef %14)
-  %15 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5TupleEJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %11, i16 7, ptr noundef nonnull align 8 dereferenceable(36) %7)
-          to label %"_ZZN4pkpy15add_module_mathEPNS_2VMEENK4$_24clES1_NS_8ArgsViewE.exit" unwind label %16
+  call void @_ZN4pkpy5TupleC1EPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef %11, ptr noundef %12)
+  %13 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5TupleEJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %10, i16 7, ptr noundef nonnull align 8 dereferenceable(36) %6)
+          to label %"_ZZN4pkpy15add_module_mathEPNS_2VMEENK4$_24clES1_NS_8ArgsViewE.exit" unwind label %14
 
-16:                                               ; preds = %3
-  %17 = landingpad { ptr, i32 }
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4pkpy5TupleD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #26
-  resume { ptr, i32 } %17
+  call void @_ZN4pkpy5TupleD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #26
+  resume { ptr, i32 } %15
 
 "_ZZN4pkpy15add_module_mathEPNS_2VMEENK4$_24clES1_NS_8ArgsViewE.exit": ; preds = %3
-  call void @_ZN4pkpy5TupleD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  ret ptr %15
+  call void @_ZN4pkpy5TupleD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #26
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  ret ptr %13
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)

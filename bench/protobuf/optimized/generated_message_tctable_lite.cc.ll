@@ -32014,7 +32014,7 @@ if.end6:                                          ; preds = %while.body
 
 while.end:                                        ; preds = %if.end6
   %6 = getelementptr inbounds i8, ptr %buf, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %6, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %6, i8 0, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %5, i64 16, i1 false)
   %idx.ext = sext i32 %sub to i64
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
@@ -32691,7 +32691,7 @@ if.end6:                                          ; preds = %while.body
 
 while.end:                                        ; preds = %if.end6
   %6 = getelementptr inbounds i8, ptr %buf, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %6, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %6, i8 0, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %5, i64 16, i1 false)
   %idx.ext = sext i32 %sub to i64
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
@@ -33376,7 +33376,7 @@ if.end6:                                          ; preds = %while.body
 
 while.end:                                        ; preds = %if.end6
   %6 = getelementptr inbounds i8, ptr %buf, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %6, i8 0, i64 10, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %6, i8 0, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %5, i64 16, i1 false)
   %idx.ext = sext i32 %sub to i64
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext

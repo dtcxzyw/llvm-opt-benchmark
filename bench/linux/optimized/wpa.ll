@@ -1652,11 +1652,11 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %116, i8 0, i64 16, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   %117 = getelementptr inbounds i8, ptr %78, i64 10
-  %118 = getelementptr inbounds i8, ptr %4, i64 12
-  store i16 0, ptr %118, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %4, ptr noundef align 2 dereferenceable(6) %117, i64 6, i1 false)
-  %119 = getelementptr inbounds i8, ptr %4, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %119, ptr noundef nonnull readonly align 1 dereferenceable(6) %2, i64 6, i1 false)
+  %118 = getelementptr inbounds i8, ptr %4, i64 6
+  %119 = getelementptr inbounds i8, ptr %4, i64 12
+  store i16 0, ptr %119, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %118, ptr noundef nonnull readonly align 1 dereferenceable(6) %2, i64 6, i1 false)
   %120 = getelementptr inbounds i8, ptr %4, i64 14
   store i8 0, ptr %120, align 2
   %121 = getelementptr inbounds i8, ptr %4, i64 15

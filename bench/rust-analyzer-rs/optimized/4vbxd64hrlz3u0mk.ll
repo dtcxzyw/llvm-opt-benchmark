@@ -17980,7 +17980,7 @@ define hidden noundef ptr @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$
   %150 = phi i64 [ %.pre.i9.i, %._crit_edge.i8.i ], [ %115, %141 ]
   %151 = load ptr, ptr %112, align 8, !alias.scope !3699, !noalias !3702, !nonnull !11, !noundef !11
   %152 = getelementptr inbounds { ptr, ptr, i64, ptr, {}, { {} } }, ptr %151, i64 %150
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !3681
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !3681
   %153 = load i64, ptr %104, align 8, !alias.scope !3699, !noalias !3702, !noundef !11
   %154 = add i64 %153, 1
   store i64 %154, ptr %104, align 8, !alias.scope !3699, !noalias !3702
@@ -18008,7 +18008,7 @@ define hidden noundef ptr @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$
   %160 = getelementptr inbounds i8, ptr %0, i64 40
   %161 = load ptr, ptr %160, align 8, !alias.scope !3689, !noalias !3692, !nonnull !11, !noundef !11
   %162 = getelementptr inbounds { ptr, ptr, i64, ptr, {}, { {} } }, ptr %161, i64 %159
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !3681
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !3681
   %163 = load i64, ptr %104, align 8, !alias.scope !3689, !noalias !3692, !noundef !11
   %164 = add i64 %163, 1
   store i64 %164, ptr %104, align 8, !alias.scope !3689, !noalias !3692

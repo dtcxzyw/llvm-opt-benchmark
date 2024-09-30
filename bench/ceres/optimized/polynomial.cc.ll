@@ -8289,19 +8289,19 @@ define linkonce_odr hidden void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin
   %35 = getelementptr inbounds i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %.sroa.833.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.833.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %.sroa.11.24..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.24..sroa_idx, i64 24, i1 false)
   %38 = load i64, ptr %37, align 8
   store ptr %34, ptr %10, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %30, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
   store i64 %32, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.833.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.833.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 48
   store ptr %36, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.24..sroa_idx, i64 24, i1 false)
   %.sroa.1135.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 80
   store i64 0, ptr %.sroa.1135.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 88
@@ -10017,19 +10017,19 @@ define linkonce_odr hidden void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin
   %35 = getelementptr inbounds i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %.sroa.833.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.833.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %.sroa.11.24..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.24..sroa_idx, i64 24, i1 false)
   %38 = load i64, ptr %37, align 8
   store ptr %34, ptr %10, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %30, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
   store i64 %32, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.833.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.833.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 48
   store ptr %36, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.24..sroa_idx, i64 24, i1 false)
   %.sroa.1135.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 80
   store i64 0, ptr %.sroa.1135.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 88
@@ -19384,25 +19384,25 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 _ZN5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELi1ELin1ELb1EEEEmIINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_14CwiseNullaryOpINS9_18scalar_constant_opIdEEKNS2_IdLi1ELin1ELi1ELi1ELin1EEEEEKNS_3MapISF_Li0ENS_6StrideILi0ELi0EEEEEEEEERS5_RKNS0_IT_EE.exit: ; preds = %.lr.ph.i17.i.i.i.i.i.i12, %._crit_edge.i.i.i.i.i.i11
   %127 = load double, ptr %2, align 8, !noalias !576
+  %128 = getelementptr inbounds i8, ptr %5, i64 16
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %128, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.1.i.i.i.i)
   store double %127, ptr %.sroa.1.i.i.i.i, align 16, !alias.scope !579
   %.sroa.1.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.1.i.i.i.i, i64 8
   store ptr %1, ptr %.sroa.1.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8, !alias.scope !579
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5)
   %.sroa.1.i.i.i.i.0..sroa.1.i.i.i.i.0..sroa.1.i.i.i.i.0..sroa.1.i.i.i.0..sroa.1.i.i.i.0..sroa.1.i.i.0..sroa.1.i.i.0..sroa.1.i.0..sroa.1.i.0..sroa.1.0..sroa.1.0..sroa.1.16..i.i.i.i = load <2 x double>, ptr %.sroa.1.i.i.i.i, align 16
   %bc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = bitcast <2 x double> %.sroa.1.i.i.i.i.0..sroa.1.i.i.i.i.0..sroa.1.i.i.i.i.0..sroa.1.i.i.i.0..sroa.1.i.i.i.0..sroa.1.i.i.0..sroa.1.i.i.0..sroa.1.i.0..sroa.1.i.0..sroa.1.0..sroa.1.0..sroa.1.16..i.i.i.i to <2 x i64>
-  %128 = extractelement <2 x i64> %bc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 1
-  %129 = inttoptr i64 %128 to ptr
-  %130 = shufflevector <2 x double> %.sroa.1.i.i.i.i.0..sroa.1.i.i.i.i.0..sroa.1.i.i.i.i.0..sroa.1.i.i.i.0..sroa.1.i.i.i.0..sroa.1.i.i.0..sroa.1.i.i.0..sroa.1.i.0..sroa.1.i.0..sroa.1.0..sroa.1.0..sroa.1.16..i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %131 = load <2 x double>, ptr %129, align 16
-  %132 = fmul <2 x double> %130, %131
-  store <2 x double> %132, ptr %5, align 16
-  %133 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %133, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
+  %129 = extractelement <2 x i64> %bc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 1
+  %130 = inttoptr i64 %129 to ptr
+  %131 = shufflevector <2 x double> %.sroa.1.i.i.i.i.0..sroa.1.i.i.i.i.0..sroa.1.i.i.i.i.0..sroa.1.i.i.i.0..sroa.1.i.i.i.0..sroa.1.i.i.0..sroa.1.i.i.0..sroa.1.i.0..sroa.1.i.0..sroa.1.0..sroa.1.0..sroa.1.16..i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %132 = load <2 x double>, ptr %130, align 16
+  %133 = fmul <2 x double> %131, %132
+  store <2 x double> %133, ptr %5, align 16
   %134 = getelementptr inbounds i8, ptr %5, i64 48
   store ptr %5, ptr %134, align 16
   %135 = getelementptr inbounds i8, ptr %5, i64 56
-  %136 = load ptr, ptr %133, align 16
+  %136 = load ptr, ptr %128, align 16
   store ptr %136, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %5, i64 72
   %138 = getelementptr inbounds i8, ptr %5, i64 32

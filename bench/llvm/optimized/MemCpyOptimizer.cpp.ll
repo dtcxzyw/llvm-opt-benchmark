@@ -4752,7 +4752,6 @@ _ZN4llvm15SmallVectorImplIPNS_4UserEED2Ev.exit:   ; preds = %1, %6
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm13MemCpyOptPass29processMemCpyMemCpyDependenceEPNS_10MemCpyInstES2_RNS_14BatchAAResultsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(656) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::optional.118", align 8
-  %.sroa.4.i = alloca %"class.llvm::MemoryLocation", align 8
   %6 = alloca %"class.llvm::MemoryLocation", align 8
   %7 = alloca %"class.llvm::MemoryLocation", align 8
   %8 = alloca %"class.llvm::MemoryLocation", align 8
@@ -5186,8 +5185,6 @@ _ZL14writtenBetweenPN4llvm9MemorySSAERNS_14BatchAAResultsENS_14MemoryLocationEPK
   %280 = getelementptr inbounds i8, ptr %.0.i.i59152, i64 40
   %281 = load ptr, ptr %280, align 8
   %282 = getelementptr inbounds i8, ptr %.0.i.i66, i64 32
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.4.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
   %.not6.i.i.i.i.i.i.i = icmp eq ptr %281, %282
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZL14writtenBetweenPN4llvm9MemorySSAERNS_14BatchAAResultsENS_14MemoryLocationEPKNS_14MemoryUseOrDefES7_.exit, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -5212,7 +5209,7 @@ _ZL14writtenBetweenPN4llvm9MemorySSAERNS_14BatchAAResultsENS_14MemoryLocationEPK
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL14writtenBetweenPN4llvm9MemorySSAERNS2_14BatchAAResultsENS2_14MemoryLocationEPKNS2_14MemoryUseOrDefESA_E3$_0EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS2_12MemoryAccessELb0ELb0ENS2_11MSSAHelpers12AllAccessTagELb0EvEELb0ELb1EEEEEbT_.exit.i.i.i.i.i.i.i": ; preds = %284
   %290 = getelementptr inbounds nuw i8, ptr %287, i64 72
   %291 = load ptr, ptr %290, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.i, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
   store i8 1, ptr %283, align 8
   %292 = load ptr, ptr %3, align 8
   %293 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEERNS_11AAQueryInfoE(ptr noundef nonnull align 8 dereferenceable(56) %292, ptr noundef %291, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(498) %217) #18
@@ -5228,7 +5225,6 @@ _ZL14writtenBetweenPN4llvm9MemorySSAERNS_14BatchAAResultsENS_14MemoryLocationEPK
   br i1 %.not.i.i.i.i.i.i.i, label %_ZL14writtenBetweenPN4llvm9MemorySSAERNS_14BatchAAResultsENS_14MemoryLocationEPKNS_14MemoryUseOrDefES7_.exit.thread154, label %284, !llvm.loop !59
 
 _ZL14writtenBetweenPN4llvm9MemorySSAERNS_14BatchAAResultsENS_14MemoryLocationEPKNS_14MemoryUseOrDefES7_.exit.thread154: ; preds = %295
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.4.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br label %309
 
@@ -5252,7 +5248,6 @@ _ZL14writtenBetweenPN4llvm9MemorySSAERNS_14BatchAAResultsENS_14MemoryLocationEPK
 _ZL14writtenBetweenPN4llvm9MemorySSAERNS_14BatchAAResultsENS_14MemoryLocationEPKNS_14MemoryUseOrDefES7_.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL14writtenBetweenPN4llvm9MemorySSAERNS2_14BatchAAResultsENS2_14MemoryLocationEPKNS2_14MemoryUseOrDefESA_E3$_0EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS2_12MemoryAccessELb0ELb0ENS2_11MSSAHelpers12AllAccessTagELb0EvEELb0ELb1EEEEEbT_.exit.i.i.i.i.i.i.i", %.preheader.i.i.i.i
   %.sroa.02.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %281, %.preheader.i.i.i.i ], [ %.sroa.02.07.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL14writtenBetweenPN4llvm9MemorySSAERNS2_14BatchAAResultsENS2_14MemoryLocationEPKNS2_14MemoryUseOrDefESA_E3$_0EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS2_12MemoryAccessELb0ELb0ENS2_11MSSAHelpers12AllAccessTagELb0EvEELb0ELb1EEEEEbT_.exit.i.i.i.i.i.i.i" ]
   %.not160 = icmp eq ptr %282, %.sroa.02.0.lcssa.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.4.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br i1 %.not160, label %309, label %385
 
@@ -5441,7 +5436,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14BatchAAResults11isMustA
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZL14writtenBetweenPN4llvm9MemorySSAERNS_14BatchAAResultsENS_14MemoryLocationEPKNS_14MemoryUseOrDefES7_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(656) %1, ptr noundef byval(%"class.llvm::MemoryLocation") align 8 %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca %"class.std::optional.118", align 8
-  %.sroa.4 = alloca %"class.llvm::MemoryLocation", align 8
   %7 = load i8, ptr %4, align 8
   %8 = icmp eq i8 %7, 26
   br i1 %8, label %9, label %34
@@ -5458,8 +5452,6 @@ define internal fastcc noundef zeroext i1 @_ZL14writtenBetweenPN4llvm9MemorySSAE
   %14 = getelementptr inbounds i8, ptr %3, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 32
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   %.not6.i.i.i.i.i.i = icmp eq ptr %15, %16
   br i1 %.not6.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MemoryAccessELb0ELb0ENS_11MSSAHelpers12AllAccessTagELb0EvEELb0ELb1EEEEEZL14writtenBetweenPNS_9MemorySSAERNS_14BatchAAResultsENS_14MemoryLocationEPKNS_14MemoryUseOrDefESI_E3$_0EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i
 
@@ -5485,7 +5477,7 @@ define internal fastcc noundef zeroext i1 @_ZL14writtenBetweenPN4llvm9MemorySSAE
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL14writtenBetweenPN4llvm9MemorySSAERNS2_14BatchAAResultsENS2_14MemoryLocationEPKNS2_14MemoryUseOrDefESA_E3$_0EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS2_12MemoryAccessELb0ELb0ENS2_11MSSAHelpers12AllAccessTagELb0EvEELb0ELb1EEEEEbT_.exit.i.i.i.i.i.i": ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %26 = load ptr, ptr %25, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   store i8 1, ptr %17, align 8
   %27 = load ptr, ptr %1, align 8
   %28 = call noundef zeroext i8 @_ZN4llvm9AAResults13getModRefInfoEPKNS_11InstructionERKSt8optionalINS_14MemoryLocationEERNS_11AAQueryInfoE(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(498) %18) #18
@@ -5503,7 +5495,6 @@ define internal fastcc noundef zeroext i1 @_ZL14writtenBetweenPN4llvm9MemorySSAE
 "_ZN4llvm6any_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MemoryAccessELb0ELb0ENS_11MSSAHelpers12AllAccessTagELb0EvEELb0ELb1EEEEEZL14writtenBetweenPNS_9MemorySSAERNS_14BatchAAResultsENS_14MemoryLocationEPKNS_14MemoryUseOrDefESI_E3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL14writtenBetweenPN4llvm9MemorySSAERNS2_14BatchAAResultsENS2_14MemoryLocationEPKNS2_14MemoryUseOrDefESA_E3$_0EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS2_12MemoryAccessELb0ELb0ENS2_11MSSAHelpers12AllAccessTagELb0EvEELb0ELb1EEEEEbT_.exit.i.i.i.i.i.i", %30, %.preheader.i.i.i
   %.sroa.02.0.lcssa.i.i.i.i.i.i = phi ptr [ %15, %.preheader.i.i.i ], [ %16, %30 ], [ %.sroa.02.07.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL14writtenBetweenPN4llvm9MemorySSAERNS2_14BatchAAResultsENS2_14MemoryLocationEPKNS2_14MemoryUseOrDefESA_E3$_0EclINS2_14ilist_iteratorINS2_12ilist_detail12node_optionsINS2_12MemoryAccessELb0ELb0ENS2_11MSSAHelpers12AllAccessTagELb0EvEELb0ELb1EEEEEbT_.exit.i.i.i.i.i.i" ]
   %33 = icmp ne ptr %16, %.sroa.02.0.lcssa.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.4)
   br label %46
 
 34:                                               ; preds = %5

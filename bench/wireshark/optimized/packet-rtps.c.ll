@@ -6268,7 +6268,7 @@ define internal fastcc i32 @dissect_parameter_sequence(ptr noundef %0, ptr nound
   %65 = getelementptr inbounds i8, ptr %.0189, i64 276
   %66 = getelementptr inbounds i8, ptr %1, i64 408
   %.not.i211 = icmp eq ptr %11, null
-  %67 = getelementptr inbounds i8, ptr %36, i64 16
+  %67 = getelementptr inbounds i8, ptr %36, i64 20
   %68 = getelementptr inbounds i8, ptr %36, i64 24
   %69 = getelementptr inbounds i8, ptr %.0189, i64 4
   %70 = getelementptr inbounds i8, ptr %.0189, i64 8
@@ -8119,7 +8119,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1060, %1057, %1045
 1067:                                             ; preds = %1064
   %1068 = getelementptr inbounds i8, ptr %1066, i64 32
   store i64 %1052, ptr %1068, align 8
-  store i64 0, ptr %67, align 8
+  store i32 0, ptr %67, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %36, ptr noundef nonnull align 8 dereferenceable(20) %1066, i64 20, i1 false)
   store i64 %1052, ptr %68, align 8
   %1069 = load ptr, ptr @coherent_set_tracking.1, align 8

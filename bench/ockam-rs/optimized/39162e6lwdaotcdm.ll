@@ -2007,7 +2007,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %.0 = sub nuw i64 %11, %13
   %14 = load ptr, ptr %0, align 8, !nonnull !15, !noundef !15
   %15 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %14, i64 %.0
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %16 = load i64, ptr %3, align 8, !noundef !15
   %17 = add i64 %16, 1
   store i64 %17, ptr %3, align 8
@@ -3427,7 +3427,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17hb30b6e624bedbd
 8:                                                ; preds = %5
   %9 = and i64 %6, 31
   %10 = getelementptr inbounds [0 x { { { [29 x i64] } } }], ptr %7, i64 0, i64 %9
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %10, ptr noundef nonnull align 8 dereferenceable(232) %1, i64 232, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %10, ptr noundef nonnull align 8 dereferenceable(232) %1, i64 232, i1 false)
   %11 = getelementptr inbounds i8, ptr %7, i64 7440
   %12 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1f03e945e5a0a55fE"(ptr noundef nonnull align 8 %11)
   %13 = shl nuw nsw i64 1, %9
@@ -3464,7 +3464,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17hb81b5ea5dcf510
 8:                                                ; preds = %5
   %9 = and i64 %6, 31
   %10 = getelementptr inbounds [0 x { { { [11 x i64] } } }], ptr %7, i64 0, i64 %9
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   %11 = getelementptr inbounds i8, ptr %7, i64 2832
   %12 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1f03e945e5a0a55fE"(ptr noundef nonnull align 8 %11)
   %13 = shl nuw nsw i64 1, %9
@@ -3678,7 +3678,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime6handle6Handle11spawn_named1
   br label %_ZN5tokio7runtime9scheduler6Handle5spawn17h9a073bc0369182b6E.exit
 
 13:                                               ; preds = %8
-  %14 = call noundef nonnull ptr @_ZN5tokio7runtime9scheduler12multi_thread6handle6Handle13bind_new_task17h5240479a0270b09cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(1112) %6, i64 noundef %7)
+  %14 = tail call noundef nonnull ptr @_ZN5tokio7runtime9scheduler12multi_thread6handle6Handle13bind_new_task17h5240479a0270b09cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(1112) %1, i64 noundef %7)
   br label %_ZN5tokio7runtime9scheduler6Handle5spawn17h9a073bc0369182b6E.exit
 
 _ZN5tokio7runtime9scheduler6Handle5spawn17h9a073bc0369182b6E.exit: ; preds = %13, %11
@@ -3721,7 +3721,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime6handle6Handle11spawn_named1
   br label %_ZN5tokio7runtime9scheduler6Handle5spawn17h8449bff73e0b2c43E.exit
 
 13:                                               ; preds = %8
-  %14 = call noundef nonnull ptr @_ZN5tokio7runtime9scheduler12multi_thread6handle6Handle13bind_new_task17h47849fcfce54a908E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(1384) %6, i64 noundef %7)
+  %14 = tail call noundef nonnull ptr @_ZN5tokio7runtime9scheduler12multi_thread6handle6Handle13bind_new_task17h47849fcfce54a908E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(1384) %1, i64 noundef %7)
   br label %_ZN5tokio7runtime9scheduler6Handle5spawn17h8449bff73e0b2c43E.exit
 
 _ZN5tokio7runtime9scheduler6Handle5spawn17h8449bff73e0b2c43E.exit: ; preds = %13, %11
@@ -3765,7 +3765,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime6handle6Handle5spawn17h40746
   br label %_ZN5tokio7runtime6handle6Handle11spawn_named17hff682639c6578696E.llvm.18334662321373756257.exit
 
 11:                                               ; preds = %6
-  %12 = call noundef nonnull ptr @_ZN5tokio7runtime9scheduler12multi_thread6handle6Handle13bind_new_task17h47849fcfce54a908E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(1384) %4, i64 noundef %5), !noalias !579
+  %12 = tail call noundef nonnull ptr @_ZN5tokio7runtime9scheduler12multi_thread6handle6Handle13bind_new_task17h47849fcfce54a908E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(1384) %1, i64 noundef %5)
   br label %_ZN5tokio7runtime6handle6Handle11spawn_named17hff682639c6578696E.llvm.18334662321373756257.exit
 
 13:                                               ; preds = %14

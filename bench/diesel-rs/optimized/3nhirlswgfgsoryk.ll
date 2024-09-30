@@ -649,7 +649,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h66749df6ec3c9c9cE"
   unreachable
 
 23:                                               ; preds = %15, %17
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %24 = add i64 %5, 1
   store i64 %24, ptr %4, align 8
   ret void
@@ -961,7 +961,7 @@ common.resume.i:                                  ; preds = %109, %.body.i, %30
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd69fc089f6531743E.exit.i.i.i": ; preds = %94, %84
   %88 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !217, !noalias !194, !nonnull !4, !noundef !4
   %89 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %88, i64 %85
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !194
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !194
   %90 = add i64 %85, 1
   store i64 %90, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !217, !noalias !194
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !195

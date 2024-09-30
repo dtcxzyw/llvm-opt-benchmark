@@ -3814,7 +3814,6 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdPhysicsMaterialAPID1Ev(p
 define void @_ZN32pxrInternal_v0_24__pxrReserved__27_ParseCollisionShapeForMassERKNS_7UsdPrimERKNS_12_MassApiDataEfPNS_10GfMatrix4fEPNS_17UsdGeomXformCacheERKSt8functionIFNS_22UsdPhysicsRigidBodyAPI15MassInformationES2_EE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdPhysicsMassProperties") align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(44) %2, float noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
-  %.sroa.0.i.i = alloca [9 x float], align 4
   %10 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
   %11 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
   %12 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
@@ -3831,8 +3830,6 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27_ParseCollisionShapeForMassE
   %23 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", align 8
   %24 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", align 8
   %25 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", align 4
-  %.sroa.041 = alloca [9 x float], align 4
-  %.sroa.040 = alloca [9 x float], align 4
   %26 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
   %27 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
   %28 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
@@ -4021,9 +4018,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %17, ptr noundef nonnull align 4 dereferenceable(36) %21, i64 36, i1 false), !noalias !12
   %116 = call noundef nonnull align 4 dereferenceable(36) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fmLEd(ptr noundef nonnull align 4 dereferenceable(36) %17, double noundef %115), !noalias !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.041, ptr noundef nonnull align 4 dereferenceable(36) %116, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %21, ptr noundef nonnull align 4 dereferenceable(36) %116, i64 36, i1 false)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %17)
-  br label %.sink.split
+  br label %123
 
 117:                                              ; preds = %105
   %118 = fcmp ult float %112, 0.000000e+00
@@ -4036,16 +4033,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %16, ptr noundef nonnull align 4 dereferenceable(36) %21, i64 36, i1 false), !noalias !15
   %122 = call noundef nonnull align 4 dereferenceable(36) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fmLEd(ptr noundef nonnull align 4 dereferenceable(36) %16, double noundef %121), !noalias !15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.040, ptr noundef nonnull align 4 dereferenceable(36) %122, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %21, ptr noundef nonnull align 4 dereferenceable(36) %122, i64 36, i1 false)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %16)
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %113, %119
-  %.sroa.040.sink = phi ptr [ %.sroa.040, %119 ], [ %.sroa.041, %113 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %21, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.040.sink, i64 36, i1 false)
   br label %123
 
-123:                                              ; preds = %.sink.split, %117
+123:                                              ; preds = %117, %119, %113
   %124 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %125 = load i8, ptr %124, align 4
   %126 = trunc i8 %125 to i1
@@ -4124,7 +4116,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   %162 = fsub float %.sroa.6.0.copyload.i, %161
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %11)
   %163 = fneg float %159
@@ -4154,12 +4145,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8), !noalias !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %8, ptr noundef nonnull align 4 dereferenceable(36) %10, i64 36, i1 false), !noalias !24
   %176 = call noundef nonnull align 4 dereferenceable(36) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fmLEd(ptr noundef nonnull align 4 dereferenceable(36) %8, double noundef %175), !noalias !24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.0.i.i, ptr noundef nonnull align 4 dereferenceable(36) %176, i64 36, i1 false), !noalias !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %12, ptr noundef nonnull align 4 dereferenceable(36) %176, i64 36, i1 false)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8), !noalias !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %12, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.0.i.i, i64 36, i1 false)
   %177 = call noundef nonnull align 4 dereferenceable(36) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fpLERKS0_(ptr noundef nonnull align 4 dereferenceable(36) %12, ptr noundef nonnull align 4 dereferenceable(36) %30)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %30, ptr noundef nonnull align 4 dereferenceable(36) %12, i64 36, i1 false)
@@ -4239,7 +4228,6 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatdC1ERKNS_7GfQuatfE(ptr
 define noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__22UsdPhysicsRigidBodyAPI21ComputeMassPropertiesEPNS_7GfVec3fES2_PNS_7GfQuatfERKSt8functionIFNS0_15MassInformationERKNS_7UsdPrimEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
-  %.sroa.0.i.i = alloca [9 x float], align 4
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
   %10 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
@@ -5449,7 +5437,6 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fESaIS1_EE9push_backE
   %529 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %530 = load float, ptr %529, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %9)
   %531 = fneg float %525
@@ -5488,15 +5475,13 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fESaIS1_EE9push_backE
           to label %.noexc131 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc131:                                        ; preds = %.noexc130
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.0.i.i, ptr noundef nonnull align 4 dereferenceable(36) %544, i64 36, i1 false), !noalias !45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %10, ptr noundef nonnull align 4 dereferenceable(36) %544, i64 36, i1 false)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6), !noalias !45
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %10, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.0.i.i, i64 36, i1 false)
   %545 = invoke noundef nonnull align 4 dereferenceable(36) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fpLERKS0_(ptr noundef nonnull align 4 dereferenceable(36) %10, ptr noundef nonnull align 4 dereferenceable(36) %33)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties9TranslateERKNS_7GfVec3fE.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties9TranslateERKNS_7GfVec3fE.exit: ; preds = %.noexc131
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %33, ptr noundef nonnull align 4 dereferenceable(36) %10, i64 36, i1 false)
@@ -6019,7 +6004,6 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdPhysicsCollisionAPID1Ev(
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties3SumEPKS0_PKNS_10GfMatrix4fEj(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdPhysicsMassProperties") align 4 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #9 comdat align 2 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
-  %.sroa.0.i = alloca [9 x float], align 4
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", align 4
@@ -6242,7 +6226,6 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassP
   %177 = fsub float %.sroa.0.4.vec.extract.i51, %170
   %178 = fsub float %.sroa.11.1, %171
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8)
   %179 = fneg float %177
@@ -6264,12 +6247,10 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassP
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5), !noalias !57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, ptr noundef nonnull align 4 dereferenceable(36) %7, i64 36, i1 false), !noalias !60
   %184 = call noundef nonnull align 4 dereferenceable(36) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fmLEd(ptr noundef nonnull align 4 dereferenceable(36) %5, double noundef %183), !noalias !60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(36) %184, i64 36, i1 false), !noalias !57
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %13, ptr noundef nonnull align 4 dereferenceable(36) %184, i64 36, i1 false)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5), !noalias !57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %13, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.0.i, i64 36, i1 false)
   %185 = call noundef nonnull align 4 dereferenceable(36) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fpLERKS0_(ptr noundef nonnull align 4 dereferenceable(36) %13, ptr noundef nonnull align 4 dereferenceable(36) %14)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8)
   %186 = call noundef nonnull align 4 dereferenceable(36) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fpLERKS0_(ptr noundef nonnull align 4 dereferenceable(36) %12, ptr noundef nonnull align 4 dereferenceable(36) %13)

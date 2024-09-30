@@ -2438,7 +2438,7 @@ _ZN2cv4Mat_INS_3VecIfLi9EEEE6createEii.exit:      ; preds = %122
           to label %.preheader.preheader unwind label %143
 
 .preheader.preheader:                             ; preds = %137
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.063, ptr noundef nonnull align 4 dereferenceable(36) %19, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.063, ptr noundef nonnull align 4 dereferenceable(36) %19, i64 36, i1 false)
   %139 = getelementptr inbounds i8, ptr %.063, i64 36
   %140 = getelementptr inbounds i8, ptr %.12762, i64 36
   %.not36 = icmp eq ptr %140, %82
@@ -3699,7 +3699,7 @@ _ZN2cv4Mat_INS_3VecIdLi9EEEE6createEii.exit:      ; preds = %121
           to label %.preheader.preheader unwind label %142
 
 .preheader.preheader:                             ; preds = %136
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.063, ptr noundef nonnull align 8 dereferenceable(72) %19, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.063, ptr noundef nonnull align 8 dereferenceable(72) %19, i64 72, i1 false)
   %138 = getelementptr inbounds i8, ptr %.063, i64 72
   %139 = getelementptr inbounds i8, ptr %.11862, i64 72
   %.not36 = icmp eq ptr %139, %82
@@ -12618,11 +12618,11 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #18
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #16
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

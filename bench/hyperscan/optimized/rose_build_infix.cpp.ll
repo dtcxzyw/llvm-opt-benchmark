@@ -4781,10 +4781,8 @@ unreachable:                                      ; preds = %lpad.body
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK5boost5graph6detail23depth_first_search_implIN3ue28NGHolderEEclINS_9parameter3aux8arg_listINS8_15tagged_argumentINS0_8keywords3tag7visitorEKNS_6detail18tarjan_scc_visitorINS_24associative_property_mapISt3mapINS3_12graph_detail17vertex_descriptorINS3_9ue2_graphIS4_NS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEEmSt4lessISO_ESaISt4pairIKSO_mEEEEENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEENSN_8prop_mapIRKmSL_EESO_RSO_EENSX_INSZ_IPmS11_ImSaImEEEES18_mRmEESt5stackISO_St5dequeISO_S12_EEEEEENS8_14empty_arg_listESt17integral_constantIbLb1EEEEEEvRKS4_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(8) %arg_pack) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
-  %agg.tmp = alloca %"class.boost::detail::tarjan_scc_visitor", align 8
   %agg.tmp5 = alloca %"class.boost::shared_array_property_map", align 8
   %0 = load ptr, ptr %arg_pack, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 72, i1 false)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 8
   %1 = load i64, ptr %add.ptr.i.i.i.i, align 8, !noalias !222
   tail call void @llvm.experimental.noalias.scope.decl(metadata !229)
@@ -4853,7 +4851,7 @@ invoke.cont13:                                    ; preds = %cond.false.i.i.i, %
   %call1.pn.i.i.i = phi { ptr, i64 } [ %.fca.1.insert.i.i.i.i.i.i, %cond.false.i.i.i ], [ zeroinitializer, %_ZN5boost30make_shared_array_property_mapINS_18default_color_typeEN3ue29ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS5_EEEENS_25shared_array_property_mapIT_T0_EEmRKSD_RKSE_.exit ]
   %12 = extractvalue { ptr, i64 } %call1.pn.i.i.i, 0
   %13 = extractvalue { ptr, i64 } %call1.pn.i.i.i, 1
-  invoke void @_ZN5boost18depth_first_searchIN3ue28NGHolderENS_6detail18tarjan_scc_visitorINS_24associative_property_mapISt3mapINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphIS2_NS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEmSt4lessISD_ESaISt4pairIKSD_mEEEEENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEENSC_8prop_mapIRKmSA_EESD_RSD_EENSM_INSO_IPmSQ_ImSaImEEEESX_mRmEESt5stackISD_St5dequeISD_SR_EEEENS_25shared_array_property_mapINS_18default_color_typeESX_EEEEvRKT_T0_T1_NS_12graph_traitsIS1E_E17vertex_descriptorE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull byval(%"class.boost::detail::tarjan_scc_visitor") align 8 %agg.tmp, ptr noundef nonnull %agg.tmp5, ptr %12, i64 %13)
+  invoke void @_ZN5boost18depth_first_searchIN3ue28NGHolderENS_6detail18tarjan_scc_visitorINS_24associative_property_mapISt3mapINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphIS2_NS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEmSt4lessISD_ESaISt4pairIKSD_mEEEEENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEENSC_8prop_mapIRKmSA_EESD_RSD_EENSM_INSO_IPmSQ_ImSaImEEEESX_mRmEESt5stackISD_St5dequeISD_SR_EEEENS_25shared_array_property_mapINS_18default_color_typeESX_EEEEvRKT_T0_T1_NS_12graph_traitsIS1E_E17vertex_descriptorE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull byval(%"class.boost::detail::tarjan_scc_visitor") align 8 %0, ptr noundef nonnull %agg.tmp5, ptr %12, i64 %13)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont13

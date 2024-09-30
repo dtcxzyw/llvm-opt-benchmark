@@ -2169,7 +2169,6 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", align 8
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", align 8
-  %.sroa.213 = alloca [3 x double], align 8
   %10 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
@@ -2197,7 +2196,9 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
   %19 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatd9NormalizeEd(ptr noundef nonnull align 8 dereferenceable(32) %7, double noundef 1.000000e-10), !noalias !113
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !113
   %20 = load double, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.213, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  %.sroa.213.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.213.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -2230,10 +2231,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store double %20, ptr %3, align 8, !noalias !130
-  %.sroa.213.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.213.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.213, i64 24, i1 false), !noalias !130
   %32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__12GfQuaternionmLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %10), !noalias !130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)

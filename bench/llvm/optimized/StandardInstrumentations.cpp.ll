@@ -38841,27 +38841,23 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbjRKN4llvm9FuncD
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt17_Function_handlerIFvbjRKN4llvm9FuncDataTINS0_6DCDataEEES5_EZNS0_20DotCfgChangeReporter11handleAfterENS0_9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_7IRDataTIS2_EESJ_NS0_3AnyEE3$_0E9_M_invokeERKSt9_Any_dataObOjS5_S5_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %4) #0 align 2 {
   %6 = alloca %"class.llvm::StringRef", align 8
-  %7 = alloca %"class.llvm::StringRef", align 8
   %.val = load ptr, ptr %0, align 8
   %.val5 = load i8, ptr %1, align 1
   %.val6 = load i32, ptr %2, align 4
-  %8 = trunc i8 %.val5 to i1
+  %7 = trunc i8 %.val5 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %9 = load ptr, ptr %.val, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #25
-  %13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #25
-  %14 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %15 = load ptr, ptr %14, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
-  store ptr @.str.51, ptr %7, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 4, ptr %16, align 8
-  tail call void @_ZN4llvm20DotCfgChangeReporter21handleFunctionCompareENS_9StringRefES1_S1_S1_bjRKNS_9FuncDataTINS_6DCDataEEES6_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr %12, i64 %13, ptr nonnull @.str.281, i64 6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, i1 noundef zeroext %8, i32 noundef %.val6, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %4)
+  %8 = load ptr, ptr %.val, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
+  %12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %14 = load ptr, ptr %13, align 8
+  store ptr @.str.51, ptr %6, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 4, ptr %15, align 8
+  tail call void @_ZN4llvm20DotCfgChangeReporter21handleFunctionCompareENS_9StringRefES1_S1_S1_bjRKNS_9FuncDataTINS_6DCDataEEES6_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr %11, i64 %12, ptr nonnull @.str.281, i64 6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %14, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, i1 noundef zeroext %7, i32 noundef %.val6, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   ret void
 }
 
