@@ -8959,7 +8959,7 @@ gromacs/pairlistset.cpp.ll 305559262
 gromacs/pairlistwork.cpp.ll 193410327
 gromacs/pairs.cpp.ll 823975149
 gromacs/pairsearch.cpp.ll 322615106
-gromacs/parallel_3dfft.cpp.ll 94466030
+gromacs/parallel_3dfft.cpp.ll 94371458
 gromacs/params.cpp.ll 2463185803
 gromacs/pargs.cpp.ll 1552456341
 gromacs/parrinellorahmanbarostat.cpp.ll 2049036787
@@ -10326,7 +10326,7 @@ hermes/hvm.cpp.ll 1497363501
 hermes/interp-dispatch-bench.cpp.ll 2705379652
 hermes/jsi.cpp.ll 677377718
 hermes/not.cpp.ll 205058261
-hermes/raw_os_ostream.cpp.ll 48267937
+hermes/raw_os_ostream.cpp.ll 48219575
 hermes/raw_ostream.cpp.ll 790960217
 hermes/regcomp.c.ll 1377490729
 hermes/regerror.c.ll 56603236
@@ -10383,7 +10383,7 @@ html5ever-rs/6qwbbyxelav3qgo.ll 230415750
 html5ever-rs/dg2cb04337sswh6.ll 128551433
 html5ever-rs/iuandvk122jw87c.ll 93100943
 html5ever-rs/nl96z7gxt9bz3gf.ll 170549001
-html5ever-rs/scjfsdpdca697ba.ll 67233833
+html5ever-rs/scjfsdpdca697ba.ll 67166248
 html5ever-rs/xk8nwqurfealy2n.ll 49650736
 hwloc/base64.ll 104488362
 hwloc/bind.ll 324799808
