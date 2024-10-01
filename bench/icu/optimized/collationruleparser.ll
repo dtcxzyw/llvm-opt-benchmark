@@ -4768,9 +4768,8 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %while.body
   %idxprom.i.i = sext i32 %i.addr.0189 to i64
   %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %idxprom.i.i
   %12 = load i16, ptr %arrayidx.i.i, align 2
-  %conv = zext i16 %12 to i32
-  %13 = add nsw i32 %conv, -33
-  %or.cond.i = icmp ult i32 %13, 94
+  %13 = add i16 %12, -33
+  %or.cond.i = icmp ult i16 %13, 94
   br i1 %or.cond.i, label %land.rhs.i, label %if.else62
 
 land.rhs.i:                                       ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
@@ -4946,7 +4945,7 @@ if.end54:                                         ; preds = %if.then49
 
 if.else62:                                        ; preds = %while.body, %_ZNK6icu_7513UnicodeString6charAtEi.exit, %_ZN6icu_7519CollationRuleParser12isSyntaxCharEi.exit
   %retval.0.i.i146153 = phi i16 [ %12, %_ZN6icu_7519CollationRuleParser12isSyntaxCharEi.exit ], [ %12, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ -1, %while.body ]
-  %conv147152 = phi i32 [ %conv, %_ZN6icu_7519CollationRuleParser12isSyntaxCharEi.exit ], [ %conv, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ 65535, %while.body ]
+  %conv147152 = zext i16 %retval.0.i.i146153 to i32
   %call63 = call noundef signext i8 @_ZN6icu_7512PatternProps12isWhiteSpaceEi(i32 noundef %conv147152)
   %tobool64.not = icmp eq i8 %call63, 0
   br i1 %tobool64.not, label %if.else67, label %while.end.loopexit
@@ -5191,9 +5190,8 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %if.end
   %idxprom.i.i = sext i32 %i.addr.0106 to i64
   %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %idxprom.i.i
   %25 = load i16, ptr %arrayidx.i.i, align 2
-  %conv = zext i16 %25 to i32
-  %26 = add nsw i32 %conv, -33
-  %or.cond.i = icmp ult i32 %26, 94
+  %26 = add i16 %25, -33
+  %or.cond.i = icmp ult i16 %26, 94
   br i1 %or.cond.i, label %land.rhs.i21, label %if.end23
 
 land.rhs.i21:                                     ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
@@ -5294,7 +5292,7 @@ lpad:                                             ; preds = %if.end16
 
 if.end23:                                         ; preds = %switch.early.test, %switch.early.test.i, %lor.rhs.i, %if.end, %_ZNK6icu_7513UnicodeString6charAtEi.exit
   %retval.0.i.i8598 = phi i16 [ %25, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ -1, %if.end ], [ %25, %lor.rhs.i ], [ 45, %switch.early.test ], [ %25, %switch.early.test.i ]
-  %conv8797 = phi i32 [ %conv, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ 65535, %if.end ], [ %conv, %lor.rhs.i ], [ 45, %switch.early.test ], [ 95, %switch.early.test.i ]
+  %conv8797 = zext i16 %retval.0.i.i8598 to i32
   %call25 = call noundef signext i8 @_ZN6icu_7512PatternProps12isWhiteSpaceEi(i32 noundef %conv8797)
   %tobool26.not = icmp eq i8 %call25, 0
   %inc = add nsw i32 %i.addr.0106, 1

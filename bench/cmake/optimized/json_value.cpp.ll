@@ -3925,30 +3925,29 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value15isConvertibleToENS_9ValueT
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  switch i32 %1, label %.thread14 [
+  switch i32 %1, label %.thread11 [
     i32 0, label %6
     i32 1, label %37
     i32 2, label %58
     i32 3, label %79
-    i32 5, label %83
-    i32 4, label %87
-    i32 6, label %91
-    i32 7, label %97
+    i32 5, label %87
+    i32 4, label %95
+    i32 6, label %102
+    i32 7, label %108
   ]
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i16, ptr %7, align 8
   %9 = and i16 %8, 255
-  %10 = zext nneg i16 %9 to i32
-  %.off.i.i = add nsw i32 %10, -1
-  %switch.i.i = icmp ult i32 %.off.i.i, 3
+  %10 = add nsw i16 %9, -1
+  %switch.i.i = icmp ult i16 %10, 3
   br i1 %switch.i.i, label %11, label %14
 
 11:                                               ; preds = %6
   %12 = tail call noundef double @_ZNK4Json5Value8asDoubleEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %13 = fcmp oeq double %12, 0.000000e+00
-  br i1 %13, label %.thread14, label %._crit_edge
+  br i1 %13, label %.thread11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11
   %.pre = load i16, ptr %7, align 8
@@ -3956,8 +3955,8 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value15isConvertibleToENS_9ValueT
 
 14:                                               ; preds = %._crit_edge, %6
   %15 = phi i16 [ %.pre, %._crit_edge ], [ %8, %6 ]
-  %trunc32 = trunc i16 %15 to i8
-  switch i8 %trunc32, label %.thread [
+  %trunc24 = trunc i16 %15 to i8
+  switch i8 %trunc24, label %.thread [
     i8 5, label %16
     i8 4, label %19
   ]
@@ -3965,23 +3964,23 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value15isConvertibleToENS_9ValueT
 16:                                               ; preds = %14
   %17 = load i8, ptr %0, align 8
   %18 = trunc i8 %17 to i1
-  br i1 %18, label %.thread, label %.thread14
+  br i1 %18, label %.thread, label %.thread11
 
 19:                                               ; preds = %14
   call void @_ZNK4Json5Value8asStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %0)
   %20 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #37
-  br i1 %20, label %.thread16, label %..thread_crit_edge
+  br i1 %20, label %.thread13, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %19
-  %.pre34 = load i16, ptr %7, align 8
+  %.pre26 = load i16, ptr %7, align 8
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %14, %16
-  %21 = phi i16 [ %.pre34, %..thread_crit_edge ], [ %15, %16 ], [ %15, %14 ]
+  %21 = phi i16 [ %.pre26, %..thread_crit_edge ], [ %15, %16 ], [ %15, %14 ]
   %22 = phi i1 [ true, %..thread_crit_edge ], [ false, %16 ], [ false, %14 ]
   %23 = and i16 %21, 255
-  %trunc33 = trunc i16 %21 to i8
-  switch i8 %trunc33, label %.thread13 [
+  %trunc25 = trunc i16 %21 to i8
+  switch i8 %trunc25, label %.thread10 [
     i8 6, label %24
     i8 7, label %29
   ]
@@ -3991,175 +3990,189 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value15isConvertibleToENS_9ValueT
   %26 = getelementptr inbounds i8, ptr %25, i64 40
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %35, label %.thread13
+  br i1 %28, label %35, label %.thread10
 
 29:                                               ; preds = %.thread
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load i64, ptr %31, align 8
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %35, label %.thread13
+  br i1 %33, label %35, label %.thread10
 
-.thread13:                                        ; preds = %.thread, %24, %29
+.thread10:                                        ; preds = %.thread, %24, %29
   %34 = icmp eq i16 %23, 0
-  br i1 %22, label %.thread16, label %.thread14
+  br i1 %22, label %.thread13, label %.thread11
 
 35:                                               ; preds = %29, %24
-  br i1 %22, label %.thread16, label %.thread14
+  br i1 %22, label %.thread13, label %.thread11
 
-.thread16:                                        ; preds = %19, %.thread13, %35
-  %36 = phi i1 [ true, %35 ], [ %34, %.thread13 ], [ true, %19 ]
+.thread13:                                        ; preds = %19, %.thread10, %35
+  %36 = phi i1 [ true, %35 ], [ %34, %.thread10 ], [ true, %19 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #37
-  br label %.thread14
+  br label %.thread11
 
 37:                                               ; preds = %2
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   %39 = load i16, ptr %38, align 8
   %trunc.i = trunc i16 %39 to i8
-  switch i8 %trunc.i, label %.thread19 [
+  switch i8 %trunc.i, label %.thread16 [
     i8 1, label %40
     i8 2, label %43
     i8 3, label %46
-    i8 5, label %.thread14
+    i8 5, label %.thread11
   ]
 
 40:                                               ; preds = %37
   %41 = load i64, ptr %0, align 8
   %42 = add i64 %41, 2147483648
   %spec.select.i = icmp ult i64 %42, 4294967296
-  br i1 %spec.select.i, label %.thread14, label %.thread19
+  br i1 %spec.select.i, label %.thread11, label %.thread16
 
 43:                                               ; preds = %37
   %44 = load i64, ptr %0, align 8
   %45 = icmp ult i64 %44, 2147483648
-  br i1 %45, label %.thread14, label %.thread19
+  br i1 %45, label %.thread11, label %.thread16
 
 46:                                               ; preds = %37
   %47 = load double, ptr %0, align 8
   %48 = fcmp ult double %47, 0xC1E0000000000000
   %49 = fcmp ugt double %47, 0x41DFFFFFFFC00000
   %or.cond.i = or i1 %48, %49
-  br i1 %or.cond.i, label %_ZNK4Json5Value5isIntEv.exit.thread.thread36, label %_ZNK4Json5Value5isIntEv.exit
+  br i1 %or.cond.i, label %_ZNK4Json5Value5isIntEv.exit.thread.thread28, label %_ZNK4Json5Value5isIntEv.exit
 
 _ZNK4Json5Value5isIntEv.exit:                     ; preds = %46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %50 = call double @modf(double noundef %47, ptr noundef nonnull %4) #37
   %51 = fcmp oeq double %50, 0.000000e+00
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br i1 %51, label %.thread14, label %_ZNK4Json5Value5isIntEv.exit.thread.thread36
+  br i1 %51, label %.thread11, label %_ZNK4Json5Value5isIntEv.exit.thread.thread28
 
-_ZNK4Json5Value5isIntEv.exit.thread.thread36:     ; preds = %46, %_ZNK4Json5Value5isIntEv.exit
+_ZNK4Json5Value5isIntEv.exit.thread.thread28:     ; preds = %46, %_ZNK4Json5Value5isIntEv.exit
   %52 = load double, ptr %0, align 8
   %53 = fcmp oge double %52, 0xC1E0000000000000
   %54 = fcmp ole double %52, 0x41DFFFFFFFC00000
   %55 = and i1 %53, %54
-  br i1 %55, label %.thread14, label %.thread19
+  br i1 %55, label %.thread11, label %.thread16
 
-.thread19:                                        ; preds = %37, %43, %40, %_ZNK4Json5Value5isIntEv.exit.thread.thread36
+.thread16:                                        ; preds = %37, %43, %40, %_ZNK4Json5Value5isIntEv.exit.thread.thread28
   %56 = and i16 %39, 255
   %57 = icmp eq i16 %56, 0
-  br label %.thread14
+  br label %.thread11
 
 58:                                               ; preds = %2
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   %60 = load i16, ptr %59, align 8
   %trunc.i4 = trunc i16 %60 to i8
-  switch i8 %trunc.i4, label %.thread21 [
+  switch i8 %trunc.i4, label %.thread18 [
     i8 1, label %61
     i8 2, label %64
     i8 3, label %67
-    i8 5, label %.thread14
+    i8 5, label %.thread11
   ]
 
 61:                                               ; preds = %58
   %62 = load i64, ptr %0, align 8
   %63 = icmp ult i64 %62, 4294967296
-  br i1 %63, label %.thread14, label %.thread21
+  br i1 %63, label %.thread11, label %.thread18
 
 64:                                               ; preds = %58
   %65 = load i64, ptr %0, align 8
   %66 = icmp ult i64 %65, 4294967296
-  br i1 %66, label %.thread14, label %.thread21
+  br i1 %66, label %.thread11, label %.thread18
 
 67:                                               ; preds = %58
   %68 = load double, ptr %0, align 8
   %69 = fcmp ult double %68, 0.000000e+00
   %70 = fcmp ugt double %68, 0x41EFFFFFFFE00000
   %or.cond.i5 = or i1 %69, %70
-  br i1 %or.cond.i5, label %_ZNK4Json5Value6isUIntEv.exit.thread.thread38, label %_ZNK4Json5Value6isUIntEv.exit
+  br i1 %or.cond.i5, label %_ZNK4Json5Value6isUIntEv.exit.thread.thread30, label %_ZNK4Json5Value6isUIntEv.exit
 
 _ZNK4Json5Value6isUIntEv.exit:                    ; preds = %67
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %71 = call double @modf(double noundef %68, ptr noundef nonnull %3) #37
   %72 = fcmp oeq double %71, 0.000000e+00
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br i1 %72, label %.thread14, label %_ZNK4Json5Value6isUIntEv.exit.thread.thread38
+  br i1 %72, label %.thread11, label %_ZNK4Json5Value6isUIntEv.exit.thread.thread30
 
-_ZNK4Json5Value6isUIntEv.exit.thread.thread38:    ; preds = %67, %_ZNK4Json5Value6isUIntEv.exit
+_ZNK4Json5Value6isUIntEv.exit.thread.thread30:    ; preds = %67, %_ZNK4Json5Value6isUIntEv.exit
   %73 = load double, ptr %0, align 8
   %74 = fcmp oge double %73, 0.000000e+00
   %75 = fcmp ole double %73, 0x41EFFFFFFFE00000
   %76 = and i1 %74, %75
-  br i1 %76, label %.thread14, label %.thread21
+  br i1 %76, label %.thread11, label %.thread18
 
-.thread21:                                        ; preds = %58, %64, %61, %_ZNK4Json5Value6isUIntEv.exit.thread.thread38
+.thread18:                                        ; preds = %58, %64, %61, %_ZNK4Json5Value6isUIntEv.exit.thread.thread30
   %77 = and i16 %60, 255
   %78 = icmp eq i16 %77, 0
-  br label %.thread14
+  br label %.thread11
 
 79:                                               ; preds = %2
   %80 = getelementptr inbounds i8, ptr %0, i64 8
   %81 = load i16, ptr %80, align 8
-  %trunc29 = trunc i16 %81 to i8
-  %82 = icmp ult i8 %trunc29, 6
-  br i1 %82, label %switch.lookup, label %.thread14
+  %82 = and i16 %81, 255
+  %83 = add nsw i16 %82, -1
+  %switch.i.i7 = icmp ult i16 %83, 3
+  br i1 %switch.i.i7, label %.thread11, label %84
 
-83:                                               ; preds = %2
-  %84 = getelementptr inbounds i8, ptr %0, i64 8
-  %85 = load i16, ptr %84, align 8
-  %trunc = trunc i16 %85 to i8
-  %86 = icmp ult i8 %trunc, 6
-  br i1 %86, label %switch.lookup40, label %.thread14
+84:                                               ; preds = %79
+  %85 = icmp eq i16 %82, 5
+  %86 = icmp eq i16 %82, 0
+  %spec.select = or i1 %85, %86
+  br label %.thread11
 
 87:                                               ; preds = %2
   %88 = getelementptr inbounds i8, ptr %0, i64 8
   %89 = load i16, ptr %88, align 8
-  %90 = and i16 %89, 254
-  %switch = icmp ult i16 %90, 6
-  br label %.thread14
+  %90 = and i16 %89, 255
+  %91 = add nsw i16 %90, -1
+  %switch.i.i8 = icmp ult i16 %91, 3
+  br i1 %switch.i.i8, label %.thread11, label %92
 
-91:                                               ; preds = %2
-  %92 = getelementptr inbounds i8, ptr %0, i64 8
-  %93 = load i16, ptr %92, align 8
-  %94 = and i16 %93, 255
-  %95 = icmp eq i16 %94, 6
-  %96 = icmp eq i16 %94, 0
-  %spec.select = or i1 %95, %96
-  br label %.thread14
+92:                                               ; preds = %87
+  %93 = icmp eq i16 %90, 5
+  %94 = icmp eq i16 %90, 0
+  %spec.select19 = or i1 %93, %94
+  br label %.thread11
 
-97:                                               ; preds = %2
-  %98 = getelementptr inbounds i8, ptr %0, i64 8
-  %99 = load i16, ptr %98, align 8
-  %100 = and i16 %99, 255
-  %101 = icmp eq i16 %100, 7
-  %102 = icmp eq i16 %100, 0
-  %spec.select25 = or i1 %101, %102
-  br label %.thread14
+95:                                               ; preds = %2
+  %96 = getelementptr inbounds i8, ptr %0, i64 8
+  %97 = load i16, ptr %96, align 8
+  %98 = and i16 %97, 255
+  %99 = add nsw i16 %98, -1
+  %switch.i.i9 = icmp ult i16 %99, 3
+  br i1 %switch.i.i9, label %.thread11, label %100
 
-switch.lookup:                                    ; preds = %79
-  %switch.cast = trunc i16 %81 to i6
-  %switch.downshift = lshr i6 -17, %switch.cast
+100:                                              ; preds = %95
+  %trunc = trunc i16 %97 to i8
+  %101 = icmp ult i8 %trunc, 6
+  br i1 %101, label %switch.lookup, label %.thread11
+
+102:                                              ; preds = %2
+  %103 = getelementptr inbounds i8, ptr %0, i64 8
+  %104 = load i16, ptr %103, align 8
+  %105 = and i16 %104, 255
+  %106 = icmp eq i16 %105, 6
+  %107 = icmp eq i16 %105, 0
+  %spec.select20 = or i1 %106, %107
+  br label %.thread11
+
+108:                                              ; preds = %2
+  %109 = getelementptr inbounds i8, ptr %0, i64 8
+  %110 = load i16, ptr %109, align 8
+  %111 = and i16 %110, 255
+  %112 = icmp eq i16 %111, 7
+  %113 = icmp eq i16 %111, 0
+  %spec.select21 = or i1 %112, %113
+  br label %.thread11
+
+switch.lookup:                                    ; preds = %100
+  %switch.cast = trunc i16 %97 to i6
+  %switch.downshift = lshr i6 -15, %switch.cast
   %switch.masked = trunc i6 %switch.downshift to i1
-  br label %.thread14
+  br label %.thread11
 
-switch.lookup40:                                  ; preds = %83
-  %switch.cast41 = trunc i16 %85 to i6
-  %switch.downshift43 = lshr i6 -17, %switch.cast41
-  %switch.masked44 = trunc i6 %switch.downshift43 to i1
-  br label %.thread14
-
-.thread14:                                        ; preds = %83, %switch.lookup40, %79, %switch.lookup, %58, %37, %87, %97, %91, %16, %11, %61, %64, %40, %43, %.thread13, %2, %_ZNK4Json5Value6isUIntEv.exit, %_ZNK4Json5Value6isUIntEv.exit.thread.thread38, %.thread21, %_ZNK4Json5Value5isIntEv.exit, %_ZNK4Json5Value5isIntEv.exit.thread.thread36, %.thread19, %35, %.thread16
-  %.03 = phi i1 [ %36, %.thread16 ], [ true, %35 ], [ true, %_ZNK4Json5Value5isIntEv.exit.thread.thread36 ], [ true, %_ZNK4Json5Value5isIntEv.exit ], [ %57, %.thread19 ], [ true, %_ZNK4Json5Value6isUIntEv.exit.thread.thread38 ], [ true, %_ZNK4Json5Value6isUIntEv.exit ], [ %78, %.thread21 ], [ false, %2 ], [ %34, %.thread13 ], [ true, %43 ], [ true, %40 ], [ true, %64 ], [ true, %61 ], [ true, %11 ], [ true, %16 ], [ %spec.select, %91 ], [ %spec.select25, %97 ], [ %switch, %87 ], [ true, %37 ], [ true, %58 ], [ %switch.masked, %switch.lookup ], [ false, %79 ], [ %switch.masked44, %switch.lookup40 ], [ false, %83 ]
+.thread11:                                        ; preds = %100, %switch.lookup, %58, %37, %108, %102, %92, %84, %16, %11, %61, %64, %40, %43, %.thread10, %2, %95, %87, %79, %_ZNK4Json5Value6isUIntEv.exit, %_ZNK4Json5Value6isUIntEv.exit.thread.thread30, %.thread18, %_ZNK4Json5Value5isIntEv.exit, %_ZNK4Json5Value5isIntEv.exit.thread.thread28, %.thread16, %35, %.thread13
+  %.03 = phi i1 [ %36, %.thread13 ], [ true, %35 ], [ true, %_ZNK4Json5Value5isIntEv.exit.thread.thread28 ], [ true, %_ZNK4Json5Value5isIntEv.exit ], [ %57, %.thread16 ], [ true, %_ZNK4Json5Value6isUIntEv.exit.thread.thread30 ], [ true, %_ZNK4Json5Value6isUIntEv.exit ], [ %78, %.thread18 ], [ true, %79 ], [ true, %87 ], [ true, %95 ], [ false, %2 ], [ %34, %.thread10 ], [ true, %43 ], [ true, %40 ], [ true, %64 ], [ true, %61 ], [ true, %11 ], [ true, %16 ], [ %spec.select, %84 ], [ %spec.select19, %92 ], [ %spec.select20, %102 ], [ %spec.select21, %108 ], [ true, %37 ], [ true, %58 ], [ %switch.masked, %switch.lookup ], [ false, %100 ]
   ret i1 %.03
 }
 
@@ -4168,9 +4181,8 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value9isNumericEv(ptr nocapture n
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 255
-  %5 = zext nneg i16 %4 to i32
-  %.off.i = add nsw i32 %5, -1
-  %switch.i = icmp ult i32 %.off.i, 3
+  %5 = add nsw i16 %4, -1
+  %switch.i = icmp ult i16 %5, 3
   ret i1 %switch.i
 }
 
@@ -7672,9 +7684,8 @@ switch.edge:
   %1 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i16, ptr %1, align 8
   %3 = and i16 %2, 255
-  %4 = zext nneg i16 %3 to i32
-  %.off = add nsw i32 %4, -1
-  %switch = icmp ult i32 %.off, 3
+  %4 = add nsw i16 %3, -1
+  %switch = icmp ult i16 %4, 3
   ret i1 %switch
 }
 

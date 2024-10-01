@@ -697,8 +697,8 @@ define internal i32 @try_eprt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8
 9:                                                ; preds = %5
   %10 = load i8, ptr %0, align 1
   %11 = zext i8 %10 to i32
-  %12 = add nsw i32 %11, -48
-  %13 = icmp ult i32 %12, 10
+  %12 = add i8 %10, -48
+  %13 = icmp ult i8 %12, 10
   %14 = add i8 %10, -127
   %15 = icmp ult i8 %14, -94
   %16 = or i1 %15, %13
@@ -1014,67 +1014,66 @@ define internal i32 @try_epsv_response(ptr nocapture noundef readonly %0, i64 no
 
 7:                                                ; preds = %5
   %8 = load i8, ptr %0, align 1
-  %9 = zext i8 %8 to i32
-  %10 = add nsw i32 %9, -48
-  %11 = icmp ult i32 %10, 10
-  %12 = add i8 %8, -127
-  %13 = icmp ult i8 %12, -94
-  %14 = or i1 %13, %11
-  br i1 %14, label %.loopexit, label %15
+  %9 = add i8 %8, -48
+  %10 = icmp ult i8 %9, 10
+  %11 = add i8 %8, -127
+  %12 = icmp ult i8 %11, -94
+  %13 = or i1 %12, %10
+  br i1 %13, label %.loopexit, label %14
 
-15:                                               ; preds = %7
-  %16 = getelementptr i8, ptr %0, i64 1
-  %17 = load i8, ptr %16, align 1
-  %18 = icmp eq i8 %17, %8
-  br i1 %18, label %19, label %.loopexit
+14:                                               ; preds = %7
+  %15 = getelementptr i8, ptr %0, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = icmp eq i8 %16, %8
+  br i1 %17, label %18, label %.loopexit
 
-19:                                               ; preds = %15
-  %20 = getelementptr i8, ptr %0, i64 2
-  %21 = load i8, ptr %20, align 1
-  %22 = icmp eq i8 %21, %8
-  br i1 %22, label %23, label %.loopexit
+18:                                               ; preds = %14
+  %19 = getelementptr i8, ptr %0, i64 2
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %20, %8
+  br i1 %21, label %22, label %.loopexit
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %2, i64 16
-  br label %25
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %2, i64 16
+  br label %24
 
-25:                                               ; preds = %41, %23
-  %26 = phi i64 [ %46, %41 ], [ 3, %23 ]
-  %27 = phi i16 [ %44, %41 ], [ 0, %23 ]
-  %28 = phi i32 [ %45, %41 ], [ 3, %23 ]
-  %29 = getelementptr i8, ptr %0, i64 %26
-  %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i16
-  %32 = icmp eq i8 %30, %8
-  br i1 %32, label %33, label %38
+24:                                               ; preds = %40, %22
+  %25 = phi i64 [ %45, %40 ], [ 3, %22 ]
+  %26 = phi i16 [ %43, %40 ], [ 0, %22 ]
+  %27 = phi i32 [ %44, %40 ], [ 3, %22 ]
+  %28 = getelementptr i8, ptr %0, i64 %25
+  %29 = load i8, ptr %28, align 1
+  %30 = zext i8 %29 to i16
+  %31 = icmp eq i8 %29, %8
+  br i1 %31, label %32, label %37
 
-33:                                               ; preds = %25
-  %34 = icmp eq i16 %27, 0
-  br i1 %34, label %.loopexit, label %35
+32:                                               ; preds = %24
+  %33 = icmp eq i16 %26, 0
+  br i1 %33, label %.loopexit, label %34
 
-35:                                               ; preds = %33
-  %36 = tail call i16 @llvm.bswap.i16(i16 %27)
-  store i16 %36, ptr %24, align 2
-  %37 = add i32 %28, 1
+34:                                               ; preds = %32
+  %35 = tail call i16 @llvm.bswap.i16(i16 %26)
+  store i16 %35, ptr %23, align 2
+  %36 = add i32 %27, 1
   br label %.loopexit
 
-38:                                               ; preds = %25
-  %39 = add i8 %30, -48
-  %40 = icmp ult i8 %39, 10
-  br i1 %40, label %41, label %.loopexit
+37:                                               ; preds = %24
+  %38 = add i8 %29, -48
+  %39 = icmp ult i8 %38, 10
+  br i1 %39, label %40, label %.loopexit
 
-41:                                               ; preds = %38
-  %42 = mul i16 %27, 10
-  %43 = add i16 %42, -48
-  %44 = add i16 %43, %31
-  %45 = add i32 %28, 1
-  %46 = sext i32 %45 to i64
-  %47 = icmp ugt i64 %1, %46
-  br i1 %47, label %25, label %.loopexit, !llvm.loop !18
+40:                                               ; preds = %37
+  %41 = mul i16 %26, 10
+  %42 = add i16 %41, -48
+  %43 = add i16 %42, %30
+  %44 = add i32 %27, 1
+  %45 = sext i32 %44 to i64
+  %46 = icmp ugt i64 %1, %45
+  br i1 %46, label %24, label %.loopexit, !llvm.loop !18
 
-.loopexit:                                        ; preds = %41, %38, %35, %33, %19, %15, %7, %5
-  %48 = phi i32 [ 0, %5 ], [ 0, %19 ], [ 0, %15 ], [ 0, %7 ], [ %37, %35 ], [ 0, %33 ], [ 0, %38 ], [ 0, %41 ]
-  ret i32 %48
+.loopexit:                                        ; preds = %40, %37, %34, %32, %18, %14, %7, %5
+  %47 = phi i32 [ 0, %5 ], [ 0, %18 ], [ 0, %14 ], [ 0, %7 ], [ %36, %34 ], [ 0, %32 ], [ 0, %37 ], [ 0, %40 ]
+  ret i32 %47
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

@@ -3393,31 +3393,30 @@ if.then20:                                        ; preds = %if.end17
   %idxprom22 = zext nneg i32 %shr to i64
   %arrayidx23 = getelementptr inbounds [256 x i32], ptr %spill, i64 0, i64 %idxprom22
   %10 = and i8 %t.sroa.0.0.copyload.le52, 31
-  %and25 = zext nneg i8 %10 to i32
-  %sub = add nsw i32 %and25, -15
-  %cmp26 = icmp ult i32 %sub, 5
+  %11 = add nsw i8 %10, -15
+  %cmp26 = icmp ult i8 %11, 5
   br i1 %cmp26, label %if.then28, label %if.else29
 
 if.then28:                                        ; preds = %if.then20
-  %11 = load i32, ptr %arrayidx23, align 4
-  %conv.i120 = sitofp i32 %11 to double
+  %12 = load i32, ptr %arrayidx23, align 4
+  %conv.i120 = sitofp i32 %12 to double
   store double %conv.i120, ptr %o, align 8
   br label %if.end100
 
 if.else29:                                        ; preds = %if.then20
   %cmp33 = icmp eq i8 %10, 14
-  %12 = load i64, ptr %arrayidx23, align 8
+  %13 = load i64, ptr %arrayidx23, align 8
   br i1 %cmp33, label %if.then35, label %if.else36
 
 if.then35:                                        ; preds = %if.else29
-  store i64 %12, ptr %o, align 8
+  store i64 %13, ptr %o, align 8
   br label %if.end100
 
 if.else36:                                        ; preds = %if.else29
-  %not.i124 = xor i32 %and25, -1
-  %conv.i = zext i32 %not.i124 to i64
-  %shl.i = shl i64 %conv.i, 47
-  %or.i = or i64 %12, %shl.i
+  %14 = xor i8 %10, -1
+  %not.i124 = sext i8 %14 to i64
+  %shl.i = shl nsw i64 %not.i124, 47
+  %or.i = or i64 %13, %shl.i
   store i64 %or.i, ptr %o, align 8
   br label %if.end100
 
@@ -3426,50 +3425,49 @@ if.else44:                                        ; preds = %if.end17
   br i1 %tobool47.not, label %if.else50, label %if.then48
 
 if.then48:                                        ; preds = %if.else44
-  %13 = load i16, ptr %arrayidx64, align 8
-  %conv49 = zext i16 %13 to i32
-  %idxprom = zext i16 %13 to i64
+  %15 = load i16, ptr %arrayidx64, align 8
+  %conv49 = zext i16 %15 to i32
+  %idxprom = zext i16 %15 to i64
   %arrayidx = getelementptr inbounds %union.IRIns, ptr %0, i64 %idxprom
-  %cmp = icmp sgt i16 %13, -1
+  %cmp = icmp sgt i16 %15, -1
   br i1 %cmp, label %if.then, label %if.end10
 
 if.else50:                                        ; preds = %if.else44
   %t2.le55 = getelementptr inbounds i8, ptr %arrayidx64, i64 4
   %t.sroa.0.0.copyload.le = load i8, ptr %t2.le55, align 4
-  %14 = and i8 %t.sroa.0.0.copyload.le, 31
-  %and53 = zext nneg i8 %14 to i32
-  %sub54 = add nsw i32 %and53, -15
-  %cmp55 = icmp ult i32 %sub54, 5
+  %16 = and i8 %t.sroa.0.0.copyload.le, 31
+  %17 = add nsw i8 %16, -15
+  %cmp55 = icmp ult i8 %17, 5
   br i1 %cmp55, label %if.then57, label %if.else62
 
 if.then57:                                        ; preds = %if.else50
   %gpr = getelementptr inbounds i8, ptr %ex, i64 128
   %idxprom59 = zext nneg i32 %rs.0 to i64
   %arrayidx60 = getelementptr inbounds [16 x i64], ptr %gpr, i64 0, i64 %idxprom59
-  %15 = load i64, ptr %arrayidx60, align 8
-  %conv61 = trunc i64 %15 to i32
+  %18 = load i64, ptr %arrayidx60, align 8
+  %conv61 = trunc i64 %18 to i32
   %conv.i117 = sitofp i32 %conv61 to double
   store double %conv.i117, ptr %o, align 8
   br label %if.end100
 
 if.else62:                                        ; preds = %if.else50
-  %cmp66 = icmp eq i8 %14, 14
+  %cmp66 = icmp eq i8 %16, 14
   br i1 %cmp66, label %if.then68, label %if.else72
 
 if.then68:                                        ; preds = %if.else62
   %sub69 = add nsw i32 %rs.0, -16
   %idxprom70 = zext i32 %sub69 to i64
   %arrayidx71 = getelementptr inbounds [16 x double], ptr %ex, i64 0, i64 %idxprom70
-  %16 = load double, ptr %arrayidx71, align 8
-  store double %16, ptr %o, align 8
+  %19 = load double, ptr %arrayidx71, align 8
+  store double %19, ptr %o, align 8
   br label %if.end100
 
 if.else72:                                        ; preds = %if.else62
-  %cmp76 = icmp ult i8 %14, 3
+  %cmp76 = icmp ult i8 %16, 3
   br i1 %cmp76, label %if.then78, label %if.else86
 
 if.then78:                                        ; preds = %if.else72
-  %conv83 = zext nneg i8 %14 to i64
+  %conv83 = zext nneg i8 %16 to i64
   %shl84 = shl nuw nsw i64 %conv83, 47
   %not85 = xor i64 %shl84, -1
   store i64 %not85, ptr %o, align 8
@@ -3479,11 +3477,11 @@ if.else86:                                        ; preds = %if.else72
   %gpr88 = getelementptr inbounds i8, ptr %ex, i64 128
   %idxprom90 = zext nneg i32 %rs.0 to i64
   %arrayidx91 = getelementptr inbounds [16 x i64], ptr %gpr88, i64 0, i64 %idxprom90
-  %17 = load i64, ptr %arrayidx91, align 8
-  %not.i = xor i32 %and53, -1
-  %conv.i113 = zext i32 %not.i to i64
-  %shl.i114 = shl i64 %conv.i113, 47
-  %or.i115 = or i64 %17, %shl.i114
+  %20 = load i64, ptr %arrayidx91, align 8
+  %21 = xor i8 %16, -1
+  %not.i = sext i8 %21 to i64
+  %shl.i114 = shl nsw i64 %not.i, 47
+  %or.i115 = or i64 %20, %shl.i114
   store i64 %or.i115, ptr %o, align 8
   br label %if.end100
 

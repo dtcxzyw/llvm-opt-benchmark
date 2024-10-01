@@ -827,18 +827,17 @@ entry:
   %sub.i.i = add i64 %2, 11
   %3 = inttoptr i64 %sub.i.i to ptr
   %4 = load i16, ptr %3, align 2
-  %conv.i.i = zext i16 %4 to i32
   %cmp.i.i = icmp eq i16 %4, 1040
-  %sub.i30.i = add nsw i32 %conv.i.i, -1057
-  %cmp1.i.i = icmp ult i32 %sub.i30.i, 1002
-  %5 = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
-  br i1 %5, label %if.then.i.i, label %if.end.i.i
+  %5 = add i16 %4, -1057
+  %cmp1.i.i = icmp ult i16 %5, 1002
+  %6 = or i1 %cmp.i.i, %cmp1.i.i
+  br i1 %6, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %sub.i.i.i = add i64 %0, 31
-  %6 = inttoptr i64 %sub.i.i.i to ptr
-  %7 = load i64, ptr %6, align 8
-  %8 = inttoptr i64 %7 to ptr
+  %7 = inttoptr i64 %sub.i.i.i to ptr
+  %8 = load i64, ptr %7, align 8
+  %9 = inttoptr i64 %8 to ptr
   br label %_ZN4node7process11BindingData11FromV8ValueEN2v85LocalINS2_5ValueEEE.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -846,22 +845,22 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZN4node7process11BindingData11FromV8ValueEN2v85LocalINS2_5ValueEEE.exit
 
 _ZN4node7process11BindingData11FromV8ValueEN2v85LocalINS2_5ValueEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.i11.0.i = phi ptr [ %8, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.i11.0.i = phi ptr [ %9, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
   %call.i = tail call i64 @uv_hrtime() #24
   %div.i = udiv i64 %call.i, 1000000000
   %shr.i = lshr i64 %div.i, 32
   %conv.i = trunc nuw nsw i64 %shr.i to i32
   %buffer_.i.i.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 72
-  %9 = load ptr, ptr %buffer_.i.i.i, align 8
-  store i32 %conv.i, ptr %9, align 4
-  %conv5.i = trunc i64 %div.i to i32
   %10 = load ptr, ptr %buffer_.i.i.i, align 8
-  %arrayidx.i.i8.i = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 %conv.i, ptr %10, align 4
+  %conv5.i = trunc i64 %div.i to i32
+  %11 = load ptr, ptr %buffer_.i.i.i, align 8
+  %arrayidx.i.i8.i = getelementptr inbounds i8, ptr %11, i64 4
   store i32 %conv5.i, ptr %arrayidx.i.i8.i, align 4
   %rem.i = urem i64 %call.i, 1000000000
   %conv10.i = trunc nuw nsw i64 %rem.i to i32
-  %11 = load ptr, ptr %buffer_.i.i.i, align 8
-  %arrayidx.i.i12.i = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = load ptr, ptr %buffer_.i.i.i, align 8
+  %arrayidx.i.i12.i = getelementptr inbounds i8, ptr %12, i64 8
   store i32 %conv10.i, ptr %arrayidx.i.i12.i, align 4
   ret void
 }
@@ -876,18 +875,17 @@ entry:
   %sub.i.i = add i64 %2, 11
   %3 = inttoptr i64 %sub.i.i to ptr
   %4 = load i16, ptr %3, align 2
-  %conv.i.i = zext i16 %4 to i32
   %cmp.i.i = icmp eq i16 %4, 1040
-  %sub.i30.i = add nsw i32 %conv.i.i, -1057
-  %cmp1.i.i = icmp ult i32 %sub.i30.i, 1002
-  %5 = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
-  br i1 %5, label %if.then.i.i, label %if.end.i.i
+  %5 = add i16 %4, -1057
+  %cmp1.i.i = icmp ult i16 %5, 1002
+  %6 = or i1 %cmp.i.i, %cmp1.i.i
+  br i1 %6, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %sub.i.i.i = add i64 %0, 31
-  %6 = inttoptr i64 %sub.i.i.i to ptr
-  %7 = load i64, ptr %6, align 8
-  %8 = inttoptr i64 %7 to ptr
+  %7 = inttoptr i64 %sub.i.i.i to ptr
+  %8 = load i64, ptr %7, align 8
+  %9 = inttoptr i64 %8 to ptr
   br label %_ZN4node7process11BindingData11FromV8ValueEN2v85LocalINS2_5ValueEEE.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -895,11 +893,11 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZN4node7process11BindingData11FromV8ValueEN2v85LocalINS2_5ValueEEE.exit
 
 _ZN4node7process11BindingData11FromV8ValueEN2v85LocalINS2_5ValueEEE.exit: ; preds = %if.then.i.i, %if.end.i.i
-  %retval.i11.0.i = phi ptr [ %8, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
+  %retval.i11.0.i = phi ptr [ %9, %if.then.i.i ], [ %call7.i.i, %if.end.i.i ]
   %call.i = tail call i64 @uv_hrtime() #24
   %buffer_.i.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 72
-  %9 = load ptr, ptr %buffer_.i.i, align 8
-  store i64 %call.i, ptr %9, align 8
+  %10 = load ptr, ptr %buffer_.i.i, align 8
+  store i64 %call.i, ptr %10, align 8
   ret void
 }
 
@@ -924,18 +922,17 @@ entry:
   %sub.i.i.i = add i64 %3, 11
   %4 = inttoptr i64 %sub.i.i.i to ptr
   %5 = load i16, ptr %4, align 2
-  %conv.i.i.i = zext i16 %5 to i32
   %cmp.i.i.i = icmp eq i16 %5, 1040
-  %sub.i30.i.i = add nsw i32 %conv.i.i.i, -1057
-  %cmp1.i.i.i = icmp ult i32 %sub.i30.i.i, 1002
-  %6 = select i1 %cmp.i.i.i, i1 true, i1 %cmp1.i.i.i
-  br i1 %6, label %if.then.i.i.i, label %if.end.i.i.i
+  %6 = add i16 %5, -1057
+  %cmp1.i.i.i = icmp ult i16 %6, 1002
+  %7 = or i1 %cmp.i.i.i, %cmp1.i.i.i
+  br i1 %7, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %sub.i.i.i.i = add i64 %1, 31
-  %7 = inttoptr i64 %sub.i.i.i.i to ptr
-  %8 = load i64, ptr %7, align 8
-  %9 = inttoptr i64 %8 to ptr
+  %8 = inttoptr i64 %sub.i.i.i.i to ptr
+  %9 = load i64, ptr %8, align 8
+  %10 = inttoptr i64 %9 to ptr
   br label %_ZN4node10BaseObject12FromJSObjectINS_7process11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -943,22 +940,22 @@ if.end.i.i.i:                                     ; preds = %entry
   br label %_ZN4node10BaseObject12FromJSObjectINS_7process11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit
 
 _ZN4node10BaseObject12FromJSObjectINS_7process11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %retval.i11.0.i.i = phi ptr [ %9, %if.then.i.i.i ], [ %call7.i.i.i, %if.end.i.i.i ]
+  %retval.i11.0.i.i = phi ptr [ %10, %if.then.i.i.i ], [ %call7.i.i.i, %if.end.i.i.i ]
   %call.i = tail call i64 @uv_hrtime() #24
   %div.i = udiv i64 %call.i, 1000000000
   %shr.i = lshr i64 %div.i, 32
   %conv.i = trunc nuw nsw i64 %shr.i to i32
   %buffer_.i.i.i = getelementptr inbounds i8, ptr %retval.i11.0.i.i, i64 72
-  %10 = load ptr, ptr %buffer_.i.i.i, align 8
-  store i32 %conv.i, ptr %10, align 4
-  %conv5.i = trunc i64 %div.i to i32
   %11 = load ptr, ptr %buffer_.i.i.i, align 8
-  %arrayidx.i.i8.i = getelementptr inbounds i8, ptr %11, i64 4
+  store i32 %conv.i, ptr %11, align 4
+  %conv5.i = trunc i64 %div.i to i32
+  %12 = load ptr, ptr %buffer_.i.i.i, align 8
+  %arrayidx.i.i8.i = getelementptr inbounds i8, ptr %12, i64 4
   store i32 %conv5.i, ptr %arrayidx.i.i8.i, align 4
   %rem.i = urem i64 %call.i, 1000000000
   %conv10.i = trunc nuw nsw i64 %rem.i to i32
-  %12 = load ptr, ptr %buffer_.i.i.i, align 8
-  %arrayidx.i.i12.i = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load ptr, ptr %buffer_.i.i.i, align 8
+  %arrayidx.i.i12.i = getelementptr inbounds i8, ptr %13, i64 8
   store i32 %conv10.i, ptr %arrayidx.i.i12.i, align 4
   ret void
 }
@@ -974,18 +971,17 @@ entry:
   %sub.i.i.i = add i64 %3, 11
   %4 = inttoptr i64 %sub.i.i.i to ptr
   %5 = load i16, ptr %4, align 2
-  %conv.i.i.i = zext i16 %5 to i32
   %cmp.i.i.i = icmp eq i16 %5, 1040
-  %sub.i30.i.i = add nsw i32 %conv.i.i.i, -1057
-  %cmp1.i.i.i = icmp ult i32 %sub.i30.i.i, 1002
-  %6 = select i1 %cmp.i.i.i, i1 true, i1 %cmp1.i.i.i
-  br i1 %6, label %if.then.i.i.i, label %if.end.i.i.i
+  %6 = add i16 %5, -1057
+  %cmp1.i.i.i = icmp ult i16 %6, 1002
+  %7 = or i1 %cmp.i.i.i, %cmp1.i.i.i
+  br i1 %7, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %sub.i.i.i.i = add i64 %1, 31
-  %7 = inttoptr i64 %sub.i.i.i.i to ptr
-  %8 = load i64, ptr %7, align 8
-  %9 = inttoptr i64 %8 to ptr
+  %8 = inttoptr i64 %sub.i.i.i.i to ptr
+  %9 = load i64, ptr %8, align 8
+  %10 = inttoptr i64 %9 to ptr
   br label %_ZN4node10BaseObject12FromJSObjectINS_7process11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit
 
 if.end.i.i.i:                                     ; preds = %entry
@@ -993,11 +989,11 @@ if.end.i.i.i:                                     ; preds = %entry
   br label %_ZN4node10BaseObject12FromJSObjectINS_7process11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit
 
 _ZN4node10BaseObject12FromJSObjectINS_7process11BindingDataEEEPT_N2v85LocalINS6_5ValueEEE.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %retval.i11.0.i.i = phi ptr [ %9, %if.then.i.i.i ], [ %call7.i.i.i, %if.end.i.i.i ]
+  %retval.i11.0.i.i = phi ptr [ %10, %if.then.i.i.i ], [ %call7.i.i.i, %if.end.i.i.i ]
   %call.i = tail call i64 @uv_hrtime() #24
   %buffer_.i.i = getelementptr inbounds i8, ptr %retval.i11.0.i.i, i64 72
-  %10 = load ptr, ptr %buffer_.i.i, align 8
-  store i64 %call.i, ptr %10, align 8
+  %11 = load ptr, ptr %buffer_.i.i, align 8
+  store i64 %call.i, ptr %11, align 8
   ret void
 }
 
@@ -1437,18 +1433,17 @@ entry:
   %sub.i = add i64 %2, 11
   %3 = inttoptr i64 %sub.i to ptr
   %4 = load i16, ptr %3, align 2
-  %conv.i = zext i16 %4 to i32
   %cmp.i = icmp eq i16 %4, 1040
-  %sub.i30 = add nsw i32 %conv.i, -1057
-  %cmp1.i = icmp ult i32 %sub.i30, 1002
-  %5 = select i1 %cmp.i, i1 true, i1 %cmp1.i
-  br i1 %5, label %if.then.i, label %if.end.i
+  %5 = add i16 %4, -1057
+  %cmp1.i = icmp ult i16 %5, 1002
+  %6 = or i1 %cmp.i, %cmp1.i
+  br i1 %6, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
   %sub.i.i = add i64 %0, 31
-  %6 = inttoptr i64 %sub.i.i to ptr
-  %7 = load i64, ptr %6, align 8
-  %8 = inttoptr i64 %7 to ptr
+  %7 = inttoptr i64 %sub.i.i to ptr
+  %8 = load i64, ptr %7, align 8
+  %9 = inttoptr i64 %8 to ptr
   br label %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit
 
 if.end.i:                                         ; preds = %entry
@@ -1456,7 +1451,7 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit
 
 _ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit: ; preds = %if.end.i, %if.then.i
-  %retval.i11.0 = phi ptr [ %8, %if.then.i ], [ %call7.i, %if.end.i ]
+  %retval.i11.0 = phi ptr [ %9, %if.then.i ], [ %call7.i, %if.end.i ]
   ret ptr %retval.i11.0
 }
 

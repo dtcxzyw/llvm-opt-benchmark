@@ -3400,22 +3400,22 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 112:                                              ; preds = %102
   %113 = getelementptr inbounds i8, ptr %103, i64 36
   %114 = load i32, ptr %113, align 4
-  %115 = zext i32 %114 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !350)
-  %116 = add nsw i64 %115, -16384
-  %or.cond.i = icmp ult i64 %116, 16760832
-  br i1 %or.cond.i, label %"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17h5d2a78744bbbf556E.exit", label %117
+  %115 = add i32 %114, -16384
+  %or.cond.i = icmp ult i32 %115, 16760832
+  br i1 %or.cond.i, label %"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17h5d2a78744bbbf556E.exit", label %116
 
-117:                                              ; preds = %112
+116:                                              ; preds = %112
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.2b0c5bb9e4da75e92d1032ce1d5fad40.0, i64 noundef 94, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2b0c5bb9e4da75e92d1032ce1d5fad40.2) #21, !noalias !350
   unreachable
 
 "_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17h5d2a78744bbbf556E.exit": ; preds = %112
+  %117 = zext nneg i32 %114 to i64
   %118 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 %115, ptr %118, align 8, !alias.scope !350
+  store i64 %117, ptr %118, align 8, !alias.scope !350
   %119 = getelementptr inbounds i8, ptr %3, i64 880
   %120 = load i64, ptr %119, align 8, !alias.scope !350, !noundef !5
-  %121 = call noundef i64 @_ZN2h25codec11framed_read28calc_max_continuation_frames17he42539cefb454715E(i64 noundef %120, i64 noundef %115), !noalias !350
+  %121 = call noundef i64 @_ZN2h25codec11framed_read28calc_max_continuation_frames17he42539cefb454715E(i64 noundef %120, i64 noundef %117), !noalias !350
   %122 = getelementptr inbounds i8, ptr %3, i64 888
   store i64 %121, ptr %122, align 8, !alias.scope !350
   %.pre = load ptr, ptr %30, align 8
@@ -3943,22 +3943,22 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 112:                                              ; preds = %102
   %113 = getelementptr inbounds i8, ptr %103, i64 36
   %114 = load i32, ptr %113, align 4
-  %115 = zext i32 %114 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !377)
-  %116 = add nsw i64 %115, -16384
-  %or.cond.i = icmp ult i64 %116, 16760832
-  br i1 %or.cond.i, label %"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17hdf7ca79ddce309c3E.exit", label %117
+  %115 = add i32 %114, -16384
+  %or.cond.i = icmp ult i32 %115, 16760832
+  br i1 %or.cond.i, label %"_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17hdf7ca79ddce309c3E.exit", label %116
 
-117:                                              ; preds = %112
+116:                                              ; preds = %112
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.2b0c5bb9e4da75e92d1032ce1d5fad40.0, i64 noundef 94, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2b0c5bb9e4da75e92d1032ce1d5fad40.2) #21, !noalias !377
   unreachable
 
 "_ZN2h25codec11framed_read19FramedRead$LT$T$GT$18set_max_frame_size17hdf7ca79ddce309c3E.exit": ; preds = %112
+  %117 = zext nneg i32 %114 to i64
   %118 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 %115, ptr %118, align 8, !alias.scope !377
+  store i64 %117, ptr %118, align 8, !alias.scope !377
   %119 = getelementptr inbounds i8, ptr %3, i64 872
   %120 = load i64, ptr %119, align 8, !alias.scope !377, !noundef !5
-  %121 = call noundef i64 @_ZN2h25codec11framed_read28calc_max_continuation_frames17he42539cefb454715E(i64 noundef %120, i64 noundef %115), !noalias !377
+  %121 = call noundef i64 @_ZN2h25codec11framed_read28calc_max_continuation_frames17he42539cefb454715E(i64 noundef %120, i64 noundef %117), !noalias !377
   %122 = getelementptr inbounds i8, ptr %3, i64 880
   store i64 %121, ptr %122, align 8, !alias.scope !377
   %.pre = load ptr, ptr %30, align 8

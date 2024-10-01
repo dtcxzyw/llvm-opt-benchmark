@@ -2071,9 +2071,8 @@ invoke.cont10:                                    ; preds = %if.then13.i.i.i.inv
   %d_kind.i = getelementptr inbounds i8, ptr %11, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
-  %bf.cast.i = zext nneg i16 %bf.clear.i to i32
-  %13 = add nsw i32 %bf.cast.i, -361
-  %or.cond = icmp ult i32 %13, 2
+  %13 = add nsw i16 %bf.clear.i, -361
+  %or.cond = icmp ult i16 %13, 2
   %14 = and i64 %bf.load.i.i25, 1152920405095219200
   %cmp.not.i.i26 = icmp eq i64 %14, 1152920405095219200
   br i1 %cmp.not.i.i26, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit35, label %if.then.i.i27

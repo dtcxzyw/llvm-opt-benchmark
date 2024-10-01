@@ -1151,8 +1151,8 @@ if.then5.i.i:                                     ; preds = %if.end.i.i344
   br i1 %cmp6.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then5.i.i
-  %5 = add nsw i64 %conv.i.i, -45
-  %cmp9.i.i = icmp ult i64 %5, 35
+  %5 = add nsw i32 %add.i, -45
+  %cmp9.i.i = icmp ult i32 %5, 35
   %cond.i.i = select i1 %cmp9.i.i, i32 %conv2.i.i, i32 4
   br label %calculate_min_match_len.exit
 
@@ -1161,14 +1161,14 @@ if.else.i.i:                                      ; preds = %if.then5.i.i
   br i1 %cmp11.i.i, label %if.then13.i.i, label %if.else20.i.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
-  %6 = add nsw i64 %conv.i.i, -16
-  %cmp14.i.i = icmp ult i64 %6, 64
+  %6 = add nsw i32 %add.i, -16
+  %cmp14.i.i = icmp ult i32 %6, 64
   %cond19.i.i = select i1 %cmp14.i.i, i32 %conv2.i.i, i32 5
   br label %calculate_min_match_len.exit
 
 if.else20.i.i:                                    ; preds = %if.else.i.i
-  %7 = add nsw i64 %conv.i.i, -8
-  %cmp21.i.i = icmp ult i64 %7, 72
+  %7 = add nsw i32 %add.i, -8
+  %cmp21.i.i = icmp ult i32 %7, 72
   %cond26.i.i = select i1 %cmp21.i.i, i32 %conv2.i.i, i32 7
   br label %calculate_min_match_len.exit
 
@@ -2030,8 +2030,8 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp6.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then5.i.i
-  %5 = add nsw i64 %conv.i.i, -45
-  %cmp9.i.i = icmp ult i64 %5, 35
+  %5 = add nsw i32 %add.i961, -45
+  %cmp9.i.i = icmp ult i32 %5, 35
   %cond.i.i = select i1 %cmp9.i.i, i32 %conv2.i.i, i32 4
   br label %calculate_min_match_len.exit
 
@@ -2040,14 +2040,14 @@ if.else.i.i:                                      ; preds = %if.then5.i.i
   br i1 %cmp11.i.i, label %if.then13.i.i, label %if.else20.i.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
-  %6 = add nsw i64 %conv.i.i, -16
-  %cmp14.i.i = icmp ult i64 %6, 64
+  %6 = add nsw i32 %add.i961, -16
+  %cmp14.i.i = icmp ult i32 %6, 64
   %cond19.i.i = select i1 %cmp14.i.i, i32 %conv2.i.i, i32 5
   br label %calculate_min_match_len.exit
 
 if.else20.i.i:                                    ; preds = %if.else.i.i
-  %7 = add nsw i64 %conv.i.i, -8
-  %cmp21.i.i = icmp ult i64 %7, 72
+  %7 = add nsw i32 %add.i961, -8
+  %cmp21.i.i = icmp ult i32 %7, 72
   %cond26.i.i = select i1 %cmp21.i.i, i32 %conv2.i.i, i32 7
   br label %calculate_min_match_len.exit
 
@@ -2122,8 +2122,8 @@ if.then5.i.i975:                                  ; preds = %if.end.i.i970
   br i1 %cmp6.i.i976, label %if.then8.i.i985, label %if.else.i.i977
 
 if.then8.i.i985:                                  ; preds = %if.then5.i.i975
-  %11 = add nsw i64 %conv.i.i971, -45
-  %cmp9.i.i986 = icmp ult i64 %11, 35
+  %11 = add nsw i32 %spec.select.i, -45
+  %cmp9.i.i986 = icmp ult i32 %11, 35
   %cond.i.i987 = select i1 %cmp9.i.i986, i32 %conv2.i.i973, i32 4
   br label %recalculate_min_match_len.exit
 
@@ -2132,14 +2132,14 @@ if.else.i.i977:                                   ; preds = %if.then5.i.i975
   br i1 %cmp11.i.i978, label %if.then13.i.i982, label %if.else20.i.i979
 
 if.then13.i.i982:                                 ; preds = %if.else.i.i977
-  %12 = add nsw i64 %conv.i.i971, -16
-  %cmp14.i.i983 = icmp ult i64 %12, 64
+  %12 = add nsw i32 %spec.select.i, -16
+  %cmp14.i.i983 = icmp ult i32 %12, 64
   %cond19.i.i984 = select i1 %cmp14.i.i983, i32 %conv2.i.i973, i32 5
   br label %recalculate_min_match_len.exit
 
 if.else20.i.i979:                                 ; preds = %if.else.i.i977
-  %13 = add nsw i64 %conv.i.i971, -8
-  %cmp21.i.i980 = icmp ult i64 %13, 72
+  %13 = add nsw i32 %spec.select.i, -8
+  %cmp21.i.i980 = icmp ult i32 %13, 72
   %cond26.i.i981 = select i1 %cmp21.i.i980, i32 %conv2.i.i973, i32 7
   br label %recalculate_min_match_len.exit
 
@@ -3627,8 +3627,8 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp6.i.i, label %if.then8.i.i, label %if.else.i.i972
 
 if.then8.i.i:                                     ; preds = %if.then5.i.i
-  %5 = add nsw i64 %conv.i.i, -45
-  %cmp9.i.i = icmp ult i64 %5, 35
+  %5 = add nsw i32 %add.i968, -45
+  %cmp9.i.i = icmp ult i32 %5, 35
   %cond.i.i = select i1 %cmp9.i.i, i32 %conv2.i.i971, i32 4
   br label %calculate_min_match_len.exit
 
@@ -3637,14 +3637,14 @@ if.else.i.i972:                                   ; preds = %if.then5.i.i
   br i1 %cmp11.i.i, label %if.then13.i.i, label %if.else20.i.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i972
-  %6 = add nsw i64 %conv.i.i, -16
-  %cmp14.i.i = icmp ult i64 %6, 64
+  %6 = add nsw i32 %add.i968, -16
+  %cmp14.i.i = icmp ult i32 %6, 64
   %cond19.i.i = select i1 %cmp14.i.i, i32 %conv2.i.i971, i32 5
   br label %calculate_min_match_len.exit
 
 if.else20.i.i:                                    ; preds = %if.else.i.i972
-  %7 = add nsw i64 %conv.i.i, -8
-  %cmp21.i.i = icmp ult i64 %7, 72
+  %7 = add nsw i32 %add.i968, -8
+  %cmp21.i.i = icmp ult i32 %7, 72
   %cond26.i.i = select i1 %cmp21.i.i, i32 %conv2.i.i971, i32 7
   br label %calculate_min_match_len.exit
 
@@ -3719,8 +3719,8 @@ if.then5.i.i985:                                  ; preds = %if.end.i.i980
   br i1 %cmp6.i.i986, label %if.then8.i.i995, label %if.else.i.i987
 
 if.then8.i.i995:                                  ; preds = %if.then5.i.i985
-  %11 = add nsw i64 %conv.i.i981, -45
-  %cmp9.i.i996 = icmp ult i64 %11, 35
+  %11 = add nsw i32 %spec.select.i, -45
+  %cmp9.i.i996 = icmp ult i32 %11, 35
   %cond.i.i997 = select i1 %cmp9.i.i996, i32 %conv2.i.i983, i32 4
   br label %recalculate_min_match_len.exit
 
@@ -3729,14 +3729,14 @@ if.else.i.i987:                                   ; preds = %if.then5.i.i985
   br i1 %cmp11.i.i988, label %if.then13.i.i992, label %if.else20.i.i989
 
 if.then13.i.i992:                                 ; preds = %if.else.i.i987
-  %12 = add nsw i64 %conv.i.i981, -16
-  %cmp14.i.i993 = icmp ult i64 %12, 64
+  %12 = add nsw i32 %spec.select.i, -16
+  %cmp14.i.i993 = icmp ult i32 %12, 64
   %cond19.i.i994 = select i1 %cmp14.i.i993, i32 %conv2.i.i983, i32 5
   br label %recalculate_min_match_len.exit
 
 if.else20.i.i989:                                 ; preds = %if.else.i.i987
-  %13 = add nsw i64 %conv.i.i981, -8
-  %cmp21.i.i990 = icmp ult i64 %13, 72
+  %13 = add nsw i32 %spec.select.i, -8
+  %cmp21.i.i990 = icmp ult i32 %13, 72
   %cond26.i.i991 = select i1 %cmp21.i.i990, i32 %conv2.i.i983, i32 7
   br label %recalculate_min_match_len.exit
 
@@ -5714,8 +5714,8 @@ if.then5.i.i:                                     ; preds = %if.end.i.i504
   br i1 %cmp6.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then5.i.i
-  %6 = add nsw i64 %conv.i.i, -45
-  %cmp9.i.i = icmp ult i64 %6, 35
+  %6 = add nsw i32 %add.i, -45
+  %cmp9.i.i = icmp ult i32 %6, 35
   %cond.i.i = select i1 %cmp9.i.i, i32 %conv2.i.i, i32 4
   br label %calculate_min_match_len.exit
 
@@ -5724,14 +5724,14 @@ if.else.i.i:                                      ; preds = %if.then5.i.i
   br i1 %cmp11.i.i, label %if.then13.i.i, label %if.else20.i.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
-  %7 = add nsw i64 %conv.i.i, -16
-  %cmp14.i.i = icmp ult i64 %7, 64
+  %7 = add nsw i32 %add.i, -16
+  %cmp14.i.i = icmp ult i32 %7, 64
   %cond19.i.i = select i1 %cmp14.i.i, i32 %conv2.i.i, i32 5
   br label %calculate_min_match_len.exit
 
 if.else20.i.i:                                    ; preds = %if.else.i.i
-  %8 = add nsw i64 %conv.i.i, -8
-  %cmp21.i.i = icmp ult i64 %8, 72
+  %8 = add nsw i32 %add.i, -8
+  %cmp21.i.i = icmp ult i32 %8, 72
   %cond26.i.i = select i1 %cmp21.i.i, i32 %conv2.i.i, i32 7
   br label %calculate_min_match_len.exit
 
@@ -9013,8 +9013,8 @@ if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp6.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then5.i.i.i
-  %33 = add nsw i64 %conv.i.i.i, -45
-  %cmp9.i.i.i = icmp ult i64 %33, 35
+  %33 = add nsw i32 %spec.store.select.i.i, -45
+  %cmp9.i.i.i = icmp ult i32 %33, 35
   %cond.i.i.i = select i1 %cmp9.i.i.i, i32 %conv2.i.i.i, i32 4
   br label %choose_min_match_len.exit.i.i
 
@@ -9023,14 +9023,14 @@ if.else.i.i.i:                                    ; preds = %if.then5.i.i.i
   br i1 %cmp11.i.i.i, label %if.then13.i.i.i, label %if.else20.i.i.i
 
 if.then13.i.i.i:                                  ; preds = %if.else.i.i.i
-  %34 = add nsw i64 %conv.i.i.i, -16
-  %cmp14.i.i.i = icmp ult i64 %34, 64
+  %34 = add nsw i32 %spec.store.select.i.i, -16
+  %cmp14.i.i.i = icmp ult i32 %34, 64
   %cond19.i.i.i = select i1 %cmp14.i.i.i, i32 %conv2.i.i.i, i32 5
   br label %choose_min_match_len.exit.i.i
 
 if.else20.i.i.i:                                  ; preds = %if.else.i.i.i
-  %35 = add nsw i64 %conv.i.i.i, -8
-  %cmp21.i.i.i = icmp ult i64 %35, 72
+  %35 = add nsw i32 %spec.store.select.i.i, -8
+  %cmp21.i.i.i = icmp ult i32 %35, 72
   %cond26.i.i.i = select i1 %cmp21.i.i.i, i32 %conv2.i.i.i, i32 7
   br label %choose_min_match_len.exit.i.i
 

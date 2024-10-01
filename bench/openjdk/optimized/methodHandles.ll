@@ -809,13 +809,13 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %14, %24
   %31 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
   %32 = tail call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef %31) #14
   %.not55 = icmp eq ptr %32, null
-  br i1 %.not55, label %104, label %33
+  br i1 %.not55, label %103, label %33
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds i8, ptr %32, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = icmp slt i32 %35, 5
-  br i1 %36, label %37, label %104
+  br i1 %36, label %37, label %103
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %4, i64 4
@@ -849,12 +849,12 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %14, %24
 
 51:                                               ; preds = %46, %49, %37
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #14
-  br label %104
+  br label %103
 
 52:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
   %53 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 360), align 8
   %54 = icmp eq ptr %.0.i, %53
-  br i1 %54, label %55, label %81
+  br i1 %54, label %55, label %80
 
 55:                                               ; preds = %52
   %56 = tail call noundef ptr @_ZN24java_lang_reflect_Method5clazzEP7oopDesc(ptr noundef nonnull %10) #14
@@ -862,91 +862,90 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %14, %24
   %58 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
   %59 = tail call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %56, i32 noundef %58) #14
   %.not54 = icmp eq ptr %59, null
-  br i1 %.not54, label %104, label %60
+  br i1 %.not54, label %103, label %60
 
 60:                                               ; preds = %55
   %61 = getelementptr inbounds i8, ptr %59, i64 12
   %62 = load i32, ptr %61, align 4
   %63 = icmp slt i32 %62, 5
-  br i1 %63, label %64, label %104
+  br i1 %63, label %64, label %103
 
 64:                                               ; preds = %60
   %65 = tail call noundef ptr @_ZN13InstanceKlass17method_with_idnumEi(ptr noundef nonnull align 8 dereferenceable(464) %59, i32 noundef %57) #14
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %104, label %67
+  br i1 %66, label %103, label %67
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds i8, ptr %65, i64 52
   %69 = load i16, ptr %68, align 4
-  %70 = zext i16 %69 to i32
-  %71 = add nsw i32 %70, -396
-  %72 = icmp ult i32 %71, 7
-  br i1 %72, label %104, label %73
+  %70 = add i16 %69, -396
+  %71 = icmp ult i16 %70, 7
+  br i1 %71, label %103, label %72
 
-73:                                               ; preds = %67
+72:                                               ; preds = %67
   call void @_ZN8CallInfoC1EP6MethodP5KlassP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %65, ptr noundef nonnull %59, ptr noundef %2) #14
-  %74 = getelementptr inbounds i8, ptr %2, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %.not58 = icmp eq ptr %75, null
-  br i1 %.not58, label %76, label %78
+  %73 = getelementptr inbounds i8, ptr %2, i64 8
+  %74 = load ptr, ptr %73, align 8
+  %.not58 = icmp eq ptr %74, null
+  br i1 %.not58, label %75, label %77
 
-76:                                               ; preds = %73
-  %77 = call noundef ptr @_ZN13MethodHandles22init_method_MemberNameE6HandleR8CallInfo(ptr %0, ptr noundef nonnull align 8 dereferenceable(64) %5)
-  br label %78
+75:                                               ; preds = %72
+  %76 = call noundef ptr @_ZN13MethodHandles22init_method_MemberNameE6HandleR8CallInfo(ptr %0, ptr noundef nonnull align 8 dereferenceable(64) %5)
+  br label %77
 
-78:                                               ; preds = %73, %76
-  %.1 = phi ptr [ %77, %76 ], [ null, %73 ]
-  %79 = getelementptr inbounds i8, ptr %5, i64 24
+77:                                               ; preds = %72, %75
+  %.1 = phi ptr [ %76, %75 ], [ null, %72 ]
+  %78 = getelementptr inbounds i8, ptr %5, i64 24
+  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %78) #14
+  %79 = getelementptr inbounds i8, ptr %5, i64 8
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %79) #14
-  %80 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %80) #14
-  br label %104
+  br label %103
 
-81:                                               ; preds = %52
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 368), align 8
-  %83 = icmp eq ptr %.0.i, %82
-  br i1 %83, label %84, label %104
+80:                                               ; preds = %52
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 368), align 8
+  %82 = icmp eq ptr %.0.i, %81
+  br i1 %82, label %83, label %103
 
-84:                                               ; preds = %81
-  %85 = tail call noundef ptr @_ZN29java_lang_reflect_Constructor5clazzEP7oopDesc(ptr noundef nonnull %10) #14
-  %86 = tail call noundef i32 @_ZN29java_lang_reflect_Constructor4slotEP7oopDesc(ptr noundef nonnull %10) #14
-  %87 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
-  %88 = tail call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %85, i32 noundef %87) #14
-  %.not = icmp eq ptr %88, null
-  br i1 %.not, label %104, label %89
+83:                                               ; preds = %80
+  %84 = tail call noundef ptr @_ZN29java_lang_reflect_Constructor5clazzEP7oopDesc(ptr noundef nonnull %10) #14
+  %85 = tail call noundef i32 @_ZN29java_lang_reflect_Constructor4slotEP7oopDesc(ptr noundef nonnull %10) #14
+  %86 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
+  %87 = tail call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %84, i32 noundef %86) #14
+  %.not = icmp eq ptr %87, null
+  br i1 %.not, label %103, label %88
 
-89:                                               ; preds = %84
-  %90 = getelementptr inbounds i8, ptr %88, i64 12
-  %91 = load i32, ptr %90, align 4
-  %92 = icmp slt i32 %91, 5
-  br i1 %92, label %93, label %104
+88:                                               ; preds = %83
+  %89 = getelementptr inbounds i8, ptr %87, i64 12
+  %90 = load i32, ptr %89, align 4
+  %91 = icmp slt i32 %90, 5
+  br i1 %91, label %92, label %103
 
-93:                                               ; preds = %89
-  %94 = tail call noundef ptr @_ZN13InstanceKlass17method_with_idnumEi(ptr noundef nonnull align 8 dereferenceable(464) %88, i32 noundef %86) #14
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %104, label %96
+92:                                               ; preds = %88
+  %93 = tail call noundef ptr @_ZN13InstanceKlass17method_with_idnumEi(ptr noundef nonnull align 8 dereferenceable(464) %87, i32 noundef %85) #14
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %103, label %95
 
-96:                                               ; preds = %93
-  call void @_ZN8CallInfoC1EP6MethodP5KlassP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %94, ptr noundef nonnull %88, ptr noundef %2) #14
-  %97 = getelementptr inbounds i8, ptr %2, i64 8
-  %98 = load ptr, ptr %97, align 8
-  %.not57 = icmp eq ptr %98, null
-  br i1 %.not57, label %99, label %101
+95:                                               ; preds = %92
+  call void @_ZN8CallInfoC1EP6MethodP5KlassP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %93, ptr noundef nonnull %87, ptr noundef %2) #14
+  %96 = getelementptr inbounds i8, ptr %2, i64 8
+  %97 = load ptr, ptr %96, align 8
+  %.not57 = icmp eq ptr %97, null
+  br i1 %.not57, label %98, label %100
 
-99:                                               ; preds = %96
-  %100 = call noundef ptr @_ZN13MethodHandles22init_method_MemberNameE6HandleR8CallInfo(ptr %0, ptr noundef nonnull align 8 dereferenceable(64) %6)
-  br label %101
+98:                                               ; preds = %95
+  %99 = call noundef ptr @_ZN13MethodHandles22init_method_MemberNameE6HandleR8CallInfo(ptr %0, ptr noundef nonnull align 8 dereferenceable(64) %6)
+  br label %100
 
-101:                                              ; preds = %96, %99
-  %.2 = phi ptr [ %100, %99 ], [ null, %96 ]
-  %102 = getelementptr inbounds i8, ptr %6, i64 24
+100:                                              ; preds = %95, %98
+  %.2 = phi ptr [ %99, %98 ], [ null, %95 ]
+  %101 = getelementptr inbounds i8, ptr %6, i64 24
+  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %101) #14
+  %102 = getelementptr inbounds i8, ptr %6, i64 8
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %102) #14
-  %103 = getelementptr inbounds i8, ptr %6, i64 8
-  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %103) #14
-  br label %104
+  br label %103
 
-104:                                              ; preds = %33, %28, %81, %89, %84, %55, %60, %93, %64, %67, %101, %78, %51
-  %.0 = phi ptr [ %40, %51 ], [ %.1, %78 ], [ %.2, %101 ], [ null, %67 ], [ null, %64 ], [ null, %93 ], [ null, %60 ], [ null, %55 ], [ null, %84 ], [ null, %89 ], [ null, %81 ], [ null, %28 ], [ null, %33 ]
+103:                                              ; preds = %33, %28, %80, %88, %83, %55, %60, %92, %64, %67, %100, %77, %51
+  %.0 = phi ptr [ %40, %51 ], [ %.1, %77 ], [ %.2, %100 ], [ null, %67 ], [ null, %64 ], [ null, %92 ], [ null, %60 ], [ null, %55 ], [ null, %83 ], [ null, %88 ], [ null, %80 ], [ null, %28 ], [ null, %33 ]
   ret ptr %.0
 }
 

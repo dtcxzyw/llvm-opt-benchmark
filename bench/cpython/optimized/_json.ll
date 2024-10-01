@@ -972,7 +972,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.65 = private unnamed_addr constant [23 x i8] c"OOOOUUppp:make_encoder\00", align 1
 @.str.66 = private unnamed_addr constant [59 x i8] c"make_encoder() argument 1 must be dict or None, not %.200s\00", align 1
 @PyCFunction_Type = external global %struct._typeobject, align 8
-@switch.table.scanstring_unicode.15 = private unnamed_addr constant [55 x i32] [i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -55, i32 -55, i32 -55, i32 -55, i32 -55, i32 -55, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87], align 4
+@switch.table.py_encode_basestring_ascii.15 = private unnamed_addr constant [6 x i64] [i64 2, i64 2, i64 2, i64 6, i64 2, i64 2], align 8
+@switch.table.scanstring_unicode.16 = private unnamed_addr constant [55 x i32] [i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -55, i32 -55, i32 -55, i32 -55, i32 -55, i32 -55, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87], align 4
 
 ; Function Attrs: nounwind uwtable
 define ptr @PyInit__json() local_unnamed_addr #0 {
@@ -1034,34 +1035,30 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %arrayidx.i.us.i = getelementptr i8, ptr %retval.0.i.i, i64 %i.066.us.i
   %8 = load i8, ptr %arrayidx.i.us.i, align 1
   %.fr97.i = freeze i8 %8
-  %conv.i.us.i = zext i8 %.fr97.i to i32
-  %9 = add nsw i32 %conv.i.us.i, -32
-  %or.cond.us.i = icmp ult i32 %9, 95
+  %9 = add i8 %.fr97.i, -32
+  %or.cond.us.i = icmp ult i8 %9, 95
   br i1 %or.cond.us.i, label %switch.early.test.us.i, label %if.else.us.i
 
 if.else.us.i:                                     ; preds = %for.body.us.i
-  switch i8 %.fr97.i, label %sw.default.us.i [
-    i8 92, label %if.end.us.i
-    i8 34, label %if.end.us.i
-    i8 8, label %if.end.us.i
-    i8 12, label %if.end.us.i
-    i8 10, label %if.end.us.i
-    i8 13, label %if.end.us.i
-    i8 9, label %if.end.us.i
-  ]
-
-sw.default.us.i:                                  ; preds = %if.else.us.i
-  br label %if.end.us.i
+  %switch.tableidx = add i8 %.fr97.i, -8
+  %10 = icmp ult i8 %switch.tableidx, 6
+  br i1 %10, label %switch.lookup, label %if.end.us.i
 
 switch.early.test.us.i:                           ; preds = %for.body.us.i
   %switch.selectcmp.case1.us.i = icmp eq i8 %.fr97.i, 92
   %switch.selectcmp.case2.us.i = icmp eq i8 %.fr97.i, 34
   %switch.selectcmp.us.i = or i1 %switch.selectcmp.case1.us.i, %switch.selectcmp.case2.us.i
-  %10 = select i1 %switch.selectcmp.us.i, i64 2, i64 1
+  %11 = select i1 %switch.selectcmp.us.i, i64 2, i64 1
   br label %if.end.us.i
 
-if.end.us.i:                                      ; preds = %switch.early.test.us.i, %sw.default.us.i, %if.else.us.i, %if.else.us.i, %if.else.us.i, %if.else.us.i, %if.else.us.i, %if.else.us.i, %if.else.us.i
-  %d.0.us.i = phi i64 [ 6, %sw.default.us.i ], [ %10, %switch.early.test.us.i ], [ 2, %if.else.us.i ], [ 2, %if.else.us.i ], [ 2, %if.else.us.i ], [ 2, %if.else.us.i ], [ 2, %if.else.us.i ], [ 2, %if.else.us.i ], [ 2, %if.else.us.i ]
+switch.lookup:                                    ; preds = %if.else.us.i
+  %12 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table.py_encode_basestring_ascii.15, i64 0, i64 %12
+  %switch.load = load i64, ptr %switch.gep, align 8
+  br label %if.end.us.i
+
+if.end.us.i:                                      ; preds = %if.else.us.i, %switch.lookup, %switch.early.test.us.i
+  %d.0.us.i = phi i64 [ %11, %switch.early.test.us.i ], [ %switch.load, %switch.lookup ], [ 6, %if.else.us.i ]
   %sub.us.i = xor i64 %d.0.us.i, 9223372036854775807
   %cmp10.us.i = icmp sgt i64 %output_size.065.us.i, %sub.us.i
   br i1 %cmp10.us.i, label %if.then12.i, label %if.end13.us.i
@@ -1076,36 +1073,32 @@ for.body.us68.i:                                  ; preds = %for.body.lr.ph.i, %
   %i.066.us69.i = phi i64 [ %inc.us89.i, %if.end13.us87.i ], [ 0, %for.body.lr.ph.i ]
   %output_size.065.us70.i = phi i64 [ %add.us88.i, %if.end13.us87.i ], [ 2, %for.body.lr.ph.i ]
   %arrayidx4.i.us.i = getelementptr i16, ptr %retval.0.i.i, i64 %i.066.us69.i
-  %11 = load i16, ptr %arrayidx4.i.us.i, align 2
-  %.fr.i = freeze i16 %11
-  %conv5.i.us.i = zext i16 %.fr.i to i32
-  %12 = add nsw i32 %conv5.i.us.i, -32
-  %or.cond.us74.i = icmp ult i32 %12, 95
+  %13 = load i16, ptr %arrayidx4.i.us.i, align 2
+  %.fr.i = freeze i16 %13
+  %14 = add i16 %.fr.i, -32
+  %or.cond.us74.i = icmp ult i16 %14, 95
   br i1 %or.cond.us74.i, label %switch.early.test.us79.i, label %if.else.us75.i
 
 if.else.us75.i:                                   ; preds = %for.body.us68.i
-  switch i16 %.fr.i, label %sw.default.us76.i [
-    i16 92, label %if.end.us83.i
-    i16 34, label %if.end.us83.i
-    i16 8, label %if.end.us83.i
-    i16 12, label %if.end.us83.i
-    i16 10, label %if.end.us83.i
-    i16 13, label %if.end.us83.i
-    i16 9, label %if.end.us83.i
-  ]
-
-sw.default.us76.i:                                ; preds = %if.else.us75.i
-  br label %if.end.us83.i
+  %switch.tableidx21 = add i16 %.fr.i, -8
+  %15 = icmp ult i16 %switch.tableidx21, 6
+  br i1 %15, label %switch.lookup20, label %if.end.us83.i
 
 switch.early.test.us79.i:                         ; preds = %for.body.us68.i
   %switch.selectcmp.case1.us80.i = icmp eq i16 %.fr.i, 92
   %switch.selectcmp.case2.us81.i = icmp eq i16 %.fr.i, 34
   %switch.selectcmp.us82.i = or i1 %switch.selectcmp.case1.us80.i, %switch.selectcmp.case2.us81.i
-  %13 = select i1 %switch.selectcmp.us82.i, i64 2, i64 1
+  %16 = select i1 %switch.selectcmp.us82.i, i64 2, i64 1
   br label %if.end.us83.i
 
-if.end.us83.i:                                    ; preds = %switch.early.test.us79.i, %sw.default.us76.i, %if.else.us75.i, %if.else.us75.i, %if.else.us75.i, %if.else.us75.i, %if.else.us75.i, %if.else.us75.i, %if.else.us75.i
-  %d.0.us84.i = phi i64 [ 6, %sw.default.us76.i ], [ %13, %switch.early.test.us79.i ], [ 2, %if.else.us75.i ], [ 2, %if.else.us75.i ], [ 2, %if.else.us75.i ], [ 2, %if.else.us75.i ], [ 2, %if.else.us75.i ], [ 2, %if.else.us75.i ], [ 2, %if.else.us75.i ]
+switch.lookup20:                                  ; preds = %if.else.us75.i
+  %17 = zext nneg i16 %switch.tableidx21 to i64
+  %switch.gep22 = getelementptr inbounds [6 x i64], ptr @switch.table.py_encode_basestring_ascii.15, i64 0, i64 %17
+  %switch.load23 = load i64, ptr %switch.gep22, align 8
+  br label %if.end.us83.i
+
+if.end.us83.i:                                    ; preds = %if.else.us75.i, %switch.lookup20, %switch.early.test.us79.i
+  %d.0.us84.i = phi i64 [ %16, %switch.early.test.us79.i ], [ %switch.load23, %switch.lookup20 ], [ 6, %if.else.us75.i ]
   %sub.us85.i = xor i64 %d.0.us84.i, 9223372036854775807
   %cmp10.us86.i = icmp sgt i64 %output_size.065.us70.i, %sub.us85.i
   br i1 %cmp10.us86.i, label %if.then12.i, label %if.end13.us87.i
@@ -1120,23 +1113,23 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %i.066.i = phi i64 [ %inc.i, %if.end13.i ], [ 0, %for.body.lr.ph.i ]
   %output_size.065.i = phi i64 [ %add.i, %if.end13.i ], [ 2, %for.body.lr.ph.i ]
   %arrayidx7.i.i = getelementptr i32, ptr %retval.0.i.i, i64 %i.066.i
-  %14 = load i32, ptr %arrayidx7.i.i, align 4
-  %retval.0.i38.fr.i = freeze i32 %14
-  %15 = add i32 %retval.0.i38.fr.i, -32
-  %or.cond.i = icmp ult i32 %15, 95
+  %18 = load i32, ptr %arrayidx7.i.i, align 4
+  %retval.0.i38.fr.i = freeze i32 %18
+  %19 = add i32 %retval.0.i38.fr.i, -32
+  %or.cond.i = icmp ult i32 %19, 95
   br i1 %or.cond.i, label %switch.early.test.i, label %if.else.i
 
 switch.early.test.i:                              ; preds = %for.body.i
   %switch.selectcmp.case1.i = icmp eq i32 %retval.0.i38.fr.i, 92
   %switch.selectcmp.case2.i = icmp eq i32 %retval.0.i38.fr.i, 34
   %switch.selectcmp.i = or i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
-  %16 = select i1 %switch.selectcmp.i, i64 2, i64 1
+  %20 = select i1 %switch.selectcmp.i, i64 2, i64 1
   br label %if.end.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %switch.tableidx = add i32 %retval.0.i38.fr.i, -8
-  %17 = icmp ult i32 %switch.tableidx, 6
-  br i1 %17, label %switch.hole_check, label %sw.default.i
+  %switch.tableidx25 = add i32 %retval.0.i38.fr.i, -8
+  %21 = icmp ult i32 %switch.tableidx25, 6
+  br i1 %21, label %switch.hole_check, label %sw.default.i
 
 sw.default.i:                                     ; preds = %switch.hole_check, %if.else.i
   %cmp9.i = icmp ugt i32 %retval.0.i38.fr.i, 65535
@@ -1144,20 +1137,20 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
   br label %if.end.i
 
 switch.hole_check:                                ; preds = %if.else.i
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx25 to i8
   %switch.shifted = lshr i8 55, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %if.end.i, label %sw.default.i
 
 if.end.i:                                         ; preds = %switch.hole_check, %sw.default.i, %switch.early.test.i
-  %d.0.i = phi i64 [ %cond.i, %sw.default.i ], [ %16, %switch.early.test.i ], [ 2, %switch.hole_check ]
+  %d.0.i = phi i64 [ %cond.i, %sw.default.i ], [ %20, %switch.early.test.i ], [ 2, %switch.hole_check ]
   %sub.i = xor i64 %d.0.i, 9223372036854775807
   %cmp10.i = icmp sgt i64 %output_size.065.i, %sub.i
   br i1 %cmp10.i, label %if.then12.i, label %if.end13.i
 
 if.then12.i:                                      ; preds = %if.end.us83.i, %if.end.us.i, %if.end.i
-  %18 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %18, ptr noundef nonnull @.str.5) #3
+  %22 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.5) #3
   br label %return
 
 if.end13.i:                                       ; preds = %if.end.i
@@ -1173,22 +1166,22 @@ for.end.i:                                        ; preds = %if.end13.us87.i, %i
   br i1 %cmp15.i, label %return, label %if.end18.i
 
 if.end18.i:                                       ; preds = %for.end.i
-  %19 = getelementptr i8, ptr %call14.i, i64 32
-  %op.val.i40.i = load i32, ptr %19, align 8
-  %20 = and i32 %op.val.i40.i, 32
-  %tobool.not.i41.i = icmp eq i32 %20, 0
+  %23 = getelementptr i8, ptr %call14.i, i64 32
+  %op.val.i40.i = load i32, ptr %23, align 8
+  %24 = and i32 %op.val.i40.i, 32
+  %tobool.not.i41.i = icmp eq i32 %24, 0
   br i1 %tobool.not.i41.i, label %if.end.i47.i, label %if.then.i42.i
 
 if.then.i42.i:                                    ; preds = %if.end18.i
-  %21 = and i32 %op.val.i40.i, 64
-  %tobool.not.i.i43.i = icmp eq i32 %21, 0
+  %25 = and i32 %op.val.i40.i, 64
+  %tobool.not.i.i43.i = icmp eq i32 %25, 0
   %retval.0.v.i.i44.i = select i1 %tobool.not.i.i43.i, i64 56, i64 40
   %retval.0.i.i45.i = getelementptr i8, ptr %call14.i, i64 %retval.0.v.i.i44.i
   br label %PyUnicode_DATA.exit49.i
 
 if.end.i47.i:                                     ; preds = %if.end18.i
-  %22 = getelementptr i8, ptr %call14.i, i64 56
-  %op.val3.i48.i = load ptr, ptr %22, align 8
+  %26 = getelementptr i8, ptr %call14.i, i64 56
+  %op.val3.i48.i = load ptr, ptr %26, align 8
   br label %PyUnicode_DATA.exit49.i
 
 PyUnicode_DATA.exit49.i:                          ; preds = %if.end.i47.i, %if.then.i42.i
@@ -1206,26 +1199,26 @@ for.body24.i:                                     ; preds = %PyUnicode_DATA.exit
 
 if.then.i54.i:                                    ; preds = %for.body24.i
   %arrayidx.i55.i = getelementptr i8, ptr %retval.0.i.i, i64 %i.195.i
-  %23 = load i8, ptr %arrayidx.i55.i, align 1
-  %conv.i56.i = zext i8 %23 to i32
+  %27 = load i8, ptr %arrayidx.i55.i, align 1
+  %conv.i56.i = zext i8 %27 to i32
   br label %PyUnicode_READ.exit59.i
 
 if.then3.i50.i:                                   ; preds = %for.body24.i
   %arrayidx4.i51.i = getelementptr i16, ptr %retval.0.i.i, i64 %i.195.i
-  %24 = load i16, ptr %arrayidx4.i51.i, align 2
-  %conv5.i52.i = zext i16 %24 to i32
+  %28 = load i16, ptr %arrayidx4.i51.i, align 2
+  %conv5.i52.i = zext i16 %28 to i32
   br label %PyUnicode_READ.exit59.i
 
 if.end6.i57.i:                                    ; preds = %for.body24.i
   %arrayidx7.i58.i = getelementptr i32, ptr %retval.0.i.i, i64 %i.195.i
-  %25 = load i32, ptr %arrayidx7.i58.i, align 4
+  %29 = load i32, ptr %arrayidx7.i58.i, align 4
   br label %PyUnicode_READ.exit59.i
 
 PyUnicode_READ.exit59.i:                          ; preds = %if.end6.i57.i, %if.then3.i50.i, %if.then.i54.i
-  %retval.0.i53.i = phi i32 [ %conv.i56.i, %if.then.i54.i ], [ %conv5.i52.i, %if.then3.i50.i ], [ %25, %if.end6.i57.i ]
+  %retval.0.i53.i = phi i32 [ %conv.i56.i, %if.then.i54.i ], [ %conv5.i52.i, %if.then3.i50.i ], [ %29, %if.end6.i57.i ]
   %retval.0.i53.fr.i = freeze i32 %retval.0.i53.i
-  %26 = add i32 %retval.0.i53.fr.i, -32
-  %or.cond3.i = icmp ult i32 %26, 95
+  %30 = add i32 %retval.0.i53.fr.i, -32
+  %or.cond3.i = icmp ult i32 %30, 95
   br i1 %or.cond3.i, label %switch.early.test37.i, label %if.else42.i
 
 switch.early.test37.i:                            ; preds = %PyUnicode_READ.exit59.i
@@ -1306,37 +1299,37 @@ if.then.i62.i:                                    ; preds = %sw.default.i.i
   %add.i.i.i = add nuw nsw i32 %shr.i.i.i, 55232
   %arrayidx24.i.i = getelementptr i8, ptr %retval.0.i46.i, i64 %inc.i.i
   store i8 117, ptr %arrayidx24.i.i, align 1
-  %27 = load ptr, ptr @Py_hexdigits, align 8
+  %31 = load ptr, ptr @Py_hexdigits, align 8
   %shr.i.i = lshr i32 %add.i.i.i, 12
   %and.i.i = and i32 %shr.i.i, 15
   %idxprom.i.i = zext nneg i32 %and.i.i to i64
-  %arrayidx25.i.i = getelementptr i8, ptr %27, i64 %idxprom.i.i
-  %28 = load i8, ptr %arrayidx25.i.i, align 1
+  %arrayidx25.i.i = getelementptr i8, ptr %31, i64 %idxprom.i.i
+  %32 = load i8, ptr %arrayidx25.i.i, align 1
   %arrayidx27.i.i = getelementptr i8, ptr %arrayidx.i60.i, i64 2
-  store i8 %28, ptr %arrayidx27.i.i, align 1
-  %29 = load ptr, ptr @Py_hexdigits, align 8
+  store i8 %32, ptr %arrayidx27.i.i, align 1
+  %33 = load ptr, ptr @Py_hexdigits, align 8
   %shr28.i.i = lshr i32 %add.i.i.i, 8
   %and29.i.i = and i32 %shr28.i.i, 15
   %idxprom30.i.i = zext nneg i32 %and29.i.i to i64
-  %arrayidx31.i.i = getelementptr i8, ptr %29, i64 %idxprom30.i.i
-  %30 = load i8, ptr %arrayidx31.i.i, align 1
+  %arrayidx31.i.i = getelementptr i8, ptr %33, i64 %idxprom30.i.i
+  %34 = load i8, ptr %arrayidx31.i.i, align 1
   %arrayidx33.i.i = getelementptr i8, ptr %arrayidx.i60.i, i64 3
-  store i8 %30, ptr %arrayidx33.i.i, align 1
-  %31 = load ptr, ptr @Py_hexdigits, align 8
+  store i8 %34, ptr %arrayidx33.i.i, align 1
+  %35 = load ptr, ptr @Py_hexdigits, align 8
   %shr34.i.i = lshr i32 %add.i.i.i, 4
   %and35.i.i = and i32 %shr34.i.i, 15
   %idxprom36.i.i = zext nneg i32 %and35.i.i to i64
-  %arrayidx37.i.i = getelementptr i8, ptr %31, i64 %idxprom36.i.i
-  %32 = load i8, ptr %arrayidx37.i.i, align 1
+  %arrayidx37.i.i = getelementptr i8, ptr %35, i64 %idxprom36.i.i
+  %36 = load i8, ptr %arrayidx37.i.i, align 1
   %arrayidx39.i.i = getelementptr i8, ptr %arrayidx.i60.i, i64 4
-  store i8 %32, ptr %arrayidx39.i.i, align 1
-  %33 = load ptr, ptr @Py_hexdigits, align 8
+  store i8 %36, ptr %arrayidx39.i.i, align 1
+  %37 = load ptr, ptr @Py_hexdigits, align 8
   %and40.i.i = and i32 %shr.i.i.i, 15
   %idxprom41.i.i = zext nneg i32 %and40.i.i to i64
-  %arrayidx42.i.i = getelementptr i8, ptr %33, i64 %idxprom41.i.i
-  %34 = load i8, ptr %arrayidx42.i.i, align 1
+  %arrayidx42.i.i = getelementptr i8, ptr %37, i64 %idxprom41.i.i
+  %38 = load i8, ptr %arrayidx42.i.i, align 1
   %arrayidx44.i.i = getelementptr i8, ptr %arrayidx.i60.i, i64 5
-  store i8 %34, ptr %arrayidx44.i.i, align 1
+  store i8 %38, ptr %arrayidx44.i.i, align 1
   %and.i.i.i = and i32 %retval.0.i53.fr.i, 1023
   %add.i50.i.i = or disjoint i32 %and.i.i.i, 56320
   %inc46.i.i = add i64 %chars.094.i, 7
@@ -1349,37 +1342,37 @@ if.end.i61.i:                                     ; preds = %if.then.i62.i, %sw.
   %c.addr.0.i.i = phi i32 [ %add.i50.i.i, %if.then.i62.i ], [ %retval.0.i53.fr.i, %sw.default.i.i ]
   %arrayidx49.i.i = getelementptr i8, ptr %retval.0.i46.i, i64 %chars.addr.1.i.i
   store i8 117, ptr %arrayidx49.i.i, align 1
-  %35 = load ptr, ptr @Py_hexdigits, align 8
+  %39 = load ptr, ptr @Py_hexdigits, align 8
   %shr50.i.i = lshr i32 %c.addr.0.i.i, 12
   %idxprom52.i.i = zext nneg i32 %shr50.i.i to i64
-  %arrayidx53.i.i = getelementptr i8, ptr %35, i64 %idxprom52.i.i
-  %36 = load i8, ptr %arrayidx53.i.i, align 1
+  %arrayidx53.i.i = getelementptr i8, ptr %39, i64 %idxprom52.i.i
+  %40 = load i8, ptr %arrayidx53.i.i, align 1
   %arrayidx55.i.i = getelementptr i8, ptr %arrayidx49.i.i, i64 1
-  store i8 %36, ptr %arrayidx55.i.i, align 1
-  %37 = load ptr, ptr @Py_hexdigits, align 8
+  store i8 %40, ptr %arrayidx55.i.i, align 1
+  %41 = load ptr, ptr @Py_hexdigits, align 8
   %shr56.i.i = lshr i32 %c.addr.0.i.i, 8
   %and57.i.i = and i32 %shr56.i.i, 15
   %idxprom58.i.i = zext nneg i32 %and57.i.i to i64
-  %arrayidx59.i.i = getelementptr i8, ptr %37, i64 %idxprom58.i.i
-  %38 = load i8, ptr %arrayidx59.i.i, align 1
+  %arrayidx59.i.i = getelementptr i8, ptr %41, i64 %idxprom58.i.i
+  %42 = load i8, ptr %arrayidx59.i.i, align 1
   %arrayidx61.i.i = getelementptr i8, ptr %arrayidx49.i.i, i64 2
-  store i8 %38, ptr %arrayidx61.i.i, align 1
-  %39 = load ptr, ptr @Py_hexdigits, align 8
+  store i8 %42, ptr %arrayidx61.i.i, align 1
+  %43 = load ptr, ptr @Py_hexdigits, align 8
   %shr62.i.i = lshr i32 %c.addr.0.i.i, 4
   %and63.i.i = and i32 %shr62.i.i, 15
   %idxprom64.i.i = zext nneg i32 %and63.i.i to i64
-  %arrayidx65.i.i = getelementptr i8, ptr %39, i64 %idxprom64.i.i
-  %40 = load i8, ptr %arrayidx65.i.i, align 1
+  %arrayidx65.i.i = getelementptr i8, ptr %43, i64 %idxprom64.i.i
+  %44 = load i8, ptr %arrayidx65.i.i, align 1
   %arrayidx67.i.i = getelementptr i8, ptr %arrayidx49.i.i, i64 3
-  store i8 %40, ptr %arrayidx67.i.i, align 1
-  %41 = load ptr, ptr @Py_hexdigits, align 8
+  store i8 %44, ptr %arrayidx67.i.i, align 1
+  %45 = load ptr, ptr @Py_hexdigits, align 8
   %and68.i.i = and i32 %c.addr.0.i.i, 15
   %idxprom69.i.i = zext nneg i32 %and68.i.i to i64
-  %arrayidx70.i.i = getelementptr i8, ptr %41, i64 %idxprom69.i.i
-  %42 = load i8, ptr %arrayidx70.i.i, align 1
+  %arrayidx70.i.i = getelementptr i8, ptr %45, i64 %idxprom69.i.i
+  %46 = load i8, ptr %arrayidx70.i.i, align 1
   %inc71.i.i = add i64 %chars.addr.1.i.i, 5
   %arrayidx72.i.i = getelementptr i8, ptr %arrayidx49.i.i, i64 4
-  store i8 %42, ptr %arrayidx72.i.i, align 1
+  store i8 %46, ptr %arrayidx72.i.i, align 1
   br label %for.inc45.i
 
 for.inc45.i:                                      ; preds = %if.end.i61.i, %sw.bb19.i.i, %sw.bb16.i.i, %sw.bb13.i.i, %sw.bb10.i.i, %sw.bb7.i.i, %sw.bb3.i.i, %sw.bb.i.i, %if.then38.i
@@ -1395,10 +1388,10 @@ for.end47.i:                                      ; preds = %for.inc45.i, %PyUni
   br label %return
 
 if.else:                                          ; preds = %entry
-  %43 = load ptr, ptr @PyExc_TypeError, align 8
+  %47 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name = getelementptr inbounds i8, ptr %pystr.val, i64 24
-  %44 = load ptr, ptr %tp_name, align 8
-  %call4 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %43, ptr noundef nonnull @.str.4, ptr noundef %44) #3
+  %48 = load ptr, ptr %tp_name, align 8
+  %call4 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %47, ptr noundef nonnull @.str.4, ptr noundef %48) #3
   br label %return
 
 return:                                           ; preds = %for.end47.i, %for.end.i, %if.then12.i, %if.else
@@ -2416,7 +2409,7 @@ switch.hole_check:                                ; preds = %PyUnicode_READ.exit
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [55 x i32], ptr @switch.table.scanstring_unicode.15, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds [55 x i32], ptr @switch.table.scanstring_unicode.16, i64 0, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   %sub67 = add nsw i32 %retval.0.i112, %switch.load
   %c.3 = or i32 %sub67, %shl
@@ -2539,7 +2532,7 @@ switch.hole_check378:                             ; preds = %PyUnicode_READ.exit
 
 switch.lookup379:                                 ; preds = %switch.hole_check378
   %32 = zext nneg i32 %switch.tableidx377 to i64
-  %switch.gep383 = getelementptr inbounds [55 x i32], ptr @switch.table.scanstring_unicode.15, i64 0, i64 %32
+  %switch.gep383 = getelementptr inbounds [55 x i32], ptr @switch.table.scanstring_unicode.16, i64 0, i64 %32
   %switch.load384 = load i32, ptr %switch.gep383, align 4
   %sub104 = add nsw i32 %retval.0.i142, %switch.load384
   %c2.1 = or i32 %sub104, %shl102

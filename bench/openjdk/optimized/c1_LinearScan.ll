@@ -23184,9 +23184,8 @@ _ZNK10BlockBegin13number_of_suxEv.exit:           ; preds = %2, %8
 29:                                               ; preds = %22
   %30 = getelementptr inbounds i8, ptr %26, i64 16
   %31 = load i16, ptr %30, align 8
-  %32 = zext i16 %31 to i32
-  %.off = add nsw i32 %32, -37
-  %switch = icmp ult i32 %.off, 2
+  %32 = add i16 %31, -37
+  %switch = icmp ult i16 %32, 2
   br i1 %switch, label %.preheader48, label %_ZN17EdgeMoveOptimizer20operations_differentEP6LIR_OpS1_.exit.thread
 
 .preheader48:                                     ; preds = %29
@@ -24180,9 +24179,8 @@ _ZNK17GrowableArrayViewIP10BlockBeginE4findERKS1_.exit: ; preds = %59, %_ZN26Gro
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 16
   %131 = load i16, ptr %130, align 8
-  %132 = zext i16 %131 to i32
-  %.off.i = add nsw i32 %132, -37
-  %switch.i = icmp ult i32 %.off.i, 2
+  %132 = add i16 %131, -37
+  %switch.i = icmp ult i16 %132, 2
   br i1 %switch.i, label %133, label %143
 
 133:                                              ; preds = %126
@@ -24296,9 +24294,8 @@ define hidden void @_ZN20ControlFlowOptimizer24delete_unnecessary_jumpsEP9BlockL
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 16
   %40 = load i16, ptr %39, align 8
-  %41 = zext i16 %40 to i32
-  %.off = add nsw i32 %41, -37
-  %switch = icmp ult i32 %.off, 2
+  %41 = add i16 %40, -37
+  %switch = icmp ult i16 %41, 2
   br i1 %switch, label %42, label %80
 
 42:                                               ; preds = %36
@@ -24719,9 +24716,8 @@ define hidden void @_ZN20ControlFlowOptimizer24substitute_branch_targetEP10Block
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load i16, ptr %15, align 8
-  %17 = zext i16 %16 to i32
-  %.off = add nsw i32 %17, -37
-  %switch = icmp ult i32 %.off, 2
+  %17 = add i16 %16, -37
+  %switch = icmp ult i16 %17, 2
   br i1 %switch, label %18, label %28
 
 18:                                               ; preds = %11

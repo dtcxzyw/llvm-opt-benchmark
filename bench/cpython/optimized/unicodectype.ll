@@ -2663,14 +2663,13 @@ if.else.i.i:                                      ; preds = %entry
   %idxprom1.i.i = zext nneg i32 %add.i.i to i64
   %arrayidx2.i.i = getelementptr [37120 x i16], ptr @index2, i64 0, i64 %idxprom1.i.i
   %1 = load i16, ptr %arrayidx2.i.i, align 2
-  %2 = zext i16 %1 to i64
-  %3 = add nsw i64 %2, -6
-  %4 = icmp ult i64 %3, 10
-  %5 = zext i1 %4 to i32
+  %2 = add i16 %1, -6
+  %3 = icmp ult i16 %2, 10
+  %4 = zext i1 %3 to i32
   br label %gettyperecord.exit.i
 
 gettyperecord.exit.i:                             ; preds = %if.else.i.i, %entry
-  %index.0.i.i = phi i32 [ %5, %if.else.i.i ], [ 0, %entry ]
+  %index.0.i.i = phi i32 [ %4, %if.else.i.i ], [ 0, %entry ]
   ret i32 %index.0.i.i
 }
 

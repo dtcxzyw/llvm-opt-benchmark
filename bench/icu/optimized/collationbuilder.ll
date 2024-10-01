@@ -4004,12 +4004,11 @@ invoke.cont24:                                    ; preds = %invoke.cont21
   %15 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %15, ptr %fBuffer.i.i.i
   %16 = load i16, ptr %cond.i2.i.i, align 2
-  %conv = zext i16 %16 to i32
-  %17 = add nsw i32 %conv, -4371
-  %cmp.i69 = icmp ult i32 %17, -19
-  %18 = add nsw i32 %conv, -4470
-  %cmp.i72 = icmp ult i32 %18, -21
-  %or.cond166 = select i1 %cmp.i69, i1 %cmp.i72, i1 false
+  %17 = add i16 %16, -4371
+  %cmp.i69 = icmp ult i16 %17, -19
+  %18 = add i16 %16, -4470
+  %cmp.i72 = icmp ult i16 %18, -21
+  %or.cond166 = and i1 %cmp.i69, %cmp.i72
   br i1 %or.cond166, label %invoke.cont35, label %if.then33
 
 if.then33:                                        ; preds = %invoke.cont24
@@ -4022,22 +4021,20 @@ invoke.cont35:                                    ; preds = %invoke.cont24
   %20 = getelementptr i16, ptr %cond.i2.i.i, i64 %19
   %arrayidx.i.i = getelementptr i8, ptr %20, i64 -2
   %21 = load i16, ptr %arrayidx.i.i, align 2
-  %conv37 = zext i16 %21 to i32
-  %22 = add nsw i32 %conv37, -4371
-  %cmp.i88 = icmp ult i32 %22, -19
+  %22 = add i16 %21, -4371
+  %cmp.i88 = icmp ult i16 %22, -19
   br i1 %cmp.i88, label %lor.lhs.false41, label %if.then53
 
 lor.lhs.false41:                                  ; preds = %invoke.cont35
-  %23 = add nsw i32 %conv37, -4470
-  %cmp.i91 = icmp ult i32 %23, -21
+  %23 = add i16 %21, -4470
+  %cmp.i91 = icmp ult i16 %23, -21
   br i1 %cmp.i91, label %if.end55, label %invoke.cont47
 
 invoke.cont47:                                    ; preds = %lor.lhs.false41
   %arrayidx.i.i106 = getelementptr i8, ptr %20, i64 -4
   %24 = load i16, ptr %arrayidx.i.i106, align 2
-  %conv49 = zext i16 %24 to i32
-  %25 = add nsw i32 %conv49, -4371
-  %cmp.i109 = icmp ult i32 %25, -19
+  %25 = add i16 %24, -4371
+  %cmp.i109 = icmp ult i16 %25, -19
   br i1 %cmp.i109, label %if.end55, label %if.then53
 
 if.then53:                                        ; preds = %invoke.cont47, %invoke.cont35

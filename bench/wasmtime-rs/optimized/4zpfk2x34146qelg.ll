@@ -132,11 +132,7 @@ switch.lookup:
 define noundef zeroext i1 @_ZN14cranelift_wasm5state17ControlStackFrame7is_loop17hc035f5d79f77e6f8E(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4, !range !5, !noundef !4
-  %.not = icmp ugt i32 %3, 1
-  %4 = zext nneg i32 %3 to i64
-  %5 = add nsw i64 %4, -3
-  %switch1 = icmp ult i64 %5, -2
-  %switch.not = select i1 %.not, i1 %switch1, i1 false
+  %switch.not = icmp eq i32 %3, 3
   ret i1 %switch.not
 }
 

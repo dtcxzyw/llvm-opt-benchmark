@@ -767,24 +767,23 @@ for.cond.i:                                       ; preds = %for.cond.i, %if.end
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %if.end7.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %in.addr.0.i, i64 %indvars.iv.i
   %2 = load i8, ptr %arrayidx.i, align 1
-  %conv8.i = zext i8 %2 to i32
-  %isdigittmp = add nsw i32 %conv8.i, -48
-  %isdigit = icmp ult i32 %isdigittmp, 10
-  %3 = add nuw nsw i64 %indvars.iv.i, %1
-  %cmp9.i = icmp ne i64 %3, 2147483647
-  %4 = select i1 %isdigit, i1 %cmp9.i, i1 false
+  %3 = add i8 %2, -48
+  %isdigit = icmp ult i8 %3, 10
+  %4 = add nuw nsw i64 %indvars.iv.i, %1
+  %cmp9.i = icmp ne i64 %4, 2147483647
+  %5 = select i1 %isdigit, i1 %cmp9.i, i1 false
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %4, label %for.cond.i, label %for.end.i, !llvm.loop !14
+  br i1 %5, label %for.cond.i, label %for.end.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.cond.i
-  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %6 = trunc nuw i64 %3 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %7 = trunc nuw i64 %4 to i32
   %cmp12.i = icmp eq ptr %outp, null
   br i1 %cmp12.i, label %bn_x2bn.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %for.end.i
-  %7 = load ptr, ptr %outp, align 8
-  %cmp16.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %outp, align 8
+  %cmp16.i = icmp eq ptr %8, null
   br i1 %cmp16.i, label %if.then18.i, label %if.else.i
 
 if.then18.i:                                      ; preds = %if.end15.i
@@ -793,16 +792,16 @@ if.then18.i:                                      ; preds = %if.end15.i
   br i1 %cmp20.i, label %bn_x2bn.exit, label %if.end24.i
 
 if.else.i:                                        ; preds = %if.end15.i
-  tail call void @BN_zero(ptr noundef nonnull %7) #8
+  tail call void @BN_zero(ptr noundef nonnull %8) #8
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.else.i, %if.then18.i
-  %ret.0.i = phi ptr [ %call19.i, %if.then18.i ], [ %7, %if.else.i ]
+  %ret.0.i = phi ptr [ %call19.i, %if.then18.i ], [ %8, %if.else.i ]
   %cmp18.i.not = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp18.i.not, label %if.end28.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end24.i
-  %rem15.i = urem i32 %5, 19
+  %rem15.i = urem i32 %6, 19
   %cmp.i2 = icmp eq i32 %rem15.i, 0
   %sub.i = sub nuw nsw i32 19, %rem15.i
   %spec.store.select.i = select i1 %cmp.i2, i32 0, i32 %sub.i
@@ -815,8 +814,8 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %j.010.i = phi i32 [ %spec.store.select.i, %for.body.preheader.i ], [ %j.1.i, %for.inc.i ]
   %mul.i = mul i64 %l.011.i, 10
   %arrayidx.i4 = getelementptr inbounds i8, ptr %in.addr.0.i, i64 %indvars.iv.i3
-  %8 = load i8, ptr %arrayidx.i4, align 1
-  %conv.i = sext i8 %8 to i64
+  %9 = load i8, ptr %arrayidx.i4, align 1
+  %conv.i = sext i8 %9 to i64
   %sub2.i = add i64 %mul.i, -48
   %add.i = add i64 %sub2.i, %conv.i
   %inc.i = add nsw i32 %j.010.i, 1
@@ -856,8 +855,8 @@ if.end33.i:                                       ; preds = %if.then31.i, %if.en
   br label %bn_x2bn.exit
 
 err.i:                                            ; preds = %if.then6.i6, %lor.lhs.false.i8
-  %9 = load ptr, ptr %outp, align 8
-  %cmp34.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %outp, align 8
+  %cmp34.i = icmp eq ptr %10, null
   br i1 %cmp34.i, label %if.then36.i, label %bn_x2bn.exit
 
 if.then36.i:                                      ; preds = %err.i
@@ -865,7 +864,7 @@ if.then36.i:                                      ; preds = %err.i
   br label %bn_x2bn.exit
 
 bn_x2bn.exit:                                     ; preds = %entry, %lor.lhs.false.i, %for.end.i, %if.then18.i, %if.end33.i, %err.i, %if.then36.i
-  %retval.0.i = phi i32 [ %6, %if.end33.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ %6, %for.end.i ], [ 0, %if.then18.i ], [ 0, %if.then36.i ], [ 0, %err.i ]
+  %retval.0.i = phi i32 [ %7, %if.end33.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ %7, %for.end.i ], [ 0, %if.then18.i ], [ 0, %if.then36.i ], [ 0, %err.i ]
   ret i32 %retval.0.i
 }
 

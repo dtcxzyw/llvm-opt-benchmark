@@ -119,21 +119,20 @@ if.then50:                                        ; preds = %if.else45
 if.end.i:                                         ; preds = %if.then50
   %status_code.i = getelementptr inbounds i8, ptr %parser, i64 82
   %11 = load i16, ptr %status_code.i, align 2
-  %.fr.i = freeze i16 %11
-  %conv2.i = zext i16 %.fr.i to i32
-  %conv2.off.i = add nsw i32 %conv2.i, -100
-  %cmp3.i = icmp ult i32 %conv2.off.i, 100
+  %.fr10.i = freeze i16 %11
+  %12 = add i16 %.fr10.i, -100
+  %cmp3.i = icmp ult i16 %12, 100
   br i1 %cmp3.i, label %llhttp_message_needs_eof.exit.thread, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %if.end.i
-  switch i16 %.fr.i, label %llhttp_message_needs_eof.exit [
+  switch i16 %.fr10.i, label %llhttp_message_needs_eof.exit [
     i16 304, label %llhttp_message_needs_eof.exit.thread
     i16 204, label %llhttp_message_needs_eof.exit.thread
   ]
 
 llhttp_message_needs_eof.exit:                    ; preds = %switch.early.test.i
-  %12 = and i16 %.fr23, 40
-  %tobool32.not.i.not = icmp eq i16 %12, 0
+  %13 = and i16 %.fr23, 40
+  %tobool32.not.i.not = icmp eq i16 %13, 0
   br i1 %tobool32.not.i.not, label %return, label %llhttp_message_needs_eof.exit.thread
 
 llhttp_message_needs_eof.exit.thread:             ; preds = %if.end.i, %switch.early.test.i, %switch.early.test.i, %if.then50, %llhttp_message_needs_eof.exit
@@ -141,8 +140,8 @@ llhttp_message_needs_eof.exit.thread:             ; preds = %if.end.i, %switch.e
 
 if.else54:                                        ; preds = %if.else45
   %content_length55 = getelementptr inbounds i8, ptr %parser, i64 64
-  %13 = load i64, ptr %content_length55, align 8
-  %cmp56 = icmp eq i64 %13, 0
+  %14 = load i64, ptr %content_length55, align 8
+  %cmp56 = icmp eq i64 %14, 0
   %.15 = select i1 %cmp56, i32 0, i32 3
   br label %return
 
@@ -162,34 +161,33 @@ entry:
 if.end:                                           ; preds = %entry
   %status_code = getelementptr inbounds i8, ptr %parser, i64 82
   %1 = load i16, ptr %status_code, align 2
-  %.fr = freeze i16 %1
-  %conv2 = zext i16 %.fr to i32
-  %conv2.off = add nsw i32 %conv2, -100
-  %cmp3 = icmp ult i32 %conv2.off, 100
+  %.fr10 = freeze i16 %1
+  %2 = add i16 %.fr10, -100
+  %cmp3 = icmp ult i16 %2, 100
   br i1 %cmp3, label %return, label %switch.early.test
 
 switch.early.test:                                ; preds = %if.end
-  switch i16 %.fr, label %lor.lhs.false14 [
+  switch i16 %.fr10, label %lor.lhs.false14 [
     i16 304, label %return
     i16 204, label %return
   ]
 
 lor.lhs.false14:                                  ; preds = %switch.early.test
   %flags = getelementptr inbounds i8, ptr %parser, i64 80
-  %2 = load i16, ptr %flags, align 8
-  %conv15 = zext i16 %2 to i32
+  %3 = load i16, ptr %flags, align 8
+  %conv15 = zext i16 %3 to i32
   %and = and i32 %conv15, 64
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end17, label %return
 
 if.end17:                                         ; preds = %lor.lhs.false14
-  %3 = and i32 %conv15, 520
-  %or.cond9 = icmp eq i32 %3, 512
+  %4 = and i32 %conv15, 520
+  %or.cond9 = icmp eq i32 %4, 512
   br i1 %or.cond9, label %return, label %if.end28
 
 if.end28:                                         ; preds = %if.end17
-  %4 = and i16 %2, 40
-  %tobool32.not = icmp eq i16 %4, 0
+  %5 = and i16 %3, 40
+  %tobool32.not = icmp eq i16 %5, 0
   %. = zext i1 %tobool32.not to i32
   br label %return
 
@@ -236,14 +234,13 @@ if.end13.i:                                       ; preds = %if.else.i, %if.then
 if.end.i.i:                                       ; preds = %if.end13.i
   %status_code.i.i = getelementptr inbounds i8, ptr %parser, i64 82
   %8 = load i16, ptr %status_code.i.i, align 2
-  %.fr.i.i = freeze i16 %8
-  %conv2.i.i = zext i16 %.fr.i.i to i32
-  %conv2.off.i.i = add nsw i32 %conv2.i.i, -100
-  %cmp3.i.i = icmp ult i32 %conv2.off.i.i, 100
+  %.fr10.i.i = freeze i16 %8
+  %9 = add i16 %.fr10.i.i, -100
+  %cmp3.i.i = icmp ult i16 %9, 100
   br i1 %cmp3.i.i, label %llhttp_should_keep_alive.exit, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %if.end.i.i
-  switch i16 %.fr.i.i, label %lor.lhs.false14.i.i [
+  switch i16 %.fr10.i.i, label %lor.lhs.false14.i.i [
     i16 304, label %llhttp_should_keep_alive.exit
     i16 204, label %llhttp_should_keep_alive.exit
   ]
@@ -255,18 +252,18 @@ lor.lhs.false14.i.i:                              ; preds = %switch.early.test.i
   br i1 %tobool.not.i.i, label %if.end17.i.i, label %llhttp_should_keep_alive.exit
 
 if.end17.i.i:                                     ; preds = %lor.lhs.false14.i.i
-  %9 = and i32 %conv15.i.i, 520
-  %or.cond9.i.i = icmp eq i32 %9, 512
+  %10 = and i32 %conv15.i.i, 520
+  %or.cond9.i.i = icmp eq i32 %10, 512
   br i1 %or.cond9.i.i, label %llhttp_should_keep_alive.exit, label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.end17.i.i
-  %10 = and i16 %6, 40
-  %tobool32.not.i.i = icmp ne i16 %10, 0
-  %11 = zext i1 %tobool32.not.i.i to i32
+  %11 = and i16 %6, 40
+  %tobool32.not.i.i = icmp ne i16 %11, 0
+  %12 = zext i1 %tobool32.not.i.i to i32
   br label %llhttp_should_keep_alive.exit
 
 llhttp_should_keep_alive.exit:                    ; preds = %if.then.i, %if.else.i, %if.end13.i, %if.end.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %lor.lhs.false14.i.i, %if.end17.i.i, %if.end28.i.i
-  %retval.0.i = phi i32 [ 0, %if.then.i ], [ 0, %if.else.i ], [ 1, %if.end13.i ], [ 1, %lor.lhs.false14.i.i ], [ 1, %switch.early.test.i.i ], [ 0, %if.end17.i.i ], [ %11, %if.end28.i.i ], [ 1, %if.end.i.i ], [ 1, %switch.early.test.i.i ]
+  %retval.0.i = phi i32 [ 0, %if.then.i ], [ 0, %if.else.i ], [ 1, %if.end13.i ], [ 1, %lor.lhs.false14.i.i ], [ 1, %switch.early.test.i.i ], [ 0, %if.end17.i.i ], [ %12, %if.end28.i.i ], [ 1, %if.end.i.i ], [ 1, %switch.early.test.i.i ]
   %finish = getelementptr inbounds i8, ptr %parser, i64 79
   store i8 0, ptr %finish, align 1
   %flags = getelementptr inbounds i8, ptr %parser, i64 80
@@ -312,14 +309,13 @@ if.end13:                                         ; preds = %if.else, %if.then
 if.end.i:                                         ; preds = %if.end13
   %status_code.i = getelementptr inbounds i8, ptr %parser, i64 82
   %8 = load i16, ptr %status_code.i, align 2
-  %.fr.i = freeze i16 %8
-  %conv2.i = zext i16 %.fr.i to i32
-  %conv2.off.i = add nsw i32 %conv2.i, -100
-  %cmp3.i = icmp ult i32 %conv2.off.i, 100
+  %.fr10.i = freeze i16 %8
+  %9 = add i16 %.fr10.i, -100
+  %cmp3.i = icmp ult i16 %9, 100
   br i1 %cmp3.i, label %return, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %if.end.i
-  switch i16 %.fr.i, label %lor.lhs.false14.i [
+  switch i16 %.fr10.i, label %lor.lhs.false14.i [
     i16 304, label %return
     i16 204, label %return
   ]
@@ -331,18 +327,18 @@ lor.lhs.false14.i:                                ; preds = %switch.early.test.i
   br i1 %tobool.not.i, label %if.end17.i, label %return
 
 if.end17.i:                                       ; preds = %lor.lhs.false14.i
-  %9 = and i32 %conv15.i, 520
-  %or.cond9.i = icmp eq i32 %9, 512
+  %10 = and i32 %conv15.i, 520
+  %or.cond9.i = icmp eq i32 %10, 512
   br i1 %or.cond9.i, label %return, label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end17.i
-  %10 = and i16 %6, 40
-  %tobool32.not.i = icmp ne i16 %10, 0
-  %11 = zext i1 %tobool32.not.i to i32
+  %11 = and i16 %6, 40
+  %tobool32.not.i = icmp ne i16 %11, 0
+  %12 = zext i1 %tobool32.not.i to i32
   br label %return
 
 return:                                           ; preds = %if.end28.i, %if.end17.i, %lor.lhs.false14.i, %switch.early.test.i, %switch.early.test.i, %if.end.i, %if.end13, %if.else, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.else ], [ 1, %if.end13 ], [ 1, %lor.lhs.false14.i ], [ 1, %switch.early.test.i ], [ 0, %if.end17.i ], [ %11, %if.end28.i ], [ 1, %if.end.i ], [ 1, %switch.early.test.i ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.else ], [ 1, %if.end13 ], [ 1, %lor.lhs.false14.i ], [ 1, %switch.early.test.i ], [ 0, %if.end17.i ], [ %12, %if.end28.i ], [ 1, %if.end.i ], [ 1, %switch.early.test.i ]
   ret i32 %retval.0
 }
 

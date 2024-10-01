@@ -975,18 +975,18 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %16, %18, %20, %22
   %50 = getelementptr inbounds i8, ptr %49, i64 %45
   %51 = load i8, ptr %50, align 1
   store i64 %47, ptr %29, align 8
-  %52 = zext i8 %51 to i32
-  %53 = add nsw i32 %52, -1
-  %54 = icmp ult i32 %53, 30
-  br i1 %54, label %55, label %_ZN5draco13DecoderBuffer6DecodeEPvm.exit
+  %52 = add i8 %51, -1
+  %53 = icmp ult i8 %52, 30
+  br i1 %53, label %54, label %_ZN5draco13DecoderBuffer6DecodeEPvm.exit
 
-55:                                               ; preds = %48
+54:                                               ; preds = %48
+  %55 = zext nneg i8 %51 to i32
   %56 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %52, ptr %56, align 8
+  store i32 %55, ptr %56, align 8
   br label %_ZN5draco13DecoderBuffer6DecodeEPvm.exit
 
-_ZN5draco13DecoderBuffer6DecodeEPvm.exit:         ; preds = %39, %32, %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %48, %55
-  %.0 = phi i1 [ true, %55 ], [ false, %48 ], [ false, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ false, %32 ], [ false, %39 ]
+_ZN5draco13DecoderBuffer6DecodeEPvm.exit:         ; preds = %39, %32, %_ZNSt6vectorIfSaIfEE6resizeEm.exit, %48, %54
+  %.0 = phi i1 [ true, %54 ], [ false, %48 ], [ false, %_ZNSt6vectorIfSaIfEE6resizeEm.exit ], [ false, %32 ], [ false, %39 ]
   ret i1 %.0
 }
 

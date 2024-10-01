@@ -581,13 +581,12 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv299 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next300, %for.inc ]
   %arrayidx292 = getelementptr inbounds i16, ptr %dest, i64 %indvars.iv299
   %32 = load i16, ptr %arrayidx292, align 2
-  %conv293 = zext i16 %32 to i32
-  %sub294 = add nsw i32 %conv293, -48
-  %cmp295 = icmp ult i32 %sub294, 10
+  %33 = add i16 %32, -48
+  %cmp295 = icmp ult i16 %33, 10
   br i1 %cmp295, label %if.then296, label %for.inc
 
 if.then296:                                       ; preds = %for.body
-  %add301 = add i16 %sub288, %32
+  %add301 = add nuw nsw i16 %sub288, %32
   store i16 %add301, ptr %arrayidx292, align 2
   br label %for.inc
 
@@ -599,14 +598,14 @@ for.inc:                                          ; preds = %for.body, %if.then2
 for.body308:                                      ; preds = %for.body308.lr.ph, %for.inc324
   %indvars.iv296 = phi i64 [ 0, %for.body308.lr.ph ], [ %indvars.iv.next297, %for.inc324 ]
   %arrayidx310 = getelementptr inbounds i16, ptr %dest, i64 %indvars.iv296
-  %33 = load i16, ptr %arrayidx310, align 2
-  %conv311 = zext i16 %33 to i32
+  %34 = load i16, ptr %arrayidx310, align 2
+  %conv311 = zext i16 %34 to i32
   %sub313 = sub nsw i32 %conv311, %conv312
   %cmp314 = icmp ult i32 %sub313, 10
   br i1 %cmp314, label %if.then315, label %for.inc324
 
 if.then315:                                       ; preds = %for.body308
-  %sub321 = add i16 %sub317.neg, %33
+  %sub321 = add i16 %sub317.neg, %34
   store i16 %sub321, ptr %arrayidx310, align 2
   br label %for.inc324
 
@@ -2261,12 +2260,12 @@ sw.bb4:                                           ; preds = %for.body
   br i1 %tobool5.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb4
-  %sub7 = add nsw i32 %conv2, -48
-  %cmp8 = icmp ult i32 %sub7, 10
+  %2 = add i16 %1, -48
+  %cmp8 = icmp ult i16 %2, 10
   br i1 %cmp8, label %if.then9, label %for.inc
 
 if.then9:                                         ; preds = %land.lhs.true
-  %add = add i16 %1, %sub
+  %add = add nsw i16 %1, %sub
   store i16 %add, ptr %arrayidx, align 2
   br label %for.inc
 
@@ -2281,8 +2280,8 @@ for.body17:                                       ; preds = %for.body17.preheade
   %lastStrongWasAL.addr.224 = phi i8 [ %lastStrongWasAL, %for.body17.preheader ], [ %lastStrongWasAL.addr.3, %sw.epilog39 ]
   %indvars.iv.next28 = add nsw i64 %indvars.iv27, -1
   %arrayidx19 = getelementptr inbounds i16, ptr %s, i64 %indvars.iv.next28
-  %2 = load i16, ptr %arrayidx19, align 2
-  %conv20 = zext i16 %2 to i32
+  %3 = load i16, ptr %arrayidx19, align 2
+  %conv20 = zext i16 %3 to i32
   %call21 = tail call i32 @ubidi_getClass_75(i32 noundef %conv20)
   switch i32 %call21, label %sw.epilog39 [
     i32 0, label %sw.bb22
@@ -2302,12 +2301,12 @@ sw.bb24:                                          ; preds = %for.body17
   br i1 %tobool25.not, label %sw.epilog39, label %land.lhs.true26
 
 land.lhs.true26:                                  ; preds = %sw.bb24
-  %sub28 = add nsw i32 %conv20, -48
-  %cmp29 = icmp ult i32 %sub28, 10
+  %4 = add i16 %3, -48
+  %cmp29 = icmp ult i16 %4, 10
   br i1 %cmp29, label %if.then30, label %sw.epilog39
 
 if.then30:                                        ; preds = %land.lhs.true26
-  %add33 = add i16 %2, %sub
+  %add33 = add nsw i16 %3, %sub
   store i16 %add33, ptr %arrayidx19, align 2
   br label %sw.epilog39
 
