@@ -35,6 +35,7 @@ def run_opt(task):
             cmd = ['perf', 'stat', '-e', 'instructions:u', '--no-big-num'] + cmd + ['--stats', '--stats-json']
         ret = subprocess.run(cmd,stdin=subprocess.DEVNULL, capture_output=True, timeout=600.0,env={})
         if ret.returncode != 0:
+            print(ret.stderr.decode())
             return (input_file, 'fail', 0, dict())
         if comptime is not None:
             err = ret.stderr.decode()
