@@ -7277,19 +7277,19 @@ define internal fastcc i32 @cli_loadign(ptr noundef %0, ptr nocapture noundef %1
   br i1 %45, label %46, label %.loopexit
 
 46:                                               ; preds = %44
-  %47 = sub i64 3, %41
   %.not78 = icmp eq ptr %.058, %5
-  br i1 %.not78, label %.lr.ph.preheader, label %48
+  br i1 %.not78, label %.lr.ph.preheader, label %47
 
-48:                                               ; preds = %46
-  %49 = and i64 %41, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 1 %.058, i64 %49, i1 false)
+47:                                               ; preds = %46
+  %48 = and i64 %41, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 1 %.058, i64 %48, i1 false)
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %46, %48
-  %.260 = phi ptr [ %5, %48 ], [ %.058, %46 ]
+.lr.ph.preheader:                                 ; preds = %46, %47
+  %.260 = phi ptr [ %5, %47 ], [ %.058, %46 ]
   store i8 0, ptr %21, align 1
-  %50 = and i64 %47, 3
+  %49 = and i64 %41, 3
+  %50 = xor i64 %49, 3
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
