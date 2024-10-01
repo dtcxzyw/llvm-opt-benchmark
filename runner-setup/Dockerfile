@@ -3,16 +3,24 @@
 #   - gen_optimized.py
 #
 # System expectation:
-#   No Address Randomization
-#       - echo 0 > /proc/sys/kernel/randomize_va_space
-#   Userland Perf
-#       - echo -1 > /proc/sys/kernel/perf_event_paranoid
+#   No Address Randomization (for deterministic instruction count):
+#       $> echo 0 > /proc/sys/kernel/randomize_va_space
+#   Userland Perf:
+#       $> echo -1 > /proc/sys/kernel/perf_event_paranoid
 #
 # Build Command:
-# echo "${GITHUB_TOKEN}" | docker buildx build --secret id=github_token,src=/dev/stdin -t github-runner .
+#   $> echo "${GITHUB_TOKEN}" | docker buildx build --secret id=github_token,src=/dev/stdin -t github-runner .
 #
 # Run Command:
-# docker run --cap-add PERFMON -d --network=host --name github-runner github-runner 
+#   $> docker run --cap-add PERFMON -d --network=host --name github-runner github-runner
+#
+# To setup the system to maintain the runner/requirements on boot:
+#   1) Update container to always restart:
+#       $> docker update --restart=always <Container ID>
+#   2) Add the following two lines to /etc/sysctl.conf:
+#       $> echo "kernel.perf_event_paranoid = -1" >> /etc/sysctl.conf
+#       $> echo "kernel.randomize_va_space = 0" >> /etc/sysctl.conf
+
 
 # Use a lightweight base image
 FROM ubuntu:24.04
