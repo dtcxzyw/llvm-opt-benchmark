@@ -599,7 +599,7 @@ abc/hopCheck.c.ll 77648836
 abc/hopDfs.c.ll 264072456
 abc/hopMan.c.ll 121947761
 abc/hopObj.c.ll 158069295
-abc/hopOper.c.ll 200240675
+abc/hopOper.c.ll 200443453
 abc/hopTable.c.ll 153968646
 abc/hopTruth.c.ll 251538064
 abc/hopUtil.c.ll 336037008
@@ -2021,7 +2021,7 @@ brotli/shared_dictionary.c.ll 49400371
 brotli/state.c.ll 71284682
 brotli/static_dict.c.ll 850943403
 brotli/transform.c.ll 128219580
-brotli/utf8_util.c.ll 89791763
+brotli/utf8_util.c.ll 89889998
 bullet3/IDMath.ll 285972293
 bullet3/MultiBodyTree.ll 412482422
 bullet3/MultiBodyTreeImpl.ll 1761727403
@@ -2258,7 +2258,7 @@ c3c/json.c.ll 216302716
 c3c/json_output.c.ll 321799127
 c3c/lexer.c.ll 994175706
 c3c/libraries.c.ll 325156380
-c3c/linker.c.ll 1208455590
+c3c/linker.c.ll 1209799947
 c3c/llvm_codegen.c.ll 1083154923
 c3c/llvm_codegen_builtins.c.ll 521408152
 c3c/llvm_codegen_debug_info.c.ll 344575560
@@ -2747,7 +2747,7 @@ clamav/cache.c.ll 233006652
 clamav/cert_util.c.ll 193327997
 clamav/cert_util_linux.c.ll 46876957
 clamav/chmc.c.ll 35768296
-clamav/chmd.c.ll 683535036
+clamav/chmd.c.ll 684258811
 clamav/clamav-milter.c.ll 140728337
 clamav/clamconf.c.ll 264317280
 clamav/clamd.c.ll 243602296
@@ -2857,7 +2857,7 @@ clamav/message.c.ll 959341880
 clamav/mew.c.ll 773240670
 clamav/misc.c.ll 142114166
 clamav/mpool.c.ll 184053490
-clamav/msdoc.c.ll 330134702
+clamav/msdoc.c.ll 330476653
 clamav/msexpand.c.ll 106469662
 clamav/msxml.c.ll 99560867
 clamav/msxml_parser.c.ll 184892754
@@ -3703,7 +3703,7 @@ cmake/lzma_encoder_presets.c.ll 46752277
 cmake/md4.c.ll 266644375
 cmake/md5.c.ll 48892405
 cmake/mime.c.ll 596392584
-cmake/mprintf.c.ll 1418818735
+cmake/mprintf.c.ll 1420365539
 cmake/multi.c.ll 1184689603
 cmake/netrc.c.ll 131786288
 cmake/network.cpp.ll 384680685
@@ -6909,7 +6909,7 @@ entt/helper.cpp.ll 4871991714
 entt/ident.cpp.ll 152050504
 entt/iterator.cpp.ll 337172469
 entt/locator.cpp.ll 668623969
-entt/memory.cpp.ll 1703957000
+entt/memory.cpp.ll 1705830680
 entt/meta_any.cpp.ll 15891120197
 entt/meta_base.cpp.ll 2530175586
 entt/meta_container.cpp.ll 13262565373
@@ -6918,7 +6918,7 @@ entt/meta_conv.cpp.ll 1331258940
 entt/meta_ctor.cpp.ll 4083419148
 entt/meta_data.cpp.ll 9209106441
 entt/meta_dtor.cpp.ll 1243392733
-entt/meta_func.cpp.ll 8320586485
+entt/meta_func.cpp.ll 8329526384
 entt/meta_handle.cpp.ll 1476320683
 entt/meta_pointer.cpp.ll 5620451785
 entt/meta_prop.cpp.ll 2231917146
@@ -10042,7 +10042,7 @@ hdf5/h5clear.c.ll 102497617
 hdf5/h5copy.c.ll 196258351
 hdf5/h5debug.c.ll 212755860
 hdf5/h5delete.c.ll 47253939
-hdf5/h5diff.c.ll 654628793
+hdf5/h5diff.c.ll 655285375
 hdf5/h5diff_array.c.ll 1359275689
 hdf5/h5diff_attr.c.ll 432959809
 hdf5/h5diff_common.c.ll 573696878
@@ -10470,7 +10470,7 @@ hyperscan/allocators.cpp.ll 617498700
 hyperscan/arg_checks.cpp.ll 9664676455
 hyperscan/asserts.cpp.ll 1607748900
 hyperscan/bad_patterns.cpp.ll 1659090415
-hyperscan/behaviour.cpp.ll 6937619598
+hyperscan/behaviour.cpp.ll 6945104396
 hyperscan/block.c.ll 901388603
 hyperscan/buildstate.cpp.ll 1958258366
 hyperscan/castle.c.ll 5632390696
@@ -10660,7 +10660,7 @@ icu/appendable.ll 53736108
 icu/astro.ll 244301129
 icu/basictz.ll 390256818
 icu/bmpset.ll 602559521
-icu/bocsu.ll 132103296
+icu/bocsu.ll 132238556
 icu/brkeng.ll 242347735
 icu/brkiter.ll 237294684
 icu/brktrans.ll 192989365
@@ -10712,7 +10712,7 @@ icu/csrucode.ll 116448410
 icu/csrutf8.ll 72444723
 icu/cstr.ll 94556993
 icu/cstring.ll 109423319
-icu/ctest.ll 392113634
+icu/ctest.ll 392514613
 icu/curramt.ll 57733325
 icu/currfmt.ll 48691920
 icu/currpinf.ll 308611151
@@ -11436,8 +11436,8 @@ jemalloc/safety_check.ll 40420666
 jemalloc/safety_check.pic.ll 40385970
 jemalloc/safety_check.sym.ll 40385919
 jemalloc/sc.ll 175649255
-jemalloc/sc.pic.ll 175564691
-jemalloc/sc.sym.ll 175564690
+jemalloc/sc.pic.ll 175740549
+jemalloc/sc.sym.ll 175740538
 jemalloc/sec.ll 295146653
 jemalloc/sec.pic.ll 294961577
 jemalloc/sec.sym.ll 294961772
@@ -12208,7 +12208,7 @@ libsodium/libavx2_la-salsa20_xmm6int-avx2.ll 498254757
 libsodium/libavx512f_la-argon2-fill-block-avx512f.ll 805748116
 libsodium/librdrand_la-randombytes_internal_random.ll 118773817
 libsodium/libsodium_la-aegis128l_soft.ll 464112333
-libsodium/libsodium_la-aegis256_soft.ll 295874323
+libsodium/libsodium_la-aegis256_soft.ll 296172817
 libsodium/libsodium_la-argon2-core.ll 159842722
 libsodium/libsodium_la-argon2-encoding.ll 141870954
 libsodium/libsodium_la-argon2-fill-block-ref.ll 1217347157
@@ -13002,7 +13002,7 @@ linux/check_signature.ll 47076966
 linux/checkpoint.ll 274972450
 linux/chip.ll 330660121
 linux/cipso_ipv4.ll 463904304
-linux/cistpl.ll 530358475
+linux/cistpl.ll 530891964
 linux/class.ll 83955056
 linux/cleanup.ll 118869850
 linux/client.ll 439814919
@@ -13689,7 +13689,7 @@ linux/intel_ggtt_gmch.ll 61096172
 linux/intel_gmbus.ll 432790415
 linux/intel_gmch.ll 77134714
 linux/intel_gsc.ll 112508450
-linux/intel_gsc_fw.ll 121170572
+linux/intel_gsc_fw.ll 121297489
 linux/intel_gsc_proxy.ll 120835730
 linux/intel_gsc_uc_debugfs.ll 48440259
 linux/intel_gsc_uc_heci_cmd_submit.ll 157653697
@@ -17491,8 +17491,8 @@ luajit/lj_opt_sink.ll 224652596
 luajit/lj_opt_sink_dyn.ll 224813550
 luajit/lj_parse.ll 2111614324
 luajit/lj_parse_dyn.ll 2112173375
-luajit/lj_prng.ll 65835120
-luajit/lj_prng_dyn.ll 65744582
+luajit/lj_prng.ll 65908595
+luajit/lj_prng_dyn.ll 65822800
 luajit/lj_profile.ll 80181174
 luajit/lj_profile_dyn.ll 80117304
 luajit/lj_record.ll 1485450548
@@ -19409,7 +19409,7 @@ ncnn/softmax_x86_avx512.cpp.ll 4221749089
 ncnn/softmax_x86_fma.cpp.ll 2757871798
 ncnn/softplus.cpp.ll 63339363
 ncnn/split.cpp.ll 65366225
-ncnn/squeeze.cpp.ll 820295184
+ncnn/squeeze.cpp.ll 821182302
 ncnn/statisticspooling.cpp.ll 92334904
 ncnn/swish.cpp.ll 63960684
 ncnn/swish_x86.cpp.ll 95147312
@@ -27445,7 +27445,7 @@ openssl/libcrypto-lib-ec_deprecated.ll 46413631
 openssl/libcrypto-lib-ec_err.ll 40424418
 openssl/libcrypto-lib-ec_key.ll 260675743
 openssl/libcrypto-lib-ec_lib.ll 467517805
-openssl/libcrypto-lib-ec_mult.ll 341321678
+openssl/libcrypto-lib-ec_mult.ll 341687419
 openssl/libcrypto-lib-ec_pmeth.ll 128952435
 openssl/libcrypto-lib-ec_support.ll 67079953
 openssl/libcrypto-lib-ecb3_enc.ll 44002181
@@ -27570,7 +27570,7 @@ openssl/libcrypto-lib-ocsp_ext.ll 130493136
 openssl/libcrypto-lib-ocsp_prn.ll 128893712
 openssl/libcrypto-lib-ocsp_srv.ll 106475454
 openssl/libcrypto-lib-ocsp_vfy.ll 151097270
-openssl/libcrypto-lib-ofb64ede.ll 69040578
+openssl/libcrypto-lib-ofb64ede.ll 69110546
 openssl/libcrypto-lib-ofb64enc.ll 67836265
 openssl/libcrypto-lib-ofb_enc.ll 90952462
 openssl/libcrypto-lib-p12_add.ll 81217891
@@ -28157,7 +28157,7 @@ openssl/libcrypto-shlib-ocsp_ext.ll 130493067
 openssl/libcrypto-shlib-ocsp_prn.ll 128894364
 openssl/libcrypto-shlib-ocsp_srv.ll 106476083
 openssl/libcrypto-shlib-ocsp_vfy.ll 151093992
-openssl/libcrypto-shlib-ofb64ede.ll 69040988
+openssl/libcrypto-shlib-ofb64ede.ll 69110960
 openssl/libcrypto-shlib-ofb64enc.ll 67836722
 openssl/libcrypto-shlib-ofb_enc.ll 90910467
 openssl/libcrypto-shlib-p12_add.ll 81207996
@@ -29338,7 +29338,7 @@ openusd/geometryLightAdapter.cpp.ll 265757154
 openusd/getenv.cpp.ll 86365441
 openusd/glslfx.cpp.ll 2420956835
 openusd/glslfxConfig.cpp.ll 3204729264
-openusd/glslfxResourceLayout.cpp.ll 2461813443
+openusd/glslfxResourceLayout.cpp.ll 2464340497
 openusd/gprim.cpp.ll 1093307899
 openusd/gprimAdapter.cpp.ll 6062249175
 openusd/grain_synthesis.c.ll 1347271820
@@ -29934,7 +29934,7 @@ openusd/testUsdImagingDelegateChanges.cpp.ll 8210644538
 openusd/testUsdImagingExcluded.cpp.ll 854602909
 openusd/testUsdImagingMaterialBinding.cpp.ll 2226820137
 openusd/testUsdImagingNestedInstancingCategories.cpp.ll 1301933548
-openusd/testUsdImagingPrimvarUtils.cpp.ll 565099039
+openusd/testUsdImagingPrimvarUtils.cpp.ll 565685731
 openusd/testUsdImagingRerootingSceneIndex.cpp.ll 2398014763
 openusd/testUsdImagingRootPrim.cpp.ll 1676889553
 openusd/testUsdImagingStageSceneIndex.cpp.ll 4202738440
@@ -30479,7 +30479,7 @@ php/pcre2_match_data.ll 53853014
 php/pcre2_newline.ll 101720608
 php/pcre2_ord2utf.ll 48516715
 php/pcre2_pattern_info.ll 98215954
-php/pcre2_script_run.ll 157908795
+php/pcre2_script_run.ll 158074854
 php/pcre2_serialize.ll 95449075
 php/pcre2_string_utils.ll 67254250
 php/pcre2_study.ll 740434133
@@ -30504,7 +30504,7 @@ php/php_date.ll 3649382839
 php/php_dom.ll 3134653945
 php/php_fopen_wrapper.ll 132520089
 php/php_http_parser.ll 763688941
-php/php_ini.ll 381650416
+php/php_ini.ll 382032595
 php/php_ini_builder.ll 67712244
 php/php_libmagic.ll 105469193
 php/php_odbc_utils.ll 55302706
@@ -30559,7 +30559,7 @@ php/shared_alloc_posix.ll 45124564
 php/shared_alloc_shm.ll 68392153
 php/simplexml.ll 1812061435
 php/snprintf.ll 725919460
-php/softmagic.ll 1158929636
+php/softmagic.ll 1160156033
 php/soundex.ll 99011051
 php/spl_array.ll 1020679655
 php/spl_directory.ll 2570431864
@@ -30633,7 +30633,7 @@ php/zend_compile.ll 7186016183
 php/zend_constants.ll 380007285
 php/zend_dfg.ll 384548653
 php/zend_dump.ll 592617618
-php/zend_enum.ll 534601643
+php/zend_enum.ll 535145735
 php/zend_exceptions.ll 1185121258
 php/zend_execute.ll 29356252772
 php/zend_execute_API.ll 895179617
@@ -30666,7 +30666,7 @@ php/zend_objects.ll 173749920
 php/zend_objects_API.ll 125461703
 php/zend_observer.ll 202697177
 php/zend_opcode.ll 768281149
-php/zend_operators.ll 2874646036
+php/zend_operators.ll 2877641682
 php/zend_optimizer.ll 1060185804
 php/zend_persist.ll 1347362930
 php/zend_persist_calc.ll 783530318
@@ -31549,11 +31549,11 @@ postgres/stem_UTF_8_arabic.ll 376872337
 postgres/stem_UTF_8_armenian.ll 80216908
 postgres/stem_UTF_8_basque.ll 165832591
 postgres/stem_UTF_8_catalan.ll 155699425
-postgres/stem_UTF_8_danish.ll 102730889
+postgres/stem_UTF_8_danish.ll 102836010
 postgres/stem_UTF_8_dutch.ll 241500812
 postgres/stem_UTF_8_english.ll 271975723
 postgres/stem_UTF_8_finnish.ll 205356214
-postgres/stem_UTF_8_french.ll 371398792
+postgres/stem_UTF_8_french.ll 371801854
 postgres/stem_UTF_8_german.ll 185610237
 postgres/stem_UTF_8_greek.ll 486250057
 postgres/stem_UTF_8_hindi.ll 51193857
@@ -31572,7 +31572,7 @@ postgres/stem_UTF_8_serbian.ll 701486779
 postgres/stem_UTF_8_spanish.ll 256953336
 postgres/stem_UTF_8_swedish.ll 95442004
 postgres/stem_UTF_8_tamil.ll 437245096
-postgres/stem_UTF_8_turkish.ll 656225822
+postgres/stem_UTF_8_turkish.ll 656885754
 postgres/stem_UTF_8_yiddish.ll 274031374
 postgres/storage.ll 216711509
 postgres/streamutil.ll 181078158
@@ -36058,7 +36058,7 @@ slurm/print.ll 227156055
 slurm/print_fields.ll 156269008
 slurm/priority.ll 52488351
 slurm/priority_basic.ll 87177371
-slurm/priority_multifactor.ll 822672536
+slurm/priority_multifactor.ll 823534998
 slurm/privileges.ll 51173769
 slurm/problem_functions.ll 131227500
 slurm/proc_args.ll 565390108
@@ -36227,7 +36227,7 @@ soc-simulator/Vmycpu_top.ll 105137503
 soc-simulator/Vmycpu_top__Syms.ll 99988807
 soc-simulator/Vmycpu_top___024root__DepSet_h368ace38__0.ll 50322842
 soc-simulator/Vmycpu_top___024root__DepSet_h368ace38__0__Slow.ll 45534069
-soc-simulator/Vmycpu_top___024root__DepSet_hcf0db31f__0.ll 6233393427
+soc-simulator/Vmycpu_top___024root__DepSet_hcf0db31f__0.ll 6240193933
 soc-simulator/Vmycpu_top___024root__DepSet_hcf0db31f__0__Slow.ll 3198339867
 soc-simulator/Vmycpu_top___024root__DepSet_hcf0db31f__1.ll 635205564
 soc-simulator/sim_mycpu.ll 2749870766
@@ -40354,7 +40354,7 @@ wireshark/packet-mq-pcf.c.ll 249053854
 wireshark/packet-mq.c.ll 1205979824
 wireshark/packet-mqtt-sn.c.ll 98513140
 wireshark/packet-mqtt.c.ll 318481521
-wireshark/packet-mrcpv2.c.ll 343631499
+wireshark/packet-mrcpv2.c.ll 343990174
 wireshark/packet-mrdisc.c.ll 73527174
 wireshark/packet-mrp-msrp.c.ll 185796477
 wireshark/packet-ms-do.c.ll 148543319
@@ -40471,7 +40471,7 @@ wireshark/packet-pdcp-nr.c.ll 870139571
 wireshark/packet-peekremote.c.ll 144006582
 wireshark/packet-per.c.ll 1127189754
 wireshark/packet-pfcp.c.ll 1843308487
-wireshark/packet-pgm.c.ll 370224045
+wireshark/packet-pgm.c.ll 370599985
 wireshark/packet-pgsql.c.ll 347866008
 wireshark/packet-pim.c.ll 402688593
 wireshark/packet-pingpongprotocol.c.ll 119044646
@@ -40623,7 +40623,7 @@ wireshark/packet-sigcomp.c.ll 2223031318
 wireshark/packet-signal-pdu.c.ll 1097384136
 wireshark/packet-simulcrypt.c.ll 286618088
 wireshark/packet-sinecap.c.ll 63697530
-wireshark/packet-sip.c.ll 1576007803
+wireshark/packet-sip.c.ll 1577666779
 wireshark/packet-sir.c.ll 79708370
 wireshark/packet-sita.c.ll 89371161
 wireshark/packet-skinny.c.ll 1627523525
@@ -40829,7 +40829,7 @@ wireshark/packet-yami.c.ll 148064959
 wireshark/packet-yhoo.c.ll 54365261
 wireshark/packet-ymsg.c.ll 80489337
 wireshark/packet-ypserv.c.ll 107022399
-wireshark/packet-z21.c.ll 318296934
+wireshark/packet-z21.c.ll 318687292
 wireshark/packet-z3950.c.ll 951530175
 wireshark/packet-zabbix.c.ll 297826459
 wireshark/packet-zbee-aps.c.ll 287606544
@@ -41315,7 +41315,7 @@ yalantinglibs/server.cpp.ll 18107221532
 yalantinglibs/source_context.struct_pb.cc.ll 439782119
 yalantinglibs/struct.struct_pb.cc.ll 2134156638
 yalantinglibs/test_messages_proto2.pb.cc.ll 29778555421
-yalantinglibs/test_messages_proto2.struct_pb.cc.ll 38116473712
+yalantinglibs/test_messages_proto2.struct_pb.cc.ll 38155836500
 yalantinglibs/test_messages_proto3.pb.cc.ll 31686183105
 yalantinglibs/test_messages_proto3.struct_pb.cc.ll 44779758480
 yalantinglibs/timestamp.struct_pb.cc.ll 402482842

@@ -163460,10 +163460,10 @@ js_resize_array.exit:                             ; preds = %42, %15
   %58 = or disjoint i8 %57, %55
   %59 = trunc nuw nsw i32 %7 to i8
   %60 = shl nuw nsw i8 %59, 3
-  %61 = trunc nuw nsw i32 %8 to i8
-  %62 = shl nuw i8 %61, 4
-  %63 = or disjoint i8 %58, %60
-  %64 = or disjoint i8 %63, %62
+  %61 = or disjoint i8 %58, %60
+  %62 = trunc nuw nsw i32 %8 to i8
+  %63 = shl nuw i8 %62, 4
+  %64 = or disjoint i8 %61, %63
   store i8 %64, ptr %51, align 4
   %65 = trunc i32 %4 to i16
   %66 = getelementptr inbounds i8, ptr %51, i64 2
