@@ -9968,11 +9968,11 @@ if.end.i6:                                        ; preds = %entry
   %conv.i = sext i32 %start to i64
   %mul3.i = mul nsw i64 %conv2.i, 86400
   %mul.i = mul nsw i64 %conv.i, 86400
-  %cmp.i44 = icmp slt i64 %mul.i, %mul3.i
+  %cmp.i44 = icmp slt i32 %start, %end
   %.sroa.speculated170 = tail call i64 @llvm.smin.i64(i64 %mul3.i, i64 %mul.i)
   %mul.i47 = mul nsw i64 %.sroa.speculated170, 1000
-  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %mul.i, i64 %mul3.i)
-  %mul.i62 = mul nsw i64 %.sroa.speculated, 1000
+  %.sroa.speculated = select i1 %cmp.i44, i64 %mul3.i, i64 %mul.i
+  %narrow = mul nsw i64 %.sroa.speculated, 1000
   %div.i.i.i.i = sdiv i64 %.sroa.speculated170, 86400
   %conv.i.i.i.i = trunc nsw i64 %div.i.i.i.i to i32
   %mul.i.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i, 86400000
@@ -9982,7 +9982,7 @@ if.end.i6:                                        ; preds = %entry
   %div.i.i.i.i73 = sdiv i64 %.sroa.speculated, 86400
   %conv.i.i.i.i74 = trunc nsw i64 %div.i.i.i.i73 to i32
   %mul.i.i.i.i.i.i.i77 = mul nsw i64 %div.i.i.i.i73, 86400000
-  %cmp.i.i.i.i78 = icmp slt i64 %mul.i62, %mul.i.i.i.i.i.i.i77
+  %cmp.i.i.i.i78 = icmp slt i64 %narrow, %mul.i.i.i.i.i.i.i77
   %sub.i.i.i79 = sext i1 %cmp.i.i.i.i78 to i32
   %spec.select.i.i80 = add nsw i32 %sub.i.i.i79, %conv.i.i.i.i74
   %conv.i.i = sext i32 %spec.select.i.i to i64
@@ -10064,7 +10064,7 @@ if.end.i6:                                        ; preds = %entry
   %mul.i.i.i.neg.i.i = mul nsw i64 %conv.i.i, -86400000
   %sub.i.i126 = add nsw i64 %mul.i.i.i.neg.i.i, %mul.i47
   %mul.i.i.i.neg.i.i130 = mul nsw i64 %conv.i.i82, -86400000
-  %sub.i.i131 = add nsw i64 %mul.i.i.i.neg.i.i130, %mul.i62
+  %sub.i.i131 = add nsw i64 %mul.i.i.i.neg.i.i130, %narrow
   %conv.i132 = and i32 %2, 255
   %conv.i134 = and i32 %cond34.i.i, 255
   %conv.i137 = and i32 %6, 255
@@ -24506,9 +24506,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #27
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #27
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

@@ -968,11 +968,11 @@ mi_segments_track_size.exit:                      ; preds = %if.end10.i, %if.the
   %arrayidx.i.i = getelementptr inbounds i8, ptr %slices.i, i64 %arrayidx.i.i.idx
   %8 = load i32, ptr %slices.i, align 8
   %idx.ext.i = zext i32 %8 to i64
-  %add.ptr.i.idx = mul nuw nsw i64 %idx.ext.i, 80
-  %cmp332 = icmp slt i64 %add.ptr.i.idx, %arrayidx.i.i.idx
+  %cmp332 = icmp sgt i64 %7, %idx.ext.i
   br i1 %cmp332, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %mi_segments_track_size.exit
+  %add.ptr.i.idx = mul nuw nsw i64 %idx.ext.i, 80
   %add.ptr.i = getelementptr inbounds i8, ptr %slices.i, i64 %add.ptr.i.idx
   %abandoned = getelementptr inbounds i8, ptr %segment, i64 192
   %9 = ptrtoint ptr %heap to i64
@@ -1289,11 +1289,11 @@ while.body:                                       ; preds = %land.rhs.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %slices.i.i, i64 %arrayidx.i.i.idx.i
   %40 = load i32, ptr %slices.i.i, align 8
   %idx.ext.i.i = zext i32 %40 to i64
-  %add.ptr.i.idx.i = mul nuw nsw i64 %idx.ext.i.i, 80
-  %cmp19.i = icmp slt i64 %add.ptr.i.idx.i, %arrayidx.i.i.idx.i
+  %cmp19.i = icmp sgt i64 %39, %idx.ext.i.i
   br i1 %cmp19.i, label %while.body.lr.ph.i, label %mi_segment_check_free.exit
 
 while.body.lr.ph.i:                               ; preds = %while.body
+  %add.ptr.i.idx.i = mul nuw nsw i64 %idx.ext.i.i, 80
   %add.ptr.i.i = getelementptr inbounds i8, ptr %slices.i.i, i64 %add.ptr.i.idx.i
   %abandoned.i = getelementptr inbounds i8, ptr %32, i64 192
   br label %while.body.i
@@ -2119,11 +2119,11 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %slices.i.i.i.i, i64 %arrayidx.i.i.idx.i.i.i
   %44 = load i32, ptr %slices.i.i.i.i, align 8
   %idx.ext.i.i.i.i = zext i32 %44 to i64
-  %add.ptr.i.idx.i.i.i = mul nuw nsw i64 %idx.ext.i.i.i.i, 80
-  %cmp19.i.i.i = icmp slt i64 %add.ptr.i.idx.i.i.i, %arrayidx.i.i.idx.i.i.i
+  %cmp19.i.i.i = icmp sgt i64 %43, %idx.ext.i.i.i.i
   br i1 %cmp19.i.i.i, label %while.body.lr.ph.i.i.i, label %mi_segment_check_free.exit.thread.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %while.body.i.i
+  %add.ptr.i.idx.i.i.i = mul nuw nsw i64 %idx.ext.i.i.i.i, 80
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %slices.i.i.i.i, i64 %add.ptr.i.idx.i.i.i
   %abandoned.i.i.i = getelementptr inbounds i8, ptr %35, i64 192
   br label %while.body.i.i.i

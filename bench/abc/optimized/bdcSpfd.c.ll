@@ -2139,11 +2139,11 @@ Abc_Clock.exit197:                                ; preds = %159, %178
   %183 = sdiv exact i64 %gepdiff163, 24
   %184 = trunc i64 %183 to i32
   %185 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %182, i32 noundef %184)
-  %186 = icmp slt i64 %.idx160, %.idx
+  %186 = icmp slt i32 %161, %165
   br i1 %186, label %.preheader243.lr.ph, label %._crit_edge265
 
 .preheader243.lr.ph:                              ; preds = %Abc_Clock.exit197
-  %187 = icmp slt i64 %.idx162, %.idx161
+  %187 = icmp slt i32 %169, %173
   %188 = icmp ult i64 %indvars.iv282, %indvars.iv278
   br i1 %187, label %.preheader243.us, label %._crit_edge265
 

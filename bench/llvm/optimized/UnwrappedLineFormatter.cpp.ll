@@ -5857,9 +5857,8 @@ _ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLi
   %211 = load ptr, ptr %207, align 8
   %212 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %207) #15
   %213 = getelementptr inbounds %"struct.clang::format::ParenState", ptr %211, i64 %212
-  %.idx.i.i.i.i = mul nsw i64 %209, 56
   %.idx3.i.i.i.i = mul nsw i64 %212, 56
-  %214 = icmp slt i64 %.idx3.i.i.i.i, %.idx.i.i.i.i
+  %214 = icmp slt i64 %212, %209
   %215 = getelementptr inbounds i8, ptr %208, i64 %.idx3.i.i.i.i
   %216 = select i1 %214, ptr %215, ptr %210
   %.not22.i.i.i.i.i.i.i.i.i = icmp eq ptr %208, %216
@@ -6008,9 +6007,8 @@ _ZNK5clang6format12_GLOBAL__N_123OptimizingLineFormatter24CompareLineStatePointe
   %283 = load ptr, ptr %279, align 8
   %284 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %279) #15
   %285 = getelementptr inbounds %"struct.clang::format::ParenState", ptr %283, i64 %284
-  %.idx.i = mul nsw i64 %281, 56
   %.idx3.i = mul nsw i64 %284, 56
-  %286 = icmp slt i64 %.idx3.i, %.idx.i
+  %286 = icmp slt i64 %284, %281
   %287 = getelementptr inbounds i8, ptr %280, i64 %.idx3.i
   %288 = select i1 %286, ptr %287, ptr %282
   %.not22.i.i.i.i.i.i = icmp eq ptr %280, %288
@@ -6598,9 +6596,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15SmallVectorImplIN5clan
   %6 = load ptr, ptr %1, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   %8 = getelementptr inbounds %"struct.clang::format::ParenState", ptr %6, i64 %7
-  %.idx = mul nsw i64 %4, 56
   %.idx3 = mul nsw i64 %7, 56
-  %9 = icmp slt i64 %.idx3, %.idx
+  %9 = icmp slt i64 %7, %4
   %10 = getelementptr inbounds i8, ptr %3, i64 %.idx3
   %11 = select i1 %9, ptr %10, ptr %5
   %.not22.i.i.i.i.i = icmp eq ptr %3, %11
