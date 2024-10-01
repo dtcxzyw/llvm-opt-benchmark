@@ -618,7 +618,7 @@ define hidden noundef i32 @mlib_ImageAffine_s16_3ch_bl(ptr nocapture noundef rea
   %.0191225 = sext i16 %78 to i32
   %.0192226 = and i32 %63, 32767
   %.0193227 = and i32 %62, 32767
-  %100 = icmp slt i32 %56, %59
+  %100 = icmp slt i32 %39, %41
   br i1 %100, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %55, %.lr.ph

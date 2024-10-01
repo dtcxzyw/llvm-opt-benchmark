@@ -437,7 +437,7 @@ define hidden noundef i32 @mlib_ImageAffine_u8_3ch_nn(ptr nocapture noundef read
   %.081.in104 = getelementptr inbounds i8, ptr %63, i64 1
   %.081105 = load i8, ptr %.081.in104, align 1
   %.082106 = load i8, ptr %63, align 1
-  %64 = icmp slt i32 %49, %52
+  %64 = icmp slt i32 %32, %34
   br i1 %64, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %48, %.lr.ph
@@ -1117,7 +1117,7 @@ define hidden noundef i32 @mlib_ImageAffine_s16_3ch_nn(ptr nocapture noundef rea
   %.0.in104 = load i16, ptr %.0.in.in102, align 2
   %.081.in105 = load i16, ptr %.081.in.in103, align 2
   %.082.in106 = load i16, ptr %63, align 2
-  %64 = icmp slt i32 %49, %52
+  %64 = icmp slt i32 %32, %34
   br i1 %64, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %48, %.lr.ph

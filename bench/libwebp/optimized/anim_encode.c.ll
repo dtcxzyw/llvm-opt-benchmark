@@ -2966,10 +2966,10 @@ EncodeCandidate.exit:                             ; preds = %245, %248
   call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %10)
   %.not71 = icmp eq i32 %.0.i85, 0
   %brmerge.not = select i1 %.not71, i1 %.059.shrunk105, i1 false
-  br i1 %brmerge.not, label %251, label %394
+  br i1 %brmerge.not, label %251, label %393
 
 250:                                              ; preds = %156
-  br i1 %.059.shrunk, label %251, label %394
+  br i1 %.059.shrunk, label %251, label %393
 
 251:                                              ; preds = %EncodeCandidate.exit, %250
   %252 = load i32, ptr %16, align 8
@@ -2993,7 +2993,7 @@ EncodeCandidate.exit:                             ; preds = %245, %248
   br label %CopyCurrentCanvas.exit87
 
 CopyCurrentCanvas.exit87:                         ; preds = %251, %253
-  br i1 %143, label %263, label %367
+  br i1 %143, label %263, label %366
 
 263:                                              ; preds = %CopyCurrentCanvas.exit87
   %264 = getelementptr inbounds i8, ptr %5, i64 280
@@ -3002,40 +3002,40 @@ CopyCurrentCanvas.exit87:                         ; preds = %251, %253
   %267 = fpext float %266 to double
   %268 = fdiv double %267, 1.000000e+02
   %269 = call double @pow(double noundef %268, double noundef 5.000000e-01) #14
-  %270 = getelementptr inbounds i8, ptr %5, i64 284
-  %271 = load i32, ptr %270, align 4
-  %272 = and i32 %271, -8
-  %273 = getelementptr inbounds i8, ptr %5, i64 292
-  %274 = load i32, ptr %273, align 4
-  %275 = add nsw i32 %274, %271
+  %270 = fsub double 1.000000e+00, %269
+  %271 = call double @llvm.fmuladd.f64(double %270, double 3.100000e+01, double %269)
+  %272 = fadd double %271, 5.000000e-01
+  %273 = fptosi double %272 to i32
+  %274 = getelementptr inbounds i8, ptr %5, i64 284
+  %275 = load i32, ptr %274, align 4
   %276 = and i32 %275, -8
-  %277 = load i32, ptr %264, align 4
-  %278 = getelementptr inbounds i8, ptr %5, i64 288
-  %279 = load i32, ptr %278, align 4
-  %280 = add nsw i32 %279, %277
-  %281 = and i32 %280, -8
-  %.062100.i = add nsw i32 %272, 8
-  %282 = icmp slt i32 %.062100.i, %276
-  br i1 %282, label %.preheader83.lr.ph.i, label %FlattenSimilarBlocks.exit
+  %277 = getelementptr inbounds i8, ptr %5, i64 292
+  %278 = load i32, ptr %277, align 4
+  %279 = add nsw i32 %278, %275
+  %280 = and i32 %279, -8
+  %281 = load i32, ptr %264, align 4
+  %282 = getelementptr inbounds i8, ptr %5, i64 288
+  %283 = load i32, ptr %282, align 4
+  %284 = add nsw i32 %283, %281
+  %285 = and i32 %284, -8
+  %.062100.i = add nsw i32 %276, 8
+  %286 = icmp slt i32 %.062100.i, %280
+  br i1 %286, label %.preheader83.lr.ph.i, label %FlattenSimilarBlocks.exit
 
 .preheader83.lr.ph.i:                             ; preds = %263
-  %283 = and i32 %277, -8
-  %284 = fsub double 1.000000e+00, %269
-  %285 = call double @llvm.fmuladd.f64(double %284, double 3.100000e+01, double %269)
-  %286 = fadd double %285, 5.000000e-01
-  %287 = fptosi double %286 to i32
-  %.097.i = add nsw i32 %283, 8
-  %288 = icmp slt i32 %.097.i, %281
+  %287 = and i32 %281, -8
+  %.097.i = add nsw i32 %287, 8
+  %288 = icmp slt i32 %.097.i, %285
   %289 = getelementptr inbounds i8, ptr %15, i64 72
   %290 = getelementptr inbounds i8, ptr %15, i64 80
   %291 = getelementptr inbounds i8, ptr %0, i64 384
   %292 = getelementptr inbounds i8, ptr %0, i64 392
-  %293 = mul nsw i32 %287, 255
+  %293 = mul nsw i32 %273, 255
   br i1 %288, label %.preheader83.us.preheader.i, label %FlattenSimilarBlocks.exit
 
 .preheader83.us.preheader.i:                      ; preds = %.preheader83.lr.ph.i
   %294 = sext i32 %.097.i to i64
-  %295 = sext i32 %281 to i64
+  %295 = sext i32 %285 to i64
   br label %.preheader83.us.i
 
 .preheader83.us.i:                                ; preds = %..loopexit84_crit_edge.us.i, %.preheader83.us.preheader.i
@@ -3134,36 +3134,35 @@ CopyCurrentCanvas.exit87:                         ; preds = %251, %253
   %348 = and i32 %347, 255
   %349 = sub nsw i32 %348, %346
   %350 = call i32 @llvm.abs.i32(i32 %349, i1 true)
-  %351 = mul nuw nsw i32 %350, 255
-  %.not.i.us.i91 = icmp sgt i32 %351, %293
-  br i1 %.not.i.us.i91, label %PixelsAreSimilar.exit.thread.us.i, label %352
+  %.not.i.us.i91 = icmp sgt i32 %350, %273
+  br i1 %.not.i.us.i91, label %PixelsAreSimilar.exit.thread.us.i, label %351
 
-352:                                              ; preds = %344
-  %353 = sub nsw i32 %338, %341
-  %354 = call i32 @llvm.abs.i32(i32 %353, i1 true)
-  %355 = mul nuw nsw i32 %354, 255
-  %.not23.i.us.i92 = icmp ugt i32 %355, %293
+351:                                              ; preds = %344
+  %352 = sub nsw i32 %338, %341
+  %353 = call i32 @llvm.abs.i32(i32 %352, i1 true)
+  %354 = mul nuw nsw i32 %353, 255
+  %.not23.i.us.i92 = icmp ugt i32 %354, %293
   br i1 %.not23.i.us.i92, label %PixelsAreSimilar.exit.thread.us.i, label %PixelsAreSimilar.exit.us.i93
 
-PixelsAreSimilar.exit.us.i93:                     ; preds = %352
-  %356 = sub nsw i32 %339, %342
-  %357 = call i32 @llvm.abs.i32(i32 %356, i1 true)
-  %358 = mul nuw nsw i32 %357, 255
-  %.not81.us.i = icmp ugt i32 %358, %293
-  br i1 %.not81.us.i, label %PixelsAreSimilar.exit.thread.us.i, label %359
+PixelsAreSimilar.exit.us.i93:                     ; preds = %351
+  %355 = sub nsw i32 %339, %342
+  %356 = call i32 @llvm.abs.i32(i32 %355, i1 true)
+  %357 = mul nuw nsw i32 %356, 255
+  %.not81.us.i = icmp ugt i32 %357, %293
+  br i1 %.not81.us.i, label %PixelsAreSimilar.exit.thread.us.i, label %358
 
-359:                                              ; preds = %PixelsAreSimilar.exit.us.i93
-  %360 = add nsw i32 %.16589.us.i, 1
-  %361 = add i32 %348, %.16888.us.i
-  %362 = add i32 %338, %.17885.us.i
-  %363 = add i32 %339, %.17586.us.i
+358:                                              ; preds = %PixelsAreSimilar.exit.us.i93
+  %359 = add nsw i32 %.16589.us.i, 1
+  %360 = add i32 %348, %.16888.us.i
+  %361 = add i32 %338, %.17885.us.i
+  %362 = add i32 %339, %.17586.us.i
   br label %PixelsAreSimilar.exit.thread.us.i
 
-PixelsAreSimilar.exit.thread.us.i:                ; preds = %359, %PixelsAreSimilar.exit.us.i93, %352, %344, %335, %332
-  %.279.us.i = phi i32 [ %362, %359 ], [ %.17885.us.i, %PixelsAreSimilar.exit.us.i93 ], [ %.17885.us.i, %332 ], [ %.17885.us.i, %352 ], [ %.17885.us.i, %344 ], [ %.17885.us.i, %335 ]
-  %.276.us.i = phi i32 [ %363, %359 ], [ %.17586.us.i, %PixelsAreSimilar.exit.us.i93 ], [ %.17586.us.i, %332 ], [ %.17586.us.i, %352 ], [ %.17586.us.i, %344 ], [ %.17586.us.i, %335 ]
-  %.269.us.i = phi i32 [ %361, %359 ], [ %.16888.us.i, %PixelsAreSimilar.exit.us.i93 ], [ %.16888.us.i, %332 ], [ %.16888.us.i, %352 ], [ %.16888.us.i, %344 ], [ %.16888.us.i, %335 ]
-  %.266.us.i = phi i32 [ %360, %359 ], [ %.16589.us.i, %PixelsAreSimilar.exit.us.i93 ], [ %.16589.us.i, %332 ], [ %.16589.us.i, %352 ], [ %.16589.us.i, %344 ], [ %.16589.us.i, %335 ]
+PixelsAreSimilar.exit.thread.us.i:                ; preds = %358, %PixelsAreSimilar.exit.us.i93, %351, %344, %335, %332
+  %.279.us.i = phi i32 [ %361, %358 ], [ %.17885.us.i, %PixelsAreSimilar.exit.us.i93 ], [ %.17885.us.i, %332 ], [ %.17885.us.i, %351 ], [ %.17885.us.i, %344 ], [ %.17885.us.i, %335 ]
+  %.276.us.i = phi i32 [ %362, %358 ], [ %.17586.us.i, %PixelsAreSimilar.exit.us.i93 ], [ %.17586.us.i, %332 ], [ %.17586.us.i, %351 ], [ %.17586.us.i, %344 ], [ %.17586.us.i, %335 ]
+  %.269.us.i = phi i32 [ %360, %358 ], [ %.16888.us.i, %PixelsAreSimilar.exit.us.i93 ], [ %.16888.us.i, %332 ], [ %.16888.us.i, %351 ], [ %.16888.us.i, %344 ], [ %.16888.us.i, %335 ]
+  %.266.us.i = phi i32 [ %359, %358 ], [ %.16589.us.i, %PixelsAreSimilar.exit.us.i93 ], [ %.16589.us.i, %332 ], [ %.16589.us.i, %351 ], [ %.16589.us.i, %344 ], [ %.16589.us.i, %335 ]
   %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i89, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i90, 8
   br i1 %exitcond.not.i, label %331, label %332, !llvm.loop !29
@@ -3178,90 +3177,90 @@ PixelsAreSimilar.exit.thread.us.i:                ; preds = %359, %PixelsAreSimi
   %.06793.us.i = phi i32 [ %.269.us.i, %331 ], [ 0, %296 ]
   %.07491.us.i = phi i32 [ %.276.us.i, %331 ], [ 0, %296 ]
   %.07790.us.i = phi i32 [ %.279.us.i, %331 ], [ 0, %296 ]
-  %364 = mul nsw i64 %indvars.iv106.i, %309
-  %365 = mul nsw i64 %indvars.iv106.i, %310
-  %invariant.gep.i = getelementptr i32, ptr %302, i64 %364
-  %invariant.gep115.i = getelementptr i32, ptr %308, i64 %365
+  %363 = mul nsw i64 %indvars.iv106.i, %309
+  %364 = mul nsw i64 %indvars.iv106.i, %310
+  %invariant.gep.i = getelementptr i32, ptr %302, i64 %363
+  %invariant.gep115.i = getelementptr i32, ptr %308, i64 %364
   br label %332
 
 ..loopexit84_crit_edge.us.i:                      ; preds = %.loopexit.us.i
   %.062.us.i = add nsw i32 %.062102.us.i, 8
-  %366 = icmp slt i32 %.062.us.i, %276
-  br i1 %366, label %.preheader83.us.i, label %FlattenSimilarBlocks.exit, !llvm.loop !30
+  %365 = icmp slt i32 %.062.us.i, %280
+  br i1 %365, label %.preheader83.us.i, label %FlattenSimilarBlocks.exit, !llvm.loop !30
 
 FlattenSimilarBlocks.exit:                        ; preds = %..loopexit84_crit_edge.us.i, %263, %.preheader83.lr.ph.i
   %.063.lcssa.i = phi i32 [ 0, %263 ], [ 0, %.preheader83.lr.ph.i ], [ %.2.us.i, %..loopexit84_crit_edge.us.i ]
   store i32 %.063.lcssa.i, ptr %16, align 8
-  br label %367
+  br label %366
 
-367:                                              ; preds = %FlattenSimilarBlocks.exit, %CopyCurrentCanvas.exit87
-  %368 = getelementptr inbounds i8, ptr %5, i64 296
-  %369 = getelementptr inbounds i8, ptr %5, i64 280
+366:                                              ; preds = %FlattenSimilarBlocks.exit, %CopyCurrentCanvas.exit87
+  %367 = getelementptr inbounds i8, ptr %5, i64 296
+  %368 = getelementptr inbounds i8, ptr %5, i64 280
   call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %9, ptr noundef nonnull readonly align 4 dereferenceable(116) %7, i64 116, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, i8 0, i64 104, i1 false)
-  %370 = getelementptr inbounds i8, ptr %13, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %370, ptr noundef nonnull readonly align 4 dereferenceable(16) %369, i64 16, i1 false)
-  %371 = getelementptr inbounds i8, ptr %13, i64 60
-  store i32 3, ptr %371, align 4
-  %372 = load i32, ptr %369, align 4
-  %373 = getelementptr inbounds i8, ptr %13, i64 48
-  store i32 %372, ptr %373, align 8
-  %374 = getelementptr inbounds i8, ptr %5, i64 284
-  %375 = load i32, ptr %374, align 4
-  %376 = getelementptr inbounds i8, ptr %13, i64 52
-  store i32 %375, ptr %376, align 4
-  %377 = getelementptr inbounds i8, ptr %13, i64 64
-  store i32 0, ptr %377, align 8
+  %369 = getelementptr inbounds i8, ptr %13, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %369, ptr noundef nonnull readonly align 4 dereferenceable(16) %368, i64 16, i1 false)
+  %370 = getelementptr inbounds i8, ptr %13, i64 60
+  store i32 3, ptr %370, align 4
+  %371 = load i32, ptr %368, align 4
+  %372 = getelementptr inbounds i8, ptr %13, i64 48
+  store i32 %371, ptr %372, align 8
+  %373 = getelementptr inbounds i8, ptr %5, i64 284
+  %374 = load i32, ptr %373, align 4
+  %375 = getelementptr inbounds i8, ptr %13, i64 52
+  store i32 %374, ptr %375, align 4
+  %376 = getelementptr inbounds i8, ptr %13, i64 64
+  store i32 0, ptr %376, align 8
   %not..i94 = xor i1 %143, true
-  %378 = zext i1 %not..i94 to i32
-  %379 = getelementptr inbounds i8, ptr %13, i64 68
-  store i32 %378, ptr %379, align 4
-  %380 = getelementptr inbounds i8, ptr %13, i64 56
-  store i32 0, ptr %380, align 8
+  %377 = zext i1 %not..i94 to i32
+  %378 = getelementptr inbounds i8, ptr %13, i64 68
+  store i32 %377, ptr %378, align 4
+  %379 = getelementptr inbounds i8, ptr %13, i64 56
+  store i32 0, ptr %379, align 8
   call void @WebPMemoryWriterInit(ptr noundef nonnull %13) #14
-  %381 = load i32, ptr %9, align 4
-  %382 = icmp eq i32 %381, 0
-  %or.cond.i95 = and i1 %143, %382
-  br i1 %or.cond.i95, label %383, label %386
+  %380 = load i32, ptr %9, align 4
+  %381 = icmp eq i32 %380, 0
+  %or.cond.i95 = and i1 %143, %381
+  br i1 %or.cond.i95, label %382, label %385
 
-383:                                              ; preds = %367
-  %384 = getelementptr inbounds i8, ptr %9, i64 44
+382:                                              ; preds = %366
+  %383 = getelementptr inbounds i8, ptr %9, i64 44
+  store i32 0, ptr %383, align 4
+  %384 = getelementptr inbounds i8, ptr %9, i64 32
   store i32 0, ptr %384, align 4
-  %385 = getelementptr inbounds i8, ptr %9, i64 32
-  store i32 0, ptr %385, align 4
-  br label %386
+  br label %385
 
-386:                                              ; preds = %383, %367
-  store i32 1, ptr %368, align 8
-  %387 = getelementptr inbounds i8, ptr %5, i64 392
-  store ptr @WebPMemoryWrite, ptr %387, align 8
-  %388 = getelementptr inbounds i8, ptr %5, i64 400
-  store ptr %13, ptr %388, align 8
-  %389 = call i32 @WebPEncode(ptr noundef nonnull %9, ptr noundef nonnull %368) #14
-  %.not.i.not.i96 = icmp eq i32 %389, 0
+385:                                              ; preds = %382, %366
+  store i32 1, ptr %367, align 8
+  %386 = getelementptr inbounds i8, ptr %5, i64 392
+  store ptr @WebPMemoryWrite, ptr %386, align 8
+  %387 = getelementptr inbounds i8, ptr %5, i64 400
+  store ptr %13, ptr %387, align 8
+  %388 = call i32 @WebPEncode(ptr noundef nonnull %9, ptr noundef nonnull %367) #14
+  %.not.i.not.i96 = icmp eq i32 %388, 0
   br i1 %.not.i.not.i96, label %EncodeCandidate.exit98, label %EncodeCandidate.exit98.thread
 
-EncodeCandidate.exit98.thread:                    ; preds = %386
-  %390 = getelementptr inbounds i8, ptr %13, i64 96
-  store i32 1, ptr %390, align 8
+EncodeCandidate.exit98.thread:                    ; preds = %385
+  %389 = getelementptr inbounds i8, ptr %13, i64 96
+  store i32 1, ptr %389, align 8
   call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %9)
-  br label %393
+  br label %392
 
-EncodeCandidate.exit98:                           ; preds = %386
-  %391 = getelementptr inbounds i8, ptr %5, i64 432
-  %392 = load i32, ptr %391, align 8
+EncodeCandidate.exit98:                           ; preds = %385
+  %390 = getelementptr inbounds i8, ptr %5, i64 432
+  %391 = load i32, ptr %390, align 8
   call void @WebPMemoryWriterClear(ptr noundef nonnull %13) #14
   call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %9)
-  %.not72 = icmp eq i32 %392, 0
-  br i1 %.not72, label %393, label %394
+  %.not72 = icmp eq i32 %391, 0
+  br i1 %.not72, label %392, label %393
 
-393:                                              ; preds = %EncodeCandidate.exit98.thread, %EncodeCandidate.exit98
+392:                                              ; preds = %EncodeCandidate.exit98.thread, %EncodeCandidate.exit98
   store i32 1, ptr %16, align 8
-  br label %394
+  br label %393
 
-394:                                              ; preds = %EncodeCandidate.exit, %250, %393, %EncodeCandidate.exit98
-  %.0 = phi i32 [ %.0.i85, %EncodeCandidate.exit ], [ %392, %EncodeCandidate.exit98 ], [ 0, %393 ], [ 0, %250 ]
+393:                                              ; preds = %EncodeCandidate.exit, %250, %392, %EncodeCandidate.exit98
+  %.0 = phi i32 [ %.0.i85, %EncodeCandidate.exit ], [ %391, %EncodeCandidate.exit98 ], [ 0, %392 ], [ 0, %250 ]
   ret i32 %.0
 }
 

@@ -578,7 +578,7 @@ define hidden noundef i32 @mlib_ImageAffine_u8_3ch_bl(ptr nocapture noundef read
   %.0184216 = zext i8 %68 to i32
   %.0185217 = and i32 %41, 65535
   %.0186218 = and i32 %39, 65535
-  %90 = icmp slt i32 %52, %55
+  %90 = icmp slt i32 %35, %37
   br i1 %90, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %51, %.lr.ph

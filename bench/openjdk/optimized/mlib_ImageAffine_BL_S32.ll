@@ -600,7 +600,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bl(ptr nocapture noundef rea
   %.0199246 = sitofp i32 %91 to double
   %.0200247 = sitofp i32 %86 to double
   %.0201248 = sitofp i32 %80 to double
-  %102 = icmp slt i32 %52, %55
+  %102 = icmp slt i32 %35, %37
   br i1 %102, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %51, %.lr.ph

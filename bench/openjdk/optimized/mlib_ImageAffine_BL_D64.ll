@@ -534,7 +534,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_3ch_bl(ptr nocapture noundef rea
   %99 = load double, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %73, i64 40
   %101 = load double, ptr %100, align 8
-  %102 = icmp slt i32 %52, %55
+  %102 = icmp slt i32 %35, %37
   br i1 %102, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %51, %.lr.ph
