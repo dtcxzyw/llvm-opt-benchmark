@@ -22410,7 +22410,7 @@ opencv/imagelogpolprojection.cpp.ll 297757154
 opencv/img_hash_base.cpp.ll 81506651
 opencv/imgcodecs_imwrite.cpp.ll 292895926
 opencv/imgcodecs_jpeg.cpp.ll 244622682
-opencv/imgproc_HoughLinesCircles.cpp.ll 119168881
+opencv/imgproc_HoughLinesCircles.cpp.ll 119049711
 opencv/imgproc_HoughLinesP.cpp.ll 113381239
 opencv/imgproc_HoughLinesPointSet.cpp.ll 174371467
 opencv/imgproc_applyColorMap.cpp.ll 60069563
