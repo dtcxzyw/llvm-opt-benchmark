@@ -17,7 +17,7 @@
 # To setup the system to maintain the runner/requirements on boot:
 #   1) Update container to always restart:
 #       $> docker update --restart=always <Container ID>
-#   2) Add the following two lines to /etc/sysctl.conf:
+#   2) Add system requirements to /etc/sysctl.conf:
 #       $> echo "kernel.perf_event_paranoid = -1" >> /etc/sysctl.conf
 #       $> echo "kernel.randomize_va_space = 0" >> /etc/sysctl.conf
 
