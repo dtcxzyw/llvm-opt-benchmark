@@ -14,10 +14,10 @@ comptime = None
 if len(sys.argv) > 3:
     if sys.argv[3] == "comptime":
         comptime = sys.argv[4]
-        with open('/proc/sys/kernel/randomize_va_space', 'r') as f:
-            if int(f.read().strip()) != 0:
-                print("Please disable ASLR")
-                exit(1)
+        # with open('/proc/sys/kernel/randomize_va_space', 'r') as f:
+        #     if int(f.read().strip()) != 0:
+        #         print("Please disable ASLR")
+        #         exit(1)
     else:
         bench_filter = sys.argv[3].split(',')
 
