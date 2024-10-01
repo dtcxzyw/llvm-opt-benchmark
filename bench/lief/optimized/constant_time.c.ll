@@ -599,59 +599,58 @@ define hidden range(i32 -4, 1) i32 @mbedtls_mpi_lt_mpi_ct(ptr nocapture noundef 
 .lr.ph:                                           ; preds = %8
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = xor i32 %10, -1
-  br label %20
+  br label %19
 
-20:                                               ; preds = %.lr.ph, %20
-  %21 = phi i32 [ %15, %.lr.ph ], [ %59, %20 ]
-  %.03338 = phi i64 [ %16, %.lr.ph ], [ %23, %20 ]
-  %.03437 = phi i32 [ %14, %.lr.ph ], [ %60, %20 ]
-  %22 = load ptr, ptr %17, align 8
-  %23 = add i64 %.03338, -1
-  %24 = getelementptr inbounds i64, ptr %22, i64 %23
-  %25 = load i64, ptr %24, align 8
-  %26 = load ptr, ptr %18, align 8
-  %27 = getelementptr inbounds i64, ptr %26, i64 %23
-  %28 = load i64, ptr %27, align 8
-  %29 = xor i64 %28, %25
-  %30 = sub i64 %25, %28
-  %31 = xor i64 %29, -1
-  %32 = and i64 %30, %31
-  %33 = and i64 %29, %28
-  %34 = or disjoint i64 %32, %33
-  %35 = lshr i64 %34, 63
-  %36 = trunc nuw nsw i64 %35 to i32
-  %37 = sub i32 1, %.03437
-  %38 = and i32 %37, %10
-  %39 = and i32 %38, %36
-  %40 = or i32 %39, %21
-  store i32 %40, ptr %2, align 4
-  %41 = or i32 %.03437, %36
-  %42 = load ptr, ptr %18, align 8
-  %43 = getelementptr inbounds i64, ptr %42, i64 %23
-  %44 = load i64, ptr %43, align 8
-  %45 = load ptr, ptr %17, align 8
-  %46 = getelementptr inbounds i64, ptr %45, i64 %23
-  %47 = load i64, ptr %46, align 8
-  %48 = xor i64 %47, %44
-  %49 = sub i64 %44, %47
-  %50 = xor i64 %48, -1
-  %51 = and i64 %49, %50
-  %52 = and i64 %48, %47
-  %53 = or disjoint i64 %51, %52
-  %54 = lshr i64 %53, 63
-  %55 = trunc nuw nsw i64 %54 to i32
-  %56 = sub i32 1, %41
-  %57 = and i32 %56, %19
-  %58 = and i32 %57, %55
-  %59 = or i32 %58, %40
-  store i32 %59, ptr %2, align 4
-  %60 = or i32 %41, %55
-  %.not35 = icmp eq i64 %23, 0
-  br i1 %.not35, label %.loopexit, label %20, !llvm.loop !12
+19:                                               ; preds = %.lr.ph, %19
+  %20 = phi i32 [ %15, %.lr.ph ], [ %57, %19 ]
+  %.03338 = phi i64 [ %16, %.lr.ph ], [ %22, %19 ]
+  %.03437 = phi i32 [ %14, %.lr.ph ], [ %58, %19 ]
+  %21 = load ptr, ptr %17, align 8
+  %22 = add i64 %.03338, -1
+  %23 = getelementptr inbounds i64, ptr %21, i64 %22
+  %24 = load i64, ptr %23, align 8
+  %25 = load ptr, ptr %18, align 8
+  %26 = getelementptr inbounds i64, ptr %25, i64 %22
+  %27 = load i64, ptr %26, align 8
+  %28 = xor i64 %27, %24
+  %29 = sub i64 %24, %27
+  %30 = xor i64 %28, -1
+  %31 = and i64 %29, %30
+  %32 = and i64 %28, %27
+  %33 = or disjoint i64 %31, %32
+  %34 = lshr i64 %33, 63
+  %35 = trunc nuw nsw i64 %34 to i32
+  %36 = xor i32 %.03437, -1
+  %37 = and i32 %10, %36
+  %38 = and i32 %37, %35
+  %39 = or i32 %38, %20
+  store i32 %39, ptr %2, align 4
+  %40 = or i32 %.03437, %35
+  %41 = load ptr, ptr %18, align 8
+  %42 = getelementptr inbounds i64, ptr %41, i64 %22
+  %43 = load i64, ptr %42, align 8
+  %44 = load ptr, ptr %17, align 8
+  %45 = getelementptr inbounds i64, ptr %44, i64 %22
+  %46 = load i64, ptr %45, align 8
+  %47 = xor i64 %46, %43
+  %48 = sub i64 %43, %46
+  %49 = xor i64 %47, -1
+  %50 = and i64 %48, %49
+  %51 = and i64 %47, %46
+  %52 = or disjoint i64 %50, %51
+  %53 = lshr i64 %52, 63
+  %54 = trunc nuw nsw i64 %53 to i32
+  %.demorgan = or i32 %40, %10
+  %55 = xor i32 %.demorgan, -1
+  %56 = and i32 %54, %55
+  %57 = or i32 %56, %39
+  store i32 %57, ptr %2, align 4
+  %58 = or i32 %40, %54
+  %.not35 = icmp eq i64 %22, 0
+  br i1 %.not35, label %.loopexit, label %19, !llvm.loop !12
 
-.loopexit:                                        ; preds = %20, %8, %3
-  %.0 = phi i32 [ -4, %3 ], [ 0, %8 ], [ 0, %20 ]
+.loopexit:                                        ; preds = %19, %8, %3
+  %.0 = phi i32 [ -4, %3 ], [ 0, %8 ], [ 0, %19 ]
   ret i32 %.0
 }
 

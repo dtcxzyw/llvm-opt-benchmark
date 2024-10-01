@@ -2044,8 +2044,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %186, label %194, label %187
 
 187:                                              ; preds = %181
-  %188 = sub nsw i16 15, %184
-  %189 = and i16 %188, 15
+  %188 = and i16 %184, 15
+  %189 = xor i16 %188, 15
   %.neg.i = shl nsw i16 -1, %189
   %190 = add i16 %.neg.i, %183
   %191 = shl i16 %190, 3
@@ -2077,8 +2077,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   unreachable
 
 207:                                              ; preds = %196
-  %208 = sub nsw i16 15, %203
-  %209 = and i16 %208, 15
+  %208 = and i16 %203, 15
+  %209 = xor i16 %208, 15
   %.neg14.i = shl nsw i16 -1, %209
   %210 = add i16 %.neg14.i, %202
   %211 = shl i16 %210, 3
@@ -2137,8 +2137,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %236, label %244, label %237
 
 237:                                              ; preds = %231
-  %238 = sub nsw i16 15, %234
-  %239 = and i16 %238, 15
+  %238 = and i16 %234, 15
+  %239 = xor i16 %238, 15
   %.neg.i246 = shl nsw i16 -1, %239
   %240 = add i16 %.neg.i246, %233
   %241 = shl i16 %240, 3
@@ -2170,8 +2170,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   unreachable
 
 257:                                              ; preds = %246
-  %258 = sub nsw i16 15, %253
-  %259 = and i16 %258, 15
+  %258 = and i16 %253, 15
+  %259 = xor i16 %258, 15
   %.neg14.i249 = shl nsw i16 -1, %259
   %260 = add i16 %.neg14.i249, %252
   %261 = shl i16 %260, 3
@@ -2218,8 +2218,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %279, label %287, label %280
 
 280:                                              ; preds = %274
-  %281 = sub nsw i16 15, %277
-  %282 = and i16 %281, 15
+  %281 = and i16 %277, 15
+  %282 = xor i16 %281, 15
   %.neg.i255 = shl nsw i16 -1, %282
   %283 = add i16 %.neg.i255, %276
   %284 = shl i16 %283, 3
@@ -2251,8 +2251,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   unreachable
 
 300:                                              ; preds = %289
-  %301 = sub nsw i16 15, %296
-  %302 = and i16 %301, 15
+  %301 = and i16 %296, 15
+  %302 = xor i16 %301, 15
   %.neg14.i258 = shl nsw i16 -1, %302
   %303 = add i16 %.neg14.i258, %295
   %304 = shl i16 %303, 3
@@ -2838,8 +2838,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %464, label %472, label %465
 
 465:                                              ; preds = %459
-  %466 = sub nsw i16 15, %462
-  %467 = and i16 %466, 15
+  %466 = and i16 %462, 15
+  %467 = xor i16 %466, 15
   %.neg.i298 = shl nsw i16 -1, %467
   %468 = add i16 %.neg.i298, %461
   %469 = shl i16 %468, 3
@@ -2867,8 +2867,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %483, label %491, label %484
 
 484:                                              ; preds = %474
-  %485 = sub nsw i16 15, %481
-  %486 = and i16 %485, 15
+  %485 = and i16 %481, 15
+  %486 = xor i16 %485, 15
   %.neg14.i301 = shl nsw i16 -1, %486
   %487 = add i16 %.neg14.i301, %480
   %488 = shl i16 %487, 3
@@ -2913,8 +2913,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %506, label %514, label %507
 
 507:                                              ; preds = %501
-  %508 = sub nsw i16 15, %504
-  %509 = and i16 %508, 15
+  %508 = and i16 %504, 15
+  %509 = xor i16 %508, 15
   %.neg.i310 = shl nsw i16 -1, %509
   %510 = add i16 %.neg.i310, %503
   %511 = shl i16 %510, 3
@@ -2942,8 +2942,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %525, label %533, label %526
 
 526:                                              ; preds = %516
-  %527 = sub nsw i16 15, %523
-  %528 = and i16 %527, 15
+  %527 = and i16 %523, 15
+  %528 = xor i16 %527, 15
   %.neg14.i313 = shl nsw i16 -1, %528
   %529 = add i16 %.neg14.i313, %522
   %530 = shl i16 %529, 3
@@ -2988,8 +2988,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %548, label %556, label %549
 
 549:                                              ; preds = %543
-  %550 = sub nsw i16 15, %546
-  %551 = and i16 %550, 15
+  %550 = and i16 %546, 15
+  %551 = xor i16 %550, 15
   %.neg.i322 = shl nsw i16 -1, %551
   %552 = add i16 %.neg.i322, %545
   %553 = shl i16 %552, 3
@@ -3017,8 +3017,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %567, label %575, label %568
 
 568:                                              ; preds = %558
-  %569 = sub nsw i16 15, %565
-  %570 = and i16 %569, 15
+  %569 = and i16 %565, 15
+  %570 = xor i16 %569, 15
   %.neg14.i325 = shl nsw i16 -1, %570
   %571 = add i16 %.neg14.i325, %564
   %572 = shl i16 %571, 3
@@ -3906,8 +3906,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %186, label %194, label %187
 
 187:                                              ; preds = %181
-  %188 = sub nsw i16 15, %184
-  %189 = and i16 %188, 15
+  %188 = and i16 %184, 15
+  %189 = xor i16 %188, 15
   %.neg.i = shl nsw i16 -1, %189
   %190 = add i16 %.neg.i, %183
   %191 = shl i16 %190, 3
@@ -3939,8 +3939,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   unreachable
 
 207:                                              ; preds = %196
-  %208 = sub nsw i16 15, %203
-  %209 = and i16 %208, 15
+  %208 = and i16 %203, 15
+  %209 = xor i16 %208, 15
   %.neg14.i = shl nsw i16 -1, %209
   %210 = add i16 %.neg14.i, %202
   %211 = shl i16 %210, 3
@@ -3999,8 +3999,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %236, label %244, label %237
 
 237:                                              ; preds = %231
-  %238 = sub nsw i16 15, %234
-  %239 = and i16 %238, 15
+  %238 = and i16 %234, 15
+  %239 = xor i16 %238, 15
   %.neg.i246 = shl nsw i16 -1, %239
   %240 = add i16 %.neg.i246, %233
   %241 = shl i16 %240, 3
@@ -4032,8 +4032,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   unreachable
 
 257:                                              ; preds = %246
-  %258 = sub nsw i16 15, %253
-  %259 = and i16 %258, 15
+  %258 = and i16 %253, 15
+  %259 = xor i16 %258, 15
   %.neg14.i249 = shl nsw i16 -1, %259
   %260 = add i16 %.neg14.i249, %252
   %261 = shl i16 %260, 3
@@ -4080,8 +4080,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %279, label %287, label %280
 
 280:                                              ; preds = %274
-  %281 = sub nsw i16 15, %277
-  %282 = and i16 %281, 15
+  %281 = and i16 %277, 15
+  %282 = xor i16 %281, 15
   %.neg.i255 = shl nsw i16 -1, %282
   %283 = add i16 %.neg.i255, %276
   %284 = shl i16 %283, 3
@@ -4113,8 +4113,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   unreachable
 
 300:                                              ; preds = %289
-  %301 = sub nsw i16 15, %296
-  %302 = and i16 %301, 15
+  %301 = and i16 %296, 15
+  %302 = xor i16 %301, 15
   %.neg14.i258 = shl nsw i16 -1, %302
   %303 = add i16 %.neg14.i258, %295
   %304 = shl i16 %303, 3
@@ -4700,8 +4700,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %464, label %472, label %465
 
 465:                                              ; preds = %459
-  %466 = sub nsw i16 15, %462
-  %467 = and i16 %466, 15
+  %466 = and i16 %462, 15
+  %467 = xor i16 %466, 15
   %.neg.i298 = shl nsw i16 -1, %467
   %468 = add i16 %.neg.i298, %461
   %469 = shl i16 %468, 3
@@ -4729,8 +4729,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %483, label %491, label %484
 
 484:                                              ; preds = %474
-  %485 = sub nsw i16 15, %481
-  %486 = and i16 %485, 15
+  %485 = and i16 %481, 15
+  %486 = xor i16 %485, 15
   %.neg14.i301 = shl nsw i16 -1, %486
   %487 = add i16 %.neg14.i301, %480
   %488 = shl i16 %487, 3
@@ -4775,8 +4775,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %506, label %514, label %507
 
 507:                                              ; preds = %501
-  %508 = sub nsw i16 15, %504
-  %509 = and i16 %508, 15
+  %508 = and i16 %504, 15
+  %509 = xor i16 %508, 15
   %.neg.i310 = shl nsw i16 -1, %509
   %510 = add i16 %.neg.i310, %503
   %511 = shl i16 %510, 3
@@ -4804,8 +4804,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %525, label %533, label %526
 
 526:                                              ; preds = %516
-  %527 = sub nsw i16 15, %523
-  %528 = and i16 %527, 15
+  %527 = and i16 %523, 15
+  %528 = xor i16 %527, 15
   %.neg14.i313 = shl nsw i16 -1, %528
   %529 = add i16 %.neg14.i313, %522
   %530 = shl i16 %529, 3
@@ -4850,8 +4850,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %548, label %556, label %549
 
 549:                                              ; preds = %543
-  %550 = sub nsw i16 15, %546
-  %551 = and i16 %550, 15
+  %550 = and i16 %546, 15
+  %551 = xor i16 %550, 15
   %.neg.i322 = shl nsw i16 -1, %551
   %552 = add i16 %.neg.i322, %545
   %553 = shl i16 %552, 3
@@ -4879,8 +4879,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hdaabb60110382e48E.exit232: ; pre
   br i1 %567, label %575, label %568
 
 568:                                              ; preds = %558
-  %569 = sub nsw i16 15, %565
-  %570 = and i16 %569, 15
+  %569 = and i16 %565, 15
+  %570 = xor i16 %569, 15
   %.neg14.i325 = shl nsw i16 -1, %570
   %571 = add i16 %.neg14.i325, %564
   %572 = shl i16 %571, 3

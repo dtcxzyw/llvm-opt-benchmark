@@ -1465,24 +1465,24 @@ define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double nou
 
 105:                                              ; preds = %103
   %106 = getelementptr inbounds i8, ptr %101, i64 1352
-  %107 = sub nsw i64 3, %95
-  %108 = and i64 %107, 3
-  %109 = icmp eq i64 %108, 0
-  br i1 %109, label %.loopexit4, label %.preheader3
+  %107 = and i64 %95, 3
+  %108 = icmp eq i64 %107, 3
+  br i1 %108, label %.loopexit4, label %.preheader3
 
 .preheader3:                                      ; preds = %105, %.preheader3
-  %110 = phi i64 [ %113, %.preheader3 ], [ %95, %105 ]
-  %111 = phi i64 [ %115, %.preheader3 ], [ 0, %105 ]
-  %112 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %110
-  %113 = add nsw i64 %110, 1
-  %114 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %113
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %112, ptr noundef nonnull align 8 dereferenceable(96) %114, i64 96, i1 false)
-  %115 = add nuw nsw i64 %111, 1
-  %116 = icmp eq i64 %115, %108
+  %109 = phi i64 [ %112, %.preheader3 ], [ %95, %105 ]
+  %110 = phi i64 [ %114, %.preheader3 ], [ 0, %105 ]
+  %111 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %109
+  %112 = add nsw i64 %109, 1
+  %113 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %111, ptr noundef nonnull align 8 dereferenceable(96) %113, i64 96, i1 false)
+  %114 = add i64 %110, 1
+  %115 = xor i64 %114, %107
+  %116 = icmp eq i64 %115, 3
   br i1 %116, label %.loopexit4, label %.preheader3, !llvm.loop !85
 
 .loopexit4:                                       ; preds = %.preheader3, %105
-  %117 = phi i64 [ %95, %105 ], [ %113, %.preheader3 ]
+  %117 = phi i64 [ %95, %105 ], [ %112, %.preheader3 ]
   %118 = add nsw i64 %95, -16
   %119 = icmp ult i64 %118, 3
   br i1 %119, label %.loopexit, label %.preheader
@@ -4693,24 +4693,24 @@ define internal void @_page_delete_area_clicked(ptr nocapture readnone %0, ptr n
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %4, i64 1352
   %12 = sext i32 %6 to i64
-  %13 = sub nsw i64 3, %12
-  %14 = and i64 %13, 3
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %.loopexit2, label %.preheader1
+  %13 = and i64 %12, 3
+  %14 = icmp eq i64 %13, 3
+  br i1 %14, label %.loopexit2, label %.preheader1
 
 .preheader1:                                      ; preds = %10, %.preheader1
-  %16 = phi i64 [ %19, %.preheader1 ], [ %12, %10 ]
-  %17 = phi i64 [ %21, %.preheader1 ], [ 0, %10 ]
-  %18 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %16
-  %19 = add nsw i64 %16, 1
-  %20 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) %20, i64 96, i1 false)
-  %21 = add nuw nsw i64 %17, 1
-  %22 = icmp eq i64 %21, %14
+  %15 = phi i64 [ %18, %.preheader1 ], [ %12, %10 ]
+  %16 = phi i64 [ %20, %.preheader1 ], [ 0, %10 ]
+  %17 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %15
+  %18 = add nsw i64 %15, 1
+  %19 = getelementptr inbounds [20 x %struct._image_box], ptr %11, i64 0, i64 %18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %19, i64 96, i1 false)
+  %20 = add i64 %16, 1
+  %21 = xor i64 %20, %13
+  %22 = icmp eq i64 %21, 3
   br i1 %22, label %.loopexit2, label %.preheader1, !llvm.loop !159
 
 .loopexit2:                                       ; preds = %.preheader1, %10
-  %23 = phi i64 [ %12, %10 ], [ %19, %.preheader1 ]
+  %23 = phi i64 [ %12, %10 ], [ %18, %.preheader1 ]
   %24 = add nsw i64 %12, -16
   %25 = icmp ult i64 %24, 3
   br i1 %25, label %.loopexit, label %.preheader

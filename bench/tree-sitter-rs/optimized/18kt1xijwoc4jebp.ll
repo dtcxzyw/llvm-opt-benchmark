@@ -18832,8 +18832,8 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet8is_empty17h025bd69e9bbdcce1E.exit.t
   br i1 %5553, label %5554, label %5558
 
 5554:                                             ; preds = %5550
-  %5555 = sub i64 63, %.sroa.9.2.i
-  %5556 = and i64 %5555, 63
+  %5555 = and i64 %.sroa.9.2.i, 63
+  %5556 = xor i64 %5555, 63
   %5557 = lshr i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %5556
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -18877,8 +18877,8 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet8is_empty17h025bd69e9bbdcce1E.exit.t
   br i1 %5574, label %5575, label %5579
 
 5575:                                             ; preds = %.cont136.i
-  %5576 = sub i64 63, %.sroa.15.2.i
-  %5577 = and i64 %5576, 63
+  %5576 = and i64 %.sroa.15.2.i, 63
+  %5577 = xor i64 %5576, 63
   %5578 = lshr i64 %.val.i.i.i.i.i.i.i3.i.i.i.i.i.i.i, %5577
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont.i"
 

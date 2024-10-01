@@ -10185,18 +10185,18 @@ define internal fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h
 
 39:                                               ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = trunc i64 %indvars.iv to i16
-  %41 = sub i16 15, %40
-  %42 = lshr i16 %23, %41
-  %43 = zext i16 %42 to i32
-  %44 = getelementptr inbounds [16 x i32], ptr %24, i64 0, i64 %indvars.iv
-  %45 = load i32, ptr %44, align 4, !noundef !9
-  %.not34 = icmp slt i32 %45, %43
-  br i1 %.not34, label %33, label %46
+  %40 = trunc nuw nsw i64 %indvars.iv to i8
+  %41 = xor i8 %40, 15
+  %42 = zext nneg i8 %41 to i16
+  %43 = lshr i16 %23, %42
+  %44 = zext i16 %43 to i32
+  %45 = getelementptr inbounds [16 x i32], ptr %24, i64 0, i64 %indvars.iv
+  %46 = load i32, ptr %45, align 4, !noundef !9
+  %.not34 = icmp slt i32 %46, %44
+  br i1 %.not34, label %33, label %47
 
-46:                                               ; preds = %39
-  %47 = trunc nuw nsw i64 %indvars.iv to i8
-  %48 = add nuw nsw i8 %47, 1
+47:                                               ; preds = %39
+  %48 = add nuw nsw i8 %40, 1
   %49 = zext nneg i8 %48 to i64
   %50 = shl i64 %13, %49
   store i64 %50, ptr %1, align 8
@@ -10206,14 +10206,14 @@ define internal fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h
   %53 = getelementptr inbounds i8, ptr %3, i64 24
   %54 = getelementptr inbounds [16 x i32], ptr %53, i64 0, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !noundef !9
-  %56 = add i32 %55, %43
+  %56 = add i32 %55, %44
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i8, ptr %3, i64 16
   %59 = load i64, ptr %58, align 8, !noundef !9
   %60 = icmp ugt i64 %59, %57
   br i1 %60, label %61, label %67, !prof !27
 
-61:                                               ; preds = %46
+61:                                               ; preds = %47
   %62 = getelementptr inbounds i8, ptr %3, i64 8
   %63 = load ptr, ptr %62, align 8, !nonnull !9, !noundef !9
   %64 = getelementptr inbounds [0 x i8], ptr %63, i64 0, i64 %57
@@ -10223,7 +10223,7 @@ define internal fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h
   store i64 -9223372036854775805, ptr %0, align 8
   br label %68
 
-67:                                               ; preds = %46
+67:                                               ; preds = %47
   tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %57, i64 noundef %59, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.53fe85e3a453dfbf0ab1e8743506e67c.181) #62
   unreachable
 

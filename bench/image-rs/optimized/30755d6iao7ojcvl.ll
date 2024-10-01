@@ -31096,7 +31096,7 @@ define hidden noundef ptr @_ZN5image6codecs3pnm7encoder12SampleWriter14write_pbm
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit68, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp69, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #41
-          to label %83 unwind label %81
+          to label %84 unwind label %82
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h82e4e91b91343b44E.exit._crit_edge": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h82e4e91b91343b44E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h82e4e91b91343b44E.exit.preheader"
   %28 = getelementptr inbounds i8, ptr %1, i64 48
@@ -31211,7 +31211,7 @@ define hidden noundef ptr @_ZN5image6codecs3pnm7encoder12SampleWriter14write_pbm
   br i1 %.not, label %73, label %72
 
 72:                                               ; preds = %77, %73, %70
-  %.1 = phi i8 [ %.03572, %70 ], [ %80, %77 ], [ %.03572, %73 ]
+  %.1 = phi i8 [ %.03572, %70 ], [ %81, %77 ], [ %.03572, %73 ]
   %exitcond.not = icmp eq i64 %71, 8
   br i1 %exitcond.not, label %59, label %70
 
@@ -31223,17 +31223,18 @@ define hidden noundef ptr @_ZN5image6codecs3pnm7encoder12SampleWriter14write_pbm
 
 77:                                               ; preds = %73
   %78 = trunc nuw i64 %.sroa.09.071 to i8
-  %79 = lshr exact i8 -128, %78
-  %80 = or i8 %79, %.03572
+  %79 = xor i8 %78, 7
+  %80 = shl nuw i8 1, %79
+  %81 = or i8 %80, %.03572
   br label %72
 
-81:                                               ; preds = %.loopexit.split-lp
-  %82 = landingpad { ptr, i32 }
+82:                                               ; preds = %.loopexit.split-lp
+  %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #42
   unreachable
 
-83:                                               ; preds = %.loopexit.split-lp
+84:                                               ; preds = %.loopexit.split-lp
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -31303,7 +31304,7 @@ define hidden noundef ptr @_ZN5image6codecs3pnm7encoder12SampleWriter14write_pbm
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit68, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp69, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #41
-          to label %83 unwind label %81
+          to label %84 unwind label %82
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17he91d044c26285012E.exit._crit_edge": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17he91d044c26285012E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17he91d044c26285012E.exit.preheader"
   %28 = getelementptr inbounds i8, ptr %1, i64 48
@@ -31418,7 +31419,7 @@ define hidden noundef ptr @_ZN5image6codecs3pnm7encoder12SampleWriter14write_pbm
   br i1 %.not, label %73, label %72
 
 72:                                               ; preds = %77, %73, %70
-  %.1 = phi i8 [ %.03572, %70 ], [ %80, %77 ], [ %.03572, %73 ]
+  %.1 = phi i8 [ %.03572, %70 ], [ %81, %77 ], [ %.03572, %73 ]
   %exitcond.not = icmp eq i64 %71, 8
   br i1 %exitcond.not, label %59, label %70
 
@@ -31430,17 +31431,18 @@ define hidden noundef ptr @_ZN5image6codecs3pnm7encoder12SampleWriter14write_pbm
 
 77:                                               ; preds = %73
   %78 = trunc nuw i64 %.sroa.09.071 to i8
-  %79 = lshr exact i8 -128, %78
-  %80 = or i8 %79, %.03572
+  %79 = xor i8 %78, 7
+  %80 = shl nuw i8 1, %79
+  %81 = or i8 %80, %.03572
   br label %72
 
-81:                                               ; preds = %.loopexit.split-lp
-  %82 = landingpad { ptr, i32 }
+82:                                               ; preds = %.loopexit.split-lp
+  %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #42
   unreachable
 
-83:                                               ; preds = %.loopexit.split-lp
+84:                                               ; preds = %.loopexit.split-lp
   resume { ptr, i32 } %lpad.phi
 }
 
