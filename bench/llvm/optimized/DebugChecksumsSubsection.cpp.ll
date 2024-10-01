@@ -1186,7 +1186,7 @@ _ZNSt12_Vector_baseIN4llvm8codeview17FileChecksumEntryESaIS2_EE11_M_allocateEm.e
 
 _ZNSt6vectorIN4llvm8codeview17FileChecksumEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm8codeview17FileChecksumEntryESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %52, %_ZNSt12_Vector_baseIN4llvm8codeview17FileChecksumEntryESaIS2_EE11_M_allocateEm.exit.i.i ], [ %55, %.lr.ph.i.i.i.i.i ]
-  %56 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
+  %56 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
   %.not.i23.i.i = icmp eq ptr %38, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN4llvm8codeview17FileChecksumEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %57
 

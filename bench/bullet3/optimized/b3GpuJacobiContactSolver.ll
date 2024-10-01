@@ -1304,7 +1304,7 @@ _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit:   ; preds = %if.then.i, %if.else
   %sub4.i120 = fsub float %mul3.i.i, %103
   %104 = load float, ptr %arrayidx6.i69, align 8
   %sub7.i123 = fsub float %mul5.i.i, %104
-  %m_fAppliedRambdaDt = getelementptr i8, ptr %dstC, i64 152
+  %m_fAppliedRambdaDt = getelementptr inbounds i8, ptr %dstC, i64 152
   br label %for.body104
 
 for.body104:                                      ; preds = %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit, %for.body104

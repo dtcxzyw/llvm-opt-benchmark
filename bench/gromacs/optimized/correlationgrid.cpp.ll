@@ -392,7 +392,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE14_M_fil
 
 23:                                               ; preds = %15
   %24 = sub i64 0, %2
-  %25 = getelementptr %"class.gmx::CorrelationTensor", ptr %17, i64 %24
+  %25 = getelementptr inbounds %"class.gmx::CorrelationTensor", ptr %17, i64 %24
   %.idx = mul i64 %2, -24
   %.not11.i.i.i.i.i = icmp eq i64 %.idx, 0
   br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i

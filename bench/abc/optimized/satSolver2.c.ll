@@ -362,7 +362,7 @@ clause2_read.exit127:                             ; preds = %156, %157
 
 167:                                              ; preds = %var_unit_clause.exit.thread, %clause2_read.exit127, %131, %._crit_edge
   %168 = load i32, ptr %.099150, align 4
-  %169 = getelementptr i8, ptr %.0102149, i64 4
+  %169 = getelementptr inbounds i8, ptr %.0102149, i64 4
   store i32 %168, ptr %.0102149, align 4
   %170 = load i32, ptr %51, align 4
   %171 = and i32 %170, 1

@@ -4851,7 +4851,7 @@ _ZNKSt6vectorIN8WasmEdge4LLVM4TypeESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds =
 _ZNSt12_Vector_baseIN8WasmEdge4LLVM4TypeESaIS2_EE11_M_allocateEm.exit.i: ; preds = %74, %_ZNKSt6vectorIN8WasmEdge4LLVM4TypeESaIS2_EE12_M_check_lenEmPKc.exit.i
   %77 = phi ptr [ %76, %74 ], [ null, %_ZNKSt6vectorIN8WasmEdge4LLVM4TypeESaIS2_EE12_M_check_lenEmPKc.exit.i ]
   store i64 %.0.val, ptr %77, align 8
-  %78 = getelementptr i8, ptr %77, i64 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 8
   %.not10.i.i.i16.i = icmp eq ptr %.sroa.08.2, %.sroa.2318.2
   br i1 %.not10.i.i.i16.i, label %_ZNSt6vectorIN8WasmEdge4LLVM4TypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, label %.lr.ph.i.i.i17.i
 
@@ -5665,7 +5665,7 @@ _ZNSt12_Vector_baseIN8WasmEdge4LLVM4TypeESaIS2_EE11_M_allocateEm.exit: ; preds =
 
 _ZNSt6vectorIN8WasmEdge4LLVM4TypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN8WasmEdge4LLVM4TypeESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN8WasmEdge4LLVM4TypeESaIS2_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN8WasmEdge4LLVM4TypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i17
 
@@ -8399,7 +8399,7 @@ _ZNSt12_Vector_baseIN8WasmEdge4LLVM5ValueESaIS2_EE11_M_allocateEm.exit.i64.i: ; 
 
 _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i66.i, %_ZNSt12_Vector_baseIN8WasmEdge4LLVM5ValueESaIS2_EE11_M_allocateEm.exit.i64.i
   %.0.lcssa.i.i.i.i71.i = phi ptr [ %1120, %_ZNSt12_Vector_baseIN8WasmEdge4LLVM5ValueESaIS2_EE11_M_allocateEm.exit.i64.i ], [ %1124, %.lr.ph.i.i.i.i66.i ]
-  %1125 = getelementptr i8, ptr %.0.lcssa.i.i.i.i71.i, i64 8
+  %1125 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i71.i, i64 8
   %.not.i23.i78.i = icmp eq ptr %1106, null
   br i1 %.not.i23.i78.i, label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %1126
 
@@ -8705,7 +8705,7 @@ _ZNSt12_Vector_baseIN8WasmEdge4LLVM5ValueESaIS2_EE11_M_allocateEm.exit.i103.i: ;
 
 _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i116.i: ; preds = %.lr.ph.i.i.i.i105.i, %_ZNSt12_Vector_baseIN8WasmEdge4LLVM5ValueESaIS2_EE11_M_allocateEm.exit.i103.i
   %.0.lcssa.i.i.i.i110.i = phi ptr [ %1236, %_ZNSt12_Vector_baseIN8WasmEdge4LLVM5ValueESaIS2_EE11_M_allocateEm.exit.i103.i ], [ %1241, %.lr.ph.i.i.i.i105.i ]
-  %1242 = getelementptr i8, ptr %.0.lcssa.i.i.i.i110.i, i64 8
+  %1242 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i110.i, i64 8
   %.not.i23.i118.i = icmp eq ptr %1199, null
   br i1 %.not.i23.i118.i, label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %1243
 
@@ -35302,7 +35302,7 @@ _ZNSt12_Vector_baseIN8WasmEdge4LLVM5ValueESaIS2_EE11_M_allocateEm.exit: ; preds 
 
 _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN8WasmEdge4LLVM5ValueESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN8WasmEdge4LLVM5ValueESaIS2_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i17
 
@@ -35397,7 +35397,7 @@ _ZNSt12_Vector_baseIN8WasmEdge4LLVM5ValueESaIS2_EE11_M_allocateEm.exit: ; preds 
 
 _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN8WasmEdge4LLVM5ValueESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN8WasmEdge4LLVM5ValueESaIS2_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i17
 

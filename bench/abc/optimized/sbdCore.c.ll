@@ -2133,12 +2133,12 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %.val42.val = load ptr, ptr %13, align 8
   %14 = mul nsw i32 %.val41.val, %1
   %15 = sext i32 %14 to i64
-  %16 = getelementptr i64, ptr %.val42.val, i64 %15
+  %16 = getelementptr inbounds i64, ptr %.val42.val, i64 %15
   %17 = getelementptr i8, ptr %0, i64 72
   %.val38 = load ptr, ptr %17, align 8
   %18 = getelementptr i8, ptr %.val38, i64 8
   %.val38.val = load ptr, ptr %18, align 8
-  %19 = getelementptr i64, ptr %.val38.val, i64 %15
+  %19 = getelementptr inbounds i64, ptr %.val38.val, i64 %15
   %20 = icmp sgt i32 %.val41.val, 0
   br i1 %20, label %.lr.ph18.preheader.i, label %Abc_TtCopy.exit
 
@@ -3509,10 +3509,10 @@ Abc_TtXor.exit195:                                ; preds = %.lr.ph.i209, %.lr.p
   %.val131.val = load ptr, ptr %277, align 8
   %278 = mul nsw i32 %.val130.val, %1
   %279 = sext i32 %278 to i64
-  %280 = getelementptr i64, ptr %.val131.val, i64 %279
+  %280 = getelementptr inbounds i64, ptr %.val131.val, i64 %279
   %281 = mul nsw i32 %.val130.val, %spec.select
   %282 = sext i32 %281 to i64
-  %283 = getelementptr i64, ptr %.val131.val, i64 %282
+  %283 = getelementptr inbounds i64, ptr %.val131.val, i64 %282
   %284 = load ptr, ptr %3, align 8
   %285 = getelementptr i8, ptr %284, i64 8
   %.val108 = load ptr, ptr %285, align 8

@@ -6128,7 +6128,7 @@ if.then195:                                       ; preds = %while.end
   br i1 %or.cond115, label %if.then202, label %if.else207
 
 if.then202:                                       ; preds = %if.then195
-  %toUBytes = getelementptr i8, ptr %0, i64 65
+  %toUBytes = getelementptr inbounds i8, ptr %0, i64 65
   %conv203 = trunc i64 %source.1.idx to i8
   %toULength = getelementptr inbounds i8, ptr %0, i64 64
   store i8 %conv203, ptr %toULength, align 8
@@ -7385,7 +7385,7 @@ if.else224:                                       ; preds = %while.body210, %whi
   %conv208.le = sext i8 %toULimit.1.fr to i32
   %conv226 = sext i8 %oldToULength.1 to i64
   %sub227.neg = sub nsw i64 %conv226, %conv207.le
-  %add.ptr228 = getelementptr i8, ptr %.us-phi248, i64 %sub227.neg
+  %add.ptr228 = getelementptr inbounds i8, ptr %.us-phi248, i64 %sub227.neg
   %cmp232300 = icmp slt i8 %oldToULength.1, %.us-phi
   br i1 %cmp232300, label %while.body233.lr.ph, label %while.end
 
@@ -7439,7 +7439,7 @@ if.else290:                                       ; preds = %while.end245
   %conv207.le233 = sext i8 %toULength.2.lcssa234 to i64
   %conv292 = sext i8 %oldToULength.1 to i64
   %sub293.neg = sub nsw i64 %conv292, %conv207.le233
-  %add.ptr296 = getelementptr i8, ptr %source.6.lcssa, i64 %sub293.neg
+  %add.ptr296 = getelementptr inbounds i8, ptr %source.6.lcssa, i64 %sub293.neg
   %cmp300304 = icmp slt i8 %oldToULength.1, %toULength.2.lcssa234
   br i1 %cmp300304, label %while.body301.lr.ph, label %while.end307
 
@@ -8033,7 +8033,7 @@ if.else220:                                       ; preds = %while.body206, %whi
   %conv204.le = sext i8 %toULimit.1.fr to i32
   %conv222 = sext i8 %oldToULength.1 to i64
   %sub223.neg = sub nsw i64 %conv222, %conv203.le
-  %add.ptr224 = getelementptr i8, ptr %.us-phi229, i64 %sub223.neg
+  %add.ptr224 = getelementptr inbounds i8, ptr %.us-phi229, i64 %sub223.neg
   %cmp228281 = icmp slt i8 %oldToULength.1, %.us-phi
   br i1 %cmp228281, label %while.body229.lr.ph, label %while.end
 
@@ -8087,7 +8087,7 @@ if.else276:                                       ; preds = %while.end241
   %conv203.le214 = sext i8 %toULength.2.lcssa215 to i64
   %conv278 = sext i8 %oldToULength.1 to i64
   %sub279.neg = sub nsw i64 %conv278, %conv203.le214
-  %add.ptr282 = getelementptr i8, ptr %source.7.lcssa, i64 %sub279.neg
+  %add.ptr282 = getelementptr inbounds i8, ptr %source.7.lcssa, i64 %sub279.neg
   %cmp286285 = icmp slt i8 %oldToULength.1, %toULength.2.lcssa215
   br i1 %cmp286285, label %while.body287.lr.ph, label %while.end293
 

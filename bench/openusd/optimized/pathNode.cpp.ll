@@ -11988,7 +11988,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCount
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit23.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEEEE9constructIS4_JRKNS0_32TfDelegatedCountIncrementTagTypeEPS3_EEEvRS5_PT_DpOT0_.exit.i29.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %148, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEEEE9constructIS4_JRKNS0_32TfDelegatedCountIncrementTagTypeEPS3_EEEvRS5_PT_DpOT0_.exit.i29.i.i ], [ %155, %.lr.ph.i.i.i.i.i.i ]
-  %156 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
+  %156 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
   %.not.i24.i.i.i = icmp eq ptr %112, null
   br i1 %.not.i24.i.i.i, label %.noexc22.i.i, label %157
 
@@ -12277,7 +12277,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCount
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit23.i.i52.i: ; preds = %.lr.ph.i.i.i.i.i48.i, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEEEE9constructIS4_JRKNS0_32TfDelegatedCountIncrementTagTypeEPS3_EEEvRS5_PT_DpOT0_.exit.i29.i46.i
   %.0.lcssa.i.i.i.i.i53.i = phi ptr [ %243, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEEEE9constructIS4_JRKNS0_32TfDelegatedCountIncrementTagTypeEPS3_EEEvRS5_PT_DpOT0_.exit.i29.i46.i ], [ %250, %.lr.ph.i.i.i.i.i48.i ]
-  %251 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i53.i, i64 8
+  %251 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i53.i, i64 8
   %.not.i24.i.i54.i = icmp eq ptr %207, null
   br i1 %.not.i24.i.i54.i, label %.noexc22.i55.i, label %252
 
@@ -12550,7 +12550,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCount
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit23.i.i111.i: ; preds = %.lr.ph.i.i.i.i.i107.i, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEEEE9constructIS4_JRKNS0_32TfDelegatedCountIncrementTagTypeEPS3_EEEvRS5_PT_DpOT0_.exit.i29.i105.i
   %.0.lcssa.i.i.i.i.i112.i = phi ptr [ %332, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEEEE9constructIS4_JRKNS0_32TfDelegatedCountIncrementTagTypeEPS3_EEEvRS5_PT_DpOT0_.exit.i29.i105.i ], [ %339, %.lr.ph.i.i.i.i.i107.i ]
-  %340 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i112.i, i64 8
+  %340 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i112.i, i64 8
   %.not.i24.i.i113.i = icmp eq ptr %296, null
   br i1 %.not.i24.i.i113.i, label %.noexc22.i114.i, label %341
 
@@ -13513,7 +13513,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCount
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit23.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEEEE9constructIS4_JRKNS0_32TfDelegatedCountIncrementTagTypeEPS3_EEEvRS5_PT_DpOT0_.exit.i29
   %.0.lcssa.i.i.i.i = phi ptr [ %71, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEEEE9constructIS4_JRKNS0_32TfDelegatedCountIncrementTagTypeEPS3_EEEvRS5_PT_DpOT0_.exit.i29 ], [ %78, %.lr.ph.i.i.i.i ]
-  %79 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %79 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i24.i = icmp eq ptr %57, null
   br i1 %.not.i24.i, label %.noexc22, label %80
 
@@ -13777,7 +13777,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCount
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit23.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEEEE9constructIS4_JRKNS0_32TfDelegatedCountIncrementTagTypeEPS3_EEEvRS5_PT_DpOT0_.exit.i29
   %.0.lcssa.i.i.i.i = phi ptr [ %71, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrIKNS0_12Sdf_PathNodeEEEEE9constructIS4_JRKNS0_32TfDelegatedCountIncrementTagTypeEPS3_EEEvRS5_PT_DpOT0_.exit.i29 ], [ %78, %.lr.ph.i.i.i.i ]
-  %79 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %79 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i24.i = icmp eq ptr %57, null
   br i1 %.not.i24.i, label %.noexc22, label %80
 

@@ -629,7 +629,7 @@ Vec_SetAppend.exit:                               ; preds = %Tru_ManLookup.exit.
 
 Tru_ManReadOne.exit:                              ; preds = %Vec_SetAppend.exit, %143
   %155 = phi ptr [ %154, %143 ], [ null, %Vec_SetAppend.exit ]
-  %156 = getelementptr i8, ptr %155, i64 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 8
   %157 = load i32, ptr %3, align 4
   %158 = icmp sgt i32 %157, 0
   br i1 %158, label %.lr.ph.preheader.i51, label %Tru_ManCopy.exit

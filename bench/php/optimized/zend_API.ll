@@ -6623,7 +6623,7 @@ define void @object_properties_init(ptr nocapture noundef writeonly %0, ptr noca
 20:                                               ; preds = %18, %13
   %.0.in = phi ptr [ %17, %13 ], [ %19, %18 ]
   %.0 = load ptr, ptr %.0.in, align 8
-  %21 = getelementptr i8, ptr %0, i64 40
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
   %22 = sext i32 %5 to i64
   %23 = getelementptr inbounds %struct._zval_struct, ptr %.0, i64 %22
   %24 = load i8, ptr %1, align 8
@@ -7227,7 +7227,7 @@ define range(i32 -1, 1) i32 @object_and_properties_init(ptr nocapture noundef wr
 58:                                               ; preds = %56, %51
   %.0.in = phi ptr [ %55, %51 ], [ %57, %56 ]
   %.0 = load ptr, ptr %.0.in, align 8
-  %59 = getelementptr i8, ptr %40, i64 40
+  %59 = getelementptr inbounds i8, ptr %40, i64 40
   %60 = sext i32 %44 to i64
   %61 = getelementptr inbounds %struct._zval_struct, ptr %.0, i64 %60
   %62 = load i8, ptr %1, align 8
@@ -7399,7 +7399,7 @@ define range(i32 -1, 1) i32 @object_init_ex(ptr nocapture noundef writeonly %0, 
 55:                                               ; preds = %53, %48
   %.0.in = phi ptr [ %52, %48 ], [ %54, %53 ]
   %.0 = load ptr, ptr %.0.in, align 8
-  %56 = getelementptr i8, ptr %39, i64 40
+  %56 = getelementptr inbounds i8, ptr %39, i64 40
   %57 = sext i32 %41 to i64
   %58 = getelementptr inbounds %struct._zval_struct, ptr %.0, i64 %57
   %59 = load i8, ptr %1, align 8

@@ -299,7 +299,7 @@ _ZNKSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE12_M_check_lenEmPKc.exit.i: ; p
 
 _ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37.i: ; preds = %.lr.ph.i.i.i.i, %53
   %.0.lcssa.i.i.i.i = phi ptr [ %54, %53 ], [ %62, %.lr.ph.i.i.i.i ]
-  %63 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 48
+  %63 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 48
   %.not.i38.i = icmp eq ptr %39, null
   br i1 %.not.i38.i, label %_ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE17_M_realloc_insertIJRdRlS5_RiS5_S5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %64
 

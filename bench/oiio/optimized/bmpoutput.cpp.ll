@@ -23551,7 +23551,7 @@ if.end12:                                         ; preds = %if.then8
   %sub.ptr.rhs.cast = ptrtoint ptr %begin to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %5 = load ptr, ptr %handler, align 8
-  %fill2.i = getelementptr i8, ptr %5, i64 11
+  %fill2.i = getelementptr inbounds i8, ptr %5, i64 11
   %cmp.i.i = icmp ugt i64 %sub.ptr.sub, 4
   br i1 %cmp.i.i, label %if.then.i.i, label %for.body.i.i
 

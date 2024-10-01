@@ -1995,7 +1995,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_
   %809 = getelementptr inbounds i32, ptr %.val.val.val.i.i.i, i64 %808
   %810 = load i32, ptr %809, align 4
   %811 = sext i32 %810 to i64
-  %812 = getelementptr i32, ptr %.val.val.val23.i.i.i, i64 %811
+  %812 = getelementptr inbounds i32, ptr %.val.val.val23.i.i.i, i64 %811
   %813 = getelementptr inbounds i32, ptr %.val.val.val.i.i.i, i64 %807
   %814 = load i32, ptr %813, align 4
   %815 = icmp sgt i32 %814, 0

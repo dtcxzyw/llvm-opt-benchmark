@@ -130,10 +130,10 @@ define hidden void @_ZN10Block_List6removeEj(ptr nocapture noundef nonnull align
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
   %12 = add i32 %1, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr ptr, ptr %9, i64 %13
+  %14 = getelementptr inbounds ptr, ptr %9, i64 %13
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -249,8 +249,8 @@ _ZN10Block_List4pushEP5Block.exit:                ; preds = %3, %_ZN11Block_Arra
   %53 = load ptr, ptr %43, align 8
   %54 = add i32 %1, 1
   %55 = zext i32 %54 to i64
-  %56 = getelementptr ptr, ptr %53, i64 %55
-  %57 = getelementptr ptr, ptr %53, i64 %47
+  %56 = getelementptr inbounds ptr, ptr %53, i64 %55
+  %57 = getelementptr inbounds ptr, ptr %53, i64 %47
   %58 = add nsw i64 %52, -1
   %59 = getelementptr inbounds ptr, ptr %56, i64 %58
   %60 = getelementptr inbounds ptr, ptr %57, i64 %58
@@ -4107,10 +4107,10 @@ define hidden noundef zeroext i1 @_ZN8PhaseCFG12move_to_nextEP5Blockj(ptr nocapt
   %65 = getelementptr inbounds i8, ptr %0, i64 48
   %66 = load ptr, ptr %65, align 8
   %67 = zext i32 %.024.lcssa to i64
-  %68 = getelementptr ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
   %69 = add i32 %.024.lcssa, 1
   %70 = zext i32 %69 to i64
-  %71 = getelementptr ptr, ptr %66, i64 %70
+  %71 = getelementptr inbounds ptr, ptr %66, i64 %70
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -4259,10 +4259,10 @@ _ZNK5Block8is_EmptyEv.exit.thread:                ; preds = %.critedge.i, %_ZNK5
   %59 = getelementptr inbounds i8, ptr %0, i64 48
   %60 = load ptr, ptr %59, align 8
   %61 = zext i32 %2 to i64
-  %62 = getelementptr ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds ptr, ptr %60, i64 %61
   %63 = add i32 %2, 1
   %64 = zext i32 %63 to i64
-  %65 = getelementptr ptr, ptr %60, i64 %64
+  %65 = getelementptr inbounds ptr, ptr %60, i64 %64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -5921,10 +5921,10 @@ _ZNK5Block24is_trivially_unreachableEv.exit.thread: ; preds = %27, %_ZNK5Block4h
   %102 = zext i32 %101 to i64
   %103 = load ptr, ptr %24, align 8
   %104 = zext i32 %98 to i64
-  %105 = getelementptr ptr, ptr %103, i64 %104
+  %105 = getelementptr inbounds ptr, ptr %103, i64 %104
   %106 = add i32 %98, 1
   %107 = zext i32 %106 to i64
-  %108 = getelementptr ptr, ptr %103, i64 %107
+  %108 = getelementptr inbounds ptr, ptr %103, i64 %107
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i

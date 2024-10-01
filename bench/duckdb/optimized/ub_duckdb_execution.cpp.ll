@@ -78615,7 +78615,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt16allocator_tr
 
 _ZNSt6vectorISt10shared_ptrIN6duckdb14ArenaAllocatorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN6duckdb14ArenaAllocatorEEEE9constructIS3_JRS3_EEEvRS4_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i31, %_ZNSt16allocator_traitsISaISt10shared_ptrIN6duckdb14ArenaAllocatorEEEE9constructIS3_JRS3_EEEvRS4_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
   %cmp.not6.i.i.i.i32 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i.i32, label %_ZNSt6vectorISt10shared_ptrIN6duckdb14ArenaAllocatorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42, label %for.body.i.i.i.i33
 
@@ -78735,7 +78735,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt16allocator_tr
 
 _ZNSt6vectorISt10shared_ptrIN6duckdb14ArenaAllocatorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN6duckdb14ArenaAllocatorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i31, %_ZNSt16allocator_traitsISaISt10shared_ptrIN6duckdb14ArenaAllocatorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
   %cmp.not6.i.i.i.i32 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i.i32, label %_ZNSt6vectorISt10shared_ptrIN6duckdb14ArenaAllocatorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42, label %for.body.i.i.i.i33
 
@@ -78926,7 +78926,7 @@ for.body.i.i.i.i171:                              ; preds = %for.body.i.i.i.i171
   %__first.sroa.0.014.i.i.i.i173 = phi ptr [ %incdec.ptr.i.i.i.i.i174, %for.body.i.i.i.i171 ], [ %__first.coerce, %for.body.i.i.i.i171.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.015.i.i.i.i172, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.014.i.i.i.i173, i64 16, i1 false), !tbaa.struct !1886
   %incdec.ptr.i.i.i.i.i174 = getelementptr inbounds i8, ptr %__first.sroa.0.014.i.i.i.i173, i64 16
-  %incdec.ptr.i.i.i.i175 = getelementptr i8, ptr %__cur.015.i.i.i.i172, i64 16
+  %incdec.ptr.i.i.i.i175 = getelementptr inbounds i8, ptr %__cur.015.i.i.i.i172, i64 16
   %cmp.i.not.i.i.i.i176 = icmp eq ptr %incdec.ptr.i.i.i.i.i174, %__last.coerce
   br i1 %cmp.i.not.i.i.i.i176, label %invoke.cont83, label %for.body.i.i.i.i171, !llvm.loop !1888
 
@@ -82649,7 +82649,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10shared_ptrIN6duckdb14ArenaAllocatorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN6duckdb14ArenaAllocatorEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i31, %_ZNSt12_Vector_baseISt10shared_ptrIN6duckdb14ArenaAllocatorEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
   %cmp.not6.i.i.i.i32 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i.i32, label %_ZNSt6vectorISt10shared_ptrIN6duckdb14ArenaAllocatorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42, label %for.body.i.i.i.i33
 

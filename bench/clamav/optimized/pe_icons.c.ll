@@ -1811,10 +1811,10 @@ define internal fastcc void @getmetrics(i32 noundef range(i32 16, 257) %0, ptr n
   %46 = add nsw i32 %0, %45
   %.not1458 = icmp eq i32 %46, 0
   %47 = getelementptr inbounds i8, ptr %2, i64 8
-  %48 = getelementptr i8, ptr %2, i64 20
-  %49 = getelementptr i8, ptr %2, i64 32
-  %50 = getelementptr i8, ptr %2, i64 56
-  %51 = getelementptr i8, ptr %2, i64 68
+  %48 = getelementptr inbounds i8, ptr %2, i64 20
+  %49 = getelementptr inbounds i8, ptr %2, i64 32
+  %50 = getelementptr inbounds i8, ptr %2, i64 56
+  %51 = getelementptr inbounds i8, ptr %2, i64 68
   %52 = getelementptr inbounds i8, ptr %2, i64 80
   %53 = getelementptr inbounds i8, ptr %2, i64 92
   %54 = getelementptr inbounds i8, ptr %2, i64 104

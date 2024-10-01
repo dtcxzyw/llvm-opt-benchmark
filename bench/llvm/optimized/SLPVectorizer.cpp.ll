@@ -26784,7 +26784,7 @@ _ZNSt17_Temporary_bufferIPSt4pairIPN4llvm9StoreInstEiES4_EC2ES5_l.exit.thread28.
   br label %_ZNSt17_Temporary_bufferIPSt4pairIPN4llvm9StoreInstEiES4_EC2ES5_l.exit.thread23.sink.split.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %47
-  %.01518.i.i.i.i.i.i = getelementptr i8, ptr %46, i64 16
+  %.01518.i.i.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 16
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -117132,7 +117132,7 @@ _ZNSt17_Temporary_bufferIPSt4pairIPN4llvm5ValueEjES4_EC2ES5_l.exit.thread28.i.i.
   br label %_ZNSt17_Temporary_bufferIPSt4pairIPN4llvm5ValueEjES4_EC2ES5_l.exit.thread23.sink.split.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %936
-  %.01518.i.i.i.i.i.i = getelementptr i8, ptr %935, i64 16
+  %.01518.i.i.i.i.i.i = getelementptr inbounds i8, ptr %935, i64 16
   br label %.lr.ph.i.i.i.i180.i.i
 
 .lr.ph.i.i.i.i180.i.i:                            ; preds = %.lr.ph.i.i.i.i180.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -143238,7 +143238,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
   br i1 %34, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %33
-  %35 = getelementptr i8, ptr %.053, i64 %.074
+  %35 = getelementptr inbounds i8, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
@@ -181833,7 +181833,7 @@ _ZN4llvm15SmallVectorImplIPKNS_13slpvectorizer7BoUpSLP9TreeEntryEE7reserveEm.exi
   br i1 %16, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_13slpvectorizer7BoUpSLP9TreeEntryELb1EE18uninitialized_copyIPPS3_PS5_EEvT_SB_T0_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN4llvm15SmallVectorImplIPKNS_13slpvectorizer7BoUpSLP9TreeEntryEE7reserveEm.exit
-  %17 = getelementptr ptr, ptr %14, i64 %15
+  %17 = getelementptr inbounds ptr, ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i
@@ -186278,7 +186278,7 @@ _ZSt4moveIPjS0_ET0_T_S2_S1_.exit:                 ; preds = %29, %32
   br i1 %36, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %35
-  %37 = getelementptr i32, ptr %.053, i64 %.074
+  %37 = getelementptr inbounds i32, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
@@ -187124,7 +187124,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit:      ; preds = %3, %12
   br i1 %16, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE18uninitialized_copyIPKiPjEEvT_S6_T0_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit
-  %17 = getelementptr i32, ptr %14, i64 %15
+  %17 = getelementptr inbounds i32, ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i
@@ -232219,8 +232219,8 @@ _ZSt4copyIPKSt5tupleIJPN4llvm10BasicBlockENS1_12SuccIteratorINS1_11InstructionES
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKSt5tupleIJPN4llvm10BasicBlockENS1_12SuccIteratorINS1_11InstructionES2_EES6_EEPS7_ET0_T_SC_SB_.exit36
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr %"class.std::tuple.2324", ptr %62, i64 %.022
-  %64 = getelementptr %"class.std::tuple.2324", ptr %59, i64 %.022
+  %63 = getelementptr inbounds %"class.std::tuple.2324", ptr %62, i64 %.022
+  %64 = getelementptr inbounds %"class.std::tuple.2324", ptr %59, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
@@ -233562,7 +233562,7 @@ _ZSt4moveIPPN4llvm5ValueES3_ET0_T_S5_S4_.exit:    ; preds = %29, %32
   br i1 %36, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %35
-  %37 = getelementptr ptr, ptr %.053, i64 %.074
+  %37 = getelementptr inbounds ptr, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
@@ -236103,7 +236103,7 @@ _ZSt4moveIPPN4llvm9StoreInstES3_ET0_T_S5_S4_.exit: ; preds = %29, %32
   br i1 %36, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %35
-  %37 = getelementptr ptr, ptr %.053, i64 %.074
+  %37 = getelementptr inbounds ptr, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90

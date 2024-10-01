@@ -546,7 +546,7 @@ _ZNSt12_Vector_baseIN4llvm16MCDwarfLineEntryESaIS1_EE11_M_allocateEm.exit.i.i: ;
 
 _ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm16MCDwarfLineEntryESaIS1_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %28, %_ZNSt12_Vector_baseIN4llvm16MCDwarfLineEntryESaIS1_EE11_M_allocateEm.exit.i.i ], [ %31, %.lr.ph.i.i.i.i.i ]
-  %32 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
+  %32 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
   %.not.i23.i.i = icmp eq ptr %14, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %33
 
@@ -735,7 +735,7 @@ _ZNSt12_Vector_baseIN4llvm16MCDwarfLineEntryESaIS1_EE11_M_allocateEm.exit.i.i: ;
 
 _ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm16MCDwarfLineEntryESaIS1_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %80, %_ZNSt12_Vector_baseIN4llvm16MCDwarfLineEntryESaIS1_EE11_M_allocateEm.exit.i.i ], [ %83, %.lr.ph.i.i.i.i.i ]
-  %84 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
+  %84 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
   %.not.i23.i.i = icmp eq ptr %66, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %85
 
@@ -2772,7 +2772,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3, %11
   br i1 %15, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPhPcEEvT_S5_T0_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
-  %16 = getelementptr i8, ptr %13, i64 %14
+  %16 = getelementptr inbounds i8, ptr %13, i64 %14
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i
@@ -3934,7 +3934,7 @@ _ZNSt12_Vector_baseIN4llvm20MCGenDwarfLabelEntryESaIS1_EE11_M_allocateEm.exit.i.
 
 _ZNSt6vectorIN4llvm20MCGenDwarfLabelEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i24, %_ZNSt12_Vector_baseIN4llvm20MCGenDwarfLabelEntryESaIS1_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %80, %_ZNSt12_Vector_baseIN4llvm20MCGenDwarfLabelEntryESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %83, %.lr.ph.i.i.i.i.i.i24 ]
-  %84 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
+  %84 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
   %.not.i23.i.i.i = icmp eq ptr %66, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm20MCGenDwarfLabelEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %85
 

@@ -274,7 +274,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_
 
 _ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i45: ; preds = %.lr.ph.i.i.i.i.i41, %_ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i39
   %.0.lcssa.i.i.i.i.i46 = phi ptr [ %54, %_ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i39 ], [ %58, %.lr.ph.i.i.i.i.i41 ]
-  %59 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i46, i64 8
+  %59 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i46, i64 8
   %.not.i23.i.i47 = icmp eq ptr %41, null
   br i1 %.not.i23.i.i47, label %_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_12Code93ReaderEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %60
 
@@ -360,7 +360,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_
 
 _ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i61: ; preds = %.lr.ph.i.i.i.i.i57, %_ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i55
   %.0.lcssa.i.i.i.i.i62 = phi ptr [ %87, %_ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i55 ], [ %91, %.lr.ph.i.i.i.i.i57 ]
-  %92 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i62, i64 8
+  %92 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i62, i64 8
   %.not.i23.i.i63 = icmp eq ptr %74, null
   br i1 %.not.i23.i.i63, label %_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_13Code128ReaderEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %93
 
@@ -446,7 +446,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_
 
 _ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i77: ; preds = %.lr.ph.i.i.i.i.i73, %_ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i71
   %.0.lcssa.i.i.i.i.i78 = phi ptr [ %120, %_ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i71 ], [ %124, %.lr.ph.i.i.i.i.i73 ]
-  %125 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i78, i64 8
+  %125 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i78, i64 8
   %.not.i23.i.i79 = icmp eq ptr %107, null
   br i1 %.not.i23.i.i79, label %_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_9ITFReaderEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %126
 
@@ -532,7 +532,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_
 
 _ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i93: ; preds = %.lr.ph.i.i.i.i.i89, %_ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i87
   %.0.lcssa.i.i.i.i.i94 = phi ptr [ %153, %_ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i87 ], [ %157, %.lr.ph.i.i.i.i.i89 ]
-  %158 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i94, i64 8
+  %158 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i94, i64 8
   %.not.i23.i.i95 = icmp eq ptr %140, null
   br i1 %.not.i23.i.i95, label %_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_13CodabarReaderEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %159
 
@@ -618,7 +618,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_
 
 _ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i108: ; preds = %.lr.ph.i.i.i.i.i104, %_ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i102
   %.0.lcssa.i.i.i.i.i109 = phi ptr [ %186, %_ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i102 ], [ %190, %.lr.ph.i.i.i.i.i104 ]
-  %191 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i109, i64 8
+  %191 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i109, i64 8
   %.not.i23.i.i110 = icmp eq ptr %173, null
   br i1 %.not.i23.i.i110, label %_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_13DataBarReaderEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %192
 
@@ -704,7 +704,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_
 
 _ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i123: ; preds = %.lr.ph.i.i.i.i.i119, %_ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i117
   %.0.lcssa.i.i.i.i.i124 = phi ptr [ %219, %_ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i117 ], [ %223, %.lr.ph.i.i.i.i.i119 ]
-  %224 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i124, i64 8
+  %224 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i124, i64 8
   %.not.i23.i.i125 = icmp eq ptr %206, null
   br i1 %.not.i23.i.i125, label %_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_21DataBarExpandedReaderEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %225
 
@@ -797,7 +797,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_
 
 _ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i139: ; preds = %.lr.ph.i.i.i.i.i135, %_ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i133
   %.0.lcssa.i.i.i.i.i140 = phi ptr [ %252, %_ZNSt12_Vector_baseISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i133 ], [ %256, %.lr.ph.i.i.i.i.i135 ]
-  %257 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i140, i64 8
+  %257 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i140, i64 8
   %.not.i23.i.i141 = icmp eq ptr %239, null
   br i1 %.not.i23.i.i141, label %_ZNSt6vectorISt10unique_ptrIN5ZXing4OneD9RowReaderESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_16DXFilmEdgeReaderEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %258
 

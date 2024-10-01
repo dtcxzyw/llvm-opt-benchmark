@@ -1980,7 +1980,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI28cmOrderDirectoriesConstraintSt14default_del
 
 _ZNSt6vectorISt10unique_ptrI28cmOrderDirectoriesConstraintSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i: ; preds = %.lr.ph.i.i.i.i55, %_ZNSt12_Vector_baseISt10unique_ptrI28cmOrderDirectoriesConstraintSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %121, %_ZNSt12_Vector_baseISt10unique_ptrI28cmOrderDirectoriesConstraintSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i ], [ %126, %.lr.ph.i.i.i.i55 ]
-  %127 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %127 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %107, null
   br i1 %.not.i23.i, label %_ZNSt10unique_ptrI34cmOrderDirectoriesConstraintSONameSt14default_deleteIS0_EED2Ev.exit, label %128
 
@@ -2099,7 +2099,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI28cmOrderDirectoriesConstraintSt14default_del
 
 _ZNSt6vectorISt10unique_ptrI28cmOrderDirectoriesConstraintSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i75: ; preds = %.lr.ph.i.i.i.i64, %_ZNSt12_Vector_baseISt10unique_ptrI28cmOrderDirectoriesConstraintSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i62
   %.0.lcssa.i.i.i.i69 = phi ptr [ %162, %_ZNSt12_Vector_baseISt10unique_ptrI28cmOrderDirectoriesConstraintSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i62 ], [ %167, %.lr.ph.i.i.i.i64 ]
-  %168 = getelementptr i8, ptr %.0.lcssa.i.i.i.i69, i64 8
+  %168 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i69, i64 8
   %.not.i23.i77 = icmp eq ptr %148, null
   br i1 %.not.i23.i77, label %.noexc40, label %169
 
@@ -2361,7 +2361,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI28cmOrderDirectoriesConstraintSt14default_del
 
 _ZNSt6vectorISt10unique_ptrI28cmOrderDirectoriesConstraintSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i: ; preds = %.lr.ph.i.i.i.i39, %_ZNSt12_Vector_baseISt10unique_ptrI28cmOrderDirectoriesConstraintSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %60, %_ZNSt12_Vector_baseISt10unique_ptrI28cmOrderDirectoriesConstraintSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i ], [ %65, %.lr.ph.i.i.i.i39 ]
-  %66 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %66 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %46, null
   br i1 %.not.i23.i, label %_ZNSt10unique_ptrI35cmOrderDirectoriesConstraintLibrarySt14default_deleteIS0_EED2Ev.exit, label %67
 
@@ -2486,7 +2486,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI28cmOrderDirectoriesConstraintSt14default_del
 
 _ZNSt6vectorISt10unique_ptrI28cmOrderDirectoriesConstraintSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i59: ; preds = %.lr.ph.i.i.i.i48, %_ZNSt12_Vector_baseISt10unique_ptrI28cmOrderDirectoriesConstraintSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i46
   %.0.lcssa.i.i.i.i53 = phi ptr [ %103, %_ZNSt12_Vector_baseISt10unique_ptrI28cmOrderDirectoriesConstraintSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i46 ], [ %108, %.lr.ph.i.i.i.i48 ]
-  %109 = getelementptr i8, ptr %.0.lcssa.i.i.i.i53, i64 8
+  %109 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i53, i64 8
   %.not.i23.i61 = icmp eq ptr %89, null
   br i1 %.not.i23.i61, label %.noexc24, label %110
 
@@ -3282,7 +3282,7 @@ _ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %47, 
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %50, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i ], [ %54, %.lr.ph.i.i.i.i.i ]
-  %55 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %55 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %36, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %56
 

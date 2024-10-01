@@ -19823,7 +19823,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorI14ConstSharedPtrIN3con14BufferedPacketEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i47, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
   %cmp.not6.i.i.i48 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i48, label %_ZNSt6vectorI14ConstSharedPtrIN3con14BufferedPacketEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit58, label %for.body.i.i.i49
 

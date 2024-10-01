@@ -2453,7 +2453,7 @@ _ZNSt12_Vector_baseIN3vcg8Matrix44IfEESaIS2_EE11_M_allocateEm.exit.i.i: ; preds 
 
 _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg8Matrix44IfEESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %118, %_ZNSt12_Vector_baseIN3vcg8Matrix44IfEESaIS2_EE11_M_allocateEm.exit.i.i ], [ %121, %.lr.ph.i.i.i.i.i.i ]
-  %122 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 64
+  %122 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 64
   %.not.i23.i.i = icmp eq ptr %105, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %123
 
@@ -2813,7 +2813,7 @@ _ZNSt12_Vector_baseIN3vcg8Matrix44IfEESaIS2_EE11_M_allocateEm.exit.i.i140: ; pre
 
 _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i146: ; preds = %.lr.ph.i.i.i.i.i.i142, %_ZNSt12_Vector_baseIN3vcg8Matrix44IfEESaIS2_EE11_M_allocateEm.exit.i.i140
   %.0.lcssa.i.i.i.i.i.i147 = phi ptr [ %259, %_ZNSt12_Vector_baseIN3vcg8Matrix44IfEESaIS2_EE11_M_allocateEm.exit.i.i140 ], [ %262, %.lr.ph.i.i.i.i.i.i142 ]
-  %263 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i147, i64 64
+  %263 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i147, i64 64
   %.not.i23.i.i148 = icmp eq ptr %246, null
   br i1 %.not.i23.i.i148, label %_ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i149, label %264
 
@@ -3171,7 +3171,7 @@ _ZNSt12_Vector_baseIN3vcg8Matrix44IfEESaIS2_EE11_M_allocateEm.exit.i.i231: ; pre
 
 _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i237: ; preds = %.lr.ph.i.i.i.i.i.i233, %_ZNSt12_Vector_baseIN3vcg8Matrix44IfEESaIS2_EE11_M_allocateEm.exit.i.i231
   %.0.lcssa.i.i.i.i.i.i238 = phi ptr [ %398, %_ZNSt12_Vector_baseIN3vcg8Matrix44IfEESaIS2_EE11_M_allocateEm.exit.i.i231 ], [ %401, %.lr.ph.i.i.i.i.i.i233 ]
-  %402 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i238, i64 64
+  %402 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i238, i64 64
   %.not.i23.i.i239 = icmp eq ptr %385, null
   br i1 %.not.i23.i.i239, label %_ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i240, label %403
 

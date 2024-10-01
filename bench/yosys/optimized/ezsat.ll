@@ -19694,7 +19694,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE15_M_range_insertIN9__g
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
   %22 = sub nsw i64 0, %9
-  %23 = getelementptr %"class.std::vector.16", ptr %13, i64 %22
+  %23 = getelementptr inbounds %"class.std::vector.16", ptr %13, i64 %22
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -20156,7 +20156,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE15_M_range_insertIN9__g
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
   %22 = sub nsw i64 0, %9
-  %23 = getelementptr %"class.std::vector.16", ptr %13, i64 %22
+  %23 = getelementptr inbounds %"class.std::vector.16", ptr %13, i64 %22
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i

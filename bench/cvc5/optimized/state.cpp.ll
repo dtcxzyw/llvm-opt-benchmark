@@ -1946,7 +1946,7 @@ for.body.i.i.i.i.i393:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt17_Rb_tree_iteratorISt4pairIKN4cvc58internal12NodeTemplateILb1EEENS3_6theory11quantifiers5ieval11PatTermInfoEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit19.i.i399: ; preds = %for.body.i.i.i.i.i393, %_ZNSt12_Vector_baseISt17_Rb_tree_iteratorISt4pairIKN4cvc58internal12NodeTemplateILb1EEENS3_6theory11quantifiers5ieval11PatTermInfoEEESaISC_EE11_M_allocateEm.exit.i.i389
   %__cur.0.lcssa.i.i.i.i.i400 = phi ptr [ %cond.i10.i.i390, %_ZNSt12_Vector_baseISt17_Rb_tree_iteratorISt4pairIKN4cvc58internal12NodeTemplateILb1EEENS3_6theory11quantifiers5ieval11PatTermInfoEEESaISC_EE11_M_allocateEm.exit.i.i389 ], [ %incdec.ptr1.i.i.i.i.i397, %for.body.i.i.i.i.i393 ]
-  %incdec.ptr.i.i401 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i400, i64 8
+  %incdec.ptr.i.i401 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i400, i64 8
   %tobool.not.i.i.i402 = icmp eq ptr %toNotify.sroa.0.2489, null
   br i1 %tobool.not.i.i.i402, label %_ZNSt6vectorISt17_Rb_tree_iteratorISt4pairIKN4cvc58internal12NodeTemplateILb1EEENS3_6theory11quantifiers5ieval11PatTermInfoEEESaISC_EE17_M_realloc_insertIJRKSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i404, label %if.then.i20.i.i403
 
@@ -3073,7 +3073,7 @@ for.inc.i.i.i.i.i.i.i260:                         ; preds = %invoke.cont.i.i256,
 
 invoke.cont14.i.i266:                             ; preds = %for.inc.i.i.i.i.i.i.i260, %invoke.cont.i.i256
   %__cur.0.lcssa.i.i.i.i.i.i.i267 = phi ptr [ %cond.i19.i.i257, %invoke.cont.i.i256 ], [ %incdec.ptr1.i.i.i.i.i.i.i264, %for.inc.i.i.i.i.i.i.i260 ]
-  %incdec.ptr.i.i268 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i267, i64 8
+  %incdec.ptr.i.i268 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i267, i64 8
   %tobool.not.i.i.i269 = icmp eq ptr %visit.sroa.0.8440, null
   br i1 %tobool.not.i.i.i269, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i271, label %if.then.i29.i.i270
 
@@ -4600,7 +4600,7 @@ for.inc.i.i.i.i.i.i.i76:                          ; preds = %invoke.cont.i.i72, 
 
 invoke.cont14.i.i82:                              ; preds = %for.inc.i.i.i.i.i.i.i76, %invoke.cont.i.i72
   %__cur.0.lcssa.i.i.i.i.i.i.i83 = phi ptr [ %cond.i19.i.i73, %invoke.cont.i.i72 ], [ %incdec.ptr1.i.i.i.i.i.i.i80, %for.inc.i.i.i.i.i.i.i76 ]
-  %incdec.ptr.i.i84 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i83, i64 8
+  %incdec.ptr.i.i84 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i83, i64 8
   %tobool.not.i.i.i85 = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.i85, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i87, label %if.then.i29.i.i86
 
@@ -10288,7 +10288,7 @@ if.then9:                                         ; preds = %if.then
 
 for.inc.i.i.i.i.i.preheader:                      ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr %"class.cvc5::internal::NodeTemplate.489", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.489", ptr %1, i64 %idx.neg
   br label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i.preheader, %for.inc.i.i.i.i.i
@@ -10377,7 +10377,7 @@ _ZSt22__uninitialized_copy_aIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeT
 _ZSt22__uninitialized_copy_aIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEPS6_S6_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEPS6_S6_ET0_T_SA_S9_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEmEvRT_T0_.exit
   %8 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEPS6_S6_ET0_T_SA_S9_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb0EEEEEmEvRT_T0_.exit ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  %add.ptr50 = getelementptr %"class.cvc5::internal::NodeTemplate.489", ptr %8, i64 %sub
+  %add.ptr50 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.489", ptr %8, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i41 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i41, label %_ZSt22__uninitialized_move_aIPN4cvc58internal12NodeTemplateILb0EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit49, label %for.inc.i.i.i.i.i42

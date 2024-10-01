@@ -5503,12 +5503,12 @@ define internal noundef i32 @png_image_read_composite(ptr nocapture noundef read
   %67 = load ptr, ptr %21, align 8
   %68 = zext i32 %.189 to i64
   %69 = mul nsw i64 %15, %68
-  %70 = getelementptr i8, ptr %67, i64 %69
+  %70 = getelementptr inbounds i8, ptr %67, i64 %69
   %71 = getelementptr inbounds i8, ptr %70, i64 %23
   br i1 %64, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %65
-  %72 = getelementptr i8, ptr %70, i64 %.079
+  %72 = getelementptr inbounds i8, ptr %70, i64 %.079
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit

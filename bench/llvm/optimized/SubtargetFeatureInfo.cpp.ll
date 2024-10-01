@@ -209,7 +209,7 @@ _ZNSt12_Vector_baseISt4pairIPN4llvm6RecordENS1_20SubtargetFeatureInfoEESaIS5_EE1
 
 _ZNSt6vectorISt4pairIPN4llvm6RecordENS1_20SubtargetFeatureInfoEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit23.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPN4llvm6RecordENS1_20SubtargetFeatureInfoEESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %47, %_ZNSt12_Vector_baseISt4pairIPN4llvm6RecordENS1_20SubtargetFeatureInfoEESaIS5_EE11_M_allocateEm.exit.i ], [ %51, %.lr.ph.i.i.i.i ]
-  %52 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 24
+  %52 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
   %.not.i24.i = icmp eq ptr %12, null
   br i1 %.not.i24.i, label %_ZNSt6vectorISt4pairIPN4llvm6RecordENS1_20SubtargetFeatureInfoEESaIS5_EE17_M_realloc_insertIJRS3_S4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit, label %53
 

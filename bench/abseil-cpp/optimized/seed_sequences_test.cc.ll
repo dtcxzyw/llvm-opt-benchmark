@@ -1903,11 +1903,11 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq ptr %2, %3
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i.i.i
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr i8, ptr %buffer, i64 %add.ptr.idx
   %4 = sub nsw i64 236, %add.ptr.idx
   %5 = and i64 %4, -4
   %6 = add nsw i64 %5, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr, i8 0, i64 %6, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.ptr, i8 0, i64 %6, i1 false)
   %cmp.not.i = icmp eq i64 %add.ptr.idx, 0
   br i1 %cmp.not.i, label %while.body.preheader, label %_ZN4absl15random_internal13SaltedSeedSeqINS1_ISt8seed_seqEEE13generate_implIPjEEvNS4_22ContiguousAndUint32TagET_S8_m.exit.i
 

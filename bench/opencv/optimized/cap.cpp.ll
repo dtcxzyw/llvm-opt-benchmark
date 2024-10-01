@@ -8739,7 +8739,7 @@ _ZNKSt6vectorIN2cv15VideoParameters14VideoParameterESaIS2_EE12_M_check_lenEmPKc.
 
 _ZNSt6vectorIN2cv15VideoParameters14VideoParameterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.noexc17
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %57, %.noexc17 ], [ %62, %.lr.ph.i.i.i.i.i.i.i ]
-  %63 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 12
+  %63 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 12
   %.not.i34.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i34.i.i.i, label %_ZNSt6vectorIN2cv15VideoParameters14VideoParameterESaIS2_EE17_M_realloc_insertIJRiS6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %64
 

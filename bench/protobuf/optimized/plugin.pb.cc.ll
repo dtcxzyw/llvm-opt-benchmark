@@ -837,7 +837,7 @@ entry:
   store i64 %6, ptr %suffix_7, align 8
   store ptr %__tmp.sroa.0.0.copyload.i, ptr %suffix_, align 8
   %major_ = getelementptr inbounds i8, ptr %this, i64 32
-  %major_8 = getelementptr i8, ptr %other, i64 32
+  %major_8 = getelementptr inbounds i8, ptr %other, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   br label %for.body.i.i

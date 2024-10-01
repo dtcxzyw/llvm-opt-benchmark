@@ -2813,7 +2813,7 @@ select.unfold.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.
   br label %.lr.ph.i.i.i15.preheader.i.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i.i.i:                 ; preds = %443
-  %.01318.i.i.i.i.i.i.i.i = getelementptr i8, ptr %442, i64 8
+  %.01318.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %442, i64 8
   %load_initial = load i64, ptr %442, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -4398,7 +4398,7 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i17.i.i
   br i1 %.not19.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.i.i, label %.lr.ph.i.i.preheader.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %1087
-  %.01318.i.i.i.i.i = getelementptr i8, ptr %1081, i64 8
+  %.01318.i.i.i.i.i = getelementptr inbounds i8, ptr %1081, i64 8
   %load_initial56 = load i64, ptr %1081, align 8
   br label %.lr.ph.i.i.i.i.i
 
@@ -4666,7 +4666,7 @@ select.unfold.i.i.i.i305:                         ; preds = %.lr.ph.i.i.i.i287
   br label %.lr.ph.i.i.i15.preheader.i.i
 
 .lr.ph.i.i.preheader.i.i.i292:                    ; preds = %1196
-  %.01318.i.i.i.i.i293 = getelementptr i8, ptr %1195, i64 8
+  %.01318.i.i.i.i.i293 = getelementptr inbounds i8, ptr %1195, i64 8
   %load_initial58 = load i64, ptr %1195, align 8
   br label %.lr.ph.i.i.i.i.i294
 
@@ -11698,7 +11698,7 @@ _ZNKSt6vectorISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EESaIS5_
 
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit28.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %63, %_ZNKSt6vectorISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i ], [ %66, %.lr.ph.i.i.i.i.i ]
-  %67 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %67 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i29.i.i = icmp eq ptr %.val16.i.i, null
   br i1 %.not.i29.i.i, label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %68
 
@@ -12479,7 +12479,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N
   br i1 %78, label %.lr.ph62.preheader.i.i, label %._crit_edge63.i.i
 
 .lr.ph62.preheader.i.i:                           ; preds = %77
-  %79 = getelementptr %"class.std::unique_ptr.234", ptr %.sroa.032.0.i.i, i64 %.051.i.i
+  %79 = getelementptr inbounds %"class.std::unique_ptr.234", ptr %.sroa.032.0.i.i, i64 %.051.i.i
   br label %.lr.ph62.i.i
 
 .lr.ph62.i.i:                                     ; preds = %.lr.ph62.i.i, %.lr.ph62.preheader.i.i
@@ -13813,7 +13813,7 @@ _ZSt13move_backwardIPSt10unique_ptrIN12_GLOBAL__N_14EdgeESt14default_deleteIS2_E
   br i1 %107, label %.lr.ph62.preheader.i.i, label %._crit_edge63.i.i
 
 .lr.ph62.preheader.i.i:                           ; preds = %106
-  %108 = getelementptr %"class.std::unique_ptr.234", ptr %.sroa.032.0.i.i, i64 %.051.i.i
+  %108 = getelementptr inbounds %"class.std::unique_ptr.234", ptr %.sroa.032.0.i.i, i64 %.051.i.i
   br label %.lr.ph62.i.i
 
 .lr.ph62.i.i:                                     ; preds = %.lr.ph62.i.i, %.lr.ph62.preheader.i.i
@@ -14831,7 +14831,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
   br i1 %34, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %33
-  %35 = getelementptr i8, ptr %.053, i64 %.074
+  %35 = getelementptr inbounds i8, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
@@ -15113,7 +15113,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14Edge
   br i1 %65, label %.lr.ph62.preheader.i.i, label %._crit_edge63.i.i
 
 .lr.ph62.preheader.i.i:                           ; preds = %64
-  %66 = getelementptr %"class.std::unique_ptr.234", ptr %.sroa.032.0.i.i, i64 %.051.i.i
+  %66 = getelementptr inbounds %"class.std::unique_ptr.234", ptr %.sroa.032.0.i.i, i64 %.051.i.i
   br label %.lr.ph62.i.i
 
 .lr.ph62.i.i:                                     ; preds = %.lr.ph62.i.i, %.lr.ph62.preheader.i.i
@@ -15601,7 +15601,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_14Edge
   br i1 %106, label %.lr.ph62.preheader.i.i, label %._crit_edge63.i.i
 
 .lr.ph62.preheader.i.i:                           ; preds = %105
-  %107 = getelementptr %"class.std::unique_ptr.234", ptr %.sroa.032.0.i.i, i64 %.051.i.i
+  %107 = getelementptr inbounds %"class.std::unique_ptr.234", ptr %.sroa.032.0.i.i, i64 %.051.i.i
   br label %.lr.ph62.i.i
 
 .lr.ph62.i.i:                                     ; preds = %.lr.ph62.i.i, %.lr.ph62.preheader.i.i

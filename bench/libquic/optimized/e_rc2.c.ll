@@ -26,7 +26,7 @@ define internal noundef i32 @rc2_init_key(ptr noundef %ctx, ptr nocapture nounde
 entry:
   %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
-  %ks = getelementptr i8, ptr %0, i64 4
+  %ks = getelementptr inbounds i8, ptr %0, i64 4
   %call = tail call i32 @EVP_CIPHER_CTX_key_length(ptr noundef %ctx) #6
   %1 = load i32, ptr %0, align 4
   store i8 0, ptr %ks, align 1

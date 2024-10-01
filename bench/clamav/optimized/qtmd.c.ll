@@ -2314,7 +2314,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %1034 = add i32 %1033, %.3964.lcssa.sink
   %.0927 = add i32 %1034, 1
   %1035 = zext i32 %.29231803 to i64
-  %1036 = getelementptr i8, ptr %44, i64 %1035
+  %1036 = getelementptr inbounds i8, ptr %44, i64 %1035
   %1037 = sub i32 %.29151804, %.0965
   %1038 = add i32 %.0965, %.29231803
   %1039 = load i32, ptr %66, align 8
@@ -2427,7 +2427,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 1090:                                             ; preds = %1086
   %1091 = sub i32 %1039, %1087
   %1092 = zext i32 %1091 to i64
-  %1093 = getelementptr i8, ptr %44, i64 %1092
+  %1093 = getelementptr inbounds i8, ptr %44, i64 %1092
   %1094 = icmp slt i32 %1087, %.0965
   br i1 %1094, label %1095, label %.loopexit1182
 
@@ -2474,7 +2474,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 .lr.ph1770.preheader:                             ; preds = %1109
   %1111 = zext i32 %.0927 to i64
   %1112 = sub nsw i64 0, %1111
-  %1113 = getelementptr i8, ptr %1036, i64 %1112
+  %1113 = getelementptr inbounds i8, ptr %1036, i64 %1112
   br label %.lr.ph1770
 
 .lr.ph1770:                                       ; preds = %.lr.ph1770.preheader, %.lr.ph1770

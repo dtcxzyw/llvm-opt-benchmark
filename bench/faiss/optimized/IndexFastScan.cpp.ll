@@ -3594,7 +3594,7 @@ define internal void @_ZNK5faiss13IndexFastScan17search_implem_234INS_4CMaxIflEE
   %32 = load ptr, ptr %3, align 8
   %33 = load i64, ptr %4, align 8
   %34 = mul nsw i64 %33, %.03748
-  %35 = getelementptr i64, ptr %32, i64 %34
+  %35 = getelementptr inbounds i64, ptr %32, i64 %34
   %36 = load ptr, ptr %5, align 8
   %37 = getelementptr inbounds float, ptr %36, i64 %34
   %.not39 = icmp eq i64 %33, 0
@@ -6051,7 +6051,7 @@ _ZN5faiss13ReservoirTopNINS_4CMaxItiEEE6shrinkEv.exit: ; preds = %25
   %36 = phi i64 [ %32, %_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE6shrinkEv.exit ], [ %23, %17 ]
   %37 = load ptr, ptr %14, align 8
   %38 = mul i64 %21, %indvars.iv90
-  %39 = getelementptr i64, ptr %37, i64 %38
+  %39 = getelementptr inbounds i64, ptr %37, i64 %38
   %40 = load ptr, ptr %15, align 8
   %41 = getelementptr inbounds float, ptr %40, i64 %38
   %42 = load ptr, ptr %16, align 8
@@ -6139,7 +6139,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5faiss20simd_res
   %.lcssa72 = phi i64 [ 0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5faiss20simd_result_handlers16ReservoirHandlerINS7_4CMaxItiEELb0EE3endEvEUliiE_EvT_SE_T0_.exit ], [ 0, %._crit_edge ], [ 0, %51 ], [ %81, %64 ]
   %83 = sub i64 %21, %.lcssa72
   %84 = getelementptr inbounds float, ptr %41, i64 %.lcssa72
-  %85 = getelementptr i64, ptr %39, i64 %.lcssa72
+  %85 = getelementptr inbounds i64, ptr %39, i64 %.lcssa72
   %.not71 = icmp eq i64 %21, %.lcssa72
   br i1 %.not71, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
 
@@ -8347,7 +8347,7 @@ define internal void @_ZNK5faiss13IndexFastScan17search_implem_234INS_4CMinIflEE
   %32 = load ptr, ptr %3, align 8
   %33 = load i64, ptr %4, align 8
   %34 = mul nsw i64 %33, %.03748
-  %35 = getelementptr i64, ptr %32, i64 %34
+  %35 = getelementptr inbounds i64, ptr %32, i64 %34
   %36 = load ptr, ptr %5, align 8
   %37 = getelementptr inbounds float, ptr %36, i64 %34
   %.not39 = icmp eq i64 %33, 0
@@ -10683,7 +10683,7 @@ _ZN5faiss13ReservoirTopNINS_4CMinItiEEE6shrinkEv.exit: ; preds = %25
   %36 = phi i64 [ %32, %_ZN5faiss13ReservoirTopNINS_4CMinItiEEE6shrinkEv.exit ], [ %23, %17 ]
   %37 = load ptr, ptr %14, align 8
   %38 = mul i64 %21, %indvars.iv90
-  %39 = getelementptr i64, ptr %37, i64 %38
+  %39 = getelementptr inbounds i64, ptr %37, i64 %38
   %40 = load ptr, ptr %15, align 8
   %41 = getelementptr inbounds float, ptr %40, i64 %38
   %42 = load ptr, ptr %16, align 8
@@ -10771,7 +10771,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5faiss20simd_res
   %.lcssa72 = phi i64 [ 0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEZN5faiss20simd_result_handlers16ReservoirHandlerINS7_4CMinItiEELb0EE3endEvEUliiE_EvT_SE_T0_.exit ], [ 0, %._crit_edge ], [ 0, %51 ], [ %81, %64 ]
   %83 = sub i64 %21, %.lcssa72
   %84 = getelementptr inbounds float, ptr %41, i64 %.lcssa72
-  %85 = getelementptr i64, ptr %39, i64 %.lcssa72
+  %85 = getelementptr inbounds i64, ptr %39, i64 %.lcssa72
   %.not71 = icmp eq i64 %21, %.lcssa72
   br i1 %.not71, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
 

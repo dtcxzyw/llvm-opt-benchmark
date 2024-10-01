@@ -1481,7 +1481,7 @@ _ZNSt12_Vector_baseIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE11_M_allocateEm.exi
 
 _ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %126, %_ZNSt12_Vector_baseIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i.i.i ]
-  %130 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %130 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %112, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %131
 
@@ -1885,7 +1885,7 @@ _ZNSt12_Vector_baseIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE11_M_allocateEm.exi
 
 _ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %131, %_ZNSt12_Vector_baseIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %134, %.lr.ph.i.i.i.i.i.i.i ]
-  %135 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %135 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %117, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %136
 
@@ -2652,7 +2652,7 @@ _ZNSt12_Vector_baseIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE11_M_allocateEm.exi
 
 _ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %56, %_ZNSt12_Vector_baseIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE11_M_allocateEm.exit.i.i ], [ %59, %.lr.ph.i.i.i.i.i.i ]
-  %60 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %60 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %42, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %61
 
@@ -5185,7 +5185,7 @@ _ZNSt12_Vector_baseIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE11_M_allocateEm.exi
 
 _ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %78, %_ZNSt12_Vector_baseIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE11_M_allocateEm.exit.i.i ], [ %81, %.lr.ph.i.i.i.i.i.i ]
-  %82 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %82 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %64, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %83
 
@@ -5517,7 +5517,7 @@ _ZNSt12_Vector_baseISt4pairIN6opencc19UTF8StringSliceBaseIhEENS1_13PhraseExtract
 
 _ZNSt6vectorISt4pairIN6opencc19UTF8StringSliceBaseIhEENS1_13PhraseExtract7SignalsEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIN6opencc19UTF8StringSliceBaseIhEENS1_13PhraseExtract7SignalsEESaIS6_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %54, %_ZNSt12_Vector_baseISt4pairIN6opencc19UTF8StringSliceBaseIhEENS1_13PhraseExtract7SignalsEESaIS6_EE11_M_allocateEm.exit.i.i.i ], [ %57, %.lr.ph.i.i.i.i.i.i.i ]
-  %58 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 48
+  %58 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 48
   %.not.i23.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIN6opencc19UTF8StringSliceBaseIhEENS1_13PhraseExtract7SignalsEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i, label %59
 

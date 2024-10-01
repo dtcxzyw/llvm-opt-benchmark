@@ -1475,7 +1475,7 @@ entry:
   store i64 %7, ptr %edition_11, align 8
   store ptr %__tmp.sroa.0.0.copyload.i9, ptr %edition_, align 8
   %source_context_ = getelementptr inbounds i8, ptr %this, i64 112
-  %source_context_12 = getelementptr i8, ptr %other, i64 112
+  %source_context_12 = getelementptr inbounds i8, ptr %other, i64 112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   br label %for.body.i.i
@@ -2769,7 +2769,7 @@ entry:
   store i64 %7, ptr %default_value_8, align 8
   store ptr %__tmp.sroa.0.0.copyload.i12, ptr %default_value_, align 8
   %kind_ = getelementptr inbounds i8, ptr %this, i64 72
-  %kind_9 = getelementptr i8, ptr %other, i64 72
+  %kind_9 = getelementptr inbounds i8, ptr %other, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   br label %for.body.i.i
@@ -3854,7 +3854,7 @@ entry:
   store i64 %7, ptr %edition_10, align 8
   store ptr %__tmp.sroa.0.0.copyload.i8, ptr %edition_, align 8
   %source_context_ = getelementptr inbounds i8, ptr %this, i64 88
-  %source_context_11 = getelementptr i8, ptr %other, i64 88
+  %source_context_11 = getelementptr inbounds i8, ptr %other, i64 88
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   br label %for.body.i.i

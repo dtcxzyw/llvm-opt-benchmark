@@ -464,7 +464,7 @@ SortHuffmanTreeItems.exit:                        ; preds = %for.end36.i, %while
   br i1 %cmp40299, label %for.body42.preheader, label %for.end82
 
 for.body42.preheader:                             ; preds = %SortHuffmanTreeItems.exit
-  %incdec.ptr37 = getelementptr i8, ptr %node.0.lcssa, i64 16
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %node.0.lcssa, i64 16
   br label %for.body42
 
 for.body42:                                       ; preds = %for.body42.preheader, %for.body42

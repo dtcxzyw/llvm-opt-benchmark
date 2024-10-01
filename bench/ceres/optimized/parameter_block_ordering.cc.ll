@@ -5028,7 +5028,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN5ceres8internal14ParameterBlockESt6v
   br i1 %36, label %.lr.ph92.preheader, label %._crit_edge93
 
 .lr.ph92.preheader:                               ; preds = %35
-  %37 = getelementptr ptr, ptr %.sroa.035.0, i64 %.078
+  %37 = getelementptr inbounds ptr, ptr %.sroa.035.0, i64 %.078
   br label %.lr.ph92
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.lr.ph92

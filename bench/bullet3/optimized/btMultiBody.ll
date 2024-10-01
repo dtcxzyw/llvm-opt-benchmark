@@ -5042,7 +5042,7 @@ _ZN20btAlignedObjectArrayI11btMatrix3x3E6resizeEiRKS0_.exit: ; preds = %if.then4
   %cond2618 = select i1 %cmp, ptr %37, ptr null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %result, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %spatForceVecTemps, i8 0, i64 192, i1 false)
-  %arrayidx.i = getelementptr float, ptr %31, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds float, ptr %31, i64 %idxprom.i
   %add.ptr23 = getelementptr inbounds %class.btVector3, ptr %add.ptr, i64 %idx.ext
   %add.ptr26 = getelementptr inbounds %class.btVector3, ptr %add.ptr23, i64 %idx.ext25
   %arrayidx.i427 = getelementptr i8, ptr %35, i64 48
@@ -5083,7 +5083,7 @@ _ZN20btAlignedObjectArrayI11btMatrix3x3E6resizeEiRKS0_.exit: ; preds = %if.then4
   store float 1.000000e+00, ptr %arrayidx5.i5.i.i9.i.i, align 4
   %arrayidx7.i6.i.i10.i.i = getelementptr inbounds i8, ptr %dyadTemp, i64 140
   store float 0.000000e+00, ptr %arrayidx7.i6.i.i10.i.i, align 4
-  %add.ptr47 = getelementptr i8, ptr %arrayidx.i, i64 24
+  %add.ptr47 = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %m_baseQuat = getelementptr inbounds i8, ptr %this, i64 56
   %40 = load float, ptr %m_baseQuat, align 8
   %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 60
@@ -7589,7 +7589,7 @@ for.end828:                                       ; preds = %for.body805
   %mul836 = mul nsw i32 %755, %755
   %idxprom837 = zext nneg i32 %mul836 to i64
   %arrayidx838 = getelementptr inbounds float, ptr %cond45, i64 %idxprom837
-  %arrayidx852 = getelementptr float, ptr %add.ptr47, i64 %756
+  %arrayidx852 = getelementptr inbounds float, ptr %add.ptr47, i64 %756
   %769 = zext nneg i32 %754 to i64
   br label %for.cond2.preheader.us.us.i
 
@@ -11848,7 +11848,7 @@ for.inc176:                                       ; preds = %_ZNK11btMultiBody30
   br i1 %cmp55, label %if.else.i.lr.ph.i, label %for.end177, !llvm.loop !165
 
 for.end177:                                       ; preds = %for.inc176, %if.end
-  %add.ptr178 = getelementptr i8, ptr %output, i64 24
+  %add.ptr178 = getelementptr inbounds i8, ptr %output, i64 24
   %136 = load i8, ptr %m_fixedBase.i, align 1
   %tobool.i249 = trunc i8 %136 to i1
   br i1 %tobool.i249, label %if.then180, label %lor.rhs.i250
@@ -12096,7 +12096,7 @@ for.end242:                                       ; preds = %for.body219
   %mul250 = mul nsw i32 %185, %185
   %idxprom251 = zext nneg i32 %mul250 to i64
   %arrayidx252 = getelementptr inbounds float, ptr %cond27, i64 %idxprom251
-  %arrayidx266 = getelementptr float, ptr %add.ptr178, i64 %186
+  %arrayidx266 = getelementptr inbounds float, ptr %add.ptr178, i64 %186
   %199 = zext nneg i32 %184 to i64
   br label %for.cond2.preheader.us.us.i
 

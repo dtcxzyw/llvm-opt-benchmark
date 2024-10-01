@@ -13833,7 +13833,7 @@ _ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit: ; pre
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %_ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit, %27
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr i8, ptr %29, i64 %8
+  %30 = getelementptr inbounds i8, ptr %29, i64 %8
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #25
   %32 = ptrtoint ptr %30 to i64
   %gepdiff = sub nsw i64 %31, %8

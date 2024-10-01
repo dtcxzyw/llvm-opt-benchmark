@@ -4437,7 +4437,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
   br i1 %34, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %33
-  %35 = getelementptr i8, ptr %.053, i64 %.074
+  %35 = getelementptr inbounds i8, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
@@ -6842,7 +6842,7 @@ _ZN4llvm25SmallVectorTemplateCommonIPKNS_16RegisterBankInfo18InstructionMappingE
 
 _ZN4llvm15SmallVectorImplIPKNS_16RegisterBankInfo18InstructionMappingEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonIPKNS_16RegisterBankInfo18InstructionMappingEvE20assertSafeToAddRangeEPKS4_S7_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   %.idx = shl nsw i64 %32, 3
   %33 = ptrtoint ptr %31 to i64

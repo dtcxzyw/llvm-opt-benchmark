@@ -2239,7 +2239,7 @@ for.body.i.i.i.i.i.i485:                          ; preds = %call5.i.i.i.i.i.i.n
 
 _ZNSt6vectorIN12_GLOBAL__N_112AutoRefCountINS0_10RefCountedEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i: ; preds = %for.body.i.i.i.i.i.i485, %call5.i.i.i.i.i.i.noexc494
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i495, %call5.i.i.i.i.i.i.noexc494 ], [ %incdec.ptr1.i.i.i.i.i.i489, %for.body.i.i.i.i.i.i485 ]
-  %incdec.ptr.i.i.i491 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i491 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %call5.i.i.i.i.i.i49514611472, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_112AutoRefCountINS0_10RefCountedEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i22.i.i.i
 
@@ -3703,7 +3703,7 @@ invoke.cont.i1207:                                ; preds = %for.body.i.i.i.i.i.
   br label %call4.i926.noexc
 
 if.else26.i:                                      ; preds = %for.body.i923
-  %add.ptr.i14.i = getelementptr i8, ptr %stdVectorUint64Padded.sroa.0.5, i64 %sub.ptr.sub.i.i1193
+  %add.ptr.i14.i = getelementptr inbounds i8, ptr %stdVectorUint64Padded.sroa.0.5, i64 %sub.ptr.sub.i.i1193
   %sub.ptr.lhs.cast.i.i.i.i1217 = ptrtoint ptr %stdVectorUint64Padded.sroa.17.4 to i64
   %sub.ptr.sub.i.i.i.i1218 = sub i64 %sub.ptr.lhs.cast.i.i.i.i1217, %sub.ptr.rhs.cast.i.i1192
   %cmp.i.i.i1219 = icmp eq i64 %sub.ptr.sub.i.i.i.i1218, 9223372036854775744
@@ -3752,7 +3752,7 @@ for.body.i.i.i.i.i.i16.i:                         ; preds = %_ZNSt12_Vector_base
 
 invoke.cont.i.i1230:                              ; preds = %for.body.i.i.i.i.i.i16.i, %_ZNSt12_Vector_baseIN5eastl5tupleIJm13PaddingStructEEESaIS3_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %cond.i19.i.i, %_ZNSt12_Vector_baseIN5eastl5tupleIJm13PaddingStructEEESaIS3_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i.i18.i, %for.body.i.i.i.i.i.i16.i ]
-  %incdec.ptr.i19.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 64
+  %incdec.ptr.i19.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 64
   %cmp.not5.i.i.i.i.i20.i.i = icmp eq ptr %it.sroa.0.020.i925, %stdVectorUint64Padded.sroa.17.4
   br i1 %cmp.not5.i.i.i.i.i20.i.i, label %invoke.cont13.i.i, label %for.body.i.i.i.i.i21.i.i
 

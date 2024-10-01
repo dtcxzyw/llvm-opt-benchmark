@@ -5791,7 +5791,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3
   br label %if.else.sink.split
 
 for.body.i.i.preheader.i:                         ; preds = %if.then.i
-  %__cur.011.i.i.i = getelementptr i8, ptr %call.i.i, i64 16
+  %__cur.011.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i

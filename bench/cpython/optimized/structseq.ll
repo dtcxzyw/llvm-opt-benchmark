@@ -2928,7 +2928,7 @@ for.cond45.preheader:                             ; preds = %if.end20
 
 for.body47.lr.ph:                                 ; preds = %for.cond45.preheader
   %ob_item48 = getelementptr inbounds i8, ptr %self, i64 24
-  %ob_item51 = getelementptr i8, ptr %call17, i64 24
+  %ob_item51 = getelementptr inbounds i8, ptr %call17, i64 24
   br label %for.body47
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end33

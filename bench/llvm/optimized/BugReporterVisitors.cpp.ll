@@ -1380,7 +1380,7 @@ _ZNSt12_Vector_baseIN5clang11SourceRangeESaIS1_EE11_M_allocateEm.exit.i: ; preds
 
 _ZNSt6vectorIN5clang11SourceRangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN5clang11SourceRangeESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %31, %_ZNSt12_Vector_baseIN5clang11SourceRangeESaIS1_EE11_M_allocateEm.exit.i ], [ %35, %.lr.ph.i.i.i.i ]
-  %36 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %17, null
   br i1 %.not.i23.i, label %_ZNSt6vectorIN5clang11SourceRangeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %37
 
@@ -14601,7 +14601,7 @@ _ZN4llvm25SmallVectorTemplateCommonIPN5clang8CFGBlockEvE20assertSafeToAddRangeEP
 
 _ZN4llvm15SmallVectorImplIPN5clang8CFGBlockEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonIPN5clang8CFGBlockEvE20assertSafeToAddRangeEPKS3_S6_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   %.idx = shl nsw i64 %32, 3
   %33 = ptrtoint ptr %31 to i64

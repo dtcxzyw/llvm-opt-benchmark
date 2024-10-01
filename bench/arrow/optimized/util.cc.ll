@@ -25308,7 +25308,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE16_Temporary_valueC2IJRKS3_E
 
 if.then11:                                        ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE16_Temporary_valueC2IJRKS3_EEEPS5_DpOT_.exit
   %idx.neg = sub i64 0, %__n
-  %add.ptr = getelementptr %"class.std::shared_ptr.26", ptr %7, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"class.std::shared_ptr.26", ptr %7, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then11, %for.body.i.i.i.i.i
@@ -25317,7 +25317,6 @@ for.body.i.i.i.i.i:                               ; preds = %if.then11, %for.bod
   %8 = load ptr, ptr %__first.sroa.0.08.i.i.i.i.i, align 8
   store ptr %8, ptr %__cur.09.i.i.i.i.i, align 8
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 8
-  store ptr null, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 8
   %9 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8

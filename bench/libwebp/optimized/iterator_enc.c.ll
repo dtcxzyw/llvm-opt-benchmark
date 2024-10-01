@@ -426,7 +426,7 @@ define hidden void @VP8IteratorImport(ptr nocapture noundef %0, ptr noundef %1) 
   %15 = add nsw i32 %14, %5
   %16 = shl nsw i32 %15, 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr i8, ptr %11, i64 %17
+  %18 = getelementptr inbounds i8, ptr %11, i64 %17
   %19 = getelementptr inbounds i8, ptr %9, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %9, i64 44
@@ -435,10 +435,10 @@ define hidden void @VP8IteratorImport(ptr nocapture noundef %0, ptr noundef %1) 
   %24 = add nsw i32 %23, %5
   %25 = shl nsw i32 %24, 3
   %26 = sext i32 %25 to i64
-  %27 = getelementptr i8, ptr %20, i64 %26
+  %27 = getelementptr inbounds i8, ptr %20, i64 %26
   %28 = getelementptr inbounds i8, ptr %9, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr i8, ptr %29, i64 %26
+  %30 = getelementptr inbounds i8, ptr %29, i64 %26
   %31 = getelementptr inbounds i8, ptr %9, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = shl nsw i32 %5, 4
@@ -859,7 +859,7 @@ ImportLine.exit136:                               ; preds = %.lr.ph18.i121, %.pr
 InitLeft.exit:                                    ; preds = %.lr.ph18.i137, %.preheader.i151, %137, %118
   %213 = getelementptr inbounds i8, ptr %0, i64 384
   store ptr %1, ptr %213, align 8
-  %214 = getelementptr i8, ptr %1, i64 16
+  %214 = getelementptr inbounds i8, ptr %1, i64 16
   %215 = getelementptr inbounds i8, ptr %0, i64 392
   store ptr %214, ptr %215, align 8
   %216 = icmp eq i32 %7, 0
@@ -877,7 +877,7 @@ InitLeft.exit:                                    ; preds = %.lr.ph18.i137, %.pr
   %220 = load i32, ptr %12, align 8
   %221 = sext i32 %220 to i64
   %222 = sub nsw i64 0, %221
-  %223 = getelementptr i8, ptr %18, i64 %222
+  %223 = getelementptr inbounds i8, ptr %18, i64 %222
   %wide.trip.count.i162 = zext nneg i32 %35 to i64
   br label %228
 
@@ -916,7 +916,7 @@ ImportLine.exit168:                               ; preds = %.lr.ph18.i153, %.pr
   %233 = load i32, ptr %21, align 4
   %234 = sext i32 %233 to i64
   %235 = sub nsw i64 0, %234
-  %236 = getelementptr i8, ptr %27, i64 %235
+  %236 = getelementptr inbounds i8, ptr %27, i64 %235
   %wide.trip.count.i178 = zext nneg i32 %42 to i64
   br label %242
 
@@ -949,14 +949,14 @@ ImportLine.exit168:                               ; preds = %.lr.ph18.i153, %.pr
   br i1 %exitcond.not.i182, label %.preheader.i183, label %242, !llvm.loop !7
 
 ImportLine.exit184:                               ; preds = %.lr.ph18.i169, %.preheader.i183
-  %246 = getelementptr i8, ptr %1, i64 24
+  %246 = getelementptr inbounds i8, ptr %1, i64 24
   br i1 %232, label %.lr.ph.i193, label %.lr.ph18.i185
 
 .lr.ph.i193:                                      ; preds = %ImportLine.exit184
   %247 = load i32, ptr %21, align 4
   %248 = sext i32 %247 to i64
   %249 = sub nsw i64 0, %248
-  %250 = getelementptr i8, ptr %30, i64 %249
+  %250 = getelementptr inbounds i8, ptr %30, i64 %249
   %wide.trip.count.i194 = zext nneg i32 %42 to i64
   br label %256
 

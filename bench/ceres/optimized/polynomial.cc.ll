@@ -545,7 +545,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal19FindPolynomialRootsERKN5Ei
   br i1 %exitcond.not.i, label %.thread146, label %.lr.ph.i, !llvm.loop !7
 
 .thread146:                                       ; preds = %38
-  %39 = getelementptr double, ptr %.pre.i, i64 %36
+  %39 = getelementptr inbounds double, ptr %.pre.i, i64 %36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !4
   %40 = getelementptr inbounds i8, ptr %15, i64 8
   br label %51
@@ -560,7 +560,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal19FindPolynomialRootsERKN5Ei
 .critedge.i:                                      ; preds = %.lr.ph.i, %35
   %.lcssa9.i = phi i64 [ 0, %35 ], [ %indvars.iv.i, %.lr.ph.i ]
   %44 = sub nsw i64 %26, %.lcssa9.i
-  %45 = getelementptr double, ptr %.pre.i, i64 %.lcssa9.i
+  %45 = getelementptr inbounds double, ptr %.pre.i, i64 %.lcssa9.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !4
   %46 = getelementptr inbounds i8, ptr %15, i64 8
   %.not.i104 = icmp eq i64 %26, %.lcssa9.i
@@ -20874,7 +20874,7 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal21scalar_score_coeff_opIdEEKN
   %84 = mul nsw i64 %83, %.059197
   %85 = getelementptr inbounds double, ptr %82, i64 %84
   %86 = mul nsw i64 %83, %60
-  %87 = getelementptr double, ptr %82, i64 %86
+  %87 = getelementptr inbounds double, ptr %82, i64 %86
   %88 = ptrtoint ptr %85 to i64
   %89 = and i64 %88, 7
   %.not.i.i.i.i.i.i.i = icmp eq i64 %89, 0

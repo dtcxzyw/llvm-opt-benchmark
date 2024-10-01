@@ -1861,7 +1861,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %126, %122
   %149 = load i64, ptr %148, align 8
   %150 = sext i32 %146 to i64
   %151 = mul i64 %149, %150
-  %152 = getelementptr i8, ptr %147, i64 %151
+  %152 = getelementptr inbounds i8, ptr %147, i64 %151
   br i1 %130, label %.lr.ph, label %.loopexit240
 
 .lr.ph:                                           ; preds = %143
@@ -1893,7 +1893,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %126, %122
   %165 = load i64, ptr %164, align 8
   %166 = sext i32 %162 to i64
   %167 = mul i64 %165, %166
-  %168 = getelementptr i8, ptr %163, i64 %167
+  %168 = getelementptr inbounds i8, ptr %163, i64 %167
   br i1 %130, label %.lr.ph277, label %.loopexit238
 
 .lr.ph277:                                        ; preds = %159

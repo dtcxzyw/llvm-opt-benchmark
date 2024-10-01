@@ -3175,12 +3175,12 @@ if.end.thread:                                    ; preds = %entry
   %8 = zext nneg i32 %mul to i64
   %call4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #24
   %idx.ext60 = zext nneg i32 %div1.i.i to i64
-  %add.ptr61 = getelementptr i64, ptr %call4, i64 %idx.ext60
+  %add.ptr61 = getelementptr inbounds i64, ptr %call4, i64 %idx.ext60
   br label %for.body.preheader
 
 if.end:                                           ; preds = %entry
   %idx.ext = zext nneg i32 %div1.i.i to i64
-  %add.ptr = getelementptr i64, ptr %scratch, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i64, ptr %scratch, i64 %idx.ext
   %cmp553.not = icmp ugt i32 %1, -65
   br i1 %cmp553.not, label %for.end, label %for.body.preheader
 
@@ -21279,7 +21279,7 @@ if.end23:                                         ; preds = %if.then15
   br i1 %cmp2767, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end23
-  %add.ptr24 = getelementptr i8, ptr %__p.0, i64 %__k.0
+  %add.ptr24 = getelementptr inbounds i8, ptr %__p.0, i64 %__k.0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body

@@ -388,7 +388,7 @@ for.body.i.i.i.i108:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i: ; preds = %for.body.i.i.i.i108, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i108 ]
-  %incdec.ptr.i111 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
+  %incdec.ptr.i111 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i, label %invoke.cont5, label %if.then.i20.i
 
@@ -629,7 +629,6 @@ invoke.cont27:                                    ; preds = %_ZNKSt14default_del
   br i1 %cmp.not.i.i53, label %if.else.i.i56, label %invoke.cont29.thread
 
 invoke.cont29.thread:                             ; preds = %invoke.cont27
-  store i64 0, ptr %13, align 8
   %34 = load i64, ptr %ref.tmp26, align 8
   store i64 %34, ptr %13, align 8
   store i64 0, ptr %ref.tmp26, align 8
@@ -693,7 +692,7 @@ for.body.i.i.i.i136:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i152: ; preds = %for.body.i.i.i.i136, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i132
   %__cur.0.lcssa.i.i.i.i143 = phi ptr [ %cond.i10.i133, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i132 ], [ %incdec.ptr1.i.i.i.i140, %for.body.i.i.i.i136 ]
-  %incdec.ptr.i144 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i143, i64 8
+  %incdec.ptr.i144 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i143, i64 8
   %tobool.not.i.i154 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i154, label %invoke.cont29, label %if.then.i20.i155
 

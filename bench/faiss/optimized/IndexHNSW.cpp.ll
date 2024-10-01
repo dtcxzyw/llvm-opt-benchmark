@@ -2290,7 +2290,7 @@ define linkonce_odr void @_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE14begi
   %15 = mul i64 %12, %.06
   %16 = getelementptr inbounds float, ptr %14, i64 %15
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr i64, ptr %17, i64 %15
+  %18 = getelementptr inbounds i64, ptr %17, i64 %15
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
 
@@ -2907,7 +2907,7 @@ _ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit: ; preds = 
   store ptr %108, ptr %75, align 8, !llvm.access.group !30
   %109 = getelementptr inbounds i8, ptr %103, i64 40
   %110 = load ptr, ptr %109, align 8, !llvm.access.group !30
-  %111 = getelementptr i64, ptr %110, i64 %107
+  %111 = getelementptr inbounds i64, ptr %110, i64 %107
   store ptr %111, ptr %76, align 8, !llvm.access.group !30
   %.not.i = icmp eq i64 %106, 0
   br i1 %.not.i, label %115, label %.lr.ph46.i.i
@@ -4948,7 +4948,7 @@ _ZNKSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 _ZNSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc30
   %.0.lcssa.i.i.i.i.i = phi ptr [ %82, %.noexc30 ], [ %87, %.lr.ph.i.i.i.i.i ]
-  %88 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %88 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i34.i.i = icmp eq ptr %68, null
   br i1 %.not.i34.i.i, label %_ZNSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE17_M_realloc_insertIJfRiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %89
 
@@ -5390,7 +5390,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZN5faiss12_
   store ptr %77, ptr %67, align 8
   %78 = getelementptr inbounds i8, ptr %72, i64 40
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr i64, ptr %79, i64 %76
+  %80 = getelementptr inbounds i64, ptr %79, i64 %76
   store ptr %80, ptr %68, align 8
   %.not.i = icmp eq i64 %75, 0
   br i1 %.not.i, label %84, label %.lr.ph46.i.i
@@ -5784,7 +5784,7 @@ _ZNKSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 _ZNSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc42
   %.0.lcssa.i.i.i.i.i = phi ptr [ %108, %.noexc42 ], [ %114, %.lr.ph.i.i.i.i.i ]
-  %115 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %115 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i34.i.i = icmp eq ptr %94, null
   br i1 %.not.i34.i.i, label %_ZNSt6vectorIN5faiss4HNSW15NodeDistFartherESaIS2_EE17_M_realloc_insertIJRKfRiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %116
 

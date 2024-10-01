@@ -333,7 +333,7 @@ _ZNKSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_E
   unreachable
 
 _ZNSt12_Vector_baseIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE11_M_allocateEm.exit: ; preds = %29
-  %38 = getelementptr i8, ptr %34, i64 %9
+  %38 = getelementptr inbounds i8, ptr %34, i64 %9
   br label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %_ZNSt12_Vector_baseIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE11_M_allocateEm.exit, %.lr.ph.i41

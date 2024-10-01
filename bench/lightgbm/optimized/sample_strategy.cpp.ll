@@ -809,7 +809,7 @@ _ZNKSt6vectorIN8LightGBM6RandomESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = 
 
 _ZNSt6vectorIN8LightGBM6RandomESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %111
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %112, %111 ], [ %116, %.lr.ph.i.i.i.i.i.i ]
-  %117 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 4
+  %117 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 4
   %.not.i33.i.i = icmp eq ptr %97, null
   br i1 %.not.i33.i.i, label %_ZNSt6vectorIN8LightGBM6RandomESaIS1_EE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %118
 
@@ -3352,7 +3352,7 @@ _ZNKSt6vectorIN8LightGBM6RandomESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = 
 
 _ZNSt6vectorIN8LightGBM6RandomESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %160
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %161, %160 ], [ %165, %.lr.ph.i.i.i.i.i.i ]
-  %166 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 4
+  %166 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 4
   %.not.i33.i.i = icmp eq ptr %146, null
   br i1 %.not.i33.i.i, label %_ZNSt6vectorIN8LightGBM6RandomESaIS1_EE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %167
 

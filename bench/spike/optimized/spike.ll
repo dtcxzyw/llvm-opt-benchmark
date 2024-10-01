@@ -5902,7 +5902,7 @@ _ZNSt12_Vector_baseI9mem_cfg_tSaIS0_EE11_M_allocateEm.exit.i.i25.i.i.i.i.i: ; pr
 
 _ZNSt6vectorI9mem_cfg_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i31.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i27.i.i.i.i.i, %_ZNSt12_Vector_baseI9mem_cfg_tSaIS0_EE11_M_allocateEm.exit.i.i25.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i32.i.i.i.i.i = phi ptr [ %205, %_ZNSt12_Vector_baseI9mem_cfg_tSaIS0_EE11_M_allocateEm.exit.i.i25.i.i.i.i.i ], [ %208, %.lr.ph.i.i.i.i.i27.i.i.i.i.i ]
-  %209 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i32.i.i.i.i.i, i64 16
+  %209 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i32.i.i.i.i.i, i64 16
   %.not.i23.i.i33.i.i.i.i.i = icmp eq ptr %.pre.i.i.i.i.i, null
   br i1 %.not.i23.i.i33.i.i.i.i.i, label %_ZNSt6vectorI9mem_cfg_tSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i34.i.i.i.i.i, label %210
 
@@ -6035,7 +6035,7 @@ _ZNSt12_Vector_baseI9mem_cfg_tSaIS0_EE11_M_allocateEm.exit.i.i.i49.i.i.i.i.i: ; 
   br i1 %.not.i.i.i.i.i.i54.i.i.i.i.i, label %_ZNSt6vectorI9mem_cfg_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i55.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i51.i.i.i.i.i, !llvm.loop !27
 
 _ZNSt6vectorI9mem_cfg_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i55.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i51.i.i.i.i.i
-  %248 = getelementptr i8, ptr %.012.i.i.i.i.i.i52.i.i.i.i.i, i64 32
+  %248 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i52.i.i.i.i.i, i64 32
   %.not.i23.i.i.i57.i.i.i.i.i = icmp eq ptr %224, null
   br i1 %.not.i23.i.i.i57.i.i.i.i.i, label %_ZNSt6vectorI9mem_cfg_tSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i58.i.i.i.i.i, label %249
 

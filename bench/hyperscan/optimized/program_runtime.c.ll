@@ -3854,7 +3854,7 @@ do.end323:                                        ; preds = %entry, %indirectgot
   %queues.i5337 = getelementptr inbounds i8, ptr %scratch, i64 176
   %584 = load ptr, ptr %queues.i5337, align 16
   %idx.ext2.i5338 = zext i32 %579 to i64
-  %add.ptr3.i5339 = getelementptr %struct.mq, ptr %584, i64 %idx.ext2.i5338
+  %add.ptr3.i5339 = getelementptr inbounds %struct.mq, ptr %584, i64 %idx.ext2.i5338
   %state5.i5341 = getelementptr inbounds i8, ptr %scratch, i64 256
   %585 = load ptr, ptr %state5.i5341, align 8
   %activeLeftArray.i5510 = getelementptr inbounds i8, ptr %t, i64 320
@@ -4352,7 +4352,7 @@ lor.end.i:                                        ; preds = %if.end.i6263, %land
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %items.i6188, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx24.i, i64 24, i1 false)
   store i32 0, ptr %cur.i6189, align 8
   store i32 1, ptr %end.i62578886, align 4
-  %arrayidx28.i = getelementptr i8, ptr %add.ptr3.i5339, i64 128
+  %arrayidx28.i = getelementptr inbounds i8, ptr %add.ptr3.i5339, i64 128
   %cmp31.i628310393 = icmp eq i32 %cond.i6272, 0
   %or.cond10421.not = or i1 %cmp31.i628310393, %tobool.i6232.not
   br i1 %or.cond10421.not, label %if.end40.i6276, label %for.body.i6285.lr.ph
@@ -6108,7 +6108,7 @@ do.end454:                                        ; preds = %entry, %indirectgot
   %queues.i1641 = getelementptr inbounds i8, ptr %scratch, i64 176
   %978 = load ptr, ptr %queues.i1641, align 16
   %idx.ext.i1642 = zext i32 %972 to i64
-  %add.ptr.i1643 = getelementptr %struct.mq, ptr %978, i64 %idx.ext.i1642
+  %add.ptr.i1643 = getelementptr inbounds %struct.mq, ptr %978, i64 %idx.ext.i1642
   %nfaInfoOffset.i6790 = getelementptr inbounds i8, ptr %t, i64 236
   %979 = load i32, ptr %nfaInfoOffset.i6790, align 4
   %idx.ext.i6791 = zext i32 %979 to i64
@@ -6791,7 +6791,7 @@ lor.end.i6421:                                    ; preds = %if.end.i6415.lor.en
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %items13.i6430, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx24.i6440, i64 24, i1 false)
   store i32 0, ptr %cur.i6410, align 8
   store i32 1, ptr %end56.i, align 4
-  %arrayidx28.i6444 = getelementptr i8, ptr %add.ptr.i1643, i64 128
+  %arrayidx28.i6444 = getelementptr inbounds i8, ptr %add.ptr.i1643, i64 128
   %cmp31.i647210359 = icmp eq i32 %cond.i6429, 0
   %or.cond10422.not = select i1 %tobool.i6960.not, i1 true, i1 %cmp31.i647210359
   br i1 %or.cond10422.not, label %if.end40.i6446, label %for.body.i6474.lr.ph

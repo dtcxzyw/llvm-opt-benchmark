@@ -43279,7 +43279,7 @@ _ZSt4copyIN11flatbuffers14VectorIteratorIiiPKhjEEPiET0_T_S7_S6_.exit: ; preds = 
 
 _ZSt7advanceIN11flatbuffers14VectorIteratorIiiPKhjEEmEvRT_T0_.exit: ; preds = %28
   %44 = and i64 %32, 4294967292
-  %.sink.i.i = getelementptr i8, ptr %4, i64 %44
+  %.sink.i.i = getelementptr inbounds i8, ptr %4, i64 %44
   %45 = ptrtoint ptr %.sink.i.i to i64
   %.not30 = icmp eq i64 %44, 0
   br i1 %.not30, label %_ZSt4copyIN11flatbuffers14VectorIteratorIiiPKhjEEPiET0_T_S7_S6_.exit14, label %.lr.ph.preheader.i.i.i.i.i9

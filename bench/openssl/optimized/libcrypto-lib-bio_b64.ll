@@ -442,7 +442,7 @@ if.end39:                                         ; preds = %cond.end25, %if.the
 
 while.body.lr.ph.lr.ph:                           ; preds = %if.end39
   %cont = getelementptr inbounds i8, ptr %call, i64 24
-  %tmp.ptr = getelementptr i8, ptr %call, i64 1542
+  %tmp.ptr = getelementptr inbounds i8, ptr %call, i64 1542
   %tmp_len46 = getelementptr inbounds i8, ptr %call, i64 8
   %start = getelementptr inbounds i8, ptr %call, i64 20
   %tmp_nl = getelementptr inbounds i8, ptr %call, i64 12

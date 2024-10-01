@@ -41,7 +41,7 @@ define void @softfloat_mul128MTo256M(ptr nocapture noundef readonly %0, ptr noca
   store i32 %33, ptr %4, align 4
   %34 = lshr i64 %32, 32
   %35 = trunc nuw i64 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %2, i64 16
+  %36 = getelementptr i8, ptr %2, i64 16
   store i32 %35, ptr %36, align 4
   br label %37
 

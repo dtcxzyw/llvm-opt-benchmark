@@ -4743,7 +4743,7 @@ _ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i: ; preds = %entry
   store i32 %4, ptr %call3.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 4
   store i32 %3, ptr %incdec.ptr.i.i.i, align 4
-  %incdec.ptr4.i.i.i = getelementptr i8, ptr %call3.i.i.i, i64 8
+  %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i, ptr %m_clauses, align 8
   %5 = load ptr, ptr %m_clauses3, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %5, null
@@ -4790,7 +4790,7 @@ call3.i.i.i12.noexc:                              ; preds = %_ZNK6vectorIN3sat7l
   store i32 %11, ptr %call3.i.i.i1226, align 4
   %incdec.ptr.i.i.i13 = getelementptr inbounds i8, ptr %call3.i.i.i1226, i64 4
   store i32 %10, ptr %incdec.ptr.i.i.i13, align 4
-  %incdec.ptr4.i.i.i14 = getelementptr i8, ptr %call3.i.i.i1226, i64 8
+  %incdec.ptr4.i.i.i14 = getelementptr inbounds i8, ptr %call3.i.i.i1226, i64 8
   store ptr %incdec.ptr4.i.i.i14, ptr %m_clause, align 8
   %12 = load ptr, ptr %m_clause4, align 8
   %cmp.i.i.i.i.i15 = icmp eq ptr %12, null

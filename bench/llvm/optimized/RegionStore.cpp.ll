@@ -20666,7 +20666,7 @@ _ZNSt12_Vector_baseIN5clang4ento4SValESaIS2_EE11_M_allocateEm.exit.i.i: ; preds 
 
 _ZNSt6vectorIN5clang4ento4SValESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN5clang4ento4SValESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %160, %_ZNSt12_Vector_baseIN5clang4ento4SValESaIS2_EE11_M_allocateEm.exit.i.i ], [ %163, %.lr.ph.i.i.i.i.i ]
-  %164 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %164 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %146, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5clang4ento4SValESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %165
 
@@ -21291,7 +21291,7 @@ define linkonce_odr void @_ZNSt6vectorIN5clang4ento4SValESaIS2_EE15_M_range_inse
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
   %22 = sub nsw i64 0, %9
-  %23 = getelementptr %"class.clang::ento::SVal", ptr %13, i64 %22
+  %23 = getelementptr inbounds %"class.clang::ento::SVal", ptr %13, i64 %22
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -21344,7 +21344,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5clang4ento4SValE
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5clang4ento4SValESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5clang4ento4SValESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang4ento4SValESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
   %35 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5clang4ento4SValESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5clang4ento4SValESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
   %36 = sub nuw nsw i64 %9, %20
-  %37 = getelementptr %"class.clang::ento::SVal", ptr %35, i64 %36
+  %37 = getelementptr inbounds %"class.clang::ento::SVal", ptr %35, i64 %36
   store ptr %37, ptr %12, align 8
   %.not7.i.i.i.i.i45 = icmp eq ptr %1, %13
   br i1 %.not7.i.i.i.i.i45, label %_ZSt22__uninitialized_move_aIPN5clang4ento4SValES3_SaIS2_EET0_T_S6_S5_RT1_.exit51, label %.lr.ph.i.i.i.i.i46

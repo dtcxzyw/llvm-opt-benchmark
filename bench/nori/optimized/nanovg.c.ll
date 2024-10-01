@@ -11714,7 +11714,7 @@ fons__allocGlyph.exit:                            ; preds = %._crit_edge.i, %._c
   %241 = mul nsw i32 %240, %239
   %242 = add nsw i32 %241, %237
   %243 = sext i32 %242 to i64
-  %244 = getelementptr i8, ptr %235, i64 %243
+  %244 = getelementptr inbounds i8, ptr %235, i64 %243
   %245 = icmp sgt i32 %155, 0
   br i1 %245, label %.lr.ph206, label %.preheader
 
@@ -17205,7 +17205,7 @@ stbi__zreceive.exit108.i.i:                       ; preds = %stbi__zget8.exit.i.
 675:                                              ; preds = %671, %649
   %.3.i.i = phi ptr [ %673, %671 ], [ %.054.i.i, %649 ]
   %676 = sub nsw i64 0, %646
-  %677 = getelementptr i8, ptr %.3.i.i, i64 %676
+  %677 = getelementptr inbounds i8, ptr %.3.i.i, i64 %676
   %678 = icmp eq i32 %.051.i.i, 1
   %.not67.i.i = icmp eq i32 %.052.i.i, 0
   br i1 %678, label %679, label %684
@@ -48584,8 +48584,8 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
 ._crit_edge789:                                   ; preds = %.lr.ph788, %.preheader695
   %207 = getelementptr inbounds i8, ptr %.2542792, i64 %203
   store i8 -1, ptr %207, align 1
-  %208 = getelementptr i8, ptr %.3523793, i64 %203
-  %209 = getelementptr i8, ptr %.2542792, i64 %54
+  %208 = getelementptr inbounds i8, ptr %.3523793, i64 %203
+  %209 = getelementptr inbounds i8, ptr %.2542792, i64 %54
   %.0554 = add i32 %.0554794, -1
   %.not614 = icmp eq i32 %.0554, 0
   br i1 %.not614, label %.loopexit716, label %.preheader695, !llvm.loop !323

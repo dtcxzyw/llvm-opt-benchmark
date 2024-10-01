@@ -2867,7 +2867,7 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
 .backedge:                                        ; preds = %184, %210
   %storemerge = phi i64 [ %.sroa.0161.0.insert.insert165, %210 ], [ %186, %184 ]
   %.099.be = phi ptr [ %200, %210 ], [ %185, %184 ]
-  %.0103.be = getelementptr i8, ptr %.0103248, i64 8
+  %.0103.be = getelementptr inbounds i8, ptr %.0103248, i64 8
   store i64 %storemerge, ptr %.0103248, align 4
   %.not = icmp eq ptr %.099.be, %172
   br i1 %.not, label %.outer._crit_edge, label %174, !llvm.loop !14
@@ -2891,7 +2891,7 @@ _ZN5Gluco8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8c
 
 198:                                              ; preds = %195, %187
   %199 = phi i32 [ %197, %195 ], [ %193, %187 ]
-  %200 = getelementptr i8, ptr %.099249, i64 8
+  %200 = getelementptr inbounds i8, ptr %.099249, i64 8
   %.not208 = icmp eq i32 %199, %.sroa.055.0.copyload
   br i1 %.not208, label %.critedge, label %201
 
@@ -3163,7 +3163,7 @@ _ZN5Gluco3vecINS_6Solver7WatcherEE4pushERKS2_.exit144: ; preds = %._ZN5Gluco3vec
   br label %.outer
 
 .loopexit212:                                     ; preds = %230, %284, %.preheader213, %.preheader, %.critedge2
-  %330 = getelementptr i8, ptr %.0103248, i64 8
+  %330 = getelementptr inbounds i8, ptr %.0103248, i64 8
   %.sroa.5.0.insert.ext = zext i32 %.lcssa293 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.0161.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %190

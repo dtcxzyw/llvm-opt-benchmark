@@ -1053,7 +1053,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
 
 _ZNSt6vectorISt4pairIN5folly5RangeIPKcEES5_ESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 32
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 32
   %tobool.not.i.i.i59 = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i59, label %_ZNSt6vectorISt4pairIN5folly5RangeIPKcEES5_ESaIS6_EE17_M_realloc_insertIJRS5_SA_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -2251,7 +2251,7 @@ if.end.i21:                                       ; preds = %for.body.i.i, %if.t
   br i1 %cmp.i22, label %if.then10.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt4pairINS_5RangeIPKcEEdELm8ENS_19small_vector_policy16policy_size_typeItEEE16makeSizeInternalIZNSC_12emplace_backIJRKS7_RdEEERS8_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
 
 if.then10.i:                                      ; preds = %if.end.i21
-  %add.ptr9.i = getelementptr %"struct.std::pair.11", ptr %cond.i.i, i64 %idx.ext.i
+  %add.ptr9.i = getelementptr inbounds %"struct.std::pair.11", ptr %cond.i.i, i64 %idx.ext.i
   %add.ptr17.i = getelementptr inbounds i8, ptr %add.ptr.i18, i64 24
   br label %for.body.i8.i
 

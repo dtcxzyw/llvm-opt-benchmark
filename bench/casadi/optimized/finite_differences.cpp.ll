@@ -2160,7 +2160,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit157.us: ; preds = %.lr.ph.i150.us, %.l
   %73 = tail call noundef i64 @_ZNK6casadi8Function6nnz_inEx(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %.0114192.us)
   %74 = getelementptr inbounds ptr, ptr %1, i64 %.0114192.us
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr double, ptr %.1122.lcssa, i64 %.0115191.us
+  %76 = getelementptr inbounds double, ptr %.1122.lcssa, i64 %.0115191.us
   br i1 %.not.i134, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit144.us, label %77
 
 77:                                               ; preds = %72
@@ -2376,9 +2376,9 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit168.us: ; preds = %.lr.ph23.preheader.
   br i1 %or.cond222, label %.lr.ph.i161.preheader, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit168
 
 .lr.ph.i161.preheader:                            ; preds = %.lr.ph213.split
-  %159 = getelementptr double, ptr %.0121.lcssa, i64 %.0112210
+  %159 = getelementptr inbounds double, ptr %.0121.lcssa, i64 %.0112210
   %160 = mul nuw nsw i64 %155, %.0119215
-  %161 = getelementptr double, ptr %157, i64 %160
+  %161 = getelementptr inbounds double, ptr %157, i64 %160
   br label %.lr.ph.i161
 
 .lr.ph.i161:                                      ; preds = %.lr.ph.i161.preheader, %.lr.ph.i161

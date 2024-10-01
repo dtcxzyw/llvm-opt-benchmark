@@ -32099,7 +32099,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %105, %98
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %111 = load ptr, ptr %97, align 8
-  %112 = getelementptr i8, ptr %111, i64 %108
+  %112 = getelementptr inbounds i8, ptr %111, i64 %108
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -32185,7 +32185,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i123: ; preds = %138, %1
 
 .lr.ph.i.i.preheader.i.i.i.i.i126:                ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i123
   %144 = load ptr, ptr %130, align 8
-  %145 = getelementptr i8, ptr %144, i64 %141
+  %145 = getelementptr inbounds i8, ptr %144, i64 %141
   br label %.lr.ph.i.i.i.i.i.i.i127
 
 .lr.ph.i.i.i.i.i.i.i127:                          ; preds = %.lr.ph.i.i.i.i.i.i.i127, %.lr.ph.i.i.preheader.i.i.i.i.i126
@@ -32269,7 +32269,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i144: ; preds = %166, %1
 
 .lr.ph.i.i.preheader.i.i.i.i.i147:                ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i144
   %172 = load ptr, ptr %158, align 8
-  %173 = getelementptr i8, ptr %172, i64 %169
+  %173 = getelementptr inbounds i8, ptr %172, i64 %169
   br label %.lr.ph.i.i.i.i.i.i.i148
 
 .lr.ph.i.i.i.i.i.i.i148:                          ; preds = %.lr.ph.i.i.i.i.i.i.i148, %.lr.ph.i.i.preheader.i.i.i.i.i147
@@ -32589,7 +32589,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %18, %11
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %24 = load ptr, ptr %10, align 8
-  %25 = getelementptr i8, ptr %24, i64 %21
+  %25 = getelementptr inbounds i8, ptr %24, i64 %21
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -32663,7 +32663,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i: ; preds = %16, %9
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i
   %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr i8, ptr %22, i64 %19
+  %23 = getelementptr inbounds i8, ptr %22, i64 %19
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -32930,7 +32930,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i: ; preds = %92, %85
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i
   %98 = load ptr, ptr %84, align 8
-  %99 = getelementptr i8, ptr %98, i64 %95
+  %99 = getelementptr inbounds i8, ptr %98, i64 %95
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -33117,7 +33117,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i: ; preds = %74, %67
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i
   %80 = load ptr, ptr %66, align 8
-  %81 = getelementptr i8, ptr %80, i64 %77
+  %81 = getelementptr inbounds i8, ptr %80, i64 %77
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -33341,7 +33341,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i: ; preds = %90, %83
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i
   %96 = load ptr, ptr %82, align 8
-  %97 = getelementptr i8, ptr %96, i64 %93
+  %97 = getelementptr inbounds i8, ptr %96, i64 %93
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -33525,7 +33525,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i: ; preds = %73, %66
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i
   %79 = load ptr, ptr %65, align 8
-  %80 = getelementptr i8, ptr %79, i64 %76
+  %80 = getelementptr inbounds i8, ptr %79, i64 %76
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -33797,7 +33797,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i
   %108 = load ptr, ptr %94, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -34014,7 +34014,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i: ; preds = %83, %76
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i
   %89 = load ptr, ptr %75, align 8
-  %90 = getelementptr i8, ptr %89, i64 %86
+  %90 = getelementptr inbounds i8, ptr %89, i64 %86
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -34248,7 +34248,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %96, %89
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %102 = load ptr, ptr %88, align 8
-  %103 = getelementptr i8, ptr %102, i64 %99
+  %103 = getelementptr inbounds i8, ptr %102, i64 %99
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -34486,7 +34486,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i171: ; preds = %209, %2
 
 .lr.ph.i.i.preheader.i.i.i.i.i174:                ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i171
   %215 = load ptr, ptr %201, align 8
-  %216 = getelementptr i8, ptr %215, i64 %212
+  %216 = getelementptr inbounds i8, ptr %215, i64 %212
   br label %.lr.ph.i.i.i.i.i.i.i175
 
 .lr.ph.i.i.i.i.i.i.i175:                          ; preds = %.lr.ph.i.i.i.i.i.i.i175, %.lr.ph.i.i.preheader.i.i.i.i.i174
@@ -34721,7 +34721,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i202: ; preds = %318, %3
 
 .lr.ph.i.i.preheader.i.i.i.i.i205:                ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i202
   %324 = load ptr, ptr %310, align 8
-  %325 = getelementptr i8, ptr %324, i64 %321
+  %325 = getelementptr inbounds i8, ptr %324, i64 %321
   br label %.lr.ph.i.i.i.i.i.i.i206
 
 .lr.ph.i.i.i.i.i.i.i206:                          ; preds = %.lr.ph.i.i.i.i.i.i.i206, %.lr.ph.i.i.preheader.i.i.i.i.i205
@@ -34961,7 +34961,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i237: ; preds = %426, %4
 
 .lr.ph.i.i.preheader.i.i.i.i.i240:                ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i237
   %432 = load ptr, ptr %418, align 8
-  %433 = getelementptr i8, ptr %432, i64 %429
+  %433 = getelementptr inbounds i8, ptr %432, i64 %429
   br label %.lr.ph.i.i.i.i.i.i.i241
 
 .lr.ph.i.i.i.i.i.i.i241:                          ; preds = %.lr.ph.i.i.i.i.i.i.i241, %.lr.ph.i.i.preheader.i.i.i.i.i240
@@ -35446,7 +35446,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -35611,7 +35611,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i41: ; preds = %127, %120
 
 .lr.ph.i.i.preheader.i.i.i44:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i41
   %133 = load ptr, ptr %103, align 8
-  %134 = getelementptr i8, ptr %133, i64 %130
+  %134 = getelementptr inbounds i8, ptr %133, i64 %130
   br label %.lr.ph.i.i.i.i.i45
 
 .lr.ph.i.i.i.i.i45:                               ; preds = %.lr.ph.i.i.i.i.i45, %.lr.ph.i.i.preheader.i.i.i44
@@ -36038,7 +36038,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -36161,7 +36161,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -36365,7 +36365,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %76, %69
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %82 = load ptr, ptr %68, align 8
-  %83 = getelementptr i8, ptr %82, i64 %79
+  %83 = getelementptr inbounds i8, ptr %82, i64 %79
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -36503,7 +36503,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -36626,7 +36626,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -36845,7 +36845,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %84, %77
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %90 = load ptr, ptr %76, align 8
-  %91 = getelementptr i8, ptr %90, i64 %87
+  %91 = getelementptr inbounds i8, ptr %90, i64 %87
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -36983,7 +36983,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -37106,7 +37106,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -37318,7 +37318,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %79, %72
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %85 = load ptr, ptr %71, align 8
-  %86 = getelementptr i8, ptr %85, i64 %82
+  %86 = getelementptr inbounds i8, ptr %85, i64 %82
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -37456,7 +37456,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -37579,7 +37579,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -37791,7 +37791,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %79, %72
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %85 = load ptr, ptr %71, align 8
-  %86 = getelementptr i8, ptr %85, i64 %82
+  %86 = getelementptr inbounds i8, ptr %85, i64 %82
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -37929,7 +37929,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -38091,7 +38091,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i41: ; preds = %122, %115
 
 .lr.ph.i.i.preheader.i.i.i44:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i41
   %128 = load ptr, ptr %98, align 8
-  %129 = getelementptr i8, ptr %128, i64 %125
+  %129 = getelementptr inbounds i8, ptr %128, i64 %125
   br label %.lr.ph.i.i.i.i.i45
 
 .lr.ph.i.i.i.i.i45:                               ; preds = %.lr.ph.i.i.i.i.i45, %.lr.ph.i.i.preheader.i.i.i44
@@ -39095,7 +39095,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -39171,7 +39171,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i34: ; preds = %84, %77
 
 .lr.ph.i.i.preheader.i.i.i37:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i34
   %90 = load ptr, ptr %76, align 8
-  %91 = getelementptr i8, ptr %90, i64 %87
+  %91 = getelementptr inbounds i8, ptr %90, i64 %87
   br label %.lr.ph.i.i.i.i.i38
 
 .lr.ph.i.i.i.i.i38:                               ; preds = %.lr.ph.i.i.i.i.i38, %.lr.ph.i.i.preheader.i.i.i37
@@ -39288,7 +39288,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i59: ; preds = %131, %124
 
 .lr.ph.i.i.preheader.i.i.i62:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i59
   %137 = load ptr, ptr %107, align 8
-  %138 = getelementptr i8, ptr %137, i64 %134
+  %138 = getelementptr inbounds i8, ptr %137, i64 %134
   br label %.lr.ph.i.i.i.i.i63
 
 .lr.ph.i.i.i.i.i63:                               ; preds = %.lr.ph.i.i.i.i.i63, %.lr.ph.i.i.preheader.i.i.i62
@@ -39679,7 +39679,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -39758,7 +39758,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit.
 93:                                               ; preds = %_ZNSt3__120uninitialized_copy_nB8ne190000IPKcmPcEET1_T_T0_S4_.exit.i.i.i41, %87
   %94 = phi i64 [ %.pre.i.i2.i, %87 ], [ %111, %_ZNSt3__120uninitialized_copy_nB8ne190000IPKcmPcEET1_T_T0_S4_.exit.i.i.i41 ]
   %.019.i.i.idx.i = phi i64 [ 0, %87 ], [ %.019.i.i.add.i, %_ZNSt3__120uninitialized_copy_nB8ne190000IPKcmPcEET1_T_T0_S4_.exit.i.i.i41 ]
-  %.019.i.i.ptr.i = getelementptr i8, ptr %89, i64 %.019.i.i.idx.i
+  %.019.i.i.ptr.i = getelementptr inbounds i8, ptr %89, i64 %.019.i.i.idx.i
   %gepdiff.i = sub nsw i64 3, %.019.i.i.idx.i
   %95 = add i64 %gepdiff.i, %94
   %96 = load i64, ptr %91, align 8
@@ -39783,7 +39783,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i30: ; preds = %98, %93
 
 .lr.ph.i.i.preheader.i.i.i33:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i30
   %104 = load ptr, ptr %92, align 8
-  %105 = getelementptr i8, ptr %104, i64 %101
+  %105 = getelementptr inbounds i8, ptr %104, i64 %101
   br label %.lr.ph.i.i.i.i.i34
 
 .lr.ph.i.i.i.i.i34:                               ; preds = %.lr.ph.i.i.i.i.i34, %.lr.ph.i.i.preheader.i.i.i33
@@ -39887,7 +39887,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i56: ; preds = %137, %130
 
 .lr.ph.i.i.preheader.i.i.i59:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i56
   %143 = load ptr, ptr %92, align 8
-  %144 = getelementptr i8, ptr %143, i64 %140
+  %144 = getelementptr inbounds i8, ptr %143, i64 %140
   br label %.lr.ph.i.i.i.i.i60
 
 .lr.ph.i.i.i.i.i60:                               ; preds = %.lr.ph.i.i.i.i.i60, %.lr.ph.i.i.preheader.i.i.i59
@@ -40614,7 +40614,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -40737,7 +40737,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -40948,7 +40948,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %84, %77
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %90 = load ptr, ptr %76, align 8
-  %91 = getelementptr i8, ptr %90, i64 %87
+  %91 = getelementptr inbounds i8, ptr %90, i64 %87
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -41266,7 +41266,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -41389,7 +41389,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -41648,7 +41648,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %45, %38
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %51 = load ptr, ptr %37, align 8
-  %52 = getelementptr i8, ptr %51, i64 %48
+  %52 = getelementptr inbounds i8, ptr %51, i64 %48
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -41804,7 +41804,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i24: ; preds = %.noexc, 
 
 .lr.ph.i.i.preheader.i.i.i.i.i27:                 ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i24
   %117 = load ptr, ptr %77, align 8
-  %118 = getelementptr i8, ptr %117, i64 %114
+  %118 = getelementptr inbounds i8, ptr %117, i64 %114
   br label %.lr.ph.i.i.i.i.i.i.i28
 
 .lr.ph.i.i.i.i.i.i.i28:                           ; preds = %.lr.ph.i.i.i.i.i.i.i28, %.lr.ph.i.i.preheader.i.i.i.i.i27
@@ -42020,7 +42020,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -42143,7 +42143,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -42356,7 +42356,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %.noexc, %32
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %45 = load ptr, ptr %31, align 8
-  %46 = getelementptr i8, ptr %45, i64 %42
+  %46 = getelementptr inbounds i8, ptr %45, i64 %42
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -42530,7 +42530,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -42653,7 +42653,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -42907,7 +42907,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %111, %104
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %117 = load ptr, ptr %37, align 8
-  %118 = getelementptr i8, ptr %117, i64 %114
+  %118 = getelementptr inbounds i8, ptr %117, i64 %114
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -44079,7 +44079,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -44202,7 +44202,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -44408,7 +44408,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %79, %72
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %85 = load ptr, ptr %71, align 8
-  %86 = getelementptr i8, ptr %85, i64 %82
+  %86 = getelementptr inbounds i8, ptr %85, i64 %82
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -44545,7 +44545,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -44668,7 +44668,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -44925,7 +44925,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %43, %36
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %49 = load ptr, ptr %35, align 8
-  %50 = getelementptr i8, ptr %49, i64 %46
+  %50 = getelementptr inbounds i8, ptr %49, i64 %46
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -45079,7 +45079,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i24: ; preds = %.noexc, 
 
 .lr.ph.i.i.preheader.i.i.i.i.i27:                 ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i24
   %113 = load ptr, ptr %75, align 8
-  %114 = getelementptr i8, ptr %113, i64 %110
+  %114 = getelementptr inbounds i8, ptr %113, i64 %110
   br label %.lr.ph.i.i.i.i.i.i.i28
 
 .lr.ph.i.i.i.i.i.i.i28:                           ; preds = %.lr.ph.i.i.i.i.i.i.i28, %.lr.ph.i.i.preheader.i.i.i.i.i27
@@ -45295,7 +45295,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -45418,7 +45418,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -45631,7 +45631,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %.noexc, %32
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %45 = load ptr, ptr %31, align 8
-  %46 = getelementptr i8, ptr %45, i64 %42
+  %46 = getelementptr inbounds i8, ptr %45, i64 %42
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -45805,7 +45805,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -45928,7 +45928,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -46180,7 +46180,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %109, %102
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %115 = load ptr, ptr %37, align 8
-  %116 = getelementptr i8, ptr %115, i64 %112
+  %116 = getelementptr inbounds i8, ptr %115, i64 %112
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -47011,7 +47011,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -47087,7 +47087,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i34: ; preds = %84, %77
 
 .lr.ph.i.i.preheader.i.i.i37:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i34
   %90 = load ptr, ptr %76, align 8
-  %91 = getelementptr i8, ptr %90, i64 %87
+  %91 = getelementptr inbounds i8, ptr %90, i64 %87
   br label %.lr.ph.i.i.i.i.i38
 
 .lr.ph.i.i.i.i.i38:                               ; preds = %.lr.ph.i.i.i.i.i38, %.lr.ph.i.i.preheader.i.i.i37
@@ -47204,7 +47204,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i59: ; preds = %131, %124
 
 .lr.ph.i.i.preheader.i.i.i62:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i59
   %137 = load ptr, ptr %107, align 8
-  %138 = getelementptr i8, ptr %137, i64 %134
+  %138 = getelementptr inbounds i8, ptr %137, i64 %134
   br label %.lr.ph.i.i.i.i.i63
 
 .lr.ph.i.i.i.i.i63:                               ; preds = %.lr.ph.i.i.i.i.i63, %.lr.ph.i.i.preheader.i.i.i62
@@ -50979,7 +50979,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -51102,7 +51102,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -51181,7 +51181,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %19, %12
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %25 = load ptr, ptr %11, align 8
-  %26 = getelementptr i8, ptr %25, i64 %22
+  %26 = getelementptr inbounds i8, ptr %25, i64 %22
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -51275,7 +51275,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i13: ; preds = %58, %51
 
 .lr.ph.i.i.preheader.i.i.i16:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i13
   %64 = load ptr, ptr %45, align 8
-  %65 = getelementptr i8, ptr %64, i64 %61
+  %65 = getelementptr inbounds i8, ptr %64, i64 %61
   br label %.lr.ph.i.i.i.i.i17
 
 .lr.ph.i.i.i.i.i17:                               ; preds = %.lr.ph.i.i.i.i.i17, %.lr.ph.i.i.preheader.i.i.i16
@@ -51412,7 +51412,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -51535,7 +51535,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -51751,7 +51751,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %23, %16
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %29 = load ptr, ptr %15, align 8
-  %30 = getelementptr i8, ptr %29, i64 %26
+  %30 = getelementptr inbounds i8, ptr %29, i64 %26
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -51864,7 +51864,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i21: ; preds = %.noexc, %62
 
 .lr.ph.i.i.preheader.i.i.i24:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i21
   %75 = load ptr, ptr %55, align 8
-  %76 = getelementptr i8, ptr %75, i64 %72
+  %76 = getelementptr inbounds i8, ptr %75, i64 %72
   br label %.lr.ph.i.i.i.i.i25
 
 .lr.ph.i.i.i.i.i25:                               ; preds = %.lr.ph.i.i.i.i.i25, %.lr.ph.i.i.preheader.i.i.i24
@@ -52084,7 +52084,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -52207,7 +52207,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -52420,7 +52420,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %.noexc, %32
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %45 = load ptr, ptr %31, align 8
-  %46 = getelementptr i8, ptr %45, i64 %42
+  %46 = getelementptr inbounds i8, ptr %45, i64 %42
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -52594,7 +52594,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -52717,7 +52717,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -52929,7 +52929,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %90, %83
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %96 = load ptr, ptr %36, align 8
-  %97 = getelementptr i8, ptr %96, i64 %93
+  %97 = getelementptr inbounds i8, ptr %96, i64 %93
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -53097,7 +53097,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i: ; preds = %62, %55
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i
   %68 = load ptr, ptr %14, align 8
-  %69 = getelementptr i8, ptr %68, i64 %65
+  %69 = getelementptr inbounds i8, ptr %68, i64 %65
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -53235,7 +53235,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -53358,7 +53358,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -53766,7 +53766,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i.i: ; preds = %158, %15
 
 .lr.ph.i.i.preheader.i.i.i.i.i.i:                 ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i.i
   %164 = load ptr, ptr %150, align 8
-  %165 = getelementptr i8, ptr %164, i64 %161
+  %165 = getelementptr inbounds i8, ptr %164, i64 %161
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i.i
@@ -53834,7 +53834,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %186, %179
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %192 = load ptr, ptr %178, align 8
-  %193 = getelementptr i8, ptr %192, i64 %189
+  %193 = getelementptr inbounds i8, ptr %192, i64 %189
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -53939,7 +53939,7 @@ _ZN3fmt2v96detail21default_arg_formatterIcEclIPKcEENS0_8appenderET_.exit: ; pred
 225:                                              ; preds = %_ZNSt3__120uninitialized_copy_nB8ne190000IPKcmPcEET1_T_T0_S4_.exit.i.i.i.i.i190, %220
   %226 = phi i64 [ %.pre.i.i.i.i.i177, %220 ], [ %243, %_ZNSt3__120uninitialized_copy_nB8ne190000IPKcmPcEET1_T_T0_S4_.exit.i.i.i.i.i190 ]
   %.019.i.i.i.i.i178.idx = phi i64 [ 1, %220 ], [ %.019.i.i.i.i.i178.add, %_ZNSt3__120uninitialized_copy_nB8ne190000IPKcmPcEET1_T_T0_S4_.exit.i.i.i.i.i190 ]
-  %.019.i.i.i.i.i178.ptr = getelementptr i8, ptr %0, i64 %.019.i.i.i.i.i178.idx
+  %.019.i.i.i.i.i178.ptr = getelementptr inbounds i8, ptr %0, i64 %.019.i.i.i.i.i178.idx
   %gepdiff = sub nsw i64 2, %.019.i.i.i.i.i178.idx
   %227 = add i64 %gepdiff, %226
   %228 = load i64, ptr %223, align 8
@@ -53964,7 +53964,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i179: ; preds = %230, %2
 
 .lr.ph.i.i.preheader.i.i.i.i.i182:                ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i179
   %236 = load ptr, ptr %224, align 8
-  %237 = getelementptr i8, ptr %236, i64 %233
+  %237 = getelementptr inbounds i8, ptr %236, i64 %233
   br label %.lr.ph.i.i.i.i.i.i.i183
 
 .lr.ph.i.i.i.i.i.i.i183:                          ; preds = %.lr.ph.i.i.i.i.i.i.i183, %.lr.ph.i.i.preheader.i.i.i.i.i182
@@ -54328,7 +54328,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %21, %14
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %27 = load ptr, ptr %13, align 8
-  %28 = getelementptr i8, ptr %27, i64 %24
+  %28 = getelementptr inbounds i8, ptr %27, i64 %24
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -54418,7 +54418,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i16: ; preds = %56, %49
 
 .lr.ph.i.i.preheader.i.i.i.i.i19:                 ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i16
   %62 = load ptr, ptr %48, align 8
-  %63 = getelementptr i8, ptr %62, i64 %59
+  %63 = getelementptr inbounds i8, ptr %62, i64 %59
   br label %.lr.ph.i.i.i.i.i.i.i20
 
 .lr.ph.i.i.i.i.i.i.i20:                           ; preds = %.lr.ph.i.i.i.i.i.i.i20, %.lr.ph.i.i.preheader.i.i.i.i.i19
@@ -56864,7 +56864,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %95, %88
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %101 = load ptr, ptr %87, align 8
-  %102 = getelementptr i8, ptr %101, i64 %98
+  %102 = getelementptr inbounds i8, ptr %101, i64 %98
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -57108,7 +57108,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i169: ; preds = %204, %1
 
 .lr.ph.i.i.preheader.i.i.i.i.i172:                ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i169
   %210 = load ptr, ptr %196, align 8
-  %211 = getelementptr i8, ptr %210, i64 %207
+  %211 = getelementptr inbounds i8, ptr %210, i64 %207
   br label %.lr.ph.i.i.i.i.i.i.i173
 
 .lr.ph.i.i.i.i.i.i.i173:                          ; preds = %.lr.ph.i.i.i.i.i.i.i173, %.lr.ph.i.i.preheader.i.i.i.i.i172
@@ -57349,7 +57349,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i203: ; preds = %314, %3
 
 .lr.ph.i.i.preheader.i.i.i.i.i206:                ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i203
   %320 = load ptr, ptr %306, align 8
-  %321 = getelementptr i8, ptr %320, i64 %317
+  %321 = getelementptr inbounds i8, ptr %320, i64 %317
   br label %.lr.ph.i.i.i.i.i.i.i207
 
 .lr.ph.i.i.i.i.i.i.i207:                          ; preds = %.lr.ph.i.i.i.i.i.i.i207, %.lr.ph.i.i.preheader.i.i.i.i.i206
@@ -57589,7 +57589,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i241: ; preds = %419, %4
 
 .lr.ph.i.i.preheader.i.i.i.i.i244:                ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i241
   %425 = load ptr, ptr %411, align 8
-  %426 = getelementptr i8, ptr %425, i64 %422
+  %426 = getelementptr inbounds i8, ptr %425, i64 %422
   br label %.lr.ph.i.i.i.i.i.i.i245
 
 .lr.ph.i.i.i.i.i.i.i245:                          ; preds = %.lr.ph.i.i.i.i.i.i.i245, %.lr.ph.i.i.preheader.i.i.i.i.i244
@@ -57788,7 +57788,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -57911,7 +57911,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -58113,7 +58113,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %74, %67
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %80 = load ptr, ptr %66, align 8
-  %81 = getelementptr i8, ptr %80, i64 %77
+  %81 = getelementptr inbounds i8, ptr %80, i64 %77
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -58251,7 +58251,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -58374,7 +58374,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -58591,7 +58591,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %82, %75
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %88 = load ptr, ptr %74, align 8
-  %89 = getelementptr i8, ptr %88, i64 %85
+  %89 = getelementptr inbounds i8, ptr %88, i64 %85
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -58729,7 +58729,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -58852,7 +58852,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -59064,7 +59064,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %79, %72
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %85 = load ptr, ptr %71, align 8
-  %86 = getelementptr i8, ptr %85, i64 %82
+  %86 = getelementptr inbounds i8, ptr %85, i64 %82
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -59202,7 +59202,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -59325,7 +59325,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -59537,7 +59537,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %79, %72
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %85 = load ptr, ptr %71, align 8
-  %86 = getelementptr i8, ptr %85, i64 %82
+  %86 = getelementptr inbounds i8, ptr %85, i64 %82
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -59791,7 +59791,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %98, %91
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %104 = load ptr, ptr %90, align 8
-  %105 = getelementptr i8, ptr %104, i64 %101
+  %105 = getelementptr inbounds i8, ptr %104, i64 %101
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -60565,7 +60565,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -60730,7 +60730,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i41: ; preds = %127, %120
 
 .lr.ph.i.i.preheader.i.i.i44:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i41
   %133 = load ptr, ptr %103, align 8
-  %134 = getelementptr i8, ptr %133, i64 %130
+  %134 = getelementptr inbounds i8, ptr %133, i64 %130
   br label %.lr.ph.i.i.i.i.i45
 
 .lr.ph.i.i.i.i.i45:                               ; preds = %.lr.ph.i.i.i.i.i45, %.lr.ph.i.i.preheader.i.i.i44
@@ -60872,7 +60872,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -60995,7 +60995,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -61201,7 +61201,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i: ; preds = %76, %69
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i.i
   %82 = load ptr, ptr %68, align 8
-  %83 = getelementptr i8, ptr %82, i64 %79
+  %83 = getelementptr inbounds i8, ptr %82, i64 %79
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -61337,7 +61337,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %45, %38
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %51 = load ptr, ptr %37, align 8
-  %52 = getelementptr i8, ptr %51, i64 %48
+  %52 = getelementptr inbounds i8, ptr %51, i64 %48
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -61474,7 +61474,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -61597,7 +61597,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40: ; preds = %102, %95
 
 .lr.ph.i.i.preheader.i.i.i43:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i40
   %108 = load ptr, ptr %78, align 8
-  %109 = getelementptr i8, ptr %108, i64 %105
+  %109 = getelementptr inbounds i8, ptr %108, i64 %105
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44, %.lr.ph.i.i.preheader.i.i.i43
@@ -61828,7 +61828,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %43, %36
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %49 = load ptr, ptr %35, align 8
-  %50 = getelementptr i8, ptr %49, i64 %46
+  %50 = getelementptr inbounds i8, ptr %49, i64 %46
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -61965,7 +61965,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -62174,7 +62174,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i50: ; preds = %141, %134
 
 .lr.ph.i.i.preheader.i.i.i53:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i50
   %147 = load ptr, ptr %117, align 8
-  %148 = getelementptr i8, ptr %147, i64 %144
+  %148 = getelementptr inbounds i8, ptr %147, i64 %144
   br label %.lr.ph.i.i.i.i.i54
 
 .lr.ph.i.i.i.i.i54:                               ; preds = %.lr.ph.i.i.i.i.i54, %.lr.ph.i.i.preheader.i.i.i53
@@ -62310,7 +62310,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %43, %36
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %49 = load ptr, ptr %35, align 8
-  %50 = getelementptr i8, ptr %49, i64 %46
+  %50 = getelementptr inbounds i8, ptr %49, i64 %46
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -62447,7 +62447,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -62656,7 +62656,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i50: ; preds = %141, %134
 
 .lr.ph.i.i.preheader.i.i.i53:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i50
   %147 = load ptr, ptr %117, align 8
-  %148 = getelementptr i8, ptr %147, i64 %144
+  %148 = getelementptr inbounds i8, ptr %147, i64 %144
   br label %.lr.ph.i.i.i.i.i54
 
 .lr.ph.i.i.i.i.i54:                               ; preds = %.lr.ph.i.i.i.i.i54, %.lr.ph.i.i.preheader.i.i.i53
@@ -63965,7 +63965,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i: ; preds = %73, %66
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i.i
   %79 = load ptr, ptr %65, align 8
-  %80 = getelementptr i8, ptr %79, i64 %76
+  %80 = getelementptr inbounds i8, ptr %79, i64 %76
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -64811,7 +64811,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i: ; preds = %53, %46
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i
   %59 = load ptr, ptr %29, align 8
-  %60 = getelementptr i8, ptr %59, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 %56
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -64901,7 +64901,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i34: ; preds = %91, %84
 
 .lr.ph.i.i.preheader.i.i.i37:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i34
   %97 = load ptr, ptr %83, align 8
-  %98 = getelementptr i8, ptr %97, i64 %94
+  %98 = getelementptr inbounds i8, ptr %97, i64 %94
   br label %.lr.ph.i.i.i.i.i38
 
 .lr.ph.i.i.i.i.i38:                               ; preds = %.lr.ph.i.i.i.i.i38, %.lr.ph.i.i.preheader.i.i.i37
@@ -65019,7 +65019,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i59: ; preds = %138, %131
 
 .lr.ph.i.i.preheader.i.i.i62:                     ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i.i59
   %144 = load ptr, ptr %114, align 8
-  %145 = getelementptr i8, ptr %144, i64 %141
+  %145 = getelementptr inbounds i8, ptr %144, i64 %141
   br label %.lr.ph.i.i.i.i.i63
 
 .lr.ph.i.i.i.i.i63:                               ; preds = %.lr.ph.i.i.i.i.i63, %.lr.ph.i.i.preheader.i.i.i62
@@ -65623,7 +65623,7 @@ _ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %172, %165
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %_ZN3fmt2v96detail6bufferIcE11try_reserveEm.exit.i.i
   %178 = load ptr, ptr %164, align 8
-  %179 = getelementptr i8, ptr %178, i64 %175
+  %179 = getelementptr inbounds i8, ptr %178, i64 %175
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.preheader.i.i
@@ -74532,8 +74532,8 @@ _ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne1
 _ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i: ; preds = %47
   %49 = lshr exact i64 %21, 3
   %50 = add nuw nsw i64 %49, 1
-  %.neg.i88 = lshr i64 %50, 1
-  %.neg.i = sub nsw i64 0, %.neg.i88
+  %.neg.i91 = lshr i64 %50, 1
+  %.neg.i = sub nsw i64 0, %.neg.i91
   %51 = getelementptr inbounds ptr, ptr %43, i64 %.neg.i
   br label %63
 
@@ -74558,63 +74558,63 @@ _ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.ex
 
 59:                                               ; preds = %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i
   %60 = lshr i64 %.sroa.speculated.i, 2
-  %61 = getelementptr ptr, ptr %58, i64 %60
+  %61 = getelementptr inbounds ptr, ptr %58, i64 %60
   %62 = getelementptr inbounds ptr, ptr %58, i64 %.sroa.speculated.i
   tail call void @_ZdlPv(ptr noundef nonnull %42) #30
   %.pre = load ptr, ptr %16, align 8
-  %.pre110 = load ptr, ptr %9, align 8
+  %.pre113 = load ptr, ptr %9, align 8
   br label %63
 
 63:                                               ; preds = %59, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit
-  %64 = phi ptr [ %18, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i ], [ %.pre110, %59 ], [ %18, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit ]
+  %64 = phi ptr [ %18, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i ], [ %.pre113, %59 ], [ %18, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit ]
   %65 = phi ptr [ %17, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i ], [ %.pre, %59 ], [ %17, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit ]
   %.sroa.049.3 = phi ptr [ %42, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i ], [ %58, %59 ], [ %42, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit ]
   %.sroa.954.3 = phi ptr [ %51, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i ], [ %61, %59 ], [ %43, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit ]
   %.sroa.41.1 = phi ptr [ %44, %_ZNSt3__14moveB8ne190000IPPN3tev13ImageAdditionES4_EET0_T_S6_S5_.exit.i ], [ %62, %59 ], [ %44, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev13ImageAdditionEEEE8allocateB8ne190000ERS4_m.exit ]
   store ptr %45, ptr %.sroa.954.3, align 8
   %66 = getelementptr inbounds i8, ptr %.sroa.954.3, i64 8
-  %.not98 = icmp eq ptr %65, %64
-  br i1 %.not98, label %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit30, label %.lr.ph
+  %.not101 = icmp eq ptr %65, %64
+  br i1 %.not101, label %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit30, label %.lr.ph
 
 .lr.ph:                                           ; preds = %63, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit
-  %.0103 = phi ptr [ %67, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %65, %63 ]
-  %.sroa.41.0102 = phi ptr [ %.sroa.41.2, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %.sroa.41.1, %63 ]
-  %.sroa.24.1101 = phi ptr [ %.sroa.24.4, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %66, %63 ]
-  %.sroa.954.1100 = phi ptr [ %104, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %.sroa.954.3, %63 ]
-  %.sroa.049.199 = phi ptr [ %.sroa.049.4, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %.sroa.049.3, %63 ]
-  %67 = getelementptr inbounds i8, ptr %.0103, i64 -8
-  %68 = icmp eq ptr %.sroa.954.1100, %.sroa.049.199
+  %.0106 = phi ptr [ %67, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %65, %63 ]
+  %.sroa.41.0105 = phi ptr [ %.sroa.41.2, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %.sroa.41.1, %63 ]
+  %.sroa.24.1104 = phi ptr [ %.sroa.24.4, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %66, %63 ]
+  %.sroa.954.1103 = phi ptr [ %104, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %.sroa.954.3, %63 ]
+  %.sroa.049.1102 = phi ptr [ %.sroa.049.4, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit ], [ %.sroa.049.3, %63 ]
+  %67 = getelementptr inbounds i8, ptr %.0106, i64 -8
+  %68 = icmp eq ptr %.sroa.954.1103, %.sroa.049.1102
   br i1 %68, label %69, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit
 
 69:                                               ; preds = %.lr.ph
-  %70 = icmp ult ptr %.sroa.24.1101, %.sroa.41.0102
-  %71 = ptrtoint ptr %.sroa.41.0102 to i64
+  %70 = icmp ult ptr %.sroa.24.1104, %.sroa.41.0105
+  %71 = ptrtoint ptr %.sroa.41.0105 to i64
   br i1 %70, label %72, label %85
 
 72:                                               ; preds = %69
-  %73 = ptrtoint ptr %.sroa.24.1101 to i64
+  %73 = ptrtoint ptr %.sroa.24.1104 to i64
   %74 = sub i64 %71, %73
   %75 = ashr exact i64 %74, 3
   %76 = add nsw i64 %75, 1
   %77 = sdiv i64 %76, 2
-  %78 = getelementptr inbounds ptr, ptr %.sroa.24.1101, i64 %77
-  %79 = ptrtoint ptr %.sroa.954.1100 to i64
+  %78 = getelementptr inbounds ptr, ptr %.sroa.24.1104, i64 %77
+  %79 = ptrtoint ptr %.sroa.954.1103 to i64
   %80 = sub i64 %73, %79
   %81 = ashr exact i64 %80, 3
   %82 = sub nsw i64 0, %81
   %83 = getelementptr inbounds ptr, ptr %78, i64 %82
-  %.not.i.i.i.i.i.i.i.i24 = icmp eq ptr %.sroa.24.1101, %.sroa.954.1100
+  %.not.i.i.i.i.i.i.i.i24 = icmp eq ptr %.sroa.24.1104, %.sroa.954.1103
   br i1 %.not.i.i.i.i.i.i.i.i24, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit, label %84
 
 84:                                               ; preds = %72
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %83, ptr nonnull align 8 %.sroa.954.1100, i64 %80, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %83, ptr nonnull align 8 %.sroa.954.1103, i64 %80, i1 false)
   br label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit
 
 85:                                               ; preds = %69
-  %86 = ptrtoint ptr %.sroa.954.1100 to i64
+  %86 = ptrtoint ptr %.sroa.954.1103 to i64
   %87 = sub i64 %71, %86
   %88 = ashr exact i64 %87, 2
-  %89 = icmp eq ptr %.sroa.41.0102, %.sroa.954.1100
+  %89 = icmp eq ptr %.sroa.41.0105, %.sroa.954.1103
   %.sroa.speculated.i14 = select i1 %89, i64 1, i64 %88
   %90 = icmp ugt i64 %.sroa.speculated.i14, 2305843009213693951
   br i1 %90, label %91, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i15
@@ -74634,34 +74634,34 @@ _ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.ex
 .noexc27:                                         ; preds = %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.exit.i15
   %94 = add nuw nsw i64 %.sroa.speculated.i14, 3
   %95 = lshr i64 %94, 2
-  %96 = getelementptr ptr, ptr %93, i64 %95
+  %96 = getelementptr inbounds ptr, ptr %93, i64 %95
   %97 = getelementptr inbounds ptr, ptr %93, i64 %.sroa.speculated.i14
-  %98 = ptrtoint ptr %.sroa.24.1101 to i64
+  %98 = ptrtoint ptr %.sroa.24.1104 to i64
   %99 = sub i64 %98, %86
   %100 = getelementptr inbounds i8, ptr %96, i64 %99
-  %.not10.i.i.i16 = icmp eq ptr %.sroa.24.1101, %.sroa.954.1100
-  br i1 %.not10.i.i.i16, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21, label %.lr.ph.i.i.i17
+  %.not10.i.i.i16 = icmp eq ptr %.sroa.24.1104, %.sroa.954.1103
+  br i1 %.not10.i.i.i16, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21.thread, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %.noexc27, %.lr.ph.i.i.i17
   %.sroa.0.012.i.i.i18 = phi ptr [ %102, %.lr.ph.i.i.i17 ], [ %96, %.noexc27 ]
-  %.sroa.08.011.i.i.i19 = phi ptr [ %103, %.lr.ph.i.i.i17 ], [ %.sroa.954.1100, %.noexc27 ]
+  %.sroa.08.011.i.i.i19 = phi ptr [ %103, %.lr.ph.i.i.i17 ], [ %.sroa.954.1103, %.noexc27 ]
   %101 = load ptr, ptr %.sroa.08.011.i.i.i19, align 8
   store ptr %101, ptr %.sroa.0.012.i.i.i18, align 8
   %102 = getelementptr inbounds i8, ptr %.sroa.0.012.i.i.i18, i64 8
   %103 = getelementptr inbounds i8, ptr %.sroa.08.011.i.i.i19, i64 8
   %.not.i.i.i20 = icmp eq ptr %102, %100
-  br i1 %.not.i.i.i20, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21, label %.lr.ph.i.i.i17, !llvm.loop !1271
+  br i1 %.not.i.i.i20, label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21.thread, label %.lr.ph.i.i.i17, !llvm.loop !1271
 
-_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21: ; preds = %.lr.ph.i.i.i17, %.noexc27
-  %storemerge.i22 = phi ptr [ %96, %.noexc27 ], [ %100, %.lr.ph.i.i.i17 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.049.199) #30
+_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21.thread: ; preds = %.lr.ph.i.i.i17, %.noexc27
+  %storemerge.i2267 = phi ptr [ %96, %.noexc27 ], [ %100, %.lr.ph.i.i.i17 ]
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.049.1102) #30
   br label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit
 
-_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit: ; preds = %72, %84, %.lr.ph, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21
-  %.sroa.049.4 = phi ptr [ %93, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21 ], [ %.sroa.049.199, %.lr.ph ], [ %.sroa.049.199, %84 ], [ %.sroa.049.199, %72 ]
-  %.sroa.954.4 = phi ptr [ %96, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21 ], [ %.sroa.954.1100, %.lr.ph ], [ %83, %84 ], [ %83, %72 ]
-  %.sroa.24.4 = phi ptr [ %storemerge.i22, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21 ], [ %.sroa.24.1101, %.lr.ph ], [ %78, %84 ], [ %78, %72 ]
-  %.sroa.41.2 = phi ptr [ %97, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21 ], [ %.sroa.41.0102, %.lr.ph ], [ %.sroa.41.0102, %84 ], [ %.sroa.41.0102, %72 ]
+_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE10push_frontERKS3_.exit: ; preds = %72, %84, %.lr.ph, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21.thread
+  %.sroa.049.4 = phi ptr [ %93, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21.thread ], [ %.sroa.049.1102, %.lr.ph ], [ %.sroa.049.1102, %84 ], [ %.sroa.049.1102, %72 ]
+  %.sroa.954.4 = phi ptr [ %96, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21.thread ], [ %.sroa.954.1103, %.lr.ph ], [ %83, %84 ], [ %83, %72 ]
+  %.sroa.24.4 = phi ptr [ %storemerge.i2267, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21.thread ], [ %.sroa.24.1104, %.lr.ph ], [ %78, %84 ], [ %78, %72 ]
+  %.sroa.41.2 = phi ptr [ %97, %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i21.thread ], [ %.sroa.41.0105, %.lr.ph ], [ %.sroa.41.0105, %84 ], [ %.sroa.41.0105, %72 ]
   %104 = getelementptr inbounds i8, ptr %.sroa.954.4, i64 -8
   %105 = load ptr, ptr %67, align 8
   store ptr %105, ptr %104, align 8
@@ -74708,10 +74708,10 @@ _ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allo
   br label %_ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEED2Ev.exit40
 
 _ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEED2Ev.exit40: ; preds = %109, %107, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit
-  %.sroa.049.28087 = phi ptr [ %42, %109 ], [ %42, %107 ], [ %.sroa.049.199, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp ], [ %.sroa.049.199, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit ]
-  %.pn8185 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %109 ], [ %108, %107 ], [ %lpad.loopexit.split-lp, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp ], [ %lpad.loopexit, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.049.28087) #30
-  resume { ptr, i32 } %.pn8185
+  %.sroa.049.28390 = phi ptr [ %42, %109 ], [ %42, %107 ], [ %.sroa.049.1102, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp ], [ %.sroa.049.1102, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit ]
+  %.pn8488 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %109 ], [ %108, %107 ], [ %lpad.loopexit.split-lp, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit.split-lp ], [ %lpad.loopexit, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit.loopexit ]
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.049.28390) #30
+  resume { ptr, i32 } %.pn8488
 
 _ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEED2Ev.exit: ; preds = %31, %32, %111, %_ZNSt3__110unique_ptrIPN3tev13ImageAdditionENS_22__allocator_destructorINS_9allocatorIS2_EEEEED2B8ne190000Ev.exit30, %10
   ret void
@@ -74776,7 +74776,7 @@ _ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.ex
   %33 = lshr i64 %.sroa.speculated, 2
   %34 = shl nuw i64 %.sroa.speculated, 3
   %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #32
-  %36 = getelementptr ptr, ptr %35, i64 %33
+  %36 = getelementptr inbounds ptr, ptr %35, i64 %33
   %37 = getelementptr inbounds ptr, ptr %35, i64 %.sroa.speculated
   %38 = ptrtoint ptr %10 to i64
   %39 = sub i64 %27, %38
@@ -74877,7 +74877,7 @@ _ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.ex
   %33 = lshr i64 %.sroa.speculated, 2
   %34 = shl nuw i64 %.sroa.speculated, 3
   %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #32
-  %36 = getelementptr ptr, ptr %35, i64 %33
+  %36 = getelementptr inbounds ptr, ptr %35, i64 %33
   %37 = getelementptr inbounds ptr, ptr %35, i64 %.sroa.speculated
   %38 = ptrtoint ptr %10 to i64
   %39 = sub i64 %27, %38
@@ -74981,7 +74981,7 @@ _ZNSt3__114__split_bufferIPN3tev13ImageAdditionERNS_9allocatorIS3_EEEC2EmmS6_.ex
   %37 = lshr i64 %36, 2
   %38 = shl nuw i64 %.sroa.speculated, 3
   %39 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #32
-  %40 = getelementptr ptr, ptr %39, i64 %37
+  %40 = getelementptr inbounds ptr, ptr %39, i64 %37
   %41 = getelementptr inbounds ptr, ptr %39, i64 %.sroa.speculated
   %42 = ptrtoint ptr %9 to i64
   %43 = sub i64 %42, %30

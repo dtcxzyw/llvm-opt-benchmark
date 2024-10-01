@@ -804,7 +804,7 @@ for.body.i.i.i.i204:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i: ; preds = %for.body.i.i.i.i204, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE11_M_allocateEm.exit.i201
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE11_M_allocateEm.exit.i201 ], [ %incdec.ptr1.i.i.i.i208, %for.body.i.i.i.i204 ]
-  %incdec.ptr.i211 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
+  %incdec.ptr.i211 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i212 = icmp eq ptr %44, null
   br i1 %tobool.not.i.i212, label %.noexc116, label %if.then.i20.i
 

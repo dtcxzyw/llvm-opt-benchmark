@@ -26107,7 +26107,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %_ZL
   %base.tr217 = phi ptr [ %base, %if.else.lr.ph ], [ %add.ptr118, %_ZL18sort_r_swap_blocksPcmm.exit175 ]
   %sub = add i64 %nel.tr219, -1
   %mul13 = mul i64 %sub, %w
-  %add.ptr14 = getelementptr i8, ptr %base.tr217, i64 %mul13
+  %add.ptr14 = getelementptr inbounds i8, ptr %base.tr217, i64 %mul13
   %add.ptr15 = getelementptr inbounds i8, ptr %base.tr217, i64 %w
   %div107 = lshr i64 %nel.tr219, 1
   %mul16 = mul i64 %div107, %w
@@ -26272,7 +26272,7 @@ for.body80:                                       ; preds = %for.body80.lr.ph, %
   br i1 %cmp84, label %if.then85, label %if.else91
 
 if.then85:                                        ; preds = %for.body80
-  %add.ptr87 = getelementptr i8, ptr %pre.1200, i64 %idx.neg19
+  %add.ptr87 = getelementptr inbounds i8, ptr %pre.1200, i64 %idx.neg19
   %cmp88 = icmp ult ptr %pr.1199, %pre.1200
   br i1 %cmp88, label %if.then89, label %if.end99
 
@@ -26363,7 +26363,7 @@ if.then3.i:                                       ; preds = %if.then.i139
   br i1 %cmp7.i.i, label %for.body.i.preheader.i, label %_ZL18sort_r_swap_blocksPcmm.exit
 
 for.body.i.preheader.i:                           ; preds = %if.then3.i
-  %add.ptr.i141 = getelementptr i8, ptr %base.tr217, i64 %sub.ptr.sub
+  %add.ptr.i141 = getelementptr inbounds i8, ptr %base.tr217, i64 %sub.ptr.sub
   br label %for.body.i.i142
 
 for.body.i.i142:                                  ; preds = %for.body.i.i142, %for.body.i.preheader.i
@@ -26385,7 +26385,7 @@ if.else.i:                                        ; preds = %if.then.i139
   br i1 %cmp7.i11.i, label %for.body.i12.preheader.i, label %_ZL18sort_r_swap_blocksPcmm.exit
 
 for.body.i12.preheader.i:                         ; preds = %if.else.i
-  %add.ptr4.i = getelementptr i8, ptr %base.tr217, i64 %sub.ptr.sub103
+  %add.ptr4.i = getelementptr inbounds i8, ptr %base.tr217, i64 %sub.ptr.sub103
   br label %for.body.i12.i
 
 for.body.i12.i:                                   ; preds = %for.body.i12.i, %for.body.i12.preheader.i
@@ -26422,7 +26422,7 @@ if.then3.i164:                                    ; preds = %if.then.i151
   br i1 %cmp7.i.i166, label %for.body.i.preheader.i167, label %_ZL18sort_r_swap_blocksPcmm.exit175
 
 for.body.i.preheader.i167:                        ; preds = %if.then3.i164
-  %add.ptr.i168 = getelementptr i8, ptr %pr.0189, i64 %sub.ptr.sub106
+  %add.ptr.i168 = getelementptr inbounds i8, ptr %pr.0189, i64 %sub.ptr.sub106
   br label %for.body.i.i169
 
 for.body.i.i169:                                  ; preds = %for.body.i.i169, %for.body.i.preheader.i167
@@ -26445,7 +26445,7 @@ if.else.i153:                                     ; preds = %if.then.i151
   br i1 %cmp7.i11.i155, label %for.body.i12.preheader.i156, label %_ZL18sort_r_swap_blocksPcmm.exit175
 
 for.body.i12.preheader.i156:                      ; preds = %if.else.i153
-  %add.ptr4.i157 = getelementptr i8, ptr %pr.0189, i64 %sub.ptr.sub109
+  %add.ptr4.i157 = getelementptr inbounds i8, ptr %pr.0189, i64 %sub.ptr.sub109
   br label %for.body.i12.i158
 
 for.body.i12.i158:                                ; preds = %for.body.i12.i158, %for.body.i12.preheader.i156

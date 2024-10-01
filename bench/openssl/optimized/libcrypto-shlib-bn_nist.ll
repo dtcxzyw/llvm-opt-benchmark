@@ -348,7 +348,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
 
 if.end23:                                         ; preds = %for.body.i, %if.end13
   %r_d.0 = phi ptr [ %1, %if.end13 ], [ %2, %for.body.i ]
-  %add.ptr = getelementptr i8, ptr %1, i64 24
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 24
   %sub = add i32 %0, -3
   %cmp2476 = icmp sgt i32 %0, 3
   br i1 %cmp2476, label %for.body.preheader, label %for.body31.preheader
@@ -1159,7 +1159,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
 
 if.end23:                                         ; preds = %for.body.i, %if.end13
   %r_d.0 = phi ptr [ %1, %if.end13 ], [ %2, %for.body.i ]
-  %add.ptr = getelementptr i8, ptr %1, i64 64
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 64
   %sub = add i32 %0, -8
   %cmp2447 = icmp sgt i32 %0, 8
   br i1 %cmp2447, label %for.body.preheader, label %for.body31.preheader

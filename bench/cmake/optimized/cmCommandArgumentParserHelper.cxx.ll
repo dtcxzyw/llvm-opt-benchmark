@@ -343,7 +343,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_M_alloc
 
 _ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %34, %_ZNSt12_Vector_baseISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i ], [ %39, %.lr.ph.i.i.i.i ]
-  %40 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %20, null
   br i1 %.not.i23.i, label %.noexc, label %41
 
@@ -1415,7 +1415,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_M_alloc
 
 _ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %37, %_ZNSt12_Vector_baseISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i ], [ %42, %.lr.ph.i.i.i.i ]
-  %43 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %23, null
   br i1 %.not.i23.i, label %.noexc, label %44
 
@@ -1548,7 +1548,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_M_alloc
 
 _ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %42, %_ZNSt12_Vector_baseISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i ], [ %47, %.lr.ph.i.i.i.i ]
-  %48 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %48 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %28, null
   br i1 %.not.i23.i, label %.noexc, label %49
 

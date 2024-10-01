@@ -17394,7 +17394,7 @@ if.end45:                                         ; preds = %if.then22
   br i1 %cmp5082, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end45
-  %add.ptr.i18 = getelementptr ptr, ptr %__p.sroa.0.0, i64 %__k.0
+  %add.ptr.i18 = getelementptr inbounds ptr, ptr %__p.sroa.0.0, i64 %__k.0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body

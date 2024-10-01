@@ -414,8 +414,8 @@ define hidden void @_ZN10OopStorage11ActiveArray9copy_fromEPKS0_(ptr noundef non
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %5 = getelementptr i8, ptr %0, i64 24
-  %6 = getelementptr i8, ptr %1, i64 24
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds i8, ptr %1, i64 24
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1386,8 +1386,8 @@ _ZN10OopStorage11ActiveArray6createEm8MEMFLAGSN17AllocFailStrategy13AllocFailEnu
   br i1 %.not.i, label %_ZN10OopStorage11ActiveArray9copy_fromEPKS0_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %21
-  %26 = getelementptr i8, ptr %19, i64 24
-  %27 = getelementptr i8, ptr %4, i64 24
+  %26 = getelementptr inbounds i8, ptr %19, i64 24
+  %27 = getelementptr inbounds i8, ptr %4, i64 24
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

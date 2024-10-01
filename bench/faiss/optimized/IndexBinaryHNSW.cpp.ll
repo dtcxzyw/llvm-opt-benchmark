@@ -1362,7 +1362,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %6
   store ptr %53, ptr %43, align 8
   %54 = getelementptr inbounds i8, ptr %48, i64 40
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr i64, ptr %55, i64 %52
+  %56 = getelementptr inbounds i64, ptr %55, i64 %52
   store ptr %56, ptr %44, align 8
   %.not.i = icmp eq i64 %51, 0
   br i1 %.not.i, label %60, label %.lr.ph46.i.i
@@ -1645,7 +1645,7 @@ define linkonce_odr void @_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE14begi
   %15 = mul i64 %12, %.06
   %16 = getelementptr inbounds float, ptr %14, i64 %15
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr i64, ptr %17, i64 %15
+  %18 = getelementptr inbounds i64, ptr %17, i64 %15
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
 

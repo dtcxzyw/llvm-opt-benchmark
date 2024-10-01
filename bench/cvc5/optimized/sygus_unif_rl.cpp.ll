@@ -17832,7 +17832,7 @@ for.body.i.i.i.i.i377:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt4pairIjPN4cvc58internal6theory11quantifiers8LazyTrieEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19.i.i383: ; preds = %for.body.i.i.i.i.i377, %_ZNSt12_Vector_baseISt4pairIjPN4cvc58internal6theory11quantifiers8LazyTrieEESaIS7_EE11_M_allocateEm.exit.i.i373
   %__cur.0.lcssa.i.i.i.i.i384 = phi ptr [ %cond.i10.i.i374, %_ZNSt12_Vector_baseISt4pairIjPN4cvc58internal6theory11quantifiers8LazyTrieEESaIS7_EE11_M_allocateEm.exit.i.i373 ], [ %incdec.ptr1.i.i.i.i.i381, %for.body.i.i.i.i.i377 ]
-  %incdec.ptr.i.i385 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i384, i64 16
+  %incdec.ptr.i.i385 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i384, i64 16
   %tobool.not.i.i.i386 = icmp eq ptr %visit.sroa.0.1.ph1570, null
   br i1 %tobool.not.i.i.i386, label %_ZNSt6vectorISt4pairIjPN4cvc58internal6theory11quantifiers8LazyTrieEESaIS7_EE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i388, label %if.then.i20.i.i387
 

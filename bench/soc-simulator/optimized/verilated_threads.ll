@@ -1441,7 +1441,7 @@ _ZNKSt6vectorIN14VlWorkerThread7ExecRecESaIS1_EE12_M_check_lenEmPKc.exit: ; pred
 
 _ZNSt6vectorIN14VlWorkerThread7ExecRecESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %25
   %.0.lcssa.i.i.i = phi ptr [ %26, %25 ], [ %35, %.lr.ph.i.i.i ]
-  %36 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 24
+  %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i28 = icmp eq ptr %1, %7
   br i1 %.not10.i.i.i28, label %_ZNSt6vectorIN14VlWorkerThread7ExecRecESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34, label %.lr.ph.i.i.i29
 

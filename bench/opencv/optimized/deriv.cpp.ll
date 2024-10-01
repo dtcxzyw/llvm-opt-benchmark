@@ -501,7 +501,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc117, %_ZNSt6v
   br i1 %or.cond112, label %.preheader167, label %77
 
 .preheader167:                                    ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %71 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 4
+  %71 = getelementptr i8, ptr %.sroa.0.0, i64 4
   %72 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
   %73 = getelementptr inbounds i8, ptr %19, i64 8
   %74 = getelementptr inbounds i8, ptr %19, i64 16
@@ -608,7 +608,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc117, %_ZNSt6v
 .lr.ph.preheader:                                 ; preds = %102
   %104 = zext nneg i32 %87 to i64
   %105 = shl nuw nsw i64 %104, 2
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %71, i8 0, i64 %105, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %71, i8 0, i64 %105, i1 false)
   br label %.preheader166
 
 .preheader166:                                    ; preds = %.lr.ph.preheader, %102

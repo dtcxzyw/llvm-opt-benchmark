@@ -522,7 +522,7 @@ _ZNSt12_Vector_baseIN2cv7Point3_IfEESaIS2_EE11_M_allocateEm.exit.i.i.i71: ; pred
   br i1 %.not.i.i.i.i.i.i.i76, label %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i77, label %.lr.ph.i.i.i.i.i.i.i73, !llvm.loop !15
 
 _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i77: ; preds = %.lr.ph.i.i.i.i.i.i.i73
-  %72 = getelementptr i8, ptr %71, i64 12
+  %72 = getelementptr inbounds i8, ptr %71, i64 12
   call void @_ZdlPv(ptr noundef nonnull %65) #27
   store ptr %69, ptr %14, align 8
   store ptr %72, ptr %60, align 8
@@ -533,9 +533,9 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i77
 
 74:                                               ; preds = %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i77
   store float 0.000000e+00, ptr %72, align 4
-  %.sroa.3.0..sroa_idx = getelementptr i8, ptr %71, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %71, i64 16
   store float 0.000000e+00, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.4.0..sroa_idx = getelementptr i8, ptr %71, i64 20
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %71, i64 20
   store float %5, ptr %.sroa.4.0..sroa_idx, align 4
   %75 = load ptr, ptr %60, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 12
@@ -594,7 +594,7 @@ _ZNSt12_Vector_baseIN2cv7Point3_IfEESaIS2_EE11_M_allocateEm.exit.i.i.i88: ; pred
 
 _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i94: ; preds = %.lr.ph.i.i.i.i.i.i.i90, %_ZNSt12_Vector_baseIN2cv7Point3_IfEESaIS2_EE11_M_allocateEm.exit.i.i.i88
   %.0.lcssa.i.i.i.i.i.i.i95 = phi ptr [ %91, %_ZNSt12_Vector_baseIN2cv7Point3_IfEESaIS2_EE11_M_allocateEm.exit.i.i.i88 ], [ %94, %.lr.ph.i.i.i.i.i.i.i90 ]
-  %95 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i95, i64 12
+  %95 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i95, i64 12
   %.not.i23.i.i.i96 = icmp eq ptr %78, null
   br i1 %.not.i23.i.i.i96, label %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i97, label %96
 

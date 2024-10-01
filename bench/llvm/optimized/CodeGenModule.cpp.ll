@@ -7206,7 +7206,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   br i1 %.not18.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN5clang7CodeGen13CodeGenModule8StructorESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.thread23.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %206
-  %.01317.i.i.i.i.i.i = getelementptr i8, ptr %202, i64 24
+  %.01317.i.i.i.i.i.i = getelementptr inbounds i8, ptr %202, i64 24
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -10299,7 +10299,7 @@ _ZNSt12_Vector_baseIN5clang7CodeGen13CodeGenModule8StructorESaIS3_EE11_M_allocat
 
 _ZNSt6vectorIN5clang7CodeGen13CodeGenModule8StructorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN5clang7CodeGen13CodeGenModule8StructorESaIS3_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %29, %_ZNSt12_Vector_baseIN5clang7CodeGen13CodeGenModule8StructorESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ %32, %.lr.ph.i.i.i.i.i.i ]
-  %33 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN5clang7CodeGen13CodeGenModule8StructorESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %34
 
@@ -15863,7 +15863,7 @@ _ZNSt12_Vector_baseIN5clang7CodeGen13CodeGenModule8StructorESaIS3_EE11_M_allocat
 
 _ZNSt6vectorIN5clang7CodeGen13CodeGenModule8StructorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN5clang7CodeGen13CodeGenModule8StructorESaIS3_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %59, %_ZNSt12_Vector_baseIN5clang7CodeGen13CodeGenModule8StructorESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i ]
-  %63 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %63 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN5clang7CodeGen13CodeGenModule8StructorESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %64
 
@@ -31168,7 +31168,7 @@ _ZNSt12_Vector_baseIN5clang10GlobalDeclESaIS1_EE11_M_allocateEm.exit.i.i: ; pred
 
 _ZNSt6vectorIN5clang10GlobalDeclESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i74, %_ZNSt12_Vector_baseIN5clang10GlobalDeclESaIS1_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %107, %_ZNSt12_Vector_baseIN5clang10GlobalDeclESaIS1_EE11_M_allocateEm.exit.i.i ], [ %110, %.lr.ph.i.i.i.i.i74 ]
-  %111 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %111 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %93, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5clang10GlobalDeclESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %112
 
@@ -31977,7 +31977,7 @@ _ZNSt12_Vector_baseIN5clang10GlobalDeclESaIS1_EE11_M_allocateEm.exit.i.i: ; pred
 
 _ZNSt6vectorIN5clang10GlobalDeclESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i78, %_ZNSt12_Vector_baseIN5clang10GlobalDeclESaIS1_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %220, %_ZNSt12_Vector_baseIN5clang10GlobalDeclESaIS1_EE11_M_allocateEm.exit.i.i ], [ %223, %.lr.ph.i.i.i.i.i78 ]
-  %224 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %224 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %206, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5clang10GlobalDeclESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %225
 
@@ -33770,7 +33770,7 @@ _ZNSt12_Vector_baseIN5clang10GlobalDeclESaIS1_EE11_M_allocateEm.exit.i.i: ; pred
 
 _ZNSt6vectorIN5clang10GlobalDeclESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN5clang10GlobalDeclESaIS1_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %27, %_ZNSt12_Vector_baseIN5clang10GlobalDeclESaIS1_EE11_M_allocateEm.exit.i.i ], [ %30, %.lr.ph.i.i.i.i.i ]
-  %31 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %13, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5clang10GlobalDeclESaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %32
 
@@ -36689,7 +36689,7 @@ _ZNSt12_Vector_baseIN5clang10GlobalDeclESaIS1_EE11_M_allocateEm.exit.i.i: ; pred
 
 _ZNSt6vectorIN5clang10GlobalDeclESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN5clang10GlobalDeclESaIS1_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %41, %_ZNSt12_Vector_baseIN5clang10GlobalDeclESaIS1_EE11_M_allocateEm.exit.i.i ], [ %44, %.lr.ph.i.i.i.i.i ]
-  %45 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %45 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %27, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5clang10GlobalDeclESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %46
 
@@ -47769,7 +47769,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_E
 
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
@@ -57353,7 +57353,7 @@ _ZSt8distanceIN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS0_8DenseMapIS6_NS1
 
 24:                                               ; preds = %19
   %25 = xor i64 %.06.i.i, -1
-  %26 = getelementptr %"class.clang::GlobalDecl", ptr %14, i64 %25
+  %26 = getelementptr inbounds %"class.clang::GlobalDecl", ptr %14, i64 %25
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %24, %.lr.ph.i.i.i.i.i
@@ -57491,7 +57491,7 @@ _ZSt22__uninitialized_copy_aIN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS0_8
 _ZSt22__uninitialized_copy_aIN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS0_8DenseMapIS6_NS1_13DenseSetEmptyENS0_12DenseMapInfoIS6_vEENS1_12DenseSetPairIS6_EEEESA_E8IteratorEPNS3_10GlobalDeclESG_ET0_T_SJ_SI_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS0_8DenseMapIS6_NS1_13DenseSetEmptyENS0_12DenseMapInfoIS6_vEENS1_12DenseSetPairIS6_EEEESA_E8IteratorEPNS3_10GlobalDeclESG_ET0_T_SJ_SI_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS0_8DenseMapIS6_NS1_13DenseSetEmptyENS0_12DenseMapInfoIS6_vEENS1_12DenseSetPairIS6_EEEESA_E8IteratorEmEvRT_T0_.exit
   %56 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS0_8DenseMapIS6_NS1_13DenseSetEmptyENS0_12DenseMapInfoIS6_vEENS1_12DenseSetPairIS6_EEEESA_E8IteratorEPNS3_10GlobalDeclESG_ET0_T_SJ_SI_RSaIT1_E.exit.loopexit ], [ %14, %_ZSt7advanceIN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS0_8DenseMapIS6_NS1_13DenseSetEmptyENS0_12DenseMapInfoIS6_vEENS1_12DenseSetPairIS6_EEEESA_E8IteratorEmEvRT_T0_.exit ]
   %57 = sub nuw i64 %10, %22
-  %58 = getelementptr %"class.clang::GlobalDecl", ptr %56, i64 %57
+  %58 = getelementptr inbounds %"class.clang::GlobalDecl", ptr %56, i64 %57
   store ptr %58, ptr %13, align 8
   br i1 %.not1.i.i, label %_ZSt22__uninitialized_move_aIPN5clang10GlobalDeclES2_SaIS1_EET0_T_S5_S4_RT1_.exit70, label %.lr.ph.i.i.i.i.i65
 

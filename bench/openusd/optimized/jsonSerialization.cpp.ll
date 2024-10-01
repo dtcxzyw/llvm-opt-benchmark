@@ -2484,7 +2484,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_M
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %25, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_M_allocateEm.exit.i ], [ %28, %.lr.ph.i.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 32
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
   %.not.i23.i = icmp eq ptr %11, null
   br i1 %.not.i23.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %30
 
@@ -4394,7 +4394,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE12_M_check
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i.i: ; preds = %.lr.ph.i.i.i.i218.i, %.noexc222.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %487, %.noexc222.i ], [ %495, %.lr.ph.i.i.i.i218.i ]
-  %496 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
+  %496 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
   %.not.i36.i.i = icmp eq ptr %474, null
   br i1 %.not.i36.i.i, label %.noexc140.i, label %497
 
@@ -4563,7 +4563,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE12_M_check
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i238.i: ; preds = %.lr.ph.i.i.i.i227.i, %.noexc242.i
   %.0.lcssa.i.i.i.i232.i = phi ptr [ %570, %.noexc242.i ], [ %578, %.lr.ph.i.i.i.i227.i ]
-  %579 = getelementptr i8, ptr %.0.lcssa.i.i.i.i232.i, i64 32
+  %579 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i232.i, i64 32
   %.not.i36.i240.i = icmp eq ptr %557, null
   br i1 %.not.i36.i240.i, label %.noexc155.i, label %580
 
@@ -4742,7 +4742,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE12_M_check
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i258.i: ; preds = %.lr.ph.i.i.i.i247.i, %.noexc262.i
   %.0.lcssa.i.i.i.i252.i = phi ptr [ %659, %.noexc262.i ], [ %667, %.lr.ph.i.i.i.i247.i ]
-  %668 = getelementptr i8, ptr %.0.lcssa.i.i.i.i252.i, i64 32
+  %668 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i252.i, i64 32
   %.not.i36.i260.i = icmp eq ptr %646, null
   br i1 %.not.i36.i260.i, label %.noexc170.i, label %669
 
@@ -5217,7 +5217,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE12_M_check
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36.i: ; preds = %.lr.ph.i.i.i.i163, %.noexc167
   %.0.lcssa.i.i.i.i = phi ptr [ %824, %.noexc167 ], [ %833, %.lr.ph.i.i.i.i163 ]
-  %834 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 32
+  %834 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
   %.not.i37.i = icmp eq ptr %810, null
   br i1 %.not.i37.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE17_M_realloc_insertIJNS1_11TimespanTagERNS0_8TraceKeyEmmRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %835
 
@@ -9252,7 +9252,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE12_M_check
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %26
   %.0.lcssa.i.i.i = phi ptr [ %27, %26 ], [ %37, %.lr.ph.i.i.i ]
-  %38 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 32
+  %38 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
   %.not10.i.i.i29 = icmp eq ptr %1, %8
   br i1 %.not10.i.i.i29, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35, label %.lr.ph.i.i.i30
 
@@ -9347,7 +9347,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE12_M_check
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %26
   %.0.lcssa.i.i.i = phi ptr [ %27, %26 ], [ %37, %.lr.ph.i.i.i ]
-  %38 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 32
+  %38 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
   %.not10.i.i.i29 = icmp eq ptr %1, %8
   br i1 %.not10.i.i.i29, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35, label %.lr.ph.i.i.i30
 
@@ -9442,7 +9442,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE12_M_check
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %26
   %.0.lcssa.i.i.i = phi ptr [ %27, %26 ], [ %37, %.lr.ph.i.i.i ]
-  %38 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 32
+  %38 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
   %.not10.i.i.i29 = icmp eq ptr %1, %8
   br i1 %.not10.i.i.i29, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35, label %.lr.ph.i.i.i30
 
@@ -9540,7 +9540,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE12_M_check
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %27
   %.0.lcssa.i.i.i = phi ptr [ %28, %27 ], [ %40, %.lr.ph.i.i.i ]
-  %41 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 32
+  %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
   %.not10.i.i.i30 = icmp eq ptr %1, %9
   br i1 %.not10.i.i.i30, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, label %.lr.ph.i.i.i31
 

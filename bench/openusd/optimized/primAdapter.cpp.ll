@@ -26977,7 +26977,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_ET0_T_S8_S7_.ex
   br i1 %36, label %.lr.ph92.preheader, label %._crit_edge93
 
 .lr.ph92.preheader:                               ; preds = %35
-  %37 = getelementptr double, ptr %.sroa.035.0, i64 %.078
+  %37 = getelementptr inbounds double, ptr %.sroa.035.0, i64 %.078
   br label %.lr.ph92
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.lr.ph92

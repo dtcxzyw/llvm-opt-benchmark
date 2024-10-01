@@ -1965,15 +1965,15 @@ if.else:                                          ; preds = %entry
   %sub = sub i8 %7, %conv13
   %conv20 = zext i8 %sub to i64
   %conv23 = zext i8 %conv13 to i64
-  %add.ptr.i.i.i.i6 = getelementptr i8, ptr %iter.coerce0, i64 16
-  %arrayidx.i.i7 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i6, i64 %conv23
+  %add.ptr.i.i.i.i6 = getelementptr inbounds i8, ptr %iter.coerce0, i64 16
+  %arrayidx.i.i7 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i6, i64 %conv23
   %add.ptr.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %arrayidx.i.i7, i64 %conv20
   %cmp.not7.i = icmp eq i8 %7, %conv13
   br i1 %cmp.not7.i, label %if.end, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.else
   %conv22 = sext i32 %iter.coerce1 to i64
-  %arrayidx.i6.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i6, i64 %conv22
+  %arrayidx.i6.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i6, i64 %conv22
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -2374,14 +2374,14 @@ entry:
   %conv3 = zext i8 %1 to i64
   %2 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx.i.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i, i64 %conv
+  %arrayidx.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i, i64 %conv
   %add.ptr.i.i.i1.i = getelementptr inbounds i8, ptr %2, i64 16
   %arrayidx.i2.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i1.i, i64 %conv3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %arrayidx.i.i, ptr noundef nonnull align 1 dereferenceable(24) %arrayidx.i2.i, i64 24, i1 false)
   %conv5 = zext i8 %to_move to i32
   %sub = add nsw i32 %conv5, -1
   %conv6 = sext i32 %sub to i64
-  %add.ptr.i.i.i.i37 = getelementptr i8, ptr %right, i64 16
+  %add.ptr.i.i.i.i37 = getelementptr inbounds i8, ptr %right, i64 16
   %add.ptr.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i37, i64 %conv6
   %cmp.not7.i = icmp eq i32 %sub, 0
   br i1 %cmp.not7.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit, label %for.body.i
@@ -2389,7 +2389,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %dest.09.i.pn = phi ptr [ %dest.09.i, %for.body.i ], [ %arrayidx.i.i, %entry ]
   %src.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr.i.i.i.i37, %entry ]
-  %dest.09.i = getelementptr i8, ptr %dest.09.i.pn, i64 24
+  %dest.09.i = getelementptr inbounds i8, ptr %dest.09.i.pn, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %dest.09.i, ptr noundef nonnull align 1 dereferenceable(24) %src.08.i, i64 24, i1 false)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.08.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
@@ -2413,7 +2413,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google
   %sub24 = sub nsw i32 %conv22, %conv5
   %conv25 = sext i32 %sub24 to i64
   %conv32 = zext i8 %to_move to i64
-  %arrayidx.i.i46 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i37, i64 %conv32
+  %arrayidx.i.i46 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i37, i64 %conv32
   %add.ptr.i47 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %arrayidx.i.i46, i64 %conv25
   %cmp.not7.i48 = icmp eq i8 %4, %to_move
   br i1 %cmp.not7.i48, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit58, label %for.body.i52
@@ -2504,7 +2504,7 @@ entry:
   %arrayidx.i.i = getelementptr i8, ptr %right, i64 10
   %0 = load i8, ptr %arrayidx.i.i, align 1
   %conv4 = zext i8 %to_move to i32
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %right, i64 16
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 16
   %cmp.not9.i = icmp eq i8 %0, 0
   br i1 %cmp.not9.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE19transfer_n_backwardEmmmPSI_PSG_.exit, label %for.body.preheader.i
 
@@ -2541,8 +2541,8 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google
   %conv22 = zext i8 %4 to i32
   %sub25 = sub nsw i32 %conv22, %sub
   %conv26 = sext i32 %sub25 to i64
-  %add.ptr.i.i.i.i41 = getelementptr i8, ptr %this, i64 16
-  %arrayidx.i.i42 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i41, i64 %conv26
+  %add.ptr.i.i.i.i41 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx.i.i42 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i41, i64 %conv26
   %add.ptr.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %arrayidx.i.i42, i64 %conv12
   %cmp.not7.i = icmp eq i32 %sub, 0
   br i1 %cmp.not7.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit, label %for.body.i44
@@ -2661,12 +2661,12 @@ entry:
   %arrayidx.i17 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i16, i64 %conv
   %conv.i = zext i8 %0 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx.i3.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i, i64 %conv.i
+  %arrayidx.i3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i, i64 %conv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i3.i, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i17, i64 24, i1 false)
   %arrayidx.i.i = getelementptr i8, ptr %src, i64 10
   %3 = load i8, ptr %arrayidx.i.i, align 1
   %conv6 = zext i8 %3 to i64
-  %add.ptr.i.i.i.i19 = getelementptr i8, ptr %src, i64 16
+  %add.ptr.i.i.i.i19 = getelementptr inbounds i8, ptr %src, i64 16
   %add.ptr.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i19, i64 %conv6
   %cmp.not7.i = icmp eq i8 %3, 0
   br i1 %cmp.not7.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit, label %for.body.i
@@ -2674,7 +2674,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %dest.09.i.pn = phi ptr [ %dest.09.i, %for.body.i ], [ %arrayidx.i3.i, %entry ]
   %src.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr.i.i.i.i19, %entry ]
-  %dest.09.i = getelementptr i8, ptr %dest.09.i.pn, i64 24
+  %dest.09.i = getelementptr inbounds i8, ptr %dest.09.i.pn, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %dest.09.i, ptr noundef nonnull align 1 dereferenceable(24) %src.08.i, i64 24, i1 false)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.08.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
@@ -2740,15 +2740,15 @@ if.end:                                           ; preds = %_ZN4absl12lts_20230
   %sub.i = sub nsw i32 %conv4.i, %conv5.i
   %conv6.i = sext i32 %sub.i to i64
   %conv8.i = zext nneg i32 %conv5.i to i64
-  %add.ptr.i.i.i.i.i33 = getelementptr i8, ptr %9, i64 16
-  %arrayidx.i.i.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i33, i64 %conv8.i
+  %add.ptr.i.i.i.i.i33 = getelementptr inbounds i8, ptr %9, i64 16
+  %arrayidx.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i33, i64 %conv8.i
   %add.ptr.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %arrayidx.i.i.i, i64 %conv6.i
   %cmp.not7.i.i = icmp eq i32 %conv5.i, %conv4.i
   br i1 %cmp.not7.i.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.end
   %conv7.i = zext i8 %10 to i64
-  %arrayidx.i6.i.i = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i33, i64 %conv7.i
+  %arrayidx.i6.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i33, i64 %conv7.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -3068,13 +3068,13 @@ _ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8proto
   store ptr %retval.0.i.i.i.i.i.i, ptr %iter, align 8
   %13 = load i8, ptr %arrayidx.i.i3, align 1
   %conv.i3.i = zext i8 %13 to i64
-  %add.ptr.i.i.i.i.i4.i = getelementptr i8, ptr %9, i64 16
+  %add.ptr.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %9, i64 16
   %add.ptr.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i4.i, i64 %conv.i3.i
   %cmp.not7.i.i.i = icmp eq i8 %13, 0
   br i1 %cmp.not7.i.i.i, label %_ZZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE16internal_emplaceIJRKSt21piecewise_construct_tSt5tupleIJOS7_EESN_IJRS9_EEEEENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EESX_DpOT_ENKUlhE_clEh.exit, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE18new_leaf_root_nodeEh.exit.i
-  %add.ptr.i.i.i5.i.i.i7 = getelementptr i8, ptr %retval.0.i.i.i.i.i.i, i64 16
+  %add.ptr.i.i.i5.i.i.i7 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i, i64 16
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.preheader.i.i.i
@@ -3492,14 +3492,14 @@ if.end18:                                         ; preds = %entry, %if.else11, 
   %4 = load i8, ptr %arrayidx.i.i25, align 1
   %conv26 = zext i8 %4 to i64
   %conv30 = zext i8 %sub23 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %this, i64 16
-  %arrayidx.i.i29 = getelementptr %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i, i64 %conv30
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx.i.i29 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i, i64 %conv30
   %add.ptr.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %arrayidx.i.i29, i64 %conv26
   %cmp.not7.i = icmp eq i8 %4, 0
   br i1 %cmp.not7.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10transfer_nEmmmPSI_PSG_.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end18
-  %add.ptr.i.i.i5.i = getelementptr i8, ptr %dest, i64 16
+  %add.ptr.i.i.i5.i = getelementptr inbounds i8, ptr %dest, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i

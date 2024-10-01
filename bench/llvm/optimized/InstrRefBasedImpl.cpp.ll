@@ -3084,7 +3084,7 @@ _ZNSt12_Vector_baseIN15LiveDebugValues6LocIdxESaIS1_EE11_M_allocateEm.exit.i: ; 
 
 _ZNSt6vectorIN15LiveDebugValues6LocIdxESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i: ; preds = %.lr.ph.i.i.i.i9, %_ZNSt12_Vector_baseIN15LiveDebugValues6LocIdxESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %106, %_ZNSt12_Vector_baseIN15LiveDebugValues6LocIdxESaIS1_EE11_M_allocateEm.exit.i ], [ %110, %.lr.ph.i.i.i.i9 ]
-  %111 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 4
+  %111 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 4
   %.not.i23.i = icmp eq ptr %92, null
   br i1 %.not.i23.i, label %_ZNSt6vectorIN15LiveDebugValues6LocIdxESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %112
 
@@ -3202,7 +3202,7 @@ _ZNSt12_Vector_baseIN15LiveDebugValues8SpillLocESaIS1_EE11_M_allocateEm.exit.i.i
 
 _ZNSt6vectorIN15LiveDebugValues8SpillLocESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN15LiveDebugValues8SpillLocESaIS1_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %37, %_ZNSt12_Vector_baseIN15LiveDebugValues8SpillLocESaIS1_EE11_M_allocateEm.exit.i.i ], [ %40, %.lr.ph.i.i.i.i.i ]
-  %41 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
+  %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
   %.not.i23.i.i = icmp eq ptr %23, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN15LiveDebugValues8SpillLocESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %42
 
@@ -29186,7 +29186,7 @@ _ZN4llvm15SmallVectorImplIPKNS_17MachineBasicBlockEE7reserveEm.exit.i: ; preds =
   br i1 %976, label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i, label %_ZN4llvm15SmallVectorImplIPKNS_17MachineBasicBlockEE6appendIPPS1_vEEvT_S8_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader.i:               ; preds = %_ZN4llvm15SmallVectorImplIPKNS_17MachineBasicBlockEE7reserveEm.exit.i
-  %977 = getelementptr ptr, ptr %974, i64 %975
+  %977 = getelementptr inbounds ptr, ptr %974, i64 %975
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i
@@ -52074,7 +52074,7 @@ _ZN4llvm15SmallVectorImplIN15LiveDebugValues13ResolvedDbgOpEE7reserveEm.exit: ; 
   br i1 %.not7.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN15LiveDebugValues13ResolvedDbgOpELb1EE18uninitialized_copyISt13move_iteratorIPS2_ES6_EEvT_S8_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplIN15LiveDebugValues13ResolvedDbgOpEE7reserveEm.exit
-  %16 = getelementptr %"struct.LiveDebugValues::ResolvedDbgOp", ptr %14, i64 %15
+  %16 = getelementptr inbounds %"struct.LiveDebugValues::ResolvedDbgOp", ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
@@ -57528,7 +57528,7 @@ define linkonce_odr void @_ZNSt6vectorIN15LiveDebugValues6LocIdxESaIS1_EE14_M_fi
 
 20:                                               ; preds = %14
   %21 = sub i64 0, %2
-  %22 = getelementptr %"class.LiveDebugValues::LocIdx", ptr %9, i64 %21
+  %22 = getelementptr inbounds %"class.LiveDebugValues::LocIdx", ptr %9, i64 %21
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %20, %.lr.ph.i.i.i.i.i
@@ -57676,7 +57676,7 @@ _ZSt24__uninitialized_fill_n_aIPN15LiveDebugValues6LocIdxEmS1_S1_ET_S3_T0_RKT1_R
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN15LiveDebugValues6LocIdxES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i75, %_ZSt24__uninitialized_fill_n_aIPN15LiveDebugValues6LocIdxEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit73
   %.0.lcssa.i.i.i.i.i79 = phi ptr [ %64, %_ZSt24__uninitialized_fill_n_aIPN15LiveDebugValues6LocIdxEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit73 ], [ %70, %.lr.ph.i.i.i.i.i75 ]
-  %71 = getelementptr %"class.LiveDebugValues::LocIdx", ptr %.0.lcssa.i.i.i.i.i79, i64 %2
+  %71 = getelementptr inbounds %"class.LiveDebugValues::LocIdx", ptr %.0.lcssa.i.i.i.i.i79, i64 %2
   %.not7.i.i.i.i.i80 = icmp eq ptr %1, %9
   br i1 %.not7.i.i.i.i.i80, label %_ZSt34__uninitialized_move_if_noexcept_aIPN15LiveDebugValues6LocIdxES2_SaIS1_EET0_T_S5_S4_RT1_.exit86, label %.lr.ph.i.i.i.i.i81
 
@@ -61971,7 +61971,7 @@ _ZN4llvm15SmallVectorImplIPKNS_17MachineBasicBlockEE7reserveEm.exit: ; preds = %
   br i1 %16, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_17MachineBasicBlockELb1EE18uninitialized_copyIPPS1_PS3_EEvT_S9_T0_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN4llvm15SmallVectorImplIPKNS_17MachineBasicBlockEE7reserveEm.exit
-  %17 = getelementptr ptr, ptr %14, i64 %15
+  %17 = getelementptr inbounds ptr, ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i
@@ -72311,8 +72311,8 @@ _ZSt4copyIPKSt5tupleIJPN4llvm17MachineBasicBlockEPS3_S4_EEPS5_ET0_T_SA_S9_.exit3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKSt5tupleIJPN4llvm17MachineBasicBlockEPS3_S4_EEPS5_ET0_T_SA_S9_.exit36
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr %"class.std::tuple.1432", ptr %48, i64 %.022
-  %50 = getelementptr %"class.std::tuple.1432", ptr %45, i64 %.022
+  %49 = getelementptr inbounds %"class.std::tuple.1432", ptr %48, i64 %.022
+  %50 = getelementptr inbounds %"class.std::tuple.1432", ptr %45, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i

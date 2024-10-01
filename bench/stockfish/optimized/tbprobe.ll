@@ -714,7 +714,7 @@ _ZNSt12_Vector_baseISt4pairIiN9Stockfish6SquareEESaIS3_EE11_M_allocateEm.exit.i.
 
 _ZNSt6vectorISt4pairIiN9Stockfish6SquareEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit23.i.i.us: ; preds = %.lr.ph.i.i.i.i.i.us, %_ZNSt12_Vector_baseISt4pairIiN9Stockfish6SquareEESaIS3_EE11_M_allocateEm.exit.i.i.us
   %.0.lcssa.i.i.i.i.i.us = phi ptr [ %152, %_ZNSt12_Vector_baseISt4pairIiN9Stockfish6SquareEESaIS3_EE11_M_allocateEm.exit.i.i.us ], [ %157, %.lr.ph.i.i.i.i.i.us ]
-  %158 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.us, i64 8
+  %158 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.us, i64 8
   %.not.i24.i.i.us = icmp eq ptr %.sroa.0265.2358.us, null
   br i1 %.not.i24.i.i.us, label %_ZNSt6vectorISt4pairIiN9Stockfish6SquareEESaIS3_EE17_M_realloc_insertIJRiRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.us, label %159
 
@@ -8160,7 +8160,7 @@ _ZSt4moveIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit: ; preds = %29, %32
   br i1 %36, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %35
-  %37 = getelementptr i32, ptr %.053, i64 %.074
+  %37 = getelementptr inbounds i32, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90

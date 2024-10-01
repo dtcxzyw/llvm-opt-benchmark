@@ -34938,7 +34938,7 @@ sinfl_decode.exit213:                             ; preds = %462, %479
   %513 = add nsw i32 %506, %512
   %514 = sext i32 %513 to i64
   %515 = sub nsw i64 0, %514
-  %516 = getelementptr i8, ptr %.3, i64 %515
+  %516 = getelementptr inbounds i8, ptr %.3, i64 %515
   %517 = ptrtoint ptr %.3 to i64
   %518 = sub i64 %517, %28
   %519 = trunc i64 %518 to i32
@@ -34967,8 +34967,8 @@ sinfl_decode.exit213:                             ; preds = %462, %479
   %534 = getelementptr inbounds i8, ptr %516, i64 8
   %535 = load i64, ptr %534, align 1
   store i64 %535, ptr %533, align 1
-  %536 = getelementptr i8, ptr %.3, i64 16
-  %537 = getelementptr i8, ptr %516, i64 16
+  %536 = getelementptr inbounds i8, ptr %.3, i64 16
+  %537 = getelementptr inbounds i8, ptr %516, i64 16
   br label %538
 
 538:                                              ; preds = %538, %531
@@ -35015,9 +35015,9 @@ sinfl_decode.exit213:                             ; preds = %462, %479
   %564 = load i8, ptr %516, align 1
   %565 = getelementptr inbounds i8, ptr %.3, i64 1
   store i8 %564, ptr %.3, align 1
-  %566 = getelementptr i8, ptr %516, i64 2
+  %566 = getelementptr inbounds i8, ptr %516, i64 2
   %567 = load i8, ptr %563, align 1
-  %568 = getelementptr i8, ptr %.3, i64 2
+  %568 = getelementptr inbounds i8, ptr %.3, i64 2
   store i8 %567, ptr %565, align 1
   br label %569
 
@@ -35036,9 +35036,9 @@ sinfl_decode.exit213:                             ; preds = %462, %479
   %576 = load i8, ptr %516, align 1
   %577 = getelementptr inbounds i8, ptr %.3, i64 1
   store i8 %576, ptr %.3, align 1
-  %578 = getelementptr i8, ptr %516, i64 2
+  %578 = getelementptr inbounds i8, ptr %516, i64 2
   %579 = load i8, ptr %575, align 1
-  %580 = getelementptr i8, ptr %.3, i64 2
+  %580 = getelementptr inbounds i8, ptr %.3, i64 2
   store i8 %579, ptr %577, align 1
   br label %581
 

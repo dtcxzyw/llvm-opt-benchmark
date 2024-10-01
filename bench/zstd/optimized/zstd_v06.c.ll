@@ -7239,7 +7239,7 @@ ZSTDv06_decodeSequence.exit.i:                    ; preds = %if.end101.sink.spli
   %conv2.i116.i.i = zext i16 %DInfo.sroa.0.0.copyload.i101.i.i to i64
   %add.i117.i.i = add nuw i64 %shr3.i.i.i114.i.i, %conv2.i116.i.i
   store i64 %add.i117.i.i, ptr %stateOffb.i, align 8
-  %add.ptr.i214.i = getelementptr i8, ptr %op.1300.i, i64 %add93.i.i
+  %add.ptr.i214.i = getelementptr inbounds i8, ptr %op.1300.i, i64 %add93.i.i
   %add.i216.i = add i64 %add93.i.i, %add71.i.i
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %op.1300.i, i64 %add.i216.i
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %litPtr.1298.i, i64 %add93.i.i
@@ -7366,8 +7366,8 @@ if.else.i227.i:                                   ; preds = %if.end63.i.i
 
 if.end83.i.i:                                     ; preds = %if.else.i227.i, %if.then66.i.i
   %match.2.i.i = phi ptr [ %add.ptr82.i.i, %if.then66.i.i ], [ %match.0.i.i, %if.else.i227.i ]
-  %add.ptr84.i.i = getelementptr i8, ptr %op.addr.0.i.i, i64 8
-  %add.ptr85.i.i = getelementptr i8, ptr %match.2.i.i, i64 8
+  %add.ptr84.i.i = getelementptr inbounds i8, ptr %op.addr.0.i.i, i64 8
+  %add.ptr85.i.i = getelementptr inbounds i8, ptr %match.2.i.i, i64 8
   %cmp87.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr86.i.i
   br i1 %cmp87.i.i, label %if.then88.i.i, label %if.else105.i.i
 

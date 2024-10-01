@@ -8391,7 +8391,7 @@ _ZNSt12_Vector_baseISt8optionalIN4llvm32StrOffsetsContributionDescriptorEESaIS3_
 
 _ZNSt6vectorISt8optionalIN4llvm32StrOffsetsContributionDescriptorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt8optionalIN4llvm32StrOffsetsContributionDescriptorEESaIS3_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %46, %_ZNSt12_Vector_baseISt8optionalIN4llvm32StrOffsetsContributionDescriptorEESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ %49, %.lr.ph.i.i.i.i.i.i ]
-  %50 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
+  %50 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
   %.not.i23.i.i.i = icmp eq ptr %.sroa.015.0, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt8optionalIN4llvm32StrOffsetsContributionDescriptorEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %51
 
@@ -12730,7 +12730,7 @@ _ZNSt12_Vector_baseIN4llvm11SectionNameESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i: 
 
 _ZNSt6vectorIN4llvm11SectionNameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm11SectionNameESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %282, %_ZNSt12_Vector_baseIN4llvm11SectionNameESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i ], [ %285, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %286 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 24
+  %286 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i.i.i = icmp eq ptr %268, null
   br i1 %.not.i23.i.i.i.i.i, label %_ZNSt6vectorIN4llvm11SectionNameESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, label %287
 
@@ -17418,7 +17418,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_E
 
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
@@ -24382,7 +24382,7 @@ _ZSt8distanceIN4llvm8DWARFDie8iteratorEENSt15iterator_traitsIT_E15difference_typ
 
 36:                                               ; preds = %31
   %37 = xor i64 %.03.i.i, -1
-  %38 = getelementptr %"class.llvm::DWARFDie", ptr %26, i64 %37
+  %38 = getelementptr inbounds %"class.llvm::DWARFDie", ptr %26, i64 %37
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %36, %.lr.ph.i.i.i.i.i
@@ -24503,7 +24503,7 @@ _ZSt22__uninitialized_copy_aIN4llvm8DWARFDie8iteratorEPS1_S1_ET0_T_S5_S4_RSaIT1_
   %75 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN4llvm8DWARFDie8iteratorEPS1_S1_ET0_T_S5_S4_RSaIT1_E.exit.loopexit ], [ %65, %_ZSt7advanceIN4llvm8DWARFDie8iteratorEmEvRT_T0_.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %76 = sub nuw i64 %20, %34
-  %77 = getelementptr %"class.llvm::DWARFDie", ptr %75, i64 %76
+  %77 = getelementptr inbounds %"class.llvm::DWARFDie", ptr %75, i64 %76
   store ptr %77, ptr %25, align 8
   %.not7.i.i.i.i.i56 = icmp eq ptr %1, %26
   br i1 %.not7.i.i.i.i.i56, label %_ZSt22__uninitialized_move_aIPN4llvm8DWARFDieES2_SaIS1_EET0_T_S5_S4_RT1_.exit62, label %.lr.ph.i.i.i.i.i57
@@ -24611,7 +24611,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4llvm8DWARFDieES2_SaIS1_EET0_T_S5_S4_
   %111 = extractvalue { ptr, ptr } %109, 1
   store ptr %110, ptr %7, align 8
   store ptr %111, ptr %108, align 8
-  %112 = getelementptr i8, ptr %.05.i.i.i.i78, i64 16
+  %112 = getelementptr inbounds i8, ptr %.05.i.i.i.i78, i64 16
   %113 = icmp ne ptr %111, %5
   %114 = icmp ne ptr %110, %4
   %.not3.i.i.i.i.i79 = select i1 %113, i1 true, i1 %114

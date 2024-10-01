@@ -854,7 +854,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %306, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %309, %.lr.ph.i.i.i.i.i.i ]
-  %310 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
+  %310 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
   call void @_ZdlPvm(ptr noundef nonnull %287, i64 noundef %296) #18
   %311 = getelementptr inbounds %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %306, i64 %304
   br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE9push_backERKS1_.exit.i
@@ -949,7 +949,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i102.i: ; preds = %.lr.ph.i.i.i.i.i98.i, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i95.i
   %.0.lcssa.i.i.i.i.i103.i = phi ptr [ %344, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i95.i ], [ %347, %.lr.ph.i.i.i.i.i98.i ]
-  %348 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i103.i, i64 32
+  %348 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i103.i, i64 32
   %.not.i27.i.i104.i = icmp eq ptr %326, null
   br i1 %.not.i27.i.i104.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i105.i, label %349
 
@@ -1076,7 +1076,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i116.i: ; preds = %.lr.ph.i.i.i.i.i112.i, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i109.i
   %.0.lcssa.i.i.i.i.i117.i = phi ptr [ %395, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i109.i ], [ %398, %.lr.ph.i.i.i.i.i112.i ]
-  %399 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i117.i, i64 32
+  %399 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i117.i, i64 32
   %.not.i27.i.i118.i = icmp eq ptr %365, null
   br i1 %.not.i27.i.i118.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i119.i, label %400
 
@@ -1158,7 +1158,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i130.i: ; preds = %.lr.ph.i.i.i.i.i126.i, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i123.i
   %.0.lcssa.i.i.i.i.i131.i = phi ptr [ %427, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i123.i ], [ %430, %.lr.ph.i.i.i.i.i126.i ]
-  %431 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i131.i, i64 32
+  %431 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i131.i, i64 32
   %.not.i27.i.i132.i = icmp eq ptr %408, null
   br i1 %.not.i27.i.i132.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i133.i, label %432
 
@@ -1286,7 +1286,7 @@ _ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i.i.i.
 
 _ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %477, %_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i.i.i.i ], [ %480, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
-  %481 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i, i64 16
+  %481 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i.i.i.i.i.i = icmp eq ptr %456, null
   br i1 %.not.i23.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i.i.i.i, label %482
 
@@ -1988,7 +1988,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i: ; preds = %.lr.ph.i.i.i.i.i36, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %118, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %123, %.lr.ph.i.i.i.i.i36 ]
-  %124 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
+  %124 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
   %.not.i33.i.i = icmp eq ptr %.val21.i.i, null
   br i1 %.not.i33.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %125
 
@@ -2144,7 +2144,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i55: ; preds = %.lr.ph.i.i.i.i.i51, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i47
   %.0.lcssa.i.i.i.i.i56 = phi ptr [ %179, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i47 ], [ %184, %.lr.ph.i.i.i.i.i51 ]
-  %185 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i56, i64 32
+  %185 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i56, i64 32
   %.not.i33.i.i57 = icmp eq ptr %.val21.i.i46, null
   br i1 %.not.i33.i.i57, label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i58, label %186
 
@@ -3143,7 +3143,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_E
 
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 

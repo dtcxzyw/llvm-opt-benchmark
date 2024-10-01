@@ -1206,7 +1206,7 @@ _ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE11_M_allocateEm.exit.i135.i: ; preds
   br i1 %cmp.not5.i.i.i.i138.i, label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i155.thread.i, label %for.body.i.i.i.i139.i
 
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i155.thread.i: ; preds = %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE11_M_allocateEm.exit.i135.i
-  %incdec.ptr.i147185.i = getelementptr i8, ptr %cond.i10.i136.i, i64 8
+  %incdec.ptr.i147185.i = getelementptr inbounds nuw i8, ptr %cond.i10.i136.i, i64 8
   br label %.noexc101.i
 
 for.body.i.i.i.i139.i:                            ; preds = %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE11_M_allocateEm.exit.i135.i, %for.body.i.i.i.i139.i
@@ -1222,7 +1222,7 @@ for.body.i.i.i.i139.i:                            ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.not.i.i.i.i144.i, label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i155.i, label %for.body.i.i.i.i139.i, !llvm.loop !80
 
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i155.i: ; preds = %for.body.i.i.i.i139.i
-  %incdec.ptr.i147.i = getelementptr i8, ptr %__cur.07.i.i.i.i140.i, i64 16
+  %incdec.ptr.i147.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i140.i, i64 16
   br label %.noexc101.i
 
 .noexc101.i:                                      ; preds = %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i155.thread.i, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i155.i

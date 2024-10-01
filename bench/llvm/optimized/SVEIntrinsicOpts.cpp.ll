@@ -5290,8 +5290,8 @@ _ZSt4copyIPKSt5tupleIJPN4llvm10BasicBlockENS1_12SuccIteratorINS1_11InstructionES
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKSt5tupleIJPN4llvm10BasicBlockENS1_12SuccIteratorINS1_11InstructionES2_EES6_EEPS7_ET0_T_SC_SB_.exit36
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr %"class.std::tuple.215", ptr %62, i64 %.022
-  %64 = getelementptr %"class.std::tuple.215", ptr %59, i64 %.022
+  %63 = getelementptr inbounds %"class.std::tuple.215", ptr %62, i64 %.022
+  %64 = getelementptr inbounds %"class.std::tuple.215", ptr %59, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i

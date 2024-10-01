@@ -288,10 +288,10 @@ define internal fastcc ptr @Kit_TruthIsop_rec(ptr noundef %0, ptr noundef %1, i3
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = sext i32 %15 to i64
-  %24 = getelementptr i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds i32, ptr %22, i64 %23
   %25 = sext i32 %12 to i64
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr i32, ptr %24, i64 %26
+  %27 = getelementptr inbounds i32, ptr %24, i64 %26
   %28 = zext i32 %12 to i64
   br label %select.unfold.i
 

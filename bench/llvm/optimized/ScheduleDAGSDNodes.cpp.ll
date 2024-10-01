@@ -7843,7 +7843,7 @@ _ZNSt17_Temporary_bufferIPSt4pairIjPN4llvm12MachineInstrEES4_EC2ES5_l.exit.threa
   br label %_ZNSt17_Temporary_bufferIPSt4pairIjPN4llvm12MachineInstrEES4_EC2ES5_l.exit.thread23.sink.split
 
 .lr.ph.i.i.preheader.i:                           ; preds = %12
-  %.01518.i.i.i = getelementptr i8, ptr %11, i64 16
+  %.01518.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
@@ -9573,7 +9573,7 @@ _ZSt4moveIPPN4llvm10SDDbgValueES3_ET0_T_S5_S4_.exit: ; preds = %29, %32
   br i1 %36, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %35
-  %37 = getelementptr ptr, ptr %.053, i64 %.074
+  %37 = getelementptr inbounds ptr, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90

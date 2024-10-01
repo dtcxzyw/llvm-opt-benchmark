@@ -1230,7 +1230,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i106 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 48
+  %incdec.ptr.i106 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 48
   %tobool.not.i.i107 = icmp eq ptr %45, null
   br i1 %tobool.not.i.i107, label %_ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE17_M_realloc_insertIJRjPKcimNS0_5SliceEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
 
@@ -1564,7 +1564,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 48
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 48
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE17_M_realloc_insertIJRjDnRmmNS0_5SliceEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %if.then.i27.i
 
@@ -9950,7 +9950,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJRPKcRKmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -9983,7 +9983,7 @@ if.then.i8:                                       ; preds = %_ZNSt6vectorIN7rock
   br label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS1_DpOT_.exit
 
 if.else.i11:                                      ; preds = %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE12emplace_backIJRPKcRKmEEERS1_DpOT_.exit
-  tail call void @_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %key_parts, ptr %7, ptr noundef nonnull align 8 dereferenceable(32) %min_timestamp)
+  tail call void @_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %key_parts, ptr nonnull %7, ptr noundef nonnull align 8 dereferenceable(32) %min_timestamp)
   %.pre102 = load ptr, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS1_DpOT_.exit
 
@@ -10051,7 +10051,7 @@ for.body.i.i.i.i.i38:                             ; preds = %invoke.cont.i.i33, 
 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i44: ; preds = %for.body.i.i.i.i.i38, %invoke.cont.i.i33
   %__cur.0.lcssa.i.i.i.i.i45 = phi ptr [ %cond.i17.i.i34, %invoke.cont.i.i33 ], [ %incdec.ptr1.i.i.i.i.i42, %for.body.i.i.i.i.i38 ]
-  %incdec.ptr.i.i46 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i45, i64 16
+  %incdec.ptr.i.i46 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i45, i64 16
   %tobool.not.i.i.i47 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i47, label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJPKcmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i27.i.i48
 
@@ -10134,7 +10134,7 @@ for.body.i.i.i.i.i77:                             ; preds = %invoke.cont.i.i72, 
 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i83: ; preds = %for.body.i.i.i.i.i77, %invoke.cont.i.i72
   %__cur.0.lcssa.i.i.i.i.i84 = phi ptr [ %cond.i17.i.i73, %invoke.cont.i.i72 ], [ %incdec.ptr1.i.i.i.i.i81, %for.body.i.i.i.i.i77 ]
-  %incdec.ptr.i.i85 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i84, i64 16
+  %incdec.ptr.i.i85 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i84, i64 16
   %tobool.not.i.i.i86 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i86, label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJRPKcRKmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i88, label %if.then.i27.i.i87
 
@@ -10219,7 +10219,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, label %for.body.i.i.i19
 

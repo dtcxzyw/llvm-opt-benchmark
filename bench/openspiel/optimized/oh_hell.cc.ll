@@ -7278,7 +7278,7 @@ _ZNKSt6vectorISt4pairIldESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %42
 
 _ZNSt6vectorISt4pairIldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i: ; preds = %.lr.ph.i.i.i.i25, %.noexc32
   %.0.lcssa.i.i.i.i = phi ptr [ %56, %.noexc32 ], [ %60, %.lr.ph.i.i.i.i25 ]
-  %61 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %61 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %43, null
   br i1 %.not.i34.i, label %.noexc, label %62
 
@@ -7414,7 +7414,7 @@ _ZNKSt6vectorISt4pairIldESaIS1_EE12_M_check_lenEmPKc.exit.i33: ; preds = %88
 
 _ZNSt6vectorISt4pairIldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i48: ; preds = %.lr.ph.i.i.i.i37, %.noexc53
   %.0.lcssa.i.i.i.i42 = phi ptr [ %102, %.noexc53 ], [ %106, %.lr.ph.i.i.i.i37 ]
-  %107 = getelementptr i8, ptr %.0.lcssa.i.i.i.i42, i64 16
+  %107 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i42, i64 16
   %.not.i34.i50 = icmp eq ptr %89, null
   br i1 %.not.i34.i50, label %.noexc17, label %108
 
@@ -7563,7 +7563,7 @@ _ZNKSt6vectorISt4pairIldESaIS1_EE12_M_check_lenEmPKc.exit.i54: ; preds = %156
 
 _ZNSt6vectorISt4pairIldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i69: ; preds = %.lr.ph.i.i.i.i58, %.noexc74
   %.0.lcssa.i.i.i.i63 = phi ptr [ %170, %.noexc74 ], [ %174, %.lr.ph.i.i.i.i58 ]
-  %175 = getelementptr i8, ptr %.0.lcssa.i.i.i.i63, i64 16
+  %175 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i63, i64 16
   %.not.i34.i71 = icmp eq ptr %157, null
   br i1 %.not.i34.i71, label %.noexc22, label %176
 
@@ -16822,7 +16822,7 @@ _ZNKSt6vectorISt4pairIldESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %4
 
 _ZNSt6vectorISt4pairIldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %24
   %.0.lcssa.i.i.i = phi ptr [ %25, %24 ], [ %32, %.lr.ph.i.i.i ]
-  %33 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 16
+  %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 16
   %.not10.i.i.i27 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorISt4pairIldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i28
 

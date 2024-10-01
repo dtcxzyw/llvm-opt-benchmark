@@ -1266,7 +1266,7 @@ for.body.i.i.i.i74:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i: ; preds = %for.body.i.i.i.i74, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i74 ]
-  %incdec.ptr.i77 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
+  %incdec.ptr.i77 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i, label %.noexc, label %if.then.i20.i
 
@@ -2380,7 +2380,7 @@ for.body.i.i.i.i65:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIKN8facebook3jsi6BufferESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19.i: ; preds = %for.body.i.i.i.i65, %_ZNSt12_Vector_baseISt10unique_ptrIKN8facebook3jsi6BufferESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIKN8facebook3jsi6BufferESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i65 ]
-  %incdec.ptr.i68 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
+  %incdec.ptr.i68 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i69 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i69, label %.noexc, label %if.then.i20.i
 
@@ -24447,7 +24447,7 @@ for.inc.i.i.i.i.i:                                ; preds = %invoke.cont, %for.i
 
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
   %cmp.i.i.not7.i.i.i.i.i20 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.i.i.not7.i.i.i.i.i20, label %invoke.cont14, label %for.inc.i.i.i.i.i21
 

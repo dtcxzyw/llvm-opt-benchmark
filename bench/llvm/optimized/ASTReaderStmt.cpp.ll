@@ -1256,7 +1256,7 @@ define dso_local void @_ZN5clang13ASTStmtReader19VisitAttributedStmtEPNS_14Attri
   br i1 %12, label %.lr.ph.i.i.i.i.i.preheader, label %_ZSt4copyIPPN5clang4AttrEPPKS1_ET0_T_S8_S7_.exit
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %2
-  %13 = getelementptr i8, ptr %1, i64 16
+  %13 = getelementptr inbounds i8, ptr %1, i64 16
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i

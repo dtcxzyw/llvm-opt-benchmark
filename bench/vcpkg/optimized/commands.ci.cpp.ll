@@ -2605,7 +2605,7 @@ _ZNKSt6vectorIN5vcpkg13StringLiteralESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; p
 
 _ZNSt6vectorIN5vcpkg13StringLiteralESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i410, %.noexc73.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %691, %.noexc73.i ], [ %695, %.lr.ph.i.i.i.i.i.i410 ]
-  %696 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %696 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i33.i.i.i = icmp eq ptr %678, null
   br i1 %.not.i33.i.i.i, label %_ZNSt6vectorIN5vcpkg13StringLiteralESaIS1_EE17_M_realloc_insertIJRA5_KcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %697
 
@@ -3092,7 +3092,7 @@ _ZNKSt6vectorIN5vcpkg13StringLiteralESaIS1_EE12_M_check_lenEmPKc.exit.i.i109.i: 
 
 _ZNSt6vectorIN5vcpkg13StringLiteralESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i117.i: ; preds = %.lr.ph.i.i.i.i.i113.i, %.noexc121.i
   %.0.lcssa.i.i.i.i.i118.i = phi ptr [ %783, %.noexc121.i ], [ %787, %.lr.ph.i.i.i.i.i113.i ]
-  %788 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i118.i, i64 16
+  %788 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i118.i, i64 16
   %.not.i33.i.i119.i = icmp eq ptr %770, null
   br i1 %.not.i33.i.i119.i, label %_ZNSt6vectorIN5vcpkg13StringLiteralESaIS1_EE17_M_realloc_insertIJRA8_KcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %789
 
@@ -3215,7 +3215,7 @@ _ZNKSt6vectorIN5vcpkg13StringLiteralESaIS1_EE12_M_check_lenEmPKc.exit.i.i146.i: 
 
 _ZNSt6vectorIN5vcpkg13StringLiteralESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i154.i: ; preds = %.lr.ph.i.i.i.i.i150.i, %.noexc159.i
   %.0.lcssa.i.i.i.i.i155.i = phi ptr [ %827, %.noexc159.i ], [ %831, %.lr.ph.i.i.i.i.i150.i ]
-  %832 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i155.i, i64 16
+  %832 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i155.i, i64 16
   %.not.i33.i.i156.i = icmp eq ptr %814, null
   br i1 %.not.i33.i.i156.i, label %_ZNSt6vectorIN5vcpkg13StringLiteralESaIS1_EE17_M_realloc_insertIJRA5_KcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i157.i, label %833
 
@@ -3331,7 +3331,7 @@ _ZNKSt6vectorIN5vcpkg13StringLiteralESaIS1_EE12_M_check_lenEmPKc.exit.i.i182.i: 
 
 _ZNSt6vectorIN5vcpkg13StringLiteralESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i190.i: ; preds = %.lr.ph.i.i.i.i.i186.i, %.noexc194.i
   %.0.lcssa.i.i.i.i.i191.i = phi ptr [ %863, %.noexc194.i ], [ %867, %.lr.ph.i.i.i.i.i186.i ]
-  %868 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i191.i, i64 16
+  %868 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i191.i, i64 16
   %.not.i33.i.i192.i = icmp eq ptr %849, null
   br i1 %.not.i33.i.i192.i, label %_ZNSt6vectorIN5vcpkg13StringLiteralESaIS1_EE17_M_realloc_insertIJRA2_KcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %869
 

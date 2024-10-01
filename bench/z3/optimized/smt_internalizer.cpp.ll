@@ -7911,7 +7911,7 @@ while.end.i.i:                                    ; preds = %_ZNK6vectorIN3smt13
 
 for.body.preheader.i.i:                           ; preds = %while.end.i.i
   %idx.ext.i.i = zext i32 %retval.0.i16.i.i.ph to i64
-  %add.ptr.i.i = getelementptr %"struct.smt::bool_var_data", ptr %13, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds %"struct.smt::bool_var_data", ptr %13, i64 %idx.ext.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -11503,7 +11503,7 @@ while.end.i:                                      ; preds = %_ZNK6vectorI10ptr_v
 
 for.body.preheader.i:                             ; preds = %while.end.i
   %idx.ext.i = zext i32 %retval.0.i16.i.ph to i64
-  %add.ptr.i = getelementptr %class.ptr_vector.221, ptr %9, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds %class.ptr_vector.221, ptr %9, i64 %idx.ext.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -15450,7 +15450,7 @@ _ZNK6vectorI9parameterLb1EjE4sizeEv.exit:         ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %class.parameter, ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0
@@ -16023,7 +16023,7 @@ _ZNK6vectorISt4pairIP4exprbELb0EjE4sizeEv.exit:   ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0
@@ -17032,7 +17032,7 @@ _ZNK6vectorIN3smt10watch_listELb1EjE4sizeEv.exit: ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.smt::watch_list", ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0
@@ -17189,7 +17189,7 @@ _ZNK6vectorI10ptr_vectorIN3smt5enodeEELb1EjE4sizeEv.exit: ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %class.ptr_vector.194, ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0
@@ -17910,7 +17910,7 @@ _ZNK6vectorI10ptr_vectorIN3smt6clauseEELb1EjE4sizeEv.exit: ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %class.ptr_vector.221, ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0

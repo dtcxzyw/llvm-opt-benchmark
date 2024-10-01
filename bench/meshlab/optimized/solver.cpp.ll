@@ -1110,7 +1110,7 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
   %22 = add i32 %21, %16
   %23 = sext i32 %22 to i64
   %24 = tail call noalias ptr @calloc(i64 noundef %23, i64 noundef 8) #27
-  %25 = getelementptr i8, ptr %24, i64 -8
+  %25 = getelementptr inbounds i8, ptr %24, i64 -8
   %26 = add i32 %0, 1
   %27 = add nsw i32 %0, 2
   %28 = icmp slt i32 %13, %27
@@ -1144,7 +1144,7 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
   %49 = add nsw i32 %48, %0
   %50 = add nsw i32 %49, %15
   %51 = sext i32 %26 to i64
-  %52 = getelementptr double, ptr %25, i64 %51
+  %52 = getelementptr inbounds double, ptr %25, i64 %51
   %53 = sext i32 %36 to i64
   %54 = getelementptr inbounds double, ptr %25, i64 %53
   %55 = sext i32 %37 to i64
@@ -1152,11 +1152,11 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
   %57 = sext i32 %39 to i64
   %58 = getelementptr inbounds double, ptr %25, i64 %57
   %59 = sext i32 %40 to i64
-  %60 = getelementptr double, ptr %25, i64 %59
+  %60 = getelementptr inbounds double, ptr %25, i64 %59
   %61 = sext i32 %41 to i64
   %62 = getelementptr inbounds double, ptr %25, i64 %61
   %63 = sext i32 %44 to i64
-  %64 = getelementptr double, ptr %25, i64 %63
+  %64 = getelementptr inbounds double, ptr %25, i64 %63
   %65 = sext i32 %45 to i64
   %66 = getelementptr inbounds double, ptr %25, i64 %65
   %67 = sext i32 %47 to i64
@@ -5485,7 +5485,7 @@ define void @_ZN6Solver5valueEPdS0_iiPv(ptr nocapture noundef readonly %0, ptr n
   %8 = load i32, ptr %7, align 8
   %9 = add nsw i32 %8, 1
   store i32 %9, ptr %7, align 8
-  %10 = getelementptr i8, ptr %4, i64 16
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8

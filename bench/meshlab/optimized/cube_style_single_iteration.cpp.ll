@@ -2192,7 +2192,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_7ProductINS_12SparseMatrixIdLi0Ei
   %91 = load i64, ptr %15, align 8
   %92 = mul nsw i64 %91, %indvars.iv
   %93 = load ptr, ptr %9, align 8, !noalias !11
-  %94 = getelementptr double, ptr %93, i64 %92
+  %94 = getelementptr inbounds double, ptr %93, i64 %92
   %.not.i.i = icmp eq i64 %91, 0
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i
 
@@ -2257,7 +2257,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %118 = load ptr, ptr %85, align 8, !noalias !16
   %119 = load i64, ptr %86, align 8, !noalias !16
   %120 = mul nsw i64 %119, %indvars.iv
-  %121 = getelementptr double, ptr %118, i64 %120
+  %121 = getelementptr inbounds double, ptr %118, i64 %120
   %122 = load i64, ptr %87, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %122, %119
   %.pre = load ptr, ptr %13, align 8

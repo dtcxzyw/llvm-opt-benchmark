@@ -1589,7 +1589,7 @@ _ZNSt12_Vector_baseIN4llvm19ProfileSummaryEntryESaIS1_EE11_M_allocateEm.exit.i: 
 
 _ZNSt6vectorIN4llvm19ProfileSummaryEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit24.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm19ProfileSummaryEntryESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %170, %_ZNSt12_Vector_baseIN4llvm19ProfileSummaryEntryESaIS1_EE11_M_allocateEm.exit.i ], [ %176, %.lr.ph.i.i.i.i ]
-  %177 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 24
+  %177 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
   %.not.i25.i = icmp eq ptr %156, null
   br i1 %.not.i25.i, label %_ZNSt6vectorIN4llvm19ProfileSummaryEntryESaIS1_EE17_M_realloc_insertIJmmmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %178
 

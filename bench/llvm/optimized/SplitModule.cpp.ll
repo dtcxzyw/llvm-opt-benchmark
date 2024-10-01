@@ -1568,7 +1568,7 @@ _ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.i111.i: ; preds = %6
 
 _ZNSt6vectorISt4pairIjjESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit127.i: ; preds = %.lr.ph.i.i.i.i113.i, %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.i111.i
   %.0.lcssa.i.i.i.i118.i = phi ptr [ %629, %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.i111.i ], [ %633, %.lr.ph.i.i.i.i113.i ]
-  %634 = getelementptr i8, ptr %.0.lcssa.i.i.i.i118.i, i64 8
+  %634 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i118.i, i64 8
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0221.1304.i, i64 noundef %618) #18
   %635 = getelementptr inbounds %"struct.std::pair.111", ptr %629, i64 %625
   %.sroa.02.0.copyload.i.i87.pre.i = load i64, ptr %.0.lcssa.i.i.i.i118.i, align 4
@@ -2467,7 +2467,7 @@ _ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.i158: ; preds = %995
 
 _ZNSt6vectorISt4pairIjjESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit174: ; preds = %.lr.ph.i.i.i.i160, %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.i158
   %.0.lcssa.i.i.i.i165 = phi ptr [ %998, %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.i158 ], [ %1002, %.lr.ph.i.i.i.i160 ]
-  %1003 = getelementptr i8, ptr %.0.lcssa.i.i.i.i165, i64 8
+  %1003 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i165, i64 8
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0222.2374, i64 noundef %987) #18
   %1004 = getelementptr inbounds %"struct.std::pair.111", ptr %998, i64 %994
   %.sroa.02.0.copyload.i.i109.pre = load i64, ptr %.0.lcssa.i.i.i.i165, align 4

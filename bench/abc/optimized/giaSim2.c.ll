@@ -1846,13 +1846,13 @@ Gia_Sim2SimulateNode.exit.i:                      ; preds = %.lr.ph.i64.i, %.lr.
   %.val60.i = load i32, ptr %180, align 4
   %181 = mul nsw i32 %.val60.i, %.val39.i
   %182 = sext i32 %181 to i64
-  %183 = getelementptr i32, ptr %.val58.i, i64 %182
+  %183 = getelementptr inbounds i32, ptr %.val58.i, i64 %182
   %184 = trunc i64 %.val59.i to i32
   %185 = and i32 %184, 536870911
   %186 = sub nsw i32 %.val60.i, %185
   %187 = mul nsw i32 %186, %.val39.i
   %188 = sext i32 %187 to i64
-  %189 = getelementptr i32, ptr %.val58.i, i64 %188
+  %189 = getelementptr inbounds i32, ptr %.val58.i, i64 %188
   %190 = and i32 %184, 536870912
   %.not.i67.i = icmp eq i32 %190, 0
   br i1 %.not.i67.i, label %.preheader.i73.i, label %.preheader1.i68.i
@@ -2122,12 +2122,12 @@ Abc_Clock.exit88:                                 ; preds = %265, %268
   %.val20.i92 = load ptr, ptr %69, align 8
   %300 = mul nsw i32 %.val27.i, %.val39.i
   %301 = sext i32 %300 to i64
-  %302 = getelementptr i32, ptr %.val20.i92, i64 %301
+  %302 = getelementptr inbounds i32, ptr %.val20.i92, i64 %301
   %303 = getelementptr %struct.Gia_Obj_t_, ptr %.val28.i, i64 %291, i32 1
   %.val26.i = load i32, ptr %303, align 4
   %304 = mul nsw i32 %.val26.i, %.val39.i
   %305 = sext i32 %304 to i64
-  %306 = getelementptr i32, ptr %.val20.i92, i64 %305
+  %306 = getelementptr inbounds i32, ptr %.val20.i92, i64 %305
   br i1 %70, label %.lr.ph.i.i95, label %Gia_Sim2InfoCopy.exit.i
 
 .lr.ph.i.i95:                                     ; preds = %283, %.lr.ph.i.i95

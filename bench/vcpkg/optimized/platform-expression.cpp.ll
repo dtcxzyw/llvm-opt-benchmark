@@ -744,7 +744,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplES
 
 _ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i18.i, %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i16.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %38, %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i16.i ], [ %42, %.lr.ph.i.i.i.i18.i ]
-  %43 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %19, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS7_EEERS7_DpOT_.exit.i, label %44
 
@@ -1031,7 +1031,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplES
 
 _ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i18.i, %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i16.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %38, %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i16.i ], [ %42, %.lr.ph.i.i.i.i18.i ]
-  %43 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %19, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS7_EEERS7_DpOT_.exit.i, label %44
 
@@ -4131,7 +4131,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplES
 
 _ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i: ; preds = %.lr.ph.i.i.i.i19, %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i17
   %.0.lcssa.i.i.i.i = phi ptr [ %42, %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i17 ], [ %47, %.lr.ph.i.i.i.i19 ]
-  %48 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %48 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %28, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS7_EEERS7_DpOT_.exit, label %49
 
@@ -8561,7 +8561,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplES
 
 _ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %34, %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i ], [ %39, %.lr.ph.i.i.i.i ]
-  %40 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %20, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit, label %41
 
@@ -8797,7 +8797,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplES
 
 _ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %34, %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i ], [ %39, %.lr.ph.i.i.i.i ]
-  %40 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %20, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit, label %41
 
@@ -8982,7 +8982,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplES
 
 _ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %31, %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i ], [ %36, %.lr.ph.i.i.i.i ]
-  %37 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %37 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %17, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit, label %38
 

@@ -3822,7 +3822,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_125pq_knn_search_with_tablesINS_4CMa
   %37 = load ptr, ptr %36, align 8
   %38 = load i64, ptr %7, align 8
   %39 = mul i64 %38, %.0198
-  %40 = getelementptr i64, ptr %37, i64 %39
+  %40 = getelementptr inbounds i64, ptr %37, i64 %39
   %41 = getelementptr inbounds i8, ptr %35, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds float, ptr %42, i64 %39
@@ -5482,7 +5482,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_125pq_knn_search_with_tablesINS_4CMi
   %37 = load ptr, ptr %36, align 8
   %38 = load i64, ptr %7, align 8
   %39 = mul i64 %38, %.0198
-  %40 = getelementptr i64, ptr %37, i64 %39
+  %40 = getelementptr inbounds i64, ptr %37, i64 %39
   %41 = getelementptr inbounds i8, ptr %35, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds float, ptr %42, i64 %39
@@ -7321,7 +7321,7 @@ define internal void @_ZNK5faiss16ProductQuantizer10search_sdcEPKhmS2_mPNS_9Heap
   %29 = load ptr, ptr %28, align 8
   %30 = load i64, ptr %4, align 8
   %31 = mul i64 %30, %.04657
-  %32 = getelementptr i64, ptr %29, i64 %31
+  %32 = getelementptr inbounds i64, ptr %29, i64 %31
   %33 = getelementptr inbounds i8, ptr %27, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds float, ptr %34, i64 %31

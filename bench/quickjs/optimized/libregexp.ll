@@ -1290,7 +1290,7 @@ is_line_terminator.exit747.thread:                ; preds = %652, %599, %542, %4
   br i1 %exitcond.not.i, label %._crit_edge.i, label %183, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %183, %168
-  %188 = getelementptr i8, ptr %173, i64 32
+  %188 = getelementptr inbounds i8, ptr %173, i64 32
   %189 = getelementptr ptr, ptr %188, i64 %181
   %.not53.i = icmp eq i32 %.0510, 0
   br i1 %.not53.i, label %push_state.exit.thread.backedge, label %.lr.ph51.i
@@ -1380,7 +1380,7 @@ is_line_terminator.exit747.thread:                ; preds = %652, %599, %542, %4
   br i1 %exitcond.not.i728, label %._crit_edge.i729, label %228, !llvm.loop !14
 
 ._crit_edge.i729:                                 ; preds = %228, %213
-  %233 = getelementptr i8, ptr %218, i64 32
+  %233 = getelementptr inbounds i8, ptr %218, i64 32
   %234 = getelementptr ptr, ptr %233, i64 %226
   %.not53.i730 = icmp eq i32 %.0510, 0
   br i1 %.not53.i730, label %push_state.exit.thread.backedge, label %.lr.ph51.i731
@@ -2380,7 +2380,7 @@ push_state.exit.thread.backedge:                  ; preds = %.lr.ph51.i781, %.pr
   br i1 %exitcond.not.i778, label %._crit_edge.i779, label %723, !llvm.loop !14
 
 ._crit_edge.i779:                                 ; preds = %723, %708
-  %728 = getelementptr i8, ptr %713, i64 32
+  %728 = getelementptr inbounds i8, ptr %713, i64 32
   %729 = getelementptr ptr, ptr %728, i64 %721
   %.not53.i780 = icmp eq i32 %.0510, 0
   br i1 %.not53.i780, label %push_state.exit.thread.backedge, label %.lr.ph51.i781

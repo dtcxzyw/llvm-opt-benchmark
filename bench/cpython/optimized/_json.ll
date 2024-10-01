@@ -4855,7 +4855,7 @@ if.else115.i:                                     ; preds = %if.end105.i, %land.
   br i1 %cmp118.i, label %return, label %if.end121.i
 
 if.end121.i:                                      ; preds = %if.else115.i
-  %ob_sval.i.i = getelementptr i8, ptr %call117.i, i64 32
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %call117.i, i64 32
   %cmp123345.i = icmp sgt i64 %sub116.i, 0
   br i1 %cmp123345.i, label %for.body.lr.ph.i, label %for.end.i
 

@@ -12987,7 +12987,7 @@ define internal fastcc i32 @and_cclass(ptr noundef %0, ptr nocapture noundef non
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 1
   %13 = icmp ne i32 %12, 0
-  %14 = getelementptr i8, ptr %0, i64 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 4
@@ -13209,7 +13209,7 @@ define internal fastcc i32 @or_cclass(ptr noundef %0, ptr nocapture noundef read
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 1
   %13 = icmp ne i32 %12, 0
-  %14 = getelementptr i8, ptr %0, i64 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 4

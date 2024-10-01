@@ -1291,7 +1291,7 @@ _ZN5faiss12_GLOBAL__N_129exhaustive_inner_product_blasINS_22Top1BlockResultHandl
   %209 = mul i64 %.06.i.i.i, %206
   %210 = getelementptr inbounds float, ptr %208, i64 %209
   %211 = load ptr, ptr %173, align 8
-  %212 = getelementptr i64, ptr %211, i64 %209
+  %212 = getelementptr inbounds i64, ptr %211, i64 %209
   %.not.i.i.i = icmp eq i64 %206, 0
   br i1 %.not.i.i.i, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i.i, label %.lr.ph46.i.i.i.i
 
@@ -1727,7 +1727,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i.i95: ; preds = %_ZNSt10
   %379 = mul i64 %378, %.05.i.i.i
   %380 = getelementptr inbounds float, ptr %377, i64 %379
   %381 = load ptr, ptr %313, align 8
-  %382 = getelementptr i64, ptr %381, i64 %379
+  %382 = getelementptr inbounds i64, ptr %381, i64 %379
   %383 = getelementptr inbounds i8, ptr %376, i64 32
   %384 = getelementptr inbounds i8, ptr %376, i64 40
   %385 = load i64, ptr %384, align 8
@@ -1941,7 +1941,7 @@ _ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i91.i.i: ; preds = %_Z
   %487 = load i64, ptr %383, align 8
   %488 = sub i64 %486, %487
   %489 = getelementptr inbounds float, ptr %380, i64 %487
-  %490 = getelementptr i64, ptr %382, i64 %487
+  %490 = getelementptr inbounds i64, ptr %382, i64 %487
   %.not.i54.i.i = icmp eq i64 %486, %487
   br i1 %.not.i54.i.i, label %.noexc.i.i118, label %.lr.ph46.i.i.i.i125
 
@@ -2930,7 +2930,7 @@ define linkonce_odr void @_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE14begi
   %15 = mul i64 %12, %.06
   %16 = getelementptr inbounds float, ptr %14, i64 %15
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr i64, ptr %17, i64 %15
+  %18 = getelementptr inbounds i64, ptr %17, i64 %15
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
 
@@ -3391,7 +3391,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_128exhaustive_inner_product_seqINS_2
   %32 = mul i64 %.040, %15
   %33 = getelementptr inbounds float, ptr %31, i64 %32
   %34 = load ptr, ptr %23, align 8
-  %35 = getelementptr i64, ptr %34, i64 %32
+  %35 = getelementptr inbounds i64, ptr %34, i64 %32
   br i1 %.not.i, label %_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler5beginEm.exit, label %.lr.ph46.i.i
 
 .lr.ph46.i.i:                                     ; preds = %25, %.lr.ph46.i.i
@@ -3674,7 +3674,7 @@ _ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resul
   %55 = mul nuw i64 %.038.us, %.fr46
   %56 = getelementptr inbounds float, ptr %54, i64 %55
   %57 = load ptr, ptr %23, align 8
-  %58 = getelementptr i64, ptr %57, i64 %55
+  %58 = getelementptr inbounds i64, ptr %57, i64 %55
   store float 0xC7EFFFFFE0000000, ptr %56, align 4
   store i64 -1, ptr %58, align 8
   %59 = getelementptr inbounds float, ptr %50, i64 %52
@@ -3746,7 +3746,7 @@ _ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler10add_resul
   %84 = mul i64 %.038, %.fr46
   %85 = getelementptr inbounds float, ptr %83, i64 %84
   %86 = load ptr, ptr %23, align 8
-  %87 = getelementptr i64, ptr %86, i64 %84
+  %87 = getelementptr inbounds i64, ptr %86, i64 %84
   br i1 %.not.i, label %_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE19SingleResultHandler5beginEm.exit, label %.lr.ph46.i.i
 
 .lr.ph46.i.i:                                     ; preds = %.lr.ph40.split, %.lr.ph46.i.i
@@ -4783,7 +4783,7 @@ _ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %43 = load i64, ptr %4, align 8
   %44 = sub i64 %42, %43
   %45 = getelementptr inbounds float, ptr %1, i64 %43
-  %46 = getelementptr i64, ptr %2, i64 %43
+  %46 = getelementptr inbounds i64, ptr %2, i64 %43
   %.not = icmp eq i64 %42, %43
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
 
@@ -6746,7 +6746,7 @@ _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %270 = mul i64 %.06.i.i.i.i, %267
   %271 = getelementptr inbounds float, ptr %269, i64 %270
   %272 = load ptr, ptr %223, align 8
-  %273 = getelementptr i64, ptr %272, i64 %270
+  %273 = getelementptr inbounds i64, ptr %272, i64 %270
   %.not.i48.i.i.i = icmp eq i64 %267, 0
   br i1 %.not.i48.i.i.i, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit.i.i.i.i, label %.lr.ph46.i.i.i.i.i
 
@@ -7277,7 +7277,7 @@ _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %473 = mul i64 %472, %.05.i.i.i.i
   %474 = getelementptr inbounds float, ptr %471, i64 %473
   %475 = load ptr, ptr %390, align 8
-  %476 = getelementptr i64, ptr %475, i64 %473
+  %476 = getelementptr inbounds i64, ptr %475, i64 %473
   %477 = getelementptr inbounds i8, ptr %470, i64 32
   %478 = getelementptr inbounds i8, ptr %470, i64 40
   %479 = load i64, ptr %478, align 8
@@ -7491,7 +7491,7 @@ _ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i98.i.i.i: ; preds = %
   %581 = load i64, ptr %477, align 8
   %582 = sub i64 %580, %581
   %583 = getelementptr inbounds float, ptr %474, i64 %581
-  %584 = getelementptr i64, ptr %476, i64 %581
+  %584 = getelementptr inbounds i64, ptr %476, i64 %581
   %.not.i61.i.i.i = icmp eq i64 %580, %581
   br i1 %.not.i61.i.i.i, label %.noexc.i.i.i135, label %.lr.ph46.i.i.i.i.i142
 
@@ -8597,7 +8597,7 @@ define linkonce_odr void @_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE14begi
   %15 = mul i64 %12, %.06
   %16 = getelementptr inbounds float, ptr %14, i64 %15
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr i64, ptr %17, i64 %15
+  %18 = getelementptr inbounds i64, ptr %17, i64 %15
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
 
@@ -9055,7 +9055,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120exhaustive_L2sqr_seqINS_22HeapBlo
   %32 = mul i64 %.040, %15
   %33 = getelementptr inbounds float, ptr %31, i64 %32
   %34 = load ptr, ptr %23, align 8
-  %35 = getelementptr i64, ptr %34, i64 %32
+  %35 = getelementptr inbounds i64, ptr %34, i64 %32
   br i1 %.not.i, label %_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler5beginEm.exit, label %.lr.ph46.i.i
 
 .lr.ph46.i.i:                                     ; preds = %25, %.lr.ph46.i.i
@@ -9338,7 +9338,7 @@ _ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resul
   %55 = mul nuw i64 %.038.us, %.fr46
   %56 = getelementptr inbounds float, ptr %54, i64 %55
   %57 = load ptr, ptr %23, align 8
-  %58 = getelementptr i64, ptr %57, i64 %55
+  %58 = getelementptr inbounds i64, ptr %57, i64 %55
   store float 0x47EFFFFFE0000000, ptr %56, align 4
   store i64 -1, ptr %58, align 8
   %59 = getelementptr inbounds float, ptr %50, i64 %52
@@ -9410,7 +9410,7 @@ _ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler10add_resul
   %84 = mul i64 %.038, %.fr46
   %85 = getelementptr inbounds float, ptr %83, i64 %84
   %86 = load ptr, ptr %23, align 8
-  %87 = getelementptr i64, ptr %86, i64 %84
+  %87 = getelementptr inbounds i64, ptr %86, i64 %84
   br i1 %.not.i, label %_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE19SingleResultHandler5beginEm.exit, label %.lr.ph46.i.i
 
 .lr.ph46.i.i:                                     ; preds = %.lr.ph40.split, %.lr.ph46.i.i
@@ -10335,7 +10335,7 @@ _ZN5faiss9heap_pushINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %43 = load i64, ptr %4, align 8
   %44 = sub i64 %42, %43
   %45 = getelementptr inbounds float, ptr %1, i64 %43
-  %46 = getelementptr i64, ptr %2, i64 %43
+  %46 = getelementptr inbounds i64, ptr %2, i64 %43
   %.not = icmp eq i64 %42, %43
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
 
@@ -14394,7 +14394,7 @@ define internal void @_ZN5faiss25knn_inner_products_by_idxEPKfS1_PKlmmmmmPfPll.o
   %35 = mul i64 %34, %.051
   %36 = getelementptr inbounds float, ptr %33, i64 %35
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr i64, ptr %37, i64 %35
+  %38 = getelementptr inbounds i64, ptr %37, i64 %35
   %.not48 = icmp eq i64 %34, 0
   br i1 %.not48, label %_ZN5faiss15minheap_heapifyIfEEvmPT_PlPKS1_PKlm.exit, label %.lr.ph46.i.i
 
@@ -14607,7 +14607,7 @@ define internal void @_ZN5faiss16knn_L2sqr_by_idxEPKfS1_PKlmmmmmPfPll.omp_outlin
   %35 = mul i64 %34, %.051
   %36 = getelementptr inbounds float, ptr %33, i64 %35
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr i64, ptr %37, i64 %35
+  %38 = getelementptr inbounds i64, ptr %37, i64 %35
   %.not48 = icmp eq i64 %34, 0
   br i1 %.not48, label %_ZN5faiss15maxheap_heapifyIfEEvmPT_PlPKS1_PKlm.exit, label %.lr.ph46.i.i
 

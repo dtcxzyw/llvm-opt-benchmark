@@ -2677,7 +2677,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i127
   br i1 %.not19.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_111FactOrCheckES1_EC2ES2_l.exit.thread24.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %941
-  %.01518.i.i.i.i.i.i = getelementptr i8, ptr %940, i64 64
+  %.01518.i.i.i.i.i.i = getelementptr inbounds i8, ptr %940, i64 64
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -15016,7 +15016,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_111DecompEntryEE7reserveEm.exit: ; preds
   br i1 %.not7.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_111DecompEntryELb1EE18uninitialized_copyISt13move_iteratorIPS2_ES6_EEvT_S8_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_111DecompEntryEE7reserveEm.exit
-  %15 = getelementptr %"struct.(anonymous namespace)::DecompEntry", ptr %.val.i, i64 %14
+  %15 = getelementptr inbounds %"struct.(anonymous namespace)::DecompEntry", ptr %.val.i, i64 %14
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i

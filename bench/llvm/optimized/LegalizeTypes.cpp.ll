@@ -1926,7 +1926,7 @@ _ZNSt12_Vector_baseIN4llvm7SDValueESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4llvm7SDValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !19
 
 _ZNSt6vectorIN4llvm7SDValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %82 = getelementptr i8, ptr %.012.i.i.i.i.i, i64 32
+  %82 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 32
   %.not.i23.i.i = icmp eq ptr %56, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN4llvm7SDValueESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %83
 
@@ -2016,7 +2016,7 @@ _ZNSt12_Vector_baseIN4llvm7SDValueESaIS1_EE11_M_allocateEm.exit.i.i44: ; preds =
 
 _ZNSt6vectorIN4llvm7SDValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i50: ; preds = %.lr.ph.i.i.i.i.i46, %_ZNSt12_Vector_baseIN4llvm7SDValueESaIS1_EE11_M_allocateEm.exit.i.i44
   %.0.lcssa.i.i.i.i.i51 = phi ptr [ %111, %_ZNSt12_Vector_baseIN4llvm7SDValueESaIS1_EE11_M_allocateEm.exit.i.i44 ], [ %114, %.lr.ph.i.i.i.i.i46 ]
-  %115 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i51, i64 16
+  %115 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i51, i64 16
   %.not.i23.i.i52 = icmp eq ptr %91, null
   br i1 %.not.i23.i.i52, label %_ZNSt6vectorIN4llvm7SDValueESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i53, label %116
 
@@ -10480,7 +10480,7 @@ define linkonce_odr void @_ZNSt6vectorIN4llvm7SDValueESaIS1_EE15_M_range_insertI
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %18
   %23 = sub nsw i64 0, %9
-  %24 = getelementptr %"class.llvm::SDValue", ptr %13, i64 %23
+  %24 = getelementptr inbounds %"class.llvm::SDValue", ptr %13, i64 %23
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -10548,7 +10548,7 @@ _ZSt22__uninitialized_copy_aIPN4llvm5SDUseEPNS0_7SDValueES3_ET0_T_S6_S5_RSaIT1_E
 _ZSt22__uninitialized_copy_aIPN4llvm5SDUseEPNS0_7SDValueES3_ET0_T_S6_S5_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPN4llvm5SDUseEPNS0_7SDValueES3_ET0_T_S6_S5_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPN4llvm5SDUseEmEvRT_T0_.exit
   %42 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPN4llvm5SDUseEPNS0_7SDValueES3_ET0_T_S6_S5_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPN4llvm5SDUseEmEvRT_T0_.exit ]
   %43 = sub nuw nsw i64 %9, %21
-  %44 = getelementptr %"class.llvm::SDValue", ptr %42, i64 %43
+  %44 = getelementptr inbounds %"class.llvm::SDValue", ptr %42, i64 %43
   store ptr %44, ptr %12, align 8
   %.not7.i.i.i.i.i49 = icmp eq ptr %1, %13
   br i1 %.not7.i.i.i.i.i49, label %_ZSt22__uninitialized_move_aIPN4llvm7SDValueES2_SaIS1_EET0_T_S5_S4_RT1_.exit55, label %.lr.ph.i.i.i.i.i50
@@ -10634,7 +10634,7 @@ _ZNSt12_Vector_baseIN4llvm7SDValueESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNK
   %.0810.i.i.i.i72 = phi ptr [ %72, %.lr.ph.i.i.i.i70 ], [ %2, %.lr.ph.i.i.i.i70.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.011.i.i.i.i71, ptr noundef nonnull align 8 dereferenceable(16) %.0810.i.i.i.i72, i64 16, i1 false)
   %72 = getelementptr inbounds i8, ptr %.0810.i.i.i.i72, i64 40
-  %73 = getelementptr i8, ptr %.011.i.i.i.i71, i64 16
+  %73 = getelementptr inbounds i8, ptr %.011.i.i.i.i71, i64 16
   %.not.i.i.i.i73 = icmp eq ptr %72, %3
   br i1 %.not.i.i.i.i73, label %_ZSt22__uninitialized_copy_aIPN4llvm5SDUseEPNS0_7SDValueES3_ET0_T_S6_S5_RSaIT1_E.exit75, label %.lr.ph.i.i.i.i70, !llvm.loop !74
 

@@ -1383,7 +1383,7 @@ for.body.i.i.i.i.i450:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6Assimp11NDOImporter6VertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %for.body.i.i.i.i.i450, %_ZNSt12_Vector_baseIN6Assimp11NDOImporter6VertexESaIS2_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i453 = phi ptr [ %cond.i10.i.i448, %_ZNSt12_Vector_baseIN6Assimp11NDOImporter6VertexESaIS2_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i450 ]
-  %incdec.ptr.i.i454 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i453, i64 16
+  %incdec.ptr.i.i454 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i453, i64 16
   %tobool.not.i.i.i455 = icmp eq ptr %125, null
   br i1 %tobool.not.i.i.i455, label %_ZNSt6vectorIN6Assimp11NDOImporter6VertexESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i20.i.i
 

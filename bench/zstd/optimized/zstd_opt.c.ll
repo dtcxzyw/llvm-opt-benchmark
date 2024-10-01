@@ -132,7 +132,7 @@ cond.end15.i:                                     ; preds = %cond.false14.i, %co
   br i1 %cmp24.i688724, label %while.body.i.lr.ph.lr.ph, label %ZSTD_compressBlock_opt_generic.exit
 
 while.body.i.lr.ph.lr.ph:                         ; preds = %cond.end15.i
-  %rep44.i = getelementptr i8, ptr %10, i64 16
+  %rep44.i = getelementptr inbounds i8, ptr %10, i64 16
   %mlen.i = getelementptr inbounds i8, ptr %10, i64 8
   %litlen49.i = getelementptr inbounds i8, ptr %10, i64 12
   %priceType.i358 = getelementptr inbounds i8, ptr %ms, i64 224
@@ -1525,7 +1525,7 @@ cond.end15.i:                                     ; preds = %cond.false14.i, %co
   br i1 %cmp24.i783820, label %while.body.i.lr.ph.lr.ph, label %ZSTD_compressBlock_opt_generic.exit
 
 while.body.i.lr.ph.lr.ph:                         ; preds = %cond.end15.i
-  %rep44.i = getelementptr i8, ptr %10, i64 16
+  %rep44.i = getelementptr inbounds i8, ptr %10, i64 16
   %mlen.i = getelementptr inbounds i8, ptr %10, i64 8
   %litlen49.i = getelementptr inbounds i8, ptr %10, i64 12
   %priceType.i358 = getelementptr inbounds i8, ptr %ms, i64 224

@@ -3602,10 +3602,10 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %_ZN6casadi11casadi_
 118:                                              ; preds = %117
   %119 = load ptr, ptr %20, align 8
   %120 = load i64, ptr %62, align 8
-  %121 = getelementptr double, ptr %119, i64 %120
+  %121 = getelementptr inbounds double, ptr %119, i64 %120
   %122 = load i64, ptr %18, align 8
   %123 = sub nsw i64 %122, %120
-  %124 = getelementptr double, ptr %60, i64 %120
+  %124 = getelementptr inbounds double, ptr %60, i64 %120
   br i1 %.not.i55, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit80, label %125
 
 125:                                              ; preds = %118
@@ -5429,11 +5429,11 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %_ZN6casadi11casadi_
 131:                                              ; preds = %130
   %132 = load ptr, ptr %21, align 8
   %133 = load i64, ptr %123, align 8
-  %134 = getelementptr double, ptr %132, i64 %133
+  %134 = getelementptr inbounds double, ptr %132, i64 %133
   %135 = getelementptr inbounds i8, ptr %15, i64 1600
   %136 = load i64, ptr %135, align 8
   %137 = sub nsw i64 %136, %133
-  %138 = getelementptr double, ptr %63, i64 %133
+  %138 = getelementptr inbounds double, ptr %63, i64 %133
   br i1 %.not.i63, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit88, label %139
 
 139:                                              ; preds = %131
@@ -5920,7 +5920,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit61:     ; preds = %.lr.ph.i54, %_ZN6ca
   %78 = getelementptr inbounds i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
   %80 = load i64, ptr %67, align 8
-  %81 = getelementptr double, ptr %79, i64 %80
+  %81 = getelementptr inbounds double, ptr %79, i64 %80
   %82 = getelementptr inbounds i8, ptr %0, i64 1672
   %83 = load i64, ptr %82, align 8
   %.not.i62 = icmp eq ptr %5, null

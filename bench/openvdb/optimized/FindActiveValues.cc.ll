@@ -14735,7 +14735,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 36
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 36
   %tobool.not.i.i.i73 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i73, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -15206,7 +15206,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 36
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 36
   %tobool.not.i.i.i67 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i67, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -15655,7 +15655,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 40
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 40
   %tobool.not.i.i.i67 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i67, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -16104,7 +16104,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 36
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 36
   %tobool.not.i.i.i67 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i67, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -16553,7 +16553,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 40
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 40
   %tobool.not.i.i.i67 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i67, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -17002,7 +17002,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 44
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 44
   %tobool.not.i.i.i67 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i67, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -17451,7 +17451,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 56
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 56
   %tobool.not.i.i.i67 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i67, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -17900,7 +17900,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 44
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 44
   %tobool.not.i.i.i67 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i67, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -18736,7 +18736,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 32
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit26, label %for.body.i.i.i19
 
@@ -18847,7 +18847,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 36
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 36
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -20701,7 +20701,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 32
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit26, label %for.body.i.i.i19
 
@@ -20808,7 +20808,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 36
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 36
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -24186,7 +24186,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 32
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit26, label %for.body.i.i.i19
 
@@ -24293,7 +24293,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 40
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -27203,7 +27203,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 32
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit26, label %for.body.i.i.i19
 
@@ -27310,7 +27310,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 36
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 36
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -30387,7 +30387,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 32
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit26, label %for.body.i.i.i19
 
@@ -30494,7 +30494,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 40
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -33569,7 +33569,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEE9RootChildESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 32
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEE9RootChildESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit26, label %for.body.i.i.i19
 
@@ -33675,7 +33675,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 44
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 44
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26, label %for.body.i.i.i19
 
@@ -36862,7 +36862,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEE9RootChildESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 32
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEE9RootChildESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit26, label %for.body.i.i.i19
 
@@ -36968,7 +36968,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 56
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 56
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26, label %for.body.i.i.i19
 
@@ -40168,7 +40168,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEE9RootChildESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 32
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEE9RootChildESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit26, label %for.body.i.i.i19
 
@@ -40274,7 +40274,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 44
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 44
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26, label %for.body.i.i.i19
 
@@ -178652,7 +178652,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 36
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 36
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -178744,7 +178744,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 36
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 36
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -179281,7 +179281,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 36
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 36
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -180154,7 +180154,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 36
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 36
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIbEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -180962,7 +180962,7 @@ if.then9:                                         ; preds = %if.then
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr %"struct.openvdb::v11_0::tools::TileData", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"struct.openvdb::v11_0::tools::TileData", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
@@ -181014,7 +181014,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05too
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIbEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIbEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIbEESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit
   %2 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIbEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIbEESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  %add.ptr50 = getelementptr %"struct.openvdb::v11_0::tools::TileData", ptr %2, i64 %sub
+  %add.ptr50 = getelementptr inbounds %"struct.openvdb::v11_0::tools::TileData", ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i33 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i33, label %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIbEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41, label %for.body.i.i.i.i.i34
@@ -181208,7 +181208,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 36
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 36
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE17_M_realloc_insertIJRKNS1_4math9CoordBBoxERKiRKjEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit, label %if.then.i27.i
 
@@ -181306,7 +181306,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 36
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 36
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE17_M_realloc_insertIJRNS1_4math9CoordBBoxERKiRKjEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit, label %if.then.i27.i
 
@@ -182322,7 +182322,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 36
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 36
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -183193,7 +183193,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 36
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 36
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIiEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -184000,7 +184000,7 @@ if.then9:                                         ; preds = %if.then
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr %"struct.openvdb::v11_0::tools::TileData.471", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"struct.openvdb::v11_0::tools::TileData.471", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
@@ -184052,7 +184052,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05too
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIiEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIiEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIiEESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit
   %2 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIiEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIiEESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  %add.ptr50 = getelementptr %"struct.openvdb::v11_0::tools::TileData.471", ptr %2, i64 %sub
+  %add.ptr50 = getelementptr inbounds %"struct.openvdb::v11_0::tools::TileData.471", ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i33 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i33, label %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIiEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41, label %for.body.i.i.i.i.i34
@@ -184246,7 +184246,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 40
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 40
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE17_M_realloc_insertIJRKNS1_4math9CoordBBoxERKlRKjEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit, label %if.then.i27.i
 
@@ -184344,7 +184344,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 40
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 40
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE17_M_realloc_insertIJRNS1_4math9CoordBBoxERKlRKjEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit, label %if.then.i27.i
 
@@ -185360,7 +185360,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 40
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -186231,7 +186231,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 40
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIlEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -187038,7 +187038,7 @@ if.then9:                                         ; preds = %if.then
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr %"struct.openvdb::v11_0::tools::TileData.573", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"struct.openvdb::v11_0::tools::TileData.573", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
@@ -187090,7 +187090,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05too
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIlEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIlEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIlEESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit
   %2 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIlEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIlEESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  %add.ptr50 = getelementptr %"struct.openvdb::v11_0::tools::TileData.573", ptr %2, i64 %sub
+  %add.ptr50 = getelementptr inbounds %"struct.openvdb::v11_0::tools::TileData.573", ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i33 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i33, label %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIlEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41, label %for.body.i.i.i.i.i34
@@ -187284,7 +187284,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 36
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 36
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE17_M_realloc_insertIJRKNS1_4math9CoordBBoxERKfRKjEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit, label %if.then.i27.i
 
@@ -187382,7 +187382,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 36
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 36
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE17_M_realloc_insertIJRNS1_4math9CoordBBoxERKfRKjEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit, label %if.then.i27.i
 
@@ -188398,7 +188398,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 36
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 36
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -189269,7 +189269,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 36
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 36
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIfEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -190076,7 +190076,7 @@ if.then9:                                         ; preds = %if.then
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr %"struct.openvdb::v11_0::tools::TileData.623", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"struct.openvdb::v11_0::tools::TileData.623", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
@@ -190128,7 +190128,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05too
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIfEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIfEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIfEESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit
   %2 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIfEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIfEESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  %add.ptr50 = getelementptr %"struct.openvdb::v11_0::tools::TileData.623", ptr %2, i64 %sub
+  %add.ptr50 = getelementptr inbounds %"struct.openvdb::v11_0::tools::TileData.623", ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i33 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i33, label %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIfEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41, label %for.body.i.i.i.i.i34
@@ -190322,7 +190322,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 40
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 40
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE17_M_realloc_insertIJRKNS1_4math9CoordBBoxERKdRKjEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit, label %if.then.i27.i
 
@@ -190420,7 +190420,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 40
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 40
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE17_M_realloc_insertIJRNS1_4math9CoordBBoxERKdRKjEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit, label %if.then.i27.i
 
@@ -191436,7 +191436,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 40
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -192307,7 +192307,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 40
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataIdEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, label %for.body.i.i.i19
 
@@ -193114,7 +193114,7 @@ if.then9:                                         ; preds = %if.then
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr %"struct.openvdb::v11_0::tools::TileData.679", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"struct.openvdb::v11_0::tools::TileData.679", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
@@ -193166,7 +193166,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05too
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIdEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIdEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIdEESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit
   %2 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIdEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataIdEESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  %add.ptr50 = getelementptr %"struct.openvdb::v11_0::tools::TileData.679", ptr %2, i64 %sub
+  %add.ptr50 = getelementptr inbounds %"struct.openvdb::v11_0::tools::TileData.679", ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i33 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i33, label %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataIdEES5_SaIS4_EET0_T_S8_S7_RT1_.exit41, label %for.body.i.i.i.i.i34
@@ -193358,7 +193358,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 44
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 44
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE17_M_realloc_insertIJRKNS4_9CoordBBoxERKS6_RKjEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit, label %if.then.i27.i
 
@@ -193454,7 +193454,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 44
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 44
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE17_M_realloc_insertIJRNS4_9CoordBBoxERKS6_RKjEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit, label %if.then.i27.i
 
@@ -194467,7 +194467,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 44
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 44
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26, label %for.body.i.i.i19
 
@@ -195338,7 +195338,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 44
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 44
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26, label %for.body.i.i.i19
 
@@ -196146,7 +196146,7 @@ if.then9:                                         ; preds = %if.then
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr %"struct.openvdb::v11_0::tools::TileData.729", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"struct.openvdb::v11_0::tools::TileData.729", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
@@ -196198,7 +196198,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05too
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IfEEEESt6vectorIS9_SaIS9_EEEESA_S9_ET0_T_SG_SF_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IfEEEESt6vectorIS9_SaIS9_EEEESA_S9_ET0_T_SG_SF_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IfEEEESt6vectorIS9_SaIS9_EEEEmEvRT_T0_.exit
   %2 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IfEEEESt6vectorIS9_SaIS9_EEEESA_S9_ET0_T_SG_SF_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IfEEEESt6vectorIS9_SaIS9_EEEEmEvRT_T0_.exit ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  %add.ptr50 = getelementptr %"struct.openvdb::v11_0::tools::TileData.729", ptr %2, i64 %sub
+  %add.ptr50 = getelementptr inbounds %"struct.openvdb::v11_0::tools::TileData.729", ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i33 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i33, label %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit41, label %for.body.i.i.i.i.i34
@@ -196390,7 +196390,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 56
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 56
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE17_M_realloc_insertIJRKNS4_9CoordBBoxERKS6_RKjEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit, label %if.then.i27.i
 
@@ -196486,7 +196486,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 56
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 56
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE17_M_realloc_insertIJRNS4_9CoordBBoxERKS6_RKjEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit, label %if.then.i27.i
 
@@ -197499,7 +197499,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 56
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 56
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26, label %for.body.i.i.i19
 
@@ -198370,7 +198370,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 56
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 56
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26, label %for.body.i.i.i19
 
@@ -199178,7 +199178,7 @@ if.then9:                                         ; preds = %if.then
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr %"struct.openvdb::v11_0::tools::TileData.788", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"struct.openvdb::v11_0::tools::TileData.788", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
@@ -199230,7 +199230,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05too
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IdEEEESt6vectorIS9_SaIS9_EEEESA_S9_ET0_T_SG_SF_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IdEEEESt6vectorIS9_SaIS9_EEEESA_S9_ET0_T_SG_SF_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IdEEEESt6vectorIS9_SaIS9_EEEEmEvRT_T0_.exit
   %2 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IdEEEESt6vectorIS9_SaIS9_EEEESA_S9_ET0_T_SG_SF_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IdEEEESt6vectorIS9_SaIS9_EEEEmEvRT_T0_.exit ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  %add.ptr50 = getelementptr %"struct.openvdb::v11_0::tools::TileData.788", ptr %2, i64 %sub
+  %add.ptr50 = getelementptr inbounds %"struct.openvdb::v11_0::tools::TileData.788", ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i33 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i33, label %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit41, label %for.body.i.i.i.i.i34
@@ -199422,7 +199422,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 44
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 44
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE17_M_realloc_insertIJRKNS4_9CoordBBoxERKS6_RKjEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit, label %if.then.i27.i
 
@@ -199518,7 +199518,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 44
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 44
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE17_M_realloc_insertIJRNS4_9CoordBBoxERKS6_RKjEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit, label %if.then.i27.i
 
@@ -200531,7 +200531,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 44
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 44
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26, label %for.body.i.i.i19
 
@@ -201402,7 +201402,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 44
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 44
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26, label %for.body.i.i.i19
 
@@ -202210,7 +202210,7 @@ if.then9:                                         ; preds = %if.then
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr %"struct.openvdb::v11_0::tools::TileData.839", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"struct.openvdb::v11_0::tools::TileData.839", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
@@ -202262,7 +202262,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05too
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IiEEEESt6vectorIS9_SaIS9_EEEESA_S9_ET0_T_SG_SF_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IiEEEESt6vectorIS9_SaIS9_EEEESA_S9_ET0_T_SG_SF_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IiEEEESt6vectorIS9_SaIS9_EEEEmEvRT_T0_.exit
   %2 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IiEEEESt6vectorIS9_SaIS9_EEEESA_S9_ET0_T_SG_SF_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7openvdb5v11_05tools8TileDataINS3_4math4Vec3IiEEEESt6vectorIS9_SaIS9_EEEEmEvRT_T0_.exit ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  %add.ptr50 = getelementptr %"struct.openvdb::v11_0::tools::TileData.839", ptr %2, i64 %sub
+  %add.ptr50 = getelementptr inbounds %"struct.openvdb::v11_0::tools::TileData.839", ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i33 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i33, label %_ZSt22__uninitialized_move_aIPN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEES8_SaIS7_EET0_T_SB_SA_RT1_.exit41, label %for.body.i.i.i.i.i34

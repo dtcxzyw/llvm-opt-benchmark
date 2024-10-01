@@ -137,7 +137,7 @@ for.body.i.i.i.i.i32:                             ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.not.i.i.i.i.i37, label %_ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i38, label %for.body.i.i.i.i.i32, !llvm.loop !9
 
 _ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i38: ; preds = %for.body.i.i.i.i.i32
-  %incdec.ptr.i.i40 = getelementptr i8, ptr %__cur.07.i.i.i.i.i33, i64 8
+  %incdec.ptr.i.i40 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i33, i64 8
   %tobool.not.i.i.i41 = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i41, label %_ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EE17_M_realloc_insertIJRNS1_4KindEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i43, label %if.then.i20.i.i42
 

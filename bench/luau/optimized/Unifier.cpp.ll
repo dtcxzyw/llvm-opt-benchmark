@@ -42274,7 +42274,7 @@ _ZNSt15__new_allocatorISt4pairIPKN4Luau9UnionTypeEmEE8allocateEmPKv.exit.i: ; pr
   %23 = load ptr, ptr %1, align 8
   %24 = getelementptr inbounds %"struct.std::pair.545", ptr %23, i64 %19
   %25 = getelementptr inbounds %"struct.std::pair.545", ptr %24, i64 %.sroa.speculated.i
-  %26 = getelementptr %"struct.std::pair.545", ptr %9, i64 %14
+  %26 = getelementptr inbounds %"struct.std::pair.545", ptr %9, i64 %14
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %22
@@ -48596,7 +48596,7 @@ _ZSt18uninitialized_moveIPSt4pairIPKN4Luau9UnionTypeEmES6_ET0_T_S8_S7_.exit: ; p
 
 27:                                               ; preds = %_ZSt18uninitialized_moveIPSt4pairIPKN4Luau9UnionTypeEmES6_ET0_T_S8_S7_.exit
   %28 = getelementptr inbounds %"struct.std::pair.545", ptr %.pre.pre, i64 %21
-  %29 = getelementptr %"struct.std::pair.545", ptr %15, i64 %.sroa.speculated
+  %29 = getelementptr inbounds %"struct.std::pair.545", ptr %15, i64 %.sroa.speculated
   br label %.lr.ph.i.i.i.i22
 
 .lr.ph.i.i.i.i22:                                 ; preds = %27, %.lr.ph.i.i.i.i22

@@ -6210,11 +6210,11 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq ptr %0, %1
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr i8, ptr %buffer, i64 %add.ptr.idx
   %2 = sub nsw i64 236, %add.ptr.idx
   %3 = and i64 %2, -4
   %4 = add nsw i64 %3, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
   call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %seq, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr)
   br label %while.body
 
@@ -7899,11 +7899,11 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq ptr %0, %1
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr i8, ptr %buffer, i64 %add.ptr.idx
   %2 = sub nsw i64 236, %add.ptr.idx
   %3 = and i64 %2, -4
   %4 = add nsw i64 %3, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
   call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %seq, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr)
   br label %while.body
 
@@ -8735,11 +8735,11 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq ptr %0, %1
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr i8, ptr %buffer, i64 %add.ptr.idx
   %2 = sub nsw i64 236, %add.ptr.idx
   %3 = and i64 %2, -4
   %4 = add nsw i64 %3, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
   call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %seq, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr)
   br label %while.body
 
@@ -9569,11 +9569,11 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq ptr %0, %1
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr i8, ptr %buffer, i64 %add.ptr.idx
   %2 = sub nsw i64 236, %add.ptr.idx
   %3 = and i64 %2, -4
   %4 = add nsw i64 %3, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
   call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %seq, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr)
   br label %while.body
 

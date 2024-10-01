@@ -18667,7 +18667,7 @@ _ZN4llvm15SmallVectorImplIPNS_4LoopEE6appendIN9__gnu_cxx17__normal_iteratorIPKS2
 
 _ZN4llvm15SmallVectorImplIPNS_4LoopEE7reserveEm.exit: ; preds = %31, %32
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr i8, ptr %34, i64 %8
+  %35 = getelementptr inbounds i8, ptr %34, i64 %8
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   %.idx = shl nsw i64 %36, 3
   %37 = ptrtoint ptr %35 to i64

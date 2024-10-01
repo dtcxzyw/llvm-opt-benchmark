@@ -604,7 +604,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %call5.i.i.i.i.i.noe
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_15ChunkESaIS2_EE17_M_realloc_insertIJRjiS6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i, %call5.i.i.i.i.i.noexc.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i41.i.i.i, %call5.i.i.i.i.i.noexc.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 12
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 12
   call void @_ZdlPv(ptr noundef nonnull %chunks.sroa.0.2407.i.i) #23, !noalias !14
   %add.ptr30.i.i.i.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::Chunk", ptr %call5.i.i.i.i.i41.i.i.i, i64 %add.i.i.i.i.i.i
   br label %next_literal.i.i.i
@@ -702,7 +702,7 @@ if.then.i29.i.i89.i.i.i:                          ; preds = %for.body.i.i.i.i.i7
 invoke.cont32.i.i:                                ; preds = %if.then.i29.i.i89.i.i.i, %if.then.i56.i.i.i
   %agg.result.val19.i.pn.i.i = phi ptr [ %agg.result.val19.i.i.i, %if.then.i56.i.i.i ], [ %__cur.0.lcssa.i.i.i.i.i86.i.i.i, %if.then.i29.i.i89.i.i.i ]
   %chunks.sroa.0.6.i.i = phi ptr [ %chunks.sroa.0.3.i.i, %if.then.i56.i.i.i ], [ %call5.i.i.i.i.i94.i.i.i, %if.then.i29.i.i89.i.i.i ]
-  %chunks.sroa.17.2.i.i = getelementptr i8, ptr %agg.result.val19.i.pn.i.i, i64 12
+  %chunks.sroa.17.2.i.i = getelementptr inbounds i8, ptr %agg.result.val19.i.pn.i.i, i64 12
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %chunks.sroa.17.2.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %chunks.sroa.0.6.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -2055,7 +2055,7 @@ for.body.i.i.i.i.i.i144.i:                        ; preds = %invoke.cont.i.i.i.i
 
 _ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i144.i, %invoke.cont.i.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %cond.i17.i.i.i.i, %invoke.cont.i.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i144.i ]
-  %incdec.ptr.i.i.i147.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i147.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i148.i = icmp eq ptr %202, null
   br i1 %tobool.not.i.i.i.i148.i, label %_ZNSt6vectorISt4pairIjjESaIS1_EE17_M_realloc_insertIJRjRKjEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, label %if.then.i27.i.i.i.i
 

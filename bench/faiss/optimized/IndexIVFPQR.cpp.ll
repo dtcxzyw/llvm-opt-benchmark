@@ -1184,7 +1184,7 @@ define internal void @_ZNK5faiss11IndexIVFPQR18search_preassignedElPKflPKlS2_PfP
   %56 = mul nsw i64 %55, %.081
   %57 = getelementptr inbounds float, ptr %54, i64 %56
   %58 = load ptr, ptr %9, align 8
-  %59 = getelementptr i64, ptr %58, i64 %56
+  %59 = getelementptr inbounds i64, ptr %58, i64 %56
   %.not72 = icmp eq i64 %55, 0
   br i1 %.not72, label %_ZN5faiss15maxheap_heapifyIfEEvmPT_PlPKS1_PKlm.exit, label %.lr.ph46.i.i
 

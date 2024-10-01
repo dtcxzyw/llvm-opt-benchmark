@@ -2061,7 +2061,7 @@ _ZNK5clang10ASTContext8AllocateEmj.exit:          ; preds = %22, %.critedge.i.i.
   br i1 %.not9.i.i.i.i, label %_ZN5clang23OpenACCDeviceTypeClauseC2ENS_17OpenACCClauseKindENS_14SourceLocationES2_N4llvm8ArrayRefISt4pairIPNS_14IdentifierInfoES2_EEES2_.exit, label %.lr.ph.i.i.i.preheader.i
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit
-  %33 = getelementptr i8, ptr %.0.i.i.i, i64 32
+  %33 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.preheader.i

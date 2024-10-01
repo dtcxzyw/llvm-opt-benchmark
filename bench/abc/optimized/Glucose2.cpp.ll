@@ -3902,7 +3902,7 @@ _ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit: ; preds = %._crit_edge.i, %1
 .backedge:                                        ; preds = %200, %226
   %storemerge = phi i64 [ %.sroa.0175.0.insert.insert179, %226 ], [ %202, %200 ]
   %.0104.be = phi ptr [ %216, %226 ], [ %201, %200 ]
-  %.0108.be = getelementptr i8, ptr %.0108267, i64 8
+  %.0108.be = getelementptr inbounds i8, ptr %.0108267, i64 8
   store i64 %storemerge, ptr %.0108267, align 4
   %.not118 = icmp eq ptr %.0104.be, %188
   br i1 %.not118, label %.outer._crit_edge, label %190, !llvm.loop !20
@@ -3926,7 +3926,7 @@ _ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit: ; preds = %._crit_edge.i, %1
 
 214:                                              ; preds = %211, %203
   %215 = phi i32 [ %213, %211 ], [ %209, %203 ]
-  %216 = getelementptr i8, ptr %.0104268, i64 8
+  %216 = getelementptr inbounds i8, ptr %.0104268, i64 8
   %.not225 = icmp eq i32 %215, %.sroa.055.0.copyload
   br i1 %.not225, label %.critedge, label %217
 
@@ -4198,7 +4198,7 @@ _ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit153: ; preds = %._ZN6Gluco23v
   br label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit163
 
 .loopexit:                                        ; preds = %246, %300, %.preheader229, %.preheader, %.critedge2
-  %346 = getelementptr i8, ptr %.0108267, i64 8
+  %346 = getelementptr inbounds i8, ptr %.0108267, i64 8
   %.sroa.5.0.insert.ext = zext i32 %.lcssa313 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.0175.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %206

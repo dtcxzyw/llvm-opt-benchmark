@@ -2391,7 +2391,7 @@ _ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiP10JavaTh
   br i1 %.not.i.i60.i, label %.lr.ph.i.i62.i, label %_ZL30create_defaults_and_exceptionsP13GrowableArrayIP15EmptyVtableSlotEP13InstanceKlassP10JavaThread.exit
 
 .lr.ph.i.i62.i:                                   ; preds = %_ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i59.i
-  %978 = getelementptr i8, ptr %974, i64 8
+  %978 = getelementptr inbounds i8, ptr %974, i64 8
   %wide.trip.count.i.i.i = zext nneg i32 %.sroa.0124.1.i to i64
   %979 = shl nuw nsw i64 %wide.trip.count.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %978, i8 0, i64 %979, i1 false)

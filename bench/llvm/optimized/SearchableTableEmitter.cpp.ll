@@ -4413,7 +4413,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   br label %.lr.ph.i.i.i9.preheader.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %94
-  %.01317.i.i.i.i.i.i = getelementptr i8, ptr %93, i64 8
+  %.01317.i.i.i.i.i.i = getelementptr inbounds i8, ptr %93, i64 8
   %load_initial = load i64, ptr %93, align 8
   br label %.lr.ph.i.i.i.i.i.i
 
@@ -6119,7 +6119,7 @@ _ZNSt12_Vector_baseISt10unique_ptrISt4pairIN4llvm9StringRefElESt14default_delete
 
 _ZNSt6vectorISt10unique_ptrISt4pairIN4llvm9StringRefElESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrISt4pairIN4llvm9StringRefElESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrISt4pairIN4llvm9StringRefElESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrISt4pairIN4llvm9StringRefElESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22, label %.lr.ph.i.i.i17
 
@@ -6902,7 +6902,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i65: ; preds = %_ZSt7adva
   br i1 %91, label %.lr.ph60.preheader.i.i, label %._crit_edge61.i.i
 
 .lr.ph60.preheader.i.i:                           ; preds = %90
-  %92 = getelementptr %"class.std::unique_ptr.211", ptr %.sroa.020.0.i.i, i64 %.049.i.i
+  %92 = getelementptr inbounds %"class.std::unique_ptr.211", ptr %.sroa.020.0.i.i, i64 %.049.i.i
   br label %.lr.ph60.i.i
 
 .lr.ph60.i.i:                                     ; preds = %.lr.ph60.i.i, %.lr.ph60.preheader.i.i
@@ -8377,7 +8377,7 @@ _ZSt13move_backwardIPSt10unique_ptrISt4pairIN4llvm9StringRefElESt14default_delet
   br i1 %107, label %.lr.ph60.preheader.i.i, label %._crit_edge61.i.i
 
 .lr.ph60.preheader.i.i:                           ; preds = %106
-  %108 = getelementptr %"class.std::unique_ptr.211", ptr %.sroa.020.0.i.i, i64 %.049.i.i
+  %108 = getelementptr inbounds %"class.std::unique_ptr.211", ptr %.sroa.020.0.i.i, i64 %.049.i.i
   br label %.lr.ph60.i.i
 
 .lr.ph60.i.i:                                     ; preds = %.lr.ph60.i.i, %.lr.ph60.preheader.i.i
@@ -10990,7 +10990,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm6RecordESt6vectorIS4_SaIS4_EEEE
   br i1 %36, label %.lr.ph92.preheader, label %._crit_edge93
 
 .lr.ph92.preheader:                               ; preds = %35
-  %37 = getelementptr ptr, ptr %.sroa.035.0, i64 %.078
+  %37 = getelementptr inbounds ptr, ptr %.sroa.035.0, i64 %.078
   br label %.lr.ph92
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.lr.ph92
@@ -12774,7 +12774,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN4llvm6RecordE
   br label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN4llvm6RecordEjESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.thread23.sink.split.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %207
-  %.01317.i.i.i.i.i.i = getelementptr i8, ptr %206, i64 16
+  %.01317.i.i.i.i.i.i = getelementptr inbounds i8, ptr %206, i64 16
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i

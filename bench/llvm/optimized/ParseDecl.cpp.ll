@@ -47576,7 +47576,7 @@ _ZN4llvm25SmallVectorTemplateCommonIPN5clang10ParsedAttrEvE20assertSafeToAddRang
 
 _ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonIPN5clang10ParsedAttrEvE20assertSafeToAddRangeEPKS3_S6_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   %.idx = shl nsw i64 %32, 3
   %33 = ptrtoint ptr %31 to i64
@@ -49553,7 +49553,7 @@ _ZN4llvm25SmallVectorTemplateCommonIPN5clang10ParsedAttrEvE20assertSafeToAddRang
 
 _ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonIPN5clang10ParsedAttrEvE20assertSafeToAddRangeEPKS3_S6_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   %.idx = shl nsw i64 %32, 3
   %33 = ptrtoint ptr %31 to i64
@@ -50588,7 +50588,7 @@ _ZN4llvm15SmallVectorImplINS_12PointerUnionIJPN5clang4ExprEPNS2_13IdentifierLocE
   br i1 %.not7.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_12PointerUnionIJPN5clang4ExprEPNS2_13IdentifierLocEEEELb1EE18uninitialized_copyISt13move_iteratorIPS7_ESB_EEvT_SD_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplINS_12PointerUnionIJPN5clang4ExprEPNS2_13IdentifierLocEEEEE7reserveEm.exit
-  %16 = getelementptr %"class.llvm::PointerUnion", ptr %14, i64 %15
+  %16 = getelementptr inbounds %"class.llvm::PointerUnion", ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i

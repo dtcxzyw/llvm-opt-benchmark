@@ -280,7 +280,7 @@ _ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEEC2EmmS4_.exit.i.i: ; p
   %59 = sub i64 %57, %58
   %60 = ashr exact i64 %59, 3
   %61 = sub nsw i64 0, %60
-  %62 = getelementptr %"class.std::__1::thread", ptr %54, i64 %61
+  %62 = getelementptr inbounds %"class.std::__1::thread", ptr %54, i64 %61
   %.not29.i.i.i.i = icmp eq ptr %56, %55
   br i1 %.not29.i.i.i.i, label %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit.i.i.i, label %.lr.ph.i.i.i.i
 

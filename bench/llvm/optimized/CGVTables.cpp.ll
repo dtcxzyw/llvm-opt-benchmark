@@ -2066,7 +2066,7 @@ _ZN4llvm15SmallVectorImplIPKN5clang7VarDeclEE7reserveEm.exit: ; preds = %3, %12
   br i1 %16, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE18uninitialized_copyIPKPNS1_11ParmVarDeclEPS4_EEvT_SC_T0_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang7VarDeclEE7reserveEm.exit
-  %17 = getelementptr ptr, ptr %14, i64 %15
+  %17 = getelementptr inbounds ptr, ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i

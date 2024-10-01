@@ -812,7 +812,7 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
   store i8 92, ptr %.05197, align 1
   %56 = load ptr, ptr %2, align 8
   %57 = call i32 %56(ptr noundef nonnull %55) #8
-  %.584 = getelementptr i8, ptr %.05197, i64 1
+  %.584 = getelementptr inbounds i8, ptr %.05197, i64 1
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph88, label %.loopexit65
 

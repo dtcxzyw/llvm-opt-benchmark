@@ -9190,7 +9190,7 @@ _ZNSt16allocator_traitsISaIN2cv3VecIfLi4EEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_
   %.sroa.28.5 = phi ptr [ %471, %.noexc ], [ %.sroa.28.4716, %.preheader.i.i ]
   %.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i, %.noexc ], [ %.sroa.11.4717, %.preheader.i.i ]
   %.sroa.0645.7 = phi ptr [ %462, %.noexc ], [ %.sroa.0645.6718, %.preheader.i.i ]
-  %.sroa.11.5 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.pn, i64 16
+  %.sroa.11.5 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.pn, i64 16
   %472 = load ptr, ptr %12, align 8
   %473 = add nuw nsw i64 %indvars.iv764, 1
   %474 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN2cv6dynafu8triTableE, i64 0, i64 %112, i64 %473

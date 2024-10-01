@@ -3513,7 +3513,7 @@ _ZNSt12_Vector_baseIN4llvm12BranchFolder11SameTailEltESaIS2_EE11_M_allocateEm.ex
 
 _ZNSt6vectorIN4llvm12BranchFolder11SameTailEltESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm12BranchFolder11SameTailEltESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %351, %_ZNSt12_Vector_baseIN4llvm12BranchFolder11SameTailEltESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %354, %.lr.ph.i.i.i.i.i.i ]
-  %355 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %355 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %329, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm12BranchFolder11SameTailEltESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %356
 
@@ -3598,7 +3598,7 @@ _ZNSt12_Vector_baseIN4llvm12BranchFolder11SameTailEltESaIS2_EE11_M_allocateEm.ex
 
 _ZNSt6vectorIN4llvm12BranchFolder11SameTailEltESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i31: ; preds = %.lr.ph.i.i.i.i.i.i27, %_ZNSt12_Vector_baseIN4llvm12BranchFolder11SameTailEltESaIS2_EE11_M_allocateEm.exit.i.i.i25
   %.0.lcssa.i.i.i.i.i.i32 = phi ptr [ %381, %_ZNSt12_Vector_baseIN4llvm12BranchFolder11SameTailEltESaIS2_EE11_M_allocateEm.exit.i.i.i25 ], [ %384, %.lr.ph.i.i.i.i.i.i27 ]
-  %385 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i32, i64 16
+  %385 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i32, i64 16
   %.not.i23.i.i.i33 = icmp eq ptr %367, null
   br i1 %.not.i23.i.i.i33, label %_ZNSt6vectorIN4llvm12BranchFolder11SameTailEltESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i34, label %386
 

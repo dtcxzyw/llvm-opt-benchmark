@@ -1239,12 +1239,12 @@ define hidden void @_ZN2cv7Cloning5solveERKNS_3MatERS1_S4_(ptr nocapture noundef
   %85 = load i64, ptr %84, align 8
   %86 = sext i32 %43 to i64
   %87 = mul i64 %85, %86
-  %88 = getelementptr i8, ptr %83, i64 %87
+  %88 = getelementptr inbounds i8, ptr %83, i64 %87
   %89 = load ptr, ptr %40, align 8
   %90 = load ptr, ptr %41, align 8
   %91 = load i64, ptr %90, align 8
   %92 = mul i64 %91, %86
-  %93 = getelementptr i8, ptr %89, i64 %92
+  %93 = getelementptr inbounds i8, ptr %89, i64 %92
   br i1 %42, label %.lr.ph89.preheader, label %._crit_edge90
 
 .lr.ph89.preheader:                               ; preds = %._crit_edge86

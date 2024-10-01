@@ -1392,7 +1392,7 @@ define internal fastcc noundef i32 @_ZL22LZ4_decompress_genericPKcPciiiiiiPKhS3_
 69:                                               ; preds = %67, %53
   %.0212 = phi i64 [ %58, %53 ], [ %63, %67 ]
   %.1 = phi ptr [ %54, %53 ], [ %60, %67 ]
-  %70 = getelementptr i8, ptr %.0203, i64 %.0212
+  %70 = getelementptr inbounds i8, ptr %.0203, i64 %.0212
   br i1 %.not236, label %.critedge, label %71
 
 71:                                               ; preds = %69
@@ -1602,7 +1602,7 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %86
 
 162:                                              ; preds = %160, %141
   %.0209 = phi ptr [ %159, %141 ], [ %161, %160 ]
-  %.3206 = getelementptr i8, ptr %70, i64 8
+  %.3206 = getelementptr inbounds i8, ptr %70, i64 8
   %163 = icmp ugt ptr %115, %29
   br i1 %163, label %164, label %.preheader289
 

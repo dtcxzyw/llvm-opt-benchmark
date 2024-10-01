@@ -2319,7 +2319,7 @@ while.body.i:                                     ; preds = %invoke.cont95, %if.
   %out.addr.020.i = phi ptr [ %out.addr.2.i, %if.end.i ], [ %call5.i.i.i.i1.i.i127, %invoke.cont95 ]
   %31 = load i8, ptr %in.addr.021.i, align 1
   %tobool.not.i133 = icmp sgt i8 %31, -1
-  %incdec.ptr.i = getelementptr i8, ptr %in.addr.021.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %in.addr.021.i, i64 1
   br i1 %tobool.not.i133, label %for.cond.preheader.i, label %if.else.i134
 
 for.cond.preheader.i:                             ; preds = %while.body.i
@@ -2685,7 +2685,7 @@ while.body.i290:                                  ; preds = %invoke.cont253, %if
   %out.addr.020.i292 = phi ptr [ %out.addr.2.i300, %if.end.i299 ], [ %call5.i.i.i.i1.i.i280, %invoke.cont253 ]
   %75 = load i8, ptr %in.addr.021.i291, align 1
   %tobool.not.i293 = icmp sgt i8 %75, -1
-  %incdec.ptr.i294 = getelementptr i8, ptr %in.addr.021.i291, i64 1
+  %incdec.ptr.i294 = getelementptr inbounds i8, ptr %in.addr.021.i291, i64 1
   br i1 %tobool.not.i293, label %for.cond.preheader.i303, label %if.else.i295
 
 for.cond.preheader.i303:                          ; preds = %while.body.i290
@@ -3204,7 +3204,7 @@ while.body:                                       ; preds = %entry, %if.end
   %out.addr.020 = phi ptr [ %out.addr.2, %if.end ], [ %out, %entry ]
   %0 = load i8, ptr %in.addr.021, align 1
   %tobool.not = icmp sgt i8 %0, -1
-  %incdec.ptr = getelementptr i8, ptr %in.addr.021, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.021, i64 1
   br i1 %tobool.not, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %while.body
@@ -26056,7 +26056,7 @@ if.end12:                                         ; preds = %if.then8
   %sub.ptr.rhs.cast = ptrtoint ptr %begin to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %5 = load ptr, ptr %handler, align 8
-  %fill2.i = getelementptr i8, ptr %5, i64 11
+  %fill2.i = getelementptr inbounds i8, ptr %5, i64 11
   %cmp.i.i = icmp ugt i64 %sub.ptr.sub, 4
   br i1 %cmp.i.i, label %if.then.i.i, label %for.body.i.i
 

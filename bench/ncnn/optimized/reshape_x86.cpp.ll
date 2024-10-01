@@ -1359,13 +1359,13 @@ define hidden noundef i32 @_ZNK4ncnn11Reshape_x867forwardERKNS_3MatERS1_RKNS_6Op
   %indvars.iv930 = phi i64 [ 0, %.lr.ph872.us.preheader ], [ %indvars.iv.next931, %._crit_edge880.us ]
   %750 = load ptr, ptr %10, align 8
   %751 = mul nuw nsw i64 %indvars.iv930, %748
-  %752 = getelementptr float, ptr %750, i64 %751
+  %752 = getelementptr inbounds float, ptr %750, i64 %751
   %753 = load ptr, ptr %2, align 8
   %754 = load i64, ptr %660, align 8
   %755 = mul i64 %754, %indvars.iv930
   %756 = load i64, ptr %745, align 8
   %757 = mul i64 %755, %756
-  %758 = getelementptr i8, ptr %753, i64 %757
+  %758 = getelementptr inbounds i8, ptr %753, i64 %757
   br label %766
 
 ._crit_edge880.us:                                ; preds = %.lr.ph879.us, %..preheader_crit_edge.us
@@ -1393,8 +1393,8 @@ define hidden noundef i32 @_ZNK4ncnn11Reshape_x867forwardERKNS_3MatERS1_RKNS_6Op
   %.0619868.us = phi ptr [ %752, %.lr.ph872.us ], [ %768, %766 ]
   %767 = load <4 x float>, ptr %.0619868.us, align 1
   store <4 x float> %767, ptr %.0617869.us, align 1
-  %768 = getelementptr i8, ptr %.0619868.us, i64 16
-  %769 = getelementptr i8, ptr %.0617869.us, i64 16
+  %768 = getelementptr inbounds i8, ptr %.0619868.us, i64 16
+  %769 = getelementptr inbounds i8, ptr %.0617869.us, i64 16
   %770 = add nuw nsw i32 %.0870.us, 4
   %771 = or disjoint i32 %770, 3
   %772 = icmp slt i32 %771, %675
@@ -1415,13 +1415,13 @@ define hidden noundef i32 @_ZNK4ncnn11Reshape_x867forwardERKNS_3MatERS1_RKNS_6Op
   %indvars.iv926 = phi i64 [ 0, %.preheader.us884.preheader ], [ %indvars.iv.next927, %._crit_edge880.us890 ]
   %775 = load ptr, ptr %10, align 8
   %776 = mul nuw nsw i64 %indvars.iv926, %774
-  %777 = getelementptr float, ptr %775, i64 %776
+  %777 = getelementptr inbounds float, ptr %775, i64 %776
   %778 = load ptr, ptr %2, align 8
   %779 = load i64, ptr %660, align 8
   %780 = mul i64 %779, %indvars.iv926
   %781 = load i64, ptr %745, align 8
   %782 = mul i64 %780, %781
-  %783 = getelementptr i8, ptr %778, i64 %782
+  %783 = getelementptr inbounds i8, ptr %778, i64 %782
   br label %784
 
 784:                                              ; preds = %.preheader.us884, %784

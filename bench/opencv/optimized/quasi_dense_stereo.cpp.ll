@@ -1781,7 +1781,7 @@ _ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_M_allocateEm.exit.i.
 
 _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %79, %_ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_M_allocateEm.exit.i.i ], [ %82, %.lr.ph.i.i.i.i.i.i ]
-  %83 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 20
+  %83 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 20
   %.not.i23.i.i = icmp eq ptr %65, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %84
 
@@ -1986,7 +1986,7 @@ _ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_M_allocateEm.exit.i.
 
 _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %73, %_ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_M_allocateEm.exit.i.i ], [ %76, %.lr.ph.i.i.i.i.i.i ]
-  %77 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 20
+  %77 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 20
   %.not.i23.i.i = icmp eq ptr %59, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %78
 
@@ -4102,7 +4102,7 @@ _ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_M_allocateEm.exit.i.
 
 _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %25, %_ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_M_allocateEm.exit.i.i ], [ %28, %.lr.ph.i.i.i.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 20
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 20
   %.not.i23.i.i = icmp eq ptr %11, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %30
 

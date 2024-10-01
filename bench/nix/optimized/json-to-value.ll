@@ -4677,7 +4677,7 @@ _ZNKSt6vectorIPN3nix5ValueE19traceable_allocatorIS2_EE12_M_check_lenEmPKc.exit: 
 
 _ZSt34__uninitialized_move_if_noexcept_aIPPN3nix5ValueES3_19traceable_allocatorIS2_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i, %26
   %.0.lcssa.i.i = phi ptr [ %27, %26 ], [ %33, %.lr.ph.i.i ]
-  %35 = getelementptr i8, ptr %.0.lcssa.i.i, i64 8
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 8
   %36 = icmp eq ptr %1, %5
   br i1 %36, label %_ZSt34__uninitialized_move_if_noexcept_aIPPN3nix5ValueES3_19traceable_allocatorIS2_EET0_T_S7_S6_RT1_.exit32, label %.lr.ph.i.i28
 

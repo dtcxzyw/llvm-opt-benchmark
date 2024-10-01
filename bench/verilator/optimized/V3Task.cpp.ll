@@ -1938,7 +1938,7 @@ _ZNKSt6vectorISt4pairIP6AstVarP6AstArgESaIS5_EE12_M_check_lenEmPKc.exit.i.i: ; p
 
 _ZNSt6vectorISt4pairIP6AstVarP6AstArgESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc160
   %.0.lcssa.i.i.i.i.i = phi ptr [ %103, %.noexc160 ], [ %107, %.lr.ph.i.i.i.i.i ]
-  %108 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %108 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i34.i.i = icmp eq ptr %90, null
   br i1 %.not.i34.i.i, label %_ZNSt6vectorISt4pairIP6AstVarP6AstArgESaIS5_EE17_M_realloc_insertIJRKS2_S4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %109
 
@@ -2476,7 +2476,7 @@ _ZNKSt6vectorISt4pairIP6AstVarP6AstArgESaIS5_EE12_M_check_lenEmPKc.exit.i.i187: 
 
 _ZNSt6vectorISt4pairIP6AstVarP6AstArgESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i195: ; preds = %.lr.ph.i.i.i.i.i191, %.noexc199
   %.0.lcssa.i.i.i.i.i196 = phi ptr [ %283, %.noexc199 ], [ %287, %.lr.ph.i.i.i.i.i191 ]
-  %288 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i196, i64 16
+  %288 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i196, i64 16
   %.not.i34.i.i197 = icmp eq ptr %270, null
   br i1 %.not.i34.i.i197, label %_ZNSt6vectorISt4pairIP6AstVarP6AstArgESaIS5_EE17_M_realloc_insertIJRS2_S4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %289
 
@@ -11429,7 +11429,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt4pairIP19AstUnpackArrayDTypei
 
 19:                                               ; preds = %14
   %20 = sub i64 0, %2
-  %21 = getelementptr %"struct.std::pair.70", ptr %9, i64 %20
+  %21 = getelementptr inbounds %"struct.std::pair.70", ptr %9, i64 %20
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %19, %.lr.ph.i.i.i.i.i
@@ -11591,7 +11591,7 @@ _ZSt24__uninitialized_fill_n_aIPSt4pairIP19AstUnpackArrayDTypeiEmS3_S3_ET_S5_T0_
 
 _ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIP19AstUnpackArrayDTypeiES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPSt4pairIP19AstUnpackArrayDTypeiEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %70, %_ZSt24__uninitialized_fill_n_aIPSt4pairIP19AstUnpackArrayDTypeiEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87 ], [ %75, %.lr.ph.i.i.i.i.i89 ]
-  %76 = getelementptr %"struct.std::pair.70", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
+  %76 = getelementptr inbounds %"struct.std::pair.70", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
   %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIP19AstUnpackArrayDTypeiES4_SaIS3_EET0_T_S7_S6_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 

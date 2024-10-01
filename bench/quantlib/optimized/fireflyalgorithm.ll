@@ -1351,7 +1351,7 @@ for.body.i.i.i.i217:                              ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorISt4pairIdmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i: ; preds = %for.body.i.i.i.i217, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i221, %for.body.i.i.i.i217 ]
-  %incdec.ptr.i224 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
+  %incdec.ptr.i224 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
   %tobool.not.i.i226 = icmp eq ptr %87, null
   br i1 %tobool.not.i.i226, label %.noexc192, label %if.then.i27.i
 

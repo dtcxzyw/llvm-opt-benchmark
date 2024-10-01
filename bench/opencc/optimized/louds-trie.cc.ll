@@ -11238,7 +11238,7 @@ select.unfold.i.i:                                ; preds = %.lr.ph.i.i
   br i1 %.not19.i.i.i, label %_ZNSt17_Temporary_bufferIPN6marisa8grimoire4trie13WeightedRangeES3_EC2ES4_l.exit.thread22, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %12
-  %.01518.i.i.i = getelementptr i8, ptr %11, i64 16
+  %.01518.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i

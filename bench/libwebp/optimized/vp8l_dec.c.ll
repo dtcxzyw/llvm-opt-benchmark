@@ -1817,10 +1817,10 @@ PlaneCodeToDistance.exit.i:                       ; preds = %215, %213
 
 226:                                              ; preds = %PlaneCodeToDistance.exit.i
   %227 = zext nneg i32 %.0106200.i to i64
-  %228 = getelementptr i8, ptr %12, i64 %227
+  %228 = getelementptr inbounds i8, ptr %12, i64 %227
   %229 = zext nneg i32 %.0.i149.i to i64
   %230 = sub nsw i64 0, %229
-  %231 = getelementptr i8, ptr %228, i64 %230
+  %231 = getelementptr inbounds i8, ptr %228, i64 %230
   %232 = icmp sgt i32 %.0.i.i140.i, 7
   br i1 %232, label %233, label %261
 
@@ -2854,7 +2854,7 @@ VP8LIsEndOfStream.exit266.thread:                 ; preds = %373, %VP8LIsEndOfSt
 
 389:                                              ; preds = %384
   %390 = sub nsw i64 0, %382
-  %391 = getelementptr i32, ptr %.0171310, i64 %390
+  %391 = getelementptr inbounds i32, ptr %.0171310, i64 %390
   %392 = icmp ult i32 %.0.i264, 3
   %393 = icmp sgt i32 %.0.i.i255, 3
   %or.cond.i = and i1 %393, %392

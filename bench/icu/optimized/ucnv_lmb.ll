@@ -1566,7 +1566,7 @@ while.end:                                        ; preds = %if.end273, %if.end2
 
 if.then276:                                       ; preds = %while.end
   %105 = load ptr, ptr %converter, align 8
-  %charErrorBuffer = getelementptr i8, ptr %105, i64 104
+  %charErrorBuffer = getelementptr inbounds i8, ptr %105, i64 104
   store i32 15, ptr %err, align 4
   %conv279 = trunc i32 %bytes_written.10.lcssa to i8
   %106 = load ptr, ptr %converter, align 8

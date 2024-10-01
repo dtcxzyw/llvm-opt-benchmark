@@ -1057,7 +1057,7 @@ for.body.i.i.i.i.i94:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN7rocksdb26IntTblPropCollectorFactoryESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i100: ; preds = %for.body.i.i.i.i.i94, %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb26IntTblPropCollectorFactoryESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i90
   %__cur.0.lcssa.i.i.i.i.i101 = phi ptr [ %cond.i10.i.i91, %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb26IntTblPropCollectorFactoryESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i90 ], [ %incdec.ptr1.i.i.i.i.i98, %for.body.i.i.i.i.i94 ]
-  %incdec.ptr.i.i102 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i101, i64 8
+  %incdec.ptr.i.i102 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i101, i64 8
   %tobool.not.i.i.i103 = icmp eq ptr %43, null
   br i1 %tobool.not.i.i.i103, label %_ZNSt6vectorISt10unique_ptrIN7rocksdb26IntTblPropCollectorFactoryESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPNS1_38UserKeyTablePropertiesCollectorFactoryEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %if.then.i20.i.i104
 

@@ -560,7 +560,7 @@ ir_gdbjit_debugline.exit.i:                       ; preds = %.lr.ph.i74.i.i, %18
   %212 = getelementptr inbounds i8, ptr %209, i64 4
   store i32 0, ptr %212, align 4
   %213 = getelementptr inbounds i8, ptr %209, i64 8
-  %214 = getelementptr i8, ptr %209, i64 9
+  %214 = getelementptr inbounds i8, ptr %209, i64 9
   store i8 1, ptr %213, align 8
   br label %215
 

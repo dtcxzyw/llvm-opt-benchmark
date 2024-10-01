@@ -40423,7 +40423,7 @@ for.end350:                                       ; preds = %for.body320
   %m_restArea = getelementptr inbounds i8, ptr %memPtr288.01072, i64 36
   store float %89, ptr %m_restArea, align 4
   %indvars.iv.next1118 = add nuw nsw i64 %indvars.iv1117, 1
-  %incdec.ptr356 = getelementptr i8, ptr %memPtr288.01072, i64 40
+  %incdec.ptr356 = getelementptr inbounds i8, ptr %memPtr288.01072, i64 40
   %exitcond1121.not = icmp eq i64 %indvars.iv.next1118, %wide.trip.count1120
   br i1 %exitcond1121.not, label %for.end357, label %for.body293, !llvm.loop !481
 

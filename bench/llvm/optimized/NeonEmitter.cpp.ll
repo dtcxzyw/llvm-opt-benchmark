@@ -20041,7 +20041,7 @@ _ZSt4moveIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i: ; preds = %32, %29
   br i1 %36, label %.lr.ph90.preheader.i, label %._crit_edge91.i
 
 .lr.ph90.preheader.i:                             ; preds = %35
-  %37 = getelementptr ptr, ptr %.053.i, i64 %.074.i
+  %37 = getelementptr inbounds ptr, ptr %.053.i, i64 %.074.i
   br label %.lr.ph90.i
 
 .lr.ph90.i:                                       ; preds = %.lr.ph90.i, %.lr.ph90.preheader.i

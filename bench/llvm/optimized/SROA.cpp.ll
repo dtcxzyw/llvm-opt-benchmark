@@ -6547,7 +6547,7 @@ select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i5
   br i1 %.not19.i.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_15SliceES1_EC2ES2_l.exit.thread21.i.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %1421
-  %.01518.i.i.i.i.i.i.i = getelementptr i8, ptr %1417, i64 24
+  %.01518.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1417, i64 24
   br label %.lr.ph.i.i.i.i.i.i10.i
 
 .lr.ph.i.i.i.i.i.i10.i:                           ; preds = %.lr.ph.i.i.i.i.i.i10.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -10141,7 +10141,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   br i1 %.not19.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_15SliceES1_EC2ES2_l.exit.thread21.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %221
-  %.01518.i.i.i.i.i.i = getelementptr i8, ptr %217, i64 24
+  %.01518.i.i.i.i.i.i = getelementptr inbounds i8, ptr %217, i64 24
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -26857,7 +26857,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   br i1 %.not19.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_15SliceES1_EC2ES2_l.exit.thread21.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %2631
-  %.01518.i.i.i.i.i.i = getelementptr i8, ptr %2627, i64 24
+  %.01518.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2627, i64 24
   br label %.lr.ph.i.i.i.i.i.i907
 
 .lr.ph.i.i.i.i.i.i907:                            ; preds = %.lr.ph.i.i.i.i.i.i907, %.lr.ph.i.i.preheader.i.i.i.i
@@ -26932,7 +26932,7 @@ select.unfold.i.i.i.i21.i:                        ; preds = %.lr.ph.i.i.i.i9.i
   br i1 %.not19.i.i.i.i.i12.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_15SliceES1_EC2ES2_l.exit.thread37.i.i.i, label %.lr.ph.i.i.preheader.i.i.i13.i
 
 .lr.ph.i.i.preheader.i.i.i13.i:                   ; preds = %2654
-  %.01518.i.i.i.i.i14.i = getelementptr i8, ptr %2648, i64 24
+  %.01518.i.i.i.i.i14.i = getelementptr inbounds i8, ptr %2648, i64 24
   br label %.lr.ph.i.i.i.i.i15.i
 
 .lr.ph.i.i.i.i.i15.i:                             ; preds = %.lr.ph.i.i.i.i.i15.i, %.lr.ph.i.i.preheader.i.i.i13.i

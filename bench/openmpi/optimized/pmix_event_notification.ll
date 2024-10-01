@@ -6162,7 +6162,7 @@ define internal void @cycle_events(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %50, !llvm.loop !39
 
 57:                                               ; preds = %45, %._crit_edge395
-  %58 = getelementptr %struct.pmix_info, ptr %28, i64 %.0278.lcssa
+  %58 = getelementptr inbounds %struct.pmix_info, ptr %28, i64 %.0278.lcssa
   store i8 85, ptr %58, align 1
   br label %59
 

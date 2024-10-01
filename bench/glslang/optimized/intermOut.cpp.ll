@@ -7161,7 +7161,7 @@ _ZNSt12_Vector_baseIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE11_M_allocateE
 
 _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S5_EEDpOT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %84, %_ZNSt12_Vector_baseIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i.i ], [ %88, %.lr.ph.i.i.i.i.i ]
-  %89 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %89 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   store ptr %84, ptr %68, align 8
   store ptr %89, ptr %60, align 8
   %90 = getelementptr inbounds ptr, ptr %84, i64 %79

@@ -1040,9 +1040,9 @@ _ZNK2cv11_InputArray6getMatEi.exit157:            ; preds = %35, %38
 _ZN2cv10AutoBufferINS_6Point_IfEELm136EEC2Em.exit: ; preds = %.noexc158, %87
   %96 = phi ptr [ %95, %.noexc158 ], [ %scevgep.i, %87 ]
   %97 = zext nneg i32 %68 to i64
-  %98 = getelementptr %"class.cv::Point_", ptr %96, i64 %97
+  %98 = getelementptr inbounds %"class.cv::Point_", ptr %96, i64 %97
   %99 = zext nneg i32 %72 to i64
-  %100 = getelementptr %"class.cv::Point_", ptr %98, i64 %99
+  %100 = getelementptr inbounds %"class.cv::Point_", ptr %98, i64 %99
   %101 = getelementptr inbounds i8, ptr %16, i64 8
   %102 = getelementptr inbounds i8, ptr %16, i64 16
   %103 = getelementptr inbounds i8, ptr %15, i64 16
@@ -1074,7 +1074,7 @@ _ZN2cv10AutoBufferINS_6Point_IfEELm136EEC2Em.exit: ; preds = %.noexc158, %87
   %118 = load i32, ptr %., align 8
   %119 = and i32 %118, 4088
   %120 = or disjoint i32 %119, 5
-  invoke void @_ZN2cv3MatC1ENS_5Size_IiEEiPvm(ptr noundef nonnull align 8 dereferenceable(96) %15, i64 %.sroa.0.0.insert.insert.i, i32 noundef %120, ptr noundef %113, i64 noundef 0)
+  invoke void @_ZN2cv3MatC1ENS_5Size_IiEEiPvm(ptr noundef nonnull align 8 dereferenceable(96) %15, i64 %.sroa.0.0.insert.insert.i, i32 noundef %120, ptr noundef nonnull %113, i64 noundef 0)
           to label %121 unwind label %.loopexit185
 
 121:                                              ; preds = %110

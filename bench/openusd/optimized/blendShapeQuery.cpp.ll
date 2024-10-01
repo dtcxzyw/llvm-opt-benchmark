@@ -783,7 +783,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubSh
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34.i: ; preds = %.lr.ph.i.i.i.i89, %.noexc92
   %.0.lcssa.i.i.i.i = phi ptr [ %234, %.noexc92 ], [ %240, %.lr.ph.i.i.i.i89 ]
-  %241 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 12
+  %241 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 12
   %.not.i35.i = icmp eq ptr %221, null
   br i1 %.not.i35.i, label %.noexc56, label %242
 
@@ -862,7 +862,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubSh
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34.i108: ; preds = %.lr.ph.i.i.i.i97, %.noexc112
   %.0.lcssa.i.i.i.i102 = phi ptr [ %266, %.noexc112 ], [ %272, %.lr.ph.i.i.i.i97 ]
-  %273 = getelementptr i8, ptr %.0.lcssa.i.i.i.i102, i64 12
+  %273 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i102, i64 12
   %.not.i35.i110 = icmp eq ptr %253, null
   br i1 %.not.i35.i110, label %.noexc59, label %274
 
@@ -1189,7 +1189,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubSh
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34.i129: ; preds = %.lr.ph.i.i.i.i118, %.noexc133
   %.0.lcssa.i.i.i.i123 = phi ptr [ %418, %.noexc133 ], [ %423, %.lr.ph.i.i.i.i118 ]
-  %424 = getelementptr i8, ptr %.0.lcssa.i.i.i.i123, i64 12
+  %424 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i123, i64 12
   %.not.i35.i131 = icmp eq ptr %404, null
   br i1 %.not.i35.i131, label %.noexc72, label %425
 

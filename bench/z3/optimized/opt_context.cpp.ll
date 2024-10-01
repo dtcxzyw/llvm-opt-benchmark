@@ -28421,7 +28421,7 @@ _ZNK6vectorI6symbolLb0EjE8capacityEv.exit.i.i.i:  ; preds = %_ZN6vectorI6symbolL
   store i32 %9, ptr %call3.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 4
   store i32 %8, ptr %incdec.ptr.i.i.i, align 4
-  %incdec.ptr4.i.i.i = getelementptr i8, ptr %call3.i.i.i, i64 8
+  %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i, ptr %labels, align 8
   %10 = load ptr, ptr %m_labels, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %10, null
@@ -32800,7 +32800,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i:
   %add.i.i = add nuw nsw i64 %mul.i.i, 8
   %call.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %38, i64 noundef %add.i.i)
   store i64 %cond.i43, ptr %call.i.i, align 8
-  %incdec.ptr.i.i = getelementptr i8, ptr %call.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   br i1 %cmp.i41, label %if.end25, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i, %for.body.i
@@ -33700,7 +33700,7 @@ _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN1
   %add.i.i = add nuw nsw i64 %mul.i.i, 8
   %call.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %38, i64 noundef %add.i.i)
   store i64 %cond.i43, ptr %call.i.i, align 8
-  %incdec.ptr.i.i = getelementptr i8, ptr %call.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   br i1 %cmp.i41, label %if.end25, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i, %for.body.i

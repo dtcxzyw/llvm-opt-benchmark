@@ -585,7 +585,7 @@ if.else238:                                       ; preds = %if.else219
 
 if.end241:                                        ; preds = %if.else238, %if.then221
   %matchAddress.1 = phi ptr [ %add.ptr237, %if.then221 ], [ %add.ptr239, %if.else238 ]
-  %output.4 = getelementptr i8, ptr %output.1302.ph, i64 8
+  %output.4 = getelementptr inbounds i8, ptr %output.1302.ph, i64 8
   %cmp242.not = icmp ult ptr %add.ptr198, %add.ptr
   br i1 %cmp242.not, label %while.cond267.preheader, label %while.cond254.preheader
 

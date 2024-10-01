@@ -4960,17 +4960,17 @@ define internal void @T1_Done_Blend(ptr nocapture noundef %0) #2 {
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %6
-  %16 = getelementptr i8, ptr %5, i64 416
+  %16 = getelementptr inbounds i8, ptr %5, i64 416
   %17 = getelementptr inbounds i8, ptr %5, i64 424
   %18 = load ptr, ptr %17, align 8
   tail call void @ft_mem_free(ptr noundef %3, ptr noundef %18) #16
   store ptr null, ptr %17, align 8
-  %19 = getelementptr i8, ptr %5, i64 280
+  %19 = getelementptr inbounds i8, ptr %5, i64 280
   %20 = getelementptr inbounds i8, ptr %5, i64 288
   %21 = load ptr, ptr %20, align 8
   tail call void @ft_mem_free(ptr noundef %3, ptr noundef %21) #16
   store ptr null, ptr %20, align 8
-  %22 = getelementptr i8, ptr %5, i64 560
+  %22 = getelementptr inbounds i8, ptr %5, i64 560
   %23 = getelementptr inbounds i8, ptr %5, i64 568
   %24 = load ptr, ptr %23, align 8
   tail call void @ft_mem_free(ptr noundef %3, ptr noundef %24) #16

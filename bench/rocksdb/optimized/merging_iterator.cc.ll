@@ -8612,7 +8612,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
 
 _ZNSt6vectorISt4pairImPPPN7rocksdb25TruncatedRangeDelIteratorEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i51 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i51 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %37, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairImPPPN7rocksdb25TruncatedRangeDelIteratorEESaIS6_EE17_M_realloc_insertIJmRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -11647,7 +11647,7 @@ _ZNKSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE12_M_check_lenEmPKc.ex
   %3 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 104811045873349725)
   %mul.i.i.i = mul nuw nsw i64 %3, 88
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
-  %add.ptr = getelementptr i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   br label %for.inc.i.i.i21
 
 for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE12_M_check_lenEmPKc.exit, %for.inc.i.i.i21
@@ -13242,7 +13242,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 88
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 88
   %cmp.not5.i.i.i20 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i20, label %_ZNSt6vectorIN7rocksdb15MergingIterator8HeapItemESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit28, label %for.body.i.i.i21
 

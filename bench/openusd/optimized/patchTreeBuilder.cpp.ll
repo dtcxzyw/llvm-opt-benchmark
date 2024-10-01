@@ -843,7 +843,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_E
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %46, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EE11_M_allocateEm.exit.i ], [ %50, %.lr.ph.i.i.i.i.i ]
-  %51 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %51 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %32, null
   br i1 %.not.i23.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit, label %52
 
@@ -1044,7 +1044,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_E
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i54: ; preds = %.lr.ph.i.i.i.i.i43, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EE11_M_allocateEm.exit.i41
   %.0.lcssa.i.i.i.i.i48 = phi ptr [ %142, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EE11_M_allocateEm.exit.i41 ], [ %146, %.lr.ph.i.i.i.i.i43 ]
-  %147 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i48, i64 8
+  %147 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i48, i64 8
   %.not.i23.i56 = icmp eq ptr %128, null
   br i1 %.not.i23.i56, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit57, label %148
 
@@ -9325,7 +9325,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder32appendCo
   %10 = load ptr, ptr %9, align 8
   %11 = mul i32 %.fr85, %1
   %12 = sext i32 %11 to i64
-  %13 = getelementptr double, ptr %10, i64 %12
+  %13 = getelementptr inbounds double, ptr %10, i64 %12
   %14 = icmp sgt i32 %8, 0
   br i1 %14, label %.lr.ph83, label %._crit_edge84
 
@@ -11467,7 +11467,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder32appendCo
   %10 = load ptr, ptr %9, align 8
   %11 = mul i32 %.fr85, %1
   %12 = sext i32 %11 to i64
-  %13 = getelementptr float, ptr %10, i64 %12
+  %13 = getelementptr inbounds float, ptr %10, i64 %12
   %14 = icmp sgt i32 %8, 0
   br i1 %14, label %.lr.ph83, label %._crit_edge84
 

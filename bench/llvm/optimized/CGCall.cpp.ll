@@ -2338,9 +2338,9 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12FunctionType16ExtParameterInfoELb1EE2
 35:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang12FunctionType16ExtParameterInfoELb1EE28reserveForParamAndGetAddressERS3_m.exit
   %36 = load ptr, ptr %0, align 8
   %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
-  %38 = getelementptr %"class.clang::FunctionType::ExtParameterInfo", ptr %36, i64 %37
+  %38 = getelementptr inbounds %"class.clang::FunctionType::ExtParameterInfo", ptr %36, i64 %37
   %39 = sub i64 0, %2
-  %40 = getelementptr %"class.clang::FunctionType::ExtParameterInfo", ptr %38, i64 %39
+  %40 = getelementptr inbounds %"class.clang::FunctionType::ExtParameterInfo", ptr %38, i64 %39
   %41 = load ptr, ptr %0, align 8
   %42 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
   %43 = getelementptr inbounds %"class.clang::FunctionType::ExtParameterInfo", ptr %41, i64 %42
@@ -2365,7 +2365,7 @@ _ZN4llvm15SmallVectorImplIN5clang12FunctionType16ExtParameterInfoEE7reserveEm.ex
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN5clang12FunctionType16ExtParameterInfoEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZN4llvm15SmallVectorImplIN5clang12FunctionType16ExtParameterInfoEE7reserveEm.exit.i
-  %55 = getelementptr %"class.clang::FunctionType::ExtParameterInfo", ptr %53, i64 %54
+  %55 = getelementptr inbounds %"class.clang::FunctionType::ExtParameterInfo", ptr %53, i64 %54
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i
@@ -7758,7 +7758,7 @@ _ZNK5clang7CodeGen10ABIArgInfo14getPaddingTypeEv.exit: ; preds = %102, %105
 166:                                              ; preds = %112
   %167 = load ptr, ptr %4, align 8
   %168 = and i64 %114, 4294967295
-  %169 = getelementptr ptr, ptr %167, i64 %168
+  %169 = getelementptr inbounds ptr, ptr %167, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %.056109, i64 16
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
@@ -30395,7 +30395,7 @@ _ZN4llvm15SmallVectorImplIN5clang7CanQualINS1_4TypeEEEE7reserveEm.exit: ; preds 
   br i1 %.not8.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CanQualINS1_4TypeEEELb1EE18uninitialized_copyINS1_15CanTypeIteratorIPKNS1_8QualTypeEEEPS4_EEvT_SD_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplIN5clang7CanQualINS1_4TypeEEEE7reserveEm.exit
-  %16 = getelementptr %"class.clang::CanQual", ptr %14, i64 %15
+  %16 = getelementptr inbounds %"class.clang::CanQual", ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i

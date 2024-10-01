@@ -7953,7 +7953,7 @@ _ZNSt12_Vector_baseIN4Luau22LintMultiLineStatement9StatementESaIS2_EE11_M_alloca
 
 _ZNSt6vectorIN4Luau22LintMultiLineStatement9StatementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN4Luau22LintMultiLineStatement9StatementESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %35, %_ZNSt12_Vector_baseIN4Luau22LintMultiLineStatement9StatementESaIS2_EE11_M_allocateEm.exit.i.i ], [ %38, %.lr.ph.i.i.i.i.i ]
-  %39 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
+  %39 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
   %.not.i23.i.i = icmp eq ptr %21, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN4Luau22LintMultiLineStatement9StatementESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %40
 

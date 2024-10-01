@@ -9917,7 +9917,7 @@ for.body.i.i.i.i278.i:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i294.i: ; preds = %for.body.i.i.i.i278.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i274.i
   %__cur.0.lcssa.i.i.i.i285.i = phi ptr [ %cond.i10.i275.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i274.i ], [ %incdec.ptr1.i.i.i.i282.i, %for.body.i.i.i.i278.i ]
-  %incdec.ptr.i286.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i285.i, i64 8
+  %incdec.ptr.i286.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i285.i, i64 8
   %tobool.not.i.i296.i = icmp eq ptr %inputSourceMaps.sroa.0.1414.i, null
   br i1 %tobool.not.i.i296.i, label %_ZNSt6vectorISt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit94.i, label %if.then.i20.i297.i
 
@@ -10001,7 +10001,7 @@ for.body.i.i.i.i324.i:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i340.i: ; preds = %for.body.i.i.i.i324.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i320.i
   %__cur.0.lcssa.i.i.i.i331.i = phi ptr [ %cond.i10.i321.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i320.i ], [ %incdec.ptr1.i.i.i.i328.i, %for.body.i.i.i.i324.i ]
-  %incdec.ptr.i332.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i331.i, i64 8
+  %incdec.ptr.i332.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i331.i, i64 8
   %tobool.not.i.i342.i = icmp eq ptr %inputSourceMaps.sroa.0.1414.i, null
   br i1 %tobool.not.i.i342.i, label %_ZNSt6vectorISt10unique_ptrIN6hermes9SourceMapESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit347.i, label %if.then.i20.i343.i
 

@@ -856,7 +856,7 @@ solver_enqueue.exit:                              ; preds = %46, %70, %vec_uint_
 
 .backedge:                                        ; preds = %116, %110
   %.1109.be = getelementptr inbounds i8, ptr %.1109182, i64 8
-  %.0111.be = getelementptr i8, ptr %.0111181, i64 8
+  %.0111.be = getelementptr inbounds i8, ptr %.0111181, i64 8
   %storemerge = load i64, ptr %.1109182, align 4
   store i64 %storemerge, ptr %.0111181, align 4
   %115 = icmp ult ptr %.1109.be, %106
@@ -1026,7 +1026,7 @@ watch_list_push.exit:                             ; preds = %169, %193, %202
   br label %.outer
 
 ._crit_edge193:                                   ; preds = %158, %153
-  %209 = getelementptr i8, ptr %.0111181, i64 8
+  %209 = getelementptr inbounds i8, ptr %.0111181, i64 8
   store i32 %141, ptr %.0111181, align 4
   %.sroa.4.0..sroa_idx7 = getelementptr inbounds i8, ptr %.0111181, i64 4
   store i32 %140, ptr %.sroa.4.0..sroa_idx7, align 4

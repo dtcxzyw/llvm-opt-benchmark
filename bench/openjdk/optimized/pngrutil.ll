@@ -4055,9 +4055,9 @@ select.unfold:                                    ; preds = %139, %130
   %.1230 = phi ptr [ %.0229, %213 ], [ %217, %214 ]
   %.1228 = phi ptr [ %.0227, %213 ], [ %215, %214 ]
   %.0226 = phi i64 [ %197, %213 ], [ %218, %214 ]
-  %215 = getelementptr i8, ptr %.1228, i64 4
+  %215 = getelementptr inbounds i8, ptr %.1228, i64 4
   %216 = load i32, ptr %.1228, align 4
-  %217 = getelementptr i8, ptr %.1230, i64 4
+  %217 = getelementptr inbounds i8, ptr %.1230, i64 4
   store i32 %216, ptr %.1230, align 4
   %218 = add i64 %.0226, -4
   %.not291 = icmp eq i64 %218, 0
@@ -4068,8 +4068,8 @@ select.unfold:                                    ; preds = %139, %130
   br i1 %.not292, label %220, label %.loopexit310
 
 220:                                              ; preds = %219
-  %221 = getelementptr i32, ptr %217, i64 %212
-  %222 = getelementptr i32, ptr %215, i64 %212
+  %221 = getelementptr inbounds i32, ptr %217, i64 %212
+  %222 = getelementptr inbounds i32, ptr %215, i64 %212
   %223 = sub nuw i64 %.4242, %201
   %.not293 = icmp ult i64 %223, %197
   br i1 %.not293, label %.preheader, label %213, !llvm.loop !48
@@ -4101,9 +4101,9 @@ select.unfold:                                    ; preds = %139, %130
   %.1225 = phi ptr [ %.0224, %231 ], [ %235, %232 ]
   %.1223 = phi ptr [ %.0222, %231 ], [ %233, %232 ]
   %.0 = phi i64 [ %197, %231 ], [ %236, %232 ]
-  %233 = getelementptr i8, ptr %.1223, i64 2
+  %233 = getelementptr inbounds i8, ptr %.1223, i64 2
   %234 = load i16, ptr %.1223, align 2
-  %235 = getelementptr i8, ptr %.1225, i64 2
+  %235 = getelementptr inbounds i8, ptr %.1225, i64 2
   store i16 %234, ptr %.1225, align 2
   %236 = add i64 %.0, -2
   %.not287 = icmp eq i64 %236, 0
@@ -4114,8 +4114,8 @@ select.unfold:                                    ; preds = %139, %130
   br i1 %.not288, label %238, label %.loopexit310
 
 238:                                              ; preds = %237
-  %239 = getelementptr i16, ptr %235, i64 %230
-  %240 = getelementptr i16, ptr %233, i64 %230
+  %239 = getelementptr inbounds i16, ptr %235, i64 %230
+  %240 = getelementptr inbounds i16, ptr %233, i64 %230
   %241 = sub nuw i64 %.6244, %201
   %.not289 = icmp ult i64 %241, %197
   br i1 %.not289, label %.preheader312, label %231, !llvm.loop !51

@@ -453,7 +453,7 @@ _ZNSt12_Vector_baseIN4llvm21CodeGenIntrinsicTable9TargetSetESaIS2_EE11_M_allocat
 
 _ZNSt6vectorIN4llvm21CodeGenIntrinsicTable9TargetSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i20, %_ZNSt12_Vector_baseIN4llvm21CodeGenIntrinsicTable9TargetSetESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %120, %_ZNSt12_Vector_baseIN4llvm21CodeGenIntrinsicTable9TargetSetESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %123, %.lr.ph.i.i.i.i.i.i20 ]
-  %124 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
+  %124 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
   %.not.i23.i.i.i = icmp eq ptr %106, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm21CodeGenIntrinsicTable9TargetSetESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %125
 
@@ -582,7 +582,7 @@ _ZNSt12_Vector_baseIN4llvm21CodeGenIntrinsicTable9TargetSetESaIS2_EE11_M_allocat
 
 _ZNSt6vectorIN4llvm21CodeGenIntrinsicTable9TargetSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i33: ; preds = %.lr.ph.i.i.i.i.i.i29, %_ZNSt12_Vector_baseIN4llvm21CodeGenIntrinsicTable9TargetSetESaIS2_EE11_M_allocateEm.exit.i.i.i27
   %.0.lcssa.i.i.i.i.i.i34 = phi ptr [ %167, %_ZNSt12_Vector_baseIN4llvm21CodeGenIntrinsicTable9TargetSetESaIS2_EE11_M_allocateEm.exit.i.i.i27 ], [ %170, %.lr.ph.i.i.i.i.i.i29 ]
-  %171 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i34, i64 32
+  %171 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i34, i64 32
   %.not.i23.i.i.i35 = icmp eq ptr %153, null
   br i1 %.not.i23.i.i.i35, label %_ZNSt6vectorIN4llvm21CodeGenIntrinsicTable9TargetSetESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i36, label %172
 

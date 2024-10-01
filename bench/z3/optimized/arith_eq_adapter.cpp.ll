@@ -1600,11 +1600,11 @@ _ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE8capacityEv.exit.i.i.i: ; preds = %en
   store i32 %4, ptr %call3.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 4
   store i32 %3, ptr %incdec.ptr.i.i.i, align 4
-  %incdec.ptr4.i.i.i = getelementptr i8, ptr %call3.i.i.i, i64 8
+  %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i, ptr %tmp, align 8
   %5 = load ptr, ptr %m_restart_pairs, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %5, null
-  br i1 %cmp.i.i.i.i.i, label %_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5resetEv.exit, label %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE3endEv.exit.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE3endEv.exit, label %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE3endEv.exit.i.i.i
 
 _ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE3endEv.exit.i.i.i: ; preds = %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE8capacityEv.exit.i.i.i
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -4
@@ -1612,7 +1612,7 @@ _ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE3endEv.exit.i.i.i: ; preds = %_ZNK6ve
   %7 = zext i32 %6 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %5, i64 %7
   %cmp.not5.i.i.i.i.i.i = icmp eq i32 %6, 0
-  br i1 %cmp.not5.i.i.i.i.i.i, label %_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5resetEv.exitthread-pre-split, label %for.body.i.i.i.i.i.i
+  br i1 %cmp.not5.i.i.i.i.i.i, label %_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5resetEv.exit.if.end.i.i_crit_edge, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE3endEv.exit.i.i.i, %for.body.i.i.i.i.i.i
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %incdec.ptr4.i.i.i, %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE3endEv.exit.i.i.i ]
@@ -1621,23 +1621,20 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNK6vectorISt4pair
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5resetEv.exitthread-pre-split, label %for.body.i.i.i.i.i.i, !llvm.loop !8
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5resetEv.exit.if.end.i.i_crit_edge, label %for.body.i.i.i.i.i.i, !llvm.loop !8
 
-_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5resetEv.exitthread-pre-split: ; preds = %for.body.i.i.i.i.i.i, %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE3endEv.exit.i.i.i
+_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5resetEv.exit.if.end.i.i_crit_edge: ; preds = %for.body.i.i.i.i.i.i, %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE3endEv.exit.i.i.i
   store i32 0, ptr %arrayidx.i.i.i.i.i, align 4
-  br label %_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5resetEv.exit
+  %arrayidx.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call3.i.i.i, i64 4
+  %.pre = load i32, ptr %arrayidx.i.i.phi.trans.insert, align 4
+  br label %_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE3endEv.exit
 
-_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5resetEv.exit: ; preds = %_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5resetEv.exitthread-pre-split, %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE8capacityEv.exit.i.i.i
-  %cmp.i.i = icmp eq ptr %incdec.ptr4.i.i.i, null
-  br i1 %cmp.i.i, label %_ZN7svectorISt4pairIPN3smt5enodeES3_EjED2Ev.exit, label %_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE3endEv.exit
-
-_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE3endEv.exit: ; preds = %_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5resetEv.exit
-  %arrayidx.i.i = getelementptr i8, ptr %call3.i.i.i, i64 4
-  %8 = load i32, ptr %arrayidx.i.i, align 4
+_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE3endEv.exit: ; preds = %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE8capacityEv.exit.i.i.i, %_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5resetEv.exit.if.end.i.i_crit_edge
+  %8 = phi i32 [ %.pre, %_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5resetEv.exit.if.end.i.i_crit_edge ], [ %3, %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE8capacityEv.exit.i.i.i ]
   %9 = zext i32 %8 to i64
   %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %incdec.ptr4.i.i.i, i64 %9
-  %cmp.not9 = icmp eq i32 %8, 0
-  br i1 %cmp.not9, label %if.then.i.i.i, label %invoke.cont7.lr.ph
+  %cmp.not11 = icmp eq i32 %8, 0
+  br i1 %cmp.not11, label %if.then.i.i.i, label %invoke.cont7.lr.ph
 
 invoke.cont7.lr.ph:                               ; preds = %_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE3endEv.exit
   %m_conflict.i = getelementptr inbounds i8, ptr %1, i64 9544
@@ -1645,7 +1642,7 @@ invoke.cont7.lr.ph:                               ; preds = %_ZN6vectorISt4pairI
   br label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %invoke.cont7.lr.ph, %for.inc
-  %__begin1.010 = phi ptr [ %incdec.ptr4.i.i.i, %invoke.cont7.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %__begin1.012 = phi ptr [ %incdec.ptr4.i.i.i, %invoke.cont7.lr.ph ], [ %incdec.ptr, %for.inc ]
   %10 = load ptr, ptr %m_conflict.i, align 8
   %cmp.i.i.i = icmp ne ptr %10, null
   %11 = load i8, ptr %m_inconsistent.i.i, align 8
@@ -1660,14 +1657,14 @@ lpad:                                             ; preds = %if.end
   resume { ptr, i32 } %13
 
 if.end:                                           ; preds = %invoke.cont7
-  %14 = load ptr, ptr %__begin1.010, align 8
-  %second = getelementptr inbounds i8, ptr %__begin1.010, i64 8
+  %14 = load ptr, ptr %__begin1.012, align 8
+  %second = getelementptr inbounds i8, ptr %__begin1.012, i64 8
   %15 = load ptr, ptr %second, align 8
   invoke void @_ZN3smt16arith_eq_adapter9mk_axiomsEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %14, ptr noundef %15)
           to label %for.inc unwind label %lpad
 
 for.inc:                                          ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.010, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.012, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %if.then.i.i.i, label %invoke.cont7
 
@@ -1682,7 +1679,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   tail call void @__clang_call_terminate(ptr %17) #17
   unreachable
 
-_ZN7svectorISt4pairIPN3smt5enodeES3_EjED2Ev.exit: ; preds = %_ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE5resetEv.exit, %entry, %if.then.i.i.i
+_ZN7svectorISt4pairIPN3smt5enodeES3_EjED2Ev.exit: ; preds = %entry, %if.then.i.i.i
   ret void
 }
 
@@ -2776,7 +2773,7 @@ _ZNK6vectorI9parameterLb0EjE4sizeEv.exit:         ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %class.parameter, ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0
@@ -2909,7 +2906,7 @@ _ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE4sizeEv.exit: ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0

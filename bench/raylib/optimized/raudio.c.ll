@@ -37492,7 +37492,7 @@ ma_channel_map_copy_or_default.exit272:           ; preds = %.preheader.i.i267, 
 78:                                               ; preds = %ma_channel_map_copy_or_default.exit272
   %79 = getelementptr inbounds i8, ptr %4, i64 24
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr i8, ptr %1, i64 %80
+  %81 = getelementptr inbounds i8, ptr %1, i64 %80
   %82 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %2, i64 24

@@ -797,7 +797,7 @@ if.then.i.i.i118:                                 ; preds = %while.body.i.i.i.i
   br i1 %cmp1.not12.i.i.i.i.i, label %if.else.i.i, label %for.body.i.i.preheader.i.i.i
 
 for.body.i.i.preheader.i.i.i:                     ; preds = %if.then.i.i.i118
-  %__cur.011.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i117, i64 32
+  %__cur.011.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i117, i64 32
   br label %for.body.i.i.i.i.i119
 
 for.body.i.i.i.i.i119:                            ; preds = %for.body.i.i.i.i.i119, %for.body.i.i.preheader.i.i.i

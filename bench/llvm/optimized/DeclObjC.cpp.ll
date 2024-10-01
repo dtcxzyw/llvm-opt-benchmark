@@ -6867,7 +6867,7 @@ _ZSt18uninitialized_copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit: ; preds 
 .lr.ph.i.i.i.preheader:                           ; preds = %_ZSt18uninitialized_copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit
   %36 = load i32, ptr %9, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr ptr, ptr %34, i64 %37
+  %38 = getelementptr inbounds ptr, ptr %34, i64 %37
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
@@ -7156,7 +7156,7 @@ _ZSt18uninitialized_copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit.i44: ; pr
 .lr.ph.i.i.i.preheader.i45:                       ; preds = %_ZSt18uninitialized_copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit.i44
   %96 = load i32, ptr %48, align 8
   %97 = zext i32 %96 to i64
-  %98 = getelementptr ptr, ptr %94, i64 %97
+  %98 = getelementptr inbounds ptr, ptr %94, i64 %97
   br label %.lr.ph.i.i.i.i46
 
 .lr.ph.i.i.i.i46:                                 ; preds = %.lr.ph.i.i.i.i46, %.lr.ph.i.i.i.preheader.i45
@@ -10413,7 +10413,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   br i1 %.not19.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_119SynthesizeIvarChunkES1_EC2ES2_l.exit.thread21.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %369
-  %.01518.i.i.i.i.i.i = getelementptr i8, ptr %368, i64 16
+  %.01518.i.i.i.i.i.i = getelementptr inbounds i8, ptr %368, i64 16
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i

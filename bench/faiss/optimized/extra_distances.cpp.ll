@@ -771,7 +771,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %40 = getelementptr inbounds float, ptr %36, i64 %39
   %41 = getelementptr inbounds i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i64, ptr %42, i64 %39
+  %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %44, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
@@ -1151,7 +1151,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %40 = getelementptr inbounds float, ptr %36, i64 %39
   %41 = getelementptr inbounds i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i64, ptr %42, i64 %39
+  %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %44, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
@@ -1362,7 +1362,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %40 = getelementptr inbounds float, ptr %36, i64 %39
   %41 = getelementptr inbounds i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i64, ptr %42, i64 %39
+  %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %44, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
@@ -1573,7 +1573,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %40 = getelementptr inbounds float, ptr %36, i64 %39
   %41 = getelementptr inbounds i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i64, ptr %42, i64 %39
+  %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %44, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
@@ -1799,7 +1799,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %40 = getelementptr inbounds float, ptr %36, i64 %39
   %41 = getelementptr inbounds i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i64, ptr %42, i64 %39
+  %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %44, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
@@ -2026,7 +2026,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %40 = getelementptr inbounds float, ptr %36, i64 %39
   %41 = getelementptr inbounds i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i64, ptr %42, i64 %39
+  %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %44, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
@@ -2268,7 +2268,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %42 = getelementptr inbounds float, ptr %38, i64 %41
   %43 = getelementptr inbounds i8, ptr %36, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr i64, ptr %44, i64 %41
+  %45 = getelementptr inbounds i64, ptr %44, i64 %41
   %46 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %46, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
@@ -2489,7 +2489,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %40 = getelementptr inbounds float, ptr %36, i64 %39
   %41 = getelementptr inbounds i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i64, ptr %42, i64 %39
+  %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %44, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
@@ -3400,7 +3400,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %40 = getelementptr inbounds float, ptr %36, i64 %39
   %41 = getelementptr inbounds i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i64, ptr %42, i64 %39
+  %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %44, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
@@ -3752,7 +3752,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %40 = getelementptr inbounds float, ptr %36, i64 %39
   %41 = getelementptr inbounds i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i64, ptr %42, i64 %39
+  %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %44, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
@@ -3961,7 +3961,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %40 = getelementptr inbounds float, ptr %36, i64 %39
   %41 = getelementptr inbounds i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i64, ptr %42, i64 %39
+  %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %44, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
@@ -4170,7 +4170,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %40 = getelementptr inbounds float, ptr %36, i64 %39
   %41 = getelementptr inbounds i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i64, ptr %42, i64 %39
+  %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %44, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
@@ -4396,7 +4396,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %40 = getelementptr inbounds float, ptr %36, i64 %39
   %41 = getelementptr inbounds i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i64, ptr %42, i64 %39
+  %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %44, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
@@ -4623,7 +4623,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %40 = getelementptr inbounds float, ptr %36, i64 %39
   %41 = getelementptr inbounds i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i64, ptr %42, i64 %39
+  %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %44, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
@@ -4862,7 +4862,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %42 = getelementptr inbounds float, ptr %38, i64 %41
   %43 = getelementptr inbounds i8, ptr %36, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr i64, ptr %44, i64 %41
+  %45 = getelementptr inbounds i64, ptr %44, i64 %41
   %46 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %46, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
@@ -5080,7 +5080,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_126knn_extra_metrics_templateINS_14V
   %40 = getelementptr inbounds float, ptr %36, i64 %39
   %41 = getelementptr inbounds i8, ptr %34, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr i64, ptr %42, i64 %39
+  %43 = getelementptr inbounds i64, ptr %42, i64 %39
   %44 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %44, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i

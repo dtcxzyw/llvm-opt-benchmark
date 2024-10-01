@@ -652,7 +652,7 @@ _ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = 
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.thread, label %for.body.i.i.i.i.i
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.thread: ; preds = %_ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i71 = getelementptr i8, ptr %cond.i10.i.i, i64 32
+  %incdec.ptr.i.i71 = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 32
   br label %if.then.i20.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i
@@ -665,7 +665,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !20
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i: ; preds = %for.body.i.i.i.i.i
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.07.i.i.i.i.i, i64 64
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 64
   %tobool.not.i.i.i31 = icmp eq ptr %esets.sroa.0.3101, null
   br i1 %tobool.not.i.i.i31, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -11070,7 +11070,7 @@ if.then4:                                         ; preds = %if.then
 
 if.then11:                                        ; preds = %if.then4
   %idx.neg = sub i64 0, %__n
-  %add.ptr = getelementptr %"class.ue2::graph_detail::vertex_descriptor", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then11, %for.body.i.i.i.i.i
@@ -11220,7 +11220,7 @@ for.body.i.i.i.i.i75:                             ; preds = %invoke.cont57, %for
 
 invoke.cont60:                                    ; preds = %for.body.i.i.i.i.i75, %invoke.cont57
   %__cur.0.lcssa.i.i.i.i.i81 = phi ptr [ %cond.i64, %invoke.cont57 ], [ %incdec.ptr.i.i.i.i.i79, %for.body.i.i.i.i.i75 ]
-  %add.ptr62 = getelementptr %"class.ue2::graph_detail::vertex_descriptor", ptr %__cur.0.lcssa.i.i.i.i.i81, i64 %__n
+  %add.ptr62 = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %__cur.0.lcssa.i.i.i.i.i81, i64 %__n
   %cmp.i.i.not7.i.i.i.i.i82 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i82, label %invoke.cont64, label %for.body.i.i.i.i.i83
 

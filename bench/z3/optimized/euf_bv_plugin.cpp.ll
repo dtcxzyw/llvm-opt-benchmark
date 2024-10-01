@@ -912,7 +912,7 @@ while.end.i.i.i.i:                                ; preds = %_ZNK6vectorIN3euf9b
 
 for.body.preheader.i.i.i.i:                       ; preds = %while.end.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %retval.0.i16.i.i.i.i.ph to i64
-  %add.ptr.i.i.i.i = getelementptr %"struct.euf::bv_plugin::slice_info", ptr %8, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.euf::bv_plugin::slice_info", ptr %8, i64 %idx.ext.i.i.i.i
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.preheader.i.i.i.i
@@ -975,7 +975,7 @@ while.end.i.i.i.i24:                              ; preds = %_ZNK6vectorIN3euf9b
 
 for.body.preheader.i.i.i.i29:                     ; preds = %while.end.i.i.i.i24
   %idx.ext.i.i.i.i30 = zext i32 %13 to i64
-  %add.ptr.i.i.i.i31 = getelementptr %"struct.euf::bv_plugin::slice_info", ptr %15, i64 %idx.ext.i.i.i.i30
+  %add.ptr.i.i.i.i31 = getelementptr inbounds %"struct.euf::bv_plugin::slice_info", ptr %15, i64 %idx.ext.i.i.i.i30
   br label %for.body.i.i.i.i32
 
 for.body.i.i.i.i32:                               ; preds = %for.body.i.i.i.i32, %for.body.preheader.i.i.i.i29
@@ -2218,7 +2218,7 @@ while.end.i.i.i:                                  ; preds = %_ZNK6vectorIN3euf9b
 
 for.body.preheader.i.i.i:                         ; preds = %while.end.i.i.i
   %idx.ext.i.i.i = zext i32 %retval.0.i16.i.i.i.ph to i64
-  %add.ptr.i.i.i = getelementptr %"struct.euf::bv_plugin::slice_info", ptr %11, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.euf::bv_plugin::slice_info", ptr %11, i64 %idx.ext.i.i.i
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.preheader.i.i.i
@@ -2304,7 +2304,7 @@ while.end.i.i.i:                                  ; preds = %_ZNK6vectorIN3euf9b
 
 for.body.preheader.i.i.i:                         ; preds = %while.end.i.i.i
   %idx.ext.i.i.i = zext i32 %retval.0.i16.i.i.i.ph to i64
-  %add.ptr.i.i.i = getelementptr %"struct.euf::bv_plugin::slice_info", ptr %6, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.euf::bv_plugin::slice_info", ptr %6, i64 %idx.ext.i.i.i
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.preheader.i.i.i
@@ -2809,7 +2809,7 @@ while.end.i.i.i:                                  ; preds = %_ZNK6vectorIN3euf9b
 
 for.body.preheader.i.i.i:                         ; preds = %while.end.i.i.i
   %idx.ext.i.i.i = zext i32 %retval.0.i16.i.i.i.ph to i64
-  %add.ptr.i.i.i = getelementptr %"struct.euf::bv_plugin::slice_info", ptr %14, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.euf::bv_plugin::slice_info", ptr %14, i64 %idx.ext.i.i.i
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.preheader.i.i.i
@@ -2967,7 +2967,7 @@ while.end.i.i.i:                                  ; preds = %_ZNK6vectorIN3euf9b
 
 for.body.preheader.i.i.i:                         ; preds = %while.end.i.i.i
   %idx.ext.i.i.i = zext i32 %retval.0.i16.i.i.i.ph to i64
-  %add.ptr.i.i.i = getelementptr %"struct.euf::bv_plugin::slice_info", ptr %11, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.euf::bv_plugin::slice_info", ptr %11, i64 %idx.ext.i.i.i
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.preheader.i.i.i
@@ -3111,7 +3111,7 @@ while.end.i.i.i.i:                                ; preds = %_ZNK6vectorIN3euf9b
 
 for.body.preheader.i.i.i.i:                       ; preds = %while.end.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %retval.0.i16.i.i.i.i.ph to i64
-  %add.ptr.i.i.i.i = getelementptr %"struct.euf::bv_plugin::slice_info", ptr %6, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.euf::bv_plugin::slice_info", ptr %6, i64 %idx.ext.i.i.i.i
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.preheader.i.i.i.i
@@ -3191,7 +3191,7 @@ while.end.i.i.i.i21:                              ; preds = %_ZNK6vectorIN3euf9b
 
 for.body.preheader.i.i.i.i26:                     ; preds = %while.end.i.i.i.i21
   %idx.ext.i.i.i.i27 = zext i32 %retval.0.i16.i.i.i.i16.ph to i64
-  %add.ptr.i.i.i.i28 = getelementptr %"struct.euf::bv_plugin::slice_info", ptr %17, i64 %idx.ext.i.i.i.i27
+  %add.ptr.i.i.i.i28 = getelementptr inbounds %"struct.euf::bv_plugin::slice_info", ptr %17, i64 %idx.ext.i.i.i.i27
   br label %for.body.i.i.i.i29
 
 for.body.i.i.i.i29:                               ; preds = %for.body.i.i.i.i29, %for.body.preheader.i.i.i.i26
@@ -3292,7 +3292,7 @@ while.end.i.i.i.i58:                              ; preds = %_ZNK6vectorIN3euf9b
 
 for.body.preheader.i.i.i.i63:                     ; preds = %while.end.i.i.i.i58
   %idx.ext.i.i.i.i64 = zext i32 %retval.0.i16.i.i.i.i53.ph to i64
-  %add.ptr.i.i.i.i65 = getelementptr %"struct.euf::bv_plugin::slice_info", ptr %33, i64 %idx.ext.i.i.i.i64
+  %add.ptr.i.i.i.i65 = getelementptr inbounds %"struct.euf::bv_plugin::slice_info", ptr %33, i64 %idx.ext.i.i.i.i64
   br label %for.body.i.i.i.i66
 
 for.body.i.i.i.i66:                               ; preds = %for.body.i.i.i.i66, %for.body.preheader.i.i.i.i63
@@ -3476,7 +3476,7 @@ while.end.i.i.i.i:                                ; preds = %_ZNK6vectorIN3euf9b
 
 for.body.preheader.i.i.i.i:                       ; preds = %while.end.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %retval.0.i16.i.i.i.i.ph to i64
-  %add.ptr.i.i.i.i = getelementptr %"struct.euf::bv_plugin::slice_info", ptr %23, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.euf::bv_plugin::slice_info", ptr %23, i64 %idx.ext.i.i.i.i
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.preheader.i.i.i.i
@@ -3577,7 +3577,7 @@ while.end.i.i.i.i42:                              ; preds = %_ZNK6vectorIN3euf9b
 
 for.body.preheader.i.i.i.i47:                     ; preds = %while.end.i.i.i.i42
   %idx.ext.i.i.i.i48 = zext i32 %retval.0.i16.i.i.i.i37.ph to i64
-  %add.ptr.i.i.i.i49 = getelementptr %"struct.euf::bv_plugin::slice_info", ptr %39, i64 %idx.ext.i.i.i.i48
+  %add.ptr.i.i.i.i49 = getelementptr inbounds %"struct.euf::bv_plugin::slice_info", ptr %39, i64 %idx.ext.i.i.i.i48
   br label %for.body.i.i.i.i50
 
 for.body.i.i.i.i50:                               ; preds = %for.body.i.i.i.i50, %for.body.preheader.i.i.i.i47

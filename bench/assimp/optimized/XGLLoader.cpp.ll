@@ -5290,7 +5290,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i188 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 12
+  %incdec.ptr.i.i188 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 12
   %tobool.not.i.i.i189 = icmp eq ptr %93, null
   br i1 %tobool.not.i.i.i189, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -5363,7 +5363,7 @@ for.body.i.i.i.i.i216:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i222: ; preds = %for.body.i.i.i.i.i216, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i212
   %__cur.0.lcssa.i.i.i.i.i223 = phi ptr [ %cond.i10.i.i213, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i212 ], [ %incdec.ptr1.i.i.i.i.i220, %for.body.i.i.i.i.i216 ]
-  %incdec.ptr.i.i224 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i223, i64 12
+  %incdec.ptr.i.i224 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i223, i64 12
   %tobool.not.i.i.i225 = icmp eq ptr %98, null
   br i1 %tobool.not.i.i.i225, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i227, label %if.then.i20.i.i226
 
@@ -5441,7 +5441,7 @@ for.body.i.i.i.i.i256:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorI10aiVector2tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i: ; preds = %for.body.i.i.i.i.i256, %_ZNSt12_Vector_baseI10aiVector2tIfESaIS1_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i262 = phi ptr [ %cond.i10.i.i253, %_ZNSt12_Vector_baseI10aiVector2tIfESaIS1_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i260, %for.body.i.i.i.i.i256 ]
-  %incdec.ptr.i.i263 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i262, i64 8
+  %incdec.ptr.i.i263 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i262, i64 8
   %tobool.not.i.i.i264 = icmp eq ptr %104, null
   br i1 %tobool.not.i.i.i264, label %_ZNSt6vectorI10aiVector2tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i20.i.i265
 

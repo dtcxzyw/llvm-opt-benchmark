@@ -895,7 +895,7 @@ _ZNSt12_Vector_baseIN4llvm6object8TapiFile6SymbolESaIS3_EE11_M_allocateEm.exit: 
 
 _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN4llvm6object8TapiFile6SymbolESaIS3_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %26, %_ZNSt12_Vector_baseIN4llvm6object8TapiFile6SymbolESaIS3_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i ]
-  %35 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 40
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 40
   %.not10.i.i.i19 = icmp eq ptr %1, %8
   br i1 %.not10.i.i.i19, label %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit25, label %.lr.ph.i.i.i20
 
@@ -1004,7 +1004,7 @@ _ZNSt12_Vector_baseIN4llvm6object8TapiFile6SymbolESaIS3_EE11_M_allocateEm.exit: 
 
 _ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN4llvm6object8TapiFile6SymbolESaIS3_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %26, %_ZNSt12_Vector_baseIN4llvm6object8TapiFile6SymbolESaIS3_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i ]
-  %35 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 40
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 40
   %.not10.i.i.i19 = icmp eq ptr %1, %8
   br i1 %.not10.i.i.i19, label %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit25, label %.lr.ph.i.i.i20
 

@@ -2686,7 +2686,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit157.i:               ; preds = %1181, %1179
   %1207 = load ptr, ptr %1193, align 8
   %1208 = load i64, ptr %1207, align 8
   %1209 = mul i64 %1208, %indvars.iv206.i
-  %1210 = getelementptr i8, ptr %1206, i64 %1209
+  %1210 = getelementptr inbounds i8, ptr %1206, i64 %1209
   br i1 %1194, label %.lr.ph183.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph183.i, %1205

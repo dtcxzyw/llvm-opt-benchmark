@@ -137,7 +137,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5Yosys10PrettyJson6TargetESt14default_delete
 
 _ZNSt6vectorISt10unique_ptrIN5Yosys10PrettyJson6TargetESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN5Yosys10PrettyJson6TargetESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %27, %_ZNSt12_Vector_baseISt10unique_ptrIN5Yosys10PrettyJson6TargetESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %32, %.lr.ph.i.i.i.i.i ]
-  %33 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %13, null
   br i1 %.not.i23.i, label %.noexc, label %34
 
@@ -245,7 +245,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5Yosys10PrettyJson6TargetESt14default_delete
 
 _ZNSt6vectorISt10unique_ptrIN5Yosys10PrettyJson6TargetESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN5Yosys10PrettyJson6TargetESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %29, %_ZNSt12_Vector_baseISt10unique_ptrIN5Yosys10PrettyJson6TargetESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %34, %.lr.ph.i.i.i.i.i ]
-  %35 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %15, null
   br i1 %.not.i23.i, label %.noexc, label %36
 
@@ -375,7 +375,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5Yosys10PrettyJson6TargetESt14default_delete
 
 _ZNSt6vectorISt10unique_ptrIN5Yosys10PrettyJson6TargetESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN5Yosys10PrettyJson6TargetESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %39, %_ZNSt12_Vector_baseISt10unique_ptrIN5Yosys10PrettyJson6TargetESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %44, %.lr.ph.i.i.i.i.i ]
-  %45 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %45 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %25, null
   br i1 %.not.i23.i, label %.noexc, label %46
 

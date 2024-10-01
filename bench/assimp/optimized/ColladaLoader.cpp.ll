@@ -1731,7 +1731,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
 
 _ZNSt6vectorISt4pairIPN6Assimp7Collada6EffectEP10aiMaterialESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIPN6Assimp7Collada6EffectEP10aiMaterialESaIS7_EE17_M_realloc_insertIJS4_RS6_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -8280,7 +8280,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorI14aiVertexWeightSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i591 = phi ptr [ %cond.i10.i.i589, %_ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i592 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i591, i64 8
+  %incdec.ptr.i.i592 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i591, i64 8
   %tobool.not.i.i.i593 = icmp eq ptr %158, null
   br i1 %tobool.not.i.i.i593, label %_ZNSt6vectorI14aiVertexWeightSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -15971,7 +15971,7 @@ if.then4:                                         ; preds = %if.then
 
 if.then11:                                        ; preds = %if.then4
   %idx.neg = sub i64 0, %__n
-  %add.ptr = getelementptr %"class.__gnu_cxx::__normal_iterator.277", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.277", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then11, %for.body.i.i.i.i.i
@@ -16119,7 +16119,7 @@ for.body.i.i.i.i.i79:                             ; preds = %invoke.cont57, %for
 
 invoke.cont60:                                    ; preds = %for.body.i.i.i.i.i79, %invoke.cont57
   %__cur.0.lcssa.i.i.i.i.i85 = phi ptr [ %cond.i66, %invoke.cont57 ], [ %incdec.ptr.i.i.i.i.i83, %for.body.i.i.i.i.i79 ]
-  %add.ptr62 = getelementptr %"class.__gnu_cxx::__normal_iterator.277", ptr %__cur.0.lcssa.i.i.i.i.i85, i64 %__n
+  %add.ptr62 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.277", ptr %__cur.0.lcssa.i.i.i.i.i85, i64 %__n
   %cmp.i.i.not7.i.i.i.i.i86 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i86, label %invoke.cont64, label %for.body.i.i.i.i.i87
 

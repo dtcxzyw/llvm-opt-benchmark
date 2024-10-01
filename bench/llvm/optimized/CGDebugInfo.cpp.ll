@@ -26898,7 +26898,7 @@ _ZNSt12_Vector_baseIN4llvm14PointerIntPairIPNS0_12DISubprogramELj1EjNS0_21Pointe
 
 _ZNSt6vectorIN4llvm14PointerIntPairIPNS0_12DISubprogramELj1EjNS0_21PointerLikeTypeTraitsIS3_EENS0_18PointerIntPairInfoIS3_Lj1ES5_EEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i: ; preds = %.lr.ph.i.i.i.i33, %_ZNSt12_Vector_baseIN4llvm14PointerIntPairIPNS0_12DISubprogramELj1EjNS0_21PointerLikeTypeTraitsIS3_EENS0_18PointerIntPairInfoIS3_Lj1ES5_EEEESaIS8_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %168, %_ZNSt12_Vector_baseIN4llvm14PointerIntPairIPNS0_12DISubprogramELj1EjNS0_21PointerLikeTypeTraitsIS3_EENS0_18PointerIntPairInfoIS3_Lj1ES5_EEEESaIS8_EE11_M_allocateEm.exit.i ], [ %172, %.lr.ph.i.i.i.i33 ]
-  %173 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %173 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %154, null
   br i1 %.not.i23.i, label %_ZNSt6vectorIN4llvm14PointerIntPairIPNS0_12DISubprogramELj1EjNS0_21PointerLikeTypeTraitsIS3_EENS0_18PointerIntPairInfoIS3_Lj1ES5_EEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %174
 
@@ -127423,7 +127423,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit: ; preds = %3, %13
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE18uninitialized_copyINS_22TypedMDOperandIteratorINS_6DINodeEEEPS2_EEvT_S9_T0_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i

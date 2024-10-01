@@ -1994,7 +1994,7 @@ call3.i.i.i.i.noexc:                              ; preds = %_ZNK6vectorIN7datal
   store i32 %12, ptr %call3.i.i.i.i9, align 4
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i9, i64 4
   store i32 %11, ptr %incdec.ptr.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i = getelementptr i8, ptr %call3.i.i.i.i9, i64 8
+  %incdec.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i9, i64 8
   store ptr %incdec.ptr4.i.i.i.i, ptr %m_column_layout, align 8
   %13 = load ptr, ptr %m_column_layout3, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %13, null

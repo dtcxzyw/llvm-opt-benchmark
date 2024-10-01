@@ -265,7 +265,7 @@ define dso_local void @_Z9lua_xmoveP9lua_StateS0_i(ptr noundef %0, ptr noundef %
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %2 to i64
   %17 = sub nsw i64 0, %16
-  %18 = getelementptr %struct.lua_TValue, ptr %15, i64 %17
+  %18 = getelementptr inbounds %struct.lua_TValue, ptr %15, i64 %17
   %19 = icmp sgt i32 %2, 0
   br i1 %19, label %.lr.ph.preheader, label %._crit_edge
 

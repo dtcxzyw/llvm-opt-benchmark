@@ -10513,7 +10513,7 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
   br label %.lr.ph.i.i.i17.preheader.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %25
-  %.01519.i.i.i.i.i = getelementptr i8, ptr %24, i64 8
+  %.01519.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %load_initial = load i64, ptr %24, align 8
   br label %.lr.ph.i.i.i.i.i
 
@@ -11969,7 +11969,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_17SVETypeESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; 
 
 _ZNSt6vectorIN12_GLOBAL__N_17SVETypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_17SVETypeESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %124, %_ZNKSt6vectorIN12_GLOBAL__N_17SVETypeESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %127, %.lr.ph.i.i.i.i.i.i ]
-  %128 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 28
+  %128 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 28
   %.not.i27.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i27.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_17SVETypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %129
 
@@ -13767,7 +13767,7 @@ _ZSt7advanceIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEl
   br i1 %74, label %.lr.ph69.preheader.i.i, label %._crit_edge70.i.i
 
 .lr.ph69.preheader.i.i:                           ; preds = %73
-  %75 = getelementptr %"class.std::unique_ptr.57", ptr %.039.i.i, i64 %.057.i.i
+  %75 = getelementptr inbounds %"class.std::unique_ptr.57", ptr %.039.i.i, i64 %.057.i.i
   br label %.lr.ph69.i.i
 
 .lr.ph69.i.i:                                     ; preds = %.lr.ph69.i.i, %.lr.ph69.preheader.i.i
@@ -15321,7 +15321,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   br i1 %239, label %.lr.ph69.preheader.i.i.i, label %._crit_edge70.i.i.i
 
 .lr.ph69.preheader.i.i.i:                         ; preds = %238
-  %240 = getelementptr %"class.std::unique_ptr.57", ptr %.039.i.i.i, i64 %.057.i.i.i
+  %240 = getelementptr inbounds %"class.std::unique_ptr.57", ptr %.039.i.i.i, i64 %.057.i.i.i
   br label %.lr.ph69.i.i.i
 
 .lr.ph69.i.i.i:                                   ; preds = %.lr.ph69.i.i.i, %.lr.ph69.preheader.i.i.i

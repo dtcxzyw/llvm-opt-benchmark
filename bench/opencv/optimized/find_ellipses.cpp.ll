@@ -1138,7 +1138,7 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i336: ; preds = 
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i.i344: ; preds = %.lr.ph.i.i.i.i.i.i340, %.noexc349
   %.0.lcssa.i.i.i.i.i.i345 = phi ptr [ %169, %.noexc349 ], [ %174, %.lr.ph.i.i.i.i.i.i340 ]
-  %175 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i345, i64 8
+  %175 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i345, i64 8
   %.not.i34.i.i346 = icmp eq ptr %89, null
   br i1 %.not.i34.i.i346, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJffEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i347, label %176
 
@@ -1508,7 +1508,7 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i430: ; preds = 
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i.i438: ; preds = %.lr.ph.i.i.i.i.i.i434, %.noexc443
   %.0.lcssa.i.i.i.i.i.i439 = phi ptr [ %329, %.noexc443 ], [ %334, %.lr.ph.i.i.i.i.i.i434 ]
-  %335 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i439, i64 8
+  %335 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i439, i64 8
   %.not.i34.i.i440 = icmp eq ptr %249, null
   br i1 %.not.i34.i.i440, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJffEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i441, label %336
 
@@ -2010,7 +2010,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.i.us: ; preds 
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.us: ; preds = %.lr.ph.i.i.i.i.i.i.us, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.i.us
   %.0.lcssa.i.i.i.i.i.i.us = phi ptr [ %99, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.i.us ], [ %104, %.lr.ph.i.i.i.i.i.i.us ]
-  %105 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.us, i64 8
+  %105 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.us, i64 8
   %.not.i23.i.i.us = icmp eq ptr %86, null
   br i1 %.not.i23.i.i.us, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.us, label %106
 

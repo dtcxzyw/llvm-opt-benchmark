@@ -1174,7 +1174,7 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen11RegisterSetESaIS2_EE11_M_allocateEm.exit.i.i
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.thread.i, label %.lr.ph.i.i.i.i.i.i
 
 _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.thread.i: ; preds = %_ZNSt12_Vector_baseIN4Luau7CodeGen11RegisterSetESaIS2_EE11_M_allocateEm.exit.i.i.i
-  %216 = getelementptr i8, ptr %214, i64 40
+  %216 = getelementptr inbounds i8, ptr %214, i64 40
   br label %220
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN4Luau7CodeGen11RegisterSetESaIS2_EE11_M_allocateEm.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
@@ -1187,7 +1187,7 @@ _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !17
 
 _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %219 = getelementptr i8, ptr %.012.i.i.i.i.i.i, i64 80
+  %219 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i, i64 80
   %.not.i23.i.i.i = icmp eq ptr %194, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %220
 
@@ -1252,7 +1252,7 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen11RegisterSetESaIS2_EE11_M_allocateEm.exit.i.i
   br i1 %.not10.i.i.i.i.i90.i, label %_ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i95.thread.i, label %.lr.ph.i.i.i.i.i91.i
 
 _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i95.thread.i: ; preds = %_ZNSt12_Vector_baseIN4Luau7CodeGen11RegisterSetESaIS2_EE11_M_allocateEm.exit.i.i89.i
-  %249 = getelementptr i8, ptr %247, i64 40
+  %249 = getelementptr inbounds i8, ptr %247, i64 40
   br label %253
 
 .lr.ph.i.i.i.i.i91.i:                             ; preds = %_ZNSt12_Vector_baseIN4Luau7CodeGen11RegisterSetESaIS2_EE11_M_allocateEm.exit.i.i89.i, %.lr.ph.i.i.i.i.i91.i
@@ -1265,7 +1265,7 @@ _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
   br i1 %.not.i.i.i.i.i94.i, label %_ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i95.i, label %.lr.ph.i.i.i.i.i91.i, !llvm.loop !17
 
 _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i95.i: ; preds = %.lr.ph.i.i.i.i.i91.i
-  %252 = getelementptr i8, ptr %.012.i.i.i.i.i92.i, i64 80
+  %252 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i92.i, i64 80
   %.not.i23.i.i97.i = icmp eq ptr %227, null
   br i1 %.not.i23.i.i97.i, label %_ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i98.i, label %253
 
@@ -1340,7 +1340,7 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen11RegisterSetESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4Luau7CodeGen11RegisterSetESaIS2_EE11_M_allocateEm.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %276, %_ZNSt12_Vector_baseIN4Luau7CodeGen11RegisterSetESaIS2_EE11_M_allocateEm.exit.i.i.i.i ], [ %279, %.lr.ph.i.i.i.i.i.i.i ]
-  %280 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 40
+  %280 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 40
   %.not.i23.i.i.i.i = icmp eq ptr %263, null
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %281
 

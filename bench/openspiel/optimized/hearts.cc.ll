@@ -8513,7 +8513,7 @@ _ZNKSt6vectorISt4pairIldESaIS1_EE12_M_check_lenEmPKc.exit.i32: ; preds = %79
 
 _ZNSt6vectorISt4pairIldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i47: ; preds = %.lr.ph.i.i.i.i36, %.noexc52
   %.0.lcssa.i.i.i.i41 = phi ptr [ %93, %.noexc52 ], [ %97, %.lr.ph.i.i.i.i36 ]
-  %98 = getelementptr i8, ptr %.0.lcssa.i.i.i.i41, i64 16
+  %98 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i41, i64 16
   %.not.i34.i49 = icmp eq ptr %71, null
   br i1 %.not.i34.i49, label %.noexc21, label %99
 

@@ -428,7 +428,7 @@ _ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i46: ; preds = %71, 
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i59: ; preds = %.lr.ph.i.i.i.i48, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i46
   %.0.lcssa.i.i.i.i53 = phi ptr [ %74, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i46 ], [ %78, %.lr.ph.i.i.i.i48 ]
-  %79 = getelementptr i8, ptr %.0.lcssa.i.i.i.i53, i64 8
+  %79 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i53, i64 8
   %.not.i23.i61 = icmp eq ptr %.sroa.076.5, null
   br i1 %.not.i23.i61, label %.noexc30, label %80
 

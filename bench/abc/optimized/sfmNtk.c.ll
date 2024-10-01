@@ -2757,7 +2757,7 @@ Sfm_NtkRemoveFanin.exit:                          ; preds = %101, %._crit_edge.i
   %141 = getelementptr i8, ptr %132, i64 8
   %.val75 = load ptr, ptr %141, align 8
   %142 = sext i32 %140 to i64
-  %143 = getelementptr i64, ptr %.val75, i64 %142
+  %143 = getelementptr inbounds i64, ptr %.val75, i64 %142
   br i1 %20, label %.lr.ph.preheader.i95, label %Abc_TtCopy.exit
 
 .lr.ph.preheader.i95:                             ; preds = %135

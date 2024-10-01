@@ -5884,7 +5884,7 @@ _ZNK6vectorISt4pairIP3appS2_ELb0EjE4sizeEv.exit:  ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0
@@ -7073,7 +7073,7 @@ _ZNSt17_Temporary_bufferIPSt4pairIP3appS2_ES3_EC2ES4_l.exit.thread30: ; preds = 
   br label %if.else.sink.split
 
 for.body.i.i.preheader.i:                         ; preds = %if.then.i
-  %__cur.011.i.i.i = getelementptr i8, ptr %call.i.i, i64 16
+  %__cur.011.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i
@@ -11252,7 +11252,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
   br i1 %cmp1.not12.i.i.i, label %if.else, label %for.body.i.i.preheader.i
 
 for.body.i.i.preheader.i:                         ; preds = %if.end.i.i.i
-  %__cur.011.i.i.i = getelementptr i8, ptr %call.i.i, i64 24
+  %__cur.011.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.i.preheader.i

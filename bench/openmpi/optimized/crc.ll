@@ -39,8 +39,8 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %22 = load i64, ptr %5, align 8
   %23 = sub i64 0, %22
   %24 = getelementptr inbounds i8, ptr %21, i64 %23
-  %25 = getelementptr i8, ptr %1, i64 8
-  %26 = getelementptr i8, ptr %25, i64 %23
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 %23
   %27 = load i64, ptr %7, align 8
   %28 = load i64, ptr %4, align 8
   %29 = sub i64 %27, %28
@@ -269,8 +269,8 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %103 = load i64, ptr %5, align 8
   %104 = sub i64 0, %103
   %105 = getelementptr inbounds i8, ptr %102, i64 %104
-  %106 = getelementptr i8, ptr %1, i64 8
-  %107 = getelementptr i8, ptr %106, i64 %104
+  %106 = getelementptr inbounds i8, ptr %1, i64 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 %104
   %108 = load i64, ptr %7, align 8
   %109 = load i64, ptr %4, align 8
   %110 = sub i64 %108, %109
@@ -381,18 +381,20 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %140 = load i64, ptr %5, align 8
   %141 = sub i64 0, %140
   %142 = getelementptr inbounds i8, ptr %139, i64 %141
-  %143 = getelementptr i8, ptr %1, i64 8
-  %144 = getelementptr i8, ptr %143, i64 %141
+  %143 = getelementptr inbounds i8, ptr %1, i64 8
+  %144 = getelementptr inbounds i8, ptr %143, i64 %141
   %145 = load i64, ptr %7, align 8
   %146 = load i64, ptr %4, align 8
   %147 = sub i64 %145, %146
   %.neg437 = add i64 %2, -8
   %148 = add i64 %.neg437, %140
   %149 = ptrtoint ptr %142 to i64
-  %150 = ptrtoint ptr %144 to i64
-  %151 = or i64 %149, %150
+  %150 = and i64 %149, 7
+  %.not438 = icmp eq i64 %150, 0
+  %151 = ptrtoint ptr %144 to i64
   %152 = and i64 %151, 7
-  %or.cond451 = icmp eq i64 %152, 0
+  %.not439 = icmp eq i64 %152, 0
+  %or.cond451 = select i1 %.not438, i1 %.not439, i1 false
   br i1 %or.cond451, label %154, label %.preheader490
 
 .preheader490:                                    ; preds = %138
@@ -734,8 +736,8 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %22 = load i64, ptr %5, align 8
   %23 = sub i64 0, %22
   %24 = getelementptr inbounds i8, ptr %21, i64 %23
-  %25 = getelementptr i8, ptr %1, i64 4
-  %26 = getelementptr i8, ptr %25, i64 %23
+  %25 = getelementptr inbounds i8, ptr %1, i64 4
+  %26 = getelementptr inbounds i8, ptr %25, i64 %23
   %27 = load i32, ptr %7, align 4
   %28 = load i32, ptr %4, align 4
   %29 = sub i32 %27, %28
@@ -964,8 +966,8 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %103 = load i64, ptr %5, align 8
   %104 = sub i64 0, %103
   %105 = getelementptr inbounds i8, ptr %102, i64 %104
-  %106 = getelementptr i8, ptr %1, i64 4
-  %107 = getelementptr i8, ptr %106, i64 %104
+  %106 = getelementptr inbounds i8, ptr %1, i64 4
+  %107 = getelementptr inbounds i8, ptr %106, i64 %104
   %108 = load i32, ptr %7, align 4
   %109 = load i32, ptr %4, align 4
   %110 = sub i32 %108, %109
@@ -1076,18 +1078,20 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %140 = load i64, ptr %5, align 8
   %141 = sub i64 0, %140
   %142 = getelementptr inbounds i8, ptr %139, i64 %141
-  %143 = getelementptr i8, ptr %1, i64 4
-  %144 = getelementptr i8, ptr %143, i64 %141
+  %143 = getelementptr inbounds i8, ptr %1, i64 4
+  %144 = getelementptr inbounds i8, ptr %143, i64 %141
   %145 = load i32, ptr %7, align 4
   %146 = load i32, ptr %4, align 4
   %147 = sub i32 %145, %146
   %.neg437 = add i64 %2, -4
   %148 = add i64 %.neg437, %140
   %149 = ptrtoint ptr %142 to i64
-  %150 = ptrtoint ptr %144 to i64
-  %151 = or i64 %149, %150
+  %150 = and i64 %149, 3
+  %.not438 = icmp eq i64 %150, 0
+  %151 = ptrtoint ptr %144 to i64
   %152 = and i64 %151, 3
-  %or.cond451 = icmp eq i64 %152, 0
+  %.not439 = icmp eq i64 %152, 0
+  %or.cond451 = select i1 %.not438, i1 %.not439, i1 false
   br i1 %or.cond451, label %154, label %.preheader490
 
 .preheader490:                                    ; preds = %138

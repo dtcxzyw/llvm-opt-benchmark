@@ -1061,7 +1061,7 @@ select.unfold:                                    ; preds = %39, %36
   %101 = load ptr, ptr %45, align 8
   %102 = load i64, ptr %101, align 8
   %103 = mul i64 %102, %indvars.iv205
-  %104 = getelementptr i8, ptr %100, i64 %103
+  %104 = getelementptr inbounds i8, ptr %100, i64 %103
   %105 = load ptr, ptr %46, align 8
   %106 = load ptr, ptr %47, align 8
   %107 = load i64, ptr %106, align 8
@@ -1199,7 +1199,7 @@ select.unfold:                                    ; preds = %39, %36
 
 .loopexit.us:                                     ; preds = %145, %178, %.loopexit.us.sink.split, %121
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %183 = getelementptr i8, ptr %.0150178.us, i64 %wide.trip.count
+  %183 = getelementptr inbounds i8, ptr %.0150178.us, i64 %wide.trip.count
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %..loopexit174_crit_edge.us, label %110, !llvm.loop !22
 
@@ -1395,7 +1395,7 @@ select.unfold:                                    ; preds = %39, %36
   %101 = load ptr, ptr %45, align 8
   %102 = load i64, ptr %101, align 8
   %103 = mul i64 %102, %indvars.iv205
-  %104 = getelementptr i8, ptr %100, i64 %103
+  %104 = getelementptr inbounds i8, ptr %100, i64 %103
   %105 = load ptr, ptr %46, align 8
   %106 = load ptr, ptr %47, align 8
   %107 = load i64, ptr %106, align 8
@@ -1533,7 +1533,7 @@ select.unfold:                                    ; preds = %39, %36
 
 .loopexit.us:                                     ; preds = %145, %178, %.loopexit.us.sink.split, %121
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %183 = getelementptr i8, ptr %.0150178.us, i64 %wide.trip.count
+  %183 = getelementptr inbounds i8, ptr %.0150178.us, i64 %wide.trip.count
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %..loopexit174_crit_edge.us, label %110, !llvm.loop !28
 
@@ -1730,7 +1730,7 @@ select.unfold:                                    ; preds = %40, %36
   %102 = load ptr, ptr %46, align 8
   %103 = load i64, ptr %102, align 8
   %104 = mul i64 %103, %indvars.iv205
-  %105 = getelementptr i8, ptr %101, i64 %104
+  %105 = getelementptr inbounds i8, ptr %101, i64 %104
   %106 = load ptr, ptr %47, align 8
   %107 = load ptr, ptr %48, align 8
   %108 = load i64, ptr %107, align 8
@@ -1868,7 +1868,7 @@ select.unfold:                                    ; preds = %40, %36
 
 .loopexit.us:                                     ; preds = %146, %179, %.loopexit.us.sink.split, %122
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %184 = getelementptr i16, ptr %.0150178.us, i64 %wide.trip.count
+  %184 = getelementptr inbounds i16, ptr %.0150178.us, i64 %wide.trip.count
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %..loopexit174_crit_edge.us, label %111, !llvm.loop !34
 
@@ -2065,7 +2065,7 @@ select.unfold:                                    ; preds = %40, %36
   %102 = load ptr, ptr %46, align 8
   %103 = load i64, ptr %102, align 8
   %104 = mul i64 %103, %indvars.iv205
-  %105 = getelementptr i8, ptr %101, i64 %104
+  %105 = getelementptr inbounds i8, ptr %101, i64 %104
   %106 = load ptr, ptr %47, align 8
   %107 = load ptr, ptr %48, align 8
   %108 = load i64, ptr %107, align 8
@@ -2203,7 +2203,7 @@ select.unfold:                                    ; preds = %40, %36
 
 .loopexit.us:                                     ; preds = %146, %179, %.loopexit.us.sink.split, %122
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %184 = getelementptr i16, ptr %.0150178.us, i64 %wide.trip.count
+  %184 = getelementptr inbounds i16, ptr %.0150178.us, i64 %wide.trip.count
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %..loopexit174_crit_edge.us, label %111, !llvm.loop !40
 
@@ -2397,7 +2397,7 @@ select.unfold:                                    ; preds = %37, %33
   %99 = load ptr, ptr %43, align 8
   %100 = load i64, ptr %99, align 8
   %101 = mul i64 %100, %indvars.iv205
-  %102 = getelementptr i8, ptr %98, i64 %101
+  %102 = getelementptr inbounds i8, ptr %98, i64 %101
   %103 = load ptr, ptr %44, align 8
   %104 = load ptr, ptr %45, align 8
   %105 = load i64, ptr %104, align 8
@@ -2535,7 +2535,7 @@ select.unfold:                                    ; preds = %37, %33
 
 .loopexit.us:                                     ; preds = %143, %176, %.loopexit.us.sink.split, %119
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %181 = getelementptr i32, ptr %.0150178.us, i64 %wide.trip.count
+  %181 = getelementptr inbounds i32, ptr %.0150178.us, i64 %wide.trip.count
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %..loopexit174_crit_edge.us, label %108, !llvm.loop !46
 
@@ -2728,7 +2728,7 @@ select.unfold:                                    ; preds = %36, %32
   %98 = load ptr, ptr %42, align 8
   %99 = load i64, ptr %98, align 8
   %100 = mul i64 %99, %indvars.iv205
-  %101 = getelementptr i8, ptr %97, i64 %100
+  %101 = getelementptr inbounds i8, ptr %97, i64 %100
   %102 = load ptr, ptr %43, align 8
   %103 = load ptr, ptr %44, align 8
   %104 = load i64, ptr %103, align 8
@@ -2866,7 +2866,7 @@ select.unfold:                                    ; preds = %36, %32
 
 .loopexit.us:                                     ; preds = %142, %175, %.loopexit.us.sink.split, %118
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %180 = getelementptr float, ptr %.0150178.us, i64 %wide.trip.count
+  %180 = getelementptr inbounds float, ptr %.0150178.us, i64 %wide.trip.count
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %..loopexit174_crit_edge.us, label %107, !llvm.loop !52
 
@@ -3058,7 +3058,7 @@ select.unfold:                                    ; preds = %35, %31
   %97 = load ptr, ptr %41, align 8
   %98 = load i64, ptr %97, align 8
   %99 = mul i64 %98, %indvars.iv205
-  %100 = getelementptr i8, ptr %96, i64 %99
+  %100 = getelementptr inbounds i8, ptr %96, i64 %99
   %101 = load ptr, ptr %42, align 8
   %102 = load ptr, ptr %43, align 8
   %103 = load i64, ptr %102, align 8
@@ -3196,7 +3196,7 @@ select.unfold:                                    ; preds = %35, %31
 
 .loopexit.us:                                     ; preds = %141, %174, %.loopexit.us.sink.split, %117
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %179 = getelementptr double, ptr %.0150178.us, i64 %wide.trip.count
+  %179 = getelementptr inbounds double, ptr %.0150178.us, i64 %wide.trip.count
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %..loopexit174_crit_edge.us, label %106, !llvm.loop !58
 
@@ -3375,7 +3375,7 @@ define internal void @_ZN2cvL12remapNearestIhLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   %97 = load ptr, ptr %39, align 8
   %98 = load i64, ptr %97, align 8
   %99 = mul i64 %98, %indvars.iv211
-  %100 = getelementptr i8, ptr %96, i64 %99
+  %100 = getelementptr inbounds i8, ptr %96, i64 %99
   %101 = load ptr, ptr %40, align 8
   %102 = load ptr, ptr %41, align 8
   %103 = load i64, ptr %102, align 8
@@ -3521,7 +3521,7 @@ define internal void @_ZN2cvL12remapNearestIhLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 
 .loopexit.us:                                     ; preds = %149, %182, %.loopexit.us.sink.split, %125
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %187 = getelementptr i8, ptr %.0158184.us, i64 %wide.trip.count
+  %187 = getelementptr inbounds i8, ptr %.0158184.us, i64 %wide.trip.count
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
   br i1 %exitcond210.not, label %..loopexit180_crit_edge.us, label %109, !llvm.loop !64
 
@@ -3700,7 +3700,7 @@ define internal void @_ZN2cvL12remapNearestIaLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   %97 = load ptr, ptr %39, align 8
   %98 = load i64, ptr %97, align 8
   %99 = mul i64 %98, %indvars.iv211
-  %100 = getelementptr i8, ptr %96, i64 %99
+  %100 = getelementptr inbounds i8, ptr %96, i64 %99
   %101 = load ptr, ptr %40, align 8
   %102 = load ptr, ptr %41, align 8
   %103 = load i64, ptr %102, align 8
@@ -3846,7 +3846,7 @@ define internal void @_ZN2cvL12remapNearestIaLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 
 .loopexit.us:                                     ; preds = %149, %182, %.loopexit.us.sink.split, %125
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %187 = getelementptr i8, ptr %.0158184.us, i64 %wide.trip.count
+  %187 = getelementptr inbounds i8, ptr %.0158184.us, i64 %wide.trip.count
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
   br i1 %exitcond210.not, label %..loopexit180_crit_edge.us, label %109, !llvm.loop !70
 
@@ -4026,7 +4026,7 @@ define internal void @_ZN2cvL12remapNearestItLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   %98 = load ptr, ptr %40, align 8
   %99 = load i64, ptr %98, align 8
   %100 = mul i64 %99, %indvars.iv211
-  %101 = getelementptr i8, ptr %97, i64 %100
+  %101 = getelementptr inbounds i8, ptr %97, i64 %100
   %102 = load ptr, ptr %41, align 8
   %103 = load ptr, ptr %42, align 8
   %104 = load i64, ptr %103, align 8
@@ -4172,7 +4172,7 @@ define internal void @_ZN2cvL12remapNearestItLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 
 .loopexit.us:                                     ; preds = %150, %183, %.loopexit.us.sink.split, %126
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %188 = getelementptr i16, ptr %.0158184.us, i64 %wide.trip.count
+  %188 = getelementptr inbounds i16, ptr %.0158184.us, i64 %wide.trip.count
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
   br i1 %exitcond210.not, label %..loopexit180_crit_edge.us, label %110, !llvm.loop !76
 
@@ -4352,7 +4352,7 @@ define internal void @_ZN2cvL12remapNearestIsLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   %98 = load ptr, ptr %40, align 8
   %99 = load i64, ptr %98, align 8
   %100 = mul i64 %99, %indvars.iv211
-  %101 = getelementptr i8, ptr %97, i64 %100
+  %101 = getelementptr inbounds i8, ptr %97, i64 %100
   %102 = load ptr, ptr %41, align 8
   %103 = load ptr, ptr %42, align 8
   %104 = load i64, ptr %103, align 8
@@ -4498,7 +4498,7 @@ define internal void @_ZN2cvL12remapNearestIsLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 
 .loopexit.us:                                     ; preds = %150, %183, %.loopexit.us.sink.split, %126
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %188 = getelementptr i16, ptr %.0158184.us, i64 %wide.trip.count
+  %188 = getelementptr inbounds i16, ptr %.0158184.us, i64 %wide.trip.count
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
   br i1 %exitcond210.not, label %..loopexit180_crit_edge.us, label %110, !llvm.loop !82
 
@@ -4675,7 +4675,7 @@ define internal void @_ZN2cvL12remapNearestIiLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   %95 = load ptr, ptr %37, align 8
   %96 = load i64, ptr %95, align 8
   %97 = mul i64 %96, %indvars.iv211
-  %98 = getelementptr i8, ptr %94, i64 %97
+  %98 = getelementptr inbounds i8, ptr %94, i64 %97
   %99 = load ptr, ptr %38, align 8
   %100 = load ptr, ptr %39, align 8
   %101 = load i64, ptr %100, align 8
@@ -4821,7 +4821,7 @@ define internal void @_ZN2cvL12remapNearestIiLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 
 .loopexit.us:                                     ; preds = %147, %180, %.loopexit.us.sink.split, %123
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %185 = getelementptr i32, ptr %.0158184.us, i64 %wide.trip.count
+  %185 = getelementptr inbounds i32, ptr %.0158184.us, i64 %wide.trip.count
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
   br i1 %exitcond210.not, label %..loopexit180_crit_edge.us, label %107, !llvm.loop !88
 
@@ -4997,7 +4997,7 @@ define internal void @_ZN2cvL12remapNearestIfLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   %94 = load ptr, ptr %36, align 8
   %95 = load i64, ptr %94, align 8
   %96 = mul i64 %95, %indvars.iv211
-  %97 = getelementptr i8, ptr %93, i64 %96
+  %97 = getelementptr inbounds i8, ptr %93, i64 %96
   %98 = load ptr, ptr %37, align 8
   %99 = load ptr, ptr %38, align 8
   %100 = load i64, ptr %99, align 8
@@ -5143,7 +5143,7 @@ define internal void @_ZN2cvL12remapNearestIfLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 
 .loopexit.us:                                     ; preds = %146, %179, %.loopexit.us.sink.split, %122
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %184 = getelementptr float, ptr %.0158184.us, i64 %wide.trip.count
+  %184 = getelementptr inbounds float, ptr %.0158184.us, i64 %wide.trip.count
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
   br i1 %exitcond210.not, label %..loopexit180_crit_edge.us, label %106, !llvm.loop !94
 
@@ -5318,7 +5318,7 @@ define internal void @_ZN2cvL12remapNearestIdLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
   %93 = load ptr, ptr %35, align 8
   %94 = load i64, ptr %93, align 8
   %95 = mul i64 %94, %indvars.iv211
-  %96 = getelementptr i8, ptr %92, i64 %95
+  %96 = getelementptr inbounds i8, ptr %92, i64 %95
   %97 = load ptr, ptr %36, align 8
   %98 = load ptr, ptr %37, align 8
   %99 = load i64, ptr %98, align 8
@@ -5464,7 +5464,7 @@ define internal void @_ZN2cvL12remapNearestIdLb1EEEvRKNS_3MatERS1_S3_iRKNS_7Scal
 
 .loopexit.us:                                     ; preds = %145, %178, %.loopexit.us.sink.split, %121
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %183 = getelementptr double, ptr %.0158184.us, i64 %wide.trip.count
+  %183 = getelementptr inbounds double, ptr %.0158184.us, i64 %wide.trip.count
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
   br i1 %exitcond210.not, label %..loopexit180_crit_edge.us, label %105, !llvm.loop !100
 
@@ -6743,7 +6743,7 @@ define internal void @_ZN2cvL13remapBilinearINS_11FixedPtCastIihLi15EEENS_10Rema
 
 .loopexit754:                                     ; preds = %869, %.preheader
   %indvars.iv.next905 = add nsw i64 %indvars.iv904, 1
-  %903 = getelementptr i8, ptr %.9803, i64 %wide.trip.count
+  %903 = getelementptr inbounds i8, ptr %.9803, i64 %wide.trip.count
   %lftr.wideiv = trunc i64 %indvars.iv.next905 to i32
   %exitcond907.not = icmp eq i32 %.0586827, %lftr.wideiv
   br i1 %exitcond907.not, label %.loopexit757, label %.lr.ph804, !llvm.loop !113
@@ -7935,7 +7935,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIftEENS_10RemapNoVecILb0EEE
 
 .loopexit754:                                     ; preds = %776, %.preheader
   %indvars.iv.next905 = add nsw i64 %indvars.iv904, 1
-  %803 = getelementptr i16, ptr %.9803, i64 %wide.trip.count
+  %803 = getelementptr inbounds i16, ptr %.9803, i64 %wide.trip.count
   %lftr.wideiv = trunc i64 %indvars.iv.next905 to i32
   %exitcond907.not = icmp eq i32 %.0586827, %lftr.wideiv
   br i1 %exitcond907.not, label %.loopexit757, label %.lr.ph804, !llvm.loop !128
@@ -9127,7 +9127,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIfsEENS_10RemapNoVecILb0EEE
 
 .loopexit754:                                     ; preds = %776, %.preheader
   %indvars.iv.next905 = add nsw i64 %indvars.iv904, 1
-  %803 = getelementptr i16, ptr %.9803, i64 %wide.trip.count
+  %803 = getelementptr inbounds i16, ptr %.9803, i64 %wide.trip.count
   %lftr.wideiv = trunc i64 %indvars.iv.next905 to i32
   %exitcond907.not = icmp eq i32 %.0586827, %lftr.wideiv
   br i1 %exitcond907.not, label %.loopexit757, label %.lr.ph804, !llvm.loop !143
@@ -10176,7 +10176,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIffEENS_10RemapNoVecILb0EEE
 
 .loopexit754:                                     ; preds = %642, %.preheader
   %indvars.iv.next905 = add nsw i64 %indvars.iv904, 1
-  %660 = getelementptr float, ptr %.9803, i64 %wide.trip.count
+  %660 = getelementptr inbounds float, ptr %.9803, i64 %wide.trip.count
   %lftr.wideiv = trunc i64 %indvars.iv.next905 to i32
   %exitcond907.not = icmp eq i32 %.0586827, %lftr.wideiv
   br i1 %exitcond907.not, label %.loopexit757, label %.lr.ph804, !llvm.loop !158
@@ -11272,7 +11272,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIddEENS_10RemapNoVecILb0EEE
 
 .loopexit754:                                     ; preds = %685, %.preheader
   %indvars.iv.next905 = add nsw i64 %indvars.iv904, 1
-  %707 = getelementptr double, ptr %.9803, i64 %wide.trip.count
+  %707 = getelementptr inbounds double, ptr %.9803, i64 %wide.trip.count
   %lftr.wideiv = trunc i64 %indvars.iv.next905 to i32
   %exitcond907.not = icmp eq i32 %.0586827, %lftr.wideiv
   br i1 %exitcond907.not, label %.loopexit757, label %.lr.ph804, !llvm.loop !173
@@ -12616,7 +12616,7 @@ define internal void @_ZN2cvL13remapBilinearINS_11FixedPtCastIihLi15EEENS_10Rema
 
 .loopexit783:                                     ; preds = %924, %.preheader
   %indvars.iv.next934 = add nsw i64 %indvars.iv933, 1
-  %958 = getelementptr i8, ptr %.9832, i64 %wide.trip.count
+  %958 = getelementptr inbounds i8, ptr %.9832, i64 %wide.trip.count
   %lftr.wideiv = trunc i64 %indvars.iv.next934 to i32
   %exitcond936.not = icmp eq i32 %.0615856, %lftr.wideiv
   br i1 %exitcond936.not, label %.loopexit786, label %.lr.ph833, !llvm.loop !188
@@ -13863,7 +13863,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIftEENS_10RemapNoVecILb1EEE
 
 .loopexit782:                                     ; preds = %832, %.preheader
   %indvars.iv.next933 = add nsw i64 %indvars.iv932, 1
-  %859 = getelementptr i16, ptr %.9831, i64 %wide.trip.count
+  %859 = getelementptr inbounds i16, ptr %.9831, i64 %wide.trip.count
   %lftr.wideiv = trunc i64 %indvars.iv.next933 to i32
   %exitcond935.not = icmp eq i32 %.0615855, %lftr.wideiv
   br i1 %exitcond935.not, label %.loopexit785, label %.lr.ph832, !llvm.loop !203
@@ -15110,7 +15110,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIfsEENS_10RemapNoVecILb1EEE
 
 .loopexit782:                                     ; preds = %832, %.preheader
   %indvars.iv.next933 = add nsw i64 %indvars.iv932, 1
-  %859 = getelementptr i16, ptr %.9831, i64 %wide.trip.count
+  %859 = getelementptr inbounds i16, ptr %.9831, i64 %wide.trip.count
   %lftr.wideiv = trunc i64 %indvars.iv.next933 to i32
   %exitcond935.not = icmp eq i32 %.0615855, %lftr.wideiv
   br i1 %exitcond935.not, label %.loopexit785, label %.lr.ph832, !llvm.loop !218
@@ -16214,7 +16214,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIffEENS_10RemapNoVecILb1EEE
 
 .loopexit782:                                     ; preds = %698, %.preheader
   %indvars.iv.next933 = add nsw i64 %indvars.iv932, 1
-  %716 = getelementptr float, ptr %.9831, i64 %wide.trip.count
+  %716 = getelementptr inbounds float, ptr %.9831, i64 %wide.trip.count
   %lftr.wideiv = trunc i64 %indvars.iv.next933 to i32
   %exitcond935.not = icmp eq i32 %.0615855, %lftr.wideiv
   br i1 %exitcond935.not, label %.loopexit785, label %.lr.ph832, !llvm.loop !233
@@ -17365,7 +17365,7 @@ define internal void @_ZN2cvL13remapBilinearINS_4CastIddEENS_10RemapNoVecILb1EEE
 
 .loopexit782:                                     ; preds = %741, %.preheader
   %indvars.iv.next933 = add nsw i64 %indvars.iv932, 1
-  %763 = getelementptr double, ptr %.9831, i64 %wide.trip.count
+  %763 = getelementptr inbounds double, ptr %.9831, i64 %wide.trip.count
   %lftr.wideiv = trunc i64 %indvars.iv.next933 to i32
   %exitcond935.not = icmp eq i32 %.0615855, %lftr.wideiv
   br i1 %exitcond935.not, label %.loopexit785, label %.lr.ph832, !llvm.loop !248

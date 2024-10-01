@@ -213,8 +213,8 @@ define dso_local void @map_optimal_coloring(i32 noundef %0, ptr noundef %1, ptr 
   %8 = load i32, ptr %1, align 8
   call void @country_graph_coloring(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6) #20
   %9 = getelementptr inbounds i8, ptr %2, i64 4
-  %10 = getelementptr i8, ptr %4, i64 4
-  %11 = getelementptr i8, ptr %3, i64 4
+  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  %11 = getelementptr inbounds i8, ptr %3, i64 4
   %12 = load ptr, ptr %6, align 8
   call void @vector_float_take(i32 noundef %8, ptr noundef nonnull %9, i32 noundef %8, ptr noundef %12, ptr noundef nonnull %7) #20
   %13 = icmp sgt i32 %8, 0

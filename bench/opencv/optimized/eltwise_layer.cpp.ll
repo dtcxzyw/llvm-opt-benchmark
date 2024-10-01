@@ -6619,13 +6619,13 @@ define linkonce_odr hidden void @_ZNK2cv3dnn20EltwiseLayerInt8Impl14EltwiseInvok
   %116 = load i64, ptr %21, align 8
   %117 = mul i64 %116, %115
   %118 = add i64 %117, %109
-  %119 = getelementptr i8, ptr %59, i64 %118
+  %119 = getelementptr inbounds i8, ptr %59, i64 %118
   %120 = getelementptr inbounds float, ptr %63, i64 %118
   %121 = load ptr, ptr %77, align 8
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr i8, ptr %124, i64 %118
+  %125 = getelementptr inbounds i8, ptr %124, i64 %118
   %126 = load ptr, ptr %78, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 4
   %128 = load i32, ptr %127, align 4

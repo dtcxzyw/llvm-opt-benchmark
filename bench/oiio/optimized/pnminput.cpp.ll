@@ -331,7 +331,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.then25.i, %for.b
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %invoke.cont, !llvm.loop !7
 
 if.else29.i:                                      ; preds = %if.else.i
-  %incdec.ptr4.sink.i.i.i = getelementptr i8, ptr %16, i64 %sub.ptr.sub.i16.i
+  %incdec.ptr4.sink.i.i.i = getelementptr inbounds i8, ptr %16, i64 %sub.ptr.sub.i16.i
   %cmp6.i.i.i.i.i26.i = icmp sgt i64 %sub.ptr.sub.i16.i, 0
   br i1 %cmp6.i.i.i.i.i26.i, label %for.body.i.i.i.i.i28.i, label %_ZSt4copyIPKcPhET0_T_S4_S3_.exit36.i
 
@@ -348,7 +348,7 @@ for.body.i.i.i.i.i28.i:                           ; preds = %if.else29.i, %for.b
   br i1 %cmp.i.i.i.i.i35.i, label %for.body.i.i.i.i.i28.i, label %_ZSt4copyIPKcPhET0_T_S4_S3_.exit36.i, !llvm.loop !7
 
 _ZSt4copyIPKcPhET0_T_S4_S3_.exit36.i:             ; preds = %for.body.i.i.i.i.i28.i, %if.else29.i
-  %gepdiff = sub i64 %conv54, %sub.ptr.sub.i16.i
+  %gepdiff = sub nsw i64 %conv54, %sub.ptr.sub.i16.i
   %cmp6.i.i.i.i.i.i.i.i.i = icmp sgt i64 %gepdiff, 0
   br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %invoke.cont
 

@@ -174,7 +174,7 @@ _ZNSt12_Vector_baseIN4llvm6object13TapiUniversal7LibraryESaIS3_EE11_M_allocateEm
 
 _ZNSt6vectorIN4llvm6object13TapiUniversal7LibraryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm6object13TapiUniversal7LibraryESaIS3_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %54, %_ZNSt12_Vector_baseIN4llvm6object13TapiUniversal7LibraryESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ %57, %.lr.ph.i.i.i.i.i.i ]
-  %58 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %58 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm6object13TapiUniversal7LibraryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %59
 
@@ -329,7 +329,7 @@ _ZNSt12_Vector_baseIN4llvm6object13TapiUniversal7LibraryESaIS3_EE11_M_allocateEm
 
 _ZNSt6vectorIN4llvm6object13TapiUniversal7LibraryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i32: ; preds = %.lr.ph.i.i.i.i.i.i28, %_ZNSt12_Vector_baseIN4llvm6object13TapiUniversal7LibraryESaIS3_EE11_M_allocateEm.exit.i.i.i24
   %.0.lcssa.i.i.i.i.i.i33 = phi ptr [ %114, %_ZNSt12_Vector_baseIN4llvm6object13TapiUniversal7LibraryESaIS3_EE11_M_allocateEm.exit.i.i.i24 ], [ %117, %.lr.ph.i.i.i.i.i.i28 ]
-  %118 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i33, i64 24
+  %118 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i33, i64 24
   %.not.i23.i.i.i34 = icmp eq ptr %100, null
   br i1 %.not.i23.i.i.i34, label %_ZNSt6vectorIN4llvm6object13TapiUniversal7LibraryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i35, label %119
 

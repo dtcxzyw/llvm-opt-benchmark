@@ -493,7 +493,7 @@ SimplifySegments.exit:                            ; preds = %181, %._crit_edge60
   br i1 %255, label %254, label %.preheader46.i.i, !llvm.loop !12
 
 .preheader.i.i:                                   ; preds = %283
-  %271 = getelementptr i8, ptr %196, i64 192
+  %271 = getelementptr inbounds i8, ptr %196, i64 192
   br label %.preheader.split.us.i.i
 
 .preheader.split.us.i.i:                          ; preds = %.preheader.split.us.i.i, %.preheader.i.i
@@ -569,7 +569,7 @@ ExpandMatrix.exit.i:                              ; preds = %.preheader.split.us
   br i1 %298, label %297, label %.preheader46.i67.i, !llvm.loop !12
 
 .preheader.i72.i:                                 ; preds = %315
-  %314 = getelementptr i8, ptr %196, i64 416
+  %314 = getelementptr inbounds i8, ptr %196, i64 416
   br label %.preheader.split.i.i
 
 315:                                              ; preds = %315, %.preheader46.i67.i
@@ -641,7 +641,7 @@ ExpandMatrix.exit73.i:                            ; preds = %.preheader.split.i.
   br i1 %337, label %336, label %.preheader46.i75.i, !llvm.loop !12
 
 .preheader.i80.i:                                 ; preds = %354
-  %353 = getelementptr i8, ptr %196, i64 640
+  %353 = getelementptr inbounds i8, ptr %196, i64 640
   br label %.preheader.split.i81.i
 
 354:                                              ; preds = %354, %.preheader46.i75.i

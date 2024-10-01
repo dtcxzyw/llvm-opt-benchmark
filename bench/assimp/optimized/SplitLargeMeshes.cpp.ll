@@ -1129,7 +1129,7 @@ for.body.i.i.i.i.i207:                            ; preds = %invoke.cont.i.i204,
 
 _ZNSt6vectorISt4pairIP6aiMeshjESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i207, %invoke.cont.i.i204
   %__cur.0.lcssa.i.i.i.i.i213 = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i204 ], [ %incdec.ptr1.i.i.i.i.i211, %for.body.i.i.i.i.i207 ]
-  %incdec.ptr.i.i214 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i213, i64 16
+  %incdec.ptr.i.i214 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i213, i64 16
   %tobool.not.i.i.i215 = icmp eq ptr %114, null
   br i1 %tobool.not.i.i.i215, label %_ZNSt6vectorISt4pairIP6aiMeshjESaIS3_EE17_M_realloc_insertIJRS2_RjEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -1223,7 +1223,7 @@ for.body.i.i.i.i.i244:                            ; preds = %invoke.cont.i.i239,
 
 _ZNSt6vectorISt4pairIP6aiMeshjESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i250: ; preds = %for.body.i.i.i.i.i244, %invoke.cont.i.i239
   %__cur.0.lcssa.i.i.i.i.i251 = phi ptr [ %cond.i17.i.i240, %invoke.cont.i.i239 ], [ %incdec.ptr1.i.i.i.i.i248, %for.body.i.i.i.i.i244 ]
-  %incdec.ptr.i.i252 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i251, i64 16
+  %incdec.ptr.i.i252 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i251, i64 16
   %tobool.not.i.i.i253 = icmp eq ptr %119, null
   br i1 %tobool.not.i.i.i253, label %_ZNSt6vectorISt4pairIP6aiMeshjESaIS3_EE17_M_realloc_insertIJRS2_RjEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i255, label %if.then.i27.i.i254
 
@@ -2844,7 +2844,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorI14aiVertexWeightSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseI14aiVertexWeightSaIS0_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %129, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorI14aiVertexWeightSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -3157,7 +3157,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i239,
 
 _ZNSt6vectorISt4pairIP6aiMeshjESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i239
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i239 ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i241 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i241 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i242 = icmp eq ptr %172, null
   br i1 %tobool.not.i.i.i242, label %_ZNSt6vectorISt4pairIP6aiMeshjESaIS3_EE17_M_realloc_insertIJRS2_RjEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -3339,7 +3339,7 @@ for.body.i.i.i.i.i298:                            ; preds = %invoke.cont.i.i293,
 
 _ZNSt6vectorISt4pairIP6aiMeshjESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i304: ; preds = %for.body.i.i.i.i.i298, %invoke.cont.i.i293
   %__cur.0.lcssa.i.i.i.i.i305 = phi ptr [ %cond.i17.i.i294, %invoke.cont.i.i293 ], [ %incdec.ptr1.i.i.i.i.i302, %for.body.i.i.i.i.i298 ]
-  %incdec.ptr.i.i306 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i305, i64 16
+  %incdec.ptr.i.i306 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i305, i64 16
   %tobool.not.i.i.i307 = icmp eq ptr %187, null
   br i1 %tobool.not.i.i.i307, label %_ZNSt6vectorISt4pairIP6aiMeshjESaIS3_EE17_M_realloc_insertIJRS2_RjEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i309, label %if.then.i27.i.i308
 

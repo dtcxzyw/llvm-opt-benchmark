@@ -3032,10 +3032,10 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit224:          ; preds = %.noexc, %_ZN2cv10Au
   %256 = load i64, ptr %255, align 8
   %257 = sext i32 %251 to i64
   %258 = mul i64 %256, %257
-  %259 = getelementptr i8, ptr %253, i64 %258
+  %259 = getelementptr inbounds i8, ptr %253, i64 %258
   %260 = sext i32 %59 to i64
   %261 = mul i64 %256, %260
-  %262 = getelementptr i8, ptr %253, i64 %261
+  %262 = getelementptr inbounds i8, ptr %253, i64 %261
   %263 = icmp sgt i32 %75, 0
   br i1 %263, label %.lr.ph268.preheader, label %.loopexit
 
@@ -3558,10 +3558,10 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit224:          ; preds = %.noexc, %_ZN2cv10Au
   %256 = load i64, ptr %255, align 8
   %257 = sext i32 %251 to i64
   %258 = mul i64 %256, %257
-  %259 = getelementptr i8, ptr %253, i64 %258
+  %259 = getelementptr inbounds i8, ptr %253, i64 %258
   %260 = sext i32 %59 to i64
   %261 = mul i64 %256, %260
-  %262 = getelementptr i8, ptr %253, i64 %261
+  %262 = getelementptr inbounds i8, ptr %253, i64 %261
   %263 = icmp sgt i32 %75, 0
   br i1 %263, label %.lr.ph268.preheader, label %.loopexit
 
@@ -4084,10 +4084,10 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit224:          ; preds = %.noexc, %_ZN2cv10Au
   %256 = load i64, ptr %255, align 8
   %257 = sext i32 %251 to i64
   %258 = mul i64 %256, %257
-  %259 = getelementptr i8, ptr %253, i64 %258
+  %259 = getelementptr inbounds i8, ptr %253, i64 %258
   %260 = sext i32 %59 to i64
   %261 = mul i64 %256, %260
-  %262 = getelementptr i8, ptr %253, i64 %261
+  %262 = getelementptr inbounds i8, ptr %253, i64 %261
   %263 = icmp sgt i32 %75, 0
   br i1 %263, label %.lr.ph268.preheader, label %.loopexit
 
@@ -4591,10 +4591,10 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc, %_ZN2cv10Au
   %237 = load i64, ptr %236, align 8
   %238 = sext i32 %232 to i64
   %239 = mul i64 %237, %238
-  %240 = getelementptr i8, ptr %234, i64 %239
+  %240 = getelementptr inbounds i8, ptr %234, i64 %239
   %241 = sext i32 %59 to i64
   %242 = mul i64 %237, %241
-  %243 = getelementptr i8, ptr %234, i64 %242
+  %243 = getelementptr inbounds i8, ptr %234, i64 %242
   %244 = icmp sgt i32 %75, 0
   br i1 %244, label %.lr.ph266.preheader, label %.loopexit
 
@@ -5098,10 +5098,10 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc, %_ZN2cv10Au
   %237 = load i64, ptr %236, align 8
   %238 = sext i32 %232 to i64
   %239 = mul i64 %237, %238
-  %240 = getelementptr i8, ptr %234, i64 %239
+  %240 = getelementptr inbounds i8, ptr %234, i64 %239
   %241 = sext i32 %59 to i64
   %242 = mul i64 %237, %241
-  %243 = getelementptr i8, ptr %234, i64 %242
+  %243 = getelementptr inbounds i8, ptr %234, i64 %242
   %244 = icmp sgt i32 %75, 0
   br i1 %244, label %.lr.ph266.preheader, label %.loopexit
 

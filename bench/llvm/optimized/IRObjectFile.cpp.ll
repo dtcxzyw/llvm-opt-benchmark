@@ -751,7 +751,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_E
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i28, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %86, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %91, %.lr.ph.i.i.i.i28 ]
-  %92 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %92 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %.sroa.036.072, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit, label %93
 

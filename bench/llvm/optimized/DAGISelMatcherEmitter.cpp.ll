@@ -1142,7 +1142,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4llvm14Compl
   br label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4llvm14ComplexPatternEjESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread23.sink.split.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %296
-  %.01317.i.i.i.i.i.i.i = getelementptr i8, ptr %295, i64 16
+  %.01317.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %295, i64 16
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -2148,7 +2148,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN4llvm11TreePa
   br label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN4llvm11TreePatternEjESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.thread23.sink.split.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i93.i:                 ; preds = %716
-  %.01317.i.i.i.i.i.i94.i = getelementptr i8, ptr %715, i64 16
+  %.01317.i.i.i.i.i.i94.i = getelementptr inbounds i8, ptr %715, i64 16
   br label %.lr.ph.i.i.i.i.i.i95.i
 
 .lr.ph.i.i.i.i.i.i95.i:                           ; preds = %.lr.ph.i.i.i.i.i.i95.i, %.lr.ph.i.i.preheader.i.i.i.i93.i
@@ -11259,7 +11259,7 @@ _ZSt4moveIPPN4llvm11TreePatternES3_ET0_T_S5_S4_.exit: ; preds = %29, %32
   br i1 %36, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %35
-  %37 = getelementptr ptr, ptr %.053, i64 %.074
+  %37 = getelementptr inbounds ptr, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90

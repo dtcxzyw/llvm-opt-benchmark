@@ -47938,7 +47938,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1667: ; preds = 
   %1524 = getelementptr inbounds i8, ptr %0, i64 648
   %1525 = load ptr, ptr %1524, align 8
   store i8 -70, ptr %.0.i1666, align 1
-  %1526 = getelementptr inbounds i8, ptr %.0.i1666, i64 1
+  %1526 = getelementptr i8, ptr %.0.i1666, i64 1
   store i8 61, ptr %1526, align 1
   %1527 = getelementptr inbounds i8, ptr %.0.i1666, i64 2
   br label %1528

@@ -12251,7 +12251,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit669:    ; preds = %.lr.ph.i662, %.preh
   %789 = load i64, ptr %40, align 8
   %790 = load i64, ptr %54, align 8
   %791 = add nsw i64 %790, %789
-  %792 = getelementptr double, ptr %.pr, i64 %789
+  %792 = getelementptr inbounds double, ptr %.pr, i64 %789
   %.not.i670 = icmp eq ptr %.pr, null
   br i1 %.not.i670, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit681, label %793
 
@@ -12804,7 +12804,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit795thread-pre-split: ; preds = %.lr.ph
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit795:    ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit795thread-pre-split, %1013
   %1023 = phi ptr [ %.pr2016, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit795thread-pre-split ], [ %1014, %1013 ]
   %1024 = load i64, ptr %40, align 8
-  %1025 = getelementptr double, ptr %1023, i64 %1024
+  %1025 = getelementptr inbounds double, ptr %1023, i64 %1024
   %1026 = load i64, ptr %54, align 8
   %1027 = add nsw i64 %1026, %1024
   %1028 = load ptr, ptr %76, align 8
@@ -13073,7 +13073,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit860thread-pre-split: ; preds = %.lr.ph
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit860:    ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit860thread-pre-split, %1112
   %1123 = phi ptr [ %.pr2017, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit860thread-pre-split ], [ %1113, %1112 ]
   %1124 = load i64, ptr %40, align 8
-  %1125 = getelementptr double, ptr %1123, i64 %1124
+  %1125 = getelementptr inbounds double, ptr %1123, i64 %1124
   %1126 = load i64, ptr %54, align 8
   %1127 = add nsw i64 %1126, %1124
   %1128 = load ptr, ptr %76, align 8
@@ -15741,7 +15741,7 @@ _ZN6casadi11casadi_fillIdEEvPT_xS1_.exit163:      ; preds = %_ZN6casadi11casadi_
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %0, i64 1640
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr double, ptr %88, i64 %90
+  %91 = getelementptr inbounds double, ptr %88, i64 %90
   %.not.i164 = icmp ne ptr %88, null
   %92 = icmp sgt i64 %86, 0
   %or.cond254 = select i1 %.not.i164, i1 %92, i1 false
@@ -15749,7 +15749,7 @@ _ZN6casadi11casadi_fillIdEEvPT_xS1_.exit163:      ; preds = %_ZN6casadi11casadi_
 
 .lr.ph.i165.preheader:                            ; preds = %_ZN6casadi11casadi_fillIdEEvPT_xS1_.exit163
   %.idx = shl nsw i64 %86, 4
-  %93 = getelementptr i8, ptr %91, i64 %.idx
+  %93 = getelementptr inbounds i8, ptr %91, i64 %.idx
   br label %.lr.ph.i165
 
 .lr.ph.i165:                                      ; preds = %.lr.ph.i165.preheader, %.lr.ph.i165
@@ -15785,7 +15785,7 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit:           ; preds = %.lr.ph.preheader.i,
   %102 = getelementptr inbounds i8, ptr %1, i64 416
   %103 = load ptr, ptr %102, align 8
   %104 = load i64, ptr %89, align 8
-  %105 = getelementptr double, ptr %103, i64 %104
+  %105 = getelementptr inbounds double, ptr %103, i64 %104
   %.not.i169 = icmp ne ptr %103, null
   %106 = icmp sgt i64 %101, 0
   %or.cond255 = select i1 %.not.i169, i1 %106, i1 false
@@ -15793,7 +15793,7 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit:           ; preds = %.lr.ph.preheader.i,
 
 .lr.ph.i172.preheader:                            ; preds = %_ZN6casadi12casadi_clearIdEEvPT_x.exit
   %.idx136 = shl nsw i64 %101, 4
-  %107 = getelementptr i8, ptr %105, i64 %.idx136
+  %107 = getelementptr inbounds i8, ptr %105, i64 %.idx136
   br label %.lr.ph.i172
 
 .lr.ph.i172:                                      ; preds = %.lr.ph.i172.preheader, %.lr.ph.i172
@@ -16084,12 +16084,12 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit209thread-pre-split: ; preds = %.lr.ph
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit209:    ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit209thread-pre-split, %_ZN6casadi12casadi_clearIdEEvPT_x.exit198
   %204 = phi ptr [ %.pr271, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit209thread-pre-split ], [ %196, %_ZN6casadi12casadi_clearIdEEvPT_x.exit198 ]
   %205 = load i64, ptr %89, align 8
-  %206 = getelementptr double, ptr %204, i64 %205
+  %206 = getelementptr inbounds double, ptr %204, i64 %205
   %207 = load i64, ptr %76, align 8
   %208 = load ptr, ptr %187, align 8
-  %209 = getelementptr double, ptr %208, i64 %205
+  %209 = getelementptr inbounds double, ptr %208, i64 %205
   %.idx137 = shl nsw i64 %207, 4
-  %210 = getelementptr i8, ptr %209, i64 %.idx137
+  %210 = getelementptr inbounds i8, ptr %209, i64 %.idx137
   %.not.i210 = icmp eq ptr %208, null
   br i1 %.not.i210, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit220, label %211
 
@@ -16382,9 +16382,9 @@ _ZN6casadi3strIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit:
 
 .lr.ph.i232.preheader:                            ; preds = %346
   %350 = load i64, ptr %89, align 8
-  %351 = getelementptr double, ptr %347, i64 %350
+  %351 = getelementptr inbounds double, ptr %347, i64 %350
   %.idx139 = shl nsw i64 %348, 4
-  %352 = getelementptr i8, ptr %351, i64 %.idx139
+  %352 = getelementptr inbounds i8, ptr %351, i64 %.idx139
   br label %.lr.ph.i232
 
 .lr.ph.i232:                                      ; preds = %.lr.ph.i232.preheader, %.lr.ph.i232

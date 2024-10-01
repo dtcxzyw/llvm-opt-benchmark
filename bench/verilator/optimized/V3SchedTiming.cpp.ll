@@ -3824,7 +3824,7 @@ _ZNKSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE12_M_check_lenEmPKc.exit.i.i
 
 _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %225
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %226, %225 ], [ %231, %.lr.ph.i.i.i.i.i.i ]
-  %232 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %232 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i34.i.i.i = icmp eq ptr %211, null
   br i1 %.not.i34.i.i.i, label %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRKS2_RKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %233
 

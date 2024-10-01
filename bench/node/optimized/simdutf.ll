@@ -53076,7 +53076,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %i.031 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
   %sub = sub i64 0, %i.031
-  %arrayidx = getelementptr i8, ptr %buf, i64 %sub
+  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %sub
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, -64
   %cmp1.not = icmp eq i8 %1, -128
@@ -53092,7 +53092,7 @@ if.then3:                                         ; preds = %for.inc
   br label %return
 
 if.end5:                                          ; preds = %for.body
-  %arrayidx.le = getelementptr i8, ptr %buf, i64 %sub
+  %arrayidx.le = getelementptr inbounds i8, ptr %buf, i64 %sub
   %add = add i64 %i.031, %len
   %cmp51.not.i = icmp eq i64 %add, 0
   br i1 %cmp51.not.i, label %.loopexit, label %while.body.i

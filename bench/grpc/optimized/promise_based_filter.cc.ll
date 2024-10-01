@@ -7012,7 +7012,7 @@ for.body.i.i.i.i.i.i30.preheader:                 ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i36: ; preds = %for.body.i.i.i.i.i.i30.preheader, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i.i.i26
   %__cur.0.lcssa.i.i.i.i.i.i37 = phi ptr [ %call5.i.i.i.i.i.i46, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i.i.i26 ], [ %scevgep, %for.body.i.i.i.i.i.i30.preheader ]
-  %incdec.ptr.i.i.i38 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i37, i64 16
+  %incdec.ptr.i.i.i38 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i37, i64 16
   %tobool.not.i.i.i.i39 = icmp eq ptr %captured.sroa.0.1, null
   br i1 %tobool.not.i.i.i.i39, label %invoke.cont20, label %if.then.i20.i.i.i40
 
@@ -12724,7 +12724,7 @@ for.body.i.i.i.i.i.i30.preheader:                 ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i36: ; preds = %for.body.i.i.i.i.i.i30.preheader, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i.i.i26
   %__cur.0.lcssa.i.i.i.i.i.i37 = phi ptr [ %call5.i.i.i.i.i.i46, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i.i.i26 ], [ %scevgep, %for.body.i.i.i.i.i.i30.preheader ]
-  %incdec.ptr.i.i.i38 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i37, i64 16
+  %incdec.ptr.i.i.i38 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i37, i64 16
   %tobool.not.i.i.i.i39 = icmp eq ptr %captured.sroa.0.1, null
   br i1 %tobool.not.i.i.i.i39, label %invoke.cont20, label %if.then.i20.i.i.i40
 

@@ -4779,7 +4779,7 @@ _ZL14stbi__zreceiveP10stbi__zbufi.exit85.i.i:     ; preds = %_ZL11stbi__zget8P10
 528:                                              ; preds = %524, %501
   %.3.i.i = phi ptr [ %526, %524 ], [ %.059.i.i, %501 ]
   %529 = sub nsw i64 0, %499
-  %530 = getelementptr i8, ptr %.3.i.i, i64 %529
+  %530 = getelementptr inbounds i8, ptr %.3.i.i, i64 %529
   %531 = icmp eq i32 %.056.i.i, 1
   %.not72.i.i = icmp eq i32 %.057.i.i, 0
   br i1 %531, label %532, label %537
@@ -77321,8 +77321,8 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
 ._crit_edge792:                                   ; preds = %.lr.ph791, %.preheader698
   %213 = getelementptr inbounds i8, ptr %.2544795, i64 %209
   store i8 -1, ptr %213, align 1
-  %214 = getelementptr i8, ptr %.3525796, i64 %209
-  %215 = getelementptr i8, ptr %.2544795, i64 %56
+  %214 = getelementptr inbounds i8, ptr %.3525796, i64 %209
+  %215 = getelementptr inbounds i8, ptr %.2544795, i64 %56
   %.0556 = add i32 %.0556797, -1
   %.not617 = icmp eq i32 %.0556, 0
   br i1 %.not617, label %.loopexit719, label %.preheader698, !llvm.loop !1880

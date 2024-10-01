@@ -7542,7 +7542,7 @@ _ZNSt12_Vector_baseIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EE11_M_allocat
 
 _ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i110, %_ZNSt12_Vector_baseIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %602, %_ZNSt12_Vector_baseIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ %605, %.lr.ph.i.i.i.i.i.i110 ]
-  %606 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %606 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %588, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %607
 
@@ -8211,7 +8211,7 @@ _ZNSt12_Vector_baseIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EE11_M_allocat
 
 _ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i154: ; preds = %.lr.ph.i.i.i.i.i.i150, %_ZNSt12_Vector_baseIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EE11_M_allocateEm.exit.i.i.i148
   %.0.lcssa.i.i.i.i.i.i155 = phi ptr [ %877, %_ZNSt12_Vector_baseIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EE11_M_allocateEm.exit.i.i.i148 ], [ %880, %.lr.ph.i.i.i.i.i.i150 ]
-  %881 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i155, i64 24
+  %881 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i155, i64 24
   %.not.i23.i.i.i156 = icmp eq ptr %863, null
   br i1 %.not.i23.i.i.i156, label %_ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i157, label %882
 
@@ -8320,7 +8320,7 @@ _ZNSt12_Vector_baseIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EE11_M_allocat
 
 _ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i171: ; preds = %.lr.ph.i.i.i.i.i.i167, %_ZNSt12_Vector_baseIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EE11_M_allocateEm.exit.i.i.i165
   %.0.lcssa.i.i.i.i.i.i172 = phi ptr [ %911, %_ZNSt12_Vector_baseIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EE11_M_allocateEm.exit.i.i.i165 ], [ %914, %.lr.ph.i.i.i.i.i.i167 ]
-  %915 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i172, i64 24
+  %915 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i172, i64 24
   %.not.i23.i.i.i173 = icmp eq ptr %897, null
   br i1 %.not.i23.i.i.i173, label %_ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i174, label %916
 
@@ -11062,7 +11062,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_E
 
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
@@ -11761,7 +11761,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm3pdb15NativeRawSymbolESt14default_delet
 
 _ZNSt6vectorISt10unique_ptrIN4llvm3pdb15NativeRawSymbolESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm3pdb15NativeRawSymbolESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm3pdb15NativeRawSymbolESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4llvm3pdb15NativeRawSymbolESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i17
 
@@ -11858,7 +11858,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm3pdb16NativeSourceFileESt14default_dele
 
 _ZNSt6vectorISt10unique_ptrIN4llvm3pdb16NativeSourceFileESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm3pdb16NativeSourceFileESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm3pdb16NativeSourceFileESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4llvm3pdb16NativeSourceFileESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i17
 
@@ -25034,7 +25034,7 @@ define linkonce_odr void @_ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryES
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
   %22 = sub nsw i64 0, %9
-  %23 = getelementptr %"struct.llvm::pdb::SymbolCache::LineTableEntry", ptr %13, i64 %22
+  %23 = getelementptr inbounds %"struct.llvm::pdb::SymbolCache::LineTableEntry", ptr %13, i64 %22
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -25086,7 +25086,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb11SymbolC
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb11SymbolCache14LineTableEntryESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb11SymbolCache14LineTableEntryESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb11SymbolCache14LineTableEntryESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit
   %34 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb11SymbolCache14LineTableEntryESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb11SymbolCache14LineTableEntryESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
   %35 = sub nuw nsw i64 %9, %20
-  %36 = getelementptr %"struct.llvm::pdb::SymbolCache::LineTableEntry", ptr %34, i64 %35
+  %36 = getelementptr inbounds %"struct.llvm::pdb::SymbolCache::LineTableEntry", ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not7.i.i.i.i.i45 = icmp eq ptr %1, %13
   br i1 %.not7.i.i.i.i.i45, label %_ZSt22__uninitialized_move_aIPN4llvm3pdb11SymbolCache14LineTableEntryES4_SaIS3_EET0_T_S7_S6_RT1_.exit51, label %.lr.ph.i.i.i.i.i46

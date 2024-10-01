@@ -31759,7 +31759,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.noe
 
 _ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.i.noexc.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i217.i, %call5.i.i.i.i.i.noexc.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i214.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i214.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i198 = icmp eq ptr %this.val10.i.i.i, null
   br i1 %tobool.not.i.i.i.i198, label %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %if.then.i22.i.i.i
 
@@ -31881,7 +31881,7 @@ for.body.i.i.i.i.i262.i:                          ; preds = %call5.i.i.i.i.i.noe
 
 _ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21.i.i268.i: ; preds = %for.body.i.i.i.i.i262.i, %call5.i.i.i.i.i.noexc277.i
   %__cur.0.lcssa.i.i.i.i.i269.i = phi ptr [ %call5.i.i.i.i.i278.i, %call5.i.i.i.i.i.noexc277.i ], [ %incdec.ptr1.i.i.i.i.i266.i, %for.body.i.i.i.i.i262.i ]
-  %incdec.ptr.i.i270.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i269.i, i64 8
+  %incdec.ptr.i.i270.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i269.i, i64 8
   %tobool.not.i.i.i271.i = icmp eq ptr %this.val10.i.i247.i, null
   br i1 %tobool.not.i.i.i271.i, label %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_12_GLOBAL__N_15RlsLb18ChildPolicyWrapperEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i273.i, label %if.then.i22.i.i272.i
 

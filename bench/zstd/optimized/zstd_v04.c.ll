@@ -2091,7 +2091,7 @@ ZSTD_decodeSequence.exit.i:                       ; preds = %if.end92.i.i, %if.e
   %add46.i.i = add nuw i64 %shr3.i.i.i181.i, %conv43.i.i
   %offset.0.i.i = select i1 %cmp39.i.i, i64 %cond.i.sroa.speculated.i, i64 %add46.i.i
   %add99.i.i = add nuw nsw i64 %matchLength.0.i.i, 4
-  %add.ptr.i189.i = getelementptr i8, ptr %op.0305.i, i64 %litLength.0.i.i
+  %add.ptr.i189.i = getelementptr inbounds i8, ptr %op.0305.i, i64 %litLength.0.i.i
   %add.i190.i = add nuw nsw i64 %add99.i.i, %litLength.0.i.i
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %op.0305.i, i64 %add.i190.i
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %litPtr.0301.i, i64 %litLength.0.i.i
@@ -2218,8 +2218,8 @@ if.else.i201.i:                                   ; preds = %if.end63.i200.i
 
 if.end83.i.i:                                     ; preds = %if.else.i201.i, %if.then66.i.i
   %match.2.i.i = phi ptr [ %add.ptr82.i.i, %if.then66.i.i ], [ %match.0.i.i, %if.else.i201.i ]
-  %add.ptr84.i202.i = getelementptr i8, ptr %op.addr.0.i.i, i64 8
-  %add.ptr85.i.i = getelementptr i8, ptr %match.2.i.i, i64 8
+  %add.ptr84.i202.i = getelementptr inbounds i8, ptr %op.addr.0.i.i, i64 8
+  %add.ptr85.i.i = getelementptr inbounds i8, ptr %match.2.i.i, i64 8
   %cmp87.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr86.i.i
   br i1 %cmp87.i.i, label %if.then88.i.i, label %if.else105.i.i
 

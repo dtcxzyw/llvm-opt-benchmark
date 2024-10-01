@@ -1119,7 +1119,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_dele
 
 _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %32, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i ], [ %37, %.lr.ph.i.i.i.i ]
-  %38 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %38 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %18, null
   br i1 %.not.i23.i, label %.noexc, label %39
 
@@ -1219,7 +1219,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_dele
 
 _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %28, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i ], [ %33, %.lr.ph.i.i.i.i ]
-  %34 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %34 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %14, null
   br i1 %.not.i23.i, label %.noexc, label %35
 

@@ -1264,7 +1264,7 @@ _ZN8WasmEdge4Host4WASI6detail12fromFileTypeEh.exit: ; preds = %77, %switch.looku
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZN8WasmEdge4Host4WASI6detail12fromFileTypeEh.exit
   %90 = load ptr, ptr %40, align 8
-  %91 = getelementptr i8, ptr %90, i64 24
+  %91 = getelementptr inbounds i8, ptr %90, i64 24
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i

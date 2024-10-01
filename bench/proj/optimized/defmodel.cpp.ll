@@ -6788,7 +6788,7 @@ _ZNKSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14Gr
 
 _ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit27.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.noexc43.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %253, %.noexc43.i ], [ %256, %.lr.ph.i.i.i.i.i.i.i ]
-  %257 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 8
+  %257 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 8
   %.not.i28.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i28.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN16DeformationModel11ComponentExIN12_GLOBAL__N_14GridENS3_7GridSetEEESt14default_deleteIS6_EESaIS9_EE12emplace_backIJS9_EEEvDpOT_.exit.i, label %258
 

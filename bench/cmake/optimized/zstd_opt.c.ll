@@ -129,7 +129,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef %0, ptr nocaptur
   br i1 %55, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
 .lr.ph.lr.ph:                                     ; preds = %45
-  %56 = getelementptr i8, ptr %38, i64 16
+  %56 = getelementptr inbounds i8, ptr %38, i64 16
   %57 = getelementptr inbounds i8, ptr %38, i64 8
   %58 = getelementptr inbounds i8, ptr %38, i64 12
   %59 = getelementptr inbounds i8, ptr %0, i64 224
@@ -1520,7 +1520,7 @@ define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef %0, ptr nocaptur
   br i1 %54, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
 .lr.ph.lr.ph:                                     ; preds = %44
-  %55 = getelementptr i8, ptr %37, i64 16
+  %55 = getelementptr inbounds i8, ptr %37, i64 16
   %56 = getelementptr inbounds i8, ptr %37, i64 8
   %57 = getelementptr inbounds i8, ptr %37, i64 12
   %58 = getelementptr inbounds i8, ptr %0, i64 224

@@ -19979,7 +19979,7 @@ _ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EE11_M_allocateEm.exit.i.i68: ; preds
 
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i74: ; preds = %.lr.ph.i.i.i.i.i70, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EE11_M_allocateEm.exit.i.i68
   %.0.lcssa.i.i.i.i.i75 = phi ptr [ %115, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EE11_M_allocateEm.exit.i.i68 ], [ %118, %.lr.ph.i.i.i.i.i70 ]
-  %119 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i75, i64 16
+  %119 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i75, i64 16
   %.not.i23.i.i76 = icmp eq ptr %.sroa.097.2163, null
   br i1 %.not.i23.i.i76, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i77, label %120
 

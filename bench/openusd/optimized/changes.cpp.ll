@@ -37192,7 +37192,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit5: ; preds = %_ZN32pxrI
   store i32 0, ptr %47, align 4
   store i32 %48, ptr %46, align 4
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = getelementptr inbounds i8, ptr %1, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSEOS0_.exit, label %51
 

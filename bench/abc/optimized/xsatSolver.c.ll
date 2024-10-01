@@ -1449,7 +1449,7 @@ define i32 @xSAT_SolverPropagate(ptr nocapture noundef %0) local_unnamed_addr #0
   br i1 %72, label %73, label %78
 
 73:                                               ; preds = %61
-  %74 = getelementptr i8, ptr %.0102141, i64 8
+  %74 = getelementptr inbounds i8, ptr %.0102141, i64 8
   %75 = getelementptr inbounds i8, ptr %.1106140, i64 8
   %76 = load i64, ptr %.1106140, align 4
   store i64 %76, ptr %.0102141, align 4
@@ -1567,7 +1567,7 @@ xSAT_SolverReadClause.exit:                       ; preds = %78, %81
   br i1 %135, label %116, label %._crit_edge150, !llvm.loop !18
 
 ._crit_edge150:                                   ; preds = %133, %108
-  %136 = getelementptr i8, ptr %.0102141, i64 8
+  %136 = getelementptr inbounds i8, ptr %.0102141, i64 8
   store i32 %95, ptr %.0102141, align 4
   %.sroa.4.0..sroa_idx8 = getelementptr inbounds i8, ptr %.0102141, i64 4
   store i32 %94, ptr %.sroa.4.0..sroa_idx8, align 4

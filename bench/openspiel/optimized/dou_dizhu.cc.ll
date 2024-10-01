@@ -4354,7 +4354,7 @@ _ZNKSt6vectorISt4pairIldESaIS1_EE12_M_check_lenEmPKc.exit.i29: ; preds = %74
 
 _ZNSt6vectorISt4pairIldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i44: ; preds = %.lr.ph.i.i.i.i33, %.noexc49
   %.0.lcssa.i.i.i.i38 = phi ptr [ %88, %.noexc49 ], [ %92, %.lr.ph.i.i.i.i33 ]
-  %93 = getelementptr i8, ptr %.0.lcssa.i.i.i.i38, i64 16
+  %93 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i38, i64 16
   %.not.i34.i46 = icmp eq ptr %66, null
   br i1 %.not.i34.i46, label %.noexc19, label %94
 
@@ -4806,7 +4806,7 @@ _ZNSt12_Vector_baseIN10open_spiel9dou_dizhu5TrickESaIS2_EE11_M_allocateEm.exit.i
 
 _ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN10open_spiel9dou_dizhu5TrickESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %63, %_ZNSt12_Vector_baseIN10open_spiel9dou_dizhu5TrickESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %66, %.lr.ph.i.i.i.i.i.i ]
-  %67 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
+  %67 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
   %.not.i23.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %68
 
@@ -4924,7 +4924,7 @@ _ZNSt12_Vector_baseIN10open_spiel9dou_dizhu5TrickESaIS2_EE11_M_allocateEm.exit.i
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.thread, label %.lr.ph.i.i.i.i.i.i
 
 _ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.thread: ; preds = %_ZNSt12_Vector_baseIN10open_spiel9dou_dizhu5TrickESaIS2_EE11_M_allocateEm.exit.i.i.i
-  %45 = getelementptr i8, ptr %43, i64 12
+  %45 = getelementptr inbounds i8, ptr %43, i64 12
   br label %49
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel9dou_dizhu5TrickESaIS2_EE11_M_allocateEm.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
@@ -4937,7 +4937,7 @@ _ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !75
 
 _ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %48 = getelementptr i8, ptr %.012.i.i.i.i.i.i, i64 24
+  %48 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN10open_spiel9dou_dizhu5TrickESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %49
 

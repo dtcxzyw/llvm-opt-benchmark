@@ -4433,7 +4433,7 @@ _ZNKSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression2OpE
 
 _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__17SdfPathExpression2OpEiESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %.noexc19
   %.0.lcssa.i.i.i.i = phi ptr [ %71, %.noexc19 ], [ %77, %.lr.ph.i.i.i.i ]
-  %78 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %78 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i34.i = icmp eq ptr %57, null
   br i1 %.not.i34.i, label %.noexc15, label %79
 

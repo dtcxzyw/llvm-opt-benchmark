@@ -17828,7 +17828,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i.i:        ; preds = %353
 
 .noexc118:                                        ; preds = %358
   %362 = load ptr, ptr %11, align 8, !alias.scope !116
-  %363 = getelementptr i8, ptr %362, i64 16
+  %363 = getelementptr inbounds i8, ptr %362, i64 16
   %364 = getelementptr inbounds i8, ptr %362, i64 8
   %365 = load i32, ptr %364, align 8
   %366 = getelementptr inbounds i8, ptr %362, i64 12
@@ -17846,7 +17846,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i.i:        ; preds = %353
   %374 = sext i32 %373 to i64
   %375 = getelementptr inbounds ptr, ptr %371, i64 %374
   %376 = sext i32 %365 to i64
-  %377 = getelementptr ptr, ptr %363, i64 %376
+  %377 = getelementptr inbounds ptr, ptr %363, i64 %376
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -18752,11 +18752,11 @@ define linkonce_odr noundef ptr @_ZN5QListI7QStringE18detach_helper_growEii(ptr 
   %10 = getelementptr inbounds ptr, ptr %6, i64 %9
   %11 = call noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4, i32 noundef %2)
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr i8, ptr %12, i64 16
+  %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = getelementptr inbounds i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr ptr, ptr %13, i64 %16
+  %17 = getelementptr inbounds ptr, ptr %13, i64 %16
   %18 = load i32, ptr %4, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds ptr, ptr %17, i64 %19

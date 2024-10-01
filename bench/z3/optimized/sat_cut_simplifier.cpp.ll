@@ -6971,7 +6971,7 @@ call3.i.i.i.i.noexc:                              ; preds = %_ZNK6vectorIN3sat7l
   store i32 %29, ptr %call3.i.i.i.i30, align 4
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i30, i64 4
   store i32 %28, ptr %incdec.ptr.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i = getelementptr i8, ptr %call3.i.i.i.i30, i64 8
+  %incdec.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i30, i64 8
   store ptr %incdec.ptr4.i.i.i.i, ptr %add.ptr.i, align 8
   %30 = load ptr, ptr %cl, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %30, null
@@ -12098,7 +12098,7 @@ _ZNK6vectorIS_ISt4pairIjPKN3sat3cutEELb1EjELb1EjE4sizeEv.exit: ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %class.vector.89, ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0
@@ -12527,7 +12527,7 @@ _ZNK6vectorISt4pairIjPKN3sat3cutEELb1EjE4sizeEv.exit: ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0
@@ -13060,7 +13060,7 @@ _ZNK6vectorI7svectorIN3sat7literalEjELb1EjE4sizeEv.exit: ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %class.svector, ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0
@@ -13189,7 +13189,7 @@ _ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i.i.i.i.i: ; preds = %if.en
   store i32 %10, ptr %call3.i.i.i.i.i.i.i, align 4
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i, i64 4
   store i32 %9, ptr %incdec.ptr.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i = getelementptr i8, ptr %call3.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i, align 8
   %11 = load ptr, ptr %__args, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null

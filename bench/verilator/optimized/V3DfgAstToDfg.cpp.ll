@@ -5326,7 +5326,7 @@ select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i
   br i1 %.not18.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread21.i, label %.lr.ph.i.i.preheader.i.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %393
-  %.01317.i.i.i.i = getelementptr i8, ptr %389, i64 24
+  %.01317.i.i.i.i = getelementptr inbounds i8, ptr %389, i64 24
   br label %.lr.ph.i.i.i.i218
 
 .lr.ph.i.i.i.i218:                                ; preds = %.lr.ph.i.i.i.i218, %.lr.ph.i.i.preheader.i.i
@@ -5670,7 +5670,7 @@ _ZNKSt6vectorISt4pairIP8FileLinejESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i: ; pred
 
 _ZNSt6vectorISt4pairIP8FileLinejESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc170
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %525, %.noexc170 ], [ %529, %.lr.ph.i.i.i.i.i.i ]
-  %530 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %530 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i34.i.i.i = icmp eq ptr %511, null
   br i1 %.not.i34.i.i.i, label %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EE17_M_realloc_insertIJRS2_RjEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %531
 
@@ -45327,7 +45327,7 @@ _ZNKSt6vectorISt4pairIP8FileLinejESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds 
 
 _ZNSt6vectorISt4pairIP8FileLinejESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33.i.i: ; preds = %.lr.ph.i.i.i.i.i, %29
   %.0.lcssa.i.i.i.i.i = phi ptr [ %30, %29 ], [ %34, %.lr.ph.i.i.i.i.i ]
-  %35 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i34.i.i = icmp eq ptr %15, null
   br i1 %.not.i34.i.i, label %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EE17_M_realloc_insertIJRS2_RjEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %36
 
@@ -45621,7 +45621,7 @@ _ZNKSt6vectorIN15AstToDfgVisitor6DriverESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; 
 
 _ZNSt6vectorIN15AstToDfgVisitor6DriverESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i.i: ; preds = %.lr.ph.i.i.i.i.i, %49
   %.0.lcssa.i.i.i.i.i = phi ptr [ %50, %49 ], [ %55, %.lr.ph.i.i.i.i.i ]
-  %56 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
+  %56 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
   %.not.i35.i.i = icmp eq ptr %35, null
   br i1 %.not.i35.i.i, label %_ZNSt6vectorIN15AstToDfgVisitor6DriverESaIS1_EE17_M_realloc_insertIJRP8FileLineRjRP9DfgVertexEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %57
 
@@ -45683,7 +45683,7 @@ select.unfold.i.i:                                ; preds = %.lr.ph.i.i
   br i1 %.not18.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread21, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %15
-  %.01317.i.i.i = getelementptr i8, ptr %11, i64 24
+  %.01317.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
@@ -52419,7 +52419,7 @@ _ZNKSt6vectorISt4pairIP8FileLinejESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds 
 
 _ZNSt6vectorISt4pairIP8FileLinejESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33.i.i: ; preds = %.lr.ph.i.i.i.i.i, %29
   %.0.lcssa.i.i.i.i.i = phi ptr [ %30, %29 ], [ %34, %.lr.ph.i.i.i.i.i ]
-  %35 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i34.i.i = icmp eq ptr %15, null
   br i1 %.not.i34.i.i, label %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EE17_M_realloc_insertIJRS2_RjEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %36
 

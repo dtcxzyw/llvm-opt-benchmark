@@ -732,7 +732,7 @@ define internal fastcc i32 @mget(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %22 = getelementptr inbounds i8, ptr %0, i64 56
   %23 = load i32, ptr %22, align 8
   store i32 %23, ptr %18, align 4
-  %24 = getelementptr i8, ptr %0, i64 136
+  %24 = getelementptr inbounds i8, ptr %0, i64 136
   %25 = load i16, ptr %10, align 2
   %26 = getelementptr inbounds i8, ptr %0, i64 264
   %27 = load i16, ptr %26, align 8
@@ -2436,7 +2436,7 @@ default.unreachable:                              ; preds = %1112, %1070, %1014,
   br i1 %.not132212.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %865
-  %867 = getelementptr i8, ptr %24, i64 %860
+  %867 = getelementptr inbounds i8, ptr %24, i64 %860
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

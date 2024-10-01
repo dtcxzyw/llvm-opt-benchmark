@@ -973,7 +973,7 @@ if.end:                                           ; preds = %entry
 
 if.end17:                                         ; preds = %entry, %if.end
   %2 = phi ptr [ %call, %if.end ], [ %1, %entry ]
-  %aead_dec_imp_IV = getelementptr i8, ptr %ssl, i64 960
+  %aead_dec_imp_IV = getelementptr inbounds i8, ptr %ssl, i64 960
   %add.ptr1.i = getelementptr inbounds i8, ptr %2, i64 4
   %dtls.i.i = getelementptr inbounds i8, ptr %ssl, i64 1008
   %bf.load.i.i = load i64, ptr %dtls.i.i, align 8
@@ -1347,7 +1347,7 @@ if.end.i:                                         ; preds = %sw.bb.i
 
 if.end15.i:                                       ; preds = %if.end.i, %sw.bb.i
   %7 = phi ptr [ %call.i, %if.end.i ], [ %6, %sw.bb.i ]
-  %aead_enc_imp_IV.i = getelementptr i8, ptr %ssl, i64 948
+  %aead_enc_imp_IV.i = getelementptr inbounds i8, ptr %ssl, i64 948
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %7, i64 4
   %bf.load.i.i.i = load i64, ptr %dtls, align 8
   %8 = and i64 %bf.load.i.i.i, 262144

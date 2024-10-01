@@ -2110,7 +2110,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__13UsdVariantSet20GetVariantEd
   store ptr %29, ptr %27, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = getelementptr inbounds i8, ptr %10, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %34 = load i32, ptr %33, align 8
@@ -2411,7 +2411,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit: ; preds
   store ptr %157, ptr %155, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %159 = getelementptr inbounds i8, ptr %10, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %161 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %162 = load i32, ptr %161, align 8

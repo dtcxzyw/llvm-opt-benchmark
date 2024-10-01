@@ -5471,8 +5471,8 @@ _ZSt4moveIPSt10unique_ptrIN4llvm13RegBankSelect11InsertPointESt14default_deleteI
 
 .lr.ph.i.i.i.i.i63.preheader:                     ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm13RegBankSelect11InsertPointESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit62
   %93 = load ptr, ptr %0, align 8
-  %94 = getelementptr %"class.std::unique_ptr.228", ptr %93, i64 %.026
-  %95 = getelementptr %"class.std::unique_ptr.228", ptr %90, i64 %.026
+  %94 = getelementptr inbounds %"class.std::unique_ptr.228", ptr %93, i64 %.026
+  %95 = getelementptr inbounds %"class.std::unique_ptr.228", ptr %90, i64 %.026
   br label %.lr.ph.i.i.i.i.i63
 
 .lr.ph.i.i.i.i.i63:                               ; preds = %.lr.ph.i.i.i.i.i63.preheader, %.lr.ph.i.i.i.i.i63
@@ -6722,8 +6722,8 @@ _ZSt4copyIPKSt5tupleIJPN4llvm17MachineBasicBlockEPS3_S4_EEPS5_ET0_T_SA_S9_.exit3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKSt5tupleIJPN4llvm17MachineBasicBlockEPS3_S4_EEPS5_ET0_T_SA_S9_.exit36
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr %"class.std::tuple.367", ptr %48, i64 %.022
-  %50 = getelementptr %"class.std::tuple.367", ptr %45, i64 %.022
+  %49 = getelementptr inbounds %"class.std::tuple.367", ptr %48, i64 %.022
+  %50 = getelementptr inbounds %"class.std::tuple.367", ptr %45, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i

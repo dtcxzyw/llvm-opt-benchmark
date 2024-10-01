@@ -1452,7 +1452,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPrope
 
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i265, %_ZNSt12_Vector_baseISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %140, %_ZNSt12_Vector_baseISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %145, %.lr.ph.i.i.i.i265 ]
-  %146 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %146 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %126, null
   br i1 %.not.i23.i, label %.noexc67, label %147
 
@@ -2072,7 +2072,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPrope
 
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i285: ; preds = %.lr.ph.i.i.i.i274, %_ZNSt12_Vector_baseISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i272
   %.0.lcssa.i.i.i.i279 = phi ptr [ %398, %_ZNSt12_Vector_baseISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__11NdrPropertyESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i272 ], [ %403, %.lr.ph.i.i.i.i274 ]
-  %404 = getelementptr i8, ptr %.0.lcssa.i.i.i.i279, i64 8
+  %404 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i279, i64 8
   %.not.i23.i287 = icmp eq ptr %384, null
   br i1 %.not.i23.i287, label %.noexc118, label %405
 

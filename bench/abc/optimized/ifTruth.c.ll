@@ -310,7 +310,7 @@ If_CutTruthWR.exit:                               ; preds = %.critedge
   %58 = and i32 %57, %46
   %59 = mul nsw i32 %58, %55
   %60 = sext i32 %59 to i64
-  %61 = getelementptr i64, ptr %54, i64 %60
+  %61 = getelementptr inbounds i64, ptr %54, i64 %60
   %62 = getelementptr inbounds i8, ptr %0, i64 652
   %63 = getelementptr inbounds [16 x i32], ptr %62, i64 0, i64 %23
   %64 = load i32, ptr %63, align 4
@@ -946,7 +946,7 @@ define range(i32 0, 2) i32 @If_CutComputeTruth(ptr nocapture noundef readonly %0
   %28 = and i32 %27, %16
   %29 = mul nsw i32 %28, %25
   %30 = sext i32 %29 to i64
-  %31 = getelementptr i64, ptr %24, i64 %30
+  %31 = getelementptr inbounds i64, ptr %24, i64 %30
   %32 = getelementptr inbounds i8, ptr %3, i64 28
   %33 = load i64, ptr %32, align 4
   %34 = lshr i64 %33, 24
@@ -970,7 +970,7 @@ define range(i32 0, 2) i32 @If_CutComputeTruth(ptr nocapture noundef readonly %0
   %52 = and i32 %51, %40
   %53 = mul nsw i32 %52, %49
   %54 = sext i32 %53 to i64
-  %55 = getelementptr i64, ptr %48, i64 %54
+  %55 = getelementptr inbounds i64, ptr %48, i64 %54
   %56 = getelementptr inbounds i8, ptr %0, i64 120
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 128
@@ -1910,7 +1910,7 @@ define range(i32 0, 2) i32 @If_CutComputeTruthPerm_int(ptr noundef %0, ptr nound
   %29 = and i32 %28, %17
   %30 = mul nsw i32 %29, %26
   %31 = sext i32 %30 to i64
-  %32 = getelementptr i64, ptr %25, i64 %31
+  %32 = getelementptr inbounds i64, ptr %25, i64 %31
   %33 = getelementptr inbounds i8, ptr %3, i64 28
   %34 = load i64, ptr %33, align 4
   %35 = lshr i64 %34, 24
@@ -1932,7 +1932,7 @@ define range(i32 0, 2) i32 @If_CutComputeTruthPerm_int(ptr noundef %0, ptr nound
   %51 = and i32 %50, %39
   %52 = mul nsw i32 %51, %48
   %53 = sext i32 %52 to i64
-  %54 = getelementptr i64, ptr %47, i64 %53
+  %54 = getelementptr inbounds i64, ptr %47, i64 %53
   %55 = getelementptr inbounds i8, ptr %0, i64 120
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 128

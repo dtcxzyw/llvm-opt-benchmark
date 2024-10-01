@@ -27670,7 +27670,7 @@ _ZNSt6vectorISt8optionalIiESaIS1_EE13_M_insert_auxIS1_EEvN9__gnu_cxx17__normal_i
   br label %58
 
 31:                                               ; preds = %3
-  %32 = getelementptr i8, ptr %4, i64 %7
+  %32 = getelementptr inbounds i8, ptr %4, i64 %7
   %33 = ptrtoint ptr %9 to i64
   %34 = sub i64 %33, %6
   %35 = icmp eq i64 %34, 9223372036854775800
@@ -27718,7 +27718,7 @@ _ZNSt12_Vector_baseISt8optionalIiESaIS1_EE11_M_allocateEm.exit.i: ; preds = %43,
 
 _ZNSt6vectorISt8optionalIiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt8optionalIiESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %46, %_ZNSt12_Vector_baseISt8optionalIiESaIS1_EE11_M_allocateEm.exit.i ], [ %51, %.lr.ph.i.i.i.i ]
-  %52 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %52 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not10.i.i.i16.i = icmp eq ptr %1, %9
   br i1 %.not10.i.i.i16.i, label %_ZNSt6vectorISt8optionalIiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i, label %.lr.ph.i.i.i17.i
 

@@ -5852,7 +5852,7 @@ Vec_IntSetEntry.exit:                             ; preds = %352, %._crit_edge.i
   %411 = and i32 %410, %.047
   %412 = mul nsw i32 %411, %408
   %413 = sext i32 %412 to i64
-  %414 = getelementptr i64, ptr %407, i64 %413
+  %414 = getelementptr inbounds i64, ptr %407, i64 %413
   %415 = icmp slt i32 %.05077, %396
   br i1 %415, label %416, label %423
 
@@ -8992,7 +8992,7 @@ Abc_TgGroupSymmetry.exit:                         ; preds = %Abc_TgGroupSymmetry
 define internal fastcc void @Abc_TgImplementPerm(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr i8, ptr %0, i64 44
+  %5 = getelementptr inbounds i8, ptr %0, i64 44
   %6 = getelementptr inbounds i8, ptr %0, i64 60
   %7 = getelementptr inbounds i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4

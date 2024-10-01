@@ -37,7 +37,7 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
 
 21:                                               ; preds = %6
   %22 = sext i32 %8 to i64
-  %23 = getelementptr i32, ptr %15, i64 %22
+  %23 = getelementptr inbounds i32, ptr %15, i64 %22
   %24 = load ptr, ptr %11, align 8
   %25 = getelementptr inbounds i8, ptr %11, i64 16
   %26 = load ptr, ptr %25, align 8

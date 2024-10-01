@@ -1573,7 +1573,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.then
   %offsets.0 = phi ptr [ %1, %if.then ], [ null, %entry ]
-  %charErrorBuffer = getelementptr i8, ptr %cnv, i64 104
+  %charErrorBuffer = getelementptr inbounds i8, ptr %cnv, i64 104
   %charErrorBufferLength = getelementptr inbounds i8, ptr %cnv, i64 91
   %2 = load i8, ptr %charErrorBufferLength, align 1
   %cmp127 = icmp sgt i8 %2, 0
@@ -2149,7 +2149,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.then
   %offsets.0 = phi ptr [ %1, %if.then ], [ null, %entry ]
-  %UCharErrorBuffer = getelementptr i8, ptr %cnv, i64 144
+  %UCharErrorBuffer = getelementptr inbounds i8, ptr %cnv, i64 144
   %UCharErrorBufferLength = getelementptr inbounds i8, ptr %cnv, i64 93
   %2 = load i8, ptr %UCharErrorBufferLength, align 1
   %cmp127 = icmp sgt i8 %2, 0

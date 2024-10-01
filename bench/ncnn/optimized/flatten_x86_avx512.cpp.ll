@@ -1650,10 +1650,10 @@ select.unfold:                                    ; preds = %93, %87, %90
   %1009 = mul i64 %1008, %indvars.iv2357
   %1010 = load i64, ptr %78, align 8
   %1011 = mul i64 %1009, %1010
-  %1012 = getelementptr i8, ptr %1007, i64 %1011
+  %1012 = getelementptr inbounds i8, ptr %1007, i64 %1011
   %1013 = load ptr, ptr %2, align 8
   %1014 = mul nsw i64 %indvars.iv2357, %1005
-  %1015 = getelementptr float, ptr %1013, i64 %1014
+  %1015 = getelementptr inbounds float, ptr %1013, i64 %1014
   br i1 %1003, label %.lr.ph2237, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph2237, %1006
@@ -2193,10 +2193,10 @@ define hidden noundef i32 @_ZNK4ncnn18Flatten_x86_avx51212forward_int8ERKNS_3Mat
   %296 = mul i64 %295, %indvars.iv421
   %297 = load i64, ptr %69, align 8
   %298 = mul i64 %296, %297
-  %299 = getelementptr i8, ptr %294, i64 %298
+  %299 = getelementptr inbounds i8, ptr %294, i64 %298
   %300 = load ptr, ptr %2, align 8
   %301 = mul nuw nsw i64 %indvars.iv421, %293
-  %302 = getelementptr i8, ptr %300, i64 %301
+  %302 = getelementptr inbounds i8, ptr %300, i64 %301
   br label %303
 
 303:                                              ; preds = %.lr.ph403.us, %303

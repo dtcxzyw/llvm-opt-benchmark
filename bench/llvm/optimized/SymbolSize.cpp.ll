@@ -197,7 +197,7 @@ _ZNSt12_Vector_baseISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_M_allocateEm.ex
 
 _ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %60, %_ZNSt12_Vector_baseISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_M_allocateEm.exit.i.i.i ], [ %63, %.lr.ph.i.i.i.i.i.i ]
-  %64 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %64 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %65
 
@@ -315,7 +315,7 @@ _ZNSt12_Vector_baseISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_M_allocateEm.ex
 
 _ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i106: ; preds = %.lr.ph.i.i.i.i.i.i102, %_ZNSt12_Vector_baseISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_M_allocateEm.exit.i.i.i100
   %.0.lcssa.i.i.i.i.i.i107 = phi ptr [ %101, %_ZNSt12_Vector_baseISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_M_allocateEm.exit.i.i.i100 ], [ %104, %.lr.ph.i.i.i.i.i.i102 ]
-  %105 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i107, i64 24
+  %105 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i107, i64 24
   %.not.i23.i.i.i108 = icmp eq ptr %87, null
   br i1 %.not.i23.i.i.i108, label %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i109, label %106
 
@@ -439,7 +439,7 @@ _ZNSt12_Vector_baseISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_M_allocateEm.ex
 
 _ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i137: ; preds = %.lr.ph.i.i.i.i.i.i133, %_ZNSt12_Vector_baseISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_M_allocateEm.exit.i.i.i131
   %.0.lcssa.i.i.i.i.i.i138 = phi ptr [ %152, %_ZNSt12_Vector_baseISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE11_M_allocateEm.exit.i.i.i131 ], [ %155, %.lr.ph.i.i.i.i.i.i133 ]
-  %156 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i138, i64 24
+  %156 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i138, i64 24
   %.not.i23.i.i.i139 = icmp eq ptr %138, null
   br i1 %.not.i23.i.i.i139, label %_ZNSt6vectorISt4pairIN4llvm6object9SymbolRefEmESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i140, label %157
 

@@ -603,7 +603,7 @@ for.inc.i.i.i.i.i.i.i82:                          ; preds = %invoke.cont.i.i78, 
 
 invoke.cont14.i.i88:                              ; preds = %for.inc.i.i.i.i.i.i.i82, %invoke.cont.i.i78
   %__cur.0.lcssa.i.i.i.i.i.i.i89 = phi ptr [ %cond.i19.i.i79, %invoke.cont.i.i78 ], [ %incdec.ptr1.i.i.i.i.i.i.i86, %for.inc.i.i.i.i.i.i.i82 ]
-  %incdec.ptr.i.i90 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i89, i64 8
+  %incdec.ptr.i.i90 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i89, i64 8
   %tobool.not.i.i.i91 = icmp eq ptr %toProcess.sroa.0.2573, null
   br i1 %tobool.not.i.i.i91, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i93, label %if.then.i29.i.i92
 
@@ -665,7 +665,7 @@ for.inc.i.i.i.i.i.i.i123:                         ; preds = %invoke.cont.i.i119,
 
 invoke.cont14.i.i129:                             ; preds = %for.inc.i.i.i.i.i.i.i123, %invoke.cont.i.i119
   %__cur.0.lcssa.i.i.i.i.i.i.i130 = phi ptr [ %cond.i19.i.i120, %invoke.cont.i.i119 ], [ %incdec.ptr1.i.i.i.i.i.i.i127, %for.inc.i.i.i.i.i.i.i123 ]
-  %incdec.ptr.i.i131 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i130, i64 8
+  %incdec.ptr.i.i131 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i130, i64 8
   %tobool.not.i.i.i132 = icmp eq ptr %childList.sroa.0.2568, null
   br i1 %tobool.not.i.i.i132, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i134, label %if.then.i29.i.i133
 

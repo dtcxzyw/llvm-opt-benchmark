@@ -2523,7 +2523,7 @@ for.body.i.i.i.i822:                              ; preds = %invoke.cont.i815, %
 
 _ZNSt6vectorIN6Assimp18NodeAttachmentInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i: ; preds = %for.body.i.i.i.i822, %invoke.cont.i815
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i815 ], [ %incdec.ptr1.i.i.i.i826, %for.body.i.i.i.i822 ]
-  %incdec.ptr.i829 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 32
+  %incdec.ptr.i829 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 32
   %tobool.not.i.i830 = icmp eq ptr %235, null
   br i1 %tobool.not.i.i830, label %.noexc455, label %if.then.i27.i
 
@@ -5890,7 +5890,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
 
 _ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE17_M_realloc_insertIJRS2_RjEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -5986,7 +5986,7 @@ for.body.i.i.i.i.i40:                             ; preds = %invoke.cont.i.i35, 
 
 _ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i46: ; preds = %for.body.i.i.i.i.i40, %invoke.cont.i.i35
   %__cur.0.lcssa.i.i.i.i.i47 = phi ptr [ %cond.i17.i.i36, %invoke.cont.i.i35 ], [ %incdec.ptr1.i.i.i.i.i44, %for.body.i.i.i.i.i40 ]
-  %incdec.ptr.i.i48 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i47, i64 16
+  %incdec.ptr.i.i48 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i47, i64 16
   %tobool.not.i.i.i49 = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i49, label %_ZNSt6vectorISt4pairIP6aiBonejESaIS3_EE17_M_realloc_insertIJRS2_RjEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i51, label %if.then.i27.i.i50
 

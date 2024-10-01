@@ -3328,7 +3328,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt1
 
 _ZNSt6vectorISt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %30, %_ZNSt12_Vector_baseISt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %35, %.lr.ph.i.i.i.i ]
-  %36 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %16, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit, label %37
 
@@ -9443,7 +9443,7 @@ _ZSt13move_backwardIPSt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt
   br label %_ZNSt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt14default_deleteIS1_EED2Ev.exit
 
 62:                                               ; preds = %23
-  %63 = getelementptr i8, ptr %24, i64 %27
+  %63 = getelementptr inbounds i8, ptr %24, i64 %27
   %64 = ptrtoint ptr %28 to i64
   %65 = sub i64 %64, %26
   %66 = icmp eq i64 %65, 9223372036854775800
@@ -9496,7 +9496,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt1
 
 _ZNSt6vectorISt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %77, %_ZNSt12_Vector_baseISt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %82, %.lr.ph.i.i.i.i ]
-  %83 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %83 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not10.i.i.i16.i = icmp eq ptr %storemerge, %28
   br i1 %.not10.i.i.i16.i, label %_ZNSt6vectorISt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, label %.lr.ph.i.i.i17.i
 
@@ -10323,7 +10323,7 @@ _ZSt13move_backwardIPSt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt
   br label %_ZNSt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt14default_deleteIS1_EED2Ev.exit
 
 143:                                              ; preds = %104
-  %144 = getelementptr i8, ptr %105, i64 %108
+  %144 = getelementptr inbounds i8, ptr %105, i64 %108
   %145 = ptrtoint ptr %109 to i64
   %146 = sub i64 %145, %107
   %147 = icmp eq i64 %146, 9223372036854775800
@@ -10376,7 +10376,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt1
 
 _ZNSt6vectorISt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %158, %_ZNSt12_Vector_baseISt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %163, %.lr.ph.i.i.i.i ]
-  %164 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %164 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not10.i.i.i16.i = icmp eq ptr %storemerge, %109
   br i1 %.not10.i.i.i16.i, label %_ZNSt6vectorISt10unique_ptrIN17cmGeneratorTarget19TargetPropertyEntryESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, label %.lr.ph.i.i.i17.i
 

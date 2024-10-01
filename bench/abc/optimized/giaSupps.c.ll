@@ -1495,13 +1495,13 @@ Abc_TtAndSharp.exit.us:                           ; preds = %Abc_TtAndSharp.exit
   %74 = mul nsw i64 %indvars.iv94, %22
   %75 = getelementptr i8, ptr %73, i64 8
   %.val55.us = load ptr, ptr %75, align 8
-  %76 = getelementptr i64, ptr %.val55.us, i64 %74
+  %76 = getelementptr inbounds i64, ptr %.val55.us, i64 %74
   %77 = load ptr, ptr %20, align 8
   %78 = mul nsw i32 %72, %3
   %79 = getelementptr i8, ptr %77, i64 8
   %.val.us = load ptr, ptr %79, align 8
   %80 = sext i32 %78 to i64
-  %81 = getelementptr i64, ptr %.val.us, i64 %80
+  %81 = getelementptr inbounds i64, ptr %.val.us, i64 %80
   br i1 %21, label %.lr.ph18.i.us, label %Abc_TtCopy.exit.us
 
 .lr.ph18.i.us:                                    ; preds = %.preheader.i75.us, %.lr.ph18.i.us

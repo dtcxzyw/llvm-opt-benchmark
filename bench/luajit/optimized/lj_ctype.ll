@@ -854,7 +854,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end3.i.i:                                      ; preds = %if.then2.i.i, %if.end.i.i
   %p.0.i.i = phi ptr [ %incdec.ptr.i.i, %if.then2.i.i ], [ %9, %if.end.i.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i.i = getelementptr i8, ptr %p.0.i.i, i64 -4
+  %add.ptr6.i.i = getelementptr inbounds i8, ptr %p.0.i.i, i64 -4
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %if.end3.i.i
@@ -905,7 +905,7 @@ if.then2.i94.i:                                   ; preds = %if.end.i91.i
 if.end3.i96.i:                                    ; preds = %if.then2.i94.i, %if.end.i91.i
   %p.0.i97.i = phi ptr [ %incdec.ptr.i95.i, %if.then2.i94.i ], [ %13, %if.end.i91.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i98.i = getelementptr i8, ptr %p.0.i97.i, i64 -6
+  %add.ptr6.i98.i = getelementptr inbounds i8, ptr %p.0.i97.i, i64 -6
   br label %while.body.i99.i
 
 while.body.i99.i:                                 ; preds = %while.body.i99.i, %if.end3.i96.i
@@ -943,7 +943,7 @@ if.then2.i115.i:                                  ; preds = %if.end.i112.i
 if.end3.i117.i:                                   ; preds = %if.then2.i115.i, %if.end.i112.i
   %p.0.i118.i = phi ptr [ %incdec.ptr.i116.i, %if.then2.i115.i ], [ %13, %if.end.i112.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i119.i = getelementptr i8, ptr %p.0.i118.i, i64 -5
+  %add.ptr6.i119.i = getelementptr inbounds i8, ptr %p.0.i118.i, i64 -5
   br label %while.body.i120.i
 
 while.body.i120.i:                                ; preds = %while.body.i120.i, %if.end3.i117.i
@@ -982,7 +982,7 @@ if.then2.i137.i:                                  ; preds = %if.end.i134.i
 if.end3.i139.i:                                   ; preds = %if.then2.i137.i, %if.end.i134.i
   %p.0.i140.i = phi ptr [ %incdec.ptr.i138.i, %if.then2.i137.i ], [ %13, %if.end.i134.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i141.i = getelementptr i8, ptr %p.0.i140.i, i64 -11
+  %add.ptr6.i141.i = getelementptr inbounds i8, ptr %p.0.i140.i, i64 -11
   br label %while.body.i142.i
 
 while.body.i142.i:                                ; preds = %while.body.i142.i, %if.end3.i139.i
@@ -1031,7 +1031,7 @@ if.then2.i158.i:                                  ; preds = %if.end.i155.i
 if.end3.i160.i:                                   ; preds = %if.then2.i158.i, %if.end.i155.i
   %p.0.i161.i = phi ptr [ %incdec.ptr.i159.i, %if.then2.i158.i ], [ %23, %if.end.i155.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i162.i = getelementptr i8, ptr %p.0.i161.i, i64 -4
+  %add.ptr6.i162.i = getelementptr inbounds i8, ptr %p.0.i161.i, i64 -4
   br label %while.body.i163.i
 
 while.body.i163.i:                                ; preds = %while.body.i163.i, %if.end3.i160.i
@@ -1070,7 +1070,7 @@ if.then2.i179.i:                                  ; preds = %if.end.i176.i
 if.end3.i181.i:                                   ; preds = %if.then2.i179.i, %if.end.i176.i
   %p.0.i182.i = phi ptr [ %incdec.ptr.i180.i, %if.then2.i179.i ], [ %23, %if.end.i176.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i183.i = getelementptr i8, ptr %p.0.i182.i, i64 -13
+  %add.ptr6.i183.i = getelementptr inbounds i8, ptr %p.0.i182.i, i64 -13
   br label %while.body.i184.i
 
 while.body.i184.i:                                ; preds = %while.body.i184.i, %if.end3.i181.i
@@ -1117,7 +1117,7 @@ if.then2.i200.i:                                  ; preds = %if.end.i197.i
 if.end3.i202.i:                                   ; preds = %if.then2.i200.i, %if.end.i197.i
   %p.0.i203.i = phi ptr [ %incdec.ptr.i201.i, %if.then2.i200.i ], [ %30, %if.end.i197.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i204.i = getelementptr i8, ptr %p.0.i203.i, i64 -3
+  %add.ptr6.i204.i = getelementptr inbounds i8, ptr %p.0.i203.i, i64 -3
   br label %while.body.i205.i
 
 while.body.i205.i:                                ; preds = %while.body.i205.i, %if.end3.i202.i
@@ -1155,7 +1155,7 @@ if.then2.i221.i:                                  ; preds = %if.end.i218.i
 if.end3.i223.i:                                   ; preds = %if.then2.i221.i, %if.end.i218.i
   %p.0.i224.i = phi ptr [ %incdec.ptr.i222.i, %if.then2.i221.i ], [ %30, %if.end.i218.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i225.i = getelementptr i8, ptr %p.0.i224.i, i64 -5
+  %add.ptr6.i225.i = getelementptr inbounds i8, ptr %p.0.i224.i, i64 -5
   br label %while.body.i226.i
 
 while.body.i226.i:                                ; preds = %while.body.i226.i, %if.end3.i223.i
@@ -1199,7 +1199,7 @@ if.then2.i242.i:                                  ; preds = %if.end.i239.i
 if.end3.i244.i:                                   ; preds = %if.then2.i242.i, %if.end.i239.i
   %p.0.i245.i = phi ptr [ %incdec.ptr.i243.i, %if.then2.i242.i ], [ %37, %if.end.i239.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i246.i = getelementptr i8, ptr %p.0.i245.i, i64 -8
+  %add.ptr6.i246.i = getelementptr inbounds i8, ptr %p.0.i245.i, i64 -8
   br label %while.body.i247.i
 
 while.body.i247.i:                                ; preds = %while.body.i247.i, %if.end3.i244.i
@@ -1239,7 +1239,7 @@ if.then2.i263.i:                                  ; preds = %if.end.i260.i
 if.end3.i265.i:                                   ; preds = %if.then2.i263.i, %if.end.i260.i
   %p.0.i266.i = phi ptr [ %incdec.ptr.i264.i, %if.then2.i263.i ], [ %41, %if.end.i260.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i267.i = getelementptr i8, ptr %p.0.i266.i, i64 -2
+  %add.ptr6.i267.i = getelementptr inbounds i8, ptr %p.0.i266.i, i64 -2
   br label %while.body.i268.i
 
 while.body.i268.i:                                ; preds = %while.body.i268.i, %if.end3.i265.i
@@ -1308,7 +1308,7 @@ if.then2.i292.i:                                  ; preds = %if.end.i289.i
 if.end3.i294.i:                                   ; preds = %if.then2.i292.i, %if.end.i289.i
   %p.0.i295.i = phi ptr [ %incdec.ptr.i293.i, %if.then2.i292.i ], [ %47, %if.end.i289.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i296.i = getelementptr i8, ptr %p.0.i295.i, i64 -3
+  %add.ptr6.i296.i = getelementptr inbounds i8, ptr %p.0.i295.i, i64 -3
   br label %while.body.i297.i
 
 while.body.i297.i:                                ; preds = %while.body.i297.i, %if.end3.i294.i
@@ -1373,7 +1373,7 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
 if.end3.i.i.i:                                    ; preds = %if.then2.i.i.i, %if.end.i.i.i
   %p.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then2.i.i.i ], [ %52, %if.end.i.i.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i.i.i = getelementptr i8, ptr %p.0.i.i.i, i64 -8
+  %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %p.0.i.i.i, i64 -8
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.end3.i.i.i
@@ -1413,7 +1413,7 @@ if.then2.i10.i.i:                                 ; preds = %if.end.i7.i.i
 if.end3.i12.i.i:                                  ; preds = %if.then2.i10.i.i, %if.end.i7.i.i
   %p.0.i13.i.i = phi ptr [ %incdec.ptr.i11.i.i, %if.then2.i10.i.i ], [ %56, %if.end.i7.i.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i14.i.i = getelementptr i8, ptr %p.0.i13.i.i, i64 -5
+  %add.ptr6.i14.i.i = getelementptr inbounds i8, ptr %p.0.i13.i.i, i64 -5
   br label %while.body.i15.i.i
 
 while.body.i15.i.i:                               ; preds = %while.body.i15.i.i, %if.end3.i12.i.i
@@ -1453,7 +1453,7 @@ if.then2.i322.i:                                  ; preds = %if.end.i319.i
 if.end3.i324.i:                                   ; preds = %if.then2.i322.i, %if.end.i319.i
   %p.0.i325.i = phi ptr [ %incdec.ptr.i323.i, %if.then2.i322.i ], [ %60, %if.end.i319.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i326.i = getelementptr i8, ptr %p.0.i325.i, i64 -4
+  %add.ptr6.i326.i = getelementptr inbounds i8, ptr %p.0.i325.i, i64 -4
   br label %while.body.i327.i
 
 while.body.i327.i:                                ; preds = %while.body.i327.i, %if.end3.i324.i
@@ -1498,7 +1498,7 @@ if.then2.i.i344.i:                                ; preds = %if.end.i.i341.i
 if.end3.i.i346.i:                                 ; preds = %if.then2.i.i344.i, %if.end.i.i341.i
   %p.0.i.i347.i = phi ptr [ %incdec.ptr.i.i345.i, %if.then2.i.i344.i ], [ %64, %if.end.i.i341.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i.i348.i = getelementptr i8, ptr %p.0.i.i347.i, i64 -8
+  %add.ptr6.i.i348.i = getelementptr inbounds i8, ptr %p.0.i.i347.i, i64 -8
   br label %while.body.i.i349.i
 
 while.body.i.i349.i:                              ; preds = %while.body.i.i349.i, %if.end3.i.i346.i
@@ -1538,7 +1538,7 @@ if.then2.i10.i364.i:                              ; preds = %if.end.i7.i361.i
 if.end3.i12.i366.i:                               ; preds = %if.then2.i10.i364.i, %if.end.i7.i361.i
   %p.0.i13.i367.i = phi ptr [ %incdec.ptr.i11.i365.i, %if.then2.i10.i364.i ], [ %68, %if.end.i7.i361.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i14.i368.i = getelementptr i8, ptr %p.0.i13.i367.i, i64 -5
+  %add.ptr6.i14.i368.i = getelementptr inbounds i8, ptr %p.0.i13.i367.i, i64 -5
   br label %while.body.i15.i369.i
 
 while.body.i15.i369.i:                            ; preds = %while.body.i15.i369.i, %if.end3.i12.i366.i
@@ -1584,7 +1584,7 @@ if.then2.i387.i:                                  ; preds = %if.end.i384.i
 if.end3.i389.i:                                   ; preds = %if.then2.i387.i, %if.end.i384.i
   %p.0.i390.i = phi ptr [ %incdec.ptr.i388.i, %if.then2.i387.i ], [ %72, %if.end.i384.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i391.i = getelementptr i8, ptr %p.0.i390.i, i64 -5
+  %add.ptr6.i391.i = getelementptr inbounds i8, ptr %p.0.i390.i, i64 -5
   br label %while.body.i392.i
 
 while.body.i392.i:                                ; preds = %while.body.i392.i, %if.end3.i389.i
@@ -1660,7 +1660,7 @@ if.then2.i.i416.i:                                ; preds = %if.end.i.i413.i
 if.end3.i.i418.i:                                 ; preds = %if.then2.i.i416.i, %if.end.i.i413.i
   %p.0.i.i419.i = phi ptr [ %incdec.ptr.i.i417.i, %if.then2.i.i416.i ], [ %.pre696.pre.pre.i, %if.end.i.i413.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i.i420.i = getelementptr i8, ptr %p.0.i.i419.i, i64 -8
+  %add.ptr6.i.i420.i = getelementptr inbounds i8, ptr %p.0.i.i419.i, i64 -8
   br label %while.body.i.i421.i
 
 while.body.i.i421.i:                              ; preds = %while.body.i.i421.i, %if.end3.i.i418.i
@@ -1704,7 +1704,7 @@ if.then2.i10.i436.i:                              ; preds = %if.end.i7.i433.i
 if.end3.i12.i438.i:                               ; preds = %if.then2.i10.i436.i, %if.end.i7.i433.i
   %p.0.i13.i439.i = phi ptr [ %incdec.ptr.i11.i437.i, %if.then2.i10.i436.i ], [ %.pre696.pre.i, %if.end.i7.i433.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i14.i440.i = getelementptr i8, ptr %p.0.i13.i439.i, i64 -5
+  %add.ptr6.i14.i440.i = getelementptr inbounds i8, ptr %p.0.i13.i439.i, i64 -5
   br label %while.body.i15.i441.i
 
 while.body.i15.i441.i:                            ; preds = %while.body.i15.i441.i, %if.end3.i12.i438.i
@@ -1747,7 +1747,7 @@ if.then2.i459.i:                                  ; preds = %if.end.i456.i
 if.end3.i461.i:                                   ; preds = %if.then2.i459.i, %if.end.i456.i
   %p.0.i462.i = phi ptr [ %incdec.ptr.i460.i, %if.then2.i459.i ], [ %.pre696.i, %if.end.i456.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i463.i = getelementptr i8, ptr %p.0.i462.i, i64 -7
+  %add.ptr6.i463.i = getelementptr inbounds i8, ptr %p.0.i462.i, i64 -7
   br label %while.body.i464.i
 
 while.body.i464.i:                                ; preds = %while.body.i464.i, %if.end3.i461.i
@@ -1963,7 +1963,7 @@ if.then2.i536.i:                                  ; preds = %if.end.i533.i
 if.end3.i538.i:                                   ; preds = %if.then2.i536.i, %if.end.i533.i
   %p.0.i539.i = phi ptr [ %incdec.ptr.i537.i, %if.then2.i536.i ], [ %.pre693.i, %if.end.i533.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i540.i = getelementptr i8, ptr %p.0.i539.i, i64 -5
+  %add.ptr6.i540.i = getelementptr inbounds i8, ptr %p.0.i539.i, i64 -5
   br label %while.body.i541.i
 
 while.body.i541.i:                                ; preds = %while.body.i541.i, %if.end3.i538.i
@@ -1998,7 +1998,7 @@ if.then2.i557.i:                                  ; preds = %if.end.i554.i
 if.end3.i559.i:                                   ; preds = %if.then2.i557.i, %if.end.i554.i
   %p.0.i560.i = phi ptr [ %incdec.ptr.i558.i, %if.then2.i557.i ], [ %102, %if.end.i554.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i561.i = getelementptr i8, ptr %p.0.i560.i, i64 -7
+  %add.ptr6.i561.i = getelementptr inbounds i8, ptr %p.0.i560.i, i64 -7
   br label %while.body.i562.i
 
 while.body.i562.i:                                ; preds = %while.body.i562.i, %if.end3.i559.i
@@ -2037,7 +2037,7 @@ if.then2.i578.i:                                  ; preds = %if.end.i575.i
 if.end3.i580.i:                                   ; preds = %if.then2.i578.i, %if.end.i575.i
   %p.0.i581.i = phi ptr [ %incdec.ptr.i579.i, %if.then2.i578.i ], [ %106, %if.end.i575.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i582.i = getelementptr i8, ptr %p.0.i581.i, i64 -3
+  %add.ptr6.i582.i = getelementptr inbounds i8, ptr %p.0.i581.i, i64 -3
   br label %while.body.i583.i
 
 while.body.i583.i:                                ; preds = %while.body.i583.i, %if.end3.i580.i
@@ -2102,7 +2102,7 @@ if.then2.i614.i:                                  ; preds = %if.end.i611.i
 if.end3.i616.i:                                   ; preds = %if.then2.i614.i, %if.end.i611.i
   %p.0.i617.i = phi ptr [ %incdec.ptr.i615.i, %if.then2.i614.i ], [ %112, %if.end.i611.i ]
   store i32 1, ptr %needsp, align 8
-  %add.ptr6.i618.i = getelementptr i8, ptr %p.0.i617.i, i64 -27
+  %add.ptr6.i618.i = getelementptr inbounds i8, ptr %p.0.i617.i, i64 -27
   br label %while.body.i619.i
 
 while.body.i619.i:                                ; preds = %while.body.i619.i, %if.end3.i616.i
@@ -2529,7 +2529,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
-  %add.ptr = getelementptr i8, ptr %1, i64 24
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 24
   %len = getelementptr inbounds i8, ptr %1, i64 20
   %2 = load i32, ptr %len, align 4
   %3 = load ptr, ptr %ctr, align 8
@@ -2560,7 +2560,7 @@ if.end3.i:                                        ; preds = %if.then2.i, %if.end
   %p.0.i = phi ptr [ %incdec.ptr.i, %if.then2.i ], [ %3, %if.end.i ]
   store i32 1, ptr %needsp.i, align 8
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
-  %add.ptr6.i = getelementptr i8, ptr %p.0.i, i64 %idx.neg.i
+  %add.ptr6.i = getelementptr inbounds i8, ptr %p.0.i, i64 %idx.neg.i
   %cmp7.not14.i = icmp eq i32 %2, 0
   br i1 %cmp7.not14.i, label %while.end.i, label %while.body.i
 
@@ -2675,7 +2675,7 @@ if.end3.i35:                                      ; preds = %if.then2.i33, %if.e
   %p.0.i36 = phi ptr [ %incdec.ptr.i34, %if.then2.i33 ], [ %13, %if.end.i30 ]
   store i32 1, ptr %needsp.i31, align 8
   %idx.neg.i37 = sub nsw i64 0, %idx.ext.i26
-  %add.ptr6.i38 = getelementptr i8, ptr %p.0.i36, i64 %idx.neg.i37
+  %add.ptr6.i38 = getelementptr inbounds i8, ptr %p.0.i36, i64 %idx.neg.i37
   %cmp7.not14.i39 = icmp eq i64 %idx.ext.i26, 0
   br i1 %cmp7.not14.i39, label %while.end.i45, label %while.body.i40
 
@@ -2723,7 +2723,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end3.i.i:                                      ; preds = %if.then2.i.i, %if.end.i.i
   %p.0.i.i = phi ptr [ %incdec.ptr.i.i, %if.then2.i.i ], [ %17, %if.end.i.i ]
   store i32 1, ptr %needsp.i.i, align 8
-  %add.ptr6.i.i = getelementptr i8, ptr %p.0.i.i, i64 -8
+  %add.ptr6.i.i = getelementptr inbounds i8, ptr %p.0.i.i, i64 -8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %if.end3.i.i
@@ -2770,7 +2770,7 @@ if.then2.i10.i:                                   ; preds = %if.end.i7.i
 if.end3.i12.i:                                    ; preds = %if.then2.i10.i, %if.end.i7.i
   %p.0.i13.i = phi ptr [ %incdec.ptr.i11.i, %if.then2.i10.i ], [ %21, %if.end.i7.i ]
   store i32 1, ptr %needsp.i8.i, align 8
-  %add.ptr6.i14.i = getelementptr i8, ptr %p.0.i13.i, i64 -5
+  %add.ptr6.i14.i = getelementptr inbounds i8, ptr %p.0.i13.i, i64 -5
   br label %while.body.i15.i
 
 while.body.i15.i:                                 ; preds = %while.body.i15.i, %if.end3.i12.i

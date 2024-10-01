@@ -253,7 +253,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end:                                          ; preds = %for.body, %if.end16
   %background_tile = getelementptr inbounds i8, ptr %call, i64 801056
   store i16 -1, ptr %background_tile, align 8
-  %props.i = getelementptr i8, ptr %call, i64 640000
+  %props.i = getelementptr inbounds i8, ptr %call, i64 640000
   br label %for.body.i59
 
 for.body.i59:                                     ; preds = %for.body14.i, %for.end
@@ -306,7 +306,7 @@ define void @stbte_clear_map(ptr nocapture noundef %tm) local_unnamed_addr #3 {
 entry:
   %background_tile = getelementptr inbounds i8, ptr %tm, i64 801056
   %num_layers = getelementptr inbounds i8, ptr %tm, i64 800008
-  %props = getelementptr i8, ptr %tm, i64 640000
+  %props = getelementptr inbounds i8, ptr %tm, i64 640000
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body14

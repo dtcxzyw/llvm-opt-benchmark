@@ -619,7 +619,7 @@ _ZNKSt6vectorISt4pairIiiESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %208
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc88.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %218, %.noexc88.i ], [ %224, %.lr.ph.i.i.i.i.i.i ]
-  %225 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
+  %225 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
   %.not.i34.i.i.i = icmp eq ptr %.sroa.0108.2181.i, null
   br i1 %.not.i34.i.i.i, label %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRKiRiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %226
 

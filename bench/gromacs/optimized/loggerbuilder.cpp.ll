@@ -564,7 +564,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaI
 
 _ZNSt6vectorISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %32, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %37, %.lr.ph.i.i.i.i ]
-  %38 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %38 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %18, null
   br i1 %.not.i23.i, label %.noexc, label %39
 
@@ -780,7 +780,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2
 
 _ZNSt6vectorISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %31, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx16TextOutputStreamESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %36, %.lr.ph.i.i.i.i ]
-  %37 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %37 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %17, null
   br i1 %.not.i23.i, label %.noexc, label %38
 
@@ -1022,7 +1022,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaI
 
 _ZNSt6vectorISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %86, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx10ILogTargetESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %91, %.lr.ph.i.i.i.i ]
-  %92 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %92 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %72, null
   br i1 %.not.i23.i, label %.noexc23, label %93
 

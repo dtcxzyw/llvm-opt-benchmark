@@ -20428,7 +20428,7 @@ _ZNSt12_Vector_baseIN4llvm17TreePredicateCallESaIS1_EE11_M_allocateEm.exit.i.i.i
 
 _ZNSt6vectorIN4llvm17TreePredicateCallESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm17TreePredicateCallESaIS1_EE11_M_allocateEm.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %502, %_ZNSt12_Vector_baseIN4llvm17TreePredicateCallESaIS1_EE11_M_allocateEm.exit.i.i.i.i ], [ %505, %.lr.ph.i.i.i.i.i.i.i ]
-  %506 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %506 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i.i = icmp eq ptr %488, null
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN4llvm17TreePredicateCallESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, label %507
 
@@ -20824,7 +20824,7 @@ _ZNSt12_Vector_baseIN4llvm17TreePredicateCallESaIS1_EE11_M_allocateEm.exit.i.i.i
 
 _ZNSt6vectorIN4llvm17TreePredicateCallESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm17TreePredicateCallESaIS1_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %655, %_ZNSt12_Vector_baseIN4llvm17TreePredicateCallESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %658, %.lr.ph.i.i.i.i.i.i ]
-  %659 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %659 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %641, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm17TreePredicateCallESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %660
 
@@ -29884,7 +29884,7 @@ _ZNSt12_Vector_baseIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EE1
   br i1 %.not9.i.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit26.i.thread, label %.lr.ph.i.i.i.i.i.i40
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit26.i.thread: ; preds = %_ZNSt12_Vector_baseIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EE11_M_allocateEm.exit.i
-  %143 = getelementptr i8, ptr %141, i64 8
+  %143 = getelementptr inbounds i8, ptr %141, i64 8
   br label %_ZSt8_DestroyIPN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEES3_EvT_S5_RSaIT0_E.exit.i
 
 .lr.ph.i.i.i.i.i.i40:                             ; preds = %_ZNSt12_Vector_baseIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EE11_M_allocateEm.exit.i, %_ZSt10_ConstructIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i
@@ -29931,7 +29931,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit.i.i.i: ; preds = %1
   br i1 %.not.i.i.i44, label %_ZSt8_DestroyIPN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEES3_EvT_S5_RSaIT0_E.exit.i.loopexit, label %.lr.ph.i.i.i, !llvm.loop !199
 
 _ZSt8_DestroyIPN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEES3_EvT_S5_RSaIT0_E.exit.i.loopexit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_15TreePatternNodeEED2Ev.exit.i.i.i
-  %156 = getelementptr i8, ptr %.011.i.i.i.i.i.i, i64 16
+  %156 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i.i, i64 16
   br label %_ZSt8_DestroyIPN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEES3_EvT_S5_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEES3_EvT_S5_RSaIT0_E.exit.i.loopexit, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit26.i.thread
@@ -47839,7 +47839,7 @@ _ZSt10_ConstructIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEEJRKS3_EEvPT_
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %_ZSt10_ConstructIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEESaIS3_EE11_M_allocateEm.exit ], [ %31, %_ZSt10_ConstructIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ]
-  %32 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %32 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not9.i.i.i.i.i18 = icmp eq ptr %1, %5
   br i1 %.not9.i.i.i.i.i18, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit26, label %.lr.ph.i.i.i.i.i19
 
@@ -48700,7 +48700,7 @@ _ZSt10_ConstructIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEEJRKS3_EEvPT_
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %_ZSt10_ConstructIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %34, %_ZSt10_ConstructIN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ]
-  %35 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not9.i.i.i.i.i18 = icmp eq ptr %1, %5
   br i1 %.not9.i.i.i.i.i18, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm18IntrusiveRefCntPtrINS0_15TreePatternNodeEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit26, label %.lr.ph.i.i.i.i.i19
 

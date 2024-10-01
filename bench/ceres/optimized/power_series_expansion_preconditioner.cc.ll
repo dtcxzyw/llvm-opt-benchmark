@@ -1164,7 +1164,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %6, %_ZN6google12Ch
   %35 = sext i32 %1 to i64
   %36 = sub nsw i64 %.sroa.0.0.insert.ext, %.sroa.2.0.insert.ext
   %37 = load ptr, ptr %34, align 8, !noalias !12
-  %38 = getelementptr double, ptr %37, i64 %35
+  %38 = getelementptr inbounds double, ptr %37, i64 %35
   %39 = load ptr, ptr %4, align 8
   %sext.i.i.i = shl i64 %36, 32
   %40 = ashr exact i64 %sext.i.i.i, 32
@@ -1687,7 +1687,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1E
   %90 = sext i32 %82 to i64
   %91 = sub nsw i64 %.sroa.040.0.insert.ext, %.sroa.2.0.insert.ext
   %92 = load ptr, ptr %89, align 8, !noalias !23
-  %93 = getelementptr double, ptr %92, i64 %90
+  %93 = getelementptr inbounds double, ptr %92, i64 %90
   %94 = load ptr, ptr %87, align 8
   %sext.i.i.i = shl i64 %91, 32
   %95 = ashr exact i64 %sext.i.i.i, 32
@@ -2369,7 +2369,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1E
   %133 = sext i32 %125 to i64
   %134 = sub nsw i64 %.sroa.041.0.insert.ext, %.sroa.2.0.insert.ext
   %135 = load ptr, ptr %132, align 8, !noalias !30
-  %136 = getelementptr double, ptr %135, i64 %133
+  %136 = getelementptr inbounds double, ptr %135, i64 %133
   %137 = load ptr, ptr %130, align 8
   %sext.i.i.i = shl i64 %134, 32
   %138 = ashr exact i64 %sext.i.i.i, 32

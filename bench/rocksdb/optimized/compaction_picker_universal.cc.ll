@@ -571,7 +571,7 @@ for.body.i.i.i.i.i49.i:                           ; preds = %call5.i.i.i.i.i.noe
 
 _ZNSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit28.i.i55.i: ; preds = %for.body.i.i.i.i.i49.i, %call5.i.i.i.i.i.noexc63.i
   %__cur.0.lcssa.i.i.i.i.i56.i = phi ptr [ %call5.i.i.i.i.i64.i, %call5.i.i.i.i.i.noexc63.i ], [ %incdec.ptr1.i.i.i.i.i53.i, %for.body.i.i.i.i.i49.i ]
-  %incdec.ptr.i.i57.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i56.i, i64 40
+  %incdec.ptr.i.i57.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i56.i, i64 40
   %tobool.not.i.i.i58.i = icmp eq ptr %ref.tmp.sroa.0.3, null
   br i1 %tobool.not.i.i.i58.i, label %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE17_M_realloc_insertIJRiDnRmS8_RbEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i29.i.i59.i
 
@@ -6915,7 +6915,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorIN7roc
 
 _ZNSt6vectorIN7rocksdb12_GLOBAL__N_113InputFileInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNKSt6vectorIN7rocksdb12_GLOBAL__N_113InputFileInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i, %_ZNKSt6vectorIN7rocksdb12_GLOBAL__N_113InputFileInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 24
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 24
   %tobool.not.i.i.i.i = icmp eq ptr %this.val10.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_113InputFileInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i22.i.i.i
 

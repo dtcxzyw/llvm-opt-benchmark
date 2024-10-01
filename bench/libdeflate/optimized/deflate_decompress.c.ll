@@ -1247,9 +1247,9 @@ if.end1280:                                       ; preds = %if.end1244
   %49 = load i8, ptr %add.ptr1283, align 1
   %incdec.ptr1287 = getelementptr inbounds i8, ptr %out_next.6, i64 1
   store i8 %49, ptr %out_next.6, align 1
-  %incdec.ptr1288 = getelementptr i8, ptr %add.ptr1283, i64 2
+  %incdec.ptr1288 = getelementptr inbounds i8, ptr %add.ptr1283, i64 2
   %50 = load i8, ptr %incdec.ptr1286, align 1
-  %incdec.ptr1289 = getelementptr i8, ptr %out_next.6, i64 2
+  %incdec.ptr1289 = getelementptr inbounds i8, ptr %out_next.6, i64 2
   store i8 %50, ptr %incdec.ptr1287, align 1
   br label %do.body1290
 
@@ -2443,9 +2443,9 @@ if.end1280:                                       ; preds = %if.end1244
   %49 = load i8, ptr %add.ptr1283, align 1
   %incdec.ptr1287 = getelementptr inbounds i8, ptr %out_next.6, i64 1
   store i8 %49, ptr %out_next.6, align 1
-  %incdec.ptr1288 = getelementptr i8, ptr %add.ptr1283, i64 2
+  %incdec.ptr1288 = getelementptr inbounds i8, ptr %add.ptr1283, i64 2
   %50 = load i8, ptr %incdec.ptr1286, align 1
-  %incdec.ptr1289 = getelementptr i8, ptr %out_next.6, i64 2
+  %incdec.ptr1289 = getelementptr inbounds i8, ptr %out_next.6, i64 2
   store i8 %50, ptr %incdec.ptr1287, align 1
   br label %do.body1290
 

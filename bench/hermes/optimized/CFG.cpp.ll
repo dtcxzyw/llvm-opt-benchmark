@@ -1734,7 +1734,7 @@ if.end.i:                                         ; preds = %if.then.i21, %_ZN4l
 
 for.body.i.i.i.i.i.i.i.i.preheader.i:             ; preds = %if.end.i
   %22 = load ptr, ptr %WL, align 8
-  %add.ptr.i.i20 = getelementptr ptr, ptr %22, i64 %conv.i7.pre-phi.i
+  %add.ptr.i.i20 = getelementptr inbounds ptr, ptr %22, i64 %conv.i7.pre-phi.i
   br label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.preheader.i

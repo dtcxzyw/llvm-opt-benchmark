@@ -1632,7 +1632,7 @@ _ZNSt12_Vector_baseIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE11_M_alloca
 
 _ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %25, %_ZNSt12_Vector_baseIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i ]
-  %35 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 24
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i18 = icmp eq ptr %1, %7
   br i1 %.not10.i.i.i18, label %_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit24, label %.lr.ph.i.i.i19
 
@@ -2339,7 +2339,7 @@ _ZNSt12_Vector_baseIN4llvm17DWARFDebugAranges5RangeESaIS2_EE11_M_allocateEm.exit
 
 _ZNSt6vectorIN4llvm17DWARFDebugAranges5RangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN4llvm17DWARFDebugAranges5RangeESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %25, %_ZNSt12_Vector_baseIN4llvm17DWARFDebugAranges5RangeESaIS2_EE11_M_allocateEm.exit ], [ %34, %.lr.ph.i.i.i ]
-  %35 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 24
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i18 = icmp eq ptr %1, %7
   br i1 %.not10.i.i.i18, label %_ZNSt6vectorIN4llvm17DWARFDebugAranges5RangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit24, label %.lr.ph.i.i.i19
 

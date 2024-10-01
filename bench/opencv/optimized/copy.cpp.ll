@@ -1228,15 +1228,15 @@ define internal void @_ZN2cvL15copyMaskGenericEPKhmS1_mPhmNS_5Size_IiEEPv(ptr no
 
 ..loopexit_crit_edge.us.us.us:                    ; preds = %.preheader.us.us.us, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr i8, ptr %.02432.us.us.us, i64 %.fr51
-  %20 = getelementptr i8, ptr %.02333.us.us.us, i64 %.fr51
+  %19 = getelementptr inbounds i8, ptr %.02432.us.us.us, i64 %.fr51
+  %20 = getelementptr inbounds i8, ptr %.02333.us.us.us, i64 %.fr51
   %exitcond56.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond56.not, label %._crit_edge.split.us.us.us, label %12, !llvm.loop !44
 
 ._crit_edge.split.us.us.us:                       ; preds = %..loopexit_crit_edge.us.us.us
   %21 = getelementptr inbounds i8, ptr %.02739.us.us, i64 %3
-  %22 = getelementptr i8, ptr %.02641.us.us, i64 %1
-  %23 = getelementptr i8, ptr %.02837.us.us, i64 %5
+  %22 = getelementptr inbounds i8, ptr %.02641.us.us, i64 %1
+  %23 = getelementptr inbounds i8, ptr %.02837.us.us, i64 %5
   %.not.us.us = icmp eq i32 %11, 0
   br i1 %.not.us.us, label %._crit_edge43, label %.preheader30.us.us, !llvm.loop !45
 

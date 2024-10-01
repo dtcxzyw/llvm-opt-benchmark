@@ -547,7 +547,7 @@ swapfunc.exit296:                                 ; preds = %.preheader337, %.pr
   %.1227.lcssa = phi ptr [ %215, %214 ], [ %.0226, %.critedge2 ]
   %234 = icmp eq i32 %.3.lcssa, 0
   %235 = mul i64 %.0222394, %2
-  %236 = getelementptr i8, ptr %.0395, i64 %235
+  %236 = getelementptr inbounds i8, ptr %.0395, i64 %235
   br i1 %234, label %.preheader331, label %273
 
 .preheader331:                                    ; preds = %.critedge2._crit_edge
@@ -668,7 +668,7 @@ swapfunc.exit303.loopexit329:                     ; preds = %.preheader328
 280:                                              ; preds = %273
   %281 = and i64 %., 2147483647
   %282 = sub nsw i64 0, %281
-  %283 = getelementptr i8, ptr %.1225.lcssa, i64 %282
+  %283 = getelementptr inbounds i8, ptr %.1225.lcssa, i64 %282
   br i1 %or.cond396, label %284, label %.preheader341
 
 284:                                              ; preds = %280
@@ -718,7 +718,7 @@ swapfunc.exit310:                                 ; preds = %.preheader341, %286
 307:                                              ; preds = %swapfunc.exit310
   %308 = and i64 %.265, 2147483647
   %309 = sub nsw i64 0, %308
-  %310 = getelementptr i8, ptr %236, i64 %309
+  %310 = getelementptr inbounds i8, ptr %236, i64 %309
   br i1 %or.cond396, label %311, label %.preheader339
 
 311:                                              ; preds = %307

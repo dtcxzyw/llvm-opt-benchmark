@@ -929,7 +929,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDat
 
 _ZNSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %133, %_ZNSt12_Vector_baseISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %137, %.lr.ph.i.i.i.i ]
-  %138 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %138 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %119, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit, label %139
 

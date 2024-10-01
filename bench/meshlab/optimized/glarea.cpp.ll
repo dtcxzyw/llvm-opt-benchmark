@@ -16731,7 +16731,7 @@ define linkonce_odr void @_ZN5QListI7QStringE13detach_helperEi(ptr noundef nonnu
   %5 = load i32, ptr %4, align 8
   %6 = tail call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1)
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr i8, ptr %7, i64 16
+  %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 12
@@ -16743,7 +16743,7 @@ define linkonce_odr void @_ZN5QListI7QStringE13detach_helperEi(ptr noundef nonnu
 
 .lr.ph.i.preheader:                               ; preds = %2
   %15 = sext i32 %10 to i64
-  %16 = getelementptr ptr, ptr %8, i64 %15
+  %16 = getelementptr inbounds ptr, ptr %8, i64 %15
   %17 = getelementptr inbounds i8, ptr %3, i64 16
   %18 = sext i32 %5 to i64
   %19 = getelementptr inbounds ptr, ptr %17, i64 %18
@@ -16847,11 +16847,11 @@ define linkonce_odr noundef ptr @_ZN5QListI7QStringE18detach_helper_growEii(ptr 
   %10 = getelementptr inbounds ptr, ptr %6, i64 %9
   %11 = call noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4, i32 noundef %2)
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr i8, ptr %12, i64 16
+  %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = getelementptr inbounds i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr ptr, ptr %13, i64 %16
+  %17 = getelementptr inbounds ptr, ptr %13, i64 %16
   %18 = load i32, ptr %4, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds ptr, ptr %17, i64 %19
@@ -32837,7 +32837,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i233: ; preds = %_ZN9QtPrivate8RefCo
 
 .noexc510:                                        ; preds = %199
   %205 = load ptr, ptr %30, align 8
-  %206 = getelementptr i8, ptr %205, i64 16
+  %206 = getelementptr inbounds i8, ptr %205, i64 16
   %207 = getelementptr inbounds i8, ptr %205, i64 8
   %208 = load i32, ptr %207, align 8
   %209 = getelementptr inbounds i8, ptr %205, i64 12
@@ -32849,7 +32849,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i233: ; preds = %_ZN9QtPrivate8RefCo
 
 .lr.ph.i.preheader.i:                             ; preds = %.noexc510
   %213 = sext i32 %208 to i64
-  %214 = getelementptr ptr, ptr %206, i64 %213
+  %214 = getelementptr inbounds ptr, ptr %206, i64 %213
   %215 = getelementptr inbounds i8, ptr %196, i64 16
   %216 = sext i32 %203 to i64
   %217 = getelementptr inbounds ptr, ptr %215, i64 %216
@@ -37084,7 +37084,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i606: ; preds = %_ZN9QtPrivate8RefCo
 
 .noexc891:                                        ; preds = %751
   %757 = load ptr, ptr %73, align 8
-  %758 = getelementptr i8, ptr %757, i64 16
+  %758 = getelementptr inbounds i8, ptr %757, i64 16
   %759 = getelementptr inbounds i8, ptr %757, i64 8
   %760 = load i32, ptr %759, align 8
   %761 = getelementptr inbounds i8, ptr %757, i64 12
@@ -37096,7 +37096,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i606: ; preds = %_ZN9QtPrivate8RefCo
 
 .lr.ph.i.preheader.i:                             ; preds = %.noexc891
   %765 = sext i32 %760 to i64
-  %766 = getelementptr ptr, ptr %758, i64 %765
+  %766 = getelementptr inbounds ptr, ptr %758, i64 %765
   %767 = getelementptr inbounds i8, ptr %748, i64 16
   %768 = sext i32 %755 to i64
   %769 = getelementptr inbounds ptr, ptr %767, i64 %768

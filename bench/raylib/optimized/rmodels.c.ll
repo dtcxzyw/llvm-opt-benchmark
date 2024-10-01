@@ -13438,7 +13438,7 @@ _m3dstbi__zreceive.exit108.i.i.i:                 ; preds = %_m3dstbi__zget8.exi
 674:                                              ; preds = %670, %650
   %.3.i.i.i = phi ptr [ %672, %670 ], [ %.054.i.i.i, %650 ]
   %675 = sub nsw i64 0, %648
-  %676 = getelementptr i8, ptr %.3.i.i.i, i64 %675
+  %676 = getelementptr inbounds i8, ptr %.3.i.i.i, i64 %675
   %677 = icmp eq i32 %.051.i.i.i, 1
   %.not67.i.i.i = icmp eq i32 %.052.i.i.i, 0
   br i1 %677, label %678, label %683
@@ -63093,8 +63093,8 @@ _m3dstbi__mad3sizes_valid.exit._crit_edge:        ; preds = %39, %_m3dstbi__mul2
 ._crit_edge797:                                   ; preds = %.lr.ph796, %.preheader704
   %216 = getelementptr inbounds i8, ptr %.2550800, i64 %212
   store i8 -1, ptr %216, align 1
-  %217 = getelementptr i8, ptr %.3531801, i64 %212
-  %218 = getelementptr i8, ptr %.2550800, i64 %63
+  %217 = getelementptr inbounds i8, ptr %.3531801, i64 %212
+  %218 = getelementptr inbounds i8, ptr %.2550800, i64 %63
   %.0562 = add i32 %.0562802, -1
   %.not623 = icmp eq i32 %.0562, 0
   br i1 %.not623, label %.loopexit725, label %.preheader704

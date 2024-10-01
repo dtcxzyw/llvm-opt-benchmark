@@ -4680,7 +4680,7 @@ for.body.i.i.i.i181:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i: ; preds = %for.body.i.i.i.i181, %_ZNSt12_Vector_baseIN4absl12lts_202308026StatusESaIS2_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseIN4absl12lts_202308026StatusESaIS2_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i181 ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %invoke.cont22, label %if.then.i20.i
 
@@ -4983,7 +4983,7 @@ for.body.i.i.i.i256:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i272: ; preds = %for.body.i.i.i.i256, %_ZNSt12_Vector_baseIN4absl12lts_202308026StatusESaIS2_EE11_M_allocateEm.exit.i252
   %__cur.0.lcssa.i.i.i.i263 = phi ptr [ %cond.i10.i253, %_ZNSt12_Vector_baseIN4absl12lts_202308026StatusESaIS2_EE11_M_allocateEm.exit.i252 ], [ %incdec.ptr1.i.i.i.i260, %for.body.i.i.i.i256 ]
-  %incdec.ptr.i264 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i263, i64 8
+  %incdec.ptr.i264 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i263, i64 8
   %tobool.not.i.i274 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i274, label %invoke.cont63, label %if.then.i20.i275
 
@@ -5159,7 +5159,7 @@ for.body.i.i.i.i304:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i320: ; preds = %for.body.i.i.i.i304, %_ZNSt12_Vector_baseIN4absl12lts_202308026StatusESaIS2_EE11_M_allocateEm.exit.i300
   %__cur.0.lcssa.i.i.i.i311 = phi ptr [ %cond.i10.i301, %_ZNSt12_Vector_baseIN4absl12lts_202308026StatusESaIS2_EE11_M_allocateEm.exit.i300 ], [ %incdec.ptr1.i.i.i.i308, %for.body.i.i.i.i304 ]
-  %incdec.ptr.i312 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i311, i64 8
+  %incdec.ptr.i312 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i311, i64 8
   %tobool.not.i.i322 = icmp eq ptr %60, null
   br i1 %tobool.not.i.i322, label %invoke.cont81, label %if.then.i20.i323
 

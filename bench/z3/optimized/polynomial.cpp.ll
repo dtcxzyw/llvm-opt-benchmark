@@ -5118,7 +5118,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
 
 _ZN10polynomial7manager3imp11mk_monomialEj.exit:  ; preds = %if.end.thread.i.i.i.i, %if.end.i.i.i.i
   %3 = phi ptr [ %.pre.i.i.i, %if.end.i.i.i.i ], [ %call2.i.i.i.i.i.i, %if.end.thread.i.i.i.i ]
-  %m_powers.i.i.i.i = getelementptr i8, ptr %3, i64 20
+  %m_powers.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 20
   %pw.sroa.0.0.insert.ext.i.i = zext i32 %x to i64
   %pw.sroa.0.0.insert.insert.i.i = or disjoint i64 %pw.sroa.0.0.insert.ext.i.i, 4294967296
   store i64 %pw.sroa.0.0.insert.insert.i.i, ptr %m_powers.i.i.i.i, align 4
@@ -5172,7 +5172,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
 
 for.body.i.i.i.preheader.i.i.i.i:                 ; preds = %if.end.i.i.i.i, %if.end.thread.i.i.i.i
   %4 = phi ptr [ %.pre.i.i.i, %if.end.i.i.i.i ], [ %call2.i.i.i.i.i.i, %if.end.thread.i.i.i.i ]
-  %m_powers.i.i.i.i = getelementptr i8, ptr %4, i64 20
+  %m_powers.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 20
   %pw.sroa.2.0.insert.ext.i.i = zext i32 %k to i64
   %pw.sroa.2.0.insert.shift.i.i = shl nuw i64 %pw.sroa.2.0.insert.ext.i.i, 32
   %pw.sroa.0.0.insert.ext.i.i = zext i32 %x to i64
@@ -5856,7 +5856,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
 
 for.body.i.i.i.preheader.i.i.i.i:                 ; preds = %if.end.i.i.i.i, %if.end.thread.i.i.i.i
   %3 = phi ptr [ %.pre.i.i.i, %if.end.i.i.i.i ], [ %call2.i.i.i.i.i.i, %if.end.thread.i.i.i.i ]
-  %m_powers.i.i.i.i = getelementptr i8, ptr %3, i64 20
+  %m_powers.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 20
   %pw.sroa.2.0.insert.ext.i.i = zext i32 %k to i64
   %pw.sroa.2.0.insert.shift.i.i = shl nuw i64 %pw.sroa.2.0.insert.ext.i.i, 32
   %pw.sroa.0.0.insert.ext.i.i = zext i32 %x to i64
@@ -6235,7 +6235,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZN6vectorI3mpzLb0E
 
 _ZN10polynomial7manager3imp11mk_monomialEj.exit:  ; preds = %if.end.thread.i.i.i.i, %if.end.i.i.i.i
   %19 = phi ptr [ %.pre.i.i.i, %if.end.i.i.i.i ], [ %call2.i.i.i.i.i.i, %if.end.thread.i.i.i.i ]
-  %m_powers.i.i.i.i = getelementptr i8, ptr %19, i64 20
+  %m_powers.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 20
   %pw.sroa.0.0.insert.ext.i.i = zext i32 %16 to i64
   %pw.sroa.0.0.insert.insert.i.i = or disjoint i64 %pw.sroa.0.0.insert.ext.i.i, 4294967296
   store i64 %pw.sroa.0.0.insert.insert.i.i, ptr %m_powers.i.i.i.i, align 4
@@ -6548,7 +6548,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
 
 for.body.i.i.i.preheader.i.i.i.i:                 ; preds = %if.end.i.i.i.i, %if.end.thread.i.i.i.i
   %7 = phi ptr [ %.pre.i.i.i, %if.end.i.i.i.i ], [ %call2.i.i.i.i.i.i, %if.end.thread.i.i.i.i ]
-  %m_powers.i.i.i.i = getelementptr i8, ptr %7, i64 20
+  %m_powers.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 20
   %pw.sroa.2.0.insert.shift.i.i = shl nuw i64 %1, 32
   %pw.sroa.0.0.insert.insert.i.i = or disjoint i64 %pw.sroa.2.0.insert.shift.i.i, %pw.sroa.0.0.insert.ext.i.i
   store i64 %pw.sroa.0.0.insert.insert.i.i, ptr %m_powers.i.i.i.i, align 4
@@ -11391,7 +11391,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i15
 
 for.body.i.i.i.preheader.i.i.i.i:                 ; preds = %if.end.i.i.i.i, %if.end.thread.i.i.i.i
   %15 = phi ptr [ %.pre.i.i.i, %if.end.i.i.i.i ], [ %call2.i.i.i.i.i.i, %if.end.thread.i.i.i.i ]
-  %m_powers.i.i.i.i16 = getelementptr i8, ptr %15, i64 20
+  %m_powers.i.i.i.i16 = getelementptr inbounds i8, ptr %15, i64 20
   %pw.sroa.2.0.insert.ext.i.i = zext i32 %11 to i64
   %pw.sroa.2.0.insert.shift.i.i = shl nuw i64 %pw.sroa.2.0.insert.ext.i.i, 32
   %pw.sroa.0.0.insert.insert.i.i = or disjoint i64 %pw.sroa.2.0.insert.shift.i.i, %pw.sroa.0.0.insert.ext.i.i
@@ -11943,7 +11943,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i34
 
 for.body.i.i.i.preheader.i.i.i.i:                 ; preds = %if.end.i.i.i.i, %if.end.thread.i.i.i.i
   %26 = phi ptr [ %.pre.i.i.i, %if.end.i.i.i.i ], [ %call2.i.i.i.i.i.i, %if.end.thread.i.i.i.i ]
-  %m_powers.i.i.i.i35 = getelementptr i8, ptr %26, i64 20
+  %m_powers.i.i.i.i35 = getelementptr inbounds i8, ptr %26, i64 20
   %pw.sroa.2.0.insert.ext.i.i = zext i32 %sub to i64
   %pw.sroa.2.0.insert.shift.i.i = shl nuw i64 %pw.sroa.2.0.insert.ext.i.i, 32
   %pw.sroa.0.0.insert.insert.i.i = or disjoint i64 %pw.sroa.2.0.insert.shift.i.i, %pw.sroa.0.0.insert.ext.i.i
@@ -12641,7 +12641,7 @@ for.body.i.i.i.preheader.i.i.i:                   ; preds = %if.end.i.for.body.i
   %51 = phi ptr [ %.pre.i.i184, %if.end.i.for.body.i.i.i.preheader.i_crit_edge.i.i ], [ %call2.i.i.i.i.i188, %call2.i.i.i.i.i.noexc ]
   %idx.ext6.pn.i.i.i = zext i32 %47 to i64
   %add.ptr9.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %48, i64 %idx.ext6.pn.i.i.i
-  %m_powers.i.i.i185 = getelementptr i8, ptr %51, i64 20
+  %m_powers.i.i.i185 = getelementptr inbounds i8, ptr %51, i64 20
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.i.i.i.preheader.i.i.i
@@ -26116,7 +26116,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i84
 
 for.body.i.i.i.preheader.i.i.i.i:                 ; preds = %if.end.i.i.i.i, %call2.i.i.i.i.i.i.noexc
   %66 = phi ptr [ %.pre.i.i.i85, %if.end.i.i.i.i ], [ %call2.i.i.i.i.i.i89, %call2.i.i.i.i.i.i.noexc ]
-  %m_powers.i.i.i.i = getelementptr i8, ptr %66, i64 20
+  %m_powers.i.i.i.i = getelementptr inbounds i8, ptr %66, i64 20
   %pw.sroa.2.0.insert.ext.i.i = zext i32 %k17.0238 to i64
   %pw.sroa.2.0.insert.shift.i.i = shl nuw i64 %pw.sroa.2.0.insert.ext.i.i, 32
   %pw.sroa.0.0.insert.insert.i.i = or disjoint i64 %pw.sroa.2.0.insert.shift.i.i, %pw.sroa.0.0.insert.ext.i.i
@@ -32285,7 +32285,7 @@ _ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit:       ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %class.svector, ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0
@@ -33666,7 +33666,7 @@ if.end.i.i.i:                                     ; preds = %if.then3
 
 _ZN10polynomial16monomial_manager11mk_monomialEj.exit: ; preds = %if.end.thread.i.i.i, %if.end.i.i.i
   %3 = phi ptr [ %.pre.i.i, %if.end.i.i.i ], [ %call2.i.i.i.i.i, %if.end.thread.i.i.i ]
-  %m_powers.i.i.i = getelementptr i8, ptr %3, i64 20
+  %m_powers.i.i.i = getelementptr inbounds i8, ptr %3, i64 20
   %pw.sroa.0.0.insert.ext.i = zext i32 %1 to i64
   %pw.sroa.0.0.insert.insert.i = or disjoint i64 %pw.sroa.0.0.insert.ext.i, 4294967296
   store i64 %pw.sroa.0.0.insert.insert.i, ptr %m_powers.i.i.i, align 4
@@ -33843,7 +33843,7 @@ for.body.i.i.i.preheader.i.i:                     ; preds = %if.end.i.for.body.i
   %29 = phi ptr [ %.pre.i34, %if.end.i.for.body.i.i.i.preheader.i_crit_edge.i ], [ %call2.i.i.i.i, %if.end.thread.i.i ]
   %idx.ext6.pn.i.i = zext i32 %27 to i64
   %add.ptr9.i.i = getelementptr inbounds %"class.polynomial::power", ptr %26, i64 %idx.ext6.pn.i.i
-  %m_powers.i.i = getelementptr i8, ptr %29, i64 20
+  %m_powers.i.i = getelementptr inbounds i8, ptr %29, i64 20
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.preheader.i.i
@@ -34506,7 +34506,7 @@ _ZNK6vectorIN10polynomial5powerELb0EjE4sizeEv.exit: ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0
@@ -34589,7 +34589,7 @@ for.inc:                                          ; preds = %while.body.preheade
 
 for.end:                                          ; preds = %for.inc
   %.pre = load i32, ptr %m_size.i, align 4
-  %m_powers.i = getelementptr i8, ptr %src, i64 20
+  %m_powers.i = getelementptr inbounds i8, ptr %src, i64 20
   %m_mk_tmp.i = getelementptr inbounds i8, ptr %this, i64 120
   %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %4 = load i32, ptr %m_capacity.i.i, align 8
@@ -34631,7 +34631,7 @@ for.body.i.i.i.preheader.i.i:                     ; preds = %if.end.i.for.body.i
   %5 = phi ptr [ %.pre.i, %if.end.i.for.body.i.i.i.preheader.i_crit_edge.i ], [ %call2.i.i.i.i, %if.end.thread.i.i ]
   %idx.ext6.pn.i.i = zext i32 %.pre to i64
   %add.ptr9.i.i = getelementptr inbounds %"class.polynomial::power", ptr %m_powers.i, i64 %idx.ext6.pn.i.i
-  %m_powers.i.i8 = getelementptr i8, ptr %5, i64 20
+  %m_powers.i.i8 = getelementptr inbounds i8, ptr %5, i64 20
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.preheader.i.i
@@ -54087,7 +54087,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i628
 
 for.body.i.i.i.preheader.i.i.i.i:                 ; preds = %if.end.i.i.i.i, %call2.i.i.i.i.i.i.noexc
   %224 = phi ptr [ %.pre.i.i.i631, %if.end.i.i.i.i ], [ %call2.i.i.i.i.i.i636, %call2.i.i.i.i.i.i.noexc ]
-  %m_powers.i.i.i.i632 = getelementptr i8, ptr %224, i64 20
+  %m_powers.i.i.i.i632 = getelementptr inbounds i8, ptr %224, i64 20
   %pw.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.0.i426843, %pw.sroa.0.0.insert.ext.i.i
   store i64 %pw.sroa.0.0.insert.insert.i.i, ptr %m_powers.i.i.i.i632, align 4
   %call.i.i.i638 = invoke noundef ptr @_ZN10polynomial16monomial_manager11mk_monomialERNS_12tmp_monomialE(ptr noundef nonnull align 8 dereferenceable(192) %221, ptr noundef nonnull align 8 dereferenceable(12) %m_mk_tmp.i.i.i)
@@ -55250,7 +55250,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i88
 
 for.body.i.i.i.preheader.i.i.i.i:                 ; preds = %if.end.i.i.i.i, %call2.i.i.i.i.i.i.noexc
   %79 = phi ptr [ %.pre.i.i.i, %if.end.i.i.i.i ], [ %call2.i.i.i.i.i.i93, %call2.i.i.i.i.i.i.noexc ]
-  %m_powers.i.i.i.i89 = getelementptr i8, ptr %79, i64 20
+  %m_powers.i.i.i.i89 = getelementptr inbounds i8, ptr %79, i64 20
   %pw.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.0.i151, %pw.sroa.0.0.insert.ext.i.i112
   store i64 %pw.sroa.0.0.insert.insert.i.i, ptr %m_powers.i.i.i.i89, align 4
   %call.i.i.i94 = invoke noundef ptr @_ZN10polynomial16monomial_manager11mk_monomialERNS_12tmp_monomialE(ptr noundef nonnull align 8 dereferenceable(192) %76, ptr noundef nonnull align 8 dereferenceable(12) %m_mk_tmp.i.i.i)
@@ -55314,7 +55314,7 @@ if.end.i.i.i.i105:                                ; preds = %if.end.i.i100
 
 for.body.i.i.i.preheader.i.i.i.i108:              ; preds = %if.end.i.i.i.i105, %call2.i.i.i.i.i.i.noexc123
   %84 = phi ptr [ %.pre.i.i.i107, %if.end.i.i.i.i105 ], [ %call2.i.i.i.i.i.i124, %call2.i.i.i.i.i.i.noexc123 ]
-  %m_powers.i.i.i.i109 = getelementptr i8, ptr %84, i64 20
+  %m_powers.i.i.i.i109 = getelementptr inbounds i8, ptr %84, i64 20
   %pw.sroa.0.0.insert.insert.i.i113 = or disjoint i64 %retval.0.i151, %pw.sroa.0.0.insert.ext.i.i112
   store i64 %pw.sroa.0.0.insert.insert.i.i113, ptr %m_powers.i.i.i.i109, align 4
   %call.i.i.i126 = invoke noundef ptr @_ZN10polynomial16monomial_manager11mk_monomialERNS_12tmp_monomialE(ptr noundef nonnull align 8 dereferenceable(192) %81, ptr noundef nonnull align 8 dereferenceable(12) %m_mk_tmp.i.i.i101)
@@ -61055,7 +61055,7 @@ _ZNK6vectorI7svectorI3mpzjELb1EjE4sizeEv.exit:    ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %class.svector.1, ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0
@@ -74476,7 +74476,7 @@ if.end.i.i.i.i.i176:                              ; preds = %invoke.cont51
 
 for.body.i.i.i.preheader.i.i.i.i.i:               ; preds = %if.end.i.i.i.i.i176, %call2.i.i.i.i.i.i.i.noexc
   %40 = phi ptr [ %.pre.i.i.i.i, %if.end.i.i.i.i.i176 ], [ %call2.i.i.i.i.i.i.i178, %call2.i.i.i.i.i.i.i.noexc ]
-  %m_powers.i.i.i.i.i = getelementptr i8, ptr %40, i64 20
+  %m_powers.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 20
   %pw.sroa.0.0.insert.ext.i.i.i = zext i32 %x to i64
   %pw.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %pw.sroa.0.0.insert.ext.i.i.i, 4294967296
   store i64 %pw.sroa.0.0.insert.insert.i.i.i, ptr %m_powers.i.i.i.i.i, align 4
@@ -79238,7 +79238,7 @@ if.end.i.i.i.i:                                   ; preds = %invoke.cont97
 
 _ZN10polynomial16monomial_manager11mk_monomialEj.exit.i: ; preds = %if.end.i.i.i.i, %call2.i.i.i.i.i.i.noexc
   %75 = phi ptr [ %.pre.i.i.i, %if.end.i.i.i.i ], [ %call2.i.i.i.i.i.i172, %call2.i.i.i.i.i.i.noexc ]
-  %m_powers.i.i.i.i170 = getelementptr i8, ptr %75, i64 20
+  %m_powers.i.i.i.i170 = getelementptr inbounds i8, ptr %75, i64 20
   %pw.sroa.0.0.insert.ext.i.i = zext i32 %x to i64
   %pw.sroa.0.0.insert.insert.i.i = or disjoint i64 %pw.sroa.0.0.insert.ext.i.i, 4294967296
   store i64 %pw.sroa.0.0.insert.insert.i.i, ptr %m_powers.i.i.i.i170, align 4

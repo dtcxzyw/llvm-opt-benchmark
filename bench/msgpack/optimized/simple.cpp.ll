@@ -5347,7 +5347,7 @@ _ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_
 
 _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %124, %_ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_M_allocateEm.exit.i.i ], [ %128, %.lr.ph.i.i.i.i.i ]
-  %129 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %129 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %110, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i, label %130
 
@@ -5591,7 +5591,7 @@ _ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_
 
 _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %124, %_ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_M_allocateEm.exit.i.i ], [ %128, %.lr.ph.i.i.i.i.i ]
-  %129 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %129 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %110, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i, label %130
 
@@ -6098,7 +6098,7 @@ _ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_
 
 _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %124, %_ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_M_allocateEm.exit.i.i ], [ %128, %.lr.ph.i.i.i.i.i ]
-  %129 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %129 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %110, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i, label %130
 
@@ -6336,7 +6336,7 @@ _ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_
 
 _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %120, %_ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_M_allocateEm.exit.i.i ], [ %124, %.lr.ph.i.i.i.i.i ]
-  %125 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %125 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %106, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i, label %126
 
@@ -6580,7 +6580,7 @@ _ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_
 
 _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %124, %_ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_M_allocateEm.exit.i.i ], [ %128, %.lr.ph.i.i.i.i.i ]
-  %129 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %129 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %110, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i, label %130
 
@@ -6820,7 +6820,7 @@ _ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_
 
 _ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %120, %_ZNSt12_Vector_baseIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE11_M_allocateEm.exit.i.i ], [ %124, %.lr.ph.i.i.i.i.i ]
-  %125 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %125 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %106, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN7msgpack2v26detail7contextINS2_12parse_helperINS2_21create_object_visitorEEEE12unpack_stack10stack_elemESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i, label %126
 
@@ -7610,7 +7610,7 @@ _ZNSt12_Vector_baseIN7msgpack2v113object_parser4elemESaIS3_EE11_M_allocateEm.exi
 
 _ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN7msgpack2v113object_parser4elemESaIS3_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %100, %_ZNSt12_Vector_baseIN7msgpack2v113object_parser4elemESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ %103, %.lr.ph.i.i.i.i.i.i ]
-  %104 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %104 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %86, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %105
 
@@ -7714,7 +7714,7 @@ _ZNSt12_Vector_baseIN7msgpack2v113object_parser4elemESaIS3_EE11_M_allocateEm.exi
 
 _ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i30: ; preds = %.lr.ph.i.i.i.i.i.i26, %_ZNSt12_Vector_baseIN7msgpack2v113object_parser4elemESaIS3_EE11_M_allocateEm.exit.i.i.i24
   %.0.lcssa.i.i.i.i.i.i31 = phi ptr [ %142, %_ZNSt12_Vector_baseIN7msgpack2v113object_parser4elemESaIS3_EE11_M_allocateEm.exit.i.i.i24 ], [ %145, %.lr.ph.i.i.i.i.i.i26 ]
-  %146 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i31, i64 24
+  %146 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i31, i64 24
   %.not.i23.i.i.i32 = icmp eq ptr %128, null
   br i1 %.not.i23.i.i.i32, label %_ZNSt6vectorIN7msgpack2v113object_parser4elemESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i33, label %147
 

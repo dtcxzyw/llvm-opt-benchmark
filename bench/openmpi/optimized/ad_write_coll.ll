@@ -344,10 +344,10 @@ define void @ADIOI_GEN_WriteStridedColl(ptr noundef %0, ptr noundef %1, i32 noun
   %192 = sext i32 %191 to i64
   %193 = call ptr @ADIOI_Calloc_fn(i64 noundef %192, i64 noundef 4, i32 noundef 335, ptr noundef nonnull @.str) #6
   %194 = sext i32 %141 to i64
-  %195 = getelementptr i32, ptr %193, i64 %194
-  %196 = getelementptr i32, ptr %195, i64 %194
-  %197 = getelementptr i32, ptr %196, i64 %194
-  %198 = getelementptr i32, ptr %197, i64 %194
+  %195 = getelementptr inbounds i32, ptr %193, i64 %194
+  %196 = getelementptr inbounds i32, ptr %195, i64 %194
+  %197 = getelementptr inbounds i32, ptr %196, i64 %194
+  %198 = getelementptr inbounds i32, ptr %197, i64 %194
   %199 = getelementptr inbounds i32, ptr %198, i64 %194
   %200 = getelementptr inbounds i32, ptr %199, i64 %194
   %201 = getelementptr inbounds i32, ptr %200, i64 %194

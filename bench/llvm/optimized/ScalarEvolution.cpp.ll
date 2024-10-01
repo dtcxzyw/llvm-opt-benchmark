@@ -29201,7 +29201,7 @@ _ZN4llvm25SmallVectorTemplateCommonIPKNS_4SCEVEvE20assertSafeToAddRangeEPKS3_S6_
 
 _ZN4llvm15SmallVectorImplIPKNS_4SCEVEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonIPKNS_4SCEVEvE20assertSafeToAddRangeEPKS3_S6_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   %.idx = shl nsw i64 %32, 3
   %33 = ptrtoint ptr %31 to i64
@@ -59820,7 +59820,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplIPKNS_4SCEVEE6i
 
 _ZN4llvm15SmallVectorImplIPKNS_4SCEVEE7reserveEm.exit: ; preds = %15, %24
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr i8, ptr %26, i64 %8
+  %27 = getelementptr inbounds i8, ptr %26, i64 %8
   %28 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   %.idx = shl nsw i64 %28, 3
   %29 = ptrtoint ptr %27 to i64
@@ -59828,7 +59828,7 @@ _ZN4llvm15SmallVectorImplIPKNS_4SCEVEE7reserveEm.exit: ; preds = %15, %24
   %.not = icmp ult i64 %gepdiff, %18
   %30 = load ptr, ptr %0, align 8
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
   br i1 %.not, label %70, label %33
 
 33:                                               ; preds = %_ZN4llvm15SmallVectorImplIPKNS_4SCEVEE7reserveEm.exit
@@ -59983,7 +59983,7 @@ _ZN4llvm15SmallVectorImplIPKNS_4LoopEE7reserveEm.exit: ; preds = %3, %12
   br i1 %16, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4LoopELb1EE18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKPS1_St6vectorIS8_SaIS8_EEEEPS3_EEvT_SG_T0_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN4llvm15SmallVectorImplIPKNS_4LoopEE7reserveEm.exit
-  %17 = getelementptr ptr, ptr %14, i64 %15
+  %17 = getelementptr inbounds ptr, ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i
@@ -127202,7 +127202,7 @@ _ZSt4moveIPPKN4llvm4SCEVES4_ET0_T_S6_S5_.exit:    ; preds = %29, %32
   br i1 %36, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %35
-  %37 = getelementptr ptr, ptr %.053, i64 %.074
+  %37 = getelementptr inbounds ptr, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
@@ -133927,7 +133927,7 @@ _ZN4llvm15SmallVectorImplIPKNS_4SCEVEE7reserveEm.exit: ; preds = %3, %12
   br i1 %16, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE18uninitialized_copyIPPKNS_14SCEVAddRecExprEPS3_EEvT_SB_T0_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN4llvm15SmallVectorImplIPKNS_4SCEVEE7reserveEm.exit
-  %17 = getelementptr ptr, ptr %14, i64 %15
+  %17 = getelementptr inbounds ptr, ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i
@@ -136936,7 +136936,7 @@ _ZNSt12_Vector_baseISt4pairIPKN4llvm4LoopESt8optionalIN9__gnu_cxx17__normal_iter
 
 _ZNSt6vectorISt4pairIPKN4llvm4LoopESt8optionalIN9__gnu_cxx17__normal_iteratorIPKPS2_S_IS8_SaIS8_EEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPKN4llvm4LoopESt8optionalIN9__gnu_cxx17__normal_iteratorIPKPS2_St6vectorIS8_SaIS8_EEEEEESaISG_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %62, %_ZNSt12_Vector_baseISt4pairIPKN4llvm4LoopESt8optionalIN9__gnu_cxx17__normal_iteratorIPKPS2_St6vectorIS8_SaIS8_EEEEEESaISG_EE11_M_allocateEm.exit.i.i.i ], [ %65, %.lr.ph.i.i.i.i.i.i ]
-  %66 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %66 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIPKN4llvm4LoopESt8optionalIN9__gnu_cxx17__normal_iteratorIPKPS2_S_IS8_SaIS8_EEEEEESaISF_EE17_M_realloc_insertIJSF_EEEvNS7_IPSF_SH_EEDpOT_.exit.i.i, label %67
 
@@ -138622,7 +138622,7 @@ _ZN4llvm15SmallVectorImplIPNS_4LoopEE6appendIN9__gnu_cxx17__normal_iteratorIPKS2
 
 _ZN4llvm15SmallVectorImplIPNS_4LoopEE7reserveEm.exit: ; preds = %31, %32
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr i8, ptr %34, i64 %8
+  %35 = getelementptr inbounds i8, ptr %34, i64 %8
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   %.idx = shl nsw i64 %36, 3
   %37 = ptrtoint ptr %35 to i64

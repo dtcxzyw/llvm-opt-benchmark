@@ -9243,7 +9243,7 @@ _ZNSt12_Vector_baseIN4llvm19CodeGenRegisterCostESaIS1_EE11_M_allocateEm.exit.i: 
 
 _ZNSt6vectorIN4llvm19CodeGenRegisterCostESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit24.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm19CodeGenRegisterCostESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %168, %_ZNSt12_Vector_baseIN4llvm19CodeGenRegisterCostESaIS1_EE11_M_allocateEm.exit.i ], [ %174, %.lr.ph.i.i.i.i ]
-  %175 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %175 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i25.i = icmp eq ptr %154, null
   br i1 %.not.i25.i, label %_ZNSt6vectorIN4llvm19CodeGenRegisterCostESaIS1_EE17_M_realloc_insertIJRPNS0_6RecordERiRbEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %176
 
@@ -23319,7 +23319,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_112TransVariantESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 _ZNSt6vectorIN12_GLOBAL__N_112TransVariantESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i111.i: ; preds = %.lr.ph.i.i.i.i.i107.i, %_ZNKSt6vectorIN12_GLOBAL__N_112TransVariantESaIS1_EE12_M_check_lenEmPKc.exit.i.i104.i
   %.0.lcssa.i.i.i.i.i112.i = phi ptr [ %354, %_ZNKSt6vectorIN12_GLOBAL__N_112TransVariantESaIS1_EE12_M_check_lenEmPKc.exit.i.i104.i ], [ %360, %.lr.ph.i.i.i.i.i107.i ]
-  %361 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i112.i, i64 24
+  %361 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i112.i, i64 24
   %.not.i34.i.i113.i = icmp eq ptr %.sroa.0202.4.i, null
   br i1 %.not.i34.i.i113.i, label %_ZNSt6vectorIN12_GLOBAL__N_112TransVariantESaIS1_EE17_M_realloc_insertIJRKPN4llvm6RecordERKjRjiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %362
 
@@ -23926,7 +23926,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_112TransVariantESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   br i1 %.not.i.i.i.i.i138.i, label %_ZNSt6vectorIN12_GLOBAL__N_112TransVariantESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i139.i, label %.lr.ph.i.i.i.i.i135.i, !llvm.loop !251
 
 _ZNSt6vectorIN12_GLOBAL__N_112TransVariantESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i139.i: ; preds = %.lr.ph.i.i.i.i.i135.i
-  %609 = getelementptr i8, ptr %.03.i.i.i.i.i136.i, i64 48
+  %609 = getelementptr inbounds i8, ptr %.03.i.i.i.i.i136.i, i64 48
   %.not.i27.i.i141.i = icmp eq ptr %.sroa.0193.2, null
   br i1 %.not.i27.i.i141.i, label %_ZNSt6vectorIN12_GLOBAL__N_112TransVariantESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i142.i, label %610
 
@@ -25477,7 +25477,7 @@ _ZN4llvm15SmallVectorImplIjE6appendIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIj
 
 _ZN4llvm15SmallVectorImplIjE7reserveEm.exit:      ; preds = %31, %32
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr i8, ptr %34, i64 %8
+  %35 = getelementptr inbounds i8, ptr %34, i64 %8
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   %.idx = shl nsw i64 %36, 2
   %37 = ptrtoint ptr %35 to i64

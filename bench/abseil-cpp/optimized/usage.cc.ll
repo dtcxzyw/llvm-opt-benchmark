@@ -2665,7 +2665,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !19
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i: ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i162 = getelementptr i8, ptr %__cur.07.i.i.i.i, i64 32
+  %incdec.ptr.i162 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 32
   %tobool.not.i.i = icmp eq ptr %tokens.sroa.0.1277, null
   br i1 %tobool.not.i.i, label %.noexc17, label %if.then.i20.i
 

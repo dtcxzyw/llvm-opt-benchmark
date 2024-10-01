@@ -15096,7 +15096,7 @@ if.then4:                                         ; preds = %if.then
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then4
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i
-  %add.ptr = getelementptr %"struct.std::pair.58", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"struct.std::pair.58", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
@@ -15180,7 +15180,7 @@ _ZSt22__uninitialized_copy_aIPKSt4pairIPKcN5folly5RangeIS2_EEEPS6_S6_ET0_T_SB_SA
 _ZSt22__uninitialized_copy_aIPKSt4pairIPKcN5folly5RangeIS2_EEEPS6_S6_ET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKSt4pairIPKcN5folly5RangeIS2_EEEPS6_S6_ET0_T_SB_SA_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKSt4pairIPKcN5folly5RangeIS2_EEEmEvRT_T0_.exit
   %4 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKSt4pairIPKcN5folly5RangeIS2_EEEPS6_S6_ET0_T_SB_SA_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIPKSt4pairIPKcN5folly5RangeIS2_EEEmEvRT_T0_.exit ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
-  %add.ptr36 = getelementptr %"struct.std::pair.58", ptr %4, i64 %sub
+  %add.ptr36 = getelementptr inbounds %"struct.std::pair.58", ptr %4, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i49 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i49, label %_ZSt22__uninitialized_move_aIPSt4pairIPKcN5folly5RangeIS2_EEES7_SaIS6_EET0_T_SA_S9_RT1_.exit57, label %for.body.i.i.i.i.i50
@@ -15274,7 +15274,7 @@ for.body.i.i.i.i94:                               ; preds = %for.body.i.i.i.i94.
   %__first.addr.06.i.i.i.i96 = phi ptr [ %incdec.ptr.i.i.i.i97, %for.body.i.i.i.i94 ], [ %__first, %for.body.i.i.i.i94.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i95, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i96, i64 24, i1 false)
   %incdec.ptr.i.i.i.i97 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i96, i64 24
-  %incdec.ptr1.i.i.i.i98 = getelementptr i8, ptr %__cur.07.i.i.i.i95, i64 24
+  %incdec.ptr1.i.i.i.i98 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i95, i64 24
   %cmp.not.i.i.i.i99 = icmp eq ptr %incdec.ptr.i.i.i.i97, %__last
   br i1 %cmp.not.i.i.i.i99, label %invoke.cont61, label %for.body.i.i.i.i94, !llvm.loop !191
 

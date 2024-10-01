@@ -854,9 +854,9 @@ define void @Sim_UtilTransferNodeOne(ptr nocapture noundef readonly %0, ptr noca
   %17 = select i1 %16, i32 %2, i32 0
   %18 = add nsw i32 %17, %3
   %19 = sext i32 %18 to i64
-  %20 = getelementptr i32, ptr %11, i64 %19
+  %20 = getelementptr inbounds i32, ptr %11, i64 %19
   %21 = sext i32 %3 to i64
-  %22 = getelementptr i32, ptr %15, i64 %21
+  %22 = getelementptr inbounds i32, ptr %15, i64 %21
   %23 = getelementptr i8, ptr %0, i64 20
   %.val27 = load i32, ptr %23, align 4
   %24 = and i32 %.val27, 1024

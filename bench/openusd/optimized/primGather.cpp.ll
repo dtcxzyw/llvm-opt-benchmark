@@ -782,7 +782,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS2_EE1
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %80
   %.0.lcssa.i.i.i.i = phi ptr [ %81, %80 ], [ %85, %.lr.ph.i.i.i.i ]
-  %86 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %86 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %66, null
   br i1 %.not.i34.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS2_EE17_M_realloc_insertIJimEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %87
 
@@ -2716,7 +2716,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS2_EE1
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %37
   %.0.lcssa.i.i.i.i = phi ptr [ %38, %37 ], [ %42, %.lr.ph.i.i.i.i ]
-  %43 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %23, null
   br i1 %.not.i34.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS2_EE17_M_realloc_insertIJRmS6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %44
 
@@ -2859,7 +2859,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS2_EE1
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i68: ; preds = %.lr.ph.i.i.i.i57, %.noexc72
   %.0.lcssa.i.i.i.i62 = phi ptr [ %103, %.noexc72 ], [ %107, %.lr.ph.i.i.i.i57 ]
-  %108 = getelementptr i8, ptr %.0.lcssa.i.i.i.i62, i64 16
+  %108 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i62, i64 16
   %.not.i34.i70 = icmp eq ptr %89, null
   br i1 %.not.i34.i70, label %.noexc32, label %109
 
@@ -3305,7 +3305,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS2_EE1
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %.noexc24
   %.0.lcssa.i.i.i.i = phi ptr [ %56, %.noexc24 ], [ %60, %.lr.ph.i.i.i.i ]
-  %61 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %61 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %43, null
   br i1 %.not.i34.i, label %.noexc, label %62
 
@@ -3425,7 +3425,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS2_EE1
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdPrimGather6_RangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i40: ; preds = %.lr.ph.i.i.i.i29, %.noexc44
   %.0.lcssa.i.i.i.i34 = phi ptr [ %95, %.noexc44 ], [ %99, %.lr.ph.i.i.i.i29 ]
-  %100 = getelementptr i8, ptr %.0.lcssa.i.i.i.i34, i64 16
+  %100 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i34, i64 16
   %.not.i34.i42 = icmp eq ptr %82, null
   br i1 %.not.i34.i42, label %.noexc21, label %101
 
@@ -3941,7 +3941,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPa
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
   %22 = sub nsw i64 0, %9
-  %23 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %13, i64 %22
+  %23 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %13, i64 %22
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i

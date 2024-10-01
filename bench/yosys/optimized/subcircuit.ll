@@ -36377,7 +36377,7 @@ define linkonce_odr void @_ZNSt6vectorIN10SubCircuit5Graph7PortBitESaIS2_EE14_M_
 
 20:                                               ; preds = %14
   %21 = sub i64 0, %2
-  %22 = getelementptr %"struct.SubCircuit::Graph::PortBit", ptr %9, i64 %21
+  %22 = getelementptr inbounds %"struct.SubCircuit::Graph::PortBit", ptr %9, i64 %21
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %20, %.lr.ph.i.i.i.i.i
@@ -36525,7 +36525,7 @@ _ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i93, %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit91
   %.0.lcssa.i.i.i.i.i97 = phi ptr [ %64, %_ZSt24__uninitialized_fill_n_aIPN10SubCircuit5Graph7PortBitEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit91 ], [ %70, %.lr.ph.i.i.i.i.i93 ]
-  %71 = getelementptr %"struct.SubCircuit::Graph::PortBit", ptr %.0.lcssa.i.i.i.i.i97, i64 %2
+  %71 = getelementptr inbounds %"struct.SubCircuit::Graph::PortBit", ptr %.0.lcssa.i.i.i.i.i97, i64 %2
   %.not11.i.i.i.i.i98 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i98, label %_ZSt34__uninitialized_move_if_noexcept_aIPN10SubCircuit5Graph7PortBitES3_SaIS2_EET0_T_S6_S5_RT1_.exit104, label %.lr.ph.i.i.i.i.i99
 

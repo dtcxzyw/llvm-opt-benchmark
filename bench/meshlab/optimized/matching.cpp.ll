@@ -1599,7 +1599,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin
   %122 = mul nsw i64 %.pre173, %.043160
   %123 = getelementptr inbounds double, ptr %.pre171, i64 %122
   %124 = mul nsw i64 %.pre173, %80
-  %125 = getelementptr double, ptr %.pre171, i64 %124
+  %125 = getelementptr inbounds double, ptr %.pre171, i64 %124
   %126 = ptrtoint ptr %123 to i64
   %127 = and i64 %126, 7
   %.not.i.i.i.i.i.i.i = icmp eq i64 %127, 0

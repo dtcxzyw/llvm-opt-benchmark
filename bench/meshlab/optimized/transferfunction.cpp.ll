@@ -3256,7 +3256,7 @@ _ZN7QStringD2Ev.exit43:                           ; preds = %_ZN11QStringListD2E
 
 .noexc79:                                         ; preds = %113
   %117 = load ptr, ptr %6, align 8
-  %118 = getelementptr i8, ptr %117, i64 16
+  %118 = getelementptr inbounds i8, ptr %117, i64 16
   %119 = getelementptr inbounds i8, ptr %117, i64 8
   %120 = load i32, ptr %119, align 8
   %121 = getelementptr inbounds i8, ptr %117, i64 12
@@ -3268,7 +3268,7 @@ _ZN7QStringD2Ev.exit43:                           ; preds = %_ZN11QStringListD2E
 
 .lr.ph.i.preheader.i:                             ; preds = %.noexc79
   %125 = sext i32 %120 to i64
-  %126 = getelementptr ptr, ptr %118, i64 %125
+  %126 = getelementptr inbounds ptr, ptr %118, i64 %125
   %127 = getelementptr inbounds i8, ptr %110, i64 16
   %128 = sext i32 %109 to i64
   %129 = getelementptr inbounds ptr, ptr %127, i64 %128
@@ -3386,7 +3386,7 @@ _ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit.i: ; preds = %_ZN7QStringD2E
 
 .noexc105:                                        ; preds = %167
   %173 = load ptr, ptr %6, align 8
-  %174 = getelementptr i8, ptr %173, i64 16
+  %174 = getelementptr inbounds i8, ptr %173, i64 16
   %175 = getelementptr inbounds i8, ptr %173, i64 8
   %176 = load i32, ptr %175, align 8
   %177 = getelementptr inbounds i8, ptr %173, i64 12
@@ -3398,7 +3398,7 @@ _ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit.i: ; preds = %_ZN7QStringD2E
 
 .lr.ph.i.preheader.i82:                           ; preds = %.noexc105
   %181 = sext i32 %176 to i64
-  %182 = getelementptr ptr, ptr %174, i64 %181
+  %182 = getelementptr inbounds ptr, ptr %174, i64 %181
   %183 = getelementptr inbounds i8, ptr %164, i64 16
   %184 = sext i32 %171 to i64
   %185 = getelementptr inbounds ptr, ptr %183, i64 %184

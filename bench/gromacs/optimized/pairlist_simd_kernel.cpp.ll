@@ -544,7 +544,7 @@ _ZNKSt6vectorI10nbnxn_cj_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE12_
 
 _ZSt34__uninitialized_move_if_noexcept_aIP10nbnxn_cj_tS1_N3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEET0_T_S7_S6_RT1_.exit34.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %218
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %219, %218 ], [ %223, %.lr.ph.i.i.i.i.i.i ]
-  %224 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
+  %224 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
   %.not.i35.i.i.i.i = icmp eq ptr %204, null
   br i1 %.not.i35.i.i.i.i, label %_ZNSt6vectorI10nbnxn_cj_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S5_EEDpOT_.exit.i.i.i, label %225
 
@@ -953,7 +953,7 @@ _ZNKSt6vectorI10nbnxn_cj_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE12_
 
 _ZSt34__uninitialized_move_if_noexcept_aIP10nbnxn_cj_tS1_N3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEET0_T_S7_S6_RT1_.exit34.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %176
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %177, %176 ], [ %181, %.lr.ph.i.i.i.i.i.i ]
-  %182 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
+  %182 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
   %.not.i35.i.i.i.i = icmp eq ptr %162, null
   br i1 %.not.i35.i.i.i.i, label %_ZNSt6vectorI10nbnxn_cj_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S5_EEDpOT_.exit.i.i.i, label %183
 

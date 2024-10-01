@@ -2581,7 +2581,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i.i: ; preds = %
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32.i.i: ; preds = %.lr.ph.i.i.i.i.i, %89
   %.0.lcssa.i.i.i.i.i = phi ptr [ %74, %89 ], [ %92, %.lr.ph.i.i.i.i.i ]
-  %93 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %93 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i33.i.i = icmp eq ptr %60, null
   br i1 %.not.i33.i.i, label %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN7xgboost10collective12RabitTracker9BootstrapEPS_INS6_11WorkerProxyESaIS7_EEE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i", label %94
 
@@ -3966,7 +3966,7 @@ _ZNKSt6vectorIN7xgboost10collective11SockAddressESaIS2_EE12_M_check_lenEmPKc.exi
 
 _ZNSt6vectorIN7xgboost10collective11SockAddressESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i121: ; preds = %.lr.ph.i.i.i.i110, %.noexc125
   %.0.lcssa.i.i.i.i115 = phi ptr [ %141, %.noexc125 ], [ %146, %.lr.ph.i.i.i.i110 ]
-  %147 = getelementptr i8, ptr %.0.lcssa.i.i.i.i115, i64 48
+  %147 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i115, i64 48
   %.not.i33.i123 = icmp eq ptr %.sroa.0135.0231, null
   br i1 %.not.i33.i123, label %.noexc80, label %148
 

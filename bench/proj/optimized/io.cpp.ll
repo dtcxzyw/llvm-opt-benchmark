@@ -7022,7 +7022,7 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io7WKTNodeES
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io7WKTNodeESt14default_deleteIS7_EEEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit22.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io7WKTNodeESt14default_deleteIS7_EEEESaISB_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %229, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io7WKTNodeESt14default_deleteIS7_EEEESaISB_EE11_M_allocateEm.exit.i ], [ %234, %.lr.ph.i.i.i.i.i ]
-  %235 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %235 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %215, null
   br i1 %.not.i23.i, label %_ZN5osgeo4proj2io7WKTNode8addChildEON7dropbox6oxygen2nnISt10unique_ptrIS2_St14default_deleteIS2_EEEE.exit, label %236
 
@@ -127307,7 +127307,7 @@ _ZNSt12_Vector_baseIN5osgeo4proj2io19PROJStringFormatter7Private17InversionStack
 
 _ZNSt6vectorIN5osgeo4proj2io19PROJStringFormatter7Private17InversionStackEltESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN5osgeo4proj2io19PROJStringFormatter7Private17InversionStackEltESaIS5_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %36, %_ZNSt12_Vector_baseIN5osgeo4proj2io19PROJStringFormatter7Private17InversionStackEltESaIS5_EE11_M_allocateEm.exit.i.i ], [ %39, %.lr.ph.i.i.i.i.i.i ]
-  %40 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %22, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5osgeo4proj2io19PROJStringFormatter7Private17InversionStackEltESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %41
 
@@ -174933,7 +174933,7 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io7WKTNodeES
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io7WKTNodeESt14default_deleteIS7_EEEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io7WKTNodeESt14default_deleteIS7_EEEESaISB_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io7WKTNodeESt14default_deleteIS7_EEEESaISB_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not10.i.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io7WKTNodeESt14default_deleteIS7_EEEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit22, label %.lr.ph.i.i.i.i17
 

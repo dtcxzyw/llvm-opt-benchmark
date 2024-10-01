@@ -625,10 +625,10 @@ define hidden noundef i32 @_ZNK4ncnn11Flatten_x867forwardERKNS_3MatERS1_RKNS_6Op
   %343 = mul i64 %342, %indvars.iv561
   %344 = load i64, ptr %78, align 8
   %345 = mul i64 %343, %344
-  %346 = getelementptr i8, ptr %341, i64 %345
+  %346 = getelementptr inbounds i8, ptr %341, i64 %345
   %347 = load ptr, ptr %2, align 8
   %348 = mul nuw nsw i64 %indvars.iv561, %340
-  %349 = getelementptr float, ptr %347, i64 %348
+  %349 = getelementptr inbounds float, ptr %347, i64 %348
   br label %350
 
 350:                                              ; preds = %.lr.ph525.us, %350
@@ -1148,10 +1148,10 @@ define hidden noundef i32 @_ZNK4ncnn11Flatten_x8612forward_int8ERKNS_3MatERS1_RK
   %296 = mul i64 %295, %indvars.iv421
   %297 = load i64, ptr %69, align 8
   %298 = mul i64 %296, %297
-  %299 = getelementptr i8, ptr %294, i64 %298
+  %299 = getelementptr inbounds i8, ptr %294, i64 %298
   %300 = load ptr, ptr %2, align 8
   %301 = mul nuw nsw i64 %indvars.iv421, %293
-  %302 = getelementptr i8, ptr %300, i64 %301
+  %302 = getelementptr inbounds i8, ptr %300, i64 %301
   br label %303
 
 303:                                              ; preds = %.lr.ph403.us, %303

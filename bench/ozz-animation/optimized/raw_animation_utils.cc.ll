@@ -704,7 +704,7 @@ _ZNKSt6vectorIfN3ozz12StdAllocatorIfEEE12_M_check_lenEmPKc.exit.i: ; preds = %32
 
 _ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3ozz12StdAllocatorIfEEET0_T_S5_S4_RT1_.exit34.i: ; preds = %.lr.ph.i.i.i, %54
   %.0.lcssa.i.i.i = phi ptr [ %55, %54 ], [ %60, %.lr.ph.i.i.i ]
-  %61 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 4
+  %61 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 4
   %.not.i35.i = icmp eq ptr %33, null
   br i1 %.not.i35.i, label %.noexc, label %62
 
@@ -832,7 +832,7 @@ _ZNKSt6vectorIfN3ozz12StdAllocatorIfEEE12_M_check_lenEmPKc.exit.i36: ; preds = %
 
 _ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3ozz12StdAllocatorIfEEET0_T_S5_S4_RT1_.exit34.i51: ; preds = %.lr.ph.i.i.i40, %116
   %.0.lcssa.i.i.i45 = phi ptr [ %117, %116 ], [ %122, %.lr.ph.i.i.i40 ]
-  %123 = getelementptr i8, ptr %.0.lcssa.i.i.i45, i64 4
+  %123 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i45, i64 4
   %.not.i35.i53 = icmp eq ptr %95, null
   br i1 %.not.i35.i53, label %.noexc21, label %124
 
@@ -957,7 +957,7 @@ _ZNKSt6vectorIfN3ozz12StdAllocatorIfEEE12_M_check_lenEmPKc.exit.i56: ; preds = %
 
 _ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3ozz12StdAllocatorIfEEET0_T_S5_S4_RT1_.exit34.i71: ; preds = %.lr.ph.i.i.i60, %179
   %.0.lcssa.i.i.i65 = phi ptr [ %180, %179 ], [ %185, %.lr.ph.i.i.i60 ]
-  %186 = getelementptr i8, ptr %.0.lcssa.i.i.i65, i64 4
+  %186 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i65, i64 4
   %.not.i35.i73 = icmp eq ptr %158, null
   br i1 %.not.i35.i73, label %.noexc27, label %187
 

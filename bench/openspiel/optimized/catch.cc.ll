@@ -1364,7 +1364,7 @@ _ZNKSt6vectorISt4pairIldESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %35
 
 _ZNSt6vectorISt4pairIldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i: ; preds = %.lr.ph.i.i.i.i9, %.noexc16
   %.0.lcssa.i.i.i.i = phi ptr [ %49, %.noexc16 ], [ %53, %.lr.ph.i.i.i.i9 ]
-  %54 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %54 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %29, null
   br i1 %.not.i34.i, label %.noexc7, label %55
 

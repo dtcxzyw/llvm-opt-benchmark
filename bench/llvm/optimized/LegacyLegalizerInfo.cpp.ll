@@ -1839,7 +1839,7 @@ _ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeAction
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i: ; preds = %.lr.ph.i.i.i.i149, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %233, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i ], [ %237, %.lr.ph.i.i.i.i149 ]
-  %238 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 4
+  %238 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 4
   %.not.i23.i = icmp eq ptr %219, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit, label %239
 
@@ -2262,7 +2262,7 @@ _ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeAction
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i176: ; preds = %.lr.ph.i.i.i.i165, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i163
   %.0.lcssa.i.i.i.i170 = phi ptr [ %399, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i163 ], [ %403, %.lr.ph.i.i.i.i165 ]
-  %404 = getelementptr i8, ptr %.0.lcssa.i.i.i.i170, i64 4
+  %404 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i170, i64 4
   %.not.i23.i178 = icmp eq ptr %385, null
   br i1 %.not.i23.i178, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit179, label %405
 
@@ -2352,7 +2352,7 @@ _ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeAction
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i196: ; preds = %.lr.ph.i.i.i.i185, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i183
   %.0.lcssa.i.i.i.i190 = phi ptr [ %434, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i183 ], [ %438, %.lr.ph.i.i.i.i185 ]
-  %439 = getelementptr i8, ptr %.0.lcssa.i.i.i.i190, i64 4
+  %439 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i190, i64 4
   %.not.i23.i198 = icmp eq ptr %420, null
   br i1 %.not.i23.i198, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit199, label %440
 
@@ -3810,7 +3810,7 @@ _ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeAction
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i377: ; preds = %.lr.ph.i.i.i.i366, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i364
   %.0.lcssa.i.i.i.i371 = phi ptr [ %967, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i364 ], [ %971, %.lr.ph.i.i.i.i366 ]
-  %972 = getelementptr i8, ptr %.0.lcssa.i.i.i.i371, i64 4
+  %972 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i371, i64 4
   %.not.i23.i379 = icmp eq ptr %953, null
   br i1 %.not.i23.i379, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit381, label %973
 
@@ -3899,7 +3899,7 @@ _ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeAction
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i398: ; preds = %.lr.ph.i.i.i.i387, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i385
   %.0.lcssa.i.i.i.i392 = phi ptr [ %996, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i385 ], [ %1000, %.lr.ph.i.i.i.i387 ]
-  %1001 = getelementptr i8, ptr %.0.lcssa.i.i.i.i392, i64 4
+  %1001 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i392, i64 4
   %.not.i23.i400 = icmp eq ptr %976, null
   br i1 %.not.i23.i400, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit402, label %1002
 
@@ -5697,7 +5697,7 @@ _ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeAction
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i44: ; preds = %.lr.ph.i.i.i.i33, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i31
   %.0.lcssa.i.i.i.i38 = phi ptr [ %64, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i31 ], [ %68, %.lr.ph.i.i.i.i33 ]
-  %69 = getelementptr i8, ptr %.0.lcssa.i.i.i.i38, i64 4
+  %69 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i38, i64 4
   %.not.i23.i46 = icmp eq ptr %50, null
   br i1 %.not.i23.i46, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit47, label %70
 
@@ -5805,7 +5805,7 @@ _ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeAction
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i64: ; preds = %.lr.ph.i.i.i.i53, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i51
   %.0.lcssa.i.i.i.i58 = phi ptr [ %103, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i51 ], [ %107, %.lr.ph.i.i.i.i53 ]
-  %108 = getelementptr i8, ptr %.0.lcssa.i.i.i.i58, i64 4
+  %108 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i58, i64 4
   %.not.i23.i66 = icmp eq ptr %89, null
   br i1 %.not.i23.i66, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit67, label %109
 
@@ -5977,7 +5977,7 @@ _ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeAction
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i36: ; preds = %.lr.ph.i.i.i.i25, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i23
   %.0.lcssa.i.i.i.i30 = phi ptr [ %66, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit.i23 ], [ %70, %.lr.ph.i.i.i.i25 ]
-  %71 = getelementptr i8, ptr %.0.lcssa.i.i.i.i30, i64 4
+  %71 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i30, i64 4
   %.not.i23.i38 = icmp eq ptr %52, null
   br i1 %.not.i23.i38, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit39, label %72
 
@@ -7700,7 +7700,7 @@ _ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeAction
 
 _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 4
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 4
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i17
 

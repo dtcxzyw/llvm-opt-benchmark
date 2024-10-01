@@ -7978,7 +7978,7 @@ _ZNSt12_Vector_baseI15cmStateSnapshotSaIS0_EE11_M_allocateEm.exit.i.i: ; preds =
 
 _ZNSt6vectorI15cmStateSnapshotSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseI15cmStateSnapshotSaIS0_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %146, %_ZNSt12_Vector_baseI15cmStateSnapshotSaIS0_EE11_M_allocateEm.exit.i.i ], [ %149, %.lr.ph.i.i.i.i.i ]
-  %150 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
+  %150 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
   %.not.i23.i.i = icmp eq ptr %132, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorI15cmStateSnapshotSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %151
 
@@ -14329,7 +14329,7 @@ _ZNSt12_Vector_baseIN13cmStateDetail16SnapshotDataTypeESaIS1_EE11_M_allocateEm.e
 
 _ZNSt6vectorIN13cmStateDetail16SnapshotDataTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN13cmStateDetail16SnapshotDataTypeESaIS1_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %58, %_ZNSt12_Vector_baseIN13cmStateDetail16SnapshotDataTypeESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %61, %.lr.ph.i.i.i.i.i.i ]
-  %62 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 208
+  %62 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 208
   %.not.i23.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN13cmStateDetail16SnapshotDataTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %63
 

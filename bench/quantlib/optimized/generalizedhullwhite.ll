@@ -4162,7 +4162,7 @@ cond.true.i.i:                                    ; preds = %cond.true.i.i.i45
 cond.true.i.i212:                                 ; preds = %cond.true.i.i
   %_M_finish.i64 = getelementptr inbounds nuw i8, ptr %speedstructure, i64 8
   store i64 %39, ptr %call5.i.i.i.i196, align 8, !tbaa !30
-  %incdec.ptr.i193 = getelementptr inbounds i8, ptr %call5.i.i.i.i196, i64 8
+  %incdec.ptr.i193 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i196, i64 8
   store ptr %call5.i.i.i.i196, ptr %speedstructure, align 8, !tbaa !43
   store ptr %incdec.ptr.i193, ptr %_M_finish.i64, align 8, !tbaa !41
   store ptr %incdec.ptr.i193, ptr %_M_end_of_storage.i65, align 8, !tbaa !45
@@ -4173,7 +4173,7 @@ cond.true.i.i212:                                 ; preds = %cond.true.i.i
 invoke.cont25:                                    ; preds = %cond.true.i.i212
   %_M_finish.i71 = getelementptr inbounds nuw i8, ptr %volstructure, i64 8
   store i64 %39, ptr %call5.i.i.i.i245, align 8, !tbaa !30
-  %incdec.ptr.i226 = getelementptr inbounds i8, ptr %call5.i.i.i.i245, i64 8
+  %incdec.ptr.i226 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i245, i64 8
   store ptr %call5.i.i.i.i245, ptr %volstructure, align 8, !tbaa !43
   store ptr %incdec.ptr.i226, ptr %_M_finish.i71, align 8, !tbaa !41
   store ptr %incdec.ptr.i226, ptr %_M_end_of_storage.i72, align 8, !tbaa !45
@@ -6701,7 +6701,7 @@ cond.true.i.i:                                    ; preds = %cond.true.i.i.i48
 cond.true.i.i215:                                 ; preds = %cond.true.i.i
   %_M_finish.i67 = getelementptr inbounds nuw i8, ptr %speedstructure, i64 8
   store i64 %17, ptr %call5.i.i.i.i199, align 8, !tbaa !30
-  %incdec.ptr.i196 = getelementptr inbounds i8, ptr %call5.i.i.i.i199, i64 8
+  %incdec.ptr.i196 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i199, i64 8
   store ptr %call5.i.i.i.i199, ptr %speedstructure, align 8, !tbaa !43
   store ptr %incdec.ptr.i196, ptr %_M_finish.i67, align 8, !tbaa !41
   store ptr %incdec.ptr.i196, ptr %_M_end_of_storage.i68, align 8, !tbaa !45
@@ -6712,7 +6712,7 @@ cond.true.i.i215:                                 ; preds = %cond.true.i.i
 invoke.cont22:                                    ; preds = %cond.true.i.i215
   %_M_finish.i74 = getelementptr inbounds nuw i8, ptr %volstructure, i64 8
   store i64 %17, ptr %call5.i.i.i.i248, align 8, !tbaa !30
-  %incdec.ptr.i229 = getelementptr inbounds i8, ptr %call5.i.i.i.i248, i64 8
+  %incdec.ptr.i229 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i248, i64 8
   store ptr %call5.i.i.i.i248, ptr %volstructure, align 8, !tbaa !43
   store ptr %incdec.ptr.i229, ptr %_M_finish.i74, align 8, !tbaa !41
   store ptr %incdec.ptr.i229, ptr %_M_end_of_storage.i75, align 8, !tbaa !45

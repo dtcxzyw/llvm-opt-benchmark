@@ -2282,7 +2282,7 @@ for.inc.i.i.i.i.i.i.i565:                         ; preds = %invoke.cont.i.i561,
 
 invoke.cont14.i.i571:                             ; preds = %for.inc.i.i.i.i.i.i.i565, %invoke.cont.i.i561
   %__cur.0.lcssa.i.i.i.i.i.i.i572 = phi ptr [ %cond.i19.i.i562, %invoke.cont.i.i561 ], [ %incdec.ptr1.i.i.i.i.i.i.i569, %for.inc.i.i.i.i.i.i.i565 ]
-  %incdec.ptr.i.i573 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i572, i64 8
+  %incdec.ptr.i.i573 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i572, i64 8
   %tobool.not.i.i.i574 = icmp eq ptr %queue.sroa.0.17635, null
   br i1 %tobool.not.i.i.i574, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i576, label %if.then.i29.i.i575
 
@@ -2472,7 +2472,7 @@ for.inc.i.i.i.i.i.i.i650:                         ; preds = %invoke.cont.i.i646,
 
 invoke.cont14.i.i656:                             ; preds = %for.inc.i.i.i.i.i.i.i650, %invoke.cont.i.i646
   %__cur.0.lcssa.i.i.i.i.i.i.i657 = phi ptr [ %cond.i19.i.i647, %invoke.cont.i.i646 ], [ %incdec.ptr1.i.i.i.i.i.i.i654, %for.inc.i.i.i.i.i.i.i650 ]
-  %incdec.ptr.i.i658 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i657, i64 8
+  %incdec.ptr.i.i658 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i657, i64 8
   %tobool.not.i.i.i659 = icmp eq ptr %queue.sroa.0.87580, null
   br i1 %tobool.not.i.i.i659, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i29.i.i660
 

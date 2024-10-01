@@ -3266,16 +3266,16 @@ for.body8.lr.ph.i417:                             ; preds = %if.then.i.i.i428
 invoke.cont168:                                   ; preds = %for.body8.lr.ph.i417, %invoke.cont163
   %scratch_r2.sroa.11.3 = phi ptr [ null, %invoke.cont163 ], [ %call.i.i.i.i454, %for.body8.lr.ph.i417 ]
   %idx.ext = sext i32 %add162 to i64
-  %add.ptr = getelementptr float, ptr %scratch_r2.sroa.11.3, i64 %idx.ext
-  %add.ptr172 = getelementptr float, ptr %add.ptr, i64 %idx.ext
+  %add.ptr = getelementptr inbounds float, ptr %scratch_r2.sroa.11.3, i64 %idx.ext
+  %add.ptr172 = getelementptr inbounds float, ptr %add.ptr, i64 %idx.ext
   %idx.ext173 = sext i32 %add159 to i64
-  %add.ptr174 = getelementptr float, ptr %add.ptr172, i64 %idx.ext173
-  %add.ptr176 = getelementptr float, ptr %add.ptr174, i64 %idx.ext173
-  %add.ptr178 = getelementptr float, ptr %add.ptr176, i64 %idx.ext173
-  %add.ptr180 = getelementptr float, ptr %add.ptr178, i64 %idx.ext173
-  %add.ptr182 = getelementptr float, ptr %add.ptr180, i64 %idx.ext173
-  %add.ptr184 = getelementptr float, ptr %add.ptr182, i64 %idx.ext173
-  %add.ptr186 = getelementptr float, ptr %add.ptr184, i64 %idx.ext173
+  %add.ptr174 = getelementptr inbounds float, ptr %add.ptr172, i64 %idx.ext173
+  %add.ptr176 = getelementptr inbounds float, ptr %add.ptr174, i64 %idx.ext173
+  %add.ptr178 = getelementptr inbounds float, ptr %add.ptr176, i64 %idx.ext173
+  %add.ptr180 = getelementptr inbounds float, ptr %add.ptr178, i64 %idx.ext173
+  %add.ptr182 = getelementptr inbounds float, ptr %add.ptr180, i64 %idx.ext173
+  %add.ptr184 = getelementptr inbounds float, ptr %add.ptr182, i64 %idx.ext173
+  %add.ptr186 = getelementptr inbounds float, ptr %add.ptr184, i64 %idx.ext173
   %m_baseQuat.i = getelementptr inbounds i8, ptr %54, i64 56
   %91 = load float, ptr %m_baseQuat.i, align 4
   store float %91, ptr %scratch_r2.sroa.11.3, align 4
@@ -3396,7 +3396,7 @@ invoke.cont277:                                   ; preds = %for.end260
   %118 = load i32, ptr %m_dofCount.i, align 4
   %119 = load ptr, ptr %m_data.i.i.i307, align 8
   %idxprom.i484 = sext i32 %118 to i64
-  %arrayidx.i485 = getelementptr float, ptr %119, i64 %idxprom.i484
+  %arrayidx.i485 = getelementptr inbounds float, ptr %119, i64 %idxprom.i484
   br i1 %cmp250932, label %for.body.preheader.i, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit"
 
 for.body.preheader.i:                             ; preds = %invoke.cont277
@@ -3488,7 +3488,7 @@ invoke.cont302:                                   ; preds = %invoke.cont289
   %137 = load i32, ptr %m_dofCount.i, align 4
   %138 = load ptr, ptr %m_data.i.i.i307, align 8
   %idxprom.i518 = sext i32 %137 to i64
-  %arrayidx.i519 = getelementptr float, ptr %138, i64 %idxprom.i518
+  %arrayidx.i519 = getelementptr inbounds float, ptr %138, i64 %idxprom.i518
   br i1 %cmp250932, label %for.body.preheader.i521, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit529"
 
 for.body.preheader.i521:                          ; preds = %invoke.cont302
@@ -3578,7 +3578,7 @@ invoke.cont327:                                   ; preds = %invoke.cont314
   %156 = load i32, ptr %m_dofCount.i, align 4
   %157 = load ptr, ptr %m_data.i.i.i307, align 8
   %idxprom.i568 = sext i32 %156 to i64
-  %arrayidx.i569 = getelementptr float, ptr %157, i64 %idxprom.i568
+  %arrayidx.i569 = getelementptr inbounds float, ptr %157, i64 %idxprom.i568
   br i1 %cmp250932, label %for.body.preheader.i571, label %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_0clEPKfPfii.exit579"
 
 for.body.preheader.i571:                          ; preds = %invoke.cont327
@@ -3668,7 +3668,7 @@ invoke.cont350:                                   ; preds = %invoke.cont337
   %175 = load i32, ptr %m_dofCount.i, align 4
   %176 = load ptr, ptr %m_data.i.i.i307, align 8
   %idxprom.i618 = sext i32 %175 to i64
-  %arrayidx.i619 = getelementptr float, ptr %176, i64 %idxprom.i618
+  %arrayidx.i619 = getelementptr inbounds float, ptr %176, i64 %idxprom.i618
   br i1 %cmp250932, label %for.body.preheader.i621, label %invoke.cont357.thread
 
 for.body.preheader.i621:                          ; preds = %invoke.cont350

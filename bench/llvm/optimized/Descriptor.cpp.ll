@@ -2110,7 +2110,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 define internal void @_ZL11ctorArrayTyIN5clang6interp13MemberPointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #14 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %8, align 8
-  %9 = getelementptr i8, ptr %1, i64 32
+  %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, -1
@@ -3689,8 +3689,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 _ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %40, %27, %8, %4
-  %45 = getelementptr i8, ptr %1, i64 32
-  %46 = getelementptr i8, ptr %2, i64 32
+  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %46 = getelementptr inbounds i8, ptr %2, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, -1
@@ -3804,8 +3804,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 _ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %40, %27, %8, %4
-  %45 = getelementptr i8, ptr %1, i64 32
-  %46 = getelementptr i8, ptr %2, i64 32
+  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %46 = getelementptr inbounds i8, ptr %2, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, -1
@@ -3919,8 +3919,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 _ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %40, %27, %8, %4
-  %45 = getelementptr i8, ptr %1, i64 32
-  %46 = getelementptr i8, ptr %2, i64 32
+  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %46 = getelementptr inbounds i8, ptr %2, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, -1
@@ -4034,8 +4034,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 _ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %40, %27, %8, %4
-  %45 = getelementptr i8, ptr %1, i64 32
-  %46 = getelementptr i8, ptr %2, i64 32
+  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %46 = getelementptr inbounds i8, ptr %2, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, -1
@@ -4149,8 +4149,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 _ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %40, %27, %8, %4
-  %45 = getelementptr i8, ptr %1, i64 32
-  %46 = getelementptr i8, ptr %2, i64 32
+  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %46 = getelementptr inbounds i8, ptr %2, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, -1
@@ -4264,8 +4264,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 _ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %40, %27, %8, %4
-  %45 = getelementptr i8, ptr %1, i64 32
-  %46 = getelementptr i8, ptr %2, i64 32
+  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %46 = getelementptr inbounds i8, ptr %2, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, -1
@@ -4379,8 +4379,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 _ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %40, %27, %8, %4
-  %45 = getelementptr i8, ptr %1, i64 32
-  %46 = getelementptr i8, ptr %2, i64 32
+  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %46 = getelementptr inbounds i8, ptr %2, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, -1
@@ -4494,8 +4494,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 _ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %40, %27, %8, %4
-  %45 = getelementptr i8, ptr %1, i64 32
-  %46 = getelementptr i8, ptr %2, i64 32
+  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %46 = getelementptr inbounds i8, ptr %2, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, -1
@@ -4976,8 +4976,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 _ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %40, %27, %8, %4
-  %45 = getelementptr i8, ptr %1, i64 32
-  %46 = getelementptr i8, ptr %2, i64 32
+  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %46 = getelementptr inbounds i8, ptr %2, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, -1
@@ -5205,8 +5205,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit
 
 _ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %40, %27, %8, %4
-  %45 = getelementptr i8, ptr %1, i64 32
-  %46 = getelementptr i8, ptr %2, i64 32
+  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %46 = getelementptr inbounds i8, ptr %2, i64 32
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, -1

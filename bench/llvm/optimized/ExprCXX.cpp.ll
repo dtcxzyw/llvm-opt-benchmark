@@ -7596,7 +7596,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   br i1 %.not9.i.i.i.i, label %_ZN5clang14SizeOfPackExprC2ENS_8QualTypeENS_14SourceLocationEPNS_9NamedDeclES2_S2_St8optionalIjEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit, label %.lr.ph.i.i.i.preheader.i
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit.i
-  %45 = getelementptr i8, ptr %.0.i.i.i15, i64 40
+  %45 = getelementptr inbounds i8, ptr %.0.i.i.i15, i64 40
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.preheader.i

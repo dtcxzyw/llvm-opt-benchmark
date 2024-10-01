@@ -1573,7 +1573,7 @@ _ZNSt12_Vector_baseIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt6vectorIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %289, %_ZNSt12_Vector_baseIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE11_M_allocateEm.exit.i.i ], [ %292, %.lr.ph.i.i.i.i.i.i ]
-  %293 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %293 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %275, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %294
 
@@ -10991,7 +10991,7 @@ _ZNSt12_Vector_baseIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt6vectorIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %199, %_ZNSt12_Vector_baseIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ %202, %.lr.ph.i.i.i.i.i.i.i ]
-  %203 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %203 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %185, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %204
 
@@ -12105,7 +12105,7 @@ _ZNSt12_Vector_baseIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt6vectorIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %658, %_ZNSt12_Vector_baseIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE11_M_allocateEm.exit.i.i ], [ %661, %.lr.ph.i.i.i.i.i.i ]
-  %662 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %662 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %645, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN2cv2ml7SVMImpl12DecisionFuncESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %663
 
@@ -15599,7 +15599,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv2ml7SVMImpl6Solver9KernelRowES
 
 19:                                               ; preds = %14
   %20 = sub i64 0, %2
-  %21 = getelementptr %"struct.cv::ml::SVMImpl::Solver::KernelRow", ptr %9, i64 %20
+  %21 = getelementptr inbounds %"struct.cv::ml::SVMImpl::Solver::KernelRow", ptr %9, i64 %20
   %.idx = mul i64 %2, -12
   %.not11.i.i.i.i.i = icmp eq i64 %.idx, 0
   br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN2cv2ml7SVMImpl6Solver9KernelRowES5_SaIS4_EET0_T_S8_S7_RT1_.exit, label %.lr.ph.i.i.i.i.i
@@ -15754,7 +15754,7 @@ _ZSt24__uninitialized_fill_n_aIPN2cv2ml7SVMImpl6Solver9KernelRowEmS4_S4_ET_S6_T0
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN2cv2ml7SVMImpl6Solver9KernelRowES5_SaIS4_EET0_T_S8_S7_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN2cv2ml7SVMImpl6Solver9KernelRowEmS4_S4_ET_S6_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %60, %_ZSt24__uninitialized_fill_n_aIPN2cv2ml7SVMImpl6Solver9KernelRowEmS4_S4_ET_S6_T0_RKT1_RSaIT2_E.exit87 ], [ %65, %.lr.ph.i.i.i.i.i89 ]
-  %66 = getelementptr %"struct.cv::ml::SVMImpl::Solver::KernelRow", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
+  %66 = getelementptr inbounds %"struct.cv::ml::SVMImpl::Solver::KernelRow", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
   %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv2ml7SVMImpl6Solver9KernelRowES5_SaIS4_EET0_T_S8_S7_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 

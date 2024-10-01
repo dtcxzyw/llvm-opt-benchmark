@@ -1918,7 +1918,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119WasmRelocationEntryESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119WasmRelocationEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119WasmRelocationEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %247, %_ZNKSt6vectorIN12_GLOBAL__N_119WasmRelocationEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %250, %.lr.ph.i.i.i.i.i ]
-  %251 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 40
+  %251 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 40
   %.not.i27.i.i = icmp eq ptr %.val18.i.i, null
   br i1 %.not.i27.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119WasmRelocationEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %252
 
@@ -2011,7 +2011,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119WasmRelocationEntryESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119WasmRelocationEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i223: ; preds = %.lr.ph.i.i.i.i.i219, %_ZNKSt6vectorIN12_GLOBAL__N_119WasmRelocationEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i216
   %.0.lcssa.i.i.i.i.i224 = phi ptr [ %280, %_ZNKSt6vectorIN12_GLOBAL__N_119WasmRelocationEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i216 ], [ %283, %.lr.ph.i.i.i.i.i219 ]
-  %284 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i224, i64 40
+  %284 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i224, i64 40
   %.not.i27.i.i225 = icmp eq ptr %.val18.i.i215, null
   br i1 %.not.i27.i.i225, label %_ZNSt6vectorIN12_GLOBAL__N_119WasmRelocationEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i226, label %285
 
@@ -2161,7 +2161,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119WasmRelocationEntryESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119WasmRelocationEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i238: ; preds = %.lr.ph.i.i.i.i.i234, %_ZNKSt6vectorIN12_GLOBAL__N_119WasmRelocationEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i231
   %.0.lcssa.i.i.i.i.i239 = phi ptr [ %342, %_ZNKSt6vectorIN12_GLOBAL__N_119WasmRelocationEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i231 ], [ %345, %.lr.ph.i.i.i.i.i234 ]
-  %346 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i239, i64 40
+  %346 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i239, i64 40
   %.not.i27.i.i240 = icmp eq ptr %.val18.i.i230, null
   br i1 %.not.i27.i.i240, label %_ZNSt6vectorIN12_GLOBAL__N_119WasmRelocationEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i241, label %347
 
@@ -5885,7 +5885,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_117WasmCustomSectionESaIS1_EE12_M_check_lenEmPKc.exi
 
 _ZNSt6vectorIN12_GLOBAL__N_117WasmCustomSectionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30.i.i: ; preds = %.lr.ph.i.i.i.i.i402, %_ZNKSt6vectorIN12_GLOBAL__N_117WasmCustomSectionESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %1023, %_ZNKSt6vectorIN12_GLOBAL__N_117WasmCustomSectionESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %1029, %.lr.ph.i.i.i.i.i402 ]
-  %1030 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
+  %1030 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
   %.not.i31.i.i = icmp eq ptr %.val19.i.i, null
   br i1 %.not.i31.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_117WasmCustomSectionESaIS1_EE17_M_realloc_insertIJRN4llvm9StringRefEPNS5_13MCSectionWasmEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %1031
 
@@ -13845,7 +13845,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   br i1 %.not18.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_119WasmRelocationEntryESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread26.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %26
-  %.01317.i.i.i.i.i.i = getelementptr i8, ptr %22, i64 40
+  %.01317.i.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 40
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -15130,7 +15130,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
   br i1 %34, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %33
-  %35 = getelementptr i8, ptr %.053, i64 %.074
+  %35 = getelementptr inbounds i8, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
@@ -16203,7 +16203,7 @@ _ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit: ; pre
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %_ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit, %27
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr i8, ptr %29, i64 %8
+  %30 = getelementptr inbounds i8, ptr %29, i64 %8
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
   %32 = ptrtoint ptr %30 to i64
   %gepdiff = sub nsw i64 %31, %8

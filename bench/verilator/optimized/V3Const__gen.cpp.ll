@@ -23876,7 +23876,7 @@ _ZNKSt6vectorISt4pairIP11AstNodeExprN21ConstBitOpTreeVisitor14FrozenNodeInfoEESa
 
 _ZNSt6vectorISt4pairIP11AstNodeExprN21ConstBitOpTreeVisitor14FrozenNodeInfoEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc87
   %.0.lcssa.i.i.i.i.i = phi ptr [ %182, %.noexc87 ], [ %186, %.lr.ph.i.i.i.i.i ]
-  %187 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %187 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i34.i.i = icmp eq ptr %168, null
   br i1 %.not.i34.i.i, label %_ZNSt6vectorISt4pairIP11AstNodeExprN21ConstBitOpTreeVisitor14FrozenNodeInfoEESaIS5_EE17_M_realloc_insertIJRS2_S4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %188
 
@@ -26163,7 +26163,7 @@ _ZNKSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE12_M_check_lenE
 
 _ZNSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i: ; preds = %.lr.ph.i.i.i.i, %32
   %.0.lcssa.i.i.i.i = phi ptr [ %33, %32 ], [ %41, %.lr.ph.i.i.i.i ]
-  %42 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 40
+  %42 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 40
   %.not.i35.i = icmp eq ptr %18, null
   br i1 %.not.i35.i, label %_ZNSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE17_M_realloc_insertIJRNS0_8LeafInfoEbiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %43
 
@@ -26700,7 +26700,7 @@ _ZNKSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE12_M_check_lenE
   %27 = tail call i64 @llvm.umin.i64(i64 %26, i64 230584300921369395)
   %28 = mul nuw nsw i64 %27, 40
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #30
-  %30 = getelementptr i8, ptr %29, i64 %9
+  %30 = getelementptr inbounds i8, ptr %29, i64 %9
   br label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
@@ -26892,7 +26892,7 @@ _ZNKSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE12_M_check_lenE
 
 _ZNSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i: ; preds = %.lr.ph.i.i.i.i, %32
   %.0.lcssa.i.i.i.i = phi ptr [ %33, %32 ], [ %41, %.lr.ph.i.i.i.i ]
-  %42 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 40
+  %42 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 40
   %.not.i35.i = icmp eq ptr %18, null
   br i1 %.not.i35.i, label %_ZNSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE17_M_realloc_insertIJRKNS0_8LeafInfoEbiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %43
 
@@ -26987,7 +26987,7 @@ _ZNKSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE12_M_check_lenE
 
 _ZNSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i: ; preds = %.lr.ph.i.i.i.i, %32
   %.0.lcssa.i.i.i.i = phi ptr [ %33, %32 ], [ %41, %.lr.ph.i.i.i.i ]
-  %42 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 40
+  %42 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 40
   %.not.i35.i = icmp eq ptr %18, null
   br i1 %.not.i35.i, label %_ZNSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE17_M_realloc_insertIJRKNS0_8LeafInfoERKbRiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %43
 
@@ -27189,7 +27189,7 @@ _ZNKSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE12_M_check_lenE
 
 _ZNSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i: ; preds = %.lr.ph.i.i.i.i, %32
   %.0.lcssa.i.i.i.i = phi ptr [ %33, %32 ], [ %41, %.lr.ph.i.i.i.i ]
-  %42 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 40
+  %42 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 40
   %.not.i35.i = icmp eq ptr %18, null
   br i1 %.not.i35.i, label %_ZNSt6vectorIN21ConstBitOpTreeVisitor16BitPolarityEntryESaIS1_EE17_M_realloc_insertIJRNS0_8LeafInfoEbRiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %43
 
@@ -85866,7 +85866,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10AstSenItemSt6vectorIS3_SaIS3_EEEES8
   br i1 %36, label %.lr.ph92.preheader, label %._crit_edge93
 
 .lr.ph92.preheader:                               ; preds = %35
-  %37 = getelementptr ptr, ptr %.sroa.035.0, i64 %.078
+  %37 = getelementptr inbounds ptr, ptr %.sroa.035.0, i64 %.078
   br label %.lr.ph92
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.lr.ph92

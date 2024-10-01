@@ -1421,7 +1421,7 @@ parse_tables.exit:                                ; preds = %.preheader.i, %.loo
   %460 = getelementptr inbounds i8, ptr %.val.val.i81.i, i64 11616
   %461 = getelementptr inbounds i8, ptr %.val.val.i81.i, i64 19296
   %462 = getelementptr inbounds i8, ptr %.val.val.i81.i, i64 19300
-  %463 = getelementptr inbounds i8, ptr %.val.val.i81.i, i64 19292
+  %463 = getelementptr i8, ptr %.val.val.i81.i, i64 19292
   %464 = getelementptr inbounds i8, ptr %.val.val.i81.i, i64 136
   %465 = getelementptr inbounds i8, ptr %.val.val.i81.i, i64 80
   br label %466
@@ -2051,7 +2051,7 @@ copy_string.exit142.thread.i.i:                   ; preds = %._crit_edge.loopexi
 
 .lr.ph.i144.preheader.i.i:                        ; preds = %824
   %829 = shl nuw nsw i64 %826, 2
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %463, ptr align 4 %457, i64 %829, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %463, ptr align 4 %457, i64 %829, i1 false)
   br label %dist_cache_touch.exit.i.i
 
 dist_cache_touch.exit.i.i:                        ; preds = %.lr.ph.i144.preheader.i.i, %824

@@ -8696,7 +8696,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %168 = load ptr, ptr %.0308358, align 8, !noalias !233
   %169 = load i64, ptr %85, align 8, !noalias !233
   %170 = mul nsw i64 %169, %indvars.iv
-  %171 = getelementptr double, ptr %168, i64 %170
+  %171 = getelementptr inbounds double, ptr %168, i64 %170
   %172 = mul nsw i64 %169, %110
   %173 = getelementptr inbounds double, ptr %168, i64 %172
   %174 = icmp eq i64 %169, 0

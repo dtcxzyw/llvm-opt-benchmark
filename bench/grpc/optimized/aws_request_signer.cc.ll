@@ -1862,7 +1862,7 @@ for.body.i.i.i.i878:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i894: ; preds = %for.body.i.i.i.i878, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i872
   %__cur.0.lcssa.i.i.i.i885 = phi ptr [ %cond.i10.i873, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i872 ], [ %incdec.ptr1.i.i.i.i882, %for.body.i.i.i.i878 ]
-  %incdec.ptr.i886 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i885, i64 16
+  %incdec.ptr.i886 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i885, i64 16
   %tobool.not.i.i896 = icmp eq ptr %canonical_headers_vector.sroa.0.3, null
   br i1 %tobool.not.i.i896, label %.noexc178, label %if.then.i20.i897
 
@@ -2018,7 +2018,7 @@ for.body.i.i.i.i979:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i995: ; preds = %for.body.i.i.i.i979, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i973
   %__cur.0.lcssa.i.i.i.i986 = phi ptr [ %cond.i10.i974, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i973 ], [ %incdec.ptr1.i.i.i.i983, %for.body.i.i.i.i979 ]
-  %incdec.ptr.i987 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i986, i64 16
+  %incdec.ptr.i987 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i986, i64 16
   %tobool.not.i.i997 = icmp eq ptr %canonical_headers_vector.sroa.0.5, null
   br i1 %tobool.not.i.i997, label %.noexc201, label %if.then.i20.i998
 
@@ -2246,7 +2246,7 @@ for.body.i.i.i.i1080:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i1096: ; preds = %for.body.i.i.i.i1080, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i1074
   %__cur.0.lcssa.i.i.i.i1087 = phi ptr [ %cond.i10.i1075, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i1074 ], [ %incdec.ptr1.i.i.i.i1084, %for.body.i.i.i.i1080 ]
-  %incdec.ptr.i1088 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i1087, i64 16
+  %incdec.ptr.i1088 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i1087, i64 16
   %tobool.not.i.i1098 = icmp eq ptr %canonical_request_vector.sroa.0.18, null
   br i1 %tobool.not.i.i1098, label %.noexc230, label %if.then.i20.i1099
 
@@ -2610,7 +2610,7 @@ for.body.i.i.i.i1231:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i1247: ; preds = %for.body.i.i.i.i1231, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i1225
   %__cur.0.lcssa.i.i.i.i1238 = phi ptr [ %cond.i10.i1226, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i1225 ], [ %incdec.ptr1.i.i.i.i1235, %for.body.i.i.i.i1231 ]
-  %incdec.ptr.i1239 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i1238, i64 16
+  %incdec.ptr.i1239 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i1238, i64 16
   %tobool.not.i.i1249 = icmp eq ptr %canonical_request_vector.sroa.0.20, null
   br i1 %tobool.not.i.i1249, label %.noexc316, label %if.then.i20.i1250
 
@@ -2696,7 +2696,7 @@ for.body.i.i.i.i1281:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i1297: ; preds = %for.body.i.i.i.i1281, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i1276
   %__cur.0.lcssa.i.i.i.i1288 = phi ptr [ %cond.i10.i1277, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i1276 ], [ %incdec.ptr1.i.i.i.i1285, %for.body.i.i.i.i1281 ]
-  %incdec.ptr.i1289 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i1288, i64 16
+  %incdec.ptr.i1289 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i1288, i64 16
   %tobool.not.i.i1299 = icmp eq ptr %canonical_request_vector.sroa.0.21, null
   br i1 %tobool.not.i.i1299, label %invoke.cont212, label %if.then.i20.i1300
 
@@ -2992,7 +2992,7 @@ for.body.i.i.i.i1634:                             ; preds = %_ZNSt12_Vector_base
 
 if.then.i20.i1653:                                ; preds = %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i1629, %for.body.i.i.i.i1634
   %__cur.0.lcssa.i.i.i.i1641 = phi ptr [ %cond.i10.i1630, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i1629 ], [ %incdec.ptr1.i.i.i.i1638, %for.body.i.i.i.i1634 ]
-  %incdec.ptr.i1642 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i1641, i64 16
+  %incdec.ptr.i1642 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i1641, i64 16
   call void @_ZdlPv(ptr noundef nonnull %string_to_sign_vector.sroa.0.11) #20
   br label %invoke.cont253
 

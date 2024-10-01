@@ -10058,7 +10058,7 @@ select.unfold.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %.not19.i.i.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN5clang9ThunkInfoES1_EC2ES2_l.exit.thread23.i.i.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i.i.i:                 ; preds = %2538
-  %.01518.i.i.i.i.i.i.i.i = getelementptr i8, ptr %2534, i64 56
+  %.01518.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2534, i64 56
   br label %.lr.ph.i.i.i.i.i.i.i20.i
 
 .lr.ph.i.i.i.i.i.i.i20.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i20.i, %.lr.ph.i.i.preheader.i.i.i.i.i.i
@@ -27106,7 +27106,7 @@ _ZSt4moveIPPKN5clang13CXXMethodDeclES4_ET0_T_S6_S5_.exit: ; preds = %29, %32
   br i1 %36, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %35
-  %37 = getelementptr ptr, ptr %.053, i64 %.074
+  %37 = getelementptr inbounds ptr, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
@@ -31878,7 +31878,7 @@ _ZN4llvm15SmallVectorImplISt17reference_wrapperIN5clang8VPtrInfoEEE7reserveEm.ex
   br i1 %.not7.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt17reference_wrapperIN5clang8VPtrInfoEELb1EE18uninitialized_copyINS_16pointee_iteratorIPSt10unique_ptrIS3_St14default_deleteIS3_EES3_EEPS4_EEvT_SF_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplISt17reference_wrapperIN5clang8VPtrInfoEEE7reserveEm.exit
-  %16 = getelementptr %"class.std::reference_wrapper", ptr %14, i64 %15
+  %16 = getelementptr inbounds %"class.std::reference_wrapper", ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
@@ -32874,7 +32874,7 @@ _ZNSt12_Vector_baseIN5clang13BaseSubobjectESaIS1_EE11_M_allocateEm.exit.i.i: ; p
 
 _ZNSt6vectorIN5clang13BaseSubobjectESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN5clang13BaseSubobjectESaIS1_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %32, %_ZNSt12_Vector_baseIN5clang13BaseSubobjectESaIS1_EE11_M_allocateEm.exit.i.i ], [ %35, %.lr.ph.i.i.i.i.i ]
-  %36 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %18, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5clang13BaseSubobjectESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %37
 

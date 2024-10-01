@@ -165,8 +165,8 @@ define void @Extra_TruthSwapAdjacentVars(ptr nocapture noundef writeonly %0, ptr
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph95.us
-  %45 = getelementptr i32, ptr %.07797.us, i64 %39
-  %46 = getelementptr i32, ptr %.098.us, i64 %39
+  %45 = getelementptr inbounds i32, ptr %.07797.us, i64 %39
+  %46 = getelementptr inbounds i32, ptr %.098.us, i64 %39
   %47 = add nsw i32 %.07896.us, %38
   %48 = icmp slt i32 %47, %8
   br i1 %48, label %.lr.ph.us.preheader, label %.loopexit, !llvm.loop !9
@@ -457,8 +457,8 @@ define void @Extra_TruthSwapAdjacentVars2(ptr nocapture noundef readonly %0, ptr
   br i1 %exitcond193.not, label %._crit_edge, label %.lr.ph137, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph137, %.preheader110
-  %94 = getelementptr i32, ptr %.0140, i64 %73
-  %95 = getelementptr i32, ptr %.0106138, i64 %73
+  %94 = getelementptr inbounds i32, ptr %.0140, i64 %73
+  %95 = getelementptr inbounds i32, ptr %.0106138, i64 %73
   %96 = add nsw i32 %.0104139, %72
   %97 = icmp slt i32 %96, %8
   br i1 %97, label %.preheader110, label %.loopexit, !llvm.loop !24
@@ -580,8 +580,8 @@ define void @Extra_TruthStretch(ptr nocapture noundef %0, ptr nocapture noundef 
   br label %.lr.ph.us.i
 
 ._crit_edge.us.i:                                 ; preds = %.lr.ph95.us.i
-  %54 = getelementptr i32, ptr %.07797.us.i, i64 %48
-  %55 = getelementptr i32, ptr %.098.us.i, i64 %48
+  %54 = getelementptr inbounds i32, ptr %.07797.us.i, i64 %48
+  %55 = getelementptr inbounds i32, ptr %.098.us.i, i64 %48
   %56 = add nsw i32 %.07896.us.i, %47
   %57 = icmp slt i32 %56, %11
   br i1 %57, label %.lr.ph.us.preheader.i, label %Extra_TruthSwapAdjacentVars.exit, !llvm.loop !9
@@ -820,8 +820,8 @@ define void @Extra_TruthShrink(ptr nocapture noundef %0, ptr nocapture noundef %
   br label %.lr.ph.us.i
 
 ._crit_edge.us.i:                                 ; preds = %.lr.ph95.us.i
-  %52 = getelementptr i32, ptr %.07797.us.i, i64 %46
-  %53 = getelementptr i32, ptr %.098.us.i, i64 %46
+  %52 = getelementptr inbounds i32, ptr %.07797.us.i, i64 %46
+  %53 = getelementptr inbounds i32, ptr %.098.us.i, i64 %46
   %54 = add nsw i32 %.07896.us.i, %45
   %55 = icmp slt i32 %54, %10
   br i1 %55, label %.lr.ph.us.preheader.i, label %Extra_TruthSwapAdjacentVars.exit, !llvm.loop !9
@@ -3605,8 +3605,8 @@ Extra_TruthNot.exit:                              ; preds = %select.unfold.i109,
   br i1 %exitcond163.not.i.us, label %._crit_edge.us.i.us, label %.lr.ph95.us.i.us, !llvm.loop !10
 
 ._crit_edge.us.i.us:                              ; preds = %.lr.ph95.us.i.us
-  %103 = getelementptr i32, ptr %.07797.us.i.us, i64 %80
-  %104 = getelementptr i32, ptr %.098.us.i.us, i64 %80
+  %103 = getelementptr inbounds i32, ptr %.07797.us.i.us, i64 %80
+  %104 = getelementptr inbounds i32, ptr %.098.us.i.us, i64 %80
   %105 = add nsw i32 %.07896.us.i.us, %79
   %106 = icmp slt i32 %105, %9
   br i1 %106, label %.lr.ph.us.preheader.i.us, label %Extra_TruthSwapAdjacentVars.exit.us, !llvm.loop !9

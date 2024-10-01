@@ -2782,7 +2782,7 @@ _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_M
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %296, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i ], [ %299, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %300 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.i, i64 40
+  %300 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.i, i64 40
   %.not.i23.i.i.i.i.i.i = icmp eq ptr %282, null
   br i1 %.not.i23.i.i.i.i.i.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %301
 
@@ -3073,7 +3073,7 @@ _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_M
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i104.i, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i108.i = phi ptr [ %382, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i ], [ %385, %.lr.ph.i.i.i.i.i.i.i.i104.i ]
-  %386 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i108.i, i64 40
+  %386 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i108.i, i64 40
   %.not.i23.i.i.i.i.i109.i = icmp eq ptr %368, null
   br i1 %.not.i23.i.i.i.i.i109.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %387
 
@@ -3360,7 +3360,7 @@ _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i158.i, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i162.i = phi ptr [ %470, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i ], [ %473, %.lr.ph.i.i.i.i.i.i.i.i158.i ]
-  %474 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i162.i, i64 48
+  %474 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i162.i, i64 48
   %.not.i23.i.i.i.i.i163.i = icmp eq ptr %456, null
   br i1 %.not.i23.i.i.i.i.i163.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %475
 
@@ -3654,7 +3654,7 @@ _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i207.i, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i211.i = phi ptr [ %561, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i ], [ %564, %.lr.ph.i.i.i.i.i.i.i.i207.i ]
-  %565 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i211.i, i64 56
+  %565 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i211.i, i64 56
   %.not.i23.i.i.i.i.i212.i = icmp eq ptr %547, null
   br i1 %.not.i23.i.i.i.i.i212.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %566
 
@@ -3953,7 +3953,7 @@ _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i261.i, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i265.i = phi ptr [ %653, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i ], [ %656, %.lr.ph.i.i.i.i.i.i.i.i261.i ]
-  %657 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i265.i, i64 64
+  %657 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i265.i, i64 64
   %.not.i23.i.i.i.i.i266.i = icmp eq ptr %639, null
   br i1 %.not.i23.i.i.i.i.i266.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %658
 
@@ -4276,7 +4276,7 @@ _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i318.i, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i322.i = phi ptr [ %753, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i ], [ %756, %.lr.ph.i.i.i.i.i.i.i.i318.i ]
-  %757 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i322.i, i64 96
+  %757 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i322.i, i64 96
   %.not.i23.i.i.i.i.i323.i = icmp eq ptr %739, null
   br i1 %.not.i23.i.i.i.i.i323.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %758
 
@@ -4566,7 +4566,7 @@ _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i373.i, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i377.i = phi ptr [ %841, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i ], [ %844, %.lr.ph.i.i.i.i.i.i.i.i373.i ]
-  %845 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i377.i, i64 48
+  %845 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i377.i, i64 48
   %.not.i23.i.i.i.i.i378.i = icmp eq ptr %827, null
   br i1 %.not.i23.i.i.i.i.i378.i, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, label %846
 
@@ -4857,7 +4857,7 @@ _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_M
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i404: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i400, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i392
   %.0.lcssa.i.i.i.i.i.i.i.i.i405 = phi ptr [ %928, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i392 ], [ %931, %.lr.ph.i.i.i.i.i.i.i.i.i400 ]
-  %932 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.i405, i64 40
+  %932 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.i405, i64 40
   %.not.i23.i.i.i.i.i.i406 = icmp eq ptr %914, null
   br i1 %.not.i23.i.i.i.i.i.i406, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer4EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i407, label %933
 
@@ -5138,7 +5138,7 @@ _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_M
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i346: ; preds = %.lr.ph.i.i.i.i.i.i.i.i104.i342, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i334
   %.0.lcssa.i.i.i.i.i.i.i.i108.i347 = phi ptr [ %1014, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i334 ], [ %1017, %.lr.ph.i.i.i.i.i.i.i.i104.i342 ]
-  %1018 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i108.i347, i64 40
+  %1018 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i108.i347, i64 40
   %.not.i23.i.i.i.i.i109.i348 = icmp eq ptr %1000, null
   br i1 %.not.i23.i.i.i.i.i109.i348, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_16HammingComputer8EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i349, label %1019
 
@@ -5425,7 +5425,7 @@ _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i288: ; preds = %.lr.ph.i.i.i.i.i.i.i.i158.i284, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i275
   %.0.lcssa.i.i.i.i.i.i.i.i162.i289 = phi ptr [ %1102, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i275 ], [ %1105, %.lr.ph.i.i.i.i.i.i.i.i158.i284 ]
-  %1106 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i162.i289, i64 48
+  %1106 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i162.i289, i64 48
   %.not.i23.i.i.i.i.i163.i290 = icmp eq ptr %1088, null
   br i1 %.not.i23.i.i.i.i.i163.i290, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer16EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i291, label %1107
 
@@ -5719,7 +5719,7 @@ _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i228: ; preds = %.lr.ph.i.i.i.i.i.i.i.i207.i224, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i214
   %.0.lcssa.i.i.i.i.i.i.i.i211.i229 = phi ptr [ %1193, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i214 ], [ %1196, %.lr.ph.i.i.i.i.i.i.i.i207.i224 ]
-  %1197 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i211.i229, i64 56
+  %1197 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i211.i229, i64 56
   %.not.i23.i.i.i.i.i212.i230 = icmp eq ptr %1179, null
   br i1 %.not.i23.i.i.i.i.i212.i230, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer20EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i231, label %1198
 
@@ -6018,7 +6018,7 @@ _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i166: ; preds = %.lr.ph.i.i.i.i.i.i.i.i261.i162, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i151
   %.0.lcssa.i.i.i.i.i.i.i.i265.i167 = phi ptr [ %1285, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i151 ], [ %1288, %.lr.ph.i.i.i.i.i.i.i.i261.i162 ]
-  %1289 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i265.i167, i64 64
+  %1289 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i265.i167, i64 64
   %.not.i23.i.i.i.i.i266.i168 = icmp eq ptr %1271, null
   br i1 %.not.i23.i.i.i.i.i266.i168, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer32EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i169, label %1290
 
@@ -6341,7 +6341,7 @@ _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i102: ; preds = %.lr.ph.i.i.i.i.i.i.i.i318.i98, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i83
   %.0.lcssa.i.i.i.i.i.i.i.i322.i103 = phi ptr [ %1385, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i83 ], [ %1388, %.lr.ph.i.i.i.i.i.i.i.i318.i98 ]
-  %1389 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i322.i103, i64 96
+  %1389 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i322.i103, i64 96
   %.not.i23.i.i.i.i.i323.i104 = icmp eq ptr %1371, null
   br i1 %.not.i23.i.i.i.i.i323.i104, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_17HammingComputer64EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i105, label %1390
 
@@ -6631,7 +6631,7 @@ _ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_
 
 _ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i466: ; preds = %.lr.ph.i.i.i.i.i.i.i.i373.i462, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i452
   %.0.lcssa.i.i.i.i.i.i.i.i377.i467 = phi ptr [ %1473, %_ZNSt12_Vector_baseIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i.i452 ], [ %1476, %.lr.ph.i.i.i.i.i.i.i.i373.i462 ]
-  %1477 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i377.i467, i64 48
+  %1477 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i377.i467, i64 48
   %.not.i23.i.i.i.i.i378.i468 = icmp eq ptr %1459, null
   br i1 %.not.i23.i.i.i.i.i378.i468, label %_ZNSt6vectorIN5faiss13HCounterStateINS0_22HammingComputerDefaultEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i469, label %1478
 
@@ -17884,7 +17884,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_123search_knn_hamming_heapEPKNS_14In
   %60 = mul nsw i64 %59, %.058106
   %61 = getelementptr inbounds i32, ptr %58, i64 %60
   %62 = load ptr, ptr %10, align 8
-  %63 = getelementptr i64, ptr %62, i64 %60
+  %63 = getelementptr inbounds i64, ptr %62, i64 %60
   %64 = load i32, ptr %11, align 4
   %65 = icmp eq i32 %64, 0
   %.not88 = icmp eq i64 %59, 0

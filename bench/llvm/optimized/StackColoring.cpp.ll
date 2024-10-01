@@ -4843,7 +4843,7 @@ _ZN4llvm15SmallVectorImplINS_9SlotIndexEE6appendIPS1_vEEvT_S5_.exit.us: ; preds 
   br i1 %.not19.i.i.i.i.us, label %_ZNSt17_Temporary_bufferIPN4llvm9SlotIndexES1_EC2ES2_l.exit.thread36.i.us, label %.lr.ph.i.i.preheader.i.i.us
 
 .lr.ph.i.i.preheader.i.i.us:                      ; preds = %2034
-  %.01518.i.i.i.i.us = getelementptr i8, ptr %2030, i64 8
+  %.01518.i.i.i.i.us = getelementptr inbounds i8, ptr %2030, i64 8
   %load_initial = load i64, ptr %2030, align 8
   br label %.lr.ph.i.i.i.i355.us
 
@@ -10548,7 +10548,7 @@ _ZNSt12_Vector_baseISt4pairIPN4llvm17MachineBasicBlockESt8optionalIPS3_EESaIS7_E
 
 _ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockESt8optionalIPS3_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPN4llvm17MachineBasicBlockESt8optionalIPS3_EESaIS7_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %67, %_ZNSt12_Vector_baseISt4pairIPN4llvm17MachineBasicBlockESt8optionalIPS3_EESaIS7_EE11_M_allocateEm.exit.i.i.i ], [ %70, %.lr.ph.i.i.i.i.i.i ]
-  %71 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %71 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %53, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockESt8optionalIPS3_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i, label %72
 
@@ -11826,7 +11826,7 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %29, %32
   br i1 %36, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %35
-  %37 = getelementptr i32, ptr %.053, i64 %.074
+  %37 = getelementptr inbounds i32, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
@@ -13013,7 +13013,7 @@ _ZSt13__upper_boundIPN4llvm9SlotIndexES1_N9__gnu_cxx5__ops14_Val_less_iterEET_S6
   br i1 %119, label %.lr.ph70.preheader.i.i, label %._crit_edge71.i.i
 
 .lr.ph70.preheader.i.i:                           ; preds = %118
-  %120 = getelementptr %"class.llvm::SlotIndex", ptr %.039.i.i, i64 %.058.i.i
+  %120 = getelementptr inbounds %"class.llvm::SlotIndex", ptr %.039.i.i, i64 %.058.i.i
   br label %.lr.ph70.i.i
 
 .lr.ph70.i.i:                                     ; preds = %.lr.ph70.i.i, %.lr.ph70.preheader.i.i
@@ -13528,7 +13528,7 @@ _ZSt13move_backwardIPN4llvm9SlotIndexES2_ET0_T_S4_S3_.exit45: ; preds = %_ZSt4mo
   br i1 %60, label %.lr.ph70.preheader.i.i, label %._crit_edge71.i.i
 
 .lr.ph70.preheader.i.i:                           ; preds = %59
-  %61 = getelementptr %"class.llvm::SlotIndex", ptr %.039.i.i, i64 %.058.i.i
+  %61 = getelementptr inbounds %"class.llvm::SlotIndex", ptr %.039.i.i, i64 %.058.i.i
   br label %.lr.ph70.i.i
 
 .lr.ph70.i.i:                                     ; preds = %.lr.ph70.i.i, %.lr.ph70.preheader.i.i

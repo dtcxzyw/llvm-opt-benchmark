@@ -4527,7 +4527,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN7jsonnet8internal10IdentifierESt14default_de
 
 _ZNSt6vectorISt10unique_ptrIN7jsonnet8internal10IdentifierESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN7jsonnet8internal10IdentifierESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %856, %_ZNSt12_Vector_baseISt10unique_ptrIN7jsonnet8internal10IdentifierESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i.i ], [ %860, %.lr.ph.i.i.i.i.i.i ]
-  %861 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
+  %861 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
   %.not.i23.i.i.i = icmp eq ptr %843, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN7jsonnet8internal10IdentifierESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPS3_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i, label %862
 
@@ -5584,7 +5584,7 @@ _ZNKSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12_M_c
 
 _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit38.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc1630
   %.0.lcssa.i.i.i.i.i = phi ptr [ %454, %.noexc1630 ], [ %458, %.lr.ph.i.i.i.i.i ]
-  %459 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %459 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i39.i.i = icmp eq ptr %437, null
   br i1 %.not.i39.i.i, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE17_M_realloc_insertIJRKPKNS1_10IdentifierEDnEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %460
 
@@ -5817,7 +5817,7 @@ _ZNKSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12_M_c
 
 _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit39.i.i: ; preds = %.lr.ph.i.i.i.i.i1660, %.noexc1666
   %.0.lcssa.i.i.i.i.i1664 = phi ptr [ %532, %.noexc1666 ], [ %536, %.lr.ph.i.i.i.i.i1660 ]
-  %537 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i1664, i64 16
+  %537 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i1664, i64 16
   %.not.i40.i.i = icmp eq ptr %513, null
   br i1 %.not.i40.i.i, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE17_M_realloc_insertIJRKPKNS1_10IdentifierERKPNS1_3ASTEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %538
 
@@ -25236,7 +25236,7 @@ _ZNKSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE12_M_c
 
 _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit38.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc13.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %77, %.noexc13.i ], [ %81, %.lr.ph.i.i.i.i.i.i ]
-  %82 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %82 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i39.i.i.i = icmp eq ptr %55, null
   br i1 %.not.i39.i.i.i, label %_ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_111HeapClosure5ParamESaIS4_EE17_M_realloc_insertIJPKNS1_10IdentifierEDnEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %83
 

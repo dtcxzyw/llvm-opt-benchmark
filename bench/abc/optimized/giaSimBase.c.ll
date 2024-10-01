@@ -3785,7 +3785,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i
   %92 = load i32, ptr %.val112, align 4
   %93 = shl i32 %92, %44
   %94 = sext i32 %93 to i64
-  %95 = getelementptr i64, ptr %52, i64 %94
+  %95 = getelementptr inbounds i64, ptr %52, i64 %94
   %96 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv
   %97 = load ptr, ptr %96, align 8
   br i1 %89, label %.lr.ph18.i, label %Abc_TtCopy.exit
@@ -4586,7 +4586,7 @@ Gia_ManSimPatSimAnd2.exit.us:                     ; preds = %.lr.ph.i48.us, %48
   %110 = getelementptr inbounds i64, ptr %.val47.us, i64 %109
   %111 = mul nsw i32 %98, %.fr65
   %112 = sext i32 %111 to i64
-  %113 = getelementptr i64, ptr %.val47.us, i64 %112
+  %113 = getelementptr inbounds i64, ptr %.val47.us, i64 %112
   br label %.lr.ph.i53.us
 
 .lr.ph.i53.us:                                    ; preds = %.lr.ph.i53.us, %.lr.ph.preheader.i51.us

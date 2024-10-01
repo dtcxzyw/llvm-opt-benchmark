@@ -18969,7 +18969,7 @@ _ZN5clang4StmtC2ENS0_9StmtClassENS0_10EmptyShellE.exit: ; preds = %2, %5
   %20 = select i1 %17, i64 8, i64 0
   %21 = add nsw i64 %19, %20
   %22 = and i64 %21, 4294967288
-  %23 = getelementptr i8, ptr %0, i64 %22
+  %23 = getelementptr inbounds i8, ptr %0, i64 %22
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

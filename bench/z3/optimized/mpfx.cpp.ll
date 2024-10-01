@@ -2608,7 +2608,7 @@ if.end71:                                         ; preds = %if.then65.if.end71_
   %bf.lshr.i123 = lshr i32 %bf.load.i122, 1
   %mul.i125 = mul i32 %bf.lshr.i123, %56
   %idx.ext.i126 = zext i32 %mul.i125 to i64
-  %add.ptr.i127 = getelementptr i32, ptr %57, i64 %idx.ext.i126
+  %add.ptr.i127 = getelementptr inbounds i32, ptr %57, i64 %idx.ext.i126
   %cmp74.not = icmp ult i32 %56, %add39
   br i1 %cmp74.not, label %for.cond103.preheader, label %for.cond77.preheader
 

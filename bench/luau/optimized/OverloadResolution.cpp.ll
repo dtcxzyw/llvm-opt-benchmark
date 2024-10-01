@@ -7300,7 +7300,7 @@ _ZNSt12_Vector_baseISt4pairIPKN4Luau4TypeES0_INS1_16OverloadResolver8AnalysisEmE
 
 _ZNSt6vectorISt4pairIPKN4Luau4TypeES0_INS1_16OverloadResolver8AnalysisEmEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPKN4Luau4TypeES0_INS1_16OverloadResolver8AnalysisEmEESaIS8_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %58, %_ZNSt12_Vector_baseISt4pairIPKN4Luau4TypeES0_INS1_16OverloadResolver8AnalysisEmEESaIS8_EE11_M_allocateEm.exit.i.i.i ], [ %61, %.lr.ph.i.i.i.i.i.i ]
-  %62 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %62 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIPKN4Luau4TypeES0_INS1_16OverloadResolver8AnalysisEmEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, label %63
 
@@ -11386,7 +11386,7 @@ _ZSt18uninitialized_moveIPSt4pairIPKN4Luau16IntersectionTypeEmES6_ET0_T_S8_S7_.e
 
 27:                                               ; preds = %_ZSt18uninitialized_moveIPSt4pairIPKN4Luau16IntersectionTypeEmES6_ET0_T_S8_S7_.exit
   %28 = getelementptr inbounds %"struct.std::pair.234", ptr %.pre.pre, i64 %21
-  %29 = getelementptr %"struct.std::pair.234", ptr %15, i64 %.sroa.speculated
+  %29 = getelementptr inbounds %"struct.std::pair.234", ptr %15, i64 %.sroa.speculated
   br label %.lr.ph.i.i.i.i22
 
 .lr.ph.i.i.i.i22:                                 ; preds = %27, %.lr.ph.i.i.i.i22

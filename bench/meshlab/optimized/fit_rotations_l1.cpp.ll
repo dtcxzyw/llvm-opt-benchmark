@@ -2152,7 +2152,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i9.i.i.i.i.i.i.i: ; preds
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit36.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %109
   %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %91, %109 ], [ %112, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %113 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 8
+  %113 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 8
   %.not.i37.i.i.i.i = icmp eq ptr %78, null
   br i1 %.not.i37.i.i.i.i, label %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZ16fit_rotations_l1RKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERS9_SC_R15cube_style_dataRNS8_IdLin1ELi1ELi0ELin1ELi1EEEE3$_0EEbT_RKT0_mEUlmE_ZNS6_IlSH_EEbSI_SL_mEUllmE_SM_EEbSI_SL_RKT1_RKT2_mEUlllmE_RlSX_RmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i", label %114
 
@@ -2385,7 +2385,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i9.i.i.i.i.i60.i.i: ; pre
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit36.i.i68.i.i: ; preds = %.lr.ph.i.i.i.i.i.i64.i.i, %186
   %.0.lcssa.i.i.i.i.i.i69.i.i = phi ptr [ %168, %186 ], [ %189, %.lr.ph.i.i.i.i.i.i64.i.i ]
-  %190 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i69.i.i, i64 8
+  %190 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i69.i.i, i64 8
   %.not.i37.i.i70.i.i = icmp eq ptr %155, null
   br i1 %.not.i37.i.i70.i.i, label %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRKZN3igl12parallel_forIlZNS4_12parallel_forIlZ16fit_rotations_l1RKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERS9_SC_R15cube_style_dataRNS8_IdLin1ELi1ELi0ELin1ELi1EEEE3$_0EEbT_RKT0_mEUlmE_ZNS6_IlSH_EEbSI_SL_mEUllmE_SM_EEbSI_SL_RKT1_RKT2_mEUlllmE_RlRKlRmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i", label %191
 
@@ -2736,7 +2736,7 @@ define internal fastcc void @"_ZZN3igl12parallel_forIlZ16fit_rotations_l1RKN5Eig
   %44 = getelementptr inbounds i8, ptr %40, i64 392
   %45 = load i64, ptr %44, align 8, !noalias !27
   %46 = mul nsw i64 %45, %42
-  %47 = getelementptr double, ptr %43, i64 %46
+  %47 = getelementptr inbounds double, ptr %43, i64 %46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   %48 = getelementptr inbounds i8, ptr %20, i64 8
   %.not.i170.i = icmp eq i64 %45, 0
@@ -2822,7 +2822,7 @@ common.resume.i:                                  ; preds = %.body.i, %74
   %79 = getelementptr inbounds i8, ptr %40, i64 416
   %80 = load i64, ptr %79, align 8, !noalias !32
   %81 = mul nsw i64 %80, %42
-  %82 = getelementptr double, ptr %78, i64 %81
+  %82 = getelementptr inbounds double, ptr %78, i64 %81
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %83 = getelementptr inbounds i8, ptr %21, i64 8
   %.not.i182.i = icmp eq i64 %80, 0

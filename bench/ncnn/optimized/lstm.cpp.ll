@@ -4838,7 +4838,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL4lstmERKNS_3MatE
   %110 = mul nsw i64 %109, %102
   %111 = load i64, ptr %88, align 8
   %112 = mul i64 %110, %111
-  %113 = getelementptr i8, ptr %107, i64 %112
+  %113 = getelementptr inbounds i8, ptr %107, i64 %112
   br label %._crit_edge320
 
 .lr.ph315:                                        ; preds = %95, %._crit_edge
@@ -4989,7 +4989,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL4lstmERKNS_3MatE
   %212 = mul nsw i64 %211, %102
   %213 = load i64, ptr %88, align 8
   %214 = mul i64 %212, %213
-  %215 = getelementptr i8, ptr %209, i64 %214
+  %215 = getelementptr inbounds i8, ptr %209, i64 %214
   br label %.lr.ph319
 
 .lr.ph319:                                        ; preds = %._crit_edge316, %253

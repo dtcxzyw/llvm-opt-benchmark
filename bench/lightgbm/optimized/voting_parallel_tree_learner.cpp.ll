@@ -6545,7 +6545,7 @@ _ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EE11_M_allocateEm.exit.i.i.
 
 _ZNSt6vectorIN8LightGBM14LightSplitInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %254, %_ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %257, %.lr.ph.i.i.i.i.i.i.i ]
-  %258 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
+  %258 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %241, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN8LightGBM14LightSplitInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %259
 
@@ -6635,7 +6635,7 @@ _ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EE11_M_allocateEm.exit.i.i.
 
 _ZNSt6vectorIN8LightGBM14LightSplitInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i128: ; preds = %.lr.ph.i.i.i.i.i.i.i124, %_ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EE11_M_allocateEm.exit.i.i.i122
   %.0.lcssa.i.i.i.i.i.i.i129 = phi ptr [ %284, %_ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EE11_M_allocateEm.exit.i.i.i122 ], [ %287, %.lr.ph.i.i.i.i.i.i.i124 ]
-  %288 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i129, i64 24
+  %288 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i129, i64 24
   %.not.i23.i.i.i130 = icmp eq ptr %271, null
   br i1 %.not.i23.i.i.i130, label %_ZNSt6vectorIN8LightGBM14LightSplitInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i131, label %289
 
@@ -9627,7 +9627,7 @@ _ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EE11_M_allocateEm.exit.i.i.
 
 _ZNSt6vectorIN8LightGBM14LightSplitInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %252, %_ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %255, %.lr.ph.i.i.i.i.i.i.i ]
-  %256 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
+  %256 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %239, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN8LightGBM14LightSplitInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %257
 
@@ -9717,7 +9717,7 @@ _ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EE11_M_allocateEm.exit.i.i.
 
 _ZNSt6vectorIN8LightGBM14LightSplitInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i128: ; preds = %.lr.ph.i.i.i.i.i.i.i124, %_ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EE11_M_allocateEm.exit.i.i.i122
   %.0.lcssa.i.i.i.i.i.i.i129 = phi ptr [ %282, %_ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EE11_M_allocateEm.exit.i.i.i122 ], [ %285, %.lr.ph.i.i.i.i.i.i.i124 ]
-  %286 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i129, i64 24
+  %286 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i129, i64 24
   %.not.i23.i.i.i130 = icmp eq ptr %269, null
   br i1 %.not.i23.i.i.i130, label %_ZNSt6vectorIN8LightGBM14LightSplitInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i131, label %287
 
@@ -267796,7 +267796,7 @@ _ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EE11_M_allocateEm.exit.i.i:
 
 _ZNSt6vectorIN8LightGBM14LightSplitInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %36, %_ZNSt12_Vector_baseIN8LightGBM14LightSplitInfoESaIS1_EE11_M_allocateEm.exit.i.i ], [ %39, %.lr.ph.i.i.i.i.i.i ]
-  %40 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i = icmp eq ptr %22, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN8LightGBM14LightSplitInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %41
 
@@ -268185,7 +268185,7 @@ select.unfold.i.i:                                ; preds = %.lr.ph.i.i
   br i1 %.not18.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN8LightGBM14LightSplitInfoESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread21, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %15
-  %.01317.i.i.i = getelementptr i8, ptr %11, i64 24
+  %.01317.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i

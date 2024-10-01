@@ -5346,10 +5346,10 @@ if.end27:                                         ; preds = %if.end26, %while.bo
   %m.1 = tail call i64 @llvm.smin.i64(i64 %spec.select85, i64 %leftindex.1)
   %sub36 = sub i64 %rightindex.0156, %m.1
   %sub37 = sub i64 %leftindex.1, %m.1
-  %data = getelementptr i8, ptr %rightblock.0153, i64 8
+  %data = getelementptr inbounds i8, ptr %rightblock.0153, i64 8
   %add38 = add i64 %sub36, 1
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %add38
-  %data39 = getelementptr i8, ptr %leftblock.1, i64 8
+  %data39 = getelementptr inbounds i8, ptr %leftblock.1, i64 8
   %arrayidx40 = getelementptr [64 x ptr], ptr %data39, i64 0, i64 %sub37
   br label %do.body
 
@@ -5433,9 +5433,9 @@ if.end61:                                         ; preds = %if.end58, %while.bo
   %spec.select86 = tail call i64 @llvm.smin.i64(i64 %sub66, i64 %sub65)
   %sub71 = sub i64 63, %rightindex.4
   %m64.1 = tail call i64 @llvm.smin.i64(i64 %spec.select86, i64 %sub71)
-  %data76 = getelementptr i8, ptr %leftblock.3166, i64 8
+  %data76 = getelementptr inbounds i8, ptr %leftblock.3166, i64 8
   %arrayidx77 = getelementptr [64 x ptr], ptr %data76, i64 0, i64 %leftindex.3169
-  %data78 = getelementptr i8, ptr %rightblock.4, i64 8
+  %data78 = getelementptr inbounds i8, ptr %rightblock.4, i64 8
   %add79 = add i64 %rightindex.4, 1
   %arrayidx80 = getelementptr [64 x ptr], ptr %data78, i64 0, i64 %add79
   %add82 = add i64 %m64.1, %rightindex.4

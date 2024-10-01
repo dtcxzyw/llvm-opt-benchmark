@@ -70877,9 +70877,9 @@ if.then:                                          ; preds = %_ZNKSt7__cxx1112bas
   br i1 %or.cond, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.then
-  %add.ptr = getelementptr %struct.custom_char, ptr %1, i64 %__pos1
-  %add.ptr8 = getelementptr %struct.custom_char, ptr %add.ptr, i64 %__n2
-  %add.ptr9 = getelementptr %struct.custom_char, ptr %add.ptr, i64 %__n1
+  %add.ptr = getelementptr inbounds %struct.custom_char, ptr %1, i64 %__pos1
+  %add.ptr8 = getelementptr inbounds %struct.custom_char, ptr %add.ptr, i64 %__n2
+  %add.ptr9 = getelementptr inbounds %struct.custom_char, ptr %add.ptr, i64 %__n1
   switch i64 %sub5, label %if.end.i.i [
     i64 1, label %if.then.i20
     i64 0, label %if.end10
@@ -71057,10 +71057,10 @@ if.end11:                                         ; preds = %for.body.i.i21.preh
   br i1 %tobool12.not, label %if.end19, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
-  %add.ptr14 = getelementptr %struct.custom_char, ptr %call5.i.i.i, i64 %__pos
-  %add.ptr15 = getelementptr %struct.custom_char, ptr %add.ptr14, i64 %__len2
-  %add.ptr17 = getelementptr %struct.custom_char, ptr %2, i64 %__pos
-  %add.ptr18 = getelementptr %struct.custom_char, ptr %add.ptr17, i64 %__len1
+  %add.ptr14 = getelementptr inbounds %struct.custom_char, ptr %call5.i.i.i, i64 %__pos
+  %add.ptr15 = getelementptr inbounds %struct.custom_char, ptr %add.ptr14, i64 %__len2
+  %add.ptr17 = getelementptr inbounds %struct.custom_char, ptr %2, i64 %__pos
+  %add.ptr18 = getelementptr inbounds %struct.custom_char, ptr %add.ptr17, i64 %__len1
   switch i64 %sub2, label %for.body.i.i32 [
     i64 1, label %if.then.i31
     i64 0, label %if.end19

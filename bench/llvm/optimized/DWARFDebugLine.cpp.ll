@@ -2448,7 +2448,7 @@ _ZNSt12_Vector_baseIN4llvm14DWARFFormValueESaIS1_EE11_M_allocateEm.exit.i.i.i: ;
 
 _ZNSt6vectorIN4llvm14DWARFFormValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm14DWARFFormValueESaIS1_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %355, %_ZNSt12_Vector_baseIN4llvm14DWARFFormValueESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %358, %.lr.ph.i.i.i.i.i.i ]
-  %359 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 48
+  %359 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 48
   %.not.i23.i.i.i = icmp eq ptr %341, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm14DWARFFormValueESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %360
 
@@ -2757,7 +2757,7 @@ _ZNSt12_Vector_baseIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %433, %_ZNSt12_Vector_baseIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE11_M_allocateEm.exit.i.i ], [ %436, %.lr.ph.i.i.i.i.i ]
-  %437 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 136
+  %437 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 136
   %.not.i23.i.i = icmp eq ptr %419, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %438
 
@@ -2991,7 +2991,7 @@ _ZNSt12_Vector_baseIN4llvm14DWARFFormValueESaIS1_EE11_M_allocateEm.exit.i.i.i47:
 
 _ZNSt6vectorIN4llvm14DWARFFormValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i53: ; preds = %.lr.ph.i.i.i.i.i.i49, %_ZNSt12_Vector_baseIN4llvm14DWARFFormValueESaIS1_EE11_M_allocateEm.exit.i.i.i47
   %.0.lcssa.i.i.i.i.i.i54 = phi ptr [ %511, %_ZNSt12_Vector_baseIN4llvm14DWARFFormValueESaIS1_EE11_M_allocateEm.exit.i.i.i47 ], [ %514, %.lr.ph.i.i.i.i.i.i49 ]
-  %515 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i54, i64 48
+  %515 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i54, i64 48
   %.not.i23.i.i.i55 = icmp eq ptr %497, null
   br i1 %.not.i23.i.i.i55, label %_ZNSt6vectorIN4llvm14DWARFFormValueESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i56, label %516
 
@@ -3214,7 +3214,7 @@ _ZNSt12_Vector_baseIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i26.i, %_ZNSt12_Vector_baseIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i30.i = phi ptr [ %571, %_ZNSt12_Vector_baseIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %574, %.lr.ph.i.i.i.i.i26.i ]
-  %575 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i30.i, i64 136
+  %575 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i30.i, i64 136
   %.not.i23.i.i31.i = icmp eq ptr %557, null
   br i1 %.not.i23.i.i31.i, label %_ZNSt6vectorIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %576
 
@@ -4357,7 +4357,7 @@ _ZNSt12_Vector_baseIN4llvm14DWARFDebugLine3RowESaIS2_EE11_M_allocateEm.exit.i.i.
 
 _ZNSt6vectorIN4llvm14DWARFDebugLine3RowESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm14DWARFDebugLine3RowESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %43, %_ZNSt12_Vector_baseIN4llvm14DWARFDebugLine3RowESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %46, %.lr.ph.i.i.i.i.i.i ]
-  %47 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
+  %47 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
   %.not.i23.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm14DWARFDebugLine3RowESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %48
 
@@ -4464,7 +4464,7 @@ _ZNSt12_Vector_baseIN4llvm14DWARFDebugLine8SequenceESaIS2_EE11_M_allocateEm.exit
 
 _ZNSt6vectorIN4llvm14DWARFDebugLine8SequenceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i6, %_ZNSt12_Vector_baseIN4llvm14DWARFDebugLine8SequenceESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i10 = phi ptr [ %93, %_ZNSt12_Vector_baseIN4llvm14DWARFDebugLine8SequenceESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %96, %.lr.ph.i.i.i.i.i.i6 ]
-  %97 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i10, i64 40
+  %97 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i10, i64 40
   %.not.i23.i.i.i11 = icmp eq ptr %79, null
   br i1 %.not.i23.i.i.i11, label %_ZNSt6vectorIN4llvm14DWARFDebugLine8SequenceESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %98
 
@@ -6107,7 +6107,7 @@ _ZNSt12_Vector_baseIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %541, %_ZNSt12_Vector_baseIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE11_M_allocateEm.exit.i.i ], [ %544, %.lr.ph.i.i.i.i.i ]
-  %545 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 136
+  %545 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 136
   %.not.i23.i.i = icmp eq ptr %527, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN4llvm14DWARFDebugLine13FileNameEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %546
 
@@ -11708,7 +11708,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_E
 
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 

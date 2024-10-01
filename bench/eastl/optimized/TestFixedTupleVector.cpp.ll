@@ -17810,20 +17810,19 @@ for.body.i.i.preheader.i14274:                    ; preds = %call.i.i.i.i.i.i.i.
   store i64 5, ptr %mNumElements.i.i10795, align 8
   %add.ptr.i14276 = getelementptr inbounds i8, ptr %3158, i64 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.pre16119, ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i14276, i64 20, i1 false)
-  %add.ptr25.i14278 = getelementptr inbounds i8, ptr %3159, i64 28
   %3171 = load ptr, ptr %3161, align 8
-  %add.ptr22.i14280 = getelementptr i8, ptr %3159, i64 8
   br label %for.body.i.i.i14281
 
 for.body.i.i.i14281:                              ; preds = %for.body.i.i.i14281, %for.body.i.i.preheader.i14274
   %retval.sroa.0.07.i.i.i14282 = phi ptr [ %incdec.ptr.i.i.i.i14285, %for.body.i.i.i14281 ], [ %3171, %for.body.i.i.preheader.i14274 ]
-  %first.sroa.0.06.i.i.i14283 = phi ptr [ %incdec.ptr.i.i.i.i.i14284, %for.body.i.i.i14281 ], [ %add.ptr22.i14280, %for.body.i.i.preheader.i14274 ]
-  %3172 = load i32, ptr %first.sroa.0.06.i.i.i14283, align 4
+  %first.sroa.0.06.i.i.i14283.idx = phi i64 [ %first.sroa.0.06.i.i.i14283.add, %for.body.i.i.i14281 ], [ 8, %for.body.i.i.preheader.i14274 ]
+  %first.sroa.0.06.i.i.i14283.ptr = getelementptr inbounds i8, ptr %3159, i64 %first.sroa.0.06.i.i.i14283.idx
+  %3172 = load i32, ptr %first.sroa.0.06.i.i.i14283.ptr, align 4
   store i32 %3172, ptr %retval.sroa.0.07.i.i.i14282, align 4
-  store i32 0, ptr %first.sroa.0.06.i.i.i14283, align 4
-  %incdec.ptr.i.i.i.i.i14284 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i14283, i64 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i14283.ptr, align 4
+  %first.sroa.0.06.i.i.i14283.add = add nuw nsw i64 %first.sroa.0.06.i.i.i14283.idx, 4
   %incdec.ptr.i.i.i.i14285 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i14282, i64 4
-  %cmp.i.i.i.not.i.i.i14286 = icmp eq ptr %incdec.ptr.i.i.i.i.i14284, %add.ptr25.i14278
+  %cmp.i.i.i.not.i.i.i14286 = icmp eq i64 %first.sroa.0.06.i.i.i14283.add, 28
   br i1 %cmp.i.i.i.not.i.i.i14286, label %_ZN5eastl22uninitialized_move_ptrINS_13move_iteratorIP12MoveOnlyTypeEES4_S3_EET1_T_T0_S5_.exit.i14287, label %for.body.i.i.i14281, !llvm.loop !500
 
 _ZN5eastl22uninitialized_move_ptrINS_13move_iteratorIP12MoveOnlyTypeEES4_S3_EET1_T_T0_S5_.exit.i14287: ; preds = %for.body.i.i.i14281
@@ -39773,19 +39772,18 @@ for.body.i.i.preheader.i14274:                    ; preds = %_ZN10TestObjectD2Ev
   store i64 5, ptr %mNumElements.i.i10795, align 8
   %add.ptr.i14276 = getelementptr inbounds i8, ptr %3042, i64 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mBuffer.i10793, ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i14276, i64 20, i1 false)
-  %add.ptr25.i14278 = getelementptr inbounds i8, ptr %3043, i64 28
-  %add.ptr22.i14280 = getelementptr i8, ptr %3043, i64 8
   br label %for.body.i.i.i14281
 
 for.body.i.i.i14281:                              ; preds = %for.body.i.i.i14281, %for.body.i.i.preheader.i14274
   %retval.sroa.0.07.i.i.i14282 = phi ptr [ %incdec.ptr.i.i.i.i14285, %for.body.i.i.i14281 ], [ %3048, %for.body.i.i.preheader.i14274 ]
-  %first.sroa.0.06.i.i.i14283 = phi ptr [ %incdec.ptr.i.i.i.i.i14284, %for.body.i.i.i14281 ], [ %add.ptr22.i14280, %for.body.i.i.preheader.i14274 ]
-  %3050 = load i32, ptr %first.sroa.0.06.i.i.i14283, align 4
+  %first.sroa.0.06.i.i.i14283.idx = phi i64 [ %first.sroa.0.06.i.i.i14283.add, %for.body.i.i.i14281 ], [ 8, %for.body.i.i.preheader.i14274 ]
+  %first.sroa.0.06.i.i.i14283.ptr = getelementptr inbounds i8, ptr %3043, i64 %first.sroa.0.06.i.i.i14283.idx
+  %3050 = load i32, ptr %first.sroa.0.06.i.i.i14283.ptr, align 4
   store i32 %3050, ptr %retval.sroa.0.07.i.i.i14282, align 4
-  store i32 0, ptr %first.sroa.0.06.i.i.i14283, align 4
-  %incdec.ptr.i.i.i.i.i14284 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i14283, i64 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i14283.ptr, align 4
+  %first.sroa.0.06.i.i.i14283.add = add nuw nsw i64 %first.sroa.0.06.i.i.i14283.idx, 4
   %incdec.ptr.i.i.i.i14285 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i14282, i64 4
-  %cmp.i.i.i.not.i.i.i14286 = icmp eq ptr %incdec.ptr.i.i.i.i.i14284, %add.ptr25.i14278
+  %cmp.i.i.i.not.i.i.i14286 = icmp eq i64 %first.sroa.0.06.i.i.i14283.add, 28
   br i1 %cmp.i.i.i.not.i.i.i14286, label %_ZN5eastl22uninitialized_move_ptrINS_13move_iteratorIP12MoveOnlyTypeEES4_S3_EET1_T_T0_S5_.exit.i14287, label %for.body.i.i.i14281, !llvm.loop !500
 
 _ZN5eastl22uninitialized_move_ptrINS_13move_iteratorIP12MoveOnlyTypeEES4_S3_EET1_T_T0_S5_.exit.i14287: ; preds = %for.body.i.i.i14281
@@ -60549,19 +60547,18 @@ for.body.i.i.preheader.i.i:                       ; preds = %_ZN10TestObjectD2Ev
   store i64 5, ptr %mNumElements.i.i10796, align 8
   %add.ptr.i.i10803 = getelementptr inbounds i8, ptr %2818, i64 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mBuffer.i10794, ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i.i10803, i64 20, i1 false)
-  %add.ptr25.i.i = getelementptr inbounds i8, ptr %2819, i64 28
-  %add.ptr22.i.i10805 = getelementptr i8, ptr %2819, i64 8
   br label %for.body.i.i.i.i10806
 
 for.body.i.i.i.i10806:                            ; preds = %for.body.i.i.i.i10806, %for.body.i.i.preheader.i.i
   %retval.sroa.0.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i10808, %for.body.i.i.i.i10806 ], [ %2824, %for.body.i.i.preheader.i.i ]
-  %first.sroa.0.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i10807, %for.body.i.i.i.i10806 ], [ %add.ptr22.i.i10805, %for.body.i.i.preheader.i.i ]
-  %2826 = load i32, ptr %first.sroa.0.06.i.i.i.i, align 4
+  %first.sroa.0.06.i.i.i.i.idx = phi i64 [ %first.sroa.0.06.i.i.i.i.add, %for.body.i.i.i.i10806 ], [ 8, %for.body.i.i.preheader.i.i ]
+  %first.sroa.0.06.i.i.i.i.ptr = getelementptr inbounds i8, ptr %2819, i64 %first.sroa.0.06.i.i.i.i.idx
+  %2826 = load i32, ptr %first.sroa.0.06.i.i.i.i.ptr, align 4
   store i32 %2826, ptr %retval.sroa.0.07.i.i.i.i, align 4
-  store i32 0, ptr %first.sroa.0.06.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i10807 = getelementptr inbounds i8, ptr %first.sroa.0.06.i.i.i.i, i64 4
+  store i32 0, ptr %first.sroa.0.06.i.i.i.i.ptr, align 4
+  %first.sroa.0.06.i.i.i.i.add = add nuw nsw i64 %first.sroa.0.06.i.i.i.i.idx, 4
   %incdec.ptr.i.i.i.i.i10808 = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i, i64 4
-  %cmp.i.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i10807, %add.ptr25.i.i
+  %cmp.i.i.i.not.i.i.i.i = icmp eq i64 %first.sroa.0.06.i.i.i.i.add, 28
   br i1 %cmp.i.i.i.not.i.i.i.i, label %_ZN5eastl22uninitialized_move_ptrINS_13move_iteratorIP12MoveOnlyTypeEES4_S3_EET1_T_T0_S5_.exit.i.i, label %for.body.i.i.i.i10806, !llvm.loop !500
 
 _ZN5eastl22uninitialized_move_ptrINS_13move_iteratorIP12MoveOnlyTypeEES4_S3_EET1_T_T0_S5_.exit.i.i: ; preds = %for.body.i.i.i.i10806
@@ -67635,7 +67632,7 @@ for.body.i.i.i.preheader.i54:                     ; preds = %_ZN5eastl16TupleVec
   %add.ptr26 = getelementptr inbounds %struct.MoveOnlyType, ptr %5, i64 %0
   %19 = load ptr, ptr %add.ptr.i.i, align 8
   %add.ptr3.i52 = getelementptr inbounds %struct.MoveOnlyType, ptr %19, i64 %1
-  %add.ptr.i55 = getelementptr %struct.MoveOnlyType, ptr %19, i64 %0
+  %add.ptr.i55 = getelementptr inbounds %struct.MoveOnlyType, ptr %19, i64 %0
   br label %for.body.i.i.i.i56
 
 for.body.i.i.i.i56:                               ; preds = %for.body.i.i.i.i56, %for.body.i.i.i.preheader.i54
@@ -69489,7 +69486,7 @@ for.body.i.i.preheader:                           ; preds = %_ZN5eastl16TupleVec
   %add.ptr25 = getelementptr inbounds %struct.MoveOnlyType, ptr %ref.tmp2.sroa.1.0.copyload, i64 %0
   %add.ptr26 = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %add.ptr26, align 8
-  %add.ptr22 = getelementptr %struct.MoveOnlyType, ptr %ref.tmp2.sroa.1.0.copyload, i64 %1
+  %add.ptr22 = getelementptr inbounds %struct.MoveOnlyType, ptr %ref.tmp2.sroa.1.0.copyload, i64 %1
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
@@ -74273,7 +74270,7 @@ for.body.i.i.i.preheader.i54:                     ; preds = %_ZN5eastl16TupleVec
   %add.ptr26 = getelementptr inbounds %struct.MoveOnlyType, ptr %5, i64 %0
   %19 = load ptr, ptr %add.ptr.i.i, align 8
   %add.ptr3.i52 = getelementptr inbounds %struct.MoveOnlyType, ptr %19, i64 %1
-  %add.ptr.i55 = getelementptr %struct.MoveOnlyType, ptr %19, i64 %0
+  %add.ptr.i55 = getelementptr inbounds %struct.MoveOnlyType, ptr %19, i64 %0
   br label %for.body.i.i.i.i56
 
 for.body.i.i.i.i56:                               ; preds = %for.body.i.i.i.i56, %for.body.i.i.i.preheader.i54
@@ -75881,7 +75878,7 @@ for.body.i.i.preheader:                           ; preds = %_ZN5eastl16TupleVec
   %add.ptr25 = getelementptr inbounds %struct.MoveOnlyType, ptr %ref.tmp2.sroa.1.0.copyload, i64 %0
   %add.ptr26 = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %add.ptr26, align 8
-  %add.ptr22 = getelementptr %struct.MoveOnlyType, ptr %ref.tmp2.sroa.1.0.copyload, i64 %1
+  %add.ptr22 = getelementptr inbounds %struct.MoveOnlyType, ptr %ref.tmp2.sroa.1.0.copyload, i64 %1
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i

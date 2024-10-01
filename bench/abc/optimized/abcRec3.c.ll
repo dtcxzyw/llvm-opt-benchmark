@@ -3633,7 +3633,7 @@ Abc_Clock.exit:                                   ; preds = %1, %18
   %41 = getelementptr inbounds i8, ptr %9, i64 8
   %42 = getelementptr inbounds i8, ptr %13, i64 16544
   %43 = getelementptr inbounds i8, ptr %8, i64 8
-  %44 = getelementptr i8, ptr %13, i64 120
+  %44 = getelementptr inbounds i8, ptr %13, i64 120
   %45 = getelementptr inbounds i8, ptr %13, i64 4
   %46 = getelementptr inbounds i8, ptr %7, i64 8
   %47 = getelementptr inbounds i8, ptr %13, i64 16552
@@ -4438,7 +4438,7 @@ Abc_TtSupportSize.exit:                           ; preds = %Abc_TtHasVar.exit.u
 Abc_Clock.exit:                                   ; preds = %85, %88
   %.0.i.neg = phi i64 [ %.neg170, %88 ], [ 1, %85 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
-  %92 = getelementptr i8, ptr %17, i64 120
+  %92 = getelementptr inbounds i8, ptr %17, i64 120
   %93 = getelementptr inbounds i8, ptr %0, i64 152
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %0, i64 1064
@@ -5474,7 +5474,7 @@ Abc_TtSuppFindFirst.exit111:                      ; preds = %78, %81
 Abc_Clock.exit:                                   ; preds = %94, %97
   %.0.i.neg = phi i64 [ %.neg151, %97 ], [ 1, %94 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %101 = getelementptr i8, ptr %8, i64 120
+  %101 = getelementptr inbounds i8, ptr %8, i64 120
   %102 = load ptr, ptr %17, align 8
   %103 = load i64, ptr %9, align 4
   %104 = lshr i64 %103, 24

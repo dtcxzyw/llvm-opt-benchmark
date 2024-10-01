@@ -264,7 +264,7 @@ _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %14
   br i1 %or.cond.i.i16, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i23, label %.lr.ph.i.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %34
-  %38 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i, i64 %11
+  %38 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 %11
   %39 = getelementptr inbounds i8, ptr %9, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %39, i64 noundef 32) #12
   call void @_ZN4llvm15SmallVectorImplItE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %27)

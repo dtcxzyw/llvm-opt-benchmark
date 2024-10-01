@@ -10935,7 +10935,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc
   br label %if.else.sink.split
 
 for.body.i.i.preheader.i:                         ; preds = %if.end.i.i.i
-  %__cur.011.i.i.i = getelementptr i8, ptr %call.i.i, i64 8
+  %__cur.011.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %load_initial = load i64, ptr %call.i.i, align 8
   br label %for.body.i.i.i
 
@@ -11433,7 +11433,7 @@ if.then22.i.i:                                    ; preds = %for.cond.i.i
   br i1 %cmp2750.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then22.i.i
-  %add.ptr.i14.i.i = getelementptr %"class.std::unique_ptr.12", ptr %__p.sroa.0.0.i.i, i64 %__k.0.i.i
+  %add.ptr.i14.i.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__p.sroa.0.0.i.i, i64 %__k.0.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -12842,7 +12842,7 @@ if.then22.i.i:                                    ; preds = %for.cond.i.i
   br i1 %cmp2750.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then22.i.i
-  %add.ptr.i14.i.i = getelementptr %"class.std::unique_ptr.12", ptr %__p.sroa.0.0.i.i, i64 %__k.0.i.i
+  %add.ptr.i14.i.i = getelementptr inbounds %"class.std::unique_ptr.12", ptr %__p.sroa.0.0.i.i, i64 %__k.0.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i

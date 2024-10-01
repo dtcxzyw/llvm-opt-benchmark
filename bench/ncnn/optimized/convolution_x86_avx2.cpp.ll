@@ -10202,8 +10202,8 @@ _ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i.exit.i
   %724 = load ptr, ptr %8, align 8
   %725 = add nsw i64 %indvars.iv293.i.us.i, %248
   %726 = mul nsw i64 %725, %722
-  %727 = getelementptr i8, ptr %724, i64 %726
-  %728 = getelementptr i8, ptr %727, i64 %indvars.iv488.i
+  %727 = getelementptr inbounds i8, ptr %724, i64 %726
+  %728 = getelementptr inbounds i8, ptr %727, i64 %indvars.iv488.i
   br i1 %716, label %.lr.ph190.i.us.i, label %.preheader1.i.us.i
 
 .lr.ph190.i.us.i:                                 ; preds = %723, %.lr.ph190.i.us.i

@@ -1463,7 +1463,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit:        ; preds = %153, %155
 271:                                              ; preds = %.lr.ph167, %_ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE9push_backERKS2_.exit
   %272 = phi ptr [ null, %.lr.ph167 ], [ %306, %_ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE9push_backERKS2_.exit ]
   %.sroa.098.0165 = phi ptr [ %.sroa.098.0163, %.lr.ph167 ], [ %.sroa.098.0, %_ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE9push_backERKS2_.exit ]
-  %273 = getelementptr i8, ptr %.sroa.098.0165, i64 8
+  %273 = getelementptr inbounds i8, ptr %.sroa.098.0165, i64 8
   %274 = load ptr, ptr %270, align 8
   %.not.i = icmp eq ptr %272, %274
   br i1 %.not.i, label %280, label %.preheader.i
@@ -4120,7 +4120,7 @@ define hidden void @_ZNK2cv5kinfu17HashTSDFVolumeCPU18fetchPointsNormalsERKNS_12
 26:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE9push_backERKS2_.exit
   %27 = phi ptr [ null, %.lr.ph ], [ %61, %_ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE9push_backERKS2_.exit ]
   %.sroa.085.097 = phi ptr [ %.sroa.085.095, %.lr.ph ], [ %.sroa.085.0, %_ZNSt6vectorIN2cv3VecIiLi3EEESaIS2_EE9push_backERKS2_.exit ]
-  %28 = getelementptr i8, ptr %.sroa.085.097, i64 8
+  %28 = getelementptr inbounds i8, ptr %.sroa.085.097, i64 8
   %29 = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %27, %29
   br i1 %.not.i, label %35, label %.preheader.i
@@ -8331,7 +8331,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5kinfu17Has
   %23 = getelementptr inbounds i8, ptr %17, i64 8
   %24 = getelementptr inbounds i8, ptr %17, i64 84
   %25 = getelementptr inbounds i8, ptr %17, i64 96
-  %26 = getelementptr i8, ptr %17, i64 112
+  %26 = getelementptr inbounds i8, ptr %17, i64 112
   %27 = getelementptr inbounds i8, ptr %.val, i64 16
   %28 = getelementptr inbounds i8, ptr %8, i64 16
   %29 = getelementptr inbounds i8, ptr %8, i64 20

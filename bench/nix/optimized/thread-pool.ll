@@ -11688,7 +11688,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i8.i.i.i: ; preds = %40
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.ph.i.i.i, %46
   %.0.lcssa.i.i.i = phi ptr [ %26, %46 ], [ %49, %.lr.ph.i.i.i ]
-  %50 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %50 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i28 = icmp eq ptr %1, %8
   br i1 %.not10.i.i.i28, label %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit34, label %.lr.ph.i.i.i29
 

@@ -3587,7 +3587,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i78:  ; preds = %216, %_ZN4llvm13enc
   br i1 %.not109, label %_ZN4llvm15SmallVectorImplIcE6appendIPhvEEvT_S4_.exit84, label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i79
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader.i79:             ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i78
-  %219 = getelementptr i8, ptr %217, i64 %218
+  %219 = getelementptr inbounds i8, ptr %217, i64 %218
   br label %.lr.ph.i.i.i.i.i.i.i.i.i80
 
 .lr.ph.i.i.i.i.i.i.i.i.i80:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i80, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i79
@@ -3640,7 +3640,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i77:  ; preds = %238, %_ZN4llvm13enc
   br i1 %.not110, label %_ZN4llvm15SmallVectorImplIcE6appendIPhvEEvT_S4_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader.i:               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i77
-  %241 = getelementptr i8, ptr %239, i64 %240
+  %241 = getelementptr inbounds i8, ptr %239, i64 %240
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i
@@ -7434,7 +7434,7 @@ _ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_all
 
 _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_allocateEm.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i58 = phi ptr [ %152, %_ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_allocateEm.exit.i.i.i.i ], [ %155, %.lr.ph.i.i.i.i.i.i.i ]
-  %156 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i58, i64 16
+  %156 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i58, i64 16
   %.not.i23.i.i.i.i = icmp eq ptr %138, null
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %157
 
@@ -8943,7 +8943,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3, %11
   br i1 %15, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPhPcEEvT_S5_T0_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
-  %16 = getelementptr i8, ptr %13, i64 %14
+  %16 = getelementptr inbounds i8, ptr %13, i64 %14
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i

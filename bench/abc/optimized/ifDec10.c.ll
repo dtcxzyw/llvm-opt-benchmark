@@ -741,8 +741,8 @@ define range(i32 0, 2) i32 @If_Dec10Perform(ptr noundef %0, i32 noundef %1, i32 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 8 dereferenceable(1) %scevgep56.i, i64 %156, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep57.i, ptr noundef nonnull align 8 dereferenceable(1) %scevgep58.i, i64 %156, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep59.i, ptr noundef nonnull align 8 dereferenceable(1) %scevgep60.i, i64 %156, i1 false)
-  %165 = getelementptr i64, ptr %.07797.us.i.i, i64 %150
-  %166 = getelementptr i64, ptr %.098.us.i.i, i64 %150
+  %165 = getelementptr inbounds i64, ptr %.07797.us.i.i, i64 %150
+  %166 = getelementptr inbounds i64, ptr %.098.us.i.i, i64 %150
   %167 = add nsw i32 %.07996.us.i.i, %149
   %168 = icmp slt i32 %167, %20
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
@@ -907,8 +907,8 @@ If_Dec10MoveTo.exit:                              ; preds = %.lr.ph.i43.i, %._cr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i129, ptr noundef nonnull align 8 dereferenceable(1) %scevgep56.i130, i64 %237, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep57.i127, ptr noundef nonnull align 8 dereferenceable(1) %scevgep58.i128, i64 %237, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep59.i125, ptr noundef nonnull align 8 dereferenceable(1) %scevgep60.i126, i64 %237, i1 false)
-  %246 = getelementptr i64, ptr %.07797.us.i.i123, i64 %231
-  %247 = getelementptr i64, ptr %.098.us.i.i122, i64 %231
+  %246 = getelementptr inbounds i64, ptr %.07797.us.i.i123, i64 %231
+  %247 = getelementptr inbounds i64, ptr %.098.us.i.i122, i64 %231
   %248 = add nsw i32 %.07996.us.i.i124, %230
   %249 = icmp slt i32 %248, %20
   %indvar.next.i131 = add nuw nsw i64 %indvar.i121, 1
@@ -1073,8 +1073,8 @@ If_Dec10MoveTo.exit140:                           ; preds = %.lr.ph.i43.i111, %.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i171, ptr noundef nonnull align 8 dereferenceable(1) %scevgep56.i172, i64 %318, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep57.i169, ptr noundef nonnull align 8 dereferenceable(1) %scevgep58.i170, i64 %318, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep59.i167, ptr noundef nonnull align 8 dereferenceable(1) %scevgep60.i168, i64 %318, i1 false)
-  %327 = getelementptr i64, ptr %.07797.us.i.i165, i64 %312
-  %328 = getelementptr i64, ptr %.098.us.i.i164, i64 %312
+  %327 = getelementptr inbounds i64, ptr %.07797.us.i.i165, i64 %312
+  %328 = getelementptr inbounds i64, ptr %.098.us.i.i164, i64 %312
   %329 = add nsw i32 %.07996.us.i.i166, %311
   %330 = icmp slt i32 %329, %20
   %indvar.next.i173 = add nuw nsw i64 %indvar.i163, 1
@@ -1240,8 +1240,8 @@ If_Dec10MoveTo.exit182:                           ; preds = %.lr.ph.i43.i153, %.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i213, ptr noundef nonnull align 8 dereferenceable(1) %scevgep56.i214, i64 %400, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep57.i211, ptr noundef nonnull align 8 dereferenceable(1) %scevgep58.i212, i64 %400, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep59.i209, ptr noundef nonnull align 8 dereferenceable(1) %scevgep60.i210, i64 %400, i1 false)
-  %409 = getelementptr i64, ptr %.07797.us.i.i207, i64 %394
-  %410 = getelementptr i64, ptr %.098.us.i.i206, i64 %394
+  %409 = getelementptr inbounds i64, ptr %.07797.us.i.i207, i64 %394
+  %410 = getelementptr inbounds i64, ptr %.098.us.i.i206, i64 %394
   %411 = add nsw i32 %.07996.us.i.i208, %393
   %412 = icmp slt i32 %411, %20
   %indvar.next.i215 = add nuw nsw i64 %indvar.i205, 1

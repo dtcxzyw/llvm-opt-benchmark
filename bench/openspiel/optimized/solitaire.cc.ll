@@ -2425,7 +2425,7 @@ _ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.
 
 _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %98, %_ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.i ], [ %101, %.lr.ph.i.i.i.i.i ]
-  %102 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 20
+  %102 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 20
   %.not.i23.i.i = icmp eq ptr %79, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %103
 
@@ -2958,7 +2958,7 @@ _ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.
 
 _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %52, %_ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.i ], [ %55, %.lr.ph.i.i.i.i.i ]
-  %56 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 20
+  %56 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 20
   %.not.i23.i.i = icmp eq ptr %.sroa.049.3117, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %57
 
@@ -3070,7 +3070,7 @@ _ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.
 
 _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i29: ; preds = %.lr.ph.i.i.i.i.i25, %_ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.i23
   %.0.lcssa.i.i.i.i.i30 = phi ptr [ %93, %_ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.i23 ], [ %96, %.lr.ph.i.i.i.i.i25 ]
-  %97 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i30, i64 20
+  %97 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i30, i64 20
   %.not.i23.i.i31 = icmp eq ptr %.sroa.049.5112, null
   br i1 %.not.i23.i.i31, label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i32, label %98
 
@@ -3569,7 +3569,7 @@ _ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.
 
 _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %33, %_ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.i ], [ %36, %.lr.ph.i.i.i.i.i ]
-  %37 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 20
+  %37 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 20
   %.not.i23.i.i = icmp eq ptr %19, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %38
 
@@ -3815,7 +3815,7 @@ _ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.
 
 _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %29, %_ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.i ], [ %32, %.lr.ph.i.i.i.i.i ]
-  %33 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 20
+  %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 20
   %.not.i23.i.i = icmp eq ptr %.sroa.014.147, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %34
 
@@ -3965,7 +3965,7 @@ _ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.
 
 _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %42, %_ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.i ], [ %45, %.lr.ph.i.i.i.i.i ]
-  %46 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 20
+  %46 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 20
   %.not.i23.i.i = icmp eq ptr %16, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %47
 
@@ -4303,7 +4303,7 @@ _ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.
 
 _ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %32, %_ZNSt12_Vector_baseIN10open_spiel9solitaire4CardESaIS2_EE11_M_allocateEm.exit.i.i ], [ %35, %.lr.ph.i.i.i.i.i ]
-  %36 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 20
+  %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 20
   %.not.i23.i.i = icmp eq ptr %.sroa.016.149, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %37
 
@@ -11391,7 +11391,7 @@ _ZNSt12_Vector_baseIN10open_spiel9solitaire4MoveESaIS2_EE11_M_allocateEm.exit.i:
 
 _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %216
   %.0.lcssa.i.i.i.i = phi ptr [ %214, %216 ], [ %218, %.lr.ph.i.i.i.i ]
-  %219 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 40
+  %219 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 40
   %.not.i34.i = icmp eq ptr %200, null
   br i1 %.not.i34.i, label %.noexc53, label %220
 
@@ -11948,7 +11948,7 @@ _ZNKSt6vectorISt4pairIldESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %66
 
 _ZNSt6vectorISt4pairIldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %.noexc5
   %.0.lcssa.i.i.i.i = phi ptr [ %80, %.noexc5 ], [ %84, %.lr.ph.i.i.i.i ]
-  %85 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %85 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %18, null
   br i1 %.not.i34.i, label %.noexc, label %86
 
@@ -19637,7 +19637,7 @@ define linkonce_odr void @_ZNSt6vectorIN10open_spiel9solitaire4CardESaIS2_EE15_M
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
   %22 = sub nsw i64 0, %9
-  %23 = getelementptr %"class.open_spiel::solitaire::Card", ptr %13, i64 %22
+  %23 = getelementptr inbounds %"class.open_spiel::solitaire::Card", ptr %13, i64 %22
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -19689,7 +19689,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN10open_spiel9solit
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN10open_spiel9solitaire4CardESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN10open_spiel9solitaire4CardESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN10open_spiel9solitaire4CardESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
   %34 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN10open_spiel9solitaire4CardESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN10open_spiel9solitaire4CardESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
   %35 = sub nuw nsw i64 %9, %20
-  %36 = getelementptr %"class.open_spiel::solitaire::Card", ptr %34, i64 %35
+  %36 = getelementptr inbounds %"class.open_spiel::solitaire::Card", ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not11.i.i.i.i.i53 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i53, label %_ZSt22__uninitialized_move_aIPN10open_spiel9solitaire4CardES3_SaIS2_EET0_T_S6_S5_RT1_.exit59, label %.lr.ph.i.i.i.i.i54
@@ -19870,7 +19870,7 @@ _ZNSt12_Vector_baseIN10open_spiel9solitaire4MoveESaIS2_EE11_M_allocateEm.exit: ;
 
 _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %28
   %.0.lcssa.i.i.i = phi ptr [ %26, %28 ], [ %30, %.lr.ph.i.i.i ]
-  %31 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 40
+  %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 40
   %.not10.i.i.i27 = icmp eq ptr %1, %8
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, label %.lr.ph.i.i.i28
 

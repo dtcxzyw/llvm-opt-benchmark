@@ -14340,7 +14340,7 @@ _ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i: ; preds = %for.body16
   store i32 %26, ptr %call3.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 4
   store i32 %25, ptr %incdec.ptr.i.i.i, align 4
-  %incdec.ptr4.i.i.i = getelementptr i8, ptr %call3.i.i.i, i64 8
+  %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i, ptr %case_split_set, align 8
   %27 = load ptr, ptr %it.0, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %27, null
@@ -21983,7 +21983,7 @@ call3.i.i.i.i.noexc:                              ; preds = %_ZNK6vectorIN3sat7l
   store i32 %39, ptr %call3.i.i.i.i41, align 4
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i41, i64 4
   store i32 %38, ptr %incdec.ptr.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i = getelementptr i8, ptr %call3.i.i.i.i41, i64 8
+  %incdec.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i41, i64 8
   store ptr %incdec.ptr4.i.i.i.i, ptr %add.ptr.i33, align 8
   %40 = load ptr, ptr %new_case_split, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %40, null
@@ -22316,7 +22316,7 @@ call3.i.i.i.i.noexc99:                            ; preds = %_ZNK6vectorIN3sat7l
   store i32 %87, ptr %call3.i.i.i.i100, align 4
   %incdec.ptr.i.i.i.i79 = getelementptr inbounds i8, ptr %call3.i.i.i.i100, i64 4
   store i32 %86, ptr %incdec.ptr.i.i.i.i79, align 4
-  %incdec.ptr4.i.i.i.i80 = getelementptr i8, ptr %call3.i.i.i.i100, i64 8
+  %incdec.ptr4.i.i.i.i80 = getelementptr inbounds i8, ptr %call3.i.i.i.i100, i64 8
   store ptr %incdec.ptr4.i.i.i.i80, ptr %add.ptr.i71, align 8
   %88 = load ptr, ptr %new_case_split, align 8
   %cmp.i.i.i.i.i.i81 = icmp eq ptr %88, null
@@ -23621,7 +23621,7 @@ call3.i.i.i.i.i.noexc:                            ; preds = %_ZNK6vectorIN3sat7l
   store i32 %33, ptr %call3.i.i.i.i.i28, align 4, !noalias !113
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i28, i64 4
   store i32 %32, ptr %incdec.ptr.i.i.i.i.i, align 4, !noalias !113
-  %incdec.ptr4.i.i.i.i.i = getelementptr i8, ptr %call3.i.i.i.i.i28, i64 8
+  %incdec.ptr4.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i28, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i, ptr %second.i.i70, align 8, !alias.scope !113
   %34 = load ptr, ptr %lits, align 8, !noalias !113
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %34, null
@@ -38294,7 +38294,7 @@ if.end25:                                         ; preds = %if.then17
   br i1 %cmp2967, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end25
-  %add.ptr26 = getelementptr ptr, ptr %__p.0, i64 %__k.0
+  %add.ptr26 = getelementptr inbounds ptr, ptr %__p.0, i64 %__k.0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -39365,7 +39365,7 @@ _ZNK6vectorI7svectorIN3sat7literalEjELb1EjE4sizeEv.exit: ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %class.svector.226, ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0

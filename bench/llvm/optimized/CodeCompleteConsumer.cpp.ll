@@ -425,7 +425,7 @@ define dso_local void @_ZN5clang20CodeCompletionStringC2EPKNS0_5ChunkEjj18CXAvai
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
-  %30 = getelementptr %"struct.clang::CodeCompletionString::Chunk", ptr %27, i64 %10
+  %30 = getelementptr inbounds %"struct.clang::CodeCompletionString::Chunk", ptr %27, i64 %10
   %.not2225 = icmp eq i32 %6, 0
   br i1 %.not2225, label %._crit_edge29, label %.lr.ph28.preheader
 

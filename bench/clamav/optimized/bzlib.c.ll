@@ -125,7 +125,7 @@ define range(i32 -4, 5) i32 @nsis_BZ2_bzDecompress(ptr noundef readonly %0) loca
   %16 = getelementptr inbounds i8, ptr %6, i64 64
   %17 = getelementptr inbounds i8, ptr %6, i64 60
   %18 = getelementptr inbounds i8, ptr %6, i64 40
-  %19 = getelementptr i8, ptr %6, i64 1096
+  %19 = getelementptr inbounds i8, ptr %6, i64 1096
   %20 = getelementptr inbounds i8, ptr %6, i64 3160
   %21 = getelementptr inbounds i8, ptr %6, i64 3168
   %22 = getelementptr inbounds i8, ptr %6, i64 3184
@@ -166,10 +166,10 @@ define range(i32 -4, 5) i32 @nsis_BZ2_bzDecompress(ptr noundef readonly %0) loca
   %34 = getelementptr inbounds i8, ptr %6, i64 51628
   %35 = getelementptr inbounds i8, ptr %6, i64 57820
   %36 = getelementptr inbounds i8, ptr %6, i64 64012
-  %37 = getelementptr i8, ptr %6, i64 68
+  %37 = getelementptr inbounds i8, ptr %6, i64 68
   %38 = getelementptr inbounds i8, ptr %6, i64 3724
   %39 = getelementptr inbounds i8, ptr %6, i64 7820
-  %40 = getelementptr i8, ptr %6, i64 2124
+  %40 = getelementptr inbounds i8, ptr %6, i64 2124
   %41 = getelementptr inbounds i8, ptr %6, i64 3452
   %.pre = load i32, ptr %10, align 8
   %invariant.gep = getelementptr i8, ptr %6, i64 51628

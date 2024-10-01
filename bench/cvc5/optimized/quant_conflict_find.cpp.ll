@@ -1115,7 +1115,7 @@ for.inc.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i, 
 
 invoke.cont14.i.i.i:                              ; preds = %for.inc.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %cond.i19.i.i.i, %invoke.cont.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i29.i.i.i
 
@@ -1193,7 +1193,7 @@ for.inc.i.i.i.i.i.i.i.i192:                       ; preds = %invoke.cont.i.i.i18
 
 invoke.cont14.i.i.i198:                           ; preds = %for.inc.i.i.i.i.i.i.i.i192, %invoke.cont.i.i.i188
   %__cur.0.lcssa.i.i.i.i.i.i.i.i199 = phi ptr [ %cond.i19.i.i.i189, %invoke.cont.i.i.i188 ], [ %incdec.ptr1.i.i.i.i.i.i.i.i196, %for.inc.i.i.i.i.i.i.i.i192 ]
-  %incdec.ptr.i.i.i200 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i199, i64 8
+  %incdec.ptr.i.i.i200 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i199, i64 8
   %tobool.not.i.i.i.i201 = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.i.i201, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i203, label %if.then.i29.i.i.i202
 
@@ -1327,7 +1327,7 @@ for.inc.i.i.i.i.i.i.i.i238:                       ; preds = %invoke.cont.i.i.i23
 
 invoke.cont14.i.i.i244:                           ; preds = %for.inc.i.i.i.i.i.i.i.i238, %invoke.cont.i.i.i234
   %__cur.0.lcssa.i.i.i.i.i.i.i.i245 = phi ptr [ %cond.i19.i.i.i235, %invoke.cont.i.i.i234 ], [ %incdec.ptr1.i.i.i.i.i.i.i.i242, %for.inc.i.i.i.i.i.i.i.i238 ]
-  %incdec.ptr.i.i.i246 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i245, i64 8
+  %incdec.ptr.i.i.i246 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i245, i64 8
   %tobool.not.i.i.i.i247 = icmp eq ptr %53, null
   br i1 %tobool.not.i.i.i.i247, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i249, label %if.then.i29.i.i.i248
 
@@ -2485,7 +2485,7 @@ for.inc.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i940,
 
 invoke.cont14.i.i:                                ; preds = %for.inc.i.i.i.i.i.i.i, %invoke.cont.i.i940
   %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %cond.i19.i.i, %invoke.cont.i.i940 ], [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ]
-  %incdec.ptr.i.i942 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i942 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i943 = icmp eq ptr %cond.i19.i.i16211630, null
   br i1 %tobool.not.i.i.i943, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i29.i.i
 
@@ -7825,7 +7825,7 @@ for.inc.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i, %f
 
 invoke.cont14.i.i:                                ; preds = %for.inc.i.i.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %cond.i19.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i29.i.i
 
@@ -9432,7 +9432,7 @@ for.inc.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i, 
 
 invoke.cont14.i.i.i:                              ; preds = %for.inc.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %cond.i19.i.i.i, %invoke.cont.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i29.i.i.i
 
@@ -9585,7 +9585,7 @@ for.inc.i.i.i.i.i.i.i.i154:                       ; preds = %invoke.cont.i.i.i15
 
 invoke.cont14.i.i.i160:                           ; preds = %for.inc.i.i.i.i.i.i.i.i154, %invoke.cont.i.i.i150
   %__cur.0.lcssa.i.i.i.i.i.i.i.i161 = phi ptr [ %cond.i19.i.i.i151, %invoke.cont.i.i.i150 ], [ %incdec.ptr1.i.i.i.i.i.i.i.i158, %for.inc.i.i.i.i.i.i.i.i154 ]
-  %incdec.ptr.i.i.i162 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i161, i64 8
+  %incdec.ptr.i.i.i162 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i161, i64 8
   %tobool.not.i.i.i.i163 = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i.i163, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i165, label %if.then.i29.i.i.i164
 
@@ -9663,7 +9663,7 @@ for.inc.i.i.i.i.i.i.i.i195:                       ; preds = %invoke.cont.i.i.i19
 
 invoke.cont14.i.i.i201:                           ; preds = %for.inc.i.i.i.i.i.i.i.i195, %invoke.cont.i.i.i191
   %__cur.0.lcssa.i.i.i.i.i.i.i.i202 = phi ptr [ %cond.i19.i.i.i192, %invoke.cont.i.i.i191 ], [ %incdec.ptr1.i.i.i.i.i.i.i.i199, %for.inc.i.i.i.i.i.i.i.i195 ]
-  %incdec.ptr.i.i.i203 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i202, i64 8
+  %incdec.ptr.i.i.i203 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i202, i64 8
   %tobool.not.i.i.i.i204 = icmp eq ptr %37, null
   br i1 %tobool.not.i.i.i.i204, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i206, label %if.then.i29.i.i.i205
 
@@ -13653,7 +13653,7 @@ for.inc.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i, %f
 
 invoke.cont14.i.i:                                ; preds = %for.inc.i.i.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %cond.i19.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %remDeq.sroa.0.01169, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i29.i.i
 
@@ -18057,7 +18057,7 @@ for.inc.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i668,
 
 invoke.cont14.i.i:                                ; preds = %for.inc.i.i.i.i.i.i.i, %invoke.cont.i.i668
   %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %cond.i19.i.i, %invoke.cont.i.i668 ], [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ]
-  %incdec.ptr.i.i670 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i670 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i671 = icmp eq ptr %children.sroa.0.33171, null
   br i1 %tobool.not.i.i.i671, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i29.i.i
 
@@ -18144,7 +18144,7 @@ for.inc.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i, 
 
 invoke.cont14.i.i.i:                              ; preds = %for.inc.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %cond.i19.i.i.i, %invoke.cont.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %children.sroa.0.33171, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i29.i.i.i
 
@@ -24085,7 +24085,7 @@ for.body.i.i.i.i1391:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers8MatchGenESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i1391, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers8MatchGenESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory11quantifiers8MatchGenESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i1391 ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i1394 = icmp eq ptr %96, null
   br i1 %tobool.not.i.i1394, label %.noexc684, label %if.then.i20.i
 
@@ -26674,7 +26674,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt17_Rb_tree_iteratorISt4pairIKN4cvc58internal12NodeTemplateILb0EEENS3_16NodeTemplateTrieILb0EEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseISt17_Rb_tree_iteratorISt4pairIKN4cvc58internal12NodeTemplateILb0EEENS3_16NodeTemplateTrieILb0EEEEESaISA_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseISt17_Rb_tree_iteratorISt4pairIKN4cvc58internal12NodeTemplateILb0EEENS3_16NodeTemplateTrieILb0EEEEESaISA_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt17_Rb_tree_iteratorISt4pairIKN4cvc58internal12NodeTemplateILb0EEENS3_16NodeTemplateTrieILb0EEEEESaISA_EE17_M_realloc_insertIJRKSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -27068,7 +27068,7 @@ for.body.i.i.i.i.i917:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt17_Rb_tree_iteratorISt4pairIKN4cvc58internal12NodeTemplateILb0EEENS3_16NodeTemplateTrieILb0EEEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit19.i.i923: ; preds = %for.body.i.i.i.i.i917, %_ZNSt12_Vector_baseISt17_Rb_tree_iteratorISt4pairIKN4cvc58internal12NodeTemplateILb0EEENS3_16NodeTemplateTrieILb0EEEEESaISA_EE11_M_allocateEm.exit.i.i913
   %__cur.0.lcssa.i.i.i.i.i924 = phi ptr [ %cond.i10.i.i914, %_ZNSt12_Vector_baseISt17_Rb_tree_iteratorISt4pairIKN4cvc58internal12NodeTemplateILb0EEENS3_16NodeTemplateTrieILb0EEEEESaISA_EE11_M_allocateEm.exit.i.i913 ], [ %incdec.ptr1.i.i.i.i.i921, %for.body.i.i.i.i.i917 ]
-  %incdec.ptr.i.i925 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i924, i64 8
+  %incdec.ptr.i.i925 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i924, i64 8
   %tobool.not.i.i.i926 = icmp eq ptr %81, null
   br i1 %tobool.not.i.i.i926, label %_ZNSt6vectorISt17_Rb_tree_iteratorISt4pairIKN4cvc58internal12NodeTemplateILb0EEENS3_16NodeTemplateTrieILb0EEEEESaISA_EE17_M_realloc_insertIJRKSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i928, label %if.then.i20.i.i927
 
@@ -28863,7 +28863,7 @@ for.inc.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i, 
 
 invoke.cont14.i.i.i:                              ; preds = %for.inc.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %cond.i19.i.i.i, %invoke.cont.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i29.i.i.i
 

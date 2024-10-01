@@ -5175,7 +5175,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFun
   br label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIfPN4llvm14BPFunctionNodeEESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.thread23.sink.split.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %10
-  %.01317.i.i.i.i.i = getelementptr i8, ptr %9, i64 16
+  %.01317.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i

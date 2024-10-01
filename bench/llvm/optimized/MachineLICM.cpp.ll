@@ -5502,7 +5502,7 @@ _ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_all
 
 _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_allocateEm.exit.i.i.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i.i.i = phi ptr [ %2068, %_ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_allocateEm.exit.i.i.i.i.i.i.i ], [ %2071, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %2072 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.i.i, i64 16
+  %2072 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i.i.i.i.i = icmp eq ptr %2054, null
   br i1 %.not.i23.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i.i, label %2073
 
@@ -8002,7 +8002,7 @@ _ZN4llvm15SmallVectorImplIPNS_11MachineLoopEE6appendIN9__gnu_cxx17__normal_itera
 
 _ZN4llvm15SmallVectorImplIPNS_11MachineLoopEE7reserveEm.exit: ; preds = %31, %32
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr i8, ptr %34, i64 %8
+  %35 = getelementptr inbounds i8, ptr %34, i64 %8
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
   %.idx = shl nsw i64 %36, 3
   %37 = ptrtoint ptr %35 to i64

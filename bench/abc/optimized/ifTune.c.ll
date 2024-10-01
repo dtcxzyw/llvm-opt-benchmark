@@ -3904,9 +3904,9 @@ define nonnull ptr @Ifn_NtkDeriveTruth(ptr noundef %0, ptr nocapture noundef rea
   %5 = getelementptr inbounds i8, ptr %0, i64 1564
   %6 = getelementptr inbounds i8, ptr %0, i64 1560
   %7 = getelementptr inbounds i8, ptr %0, i64 1584
-  %8 = getelementptr i8, ptr %0, i64 8496
+  %8 = getelementptr inbounds i8, ptr %0, i64 8496
   %9 = getelementptr inbounds i8, ptr %0, i64 1556
-  %10 = getelementptr i8, ptr %0, i64 5680
+  %10 = getelementptr inbounds i8, ptr %0, i64 5680
   br label %18
 
 .preheader:                                       ; preds = %Abc_TtCopy.exit, %2
@@ -3958,13 +3958,13 @@ define nonnull ptr @Ifn_NtkDeriveTruth(ptr noundef %0, ptr nocapture noundef rea
   %32 = load i32, ptr %9, align 4
   %33 = mul nsw i32 %32, %.0157
   %34 = sext i32 %33 to i64
-  %35 = getelementptr i64, ptr %8, i64 %34
+  %35 = getelementptr inbounds i64, ptr %8, i64 %34
   %36 = icmp slt i32 %19, 7
   %37 = add nsw i32 %19, -6
   %38 = select i1 %36, i32 0, i32 %37
   %39 = shl i32 %.0107.lcssa, %38
   %40 = sext i32 %39 to i64
-  %41 = getelementptr i64, ptr %10, i64 %40
+  %41 = getelementptr inbounds i64, ptr %10, i64 %40
   %42 = icmp sgt i32 %32, 0
   br i1 %42, label %.lr.ph.preheader.i, label %Abc_TtCopy.exit
 

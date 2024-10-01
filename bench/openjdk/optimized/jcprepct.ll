@@ -116,7 +116,7 @@ define hidden void @jICPrepC(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 ._crit_edge.us.i:                                 ; preds = %65
   %72 = getelementptr inbounds [10 x ptr], ptr %42, i64 0, i64 %indvars.iv56.i
   store ptr %64, ptr %72, align 8
-  %73 = getelementptr ptr, ptr %.046.us.i, i64 %43
+  %73 = getelementptr inbounds ptr, ptr %.046.us.i, i64 %43
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %74 = getelementptr inbounds i8, ptr %.04044.us.i, i64 96
   %75 = load i32, ptr %25, align 4

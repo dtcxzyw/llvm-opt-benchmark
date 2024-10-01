@@ -4479,7 +4479,7 @@ _ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7Featur
 
 _ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7FeatureESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %76, %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i ], [ %79, %.lr.ph.i.i.i.i.i.i.i ]
-  %80 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 128
+  %80 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 128
   %.not.i23.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7FeatureESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %81
 
@@ -4654,7 +4654,7 @@ _ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7Featur
 
 _ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7FeatureESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i77: ; preds = %.lr.ph.i.i.i.i.i.i.i73, %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i71
   %.0.lcssa.i.i.i.i.i.i.i78 = phi ptr [ %147, %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i71 ], [ %150, %.lr.ph.i.i.i.i.i.i.i73 ]
-  %151 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i78, i64 128
+  %151 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i78, i64 128
   %.not.i23.i.i.i79 = icmp eq ptr %133, null
   br i1 %.not.i23.i.i.i79, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7FeatureESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i80, label %152
 
@@ -4810,7 +4810,7 @@ _ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7Featur
 
 _ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7FeatureESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i108: ; preds = %.lr.ph.i.i.i.i.i.i.i104, %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i102
   %.0.lcssa.i.i.i.i.i.i.i109 = phi ptr [ %209, %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i102 ], [ %212, %.lr.ph.i.i.i.i.i.i.i104 ]
-  %213 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i109, i64 128
+  %213 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i109, i64 128
   %.not.i23.i.i.i110 = icmp eq ptr %195, null
   br i1 %.not.i23.i.i.i110, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7FeatureESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i111, label %214
 
@@ -5386,7 +5386,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc203, %._crit_
   %136 = load ptr, ptr %101, align 8
   %137 = load i64, ptr %136, align 8
   %138 = mul i64 %137, %indvars.iv262
-  %139 = getelementptr i8, ptr %135, i64 %138
+  %139 = getelementptr inbounds i8, ptr %135, i64 %138
   %140 = load ptr, ptr %102, align 8
   %141 = load ptr, ptr %103, align 8
   %142 = load i64, ptr %141, align 8
@@ -6408,7 +6408,7 @@ _ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7Featur
 
 _ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %83, %_ZNSt12_Vector_baseIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE11_M_allocateEm.exit.i.i.i ], [ %86, %.lr.ph.i.i.i.i.i.i.i ]
-  %87 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 80
+  %87 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 80
   %.not.i23.i.i.i = icmp eq ptr %69, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvLBPEvaluator7FeatureESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %88
 

@@ -1281,7 +1281,7 @@ _ZNSt12_Vector_baseISt4fposI11__mbstate_tESaIS2_EE11_M_allocateEm.exit.i.i.i.i: 
 
 _ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4fposI11__mbstate_tESaIS2_EE11_M_allocateEm.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %30, %_ZNSt12_Vector_baseISt4fposI11__mbstate_tESaIS2_EE11_M_allocateEm.exit.i.i.i.i ], [ %33, %.lr.ph.i.i.i.i.i.i.i ]
-  %34 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %34 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %35
 
@@ -19794,7 +19794,7 @@ _ZNSt12_Vector_baseIN7doctest6StringESaIS1_EE11_M_allocateEm.exit: ; preds = %_Z
 
 _ZNSt6vectorIN7doctest6StringESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN7doctest6StringESaIS1_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN7doctest6StringESaIS1_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 24
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN7doctest6StringESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17
 
@@ -30506,7 +30506,7 @@ _ZNSt16allocator_traitsISaIN7doctest6StringEEE9constructIS1_JRKS1_EEEvRS2_PT_DpO
 
 _ZNSt6vectorIN7doctest6StringESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN7doctest6StringEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN7doctest6StringEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %51, %.lr.ph.i.i.i ]
-  %52 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 24
+  %52 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN7doctest6StringESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i27
 

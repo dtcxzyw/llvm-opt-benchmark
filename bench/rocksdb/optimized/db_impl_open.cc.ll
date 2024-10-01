@@ -8960,7 +8960,7 @@ for.body.i.i.i.i.i38:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i: ; preds = %for.body.i.i.i.i.i38, %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i38 ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJDnEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -9150,7 +9150,7 @@ for.body.i.i.i.i.i106:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i112: ; preds = %for.body.i.i.i.i.i106, %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i102
   %__cur.0.lcssa.i.i.i.i.i113 = phi ptr [ %cond.i10.i.i103, %_ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i102 ], [ %incdec.ptr1.i.i.i.i.i110, %for.body.i.i.i.i.i106 ]
-  %incdec.ptr.i.i114 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i113, i64 8
+  %incdec.ptr.i.i114 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i113, i64 8
   %tobool.not.i.i.i115 = icmp eq ptr %51, null
   br i1 %tobool.not.i.i.i115, label %_ZNSt6vectorISt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %if.then.i20.i.i116
 

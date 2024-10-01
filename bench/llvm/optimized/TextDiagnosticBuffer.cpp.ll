@@ -150,7 +150,7 @@ _ZNSt12_Vector_baseISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_M_allo
 
 _ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit23.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %48, %_ZNSt12_Vector_baseISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_M_allocateEm.exit.i ], [ %52, %.lr.ph.i.i.i.i ]
-  %53 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %53 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i24.i = icmp eq ptr %34, null
   br i1 %.not.i24.i, label %_ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE17_M_realloc_insertIJRS3_mEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit, label %54
 
@@ -268,7 +268,7 @@ _ZNSt12_Vector_baseISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_M_allo
 
 _ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit23.i43: ; preds = %.lr.ph.i.i.i.i32, %_ZNSt12_Vector_baseISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_M_allocateEm.exit.i30
   %.0.lcssa.i.i.i.i37 = phi ptr [ %102, %_ZNSt12_Vector_baseISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_M_allocateEm.exit.i30 ], [ %106, %.lr.ph.i.i.i.i32 ]
-  %107 = getelementptr i8, ptr %.0.lcssa.i.i.i.i37, i64 16
+  %107 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i37, i64 16
   %.not.i24.i45 = icmp eq ptr %88, null
   br i1 %.not.i24.i45, label %_ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE17_M_realloc_insertIJRS3_mEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit46, label %108
 
@@ -386,7 +386,7 @@ _ZNSt12_Vector_baseISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_M_allo
 
 _ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit23.i63: ; preds = %.lr.ph.i.i.i.i52, %_ZNSt12_Vector_baseISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_M_allocateEm.exit.i50
   %.0.lcssa.i.i.i.i57 = phi ptr [ %156, %_ZNSt12_Vector_baseISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_M_allocateEm.exit.i50 ], [ %160, %.lr.ph.i.i.i.i52 ]
-  %161 = getelementptr i8, ptr %.0.lcssa.i.i.i.i57, i64 16
+  %161 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i57, i64 16
   %.not.i24.i65 = icmp eq ptr %142, null
   br i1 %.not.i24.i65, label %_ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE17_M_realloc_insertIJRS3_mEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit66, label %162
 
@@ -504,7 +504,7 @@ _ZNSt12_Vector_baseISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_M_allo
 
 _ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit23.i83: ; preds = %.lr.ph.i.i.i.i72, %_ZNSt12_Vector_baseISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_M_allocateEm.exit.i70
   %.0.lcssa.i.i.i.i77 = phi ptr [ %210, %_ZNSt12_Vector_baseISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_M_allocateEm.exit.i70 ], [ %214, %.lr.ph.i.i.i.i72 ]
-  %215 = getelementptr i8, ptr %.0.lcssa.i.i.i.i77, i64 16
+  %215 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i77, i64 16
   %.not.i24.i85 = icmp eq ptr %196, null
   br i1 %.not.i24.i85, label %_ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE17_M_realloc_insertIJRS3_mEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit86, label %216
 

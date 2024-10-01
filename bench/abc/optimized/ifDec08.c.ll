@@ -710,8 +710,8 @@ define range(i32 0, 2) i32 @If_Dec08Perform(ptr noundef %0, i32 noundef %1, i32 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 8 dereferenceable(1) %scevgep56.i, i64 %145, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep57.i, ptr noundef nonnull align 8 dereferenceable(1) %scevgep58.i, i64 %145, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep59.i, ptr noundef nonnull align 8 dereferenceable(1) %scevgep60.i, i64 %145, i1 false)
-  %154 = getelementptr i64, ptr %.07797.us.i.i, i64 %139
-  %155 = getelementptr i64, ptr %.098.us.i.i, i64 %139
+  %154 = getelementptr inbounds i64, ptr %.07797.us.i.i, i64 %139
+  %155 = getelementptr inbounds i64, ptr %.098.us.i.i, i64 %139
   %156 = add nsw i32 %.07996.us.i.i, %138
   %157 = icmp slt i32 %156, %19
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
@@ -876,8 +876,8 @@ If_Dec08MoveTo.exit:                              ; preds = %.lr.ph.i43.i, %._cr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i119, ptr noundef nonnull align 8 dereferenceable(1) %scevgep56.i120, i64 %226, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep57.i117, ptr noundef nonnull align 8 dereferenceable(1) %scevgep58.i118, i64 %226, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep59.i115, ptr noundef nonnull align 8 dereferenceable(1) %scevgep60.i116, i64 %226, i1 false)
-  %235 = getelementptr i64, ptr %.07797.us.i.i113, i64 %220
-  %236 = getelementptr i64, ptr %.098.us.i.i112, i64 %220
+  %235 = getelementptr inbounds i64, ptr %.07797.us.i.i113, i64 %220
+  %236 = getelementptr inbounds i64, ptr %.098.us.i.i112, i64 %220
   %237 = add nsw i32 %.07996.us.i.i114, %219
   %238 = icmp slt i32 %237, %19
   %indvar.next.i121 = add nuw nsw i64 %indvar.i111, 1
@@ -1043,8 +1043,8 @@ If_Dec08MoveTo.exit130:                           ; preds = %.lr.ph.i43.i101, %.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i161, ptr noundef nonnull align 8 dereferenceable(1) %scevgep56.i162, i64 %308, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep57.i159, ptr noundef nonnull align 8 dereferenceable(1) %scevgep58.i160, i64 %308, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep59.i157, ptr noundef nonnull align 8 dereferenceable(1) %scevgep60.i158, i64 %308, i1 false)
-  %317 = getelementptr i64, ptr %.07797.us.i.i155, i64 %302
-  %318 = getelementptr i64, ptr %.098.us.i.i154, i64 %302
+  %317 = getelementptr inbounds i64, ptr %.07797.us.i.i155, i64 %302
+  %318 = getelementptr inbounds i64, ptr %.098.us.i.i154, i64 %302
   %319 = add nsw i32 %.07996.us.i.i156, %301
   %320 = icmp slt i32 %319, %19
   %indvar.next.i163 = add nuw nsw i64 %indvar.i153, 1

@@ -2934,7 +2934,7 @@ if.then55.i.i:                                    ; preds = %if.end45.i.i
 if.end57.i.i:                                     ; preds = %if.end45.i.i
   %diff.neg1503.i = sub i64 0, %sub.ptr.sub49.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i282.i, ptr align 1 %add.ptr50.i.i, i64 %diff.neg1503.i, i1 false)
-  %add.ptr61.i.i = getelementptr i8, ptr %add.ptr.i282.i, i64 %diff.neg1503.i
+  %add.ptr61.i.i = getelementptr inbounds i8, ptr %add.ptr.i282.i, i64 %diff.neg1503.i
   %sub63.i.i = add i64 %sub.ptr.sub49.i.i, %arrayidx100.i277.i.sroa.5.0.copyload
   br label %if.end64.i.i
 
@@ -3010,8 +3010,8 @@ if.else.i2356.i:                                  ; preds = %if.end72.i.i
 
 ZSTD_overlapCopy8.exit2375.i:                     ; preds = %if.else.i2356.i, %if.then.i2360.i
   %match.i281.1.i = phi ptr [ %add.ptr12.i2374.i, %if.then.i2360.i ], [ %match.i281.0.i, %if.else.i2356.i ]
-  %add.ptr13.i2358.i = getelementptr i8, ptr %match.i281.1.i, i64 8
-  %add.ptr14.i2359.i = getelementptr i8, ptr %op.addr.i.0.i, i64 8
+  %add.ptr13.i2358.i = getelementptr inbounds i8, ptr %match.i281.1.i, i64 8
+  %add.ptr14.i2359.i = getelementptr inbounds i8, ptr %op.addr.i.0.i, i64 8
   %cmp75.i.i = icmp ugt i64 %arrayidx100.i277.i.sroa.5.0, 8
   br i1 %cmp75.i.i, label %if.then77.i.i, label %ZSTD_execSequence.exit.i
 
@@ -3285,7 +3285,7 @@ if.then54.i.i:                                    ; preds = %if.end44.i.i
 if.end56.i.i:                                     ; preds = %if.end44.i.i
   %diff.neg1501.i = sub i64 0, %sub.ptr.sub48.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i610.i, ptr align 1 %add.ptr49.i.i, i64 %diff.neg1501.i, i1 false)
-  %add.ptr60.i.i = getelementptr i8, ptr %add.ptr.i610.i, i64 %diff.neg1501.i
+  %add.ptr60.i.i = getelementptr inbounds i8, ptr %add.ptr.i610.i, i64 %diff.neg1501.i
   %sub62.i.i = add i64 %sub.ptr.sub48.i.i, %arrayidx126.i595.sroa.4.0.copyload.i
   br label %if.end63.i.i
 
@@ -3361,8 +3361,8 @@ if.else.i2256.i:                                  ; preds = %if.end71.i.i
 
 ZSTD_overlapCopy8.exit2275.i:                     ; preds = %if.else.i2256.i, %if.then.i2260.i
   %match.i608.1.i = phi ptr [ %add.ptr12.i2274.i, %if.then.i2260.i ], [ %match.i608.0.i, %if.else.i2256.i ]
-  %add.ptr13.i2258.i = getelementptr i8, ptr %match.i608.1.i, i64 8
-  %add.ptr14.i2259.i = getelementptr i8, ptr %op.addr.i597.0.i, i64 8
+  %add.ptr13.i2258.i = getelementptr inbounds i8, ptr %match.i608.1.i, i64 8
+  %add.ptr14.i2259.i = getelementptr inbounds i8, ptr %op.addr.i597.0.i, i64 8
   %cmp74.i.i = icmp ugt i64 %arrayidx126.i595.sroa.4.0.i, 8
   br i1 %cmp74.i.i, label %if.then76.i.i, label %cond.end134.i.i
 
@@ -3494,7 +3494,7 @@ if.then55.i383.i:                                 ; preds = %if.end45.i368.i
 if.end57.i376.i:                                  ; preds = %if.end45.i368.i
   %diff.neg1499.i = sub i64 0, %sub.ptr.sub49.i371.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i316.i, ptr align 1 %add.ptr50.i372.i, i64 %diff.neg1499.i, i1 false)
-  %add.ptr61.i380.i = getelementptr i8, ptr %add.ptr.i316.i, i64 %diff.neg1499.i
+  %add.ptr61.i380.i = getelementptr inbounds i8, ptr %add.ptr.i316.i, i64 %diff.neg1499.i
   %sub63.i382.i = add i64 %sub.ptr.sub49.i371.i, %arrayidx132.i300.i.sroa.5.0.copyload
   br label %if.end64.i345.i
 
@@ -3570,8 +3570,8 @@ if.else.i2331.i:                                  ; preds = %if.end72.i350.i
 
 ZSTD_overlapCopy8.exit2350.i:                     ; preds = %if.else.i2331.i, %if.then.i2335.i
   %match.i314.1.i = phi ptr [ %add.ptr12.i2349.i, %if.then.i2335.i ], [ %match.i314.0.i, %if.else.i2331.i ]
-  %add.ptr13.i2333.i = getelementptr i8, ptr %match.i314.1.i, i64 8
-  %add.ptr14.i2334.i = getelementptr i8, ptr %op.addr.i302.0.i, i64 8
+  %add.ptr13.i2333.i = getelementptr inbounds i8, ptr %match.i314.1.i, i64 8
+  %add.ptr14.i2334.i = getelementptr inbounds i8, ptr %op.addr.i302.0.i, i64 8
   %cmp75.i353.i = icmp ugt i64 %arrayidx132.i300.i.sroa.5.0, 8
   br i1 %cmp75.i353.i, label %if.then77.i355.i, label %cond.end134.i.i
 
@@ -3885,7 +3885,7 @@ if.then55.i481.i:                                 ; preds = %if.end45.i466.i
 if.end57.i474.i:                                  ; preds = %if.end45.i466.i
   %diff.neg1495.i = sub i64 0, %sub.ptr.sub49.i469.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i414.i, ptr align 1 %add.ptr50.i470.i, i64 %diff.neg1495.i, i1 false)
-  %add.ptr61.i478.i = getelementptr i8, ptr %add.ptr.i414.i, i64 %diff.neg1495.i
+  %add.ptr61.i478.i = getelementptr inbounds i8, ptr %add.ptr.i414.i, i64 %diff.neg1495.i
   %sub63.i480.i = add i64 %sub.ptr.sub49.i469.i, %.sroa.5.0.copyload
   br label %if.end64.i443.i
 
@@ -3961,8 +3961,8 @@ if.else.i2306.i:                                  ; preds = %if.end72.i448.i
 
 ZSTD_overlapCopy8.exit2325.i:                     ; preds = %if.else.i2306.i, %if.then.i2310.i
   %match.i412.1.i = phi ptr [ %add.ptr12.i2324.i, %if.then.i2310.i ], [ %match.i412.0.i, %if.else.i2306.i ]
-  %add.ptr13.i2308.i = getelementptr i8, ptr %match.i412.1.i, i64 8
-  %add.ptr14.i2309.i = getelementptr i8, ptr %op.addr.i400.0.i, i64 8
+  %add.ptr13.i2308.i = getelementptr inbounds i8, ptr %match.i412.1.i, i64 8
+  %add.ptr14.i2309.i = getelementptr inbounds i8, ptr %op.addr.i400.0.i, i64 8
   %cmp75.i451.i = icmp ugt i64 %.sroa.5.0, 8
   br i1 %cmp75.i451.i, label %if.then77.i453.i, label %ZSTD_execSequence.exit496.i
 
@@ -4224,7 +4224,7 @@ if.then54.i722.i:                                 ; preds = %if.end44.i707.i
 if.end56.i715.i:                                  ; preds = %if.end44.i707.i
   %diff.neg1493.i = sub i64 0, %sub.ptr.sub48.i710.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i656.i, ptr align 1 %add.ptr49.i711.i, i64 %diff.neg1493.i, i1 false)
-  %add.ptr60.i719.i = getelementptr i8, ptr %add.ptr.i656.i, i64 %diff.neg1493.i
+  %add.ptr60.i719.i = getelementptr inbounds i8, ptr %add.ptr.i656.i, i64 %diff.neg1493.i
   %sub62.i721.i = add i64 %sub.ptr.sub48.i710.i, %.sroa.4.0.copyload.i
   br label %if.end63.i684.i
 
@@ -4300,8 +4300,8 @@ if.else.i2241.i:                                  ; preds = %if.end71.i689.i
 
 ZSTD_overlapCopy8.exit.i:                         ; preds = %if.else.i2241.i, %if.then.i2245.i
   %match.i654.1.i = phi ptr [ %add.ptr12.i.i, %if.then.i2245.i ], [ %match.i654.0.i, %if.else.i2241.i ]
-  %add.ptr13.i2243.i = getelementptr i8, ptr %match.i654.1.i, i64 8
-  %add.ptr14.i2244.i = getelementptr i8, ptr %op.addr.i642.0.i, i64 8
+  %add.ptr13.i2243.i = getelementptr inbounds i8, ptr %match.i654.1.i, i64 8
+  %add.ptr14.i2244.i = getelementptr inbounds i8, ptr %op.addr.i642.0.i, i64 8
   %cmp74.i692.i = icmp ugt i64 %.sroa.4.0.i, 8
   br i1 %cmp74.i692.i, label %if.then76.i694.i, label %cond.end236.i.i
 
@@ -4430,7 +4430,7 @@ if.then55.i579.i:                                 ; preds = %if.end45.i564.i
 if.end57.i572.i:                                  ; preds = %if.end45.i564.i
   %diff.neg.i = sub i64 0, %sub.ptr.sub49.i567.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i512.i, ptr align 1 %add.ptr50.i568.i, i64 %diff.neg.i, i1 false)
-  %add.ptr61.i576.i = getelementptr i8, ptr %add.ptr.i512.i, i64 %diff.neg.i
+  %add.ptr61.i576.i = getelementptr inbounds i8, ptr %add.ptr.i512.i, i64 %diff.neg.i
   %sub63.i578.i = add i64 %sub.ptr.sub49.i567.i, %.sroa.526.0.copyload
   br label %if.end64.i541.i
 
@@ -4506,8 +4506,8 @@ if.else.i2281.i:                                  ; preds = %if.end72.i546.i
 
 ZSTD_overlapCopy8.exit2300.i:                     ; preds = %if.else.i2281.i, %if.then.i2285.i
   %match.i510.1.i = phi ptr [ %add.ptr12.i2299.i, %if.then.i2285.i ], [ %match.i510.0.i, %if.else.i2281.i ]
-  %add.ptr13.i2283.i = getelementptr i8, ptr %match.i510.1.i, i64 8
-  %add.ptr14.i2284.i = getelementptr i8, ptr %op.addr.i498.0.i, i64 8
+  %add.ptr13.i2283.i = getelementptr inbounds i8, ptr %match.i510.1.i, i64 8
+  %add.ptr14.i2284.i = getelementptr inbounds i8, ptr %op.addr.i498.0.i, i64 8
   %cmp75.i549.i = icmp ugt i64 %.sroa.526.0, 8
   br i1 %cmp75.i549.i, label %if.then77.i551.i, label %cond.end236.i.i
 
@@ -5601,7 +5601,7 @@ if.then54.i.i.i:                                  ; preds = %if.end44.i.i.i
 if.end56.i.i.i:                                   ; preds = %if.end44.i.i.i
   %diff.neg.i = sub i64 0, %sub.ptr.sub48.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i563.i.i, ptr align 1 %add.ptr49.i.i.i, i64 %diff.neg.i, i1 false)
-  %add.ptr60.i.i.i = getelementptr i8, ptr %add.ptr.i563.i.i, i64 %diff.neg.i
+  %add.ptr60.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i563.i.i, i64 %diff.neg.i
   %sub62.i.i.i = add i64 %sub.ptr.sub48.i.i.i, %tmp.i.sroa.4.0.i
   br label %if.end63.i.i.i
 
@@ -5677,8 +5677,8 @@ if.else.i1776.i.i:                                ; preds = %if.end71.i.i.i
 
 ZSTD_overlapCopy8.exit.i.i:                       ; preds = %if.else.i1776.i.i, %if.then.i1780.i.i
   %match.i561.i.1.i = phi ptr [ %add.ptr12.i.i.i, %if.then.i1780.i.i ], [ %match.i561.i.0.i, %if.else.i1776.i.i ]
-  %add.ptr13.i1778.i.i = getelementptr i8, ptr %match.i561.i.1.i, i64 8
-  %add.ptr14.i1779.i.i = getelementptr i8, ptr %op.addr.i550.i.0.i, i64 8
+  %add.ptr13.i1778.i.i = getelementptr inbounds i8, ptr %match.i561.i.1.i, i64 8
+  %add.ptr14.i1779.i.i = getelementptr inbounds i8, ptr %op.addr.i550.i.0.i, i64 8
   %cmp74.i.i.i = icmp ugt i64 %sequence548.i.sroa.3.0.i, 8
   br i1 %cmp74.i.i.i, label %if.then76.i.i.i, label %ZSTD_execSequenceSplitLitBuffer.exit.i.i
 
@@ -6002,8 +6002,8 @@ if.else.i1791.i.i:                                ; preds = %if.end72.i499.i.i
 
 ZSTD_overlapCopy8.exit1810.i.i:                   ; preds = %if.else.i1791.i.i, %if.then.i1795.i.i
   %match.i463.i.1.i = phi ptr [ %add.ptr12.i1809.i.i, %if.then.i1795.i.i ], [ %match.i463.i.0.i, %if.else.i1791.i.i ]
-  %add.ptr13.i1793.i.i = getelementptr i8, ptr %match.i463.i.1.i, i64 8
-  %add.ptr14.i1794.i.i = getelementptr i8, ptr %op.addr.i451.i.0.i, i64 8
+  %add.ptr13.i1793.i.i = getelementptr inbounds i8, ptr %match.i463.i.1.i, i64 8
+  %add.ptr14.i1794.i.i = getelementptr inbounds i8, ptr %op.addr.i451.i.0.i, i64 8
   %139 = load i64, ptr %sequence.i.sroa.8.0.sequence449.i.sroa_idx.i, align 8
   %cmp75.i502.i.i = icmp ugt i64 %139, 8
   br i1 %cmp75.i502.i.i, label %if.then77.i504.i.i, label %ZSTD_execSequence.exit547.i.i
@@ -6551,8 +6551,8 @@ if.else.i1816.i.i:                                ; preds = %if.end72.i.i.i
 
 ZSTD_overlapCopy8.exit1835.i.i:                   ; preds = %if.else.i1816.i.i, %if.then.i1820.i.i
   %match.i.i.1.i = phi ptr [ %add.ptr12.i1834.i.i, %if.then.i1820.i.i ], [ %match.i.i.0.i, %if.else.i1816.i.i ]
-  %add.ptr13.i1818.i.i = getelementptr i8, ptr %match.i.i.1.i, i64 8
-  %add.ptr14.i1819.i.i = getelementptr i8, ptr %op.addr.i.i.0.i, i64 8
+  %add.ptr13.i1818.i.i = getelementptr inbounds i8, ptr %match.i.i.1.i, i64 8
+  %add.ptr14.i1819.i.i = getelementptr inbounds i8, ptr %op.addr.i.i.0.i, i64 8
   %202 = load i64, ptr %sequence103.i.sroa.4.0.sequence103433.i.sroa_idx.i, align 8
   %cmp75.i.i.i = icmp ugt i64 %202, 8
   br i1 %cmp75.i.i.i, label %if.then77.i.i.i, label %ZSTD_execSequence.exit.i.i
@@ -7625,8 +7625,8 @@ if.else.i610.i.i:                                 ; preds = %if.end72.i.i.i
 ZSTD_overlapCopy8.exit.i.i:                       ; preds = %if.else.i610.i.i, %if.then.i614.i.i
   %102 = phi i64 [ %.pre605.i, %if.then.i614.i.i ], [ %90, %if.else.i610.i.i ]
   %match.i.i.1.i = phi ptr [ %add.ptr12.i.i.i, %if.then.i614.i.i ], [ %match.i.i.0.i, %if.else.i610.i.i ]
-  %add.ptr13.i612.i.i = getelementptr i8, ptr %match.i.i.1.i, i64 8
-  %add.ptr14.i613.i.i = getelementptr i8, ptr %op.addr.i.i.0.i, i64 8
+  %add.ptr13.i612.i.i = getelementptr inbounds i8, ptr %match.i.i.1.i, i64 8
+  %add.ptr14.i613.i.i = getelementptr inbounds i8, ptr %op.addr.i.i.0.i, i64 8
   %cmp75.i.i.i = icmp ugt i64 %102, 8
   br i1 %cmp75.i.i.i, label %if.then77.i.i.i, label %ZSTD_execSequence.exit.i.i
 
@@ -9233,8 +9233,8 @@ if.else.i2356:                                    ; preds = %if.end72.i
 
 ZSTD_overlapCopy8.exit2375:                       ; preds = %if.else.i2356, %if.then.i2360
   %match.i281.1 = phi ptr [ %add.ptr12.i2374, %if.then.i2360 ], [ %match.i281.0, %if.else.i2356 ]
-  %add.ptr13.i2358 = getelementptr i8, ptr %match.i281.1, i64 8
-  %add.ptr14.i2359 = getelementptr i8, ptr %op.addr.i.0, i64 8
+  %add.ptr13.i2358 = getelementptr inbounds i8, ptr %match.i281.1, i64 8
+  %add.ptr14.i2359 = getelementptr inbounds i8, ptr %op.addr.i.0, i64 8
   %cmp75.i = icmp ugt i64 %arrayidx100.i277.sroa.3.0, 8
   br i1 %cmp75.i, label %if.then77.i, label %ZSTD_execSequence.exit
 
@@ -9510,7 +9510,7 @@ if.then54.i:                                      ; preds = %if.end44.i
 if.end56.i:                                       ; preds = %if.end44.i
   %diff.neg1501 = sub i64 0, %sub.ptr.sub48.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i610, ptr align 1 %add.ptr49.i, i64 %diff.neg1501, i1 false)
-  %add.ptr60.i = getelementptr i8, ptr %add.ptr.i610, i64 %diff.neg1501
+  %add.ptr60.i = getelementptr inbounds i8, ptr %add.ptr.i610, i64 %diff.neg1501
   %sub62.i = add i64 %sub.ptr.sub48.i, %arrayidx126.i595.sroa.4.0.copyload
   br label %if.end63.i
 
@@ -9586,8 +9586,8 @@ if.else.i2256:                                    ; preds = %if.end71.i
 
 ZSTD_overlapCopy8.exit2275:                       ; preds = %if.else.i2256, %if.then.i2260
   %match.i608.1 = phi ptr [ %add.ptr12.i2274, %if.then.i2260 ], [ %match.i608.0, %if.else.i2256 ]
-  %add.ptr13.i2258 = getelementptr i8, ptr %match.i608.1, i64 8
-  %add.ptr14.i2259 = getelementptr i8, ptr %op.addr.i597.0, i64 8
+  %add.ptr13.i2258 = getelementptr inbounds i8, ptr %match.i608.1, i64 8
+  %add.ptr14.i2259 = getelementptr inbounds i8, ptr %op.addr.i597.0, i64 8
   %cmp74.i = icmp ugt i64 %arrayidx126.i595.sroa.4.0, 8
   br i1 %cmp74.i, label %if.then76.i, label %cond.end134.i
 
@@ -9796,8 +9796,8 @@ if.else.i2331:                                    ; preds = %if.end72.i350
 
 ZSTD_overlapCopy8.exit2350:                       ; preds = %if.else.i2331, %if.then.i2335
   %match.i314.1 = phi ptr [ %add.ptr12.i2349, %if.then.i2335 ], [ %match.i314.0, %if.else.i2331 ]
-  %add.ptr13.i2333 = getelementptr i8, ptr %match.i314.1, i64 8
-  %add.ptr14.i2334 = getelementptr i8, ptr %op.addr.i302.0, i64 8
+  %add.ptr13.i2333 = getelementptr inbounds i8, ptr %match.i314.1, i64 8
+  %add.ptr14.i2334 = getelementptr inbounds i8, ptr %op.addr.i302.0, i64 8
   %cmp75.i353 = icmp ugt i64 %arrayidx132.i300.sroa.3.0, 8
   br i1 %cmp75.i353, label %if.then77.i355, label %cond.end134.i
 
@@ -10189,8 +10189,8 @@ if.else.i2306:                                    ; preds = %if.end72.i448
 
 ZSTD_overlapCopy8.exit2325:                       ; preds = %if.else.i2306, %if.then.i2310
   %match.i412.1 = phi ptr [ %add.ptr12.i2324, %if.then.i2310 ], [ %match.i412.0, %if.else.i2306 ]
-  %add.ptr13.i2308 = getelementptr i8, ptr %match.i412.1, i64 8
-  %add.ptr14.i2309 = getelementptr i8, ptr %op.addr.i400.0, i64 8
+  %add.ptr13.i2308 = getelementptr inbounds i8, ptr %match.i412.1, i64 8
+  %add.ptr14.i2309 = getelementptr inbounds i8, ptr %op.addr.i400.0, i64 8
   %cmp75.i451 = icmp ugt i64 %.sroa.3.0, 8
   br i1 %cmp75.i451, label %if.then77.i453, label %ZSTD_execSequence.exit496
 
@@ -10452,7 +10452,7 @@ if.then54.i722:                                   ; preds = %if.end44.i707
 if.end56.i715:                                    ; preds = %if.end44.i707
   %diff.neg1493 = sub i64 0, %sub.ptr.sub48.i710
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i656, ptr align 1 %add.ptr49.i711, i64 %diff.neg1493, i1 false)
-  %add.ptr60.i719 = getelementptr i8, ptr %add.ptr.i656, i64 %diff.neg1493
+  %add.ptr60.i719 = getelementptr inbounds i8, ptr %add.ptr.i656, i64 %diff.neg1493
   %sub62.i721 = add i64 %sub.ptr.sub48.i710, %.sroa.4.0.copyload
   br label %if.end63.i684
 
@@ -10528,8 +10528,8 @@ if.else.i2241:                                    ; preds = %if.end71.i689
 
 ZSTD_overlapCopy8.exit:                           ; preds = %if.else.i2241, %if.then.i2245
   %match.i654.1 = phi ptr [ %add.ptr12.i, %if.then.i2245 ], [ %match.i654.0, %if.else.i2241 ]
-  %add.ptr13.i2243 = getelementptr i8, ptr %match.i654.1, i64 8
-  %add.ptr14.i2244 = getelementptr i8, ptr %op.addr.i642.0, i64 8
+  %add.ptr13.i2243 = getelementptr inbounds i8, ptr %match.i654.1, i64 8
+  %add.ptr14.i2244 = getelementptr inbounds i8, ptr %op.addr.i642.0, i64 8
   %cmp74.i692 = icmp ugt i64 %.sroa.4.0, 8
   br i1 %cmp74.i692, label %if.then76.i694, label %cond.end236.i
 
@@ -10735,8 +10735,8 @@ if.else.i2281:                                    ; preds = %if.end72.i546
 
 ZSTD_overlapCopy8.exit2300:                       ; preds = %if.else.i2281, %if.then.i2285
   %match.i510.1 = phi ptr [ %add.ptr12.i2299, %if.then.i2285 ], [ %match.i510.0, %if.else.i2281 ]
-  %add.ptr13.i2283 = getelementptr i8, ptr %match.i510.1, i64 8
-  %add.ptr14.i2284 = getelementptr i8, ptr %op.addr.i498.0, i64 8
+  %add.ptr13.i2283 = getelementptr inbounds i8, ptr %match.i510.1, i64 8
+  %add.ptr14.i2284 = getelementptr inbounds i8, ptr %op.addr.i498.0, i64 8
   %cmp75.i549 = icmp ugt i64 %.sroa.358.0, 8
   br i1 %cmp75.i549, label %if.then77.i551, label %cond.end236.i
 
@@ -10992,7 +10992,7 @@ do.body11.i.i:                                    ; preds = %do.body11.i.i, %if.
   br i1 %cmp23.i.i, label %do.body11.i.i, label %ZSTD_wildcopy.exit.i, !llvm.loop !25
 
 ZSTD_wildcopy.exit.i:                             ; preds = %do.body11.i.i, %if.then10.i
-  %add.ptr17.i = getelementptr i8, ptr %2, i64 %sub.ptr.sub13.i
+  %add.ptr17.i = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub13.i
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %ZSTD_wildcopy.exit.i, %if.end8.i
@@ -11229,7 +11229,7 @@ do.body11.i:                                      ; preds = %do.body11.i, %if.en
   br i1 %cmp23.i, label %do.body11.i, label %ZSTD_wildcopy.exit, !llvm.loop !25
 
 ZSTD_wildcopy.exit:                               ; preds = %do.body11.i, %do.body.i, %if.else.i
-  %add.ptr17 = getelementptr i8, ptr %ip.addr.1, i64 %sub.ptr.sub13
+  %add.ptr17 = getelementptr inbounds i8, ptr %ip.addr.1, i64 %sub.ptr.sub13
   br label %if.end22
 
 if.end22:                                         ; preds = %ZSTD_wildcopy.exit, %if.end8
@@ -12175,7 +12175,7 @@ if.then54.i.i:                                    ; preds = %if.end44.i.i
 if.end56.i.i:                                     ; preds = %if.end44.i.i
   %diff.neg = sub i64 0, %sub.ptr.sub48.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i563.i, ptr align 1 %add.ptr49.i.i, i64 %diff.neg, i1 false)
-  %add.ptr60.i.i = getelementptr i8, ptr %add.ptr.i563.i, i64 %diff.neg
+  %add.ptr60.i.i = getelementptr inbounds i8, ptr %add.ptr.i563.i, i64 %diff.neg
   %sub62.i.i = add i64 %sub.ptr.sub48.i.i, %tmp.i.sroa.4.0
   br label %if.end63.i.i
 
@@ -12251,8 +12251,8 @@ if.else.i1776.i:                                  ; preds = %if.end71.i.i
 
 ZSTD_overlapCopy8.exit.i:                         ; preds = %if.else.i1776.i, %if.then.i1780.i
   %match.i561.i.1 = phi ptr [ %add.ptr12.i.i, %if.then.i1780.i ], [ %match.i561.i.0, %if.else.i1776.i ]
-  %add.ptr13.i1778.i = getelementptr i8, ptr %match.i561.i.1, i64 8
-  %add.ptr14.i1779.i = getelementptr i8, ptr %op.addr.i550.i.0, i64 8
+  %add.ptr13.i1778.i = getelementptr inbounds i8, ptr %match.i561.i.1, i64 8
+  %add.ptr14.i1779.i = getelementptr inbounds i8, ptr %op.addr.i550.i.0, i64 8
   %cmp74.i.i = icmp ugt i64 %sequence548.i.sroa.3.0, 8
   br i1 %cmp74.i.i, label %if.then76.i.i, label %ZSTD_execSequenceSplitLitBuffer.exit.i
 
@@ -12576,8 +12576,8 @@ if.else.i1791.i:                                  ; preds = %if.end72.i499.i
 
 ZSTD_overlapCopy8.exit1810.i:                     ; preds = %if.else.i1791.i, %if.then.i1795.i
   %match.i463.i.1 = phi ptr [ %add.ptr12.i1809.i, %if.then.i1795.i ], [ %match.i463.i.0, %if.else.i1791.i ]
-  %add.ptr13.i1793.i = getelementptr i8, ptr %match.i463.i.1, i64 8
-  %add.ptr14.i1794.i = getelementptr i8, ptr %op.addr.i451.i.0, i64 8
+  %add.ptr13.i1793.i = getelementptr inbounds i8, ptr %match.i463.i.1, i64 8
+  %add.ptr14.i1794.i = getelementptr inbounds i8, ptr %op.addr.i451.i.0, i64 8
   %138 = load i64, ptr %sequence.i.sroa.8.0.sequence449.i.sroa_idx, align 8
   %cmp75.i502.i = icmp ugt i64 %138, 8
   br i1 %cmp75.i502.i, label %if.then77.i504.i, label %ZSTD_execSequence.exit547.i
@@ -13125,8 +13125,8 @@ if.else.i1816.i:                                  ; preds = %if.end72.i.i
 
 ZSTD_overlapCopy8.exit1835.i:                     ; preds = %if.else.i1816.i, %if.then.i1820.i
   %match.i.i.1 = phi ptr [ %add.ptr12.i1834.i, %if.then.i1820.i ], [ %match.i.i.0, %if.else.i1816.i ]
-  %add.ptr13.i1818.i = getelementptr i8, ptr %match.i.i.1, i64 8
-  %add.ptr14.i1819.i = getelementptr i8, ptr %op.addr.i.i.0, i64 8
+  %add.ptr13.i1818.i = getelementptr inbounds i8, ptr %match.i.i.1, i64 8
+  %add.ptr14.i1819.i = getelementptr inbounds i8, ptr %op.addr.i.i.0, i64 8
   %201 = load i64, ptr %sequence103.i.sroa.4.0.sequence103433.i.sroa_idx, align 8
   %cmp75.i.i = icmp ugt i64 %201, 8
   br i1 %cmp75.i.i, label %if.then77.i.i, label %ZSTD_execSequence.exit.i
@@ -14178,8 +14178,8 @@ if.else.i610.i:                                   ; preds = %if.end72.i.i
 ZSTD_overlapCopy8.exit.i:                         ; preds = %if.else.i610.i, %if.then.i614.i
   %101 = phi i64 [ %.pre605, %if.then.i614.i ], [ %89, %if.else.i610.i ]
   %match.i.i.1 = phi ptr [ %add.ptr12.i.i, %if.then.i614.i ], [ %match.i.i.0, %if.else.i610.i ]
-  %add.ptr13.i612.i = getelementptr i8, ptr %match.i.i.1, i64 8
-  %add.ptr14.i613.i = getelementptr i8, ptr %op.addr.i.i.0, i64 8
+  %add.ptr13.i612.i = getelementptr inbounds i8, ptr %match.i.i.1, i64 8
+  %add.ptr14.i613.i = getelementptr inbounds i8, ptr %op.addr.i.i.0, i64 8
   %cmp75.i.i = icmp ugt i64 %101, 8
   br i1 %cmp75.i.i, label %if.then77.i.i, label %ZSTD_execSequence.exit.i
 

@@ -136990,7 +136990,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1
   br i1 %.not9.i.i.i.i51, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i52.preheader
 
 .lr.ph.i.i.i.i52.preheader:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1_mm.exit
-  %68 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %.1, i64 %4
+  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %.1, i64 %4
   br label %.lr.ph.i.i.i.i52
 
 .lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph.i.i.i.i52.preheader, %.lr.ph.i.i.i.i52
@@ -137032,7 +137032,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE13_AllocateCopyEPS1
   br i1 %.not9.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64.preheader
 
 .lr.ph.i.i.i.i64.preheader:                       ; preds = %77
-  %83 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %73, i64 %4
+  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %73, i64 %4
   br label %.lr.ph.i.i.i.i64
 
 .lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64.preheader, %.lr.ph.i.i.i.i64
@@ -137264,7 +137264,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1
   br i1 %.not9.i.i.i.i51, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i52.preheader
 
 .lr.ph.i.i.i.i52.preheader:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1_mm.exit
-  %68 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %.1, i64 %4
+  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %.1, i64 %4
   br label %.lr.ph.i.i.i.i52
 
 .lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph.i.i.i.i52.preheader, %.lr.ph.i.i.i.i52
@@ -137306,7 +137306,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE13_AllocateCopyEPS1
   br i1 %.not9.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64.preheader
 
 .lr.ph.i.i.i.i64.preheader:                       ; preds = %77
-  %83 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %73, i64 %4
+  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %73, i64 %4
   br label %.lr.ph.i.i.i.i64
 
 .lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64.preheader, %.lr.ph.i.i.i.i64
@@ -137534,7 +137534,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1
   br i1 %.not9.i.i.i.i51, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i52.preheader
 
 .lr.ph.i.i.i.i52.preheader:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1_mm.exit
-  %68 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %.1, i64 %4
+  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %.1, i64 %4
   br label %.lr.ph.i.i.i.i52
 
 .lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph.i.i.i.i52.preheader, %.lr.ph.i.i.i.i52
@@ -137576,7 +137576,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE13_AllocateCopyEPS1
   br i1 %.not9.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64.preheader
 
 .lr.ph.i.i.i.i64.preheader:                       ; preds = %77
-  %83 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %73, i64 %4
+  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %73, i64 %4
   br label %.lr.ph.i.i.i.i64
 
 .lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64.preheader, %.lr.ph.i.i.i.i64
@@ -137804,7 +137804,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1
   br i1 %.not9.i.i.i.i51, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i52.preheader
 
 .lr.ph.i.i.i.i52.preheader:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1_mm.exit
-  %68 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %.1, i64 %4
+  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %.1, i64 %4
   br label %.lr.ph.i.i.i.i52
 
 .lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph.i.i.i.i52.preheader, %.lr.ph.i.i.i.i52
@@ -137846,7 +137846,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE13_AllocateCopyEPS1
   br i1 %.not9.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64.preheader
 
 .lr.ph.i.i.i.i64.preheader:                       ; preds = %77
-  %83 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %73, i64 %4
+  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %73, i64 %4
   br label %.lr.ph.i.i.i.i64
 
 .lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64.preheader, %.lr.ph.i.i.i.i64
@@ -138076,7 +138076,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1
   br i1 %.not9.i.i.i.i51, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i52.preheader
 
 .lr.ph.i.i.i.i52.preheader:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1_mm.exit
-  %70 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %.1, i64 %4
+  %70 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %.1, i64 %4
   br label %.lr.ph.i.i.i.i52
 
 .lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph.i.i.i.i52.preheader, %.lr.ph.i.i.i.i52
@@ -138120,7 +138120,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE13_AllocateCopyEPS1
   br i1 %.not9.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64.preheader
 
 .lr.ph.i.i.i.i64.preheader:                       ; preds = %81
-  %87 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %76, i64 %4
+  %87 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %76, i64 %4
   br label %.lr.ph.i.i.i.i64
 
 .lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64.preheader, %.lr.ph.i.i.i.i64
@@ -138349,7 +138349,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1
   br i1 %.not9.i.i.i.i51, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i52.preheader
 
 .lr.ph.i.i.i.i52.preheader:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1_mm.exit
-  %68 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %.1, i64 %4
+  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %.1, i64 %4
   br label %.lr.ph.i.i.i.i52
 
 .lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph.i.i.i.i52.preheader, %.lr.ph.i.i.i.i52
@@ -138391,7 +138391,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE13_AllocateCopyEPS1
   br i1 %.not9.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64.preheader
 
 .lr.ph.i.i.i.i64.preheader:                       ; preds = %77
-  %83 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %73, i64 %4
+  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %73, i64 %4
   br label %.lr.ph.i.i.i.i64
 
 .lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64.preheader, %.lr.ph.i.i.i.i64
@@ -138619,7 +138619,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEP
   br i1 %.not9.i.i.i.i51, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i52.preheader
 
 .lr.ph.i.i.i.i52.preheader:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEPS1_mm.exit
-  %68 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", ptr %.1, i64 %4
+  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", ptr %.1, i64 %4
   br label %.lr.ph.i.i.i.i52
 
 .lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph.i.i.i.i52.preheader, %.lr.ph.i.i.i.i52
@@ -138661,7 +138661,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE13_AllocateCopyEP
   br i1 %.not9.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64.preheader
 
 .lr.ph.i.i.i.i64.preheader:                       ; preds = %77
-  %83 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", ptr %73, i64 %4
+  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", ptr %73, i64 %4
   br label %.lr.ph.i.i.i.i64
 
 .lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64.preheader, %.lr.ph.i.i.i.i64
@@ -138889,7 +138889,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_
   br i1 %.not9.i.i.i.i51, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i52.preheader
 
 .lr.ph.i.i.i.i52.preheader:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_mm.exit
-  %68 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %.1, i64 %4
+  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %.1, i64 %4
   br label %.lr.ph.i.i.i.i52
 
 .lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph.i.i.i.i52.preheader, %.lr.ph.i.i.i.i52
@@ -138931,7 +138931,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE13_AllocateCopyEPS1_
   br i1 %.not9.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64.preheader
 
 .lr.ph.i.i.i.i64.preheader:                       ; preds = %77
-  %83 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %73, i64 %4
+  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %73, i64 %4
   br label %.lr.ph.i.i.i.i64
 
 .lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64.preheader, %.lr.ph.i.i.i.i64
@@ -139161,7 +139161,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_m
   br i1 %.not9.i.i.i.i51, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i52.preheader
 
 .lr.ph.i.i.i.i52.preheader:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_mm.exit
-  %70 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %.1, i64 %4
+  %70 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %.1, i64 %4
   br label %.lr.ph.i.i.i.i52
 
 .lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph.i.i.i.i52.preheader, %.lr.ph.i.i.i.i52
@@ -139205,7 +139205,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE13_AllocateCopyEPS1_m
   br i1 %.not9.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64.preheader
 
 .lr.ph.i.i.i.i64.preheader:                       ; preds = %81
-  %87 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %76, i64 %4
+  %87 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %76, i64 %4
   br label %.lr.ph.i.i.i.i64
 
 .lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64.preheader, %.lr.ph.i.i.i.i64
@@ -139434,7 +139434,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_m
   br i1 %.not9.i.i.i.i51, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i52.preheader
 
 .lr.ph.i.i.i.i52.preheader:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_mm.exit
-  %68 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %.1, i64 %4
+  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %.1, i64 %4
   br label %.lr.ph.i.i.i.i52
 
 .lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph.i.i.i.i52.preheader, %.lr.ph.i.i.i.i52
@@ -139476,7 +139476,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE13_AllocateCopyEPS1_m
   br i1 %.not9.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64.preheader
 
 .lr.ph.i.i.i.i64.preheader:                       ; preds = %77
-  %83 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %73, i64 %4
+  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %73, i64 %4
   br label %.lr.ph.i.i.i.i64
 
 .lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64.preheader, %.lr.ph.i.i.i.i64
@@ -139704,7 +139704,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_m
   br i1 %.not9.i.i.i.i51, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i52.preheader
 
 .lr.ph.i.i.i.i52.preheader:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_mm.exit
-  %68 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %.1, i64 %4
+  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %.1, i64 %4
   br label %.lr.ph.i.i.i.i52
 
 .lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph.i.i.i.i52.preheader, %.lr.ph.i.i.i.i52
@@ -139746,7 +139746,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE13_AllocateCopyEPS1_m
   br i1 %.not9.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64.preheader
 
 .lr.ph.i.i.i.i64.preheader:                       ; preds = %77
-  %83 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %73, i64 %4
+  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %73, i64 %4
   br label %.lr.ph.i.i.i.i64
 
 .lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64.preheader, %.lr.ph.i.i.i.i64
@@ -139974,7 +139974,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopy
   br i1 %.not9.i.i.i.i51, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i52.preheader
 
 .lr.ph.i.i.i.i52.preheader:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopyEPS1_mm.exit
-  %68 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %.1, i64 %4
+  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %.1, i64 %4
   br label %.lr.ph.i.i.i.i52
 
 .lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph.i.i.i.i52.preheader, %.lr.ph.i.i.i.i52
@@ -140016,7 +140016,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE13_AllocateCopy
   br i1 %.not9.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64.preheader
 
 .lr.ph.i.i.i.i64.preheader:                       ; preds = %77
-  %83 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %73, i64 %4
+  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %73, i64 %4
   br label %.lr.ph.i.i.i.i64
 
 .lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64.preheader, %.lr.ph.i.i.i.i64
@@ -140244,7 +140244,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyE
   br i1 %.not9.i.i.i.i51, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i52.preheader
 
 .lr.ph.i.i.i.i52.preheader:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyEPS1_mm.exit
-  %68 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %.1, i64 %4
+  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %.1, i64 %4
   br label %.lr.ph.i.i.i.i52
 
 .lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph.i.i.i.i52.preheader, %.lr.ph.i.i.i.i52
@@ -140286,7 +140286,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE13_AllocateCopyE
   br i1 %.not9.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64.preheader
 
 .lr.ph.i.i.i.i64.preheader:                       ; preds = %77
-  %83 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %73, i64 %4
+  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %73, i64 %4
   br label %.lr.ph.i.i.i.i64
 
 .lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64.preheader, %.lr.ph.i.i.i.i64
@@ -140630,7 +140630,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyE
   br i1 %.not9.i.i.i.i51, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i52.preheader
 
 .lr.ph.i.i.i.i52.preheader:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyEPS1_mm.exit
-  %68 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %.1, i64 %4
+  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %.1, i64 %4
   br label %.lr.ph.i.i.i.i52
 
 .lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph.i.i.i.i52.preheader, %.lr.ph.i.i.i.i52
@@ -140672,7 +140672,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE13_AllocateCopyE
   br i1 %.not9.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64.preheader
 
 .lr.ph.i.i.i.i64.preheader:                       ; preds = %77
-  %83 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %73, i64 %4
+  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %73, i64 %4
   br label %.lr.ph.i.i.i.i64
 
 .lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64.preheader, %.lr.ph.i.i.i.i64
@@ -140900,7 +140900,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyE
   br i1 %.not9.i.i.i.i51, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i52.preheader
 
 .lr.ph.i.i.i.i52.preheader:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyEPS1_mm.exit
-  %68 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %.1, i64 %4
+  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %.1, i64 %4
   br label %.lr.ph.i.i.i.i52
 
 .lr.ph.i.i.i.i52:                                 ; preds = %.lr.ph.i.i.i.i52.preheader, %.lr.ph.i.i.i.i52
@@ -140942,7 +140942,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE13_AllocateCopyE
   br i1 %.not9.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i64.preheader
 
 .lr.ph.i.i.i.i64.preheader:                       ; preds = %77
-  %83 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %73, i64 %4
+  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %73, i64 %4
   br label %.lr.ph.i.i.i.i64
 
 .lr.ph.i.i.i.i64:                                 ; preds = %.lr.ph.i.i.i.i64.preheader, %.lr.ph.i.i.i.i64
@@ -144456,7 +144456,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_m
   br i1 %.not9.i.i.i.i53, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i54.preheader
 
 .lr.ph.i.i.i.i54.preheader:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_mm.exit
-  %68 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.1, i64 %4
+  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %.1, i64 %4
   br label %.lr.ph.i.i.i.i54
 
 .lr.ph.i.i.i.i54:                                 ; preds = %.lr.ph.i.i.i.i54.preheader, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i59
@@ -144566,7 +144566,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE13_AllocateCopyEPS1_m
   br i1 %.not9.i.i.i.i71, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE6assignIPKS1_EENSt9enable_ifIXntsr3std11is_integralIT_EE5valueEvE4typeES7_S7_ENK7_CopierclEPS1_SB_.exit, label %.lr.ph.i.i.i.i72.preheader
 
 .lr.ph.i.i.i.i72.preheader:                       ; preds = %111
-  %117 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %95, i64 %4
+  %117 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %95, i64 %4
   br label %.lr.ph.i.i.i.i72
 
 .lr.ph.i.i.i.i72:                                 ; preds = %.lr.ph.i.i.i.i72.preheader, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i77

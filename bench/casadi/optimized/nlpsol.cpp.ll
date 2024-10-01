@@ -20157,7 +20157,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit146:    ; preds = %.lr.ph.i139, %_ZN6c
   %80 = load i64, ptr %79, align 8
   %81 = load ptr, ptr %40, align 8
   %82 = load i64, ptr %26, align 8
-  %83 = getelementptr double, ptr %81, i64 %82
+  %83 = getelementptr inbounds double, ptr %81, i64 %82
   %.not.i147 = icmp eq ptr %81, null
   br i1 %.not.i147, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit157, label %84
 
@@ -20200,7 +20200,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit157:    ; preds = %_ZN6casadi11casadi_
   %93 = getelementptr inbounds i8, ptr %5, i64 192
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %52, align 8
-  %96 = getelementptr double, ptr %95, i64 %91
+  %96 = getelementptr inbounds double, ptr %95, i64 %91
   %.not.i158 = icmp eq ptr %95, null
   br i1 %.not.i158, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit168, label %97
 
@@ -20238,7 +20238,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit168:    ; preds = %.lr.ph.i161, %_ZN6c
   %106 = load i64, ptr %79, align 8
   %107 = load ptr, ptr %64, align 8
   %108 = load i64, ptr %26, align 8
-  %109 = getelementptr double, ptr %107, i64 %108
+  %109 = getelementptr inbounds double, ptr %107, i64 %108
   %.not.i169 = icmp eq ptr %107, null
   br i1 %.not.i169, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit179, label %110
 
@@ -20673,7 +20673,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit223:    ; preds = %.lr.ph.i216, %_ZN6c
 290:                                              ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit223
   %291 = load ptr, ptr %28, align 8
   %292 = load i64, ptr %26, align 8
-  %293 = getelementptr double, ptr %291, i64 %292
+  %293 = getelementptr inbounds double, ptr %291, i64 %292
   %294 = load i64, ptr %128, align 8
   %295 = getelementptr inbounds i8, ptr %5, i64 240
   %296 = load ptr, ptr %295, align 8
@@ -20751,7 +20751,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit245thread-pre-split: ; preds = %.lr.ph
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit245:    ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit245thread-pre-split, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit234
   %315 = phi ptr [ %.pr286, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit245thread-pre-split ], [ %304, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit234 ]
   %316 = load i64, ptr %26, align 8
-  %317 = getelementptr double, ptr %315, i64 %316
+  %317 = getelementptr inbounds double, ptr %315, i64 %316
   %318 = load i64, ptr %128, align 8
   %319 = getelementptr inbounds i8, ptr %5, i64 256
   %320 = load ptr, ptr %319, align 8

@@ -4378,7 +4378,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit124.i.i: ; preds = %426, %393
 
 464:                                              ; preds = %459
   %465 = sub nsw i64 0, %457
-  %466 = getelementptr i8, ptr %.097.i.i, i64 %465
+  %466 = getelementptr inbounds i8, ptr %.097.i.i, i64 %465
   %467 = icmp eq i32 %.094.i.i, 1
   %.not115.i.i = icmp eq i32 %.095.i.i, 0
   br i1 %467, label %468, label %473

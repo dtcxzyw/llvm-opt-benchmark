@@ -2411,12 +2411,12 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi24casadi_lsqr_single_solveIdEE
   %6 = load i64, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr double, ptr %4, i64 %6
+  %9 = getelementptr inbounds double, ptr %4, i64 %6
   %.not.i.not = icmp ne ptr %4, null
   br i1 %.not.i.not, label %12, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread: ; preds = %5
-  %10 = getelementptr double, ptr %9, i64 %8
+  %10 = getelementptr inbounds double, ptr %9, i64 %8
   %11 = icmp sgt i64 %8, 0
   br label %_ZN6casadi12casadi_clearIdEEvPT_x.exit279
 
@@ -2449,7 +2449,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread: ; preds = %5
   br i1 %exitcond.not.i, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit, label %.lr.ph.i, !llvm.loop !19
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit:       ; preds = %.lr.ph.i, %.preheader16.i, %.preheader.i, %.lr.ph23.preheader.i
-  %19 = getelementptr double, ptr %9, i64 %8
+  %19 = getelementptr inbounds double, ptr %9, i64 %8
   %20 = icmp sgt i64 %8, 0
   br i1 %20, label %.lr.ph.preheader.i278, label %_ZN6casadi12casadi_clearIdEEvPT_x.exit279
 
@@ -2466,8 +2466,8 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit279:        ; preds = %_ZN6casadi11casadi_
   %or.cond.i480484490 = phi i1 [ true, %.lr.ph.preheader.i278 ], [ false, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread ], [ false, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ]
   %24 = phi i1 [ true, %.lr.ph.preheader.i278 ], [ %11, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread ], [ false, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ]
   %25 = phi ptr [ %19, %.lr.ph.preheader.i278 ], [ %10, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread ], [ %19, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ]
-  %26 = getelementptr double, ptr %9, i64 %8
-  %27 = getelementptr double, ptr %26, i64 %8
+  %26 = getelementptr inbounds double, ptr %9, i64 %8
+  %27 = getelementptr inbounds double, ptr %26, i64 %8
   %28 = getelementptr inbounds double, ptr %27, i64 %8
   %29 = icmp sgt i64 %6, 0
   br i1 %29, label %.lr.ph.i.i, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit303
@@ -2661,7 +2661,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit303:    ; preds = %.lr.ph.i296, %_ZN6c
   %invariant.gep = getelementptr i8, ptr %3, i64 24
   %.not.i311 = icmp eq i64 %2, 0
   %108 = icmp slt i64 %8, 1
-  %109 = getelementptr double, ptr %9, i64 %8
+  %109 = getelementptr inbounds double, ptr %9, i64 %8
   br label %111
 
 110:                                              ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit303

@@ -24614,8 +24614,8 @@ _ZSt4copyIPKSt5tupleIJPN4llvm10BasicBlockENS1_12SuccIteratorINS1_11InstructionES
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKSt5tupleIJPN4llvm10BasicBlockENS1_12SuccIteratorINS1_11InstructionES2_EES6_EEPS7_ET0_T_SC_SB_.exit36
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr %"class.std::tuple.253", ptr %62, i64 %.022
-  %64 = getelementptr %"class.std::tuple.253", ptr %59, i64 %.022
+  %63 = getelementptr inbounds %"class.std::tuple.253", ptr %62, i64 %.022
+  %64 = getelementptr inbounds %"class.std::tuple.253", ptr %59, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
@@ -26102,8 +26102,8 @@ _ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZSt4copyIPKSt5tupleIJPN12_GLOBAL__N_110RematGraph9RematNodeEPS4_S5_EEPS6_ET0_T_SB_SA_.exit45.i.i
   %.val.i.i = load ptr, ptr %4, align 8
-  %46 = getelementptr %"class.std::tuple.376", ptr %.val.i.i, i64 %.022.i.i
-  %47 = getelementptr %"class.std::tuple.376", ptr %.val33.i.i, i64 %.022.i.i
+  %46 = getelementptr inbounds %"class.std::tuple.376", ptr %.val.i.i, i64 %.022.i.i
+  %47 = getelementptr inbounds %"class.std::tuple.376", ptr %.val33.i.i, i64 %.022.i.i
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i
@@ -35604,7 +35604,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit: ; preds = %3, %13
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE18uninitialized_copyINS_22TypedMDOperandIteratorINS_6DINodeEEEPS2_EEvT_S9_T0_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i

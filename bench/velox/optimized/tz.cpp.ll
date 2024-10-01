@@ -7530,7 +7530,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
 
 _ZNSt6vectorIN4date11leap_secondESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 8
   %cmp.not5.i.i.i18 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN4date11leap_secondESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, label %for.body.i.i.i19
 
@@ -9338,7 +9338,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   br label %if.end30
 
 if.else22:                                        ; preds = %entry
-  %add.ptr.i8 = getelementptr i8, ptr %0, i64 %sub.ptr.sub.i
+  %add.ptr.i8 = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
   %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775792
@@ -9385,7 +9385,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for
 
 _ZNSt6vectorIN4date6detail10transitionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i12 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
+  %incdec.ptr.i12 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
   %cmp.not5.i.i.i18.i = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.not5.i.i.i18.i, label %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, label %for.body.i.i.i19.i
 

@@ -8967,7 +8967,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0E
   %206 = mul nsw i64 %205, %.0102.us
   %207 = getelementptr inbounds double, ptr %204, i64 %206
   %208 = mul nsw i64 %205, %201
-  %209 = getelementptr double, ptr %204, i64 %208
+  %209 = getelementptr inbounds double, ptr %204, i64 %208
   %210 = ptrtoint ptr %207 to i64
   %211 = and i64 %210, 7
   %.not.i.i.i.i.i.i.i.us = icmp eq i64 %211, 0

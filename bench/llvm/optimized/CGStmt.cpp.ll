@@ -7771,7 +7771,7 @@ _ZNSt12_Vector_baseIN5clang7CodeGen6LValueESaIS2_EE11_M_allocateEm.exit.i.i: ; p
 
 _ZNSt6vectorIN5clang7CodeGen6LValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN5clang7CodeGen6LValueESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %396, %_ZNSt12_Vector_baseIN5clang7CodeGen6LValueESaIS2_EE11_M_allocateEm.exit.i.i ], [ %399, %.lr.ph.i.i.i.i.i ]
-  %400 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 136
+  %400 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 136
   %.not.i23.i.i = icmp eq ptr %382, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5clang7CodeGen6LValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %401
 
@@ -19060,7 +19060,7 @@ _ZN4llvm15SmallVectorImplIPKN5clang7VarDeclEE7reserveEm.exit: ; preds = %3, %12
   br i1 %16, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE18uninitialized_copyIPKPNS1_17ImplicitParamDeclEPS4_EEvT_SC_T0_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang7VarDeclEE7reserveEm.exit
-  %17 = getelementptr ptr, ptr %14, i64 %15
+  %17 = getelementptr inbounds ptr, ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i

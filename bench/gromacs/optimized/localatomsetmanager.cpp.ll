@@ -268,7 +268,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_
 
 _ZNSt6vectorISt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %36, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %40, %.lr.ph.i.i.i.i ]
-  %41 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %22, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit, label %42
 
@@ -651,7 +651,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_
 
 _ZNSt6vectorISt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %36, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %40, %.lr.ph.i.i.i.i ]
-  %41 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %22, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit, label %42
 

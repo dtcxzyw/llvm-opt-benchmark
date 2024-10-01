@@ -11650,7 +11650,7 @@ _ZSt4copyIN3gmx12ArrayRefIterIKfEEPfET0_T_S6_S5_.exit: ; preds = %_ZSt4copyIN3gm
   br label %_ZNSt6vectorIfSaIfEE15_M_erase_at_endEPf.exit
 
 _ZSt7advanceIN3gmx12ArrayRefIterIKfEEmEvRT_T0_.exit: ; preds = %23
-  %.sink.i.i = getelementptr i8, ptr %1, i64 %27
+  %.sink.i.i = getelementptr inbounds i8, ptr %1, i64 %27
   %37 = ptrtoint ptr %.sink.i.i to i64
   %38 = ashr exact i64 %27, 2
   %39 = icmp sgt i64 %38, 0

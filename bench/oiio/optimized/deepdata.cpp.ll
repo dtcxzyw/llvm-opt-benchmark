@@ -10384,7 +10384,7 @@ if.end25:                                         ; preds = %if.then17
   br i1 %cmp2967, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end25
-  %add.ptr26 = getelementptr i32, ptr %__p.0, i64 %__k.0
+  %add.ptr26 = getelementptr inbounds i32, ptr %__p.0, i64 %__k.0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -10523,7 +10523,7 @@ while.body.i17:                                   ; preds = %while.body, %_ZSt12
   %__first.addr.023.i = phi ptr [ %add.ptr2.i, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit ], [ %__first, %while.body ]
   %__result.addr.022.i = phi ptr [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit ], [ %__buffer, %while.body ]
   %add.ptr.i18 = getelementptr inbounds i32, ptr %__first.addr.023.i, i64 %__step_size.0619
-  %add.ptr2.i = getelementptr i32, ptr %__first.addr.023.i, i64 %mul.i
+  %add.ptr2.i = getelementptr inbounds i32, ptr %__first.addr.023.i, i64 %mul.i
   %agg.tmp11546.sroa.0.0.copyload = load ptr, ptr %agg.tmp115, align 8
   %agg.tmp11546.sroa.5.0.copyload = load i32, ptr %agg.tmp11546.sroa.5.0.agg.tmp115.sroa_idx, align 4
   %agg.tmp11546.sroa.6.0.copyload = load i32, ptr %agg.tmp11546.sroa.6.0.agg.tmp115.sroa_idx, align 8
@@ -11209,7 +11209,7 @@ while.body.i29:                                   ; preds = %while.body.i29.preh
   %__first.addr.023.i30 = phi ptr [ %add.ptr2.i33, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100 ], [ %__buffer, %while.body.i29.preheader ]
   %__result.addr.022.i31 = phi ptr [ %add.ptr.i.i.i.i.i19.i69, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100 ], [ %__first, %while.body.i29.preheader ]
   %add.ptr.i32 = getelementptr inbounds i32, ptr %__first.addr.023.i30, i64 %mul.i
-  %add.ptr2.i33 = getelementptr i32, ptr %__first.addr.023.i30, i64 %mul.i23
+  %add.ptr2.i33 = getelementptr inbounds i32, ptr %__first.addr.023.i30, i64 %mul.i23
   %agg.tmp22250.sroa.0.0.copyload = load ptr, ptr %agg.tmp222, align 8
   %agg.tmp22250.sroa.5.0.copyload = load i32, ptr %agg.tmp22250.sroa.5.0.agg.tmp222.sroa_idx, align 4
   %agg.tmp22250.sroa.6.0.copyload = load i32, ptr %agg.tmp22250.sroa.6.0.agg.tmp222.sroa_idx, align 8

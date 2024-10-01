@@ -1080,7 +1080,7 @@ for.body.i.i.i.i.i.us.us.us.us:                   ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN8QuantLib15VegaBumpClusterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.us.us.us.us: ; preds = %for.body.i.i.i.i.i.us.us.us.us, %_ZNSt12_Vector_baseIN8QuantLib15VegaBumpClusterESaIS1_EE11_M_allocateEm.exit.i.i.us.us.us.us
   %__cur.0.lcssa.i.i.i.i.i.us.us.us.us = phi ptr [ %cond.i10.i.i.us.us.us.us, %_ZNSt12_Vector_baseIN8QuantLib15VegaBumpClusterESaIS1_EE11_M_allocateEm.exit.i.i.us.us.us.us ], [ %incdec.ptr1.i.i.i.i.i.us.us.us.us, %for.body.i.i.i.i.i.us.us.us.us ]
-  %incdec.ptr.i.i.us.us.us.us = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.us.us.us.us, i64 48
+  %incdec.ptr.i.i.us.us.us.us = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i.us.us.us.us, i64 48
   %tobool.not.i.i.i.us.us.us.us = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i.us.us.us.us, label %_ZNSt6vectorIN8QuantLib15VegaBumpClusterESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.us.us.us.us, label %if.then.i20.i.i.us.us.us.us
 
@@ -1302,7 +1302,7 @@ for.body.i.i.i.i.i65:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN8QuantLib15VegaBumpClusterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i71: ; preds = %for.body.i.i.i.i.i65, %_ZNSt12_Vector_baseIN8QuantLib15VegaBumpClusterESaIS1_EE11_M_allocateEm.exit.i.i61
   %__cur.0.lcssa.i.i.i.i.i72 = phi ptr [ %cond.i10.i.i62, %_ZNSt12_Vector_baseIN8QuantLib15VegaBumpClusterESaIS1_EE11_M_allocateEm.exit.i.i61 ], [ %incdec.ptr1.i.i.i.i.i69, %for.body.i.i.i.i.i65 ]
-  %incdec.ptr.i.i73 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i72, i64 48
+  %incdec.ptr.i.i73 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i72, i64 48
   %tobool.not.i.i.i74 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i74, label %_ZNSt6vectorIN8QuantLib15VegaBumpClusterESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i76, label %if.then.i20.i.i75
 

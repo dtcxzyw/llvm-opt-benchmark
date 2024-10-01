@@ -15556,7 +15556,7 @@ define ptr @php_addslashes_sse42(ptr noundef %0) #21 {
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, 0
   %. = select i1 %57, i8 48, i8 %56
-  %.2237 = getelementptr i8, ptr %.1236.lcssa, i64 2
+  %.2237 = getelementptr inbounds i8, ptr %.1236.lcssa, i64 2
   store i8 %., ptr %53, align 1
   %58 = add nsw i32 %52, 1
   %59 = add nuw nsw i32 %46, 1
@@ -15651,7 +15651,7 @@ define ptr @php_addslashes_sse42(ptr noundef %0) #21 {
   %88 = load i8, ptr %87, align 1
   %89 = icmp eq i8 %88, 0
   %.264 = select i1 %89, i8 48, i8 %88
-  %.8 = getelementptr i8, ptr %.7.lcssa, i64 2
+  %.8 = getelementptr inbounds i8, ptr %.7.lcssa, i64 2
   store i8 %.264, ptr %85, align 1
   %90 = add nsw i32 %84, 1
   %91 = add nuw nsw i32 %78, 1

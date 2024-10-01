@@ -64,9 +64,9 @@ if.then.i:                                        ; preds = %if.end7
   %cmp8.i = icmp ult i32 %len, %conv7.i
   %conv11.i = trunc nuw i32 %len to i8
   %spec.select.i = select i1 %cmp8.i, i8 %conv11.i, i8 %conv6.i
-  %t12.i = getelementptr i8, ptr %sha3, i64 200
+  %t12.i = getelementptr inbounds i8, ptr %sha3, i64 200
   %idxprom.i = zext i8 %0 to i64
-  %arrayidx.i = getelementptr [200 x i8], ptr %t12.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [200 x i8], ptr %t12.i, i64 0, i64 %idxprom.i
   %conv14.i = zext i8 %spec.select.i to i32
   %cmp1546.not.i = icmp eq i8 %spec.select.i, 0
   br i1 %cmp1546.not.i, label %for.end.i, label %for.body.preheader.i

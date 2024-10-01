@@ -4102,7 +4102,7 @@ entry:
   store i64 %8, ptr %syntax_16, align 8
   store ptr %__tmp.sroa.0.0.copyload.i16, ptr %syntax_, align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 200
-  %options_17 = getelementptr i8, ptr %other, i64 200
+  %options_17 = getelementptr inbounds i8, ptr %other, i64 200
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   br label %for.body.i.i
@@ -5382,7 +5382,7 @@ entry:
   store i32 %5, ptr %2, align 8
   store i32 %4, ptr %3, align 4
   %start_ = getelementptr inbounds i8, ptr %this, i64 24
-  %start_5 = getelementptr i8, ptr %other, i64 24
+  %start_5 = getelementptr inbounds i8, ptr %other, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   br label %for.body.i.i
@@ -8545,7 +8545,7 @@ entry:
   store i64 %7, ptr %type_8, align 8
   store ptr %__tmp.sroa.0.0.copyload.i6, ptr %type_, align 8
   %number_ = getelementptr inbounds i8, ptr %this, i64 40
-  %number_9 = getelementptr i8, ptr %other, i64 40
+  %number_9 = getelementptr inbounds i8, ptr %other, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   br label %for.body.i.i
@@ -9468,7 +9468,7 @@ entry:
   %uninterpreted_option_7 = getelementptr inbounds i8, ptr %other, i64 72
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_7)
   %features_ = getelementptr inbounds i8, ptr %this, i64 96
-  %features_8 = getelementptr i8, ptr %other, i64 96
+  %features_8 = getelementptr inbounds i8, ptr %other, i64 96
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   br label %for.body.i.i
@@ -11195,7 +11195,7 @@ entry:
   store i64 %10, ptr %json_name_11, align 8
   store ptr %__tmp.sroa.0.0.copyload.i15, ptr %json_name_, align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 64
-  %options_12 = getelementptr i8, ptr %other, i64 64
+  %options_12 = getelementptr inbounds i8, ptr %other, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
   br label %for.body.i.i
@@ -12422,7 +12422,7 @@ entry:
   store i32 %5, ptr %2, align 8
   store i32 %4, ptr %3, align 4
   %start_ = getelementptr inbounds i8, ptr %this, i64 24
-  %start_5 = getelementptr i8, ptr %other, i64 24
+  %start_5 = getelementptr inbounds i8, ptr %other, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   br label %for.body.i.i
@@ -14501,7 +14501,7 @@ entry:
   store i64 %6, ptr %name_7, align 8
   store ptr %__tmp.sroa.0.0.copyload.i, ptr %name_, align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 32
-  %options_8 = getelementptr i8, ptr %other, i64 32
+  %options_8 = getelementptr inbounds i8, ptr %other, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   br label %for.body.i.i
@@ -16572,7 +16572,7 @@ entry:
   store i64 %8, ptr %output_type_9, align 8
   store ptr %__tmp.sroa.0.0.copyload.i9, ptr %output_type_, align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 48
-  %options_10 = getelementptr i8, ptr %other, i64 48
+  %options_10 = getelementptr inbounds i8, ptr %other, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
   br label %for.body.i.i
@@ -18924,7 +18924,7 @@ entry:
   store i64 %15, ptr %ruby_package_18, align 8
   store ptr %__tmp.sroa.0.0.copyload.i32, ptr %ruby_package_, align 8
   %features_ = getelementptr inbounds i8, ptr %this, i64 152
-  %features_19 = getelementptr i8, ptr %other, i64 152
+  %features_19 = getelementptr inbounds i8, ptr %other, i64 152
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
   br label %for.body.i.i
@@ -19651,7 +19651,7 @@ entry:
   %uninterpreted_option_6 = getelementptr inbounds i8, ptr %other, i64 48
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
   %features_ = getelementptr inbounds i8, ptr %this, i64 72
-  %features_7 = getelementptr i8, ptr %other, i64 72
+  %features_7 = getelementptr inbounds i8, ptr %other, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   br label %for.body.i.i
@@ -21554,7 +21554,7 @@ entry:
   %uninterpreted_option_8 = getelementptr inbounds i8, ptr %other, i64 88
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_8)
   %features_ = getelementptr inbounds i8, ptr %this, i64 112
-  %features_9 = getelementptr i8, ptr %other, i64 112
+  %features_9 = getelementptr inbounds i8, ptr %other, i64 112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   br label %for.body.i.i
@@ -22683,7 +22683,7 @@ entry:
   %uninterpreted_option_6 = getelementptr inbounds i8, ptr %other, i64 48
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
   %features_ = getelementptr inbounds i8, ptr %this, i64 72
-  %features_7 = getelementptr i8, ptr %other, i64 72
+  %features_7 = getelementptr inbounds i8, ptr %other, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
   br label %for.body.i.i
@@ -23285,7 +23285,7 @@ entry:
   %uninterpreted_option_6 = getelementptr inbounds i8, ptr %other, i64 48
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
   %features_ = getelementptr inbounds i8, ptr %this, i64 72
-  %features_7 = getelementptr i8, ptr %other, i64 72
+  %features_7 = getelementptr inbounds i8, ptr %other, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
   br label %for.body.i.i
@@ -23851,7 +23851,7 @@ entry:
   %uninterpreted_option_6 = getelementptr inbounds i8, ptr %other, i64 48
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %uninterpreted_option_, ptr noundef nonnull %uninterpreted_option_6)
   %features_ = getelementptr inbounds i8, ptr %this, i64 72
-  %features_7 = getelementptr i8, ptr %other, i64 72
+  %features_7 = getelementptr inbounds i8, ptr %other, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
   br label %for.body.i.i
@@ -26155,7 +26155,7 @@ entry:
   store i64 %8, ptr %aggregate_value_10, align 8
   store ptr %__tmp.sroa.0.0.copyload.i10, ptr %aggregate_value_, align 8
   %positive_int_value_ = getelementptr inbounds i8, ptr %this, i64 72
-  %positive_int_value_11 = getelementptr i8, ptr %other, i64 72
+  %positive_int_value_11 = getelementptr inbounds i8, ptr %other, i64 72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !151)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
   br label %for.body.i.i
@@ -26894,7 +26894,7 @@ entry:
   store i32 %5, ptr %_has_bits_, align 8
   store i32 %4, ptr %_has_bits_4, align 4
   %field_presence_ = getelementptr inbounds i8, ptr %this, i64 48
-  %field_presence_6 = getelementptr i8, ptr %other, i64 48
+  %field_presence_6 = getelementptr inbounds i8, ptr %other, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
   br label %for.body.i.i
@@ -27444,7 +27444,7 @@ entry:
   store i32 %5, ptr %2, align 8
   store i32 %4, ptr %3, align 4
   %features_ = getelementptr inbounds i8, ptr %this, i64 24
-  %features_5 = getelementptr i8, ptr %other, i64 24
+  %features_5 = getelementptr inbounds i8, ptr %other, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
   br label %for.body.i.i
@@ -28213,7 +28213,7 @@ entry:
   %defaults_5 = getelementptr inbounds i8, ptr %other, i64 24
   tail call void @_ZN6google8protobuf8internal7memswapILm16EEEvPcS3_(ptr noundef nonnull %defaults_, ptr noundef nonnull %defaults_5)
   %minimum_edition_ = getelementptr inbounds i8, ptr %this, i64 48
-  %minimum_edition_6 = getelementptr i8, ptr %other, i64 48
+  %minimum_edition_6 = getelementptr inbounds i8, ptr %other, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !171)
   br label %for.body.i.i
@@ -30577,7 +30577,7 @@ entry:
   store i64 %6, ptr %source_file_8, align 8
   store ptr %__tmp.sroa.0.0.copyload.i, ptr %source_file_, align 8
   %begin_ = getelementptr inbounds i8, ptr %this, i64 56
-  %begin_9 = getelementptr i8, ptr %other, i64 56
+  %begin_9 = getelementptr inbounds i8, ptr %other, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
   br label %for.body.i.i

@@ -4003,7 +4003,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpander
   br i1 %.not.i.i.i.i117.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph15ConfigurePresetEEESt14default_deleteIS4_EED2Ev.exit.i, label %.lr.ph.i.i.i.i114.i, !llvm.loop !74
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph15ConfigurePresetEEESt14default_deleteIS4_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i114.i
-  %303 = getelementptr i8, ptr %.012.i.i.i.i115.i, i64 16
+  %303 = getelementptr inbounds i8, ptr %.012.i.i.i.i115.i, i64 16
   call void @_ZdlPv(ptr noundef nonnull %289) #22
   store ptr %298, ptr %29, align 8
   store ptr %303, ptr %242, align 8
@@ -4845,7 +4845,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpander
   br i1 %.not.i.i.i.i118.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph11BuildPresetEEESt14default_deleteIS4_EED2Ev.exit.i, label %.lr.ph.i.i.i.i115.i, !llvm.loop !74
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph11BuildPresetEEESt14default_deleteIS4_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i115.i
-  %599 = getelementptr i8, ptr %.012.i.i.i.i116.i, i64 16
+  %599 = getelementptr inbounds i8, ptr %.012.i.i.i.i116.i, i64 16
   call void @_ZdlPv(ptr noundef nonnull %585) #22
   store ptr %594, ptr %14, align 8
   store ptr %599, ptr %478, align 8
@@ -5434,7 +5434,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpander
   br i1 %.not.i.i.i.i128.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph10TestPresetEEESt14default_deleteIS4_EED2Ev.exit.i, label %.lr.ph.i.i.i.i125.i, !llvm.loop !74
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph10TestPresetEEESt14default_deleteIS4_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i125.i
-  %816 = getelementptr i8, ptr %.012.i.i.i.i126.i, i64 16
+  %816 = getelementptr inbounds i8, ptr %.012.i.i.i.i126.i, i64 16
   call void @_ZdlPv(ptr noundef nonnull %802) #22
   store ptr %811, ptr %10, align 8
   store ptr %816, ptr %699, align 8
@@ -6305,7 +6305,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpander
   br i1 %.not.i.i.i.i122.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph13PackagePresetEEESt14default_deleteIS4_EED2Ev.exit.i, label %.lr.ph.i.i.i.i119.i, !llvm.loop !74
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph13PackagePresetEEESt14default_deleteIS4_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i119.i
-  %1163 = getelementptr i8, ptr %.012.i.i.i.i120.i, i64 16
+  %1163 = getelementptr inbounds i8, ptr %.012.i.i.i.i120.i, i64 16
   call void @_ZdlPv(ptr noundef nonnull %1149) #22
   store ptr %1158, ptr %6, align 8
   store ptr %1163, ptr %1046, align 8
@@ -7667,7 +7667,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN27cmCMakePresetsGraphInternal13MacroExpander
   br i1 %.not.i.i.i.i123, label %.noexc52, label %.lr.ph.i.i.i.i120, !llvm.loop !74
 
 .noexc52:                                         ; preds = %.lr.ph.i.i.i.i120
-  %50 = getelementptr i8, ptr %.012.i.i.i.i121, i64 16
+  %50 = getelementptr inbounds i8, ptr %.012.i.i.i.i121, i64 16
   call void @_ZdlPv(ptr noundef nonnull %35) #22
   store ptr %45, ptr %5, align 8
   store ptr %50, ptr %26, align 8

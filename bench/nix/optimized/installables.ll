@@ -9133,7 +9133,7 @@ _ZNSt12_Vector_baseIN3nix9SymbolStrESaIS1_EE11_M_allocateEm.exit.i.i.i.i: ; pred
 
 _ZNSt6vectorIN3nix9SymbolStrESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3nix9SymbolStrESaIS1_EE11_M_allocateEm.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %583, %_ZNSt12_Vector_baseIN3nix9SymbolStrESaIS1_EE11_M_allocateEm.exit.i.i.i.i ], [ %588, %.lr.ph.i.i.i.i.i.i.i ]
-  %589 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 8
+  %589 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 8
   %.not.i23.i.i.i.i = icmp eq ptr %553, null
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN3nix9SymbolStrESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, label %590
 

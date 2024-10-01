@@ -14197,7 +14197,7 @@ define hidden void @"_ZN4core4cell16RefCell$LT$T$GT$4swap17hc5d589c4a1226613E.ll
 
 5:                                                ; preds = %2
   store i64 -1, ptr %0, align 8
-  %6 = getelementptr i8, ptr %0, i64 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %1, align 8, !noundef !9
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %14, label %22
@@ -99046,7 +99046,7 @@ default.unreachable4:                             ; preds = %2
 
 21:                                               ; preds = %16
   store i64 -1, ptr %17, align 8
-  %22 = getelementptr i8, ptr %0, i64 16
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load i64, ptr %18, align 8, !noundef !9
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %30, label %38

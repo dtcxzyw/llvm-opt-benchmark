@@ -1688,7 +1688,7 @@ for.inc.i.i:                                      ; preds = %invoke.cont19, %for
 
 invoke.cont21:                                    ; preds = %for.inc.i.i, %invoke.cont19
   %move_values.sroa.0.1 = phi ptr [ %.sink3.i, %invoke.cont19 ], [ %incdec.ptr.i.i.i.i, %for.inc.i.i ]
-  %add.ptr23 = getelementptr i8, ptr %call5.i.i.i28, i64 %add
+  %add.ptr23 = getelementptr inbounds i8, ptr %call5.i.i.i28, i64 %add
   %sub = sub i64 %shr.i.sink.i, %sub.ptr.sub.i.i
   %cmp6.not.i = icmp eq i64 %shr.i.sink.i, %sub.ptr.sub.i.i
   br i1 %cmp6.not.i, label %invoke.cont32, label %for.inc.i
@@ -1720,7 +1720,7 @@ _ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIhEED2Ev.exit
 
 if.else:                                          ; preds = %entry
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add, i64 %shr.i.sink.i)
-  %add.ptr49 = getelementptr i8, ptr %.sink3.i, i64 %.sroa.speculated
+  %add.ptr49 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.sroa.speculated
   %sub50 = sub i64 %add2, %.sroa.speculated
   %add.ptr52 = getelementptr inbounds i8, ptr %.sink3.i, i64 %sub.ptr.sub.i.i
   %add.ptr54 = getelementptr inbounds i8, ptr %.sink3.i, i64 %add
@@ -1732,7 +1732,7 @@ if.else:                                          ; preds = %entry
 
 for.inc.i.i51.preheader:                          ; preds = %if.else
   %sub43 = sub i64 %.sroa.speculated, %insert_count
-  %add.ptr44 = getelementptr i8, ptr %.sink3.i, i64 %sub43
+  %add.ptr44 = getelementptr inbounds i8, ptr %.sink3.i, i64 %sub43
   br label %for.inc.i.i51
 
 for.inc.i.i51:                                    ; preds = %for.inc.i.i51.preheader, %for.inc.i.i51

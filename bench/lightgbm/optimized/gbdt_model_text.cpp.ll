@@ -10619,7 +10619,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5
 
 _ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i318, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %634, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i ], [ %638, %.lr.ph.i.i.i.i.i.i318 ]
-  %639 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
+  %639 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %620, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %640
 
@@ -10843,7 +10843,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5
 
 _ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i338: ; preds = %.lr.ph.i.i.i.i.i.i334, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i332
   %.0.lcssa.i.i.i.i.i.i339 = phi ptr [ %715, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i332 ], [ %719, %.lr.ph.i.i.i.i.i.i334 ]
-  %720 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i339, i64 8
+  %720 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i339, i64 8
   %.not.i23.i.i340 = icmp eq ptr %701, null
   br i1 %.not.i23.i.i340, label %_ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJDnEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %721
 

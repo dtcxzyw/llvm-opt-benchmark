@@ -56613,7 +56613,7 @@ _ZNKSt6vectorIiN3ozz12StdAllocatorIiEEE12_M_check_lenEmPKc.exit: ; preds = %3
 
 _ZSt34__uninitialized_move_if_noexcept_aIPiS0_N3ozz12StdAllocatorIiEEET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i, %31
   %.0.lcssa.i.i = phi ptr [ %32, %31 ], [ %37, %.lr.ph.i.i ]
-  %38 = getelementptr i8, ptr %.0.lcssa.i.i, i64 4
+  %38 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 4
   %.not13.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_N3ozz12StdAllocatorIiEEET0_T_S5_S4_RT1_.exit34, label %.lr.ph.i.i29
 
@@ -57223,7 +57223,7 @@ _ZNKSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_E
   unreachable
 
 _ZNSt12_Vector_baseIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE11_M_allocateEm.exit: ; preds = %29
-  %38 = getelementptr i8, ptr %34, i64 %9
+  %38 = getelementptr inbounds i8, ptr %34, i64 %9
   br label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %_ZNSt12_Vector_baseIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE11_M_allocateEm.exit, %.lr.ph.i41
@@ -61444,7 +61444,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAll
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation14TranslationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i, %31
   %.0.lcssa.i.i = phi ptr [ %32, %31 ], [ %35, %.lr.ph.i.i ]
-  %36 = getelementptr i8, ptr %.0.lcssa.i.i, i64 16
+  %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 16
   %.not13.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation14TranslationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit34, label %.lr.ph.i.i29
 
@@ -61856,7 +61856,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAlloca
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation11RotationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i, %31
   %.0.lcssa.i.i = phi ptr [ %32, %31 ], [ %35, %.lr.ph.i.i ]
-  %36 = getelementptr i8, ptr %.0.lcssa.i.i, i64 20
+  %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 20
   %.not13.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation11RotationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit34, label %.lr.ph.i.i29
 
@@ -62170,7 +62170,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorI
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation8ScaleKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i, %31
   %.0.lcssa.i.i = phi ptr [ %32, %31 ], [ %35, %.lr.ph.i.i ]
-  %36 = getelementptr i8, ptr %.0.lcssa.i.i, i64 16
+  %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 16
   %.not13.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation8ScaleKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit34, label %.lr.ph.i.i29
 
@@ -62393,7 +62393,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAll
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation14TranslationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i, %31
   %.0.lcssa.i.i = phi ptr [ %32, %31 ], [ %35, %.lr.ph.i.i ]
-  %36 = getelementptr i8, ptr %.0.lcssa.i.i, i64 16
+  %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 16
   %.not13.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation14TranslationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit34, label %.lr.ph.i.i29
 
@@ -62503,7 +62503,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAlloca
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation11RotationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i, %31
   %.0.lcssa.i.i = phi ptr [ %32, %31 ], [ %35, %.lr.ph.i.i ]
-  %36 = getelementptr i8, ptr %.0.lcssa.i.i, i64 20
+  %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 20
   %.not13.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation11RotationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit34, label %.lr.ph.i.i29
 
@@ -62613,7 +62613,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorI
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation8ScaleKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i, %31
   %.0.lcssa.i.i = phi ptr [ %32, %31 ], [ %35, %.lr.ph.i.i ]
-  %36 = getelementptr i8, ptr %.0.lcssa.i.i, i64 16
+  %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 16
   %.not13.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation8ScaleKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit34, label %.lr.ph.i.i29
 

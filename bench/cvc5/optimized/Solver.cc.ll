@@ -7554,7 +7554,7 @@ if.then36:                                        ; preds = %for.body
 for.cond.backedge:                                ; preds = %if.then36, %if.then68
   %storemerge = phi i64 [ %w.sroa.0.0.insert.insert116, %if.then68 ], [ %34, %if.then36 ]
   %i.0.be = phi ptr [ %incdec.ptr53, %if.then68 ], [ %incdec.ptr, %if.then36 ]
-  %j.0.be = getelementptr i8, ptr %j.0146, i64 8
+  %j.0.be = getelementptr inbounds i8, ptr %j.0146, i64 8
   store i64 %storemerge, ptr %j.0146, align 4
   %cmp28.not = icmp eq ptr %i.0.be, %add.ptr
   br i1 %cmp28.not, label %for.end119, label %for.body, !llvm.loop !46
@@ -7578,7 +7578,7 @@ if.then48:                                        ; preds = %if.end38
 
 if.end52:                                         ; preds = %if.then48, %if.end38
   %39 = phi i32 [ %38, %if.then48 ], [ %37, %if.end38 ]
-  %incdec.ptr53 = getelementptr i8, ptr %i.0147, i64 8
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %i.0147, i64 8
   %cmp.i61.not = icmp eq i32 %39, %blocker.sroa.0.0.copyload
   br i1 %cmp.i61.not, label %if.end70, label %land.rhs
 
@@ -7702,7 +7702,7 @@ _ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE4pushERKS4_.exit: ; preds = %
   br label %NextClause
 
 for.end:                                          ; preds = %for.cond71, %if.end70
-  %incdec.ptr98 = getelementptr i8, ptr %j.0146, i64 8
+  %incdec.ptr98 = getelementptr inbounds i8, ptr %j.0146, i64 8
   %w.sroa.4.0.insert.ext = zext i32 %.lcssa173 to i64
   %w.sroa.4.0.insert.shift = shl nuw i64 %w.sroa.4.0.insert.ext, 32
   %w.sroa.0.0.insert.insert = or disjoint i64 %w.sroa.4.0.insert.shift, %idxprom.i.i49

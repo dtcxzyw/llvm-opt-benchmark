@@ -5935,7 +5935,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %2, %17
   %43 = getelementptr inbounds i8, ptr %40, i64 80
   %44 = load i64, ptr %43, align 8
   %45 = mul i64 %44, %indvars.iv214
-  %46 = getelementptr i8, ptr %42, i64 %45
+  %46 = getelementptr inbounds i8, ptr %42, i64 %45
   %47 = trunc nsw i64 %indvars.iv214 to i32
   %48 = sitofp i32 %47 to double
   %49 = load double, ptr %30, align 8
@@ -5951,7 +5951,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %2, %17
   %58 = load i64, ptr %57, align 8
   %59 = sext i32 %.sroa.speculated to i64
   %60 = mul i64 %58, %59
-  %61 = getelementptr i8, ptr %55, i64 %60
+  %61 = getelementptr inbounds i8, ptr %55, i64 %60
   switch i32 %25, label %.preheader [
     i32 1, label %.preheader122
     i32 2, label %.preheader123
@@ -6160,7 +6160,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %2, %17
   %152 = getelementptr inbounds i32, ptr %151, i64 %indvars.iv209
   %153 = load i32, ptr %152, align 4
   %154 = sext i32 %153 to i64
-  %155 = getelementptr i8, ptr %61, i64 %154
+  %155 = getelementptr inbounds i8, ptr %61, i64 %154
   br i1 %35, label %.lr.ph156, label %._crit_edge
 
 .lr.ph156:                                        ; preds = %.lr.ph159, %.lr.ph156
@@ -6175,7 +6175,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %2, %17
 
 ._crit_edge:                                      ; preds = %.lr.ph156, %.lr.ph159
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
-  %159 = getelementptr i8, ptr %.4111157, i64 %36
+  %159 = getelementptr inbounds i8, ptr %.4111157, i64 %36
   %exitcond213.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count212
   br i1 %exitcond213.not, label %.loopexit, label %.lr.ph159, !llvm.loop !98
 
@@ -6478,7 +6478,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %2, %17
   %43 = load ptr, ptr %42, align 8
   %44 = load i64, ptr %43, align 8
   %45 = mul i64 %44, %indvars.iv190
-  %46 = getelementptr i8, ptr %41, i64 %45
+  %46 = getelementptr inbounds i8, ptr %41, i64 %45
   %47 = load i32, ptr %30, align 8
   %48 = trunc nsw i64 %indvars.iv190 to i32
   %49 = mul nsw i32 %47, %48
@@ -6680,7 +6680,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %2, %17
 
 ._crit_edge:                                      ; preds = %.lr.ph134, %.lr.ph137
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
-  %141 = getelementptr i8, ptr %.3136, i64 %36
+  %141 = getelementptr inbounds i8, ptr %.3136, i64 %36
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
   br i1 %exitcond189.not, label %.loopexit, label %.lr.ph137, !llvm.loop !108
 

@@ -144,7 +144,7 @@ _ZNSt12_Vector_baseIN4llvm9FaultMaps9FaultInfoESaIS2_EE11_M_allocateEm.exit.i: ;
 
 _ZNSt6vectorIN4llvm9FaultMaps9FaultInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit24.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm9FaultMaps9FaultInfoESaIS2_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %50, %_ZNSt12_Vector_baseIN4llvm9FaultMaps9FaultInfoESaIS2_EE11_M_allocateEm.exit.i ], [ %55, %.lr.ph.i.i.i.i ]
-  %56 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 24
+  %56 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
   %.not.i25.i = icmp eq ptr %36, null
   br i1 %.not.i25.i, label %_ZNSt6vectorIN4llvm9FaultMaps9FaultInfoESaIS2_EE17_M_realloc_insertIJRNS1_9FaultKindERPKNS0_6MCExprESB_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %57
 

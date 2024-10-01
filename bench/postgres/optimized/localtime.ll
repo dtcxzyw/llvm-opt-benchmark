@@ -80,7 +80,7 @@ define dso_local i32 @tzload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 
   %40 = getelementptr inbounds i8, ptr %2, i64 16024
   %41 = getelementptr inbounds i8, ptr %2, i64 24
   %42 = getelementptr inbounds i8, ptr %2, i64 18024
-  %43 = getelementptr i8, ptr %2, i64 22120
+  %43 = getelementptr inbounds i8, ptr %2, i64 22120
   %44 = getelementptr inbounds i8, ptr %2, i64 22632
   %45 = getelementptr inbounds i8, ptr %5, i64 4
   %46 = ptrtoint ptr %5 to i64

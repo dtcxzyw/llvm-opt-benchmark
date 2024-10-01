@@ -822,7 +822,7 @@ swapfunc.exit431:                                 ; preds = %.preheader490, %.pr
   %.1341.lcssa = phi ptr [ %352, %351 ], [ %.0340, %.critedge2 ]
   %371 = icmp eq i32 %.3.lcssa, 0
   %372 = mul i64 %.0336542, %2
-  %373 = getelementptr i8, ptr %.0543, i64 %372
+  %373 = getelementptr inbounds i8, ptr %.0543, i64 %372
   br i1 %371, label %.preheader484, label %452
 
 .preheader484:                                    ; preds = %.critedge2._crit_edge
@@ -1058,7 +1058,7 @@ swapfunc.exit438.loopexit482:                     ; preds = %.preheader481
 459:                                              ; preds = %452
   %460 = and i64 %.399, 2147483647
   %461 = sub nsw i64 0, %460
-  %462 = getelementptr i8, ptr %.1339.lcssa, i64 %461
+  %462 = getelementptr inbounds i8, ptr %.1339.lcssa, i64 %461
   br i1 %or.cond544, label %463, label %.preheader494
 
 463:                                              ; preds = %459
@@ -1108,7 +1108,7 @@ swapfunc.exit445:                                 ; preds = %.preheader494, %465
 486:                                              ; preds = %swapfunc.exit445
   %487 = and i64 %.400, 2147483647
   %488 = sub nsw i64 0, %487
-  %489 = getelementptr i8, ptr %373, i64 %488
+  %489 = getelementptr inbounds i8, ptr %373, i64 %488
   br i1 %or.cond544, label %490, label %.preheader492
 
 490:                                              ; preds = %486
@@ -1996,7 +1996,7 @@ swapfunc.exit440:                                 ; preds = %.preheader499, %.pr
   %.1350.lcssa = phi ptr [ %353, %352 ], [ %.0349, %.critedge2 ]
   %372 = icmp eq i32 %.3.lcssa, 0
   %373 = mul i64 %.0345551, %2
-  %374 = getelementptr i8, ptr %.0552, i64 %373
+  %374 = getelementptr inbounds i8, ptr %.0552, i64 %373
   br i1 %372, label %.preheader493, label %453
 
 .preheader493:                                    ; preds = %.critedge2._crit_edge
@@ -2232,7 +2232,7 @@ swapfunc.exit447.loopexit491:                     ; preds = %.preheader490
 460:                                              ; preds = %453
   %461 = and i64 %.408, 2147483647
   %462 = sub nsw i64 0, %461
-  %463 = getelementptr i8, ptr %.1348.lcssa, i64 %462
+  %463 = getelementptr inbounds i8, ptr %.1348.lcssa, i64 %462
   br i1 %or.cond553, label %464, label %.preheader503
 
 464:                                              ; preds = %460
@@ -2282,7 +2282,7 @@ swapfunc.exit454:                                 ; preds = %.preheader503, %466
 487:                                              ; preds = %swapfunc.exit454
   %488 = and i64 %.409, 2147483647
   %489 = sub nsw i64 0, %488
-  %490 = getelementptr i8, ptr %374, i64 %489
+  %490 = getelementptr inbounds i8, ptr %374, i64 %489
   br i1 %or.cond553, label %491, label %.preheader501
 
 491:                                              ; preds = %487

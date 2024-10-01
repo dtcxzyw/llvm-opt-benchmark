@@ -24303,8 +24303,8 @@ _ZSt4copyIPKSt5tupleIJPN4llvm17MachineBasicBlockEPS3_S4_EEPS5_ET0_T_SA_S9_.exit3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKSt5tupleIJPN4llvm17MachineBasicBlockEPS3_S4_EEPS5_ET0_T_SA_S9_.exit36
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr %"class.std::tuple.581", ptr %48, i64 %.022
-  %50 = getelementptr %"class.std::tuple.581", ptr %45, i64 %.022
+  %49 = getelementptr inbounds %"class.std::tuple.581", ptr %48, i64 %.022
+  %50 = getelementptr inbounds %"class.std::tuple.581", ptr %45, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
@@ -28660,7 +28660,7 @@ _ZSt8distanceIN4llvm16SmallSetIteratorINS0_8RegisterELj32ESt4lessIS2_EEEENSt15it
 
 _ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit: ; preds = %_ZSt8distanceIN4llvm16SmallSetIteratorINS0_8RegisterELj32ESt4lessIS2_EEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit, %51
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr i8, ptr %53, i64 %10
+  %54 = getelementptr inbounds i8, ptr %53, i64 %10
   %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   %.idx = shl nsw i64 %55, 2
   %56 = ptrtoint ptr %54 to i64
@@ -28669,7 +28669,7 @@ _ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit: ; preds = %_ZSt8distanc
   %.not = icmp ult i64 %57, %.0.lcssa.i.i
   %58 = load ptr, ptr %0, align 8
   %59 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
-  %60 = getelementptr %"class.llvm::Register", ptr %58, i64 %59
+  %60 = getelementptr inbounds %"class.llvm::Register", ptr %58, i64 %59
   br i1 %.not, label %102, label %61
 
 61:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit
@@ -28959,7 +28959,7 @@ _ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit: ; preds = %_ZSt8distanc
   %32 = load i64, ptr %2, align 8
   %33 = load ptr, ptr %0, align 8
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
-  %35 = getelementptr %"class.llvm::Register", ptr %33, i64 %34
+  %35 = getelementptr inbounds %"class.llvm::Register", ptr %33, i64 %34
   %36 = inttoptr i64 %30 to ptr
   %37 = inttoptr i64 %32 to ptr
   %38 = xor i8 %31, %29
@@ -29054,7 +29054,7 @@ _ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit: ; preds = %3, %12
   br i1 %.not7.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE18uninitialized_copyISt13move_iteratorIPS1_ES5_EEvT_S7_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplINS_8RegisterEE7reserveEm.exit
-  %16 = getelementptr %"class.llvm::Register", ptr %14, i64 %15
+  %16 = getelementptr inbounds %"class.llvm::Register", ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i

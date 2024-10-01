@@ -6549,7 +6549,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM6MetricESt14default_deleteIS2_EESaI
 
 _ZNSt6vectorISt10unique_ptrIN8LightGBM6MetricESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM6MetricESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %150, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM6MetricESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %155, %.lr.ph.i.i.i.i.i ]
-  %156 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %156 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %136, null
   br i1 %.not.i23.i, label %.noexc, label %157
 
@@ -6715,7 +6715,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM7DatasetESt14default_deleteIS2_EESa
 
 _ZNSt6vectorISt10unique_ptrIN8LightGBM7DatasetESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i.i64, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM7DatasetESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i.i68 = phi ptr [ %218, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM7DatasetESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %222, %.lr.ph.i.i.i.i.i64 ]
-  %223 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i68, i64 8
+  %223 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i68, i64 8
   %.not.i23.i75 = icmp eq ptr %204, null
   br i1 %.not.i23.i75, label %.noexc39, label %224
 
@@ -6881,7 +6881,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM6MetricESt14default_deleteIS2_EESaI
 
 _ZNSt6vectorISt10unique_ptrIN8LightGBM6MetricESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i94: ; preds = %.lr.ph.i.i.i.i.i83, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM6MetricESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i81
   %.0.lcssa.i.i.i.i.i88 = phi ptr [ %281, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM6MetricESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i81 ], [ %286, %.lr.ph.i.i.i.i.i83 ]
-  %287 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i88, i64 8
+  %287 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i88, i64 8
   %.not.i23.i96 = icmp eq ptr %267, null
   br i1 %.not.i23.i96, label %.noexc44, label %288
 
@@ -8098,7 +8098,7 @@ _ZNSt6vectorIS_IdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEESaIS4_EE16_Tempo
 
 46:                                               ; preds = %_ZNSt6vectorIS_IdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEESaIS4_EE16_Temporary_valueC2IJRKS4_EEEPS6_DpOT_.exit
   %47 = sub i64 0, %2
-  %48 = getelementptr %"class.std::vector.239", ptr %40, i64 %47
+  %48 = getelementptr inbounds %"class.std::vector.239", ptr %40, i64 %47
   %.idx = mul i64 %2, -24
   %.not11.i.i.i.i.i = icmp eq i64 %.idx, 0
   br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit, label %.lr.ph.i.i.i.i.i68

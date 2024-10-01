@@ -2367,7 +2367,7 @@ if.then210:                                       ; preds = %if.then206
 
 if.then216:                                       ; preds = %if.then210
   %idx.ext217 = sext i32 %length.3 to i64
-  %add.ptr218 = getelementptr i16, ptr %dest, i64 %idx.ext217
+  %add.ptr218 = getelementptr inbounds i16, ptr %dest, i64 %idx.ext217
   %cmp221279 = icmp sgt i32 %sub213, 0
   br i1 %cmp221279, label %for.body222.preheader, label %if.end266
 

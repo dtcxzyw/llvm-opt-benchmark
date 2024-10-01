@@ -3962,7 +3962,7 @@ _ZNSt12_Vector_baseIN5kitty18static_truth_tableILj10EEESaIS2_EE11_M_allocateEm.e
 
 _ZNSt6vectorIN5kitty18static_truth_tableILj10EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN5kitty18static_truth_tableILj10EEESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %181, %_ZNSt12_Vector_baseIN5kitty18static_truth_tableILj10EEESaIS2_EE11_M_allocateEm.exit.i.i ], [ %184, %.lr.ph.i.i.i.i.i ]
-  %185 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 128
+  %185 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 128
   %.not.i23.i.i = icmp eq ptr %168, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5kitty18static_truth_tableILj10EEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %186
 
@@ -4031,7 +4031,7 @@ _ZNSt12_Vector_baseIN5kitty18static_truth_tableILj10EEESaIS2_EE11_M_allocateEm.e
 
 _ZNSt6vectorIN5kitty18static_truth_tableILj10EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i60: ; preds = %.lr.ph.i.i.i.i.i56, %_ZNSt12_Vector_baseIN5kitty18static_truth_tableILj10EEESaIS2_EE11_M_allocateEm.exit.i.i54
   %.0.lcssa.i.i.i.i.i61 = phi ptr [ %207, %_ZNSt12_Vector_baseIN5kitty18static_truth_tableILj10EEESaIS2_EE11_M_allocateEm.exit.i.i54 ], [ %210, %.lr.ph.i.i.i.i.i56 ]
-  %211 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i61, i64 128
+  %211 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i61, i64 128
   %.not.i23.i.i62 = icmp eq ptr %194, null
   br i1 %.not.i23.i.i62, label %_ZNSt6vectorIN5kitty18static_truth_tableILj10EEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i63, label %212
 
@@ -4647,7 +4647,7 @@ _ZNSt12_Vector_baseIN5kitty18static_truth_tableILj10EEESaIS2_EE11_M_allocateEm.e
 
 _ZNSt6vectorIN5kitty18static_truth_tableILj10EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN5kitty18static_truth_tableILj10EEESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %193, %_ZNSt12_Vector_baseIN5kitty18static_truth_tableILj10EEESaIS2_EE11_M_allocateEm.exit.i.i ], [ %196, %.lr.ph.i.i.i.i.i ]
-  %197 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 128
+  %197 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 128
   %.not.i23.i.i = icmp eq ptr %180, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5kitty18static_truth_tableILj10EEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %198
 
@@ -4716,7 +4716,7 @@ _ZNSt12_Vector_baseIN5kitty18static_truth_tableILj10EEESaIS2_EE11_M_allocateEm.e
 
 _ZNSt6vectorIN5kitty18static_truth_tableILj10EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i61: ; preds = %.lr.ph.i.i.i.i.i57, %_ZNSt12_Vector_baseIN5kitty18static_truth_tableILj10EEESaIS2_EE11_M_allocateEm.exit.i.i55
   %.0.lcssa.i.i.i.i.i62 = phi ptr [ %219, %_ZNSt12_Vector_baseIN5kitty18static_truth_tableILj10EEESaIS2_EE11_M_allocateEm.exit.i.i55 ], [ %222, %.lr.ph.i.i.i.i.i57 ]
-  %223 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i62, i64 128
+  %223 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i62, i64 128
   %.not.i23.i.i63 = icmp eq ptr %206, null
   br i1 %.not.i23.i.i63, label %_ZNSt6vectorIN5kitty18static_truth_tableILj10EEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i64, label %224
 

@@ -1709,7 +1709,7 @@ for.body.i.i.i.i.i93.i.i.i:                       ; preds = %_ZNKSt6vectorIN12_G
 
 _ZNSt6vectorIN12_GLOBAL__N_112StringPackerIhE7OverlapESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i93.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_112StringPackerIhE7OverlapESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i91.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_112StringPackerIhE7OverlapESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %incdec.ptr1.i.i.i.i.i97.i.i.i, %for.body.i.i.i.i.i93.i.i.i ]
-  %incdec.ptr.i.i.i.i67.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 24
+  %incdec.ptr.i.i.i.i67.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 24
   %tobool.not.i.i.i99.i.i.i = icmp eq ptr %this.val.i.i.i.i60.i, null
   br i1 %tobool.not.i.i.i99.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_112StringPackerIhE7OverlapESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i, label %if.then.i22.i.i.i.i.i
 
@@ -3435,7 +3435,7 @@ for.body.i.i.i.i.i93.i.i.i621:                    ; preds = %_ZNKSt6vectorIN12_G
 
 _ZNSt6vectorIN12_GLOBAL__N_112StringPackerIDsE7OverlapESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i93.i.i.i621, %_ZNKSt6vectorIN12_GLOBAL__N_112StringPackerIDsE7OverlapESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i.i627 = phi ptr [ %call5.i.i.i.i.i91.i.i.i617, %_ZNKSt6vectorIN12_GLOBAL__N_112StringPackerIDsE7OverlapESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %incdec.ptr1.i.i.i.i.i97.i.i.i625, %for.body.i.i.i.i.i93.i.i.i621 ]
-  %incdec.ptr.i.i.i.i67.i628 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i627, i64 24
+  %incdec.ptr.i.i.i.i67.i628 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i627, i64 24
   %tobool.not.i.i.i99.i.i.i629 = icmp eq ptr %this.val.i.i.i.i60.i604, null
   br i1 %tobool.not.i.i.i99.i.i.i629, label %_ZNSt6vectorIN12_GLOBAL__N_112StringPackerIDsE7OverlapESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i, label %if.then.i22.i.i.i.i.i630
 
@@ -4165,7 +4165,7 @@ if.then.i.i21:                                    ; preds = %if.end3
 
 for.body.preheader:                               ; preds = %if.end3
   %add.ptr.i = getelementptr inbounds i16, ptr %u16Storage.coerce0, i64 %u16Storage.coerce1
-  %add.ptr.i.i = getelementptr i8, ptr %8, i64 %sub.ptr.sub.i14
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i14
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body

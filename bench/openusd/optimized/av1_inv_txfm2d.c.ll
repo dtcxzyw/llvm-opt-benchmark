@@ -913,7 +913,7 @@ clamp_buf.exit147.loopexit.i:                     ; preds = %clamp_value.exit.i1
   %147 = sext i8 %146 to i32
   %148 = sub nsw i32 0, %147
   call void @av1_round_shift_array_c(ptr noundef %.0127172.i, i32 noundef %45, i32 noundef %148) #10
-  %149 = getelementptr i32, ptr %.0128170.i, i64 %92
+  %149 = getelementptr inbounds i32, ptr %.0128170.i, i64 %92
   %150 = getelementptr inbounds i32, ptr %.0127172.i, i64 %92
   %151 = add nuw nsw i32 %.0173.i, 1
   %exitcond198.not.i = icmp eq i32 %151, %smax213.i

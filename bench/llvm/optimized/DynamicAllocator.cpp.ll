@@ -1469,8 +1469,8 @@ _ZSt4moveIPN5clang6interp16DynamicAllocator10AllocationES4_ET0_T_S6_S5_.exit61: 
 
 .lr.ph.i.i.i.i.i62.preheader:                     ; preds = %_ZSt4moveIPN5clang6interp16DynamicAllocator10AllocationES4_ET0_T_S6_S5_.exit61
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr %"struct.clang::interp::DynamicAllocator::Allocation", ptr %75, i64 %.026
-  %77 = getelementptr %"struct.clang::interp::DynamicAllocator::Allocation", ptr %72, i64 %.026
+  %76 = getelementptr inbounds %"struct.clang::interp::DynamicAllocator::Allocation", ptr %75, i64 %.026
+  %77 = getelementptr inbounds %"struct.clang::interp::DynamicAllocator::Allocation", ptr %72, i64 %.026
   br label %.lr.ph.i.i.i.i.i62
 
 .lr.ph.i.i.i.i.i62:                               ; preds = %.lr.ph.i.i.i.i.i62.preheader, %.lr.ph.i.i.i.i.i62

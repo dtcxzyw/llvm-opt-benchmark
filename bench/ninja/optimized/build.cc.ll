@@ -1654,7 +1654,7 @@ _ZNSt12_Vector_baseISt23_Rb_tree_const_iteratorISt4pairIKP4Edge7DyndepsEESaIS7_E
 
 _ZNSt6vectorISt23_Rb_tree_const_iteratorISt4pairIKP4Edge7DyndepsEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseISt23_Rb_tree_const_iteratorISt4pairIKP4Edge7DyndepsEESaIS7_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %52, %_ZNSt12_Vector_baseISt23_Rb_tree_const_iteratorISt4pairIKP4Edge7DyndepsEESaIS7_EE11_M_allocateEm.exit.i.i ], [ %57, %.lr.ph.i.i.i.i.i ]
-  %58 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %58 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %.sroa.090.0127, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorISt23_Rb_tree_const_iteratorISt4pairIKP4Edge7DyndepsEESaIS7_EE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, label %59
 

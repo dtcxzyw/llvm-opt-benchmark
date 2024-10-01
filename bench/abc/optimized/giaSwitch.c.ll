@@ -563,12 +563,12 @@ Gia_ManSwiSimInfoZero.exit.i134:                  ; preds = %.lr.ph.preheader.i.
   %.val22.i.i = load ptr, ptr %50, align 8
   %198 = mul nsw i32 %196, %28
   %199 = sext i32 %198 to i64
-  %200 = getelementptr i32, ptr %.val22.i.i, i64 %199
+  %200 = getelementptr inbounds i32, ptr %.val22.i.i, i64 %199
   %201 = trunc i64 %.val36.i to i32
   %202 = and i32 %201, 536870911
   %203 = mul nsw i32 %202, %28
   %204 = sext i32 %203 to i64
-  %205 = getelementptr i32, ptr %35, i64 %204
+  %205 = getelementptr inbounds i32, ptr %35, i64 %204
   %206 = and i32 %201, 536870912
   %.not.i56.i = icmp eq i32 %206, 0
   br i1 %.not.i56.i, label %.preheader.i62.i, label %.preheader1.i57.i
@@ -605,11 +605,11 @@ Gia_ManSwiSimInfoZero.exit.i134:                  ; preds = %.lr.ph.preheader.i.
   %.val48.i = load i32, ptr %217, align 4
   %218 = mul nsw i32 %.val48.i, %28
   %219 = sext i32 %218 to i64
-  %220 = getelementptr i32, ptr %35, i64 %219
+  %220 = getelementptr inbounds i32, ptr %35, i64 %219
   %.val10.i.i = load ptr, ptr %43, align 8
   %221 = mul nsw i32 %196, %28
   %222 = sext i32 %221 to i64
-  %223 = getelementptr i32, ptr %.val10.i.i, i64 %222
+  %223 = getelementptr inbounds i32, ptr %.val10.i.i, i64 %222
   br i1 %127, label %Gia_ManSwiSimulateNode.exit.i, label %.lr.ph.i64.i
 
 .lr.ph.i64.i:                                     ; preds = %216, %.lr.ph.i64.i
@@ -1108,10 +1108,10 @@ Gia_ManSwiSimInfoRandom.exit.i172:                ; preds = %.lr.ph.i.i178
 .lr.ph70.split.i:                                 ; preds = %.lr.ph70.split.i.preheader, %Gia_ManSwiSimInfoCopy.exit.i.loopexit
   %indvars.iv303 = phi i64 [ %424, %.lr.ph70.split.i.preheader ], [ %indvars.iv.next304, %Gia_ManSwiSimInfoCopy.exit.i.loopexit ]
   %435 = mul nuw nsw i64 %indvars.iv303, %134
-  %436 = getelementptr i32, ptr %.val24.i160, i64 %435
+  %436 = getelementptr inbounds i32, ptr %.val24.i160, i64 %435
   %437 = add nsw i64 %indvars.iv303, %425
   %438 = mul nsw i64 %437, %134
-  %439 = getelementptr i32, ptr %.val26.i161, i64 %438
+  %439 = getelementptr inbounds i32, ptr %.val26.i161, i64 %438
   br label %.lr.ph.i31.i
 
 .lr.ph.i31.i:                                     ; preds = %.lr.ph.i31.i, %.lr.ph70.split.i

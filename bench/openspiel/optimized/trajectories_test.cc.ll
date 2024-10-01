@@ -7167,7 +7167,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES
 
 _ZNSt6vectorISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i63: ; preds = %.lr.ph.i.i.i.i52, %_ZNSt12_Vector_baseISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i50
   %.0.lcssa.i.i.i.i57 = phi ptr [ %121, %_ZNSt12_Vector_baseISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i50 ], [ %126, %.lr.ph.i.i.i.i52 ]
-  %127 = getelementptr i8, ptr %.0.lcssa.i.i.i.i57, i64 8
+  %127 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i57, i64 8
   %.not.i23.i65 = icmp eq ptr %107, null
   br i1 %.not.i23.i65, label %_ZNSt6vectorISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit28, label %128
 

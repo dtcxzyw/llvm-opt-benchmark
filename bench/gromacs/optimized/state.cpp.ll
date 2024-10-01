@@ -3876,7 +3876,7 @@ _ZNSt12_Vector_baseIN3gmx20KeyValueTreePropertyESaIS1_EE11_M_allocateEm.exit.i.i
 
 _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3gmx20KeyValueTreePropertyESaIS1_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %102, %_ZNSt12_Vector_baseIN3gmx20KeyValueTreePropertyESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %107, %.lr.ph.i.i.i.i.i.i ]
-  %108 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
+  %108 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
   %.not.i23.i.i.i = icmp eq ptr %88, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %109
 
@@ -4588,7 +4588,7 @@ _ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i: ; p
 
 _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %30, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i ], [ %34, %.lr.ph.i.i.i.i ]
-  %35 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %16, null
   br i1 %.not.i23.i, label %.noexc, label %36
 
@@ -4975,7 +4975,7 @@ _ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i: ; p
 
 _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %30, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i ], [ %34, %.lr.ph.i.i.i.i ]
-  %35 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %16, null
   br i1 %.not.i23.i, label %.noexc, label %36
 
@@ -5728,7 +5728,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_N
 
 20:                                               ; preds = %15
   %21 = sub i64 0, %2
-  %22 = getelementptr %"class.gmx::BasicVector", ptr %10, i64 %21
+  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %10, i64 %21
   %.idx = mul i64 %2, -12
   %.not13.i.i = icmp eq i64 %.idx, 0
   br i1 %.not13.i.i, label %_ZSt22__uninitialized_move_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit, label %.lr.ph.i.i
@@ -5890,7 +5890,7 @@ _ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit: ; preds = %.lr.ph.i.i89, %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit87
   %.0.lcssa.i.i93 = phi ptr [ %64, %_ZSt24__uninitialized_fill_n_aIPN3gmx11BasicVectorIfEEmS2_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET_S7_T0_RKT1_RT2_.exit87 ], [ %69, %.lr.ph.i.i89 ]
-  %70 = getelementptr %"class.gmx::BasicVector", ptr %.0.lcssa.i.i93, i64 %2
+  %70 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.0.lcssa.i.i93, i64 %2
   %.not13.i.i94 = icmp eq ptr %1, %10
   br i1 %.not13.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx11BasicVectorIfEES3_NS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEET0_T_S8_S7_RT1_.exit100, label %.lr.ph.i.i95
 
@@ -8102,7 +8102,7 @@ _ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i: ;
 
 _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %201, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i ], [ %205, %.lr.ph.i.i.i.i.i ]
-  %206 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %206 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %187, null
   br i1 %.not.i23.i.i, label %.noexc.i, label %207
 
@@ -8249,7 +8249,7 @@ _ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i279
 
 _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i285: ; preds = %.lr.ph.i.i.i.i.i281, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i279
   %.0.lcssa.i.i.i.i.i286 = phi ptr [ %250, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i279 ], [ %254, %.lr.ph.i.i.i.i.i281 ]
-  %255 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i286, i64 8
+  %255 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i286, i64 8
   %.not.i23.i.i287 = icmp eq ptr %236, null
   br i1 %.not.i23.i.i287, label %.noexc.i288, label %256
 
@@ -8904,7 +8904,7 @@ _ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i299
 
 _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i305: ; preds = %.lr.ph.i.i.i.i.i301, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i299
   %.0.lcssa.i.i.i.i.i306 = phi ptr [ %411, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i299 ], [ %415, %.lr.ph.i.i.i.i.i301 ]
-  %416 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i306, i64 8
+  %416 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i306, i64 8
   %.not.i23.i.i307 = icmp eq ptr %397, null
   br i1 %.not.i23.i.i307, label %.noexc.i308, label %417
 
@@ -9051,7 +9051,7 @@ _ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i319
 
 _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i325: ; preds = %.lr.ph.i.i.i.i.i321, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i319
   %.0.lcssa.i.i.i.i.i326 = phi ptr [ %460, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i319 ], [ %464, %.lr.ph.i.i.i.i.i321 ]
-  %465 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i326, i64 8
+  %465 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i326, i64 8
   %.not.i23.i.i327 = icmp eq ptr %446, null
   br i1 %.not.i23.i.i327, label %.noexc.i328, label %466
 
@@ -9198,7 +9198,7 @@ _ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i339
 
 _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i345: ; preds = %.lr.ph.i.i.i.i.i341, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i339
   %.0.lcssa.i.i.i.i.i346 = phi ptr [ %509, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i339 ], [ %513, %.lr.ph.i.i.i.i.i341 ]
-  %514 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i346, i64 8
+  %514 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i346, i64 8
   %.not.i23.i.i347 = icmp eq ptr %495, null
   br i1 %.not.i23.i.i347, label %.noexc.i348, label %515
 
@@ -9345,7 +9345,7 @@ _ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i359
 
 _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i365: ; preds = %.lr.ph.i.i.i.i.i361, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i359
   %.0.lcssa.i.i.i.i.i366 = phi ptr [ %558, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i.i359 ], [ %562, %.lr.ph.i.i.i.i.i361 ]
-  %563 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i366, i64 8
+  %563 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i366, i64 8
   %.not.i23.i.i367 = icmp eq ptr %544, null
   br i1 %.not.i23.i.i367, label %.noexc.i368, label %564
 
@@ -9698,7 +9698,7 @@ _ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i: ; p
 
 _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %30, %_ZNSt12_Vector_baseIN3gmx17KeyValueTreeValueESaIS1_EE11_M_allocateEm.exit.i ], [ %34, %.lr.ph.i.i.i.i ]
-  %35 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %16, null
   br i1 %.not.i23.i, label %.noexc, label %36
 

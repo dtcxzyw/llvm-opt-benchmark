@@ -6887,7 +6887,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i282 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 96
+  %incdec.ptr.i.i282 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 96
   %tobool.not.i.i.i283 = icmp eq ptr %78, null
   br i1 %tobool.not.i.i.i283, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -6992,7 +6992,7 @@ for.body.i.i.i.i.i313:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i319: ; preds = %for.body.i.i.i.i.i313, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i309
   %__cur.0.lcssa.i.i.i.i.i320 = phi ptr [ %cond.i10.i.i310, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i309 ], [ %incdec.ptr1.i.i.i.i.i317, %for.body.i.i.i.i.i313 ]
-  %incdec.ptr.i.i321 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i320, i64 96
+  %incdec.ptr.i.i321 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i320, i64 96
   %tobool.not.i.i.i322 = icmp eq ptr %87, null
   br i1 %tobool.not.i.i.i322, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i324, label %if.then.i20.i.i323
 
@@ -8360,7 +8360,7 @@ for.body.i.i.i.i542:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i: ; preds = %for.body.i.i.i.i542, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i542 ]
-  %incdec.ptr.i544 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 96
+  %incdec.ptr.i544 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 96
   %tobool.not.i.i545 = icmp eq ptr %52, null
   br i1 %tobool.not.i.i545, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit, label %if.then.i20.i
 
@@ -9802,7 +9802,7 @@ for.body.i.i.i.i.i24.preheader:                   ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %for.body.i.i.i.i.i24.preheader, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i27 = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i ], [ %scevgep, %for.body.i.i.i.i.i24.preheader ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i27, i64 96
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i27, i64 96
   %tobool.not.i.i.i = icmp eq ptr %cond.i.i.i.i140, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -10416,7 +10416,7 @@ for.body.i.i.i.i.i52:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %for.body.i.i.i.i.i52, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i55 = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i52 ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i55, i64 96
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i55, i64 96
   %tobool.not.i.i.i56 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i56, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -11723,7 +11723,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 96
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 96
   %tobool.not.i.i.i = icmp eq ptr %102, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -13101,7 +13101,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 96
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 96
   %tobool.not.i.i.i133 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i133, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -13233,7 +13233,7 @@ for.body.i.i.i.i.i164:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i170: ; preds = %for.body.i.i.i.i.i164, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i160
   %__cur.0.lcssa.i.i.i.i.i171 = phi ptr [ %cond.i10.i.i161, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i160 ], [ %incdec.ptr1.i.i.i.i.i168, %for.body.i.i.i.i.i164 ]
-  %incdec.ptr.i.i172 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i171, i64 96
+  %incdec.ptr.i.i172 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i171, i64 96
   %tobool.not.i.i.i173 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i173, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i175, label %if.then.i20.i.i174
 
@@ -13366,7 +13366,7 @@ for.body.i.i.i.i.i210:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i216: ; preds = %for.body.i.i.i.i.i210, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i206
   %__cur.0.lcssa.i.i.i.i.i217 = phi ptr [ %cond.i10.i.i207, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i206 ], [ %incdec.ptr1.i.i.i.i.i214, %for.body.i.i.i.i.i210 ]
-  %incdec.ptr.i.i218 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i217, i64 96
+  %incdec.ptr.i.i218 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i217, i64 96
   %tobool.not.i.i.i219 = icmp eq ptr %58, null
   br i1 %tobool.not.i.i.i219, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i221, label %if.then.i20.i.i220
 
@@ -13518,7 +13518,7 @@ for.body.i.i.i.i.i481:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i487: ; preds = %for.body.i.i.i.i.i481, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i477
   %__cur.0.lcssa.i.i.i.i.i488 = phi ptr [ %cond.i10.i.i478, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i477 ], [ %incdec.ptr1.i.i.i.i.i485, %for.body.i.i.i.i.i481 ]
-  %incdec.ptr.i.i489 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i488, i64 96
+  %incdec.ptr.i.i489 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i488, i64 96
   %tobool.not.i.i.i490 = icmp eq ptr %75, null
   br i1 %tobool.not.i.i.i490, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i492, label %if.then.i20.i.i491
 
@@ -13609,7 +13609,7 @@ for.body.i.i.i.i.i264:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i270: ; preds = %for.body.i.i.i.i.i264, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i260
   %__cur.0.lcssa.i.i.i.i.i271 = phi ptr [ %cond.i10.i.i261, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i260 ], [ %incdec.ptr1.i.i.i.i.i268, %for.body.i.i.i.i.i264 ]
-  %incdec.ptr.i.i272 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i271, i64 96
+  %incdec.ptr.i.i272 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i271, i64 96
   %tobool.not.i.i.i273 = icmp eq ptr %85, null
   br i1 %tobool.not.i.i.i273, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i275, label %if.then.i20.i.i274
 
@@ -13742,7 +13742,7 @@ for.body.i.i.i.i.i308:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i314: ; preds = %for.body.i.i.i.i.i308, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i304
   %__cur.0.lcssa.i.i.i.i.i315 = phi ptr [ %cond.i10.i.i305, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i304 ], [ %incdec.ptr1.i.i.i.i.i312, %for.body.i.i.i.i.i308 ]
-  %incdec.ptr.i.i316 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i315, i64 96
+  %incdec.ptr.i.i316 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i315, i64 96
   %tobool.not.i.i.i317 = icmp eq ptr %98, null
   br i1 %tobool.not.i.i.i317, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i319, label %if.then.i20.i.i318
 
@@ -13859,7 +13859,7 @@ for.body.i.i.i.i.i352:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i358: ; preds = %for.body.i.i.i.i.i352, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i348
   %__cur.0.lcssa.i.i.i.i.i359 = phi ptr [ %cond.i10.i.i349, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i348 ], [ %incdec.ptr1.i.i.i.i.i356, %for.body.i.i.i.i.i352 ]
-  %incdec.ptr.i.i360 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i359, i64 96
+  %incdec.ptr.i.i360 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i359, i64 96
   %tobool.not.i.i.i361 = icmp eq ptr %109, null
   br i1 %tobool.not.i.i.i361, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i363, label %if.then.i20.i.i362
 
@@ -15428,7 +15428,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPKN6google8pro
   br label %if.else.sink.split.i
 
 for.body.i.i.preheader.i.i:                       ; preds = %if.then.i.i
-  %__cur.011.i.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 16
+  %__cur.011.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.preheader.i.i
@@ -19113,7 +19113,7 @@ for.body.i.i.i.i.i47:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %for.body.i.i.i.i.i47, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i50 = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i47 ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i50, i64 96
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i50, i64 96
   %tobool.not.i.i.i51 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i51, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -19355,7 +19355,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 96
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 96
   %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19, label %for.body.i.i.i12
 
@@ -21229,7 +21229,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN6google8protobuf4util18MessageDifferencer14IgnoreCriteriaESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6google8protobuf4util18MessageDifferencer14IgnoreCriteriaESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10unique_ptrIN6google8protobuf4util18MessageDifferencer14IgnoreCriteriaESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 8
   %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10unique_ptrIN6google8protobuf4util18MessageDifferencer14IgnoreCriteriaESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19, label %for.body.i.i.i12
 

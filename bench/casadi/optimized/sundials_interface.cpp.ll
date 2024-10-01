@@ -7451,7 +7451,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit20:     ; preds = %.lr.ph.i13, %_ZN6ca
   %50 = getelementptr inbounds i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = load i64, ptr %32, align 8
-  %53 = getelementptr double, ptr %51, i64 %52
+  %53 = getelementptr inbounds double, ptr %51, i64 %52
   %.not.i21 = icmp eq ptr %51, null
   br i1 %.not.i21, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit31, label %54
 

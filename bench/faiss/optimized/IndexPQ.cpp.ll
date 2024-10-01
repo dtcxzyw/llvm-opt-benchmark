@@ -3793,7 +3793,7 @@ define internal void @_ZNK5faiss7IndexPQ22search_core_polysemousElPKflPfPlib.omp
   %49 = load ptr, ptr %6, align 8
   %50 = load i64, ptr %7, align 8
   %51 = mul nsw i64 %50, %.0174
-  %52 = getelementptr i64, ptr %49, i64 %51
+  %52 = getelementptr inbounds i64, ptr %49, i64 %51
   %53 = load ptr, ptr %8, align 8
   %54 = getelementptr inbounds float, ptr %53, i64 %51
   %.not147 = icmp eq i64 %50, 0

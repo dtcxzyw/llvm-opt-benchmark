@@ -2465,8 +2465,8 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nocap
   %55 = load ptr, ptr %0, align 8
   %56 = add nsw i64 %indvars.iv, %33
   %57 = mul nsw i64 %56, %34
-  %58 = getelementptr float, ptr %55, i64 %57
-  %59 = getelementptr float, ptr %58, i64 %20
+  %58 = getelementptr inbounds float, ptr %55, i64 %57
+  %59 = getelementptr inbounds float, ptr %58, i64 %20
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2951,7 +2951,7 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nocap
   br i1 %349, label %363, label %.loopexit8.us
 
 363:                                              ; preds = %.lr.ph191.split.us
-  %364 = getelementptr float, ptr %.pre372, i64 %362
+  %364 = getelementptr inbounds float, ptr %.pre372, i64 %362
   br i1 %352, label %.lr.ph153.us.preheader, label %.loopexit8.us.thread
 
 .loopexit8.us.thread:                             ; preds = %363
@@ -2971,7 +2971,7 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nocap
   br label %.preheader7.us
 
 .lr.ph153.us.preheader:                           ; preds = %363
-  %378 = getelementptr float, ptr %364, i64 %351
+  %378 = getelementptr inbounds float, ptr %364, i64 %351
   br label %.lr.ph153.us
 
 .loopexit8.us.loopexit:                           ; preds = %.lr.ph153.us
@@ -3179,8 +3179,8 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nocap
   %482 = load ptr, ptr %0, align 8
   %483 = add nsw i64 %indvars.iv355, %479
   %484 = mul nsw i64 %483, %480
-  %485 = getelementptr float, ptr %482, i64 %484
-  %486 = getelementptr float, ptr %485, i64 %351
+  %485 = getelementptr inbounds float, ptr %482, i64 %484
+  %486 = getelementptr inbounds float, ptr %485, i64 %351
   br label %487
 
 487:                                              ; preds = %.lr.ph153.us203.us, %487
@@ -3213,8 +3213,8 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nocap
   %496 = load ptr, ptr %0, align 8
   %497 = add nsw i64 %indvars.iv350, %51
   %498 = mul nsw i64 %497, %52
-  %499 = getelementptr float, ptr %496, i64 %498
-  %500 = getelementptr float, ptr %499, i64 %40
+  %499 = getelementptr inbounds float, ptr %496, i64 %498
+  %500 = getelementptr inbounds float, ptr %499, i64 %40
   br label %.lr.ph102
 
 .lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
@@ -3598,8 +3598,8 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nocap
   %703 = load ptr, ptr %0, align 8
   %704 = add nsw i64 %indvars.iv368, %653
   %705 = mul nsw i64 %704, %654
-  %706 = getelementptr float, ptr %703, i64 %705
-  %707 = getelementptr float, ptr %706, i64 %649
+  %706 = getelementptr inbounds float, ptr %703, i64 %705
+  %707 = getelementptr inbounds float, ptr %706, i64 %649
   br i1 %650, label %.lr.ph247, label %.preheader1
 
 .preheader1:                                      ; preds = %.lr.ph247, %702
@@ -4477,8 +4477,8 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nocap
   %469 = sdiv i32 %468, 8
   %470 = mul i32 %44, %469
   %471 = sext i32 %470 to i64
-  %472 = getelementptr float, ptr %466, i64 %471
-  %473 = getelementptr float, ptr %472, i64 %46
+  %472 = getelementptr inbounds float, ptr %466, i64 %471
+  %473 = getelementptr inbounds float, ptr %472, i64 %46
   %474 = trunc i64 %467 to i32
   %475 = add i32 %474, 8
   %476 = sdiv i32 %475, 8
@@ -4998,8 +4998,8 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nocap
   %737 = load ptr, ptr %0, align 8
   %738 = add nsw i64 %indvars.iv610, %420
   %739 = mul nsw i64 %738, %421
-  %740 = getelementptr float, ptr %737, i64 %739
-  %741 = getelementptr float, ptr %740, i64 %412
+  %740 = getelementptr inbounds float, ptr %737, i64 %739
+  %741 = getelementptr inbounds float, ptr %740, i64 %412
   br label %.lr.ph317
 
 .lr.ph317:                                        ; preds = %.lr.ph317.preheader, %.lr.ph317
@@ -5294,8 +5294,8 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nocap
   %888 = load ptr, ptr %0, align 8
   %889 = add nsw i64 %indvars.iv618, %838
   %890 = mul nsw i64 %889, %839
-  %891 = getelementptr float, ptr %888, i64 %890
-  %892 = getelementptr float, ptr %891, i64 %834
+  %891 = getelementptr inbounds float, ptr %888, i64 %890
+  %892 = getelementptr inbounds float, ptr %891, i64 %834
   br i1 %835, label %.lr.ph393, label %.preheader1
 
 .preheader1:                                      ; preds = %.lr.ph393, %887

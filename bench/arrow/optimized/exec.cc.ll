@@ -18565,7 +18565,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN5arr
 
 _ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %this.val.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i30.i.i
 
@@ -18639,7 +18639,7 @@ for.body.i.i.i.i.i32:                             ; preds = %_ZNKSt6vectorIN5arr
 
 _ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i39: ; preds = %for.body.i.i.i.i.i32, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i20
   %__cur.0.lcssa.i.i.i.i.i40 = phi ptr [ %call5.i.i.i.i.i29, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i20 ], [ %incdec.ptr1.i.i.i.i.i37, %for.body.i.i.i.i.i32 ]
-  %incdec.ptr.i.i41 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i40, i64 8
+  %incdec.ptr.i.i41 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i40, i64 8
   %tobool.not.i.i.i42 = icmp eq ptr %this.val.i.i15, null
   br i1 %tobool.not.i.i.i42, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i30.i.i43
 
@@ -18713,7 +18713,7 @@ for.body.i.i.i.i.i69:                             ; preds = %_ZNKSt6vectorIN5arr
 
 _ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29.i.i76: ; preds = %for.body.i.i.i.i.i69, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i57
   %__cur.0.lcssa.i.i.i.i.i77 = phi ptr [ %call5.i.i.i.i.i66, %_ZNKSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE12_M_check_lenEmPKc.exit.i.i57 ], [ %incdec.ptr1.i.i.i.i.i74, %for.body.i.i.i.i.i69 ]
-  %incdec.ptr.i.i78 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i77, i64 8
+  %incdec.ptr.i.i78 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i77, i64 8
   %tobool.not.i.i.i79 = icmp eq ptr %this.val.i.i52, null
   br i1 %tobool.not.i.i.i79, label %_ZNSt6vectorIN5arrow7compute12_GLOBAL__N_119BufferPreallocationESaIS3_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i81, label %if.then.i30.i.i80
 

@@ -24631,7 +24631,7 @@ for.body.i.i.i.i173.i:                            ; preds = %for.body.i.i.i.i173
   %__first.sroa.0.09.i.i.i.i175.i = phi ptr [ %incdec.ptr.i.i.i.i.i176.i, %for.body.i.i.i.i173.i ], [ %.pre335, %for.body.i.i.i.i173.i.preheader ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.010.i.i.i.i174.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.09.i.i.i.i175.i, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i176.i = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i175.i, i64 16
-  %incdec.ptr.i.i.i.i177.i = getelementptr i8, ptr %__cur.010.i.i.i.i174.i, i64 16
+  %incdec.ptr.i.i.i.i177.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i174.i, i64 16
   %cmp.i.not.i.i.i.i178.i = icmp eq ptr %incdec.ptr.i.i.i.i.i176.i, %.pre336
   br i1 %cmp.i.not.i.i.i.i178.i, label %invoke.cont87.i, label %for.body.i.i.i.i173.i, !llvm.loop !258
 
@@ -55476,7 +55476,7 @@ for.body.i.i.i.i173:                              ; preds = %for.body.i.i.i.i173
   %__first.sroa.0.09.i.i.i.i175 = phi ptr [ %incdec.ptr.i.i.i.i.i176, %for.body.i.i.i.i173 ], [ %__first.coerce, %for.body.i.i.i.i173.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.010.i.i.i.i174, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.09.i.i.i.i175, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i176 = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i175, i64 16
-  %incdec.ptr.i.i.i.i177 = getelementptr i8, ptr %__cur.010.i.i.i.i174, i64 16
+  %incdec.ptr.i.i.i.i177 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i174, i64 16
   %cmp.i.not.i.i.i.i178 = icmp eq ptr %incdec.ptr.i.i.i.i.i176, %__last.coerce
   br i1 %cmp.i.not.i.i.i.i178, label %invoke.cont83, label %for.body.i.i.i.i173, !llvm.loop !258
 

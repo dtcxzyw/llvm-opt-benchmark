@@ -9750,7 +9750,7 @@ _ZN4llvh15SmallVectorImplIcE7reserveEm.exit:      ; preds = %if.end, %if.then.i3
   %conv.i38.pre-phi = phi i64 [ %conv.i, %if.end ], [ %.pre85, %if.then.i35 ]
   %7 = phi i32 [ %1, %if.end ], [ %.pre81, %if.then.i35 ]
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i35 ]
-  %add.ptr7 = getelementptr i8, ptr %8, i64 %sub.ptr.sub
+  %add.ptr7 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub
   %gepdiff = sub nsw i64 %conv.i38.pre-phi, %sub.ptr.sub
   %cmp12.not = icmp ult i64 %gepdiff, %sub.ptr.sub.i.i.i
   %add.ptr.i48 = getelementptr inbounds i8, ptr %8, i64 %conv.i38.pre-phi
@@ -10206,7 +10206,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i78 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
+  %incdec.ptr.i78 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %30, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit, label %if.then.i20.i
 
@@ -10334,7 +10334,7 @@ _ZNKSt14default_deleteIN4llvh13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i: ; pred
   br label %_ZNSt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit52
 
 if.else21.i.i:                                    ; preds = %if.then21
-  %add.ptr.i7.i.i = getelementptr i8, ptr %47, i64 %sub.ptr.sub.i.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds i8, ptr %47, i64 %sub.ptr.sub.i.i.i
   %sub.ptr.lhs.cast.i.i.i81 = ptrtoint ptr %48 to i64
   %sub.ptr.sub.i.i.i83 = sub i64 %sub.ptr.lhs.cast.i.i.i81, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i84 = icmp eq i64 %sub.ptr.sub.i.i.i83, 9223372036854775800
@@ -10382,7 +10382,7 @@ for.body.i.i.i.i102:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i108: ; preds = %for.body.i.i.i.i102, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i98
   %__cur.0.lcssa.i.i.i.i109 = phi ptr [ %cond.i10.i99, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i98 ], [ %incdec.ptr1.i.i.i.i106, %for.body.i.i.i.i102 ]
-  %incdec.ptr.i110 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i109, i64 8
+  %incdec.ptr.i110 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i109, i64 8
   %cmp.not5.i.i.i11.i111 = icmp eq ptr %43, %48
   br i1 %cmp.not5.i.i.i11.i111, label %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i118, label %for.body.i.i.i12.i112
 
@@ -10525,7 +10525,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 8
   %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 

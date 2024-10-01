@@ -825,9 +825,9 @@ _ZNSt12_Vector_baseIN2cv18SimpleBlobDetector6ParamsESaIS2_EE11_M_allocateEm.exit
 _ZNSt6vectorIN2cv18SimpleBlobDetector6ParamsESaIS2_EE9push_backERKS2_.exit188: ; preds = %292, %.loopexit398
   %.ptr.pn = phi ptr [ %.ptr.le, %292 ], [ %.012.i.i.i.i.i.i179, %.loopexit398 ]
   %.sroa.0294.7 = phi ptr [ %280, %292 ], [ %293, %.loopexit398 ]
-  %297 = getelementptr i8, ptr %.ptr.pn, i64 108
+  %297 = getelementptr inbounds i8, ptr %.ptr.pn, i64 108
   store i8 1, ptr %297, align 4
-  %298 = getelementptr i8, ptr %.ptr.pn, i64 109
+  %298 = getelementptr inbounds i8, ptr %.ptr.pn, i64 109
   store i8 0, ptr %298, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %79) #21

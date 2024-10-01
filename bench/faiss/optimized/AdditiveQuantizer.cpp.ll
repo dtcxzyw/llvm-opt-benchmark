@@ -2633,7 +2633,7 @@ _ZN5faiss12_GLOBAL__N_127compute_inner_prod_with_LUTERKNS_17AdditiveQuantizerEPK
   %61 = mul nsw i64 %60, %.043
   %62 = getelementptr inbounds float, ptr %59, i64 %61
   %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr i64, ptr %63, i64 %61
+  %64 = getelementptr inbounds i64, ptr %63, i64 %61
   %.not37 = icmp eq i64 %60, 0
   br i1 %.not37, label %_ZN5faiss15minheap_heapifyIfEEvmPT_PlPKS1_PKlm.exit.thread, label %.lr.ph46.i.i
 
@@ -3151,7 +3151,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %43 = mul nsw i64 %42, %.058
   %44 = getelementptr inbounds float, ptr %41, i64 %43
   %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr i64, ptr %45, i64 %43
+  %46 = getelementptr inbounds i64, ptr %45, i64 %43
   %47 = load i64, ptr %33, align 8
   %.not.i = icmp eq i64 %47, 0
   br i1 %.not.i, label %_ZN5faiss12_GLOBAL__N_127compute_inner_prod_with_LUTERKNS_17AdditiveQuantizerEPKfPf.exit, label %.lr.ph32.i

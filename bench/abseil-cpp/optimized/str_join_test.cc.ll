@@ -2355,7 +2355,7 @@ for.body.i.i.i.i.i538:                            ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.not.i.i.i.i.i543, label %_ZNSt6vectorISt10unique_ptrIiSt14default_deleteIiEESaIS3_EE17_M_realloc_insertIJPiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i549, label %for.body.i.i.i.i.i538, !llvm.loop !110
 
 _ZNSt6vectorISt10unique_ptrIiSt14default_deleteIiEESaIS3_EE17_M_realloc_insertIJPiEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i549: ; preds = %for.body.i.i.i.i.i538
-  %incdec.ptr.i.i546 = getelementptr i8, ptr %__cur.07.i.i.i.i.i539, i64 16
+  %incdec.ptr.i.i546 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i539, i64 16
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i513) #22
   store ptr %call5.i.i.i.i.i554, ptr %v285, align 8
   store ptr %incdec.ptr.i.i546, ptr %_M_finish.i466, align 8

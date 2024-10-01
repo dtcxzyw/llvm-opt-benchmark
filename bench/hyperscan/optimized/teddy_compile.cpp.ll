@@ -6288,7 +6288,7 @@ if.then.i.i.i.i.i.i.i.i.i64:                      ; preds = %_ZNSt12_Vector_base
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i64, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit
-  %add.ptr.i.i.i.i.i.i.i.i.i65 = getelementptr i8, ptr %cond.i59, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i62
+  %add.ptr.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %cond.i59, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i62
   br label %for.body.i.i.i.i.i.i.i.i72
 
 for.body.i.i.i.i.i.i.i.i72:                       ; preds = %invoke.cont, %for.body.i.i.i.i.i.i.i.i72

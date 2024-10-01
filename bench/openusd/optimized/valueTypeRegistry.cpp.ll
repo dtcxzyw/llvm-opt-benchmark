@@ -3831,7 +3831,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameESaIS1_
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %268, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameESaIS1_EE11_M_allocateEm.exit.i ], [ %273, %.lr.ph.i.i.i.i ]
-  %274 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %274 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %255, null
   br i1 %.not.i23.i, label %.noexc, label %275
 
@@ -3964,7 +3964,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameESaIS1_
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i150: ; preds = %.lr.ph.i.i.i.i139, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameESaIS1_EE11_M_allocateEm.exit.i137
   %.0.lcssa.i.i.i.i144 = phi ptr [ %320, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameESaIS1_EE11_M_allocateEm.exit.i137 ], [ %325, %.lr.ph.i.i.i.i139 ]
-  %326 = getelementptr i8, ptr %.0.lcssa.i.i.i.i144, i64 8
+  %326 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i144, i64 8
   %.not.i23.i152 = icmp eq ptr %307, null
   br i1 %.not.i23.i152, label %.noexc126, label %327
 
@@ -5252,7 +5252,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_all
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17
 

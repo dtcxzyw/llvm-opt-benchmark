@@ -1143,7 +1143,7 @@ _ZNKSt6vectorIN2cv6Point_IdEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %465
 
 _ZNSt6vectorIN2cv6Point_IdEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i: ; preds = %.lr.ph.i.i.i.i.i412, %.noexc420
   %.0.lcssa.i.i.i.i.i417 = phi ptr [ %479, %.noexc420 ], [ %488, %.lr.ph.i.i.i.i.i412 ]
-  %489 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i417, i64 16
+  %489 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i417, i64 16
   %.not.i33.i = icmp eq ptr %466, null
   br i1 %.not.i33.i, label %.noexc256, label %490
 
@@ -1232,7 +1232,7 @@ _ZNKSt6vectorIN2cv6Point_IdEESaIS2_EE12_M_check_lenEmPKc.exit.i421: ; preds = %5
 
 _ZNSt6vectorIN2cv6Point_IdEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i436: ; preds = %.lr.ph.i.i.i.i.i425, %.noexc441
   %.0.lcssa.i.i.i.i.i430 = phi ptr [ %523, %.noexc441 ], [ %532, %.lr.ph.i.i.i.i.i425 ]
-  %533 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i430, i64 16
+  %533 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i430, i64 16
   %.not.i33.i438 = icmp eq ptr %510, null
   br i1 %.not.i33.i438, label %.noexc258, label %534
 

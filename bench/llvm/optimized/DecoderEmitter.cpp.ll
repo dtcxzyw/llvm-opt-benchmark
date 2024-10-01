@@ -1701,7 +1701,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i:
   store ptr @.str.27, ptr %456, align 8
   %.sroa.3514.0..sroa_idx515 = getelementptr inbounds i8, ptr %456, i64 8
   store i64 0, ptr %.sroa.3514.0..sroa_idx515, align 8
-  %457 = getelementptr i8, ptr %455, i64 16
+  %457 = getelementptr inbounds i8, ptr %455, i64 16
   %.not.i23.i.i.i = icmp eq ptr %.sroa.0523.5539544, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %458
 
@@ -1924,7 +1924,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.
 
 _ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30.i.i: ; preds = %.lr.ph.i.i.i.i.i127, %_ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %546, %_ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %551, %.lr.ph.i.i.i.i.i127 ]
-  %552 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
+  %552 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
   %.not.i31.i.i = icmp eq ptr %.val19.i.i, null
   br i1 %.not.i31.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE17_M_realloc_insertIJRPN4llvm6RecordERKPKNS5_18CodeGenInstructionERA1_KcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %553
 
@@ -2012,7 +2012,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.
 
 _ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i: ; preds = %.lr.ph.i.i.i.i.i135, %_ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.i.i131
   %.0.lcssa.i.i.i.i.i139 = phi ptr [ %581, %_ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.i.i131 ], [ %586, %.lr.ph.i.i.i.i.i135 ]
-  %587 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i139, i64 32
+  %587 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i139, i64 32
   %.not.i33.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i33.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE17_M_realloc_insertIJRPN4llvm6RecordERKPKNS5_18CodeGenInstructionERKNS5_9StringRefEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %588
 
@@ -2124,7 +2124,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.
 
 _ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i148, %_ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i150 = phi ptr [ %616, %_ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %621, %.lr.ph.i.i.i.i.i.i148 ]
-  %622 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i150, i64 32
+  %622 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i150, i64 32
   %.not.i33.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i33.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE17_M_realloc_insertIJRPKN4llvm6RecordERPKNS5_18CodeGenInstructionERNS5_9StringRefEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %623
 
@@ -2270,7 +2270,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.
 
 _ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i34.i: ; preds = %.lr.ph.i.i.i.i.i30.i, %_ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.i.i26.i
   %.0.lcssa.i.i.i.i.i35.i = phi ptr [ %667, %_ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.i.i26.i ], [ %672, %.lr.ph.i.i.i.i.i30.i ]
-  %673 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i35.i, i64 32
+  %673 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i35.i, i64 32
   %.not.i33.i.i36.i = icmp eq ptr %.val.i.i25.i, null
   br i1 %.not.i33.i.i36.i, label %_ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE17_M_realloc_insertIJRPKN4llvm6RecordERPKNS5_18CodeGenInstructionERNS5_9StringRefEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i37.i, label %674
 
@@ -2355,7 +2355,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.
 
 _ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30.i.i.i: ; preds = %.lr.ph.i.i.i.i.i46.i, %_ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.i.i42.i
   %.0.lcssa.i.i.i.i.i50.i = phi ptr [ %698, %_ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.i.i42.i ], [ %703, %.lr.ph.i.i.i.i.i46.i ]
-  %704 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i50.i, i64 32
+  %704 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i50.i, i64 32
   %.not.i31.i.i.i = icmp eq ptr %.val.i.i41.i, null
   br i1 %.not.i31.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE17_M_realloc_insertIJRPKN4llvm6RecordERPKNS5_18CodeGenInstructionERA1_KcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %705
 
@@ -2438,7 +2438,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.
 
 _ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30.i.i62.i: ; preds = %.lr.ph.i.i.i.i.i58.i, %_ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.i.i54.i
   %.0.lcssa.i.i.i.i.i63.i = phi ptr [ %728, %_ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.i.i54.i ], [ %733, %.lr.ph.i.i.i.i.i58.i ]
-  %734 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i63.i, i64 32
+  %734 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i63.i, i64 32
   %.not.i31.i.i64.i = icmp eq ptr %.val.i.i53.i, null
   br i1 %.not.i31.i.i64.i, label %_ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE17_M_realloc_insertIJRPKN4llvm6RecordERPKNS5_18CodeGenInstructionERA1_KcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i65.i, label %735
 
@@ -2722,7 +2722,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.
 
 _ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit29.i.i: ; preds = %.lr.ph.i.i.i.i.i160, %_ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.i.i156
   %.0.lcssa.i.i.i.i.i164 = phi ptr [ %888, %_ZNKSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12_M_check_lenEmPKc.exit.i.i156 ], [ %893, %.lr.ph.i.i.i.i.i160 ]
-  %894 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i164, i64 32
+  %894 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i164, i64 32
   %.not.i30.i.i = icmp eq ptr %.val.i.i155, null
   br i1 %.not.i30.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE17_M_realloc_insertIJRKPN4llvm6RecordEPNS5_18CodeGenInstructionEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %895
 
@@ -3741,7 +3741,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_113EncodingFieldESaIS1_EE12_M_check_lenEmPKc.exit.i.
 
 _ZNSt6vectorIN12_GLOBAL__N_113EncodingFieldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_113EncodingFieldESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %1282, %_ZNKSt6vectorIN12_GLOBAL__N_113EncodingFieldESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i ], [ %1285, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %1286 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.i, i64 12
+  %1286 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.i, i64 12
   %.not.i27.i.i.i.i.i.i = icmp eq ptr %.val16.i.i.i.i.i.i, null
   br i1 %.not.i27.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_113EncodingFieldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i.i, label %1287
 
@@ -3865,7 +3865,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_113EncodingFieldESaIS1_EE12_M_check_lenEmPKc.exit.i.
 
 _ZNSt6vectorIN12_GLOBAL__N_113EncodingFieldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i.i110.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i106.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_113EncodingFieldESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i101.i.i
   %.0.lcssa.i.i.i.i.i.i.i111.i.i = phi ptr [ %1331, %_ZNKSt6vectorIN12_GLOBAL__N_113EncodingFieldESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i101.i.i ], [ %1334, %.lr.ph.i.i.i.i.i.i.i106.i.i ]
-  %1335 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i111.i.i, i64 12
+  %1335 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i111.i.i, i64 12
   %.not.i27.i.i.i.i112.i.i = icmp eq ptr %.val16.i.i.i.i100.i.i, null
   br i1 %.not.i27.i.i.i.i112.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_113EncodingFieldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i113.i.i, label %1336
 
@@ -4834,7 +4834,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119EncodingIDAndOpcodeESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119EncodingIDAndOpcodeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30.i.i: ; preds = %.lr.ph.i.i.i.i.i219, %_ZNKSt6vectorIN12_GLOBAL__N_119EncodingIDAndOpcodeESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i223 = phi ptr [ %1699, %_ZNKSt6vectorIN12_GLOBAL__N_119EncodingIDAndOpcodeESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %1703, %.lr.ph.i.i.i.i.i219 ]
-  %1704 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i223, i64 8
+  %1704 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i223, i64 8
   %.not.i31.i.i224 = icmp eq ptr %.val18.i.i, null
   br i1 %.not.i31.i.i224, label %_ZNSt6vectorIN12_GLOBAL__N_119EncodingIDAndOpcodeESaIS1_EE17_M_realloc_insertIJRmjEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %1705
 
@@ -12785,7 +12785,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_113EncodingFieldESaIS1_EE12_M_check_lenEmPKc.exit.i.
 
 _ZNSt6vectorIN12_GLOBAL__N_113EncodingFieldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_113EncodingFieldESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %148, %_ZNKSt6vectorIN12_GLOBAL__N_113EncodingFieldESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %151, %.lr.ph.i.i.i.i.i.i.i ]
-  %152 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 12
+  %152 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 12
   %.not.i27.i.i.i.i = icmp eq ptr %.val16.i.i.i.i, null
   br i1 %.not.i27.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_113EncodingFieldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, label %153
 
@@ -15939,7 +15939,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119EncodingIDAndOpcodeESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119EncodingIDAndOpcodeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit28.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119EncodingIDAndOpcodeESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %151, %_ZNKSt6vectorIN12_GLOBAL__N_119EncodingIDAndOpcodeESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %154, %.lr.ph.i.i.i.i.i ]
-  %155 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %155 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i29.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i29.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119EncodingIDAndOpcodeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %156
 
@@ -16014,7 +16014,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119EncodingIDAndOpcodeESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119EncodingIDAndOpcodeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit28.i.i30: ; preds = %.lr.ph.i.i.i.i.i25, %_ZNKSt6vectorIN12_GLOBAL__N_119EncodingIDAndOpcodeESaIS1_EE12_M_check_lenEmPKc.exit.i.i22
   %.0.lcssa.i.i.i.i.i31 = phi ptr [ %179, %_ZNKSt6vectorIN12_GLOBAL__N_119EncodingIDAndOpcodeESaIS1_EE12_M_check_lenEmPKc.exit.i.i22 ], [ %182, %.lr.ph.i.i.i.i.i25 ]
-  %183 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i31, i64 8
+  %183 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i31, i64 8
   %.not.i29.i.i32 = icmp eq ptr %.val.i.i21, null
   br i1 %.not.i29.i.i32, label %_ZNSt6vectorIN12_GLOBAL__N_119EncodingIDAndOpcodeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i33, label %184
 

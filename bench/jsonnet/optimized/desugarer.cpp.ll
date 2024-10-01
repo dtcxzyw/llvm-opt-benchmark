@@ -6305,7 +6305,7 @@ _ZNKSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE12_M_check_lenEm
 
 _ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc53
   %.0.lcssa.i.i.i.i.i = phi ptr [ %326, %.noexc53 ], [ %331, %.lr.ph.i.i.i.i.i ]
-  %332 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
+  %332 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
   %.not.i35.i.i = icmp eq ptr %313, null
   br i1 %.not.i35.i.i, label %_ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE17_M_realloc_insertIJNS1_11ObjectField4HideERPNS1_13LiteralStringERPNS1_15BuiltinFunctionEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %333
 
@@ -6507,7 +6507,7 @@ _ZNKSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE12_M_check_lenEm
 
 _ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i.i76: ; preds = %.lr.ph.i.i.i.i.i72, %.noexc80
   %.0.lcssa.i.i.i.i.i77 = phi ptr [ %389, %.noexc80 ], [ %394, %.lr.ph.i.i.i.i.i72 ]
-  %395 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i77, i64 24
+  %395 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i77, i64 24
   %.not.i35.i.i78 = icmp eq ptr %375, null
   br i1 %.not.i35.i.i78, label %_ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE17_M_realloc_insertIJNS1_11ObjectField4HideEPNS1_13LiteralStringESA_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %396
 
@@ -14224,7 +14224,7 @@ _ZNKSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE12_M_check_lenEm
 
 _ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc50
   %.0.lcssa.i.i.i.i.i = phi ptr [ %86, %.noexc50 ], [ %94, %.lr.ph.i.i.i.i.i ]
-  %95 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
+  %95 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
   %.not.i35.i.i = icmp eq ptr %72, null
   br i1 %.not.i35.i.i, label %_ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE17_M_realloc_insertIJRKNS1_11ObjectField4HideERKPNS1_3ASTESE_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %96
 
@@ -23334,7 +23334,7 @@ _ZNKSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE12_M_c
 
 _ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit33.i.i: ; preds = %.lr.ph.i.i.i.i.i, %58
   %.0.lcssa.i.i.i.i.i = phi ptr [ %59, %58 ], [ %64, %.lr.ph.i.i.i.i.i ]
-  %65 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %65 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i34.i.i = icmp eq ptr %44, null
   br i1 %.not.i34.i.i, label %_ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE17_M_realloc_insertIJRS5_DnEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, label %66
 
@@ -23540,7 +23540,7 @@ _ZNKSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE12_M_c
 
 _ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit33.i.i54: ; preds = %.lr.ph.i.i.i.i.i50, %.noexc58
   %.0.lcssa.i.i.i.i.i55 = phi ptr [ %140, %.noexc58 ], [ %144, %.lr.ph.i.i.i.i.i50 ]
-  %145 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i55, i64 16
+  %145 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i55, i64 16
   %.not.i34.i.i56 = icmp eq ptr %126, null
   br i1 %.not.i34.i.i56, label %_ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE17_M_realloc_insertIJRS5_RPNS2_10SuperIndexEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, label %146
 
@@ -23782,7 +23782,7 @@ _ZNKSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE12_M_c
 
 _ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit33.i.i96: ; preds = %.lr.ph.i.i.i.i.i92, %.noexc100
   %.0.lcssa.i.i.i.i.i97 = phi ptr [ %231, %.noexc100 ], [ %235, %.lr.ph.i.i.i.i.i92 ]
-  %236 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i97, i64 16
+  %236 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i97, i64 16
   %.not.i34.i.i98 = icmp eq ptr %217, null
   br i1 %.not.i34.i.i98, label %_ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE17_M_realloc_insertIJRS5_RPNS2_7InSuperEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, label %237
 

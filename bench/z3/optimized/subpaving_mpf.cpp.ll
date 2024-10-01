@@ -5466,7 +5466,7 @@ if.end:                                           ; preds = %entry
   %m_size = getelementptr inbounds i8, ptr %call4, i64 16
   store i32 %sz, ptr %m_size, align 8
   %cmp562.not = icmp eq i32 %sz, 0
-  %m_atoms11.ptr78 = getelementptr i8, ptr %call4, i64 24
+  %m_atoms11.ptr78 = getelementptr inbounds i8, ptr %call4, i64 24
   br i1 %cmp562.not, label %_ZSt11stable_sortIPPN9subpaving9context_tINS0_10config_mpfEE4ineqENS4_11lt_var_procEEvT_S8_T0_.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
@@ -24202,7 +24202,7 @@ _ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_config
   %add.i.i = add nuw nsw i64 %mul.i.i, 8
   %call.i.i = call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %42, i64 noundef %add.i.i)
   store i64 %cond.i46, ptr %call.i.i, align 8
-  %incdec.ptr.i.i = getelementptr i8, ptr %call.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   br i1 %cmp.i44, label %if.end25, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_configEE8capacityEPPNS3_5boundE.exit.i, %for.body.i
@@ -25820,7 +25820,7 @@ if.end25:                                         ; preds = %if.then17
   br i1 %cmp2967, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end25
-  %add.ptr26 = getelementptr ptr, ptr %__p.0, i64 %__k.0
+  %add.ptr26 = getelementptr inbounds ptr, ptr %__p.0, i64 %__k.0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -32159,7 +32159,7 @@ _ZNK6vectorI7svectorIN9subpaving9context_tINS1_10config_mpfEE7watchedEjELb1EjE4s
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %class.svector.22, ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0
@@ -32320,7 +32320,7 @@ _ZNK6vectorIN9subpaving5powerELb0EjE4sizeEv.exit: ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.subpaving::power", ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0

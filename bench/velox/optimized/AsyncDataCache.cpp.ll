@@ -5626,7 +5626,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN8facebook5velox5cache8CachePinESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseIN8facebook5velox5cache8CachePinESaIS3_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseIN8facebook5velox5cache8CachePinESaIS3_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i43 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
+  %incdec.ptr.i43 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i44 = icmp eq ptr %27, null
   br i1 %tobool.not.i.i44, label %.noexc27, label %if.then.i20.i
 
@@ -5857,7 +5857,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox5cache10CacheShardESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox5cache10CacheShardESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox5cache10CacheShardESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i7 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i7, label %invoke.cont5, label %if.then.i20.i
 
@@ -8757,7 +8757,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN5folly5RangeIPcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN5folly5RangeIPcEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i.i.i, %_ZNSt12_Vector_baseIN5folly5RangeIPcEESaIS3_EE11_M_allocateEm.exit.i.i.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorIN5folly5RangeIPcEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i, label %if.then.i20.i.i.i.i.i
 
@@ -8929,7 +8929,7 @@ for.body.i.i.i.i.i.i.i95.i:                       ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN5folly5RangeIPcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i.i101.i: ; preds = %for.body.i.i.i.i.i.i.i95.i, %_ZNSt12_Vector_baseIN5folly5RangeIPcEESaIS3_EE11_M_allocateEm.exit.i.i.i.i90.i
   %__cur.0.lcssa.i.i.i.i.i.i.i102.i = phi ptr [ %cond.i10.i.i.i.i91.i, %_ZNSt12_Vector_baseIN5folly5RangeIPcEESaIS3_EE11_M_allocateEm.exit.i.i.i.i90.i ], [ %incdec.ptr1.i.i.i.i.i.i.i99.i, %for.body.i.i.i.i.i.i.i95.i ]
-  %incdec.ptr.i.i.i.i103.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i102.i, i64 16
+  %incdec.ptr.i.i.i.i103.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i102.i, i64 16
   %tobool.not.i.i.i.i.i104.i = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i.i.i104.i, label %_ZNSt6vectorIN5folly5RangeIPcEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i106.i, label %if.then.i20.i.i.i.i105.i
 
@@ -9021,7 +9021,7 @@ for.body.i.i.i.i.i.i44.i.i:                       ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN5folly5RangeIPcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i50.i.i: ; preds = %for.body.i.i.i.i.i.i44.i.i, %_ZNSt12_Vector_baseIN5folly5RangeIPcEESaIS3_EE11_M_allocateEm.exit.i.i.i40.i.i
   %__cur.0.lcssa.i.i.i.i.i.i51.i.i = phi ptr [ %cond.i10.i.i.i41.i.i, %_ZNSt12_Vector_baseIN5folly5RangeIPcEESaIS3_EE11_M_allocateEm.exit.i.i.i40.i.i ], [ %incdec.ptr1.i.i.i.i.i.i48.i.i, %for.body.i.i.i.i.i.i44.i.i ]
-  %incdec.ptr.i.i.i52.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i51.i.i, i64 16
+  %incdec.ptr.i.i.i52.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i51.i.i, i64 16
   %tobool.not.i.i.i.i53.i.i = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.i.i53.i.i, label %_ZNSt6vectorIN5folly5RangeIPcEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i55.i.i, label %if.then.i20.i.i.i54.i.i
 
@@ -12609,7 +12609,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox5cache19AsyncDataCacheEntryESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox5cache19AsyncDataCacheEntryESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox5cache19AsyncDataCacheEntryESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 8
   %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox5cache19AsyncDataCacheEntryESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19, label %for.body.i.i.i12
 

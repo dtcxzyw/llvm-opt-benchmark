@@ -2510,7 +2510,7 @@ if.then.i.i.i360:                                 ; preds = %while.body.i.i.i.i3
   br i1 %cmp1.not12.i.i.i.i.i, label %if.else.i.i363, label %for.body.i.i.preheader.i.i.i
 
 for.body.i.i.preheader.i.i.i:                     ; preds = %if.then.i.i.i360
-  %__cur.011.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 16
+  %__cur.011.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   br label %for.body.i.i.i.i.i362
 
 for.body.i.i.i.i.i362:                            ; preds = %for.body.i.i.i.i.i362, %for.body.i.i.preheader.i.i.i

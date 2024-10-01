@@ -8609,8 +8609,8 @@ _ZN4ncnnL44convolution_im2col_gemm_get_optimal_tile_mnkEiiiRiS0_S0_i.exit.i: ; p
   %1476 = load ptr, ptr %3, align 8
   %1477 = add nsw i64 %indvars.iv286.i.us.i, %943
   %1478 = mul nsw i64 %1477, %1474
-  %1479 = getelementptr float, ptr %1476, i64 %1478
-  %1480 = getelementptr float, ptr %1479, i64 %indvars.iv482.i
+  %1479 = getelementptr inbounds float, ptr %1476, i64 %1478
+  %1480 = getelementptr inbounds float, ptr %1479, i64 %indvars.iv482.i
   br i1 %1471, label %.lr.ph189.i.us.i, label %.preheader1.i.us.i
 
 .lr.ph189.i.us.i:                                 ; preds = %1475, %.lr.ph189.i.us.i
@@ -11922,8 +11922,8 @@ _ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i.exit.i
   %1678 = load ptr, ptr %3, align 8
   %1679 = add nsw i64 %indvars.iv495.i.us.i, %764
   %1680 = mul nsw i64 %1679, %1676
-  %1681 = getelementptr i8, ptr %1678, i64 %1680
-  %1682 = getelementptr i8, ptr %1681, i64 %indvars.iv612.i
+  %1681 = getelementptr inbounds i8, ptr %1678, i64 %1680
+  %1682 = getelementptr inbounds i8, ptr %1681, i64 %indvars.iv612.i
   br i1 %1670, label %.lr.ph332.i.us.i, label %.preheader1.i.us.i
 
 .lr.ph332.i.us.i:                                 ; preds = %1677, %.lr.ph332.i.us.i

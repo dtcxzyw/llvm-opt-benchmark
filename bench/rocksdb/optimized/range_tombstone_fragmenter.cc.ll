@@ -1360,7 +1360,7 @@ for.body.i.i.i.i.i.i31.i:                         ; preds = %invoke.cont.i.i.i26
 
 _ZNSt6vectorISt4pairIPvPFvS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26.i.i.i37.i: ; preds = %for.body.i.i.i.i.i.i31.i, %invoke.cont.i.i.i26.i
   %__cur.0.lcssa.i.i.i.i.i.i38.i = phi ptr [ %cond.i17.i.i.i27.i, %invoke.cont.i.i.i26.i ], [ %incdec.ptr1.i.i.i.i.i.i35.i, %for.body.i.i.i.i.i.i31.i ]
-  %incdec.ptr.i.i.i39.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i38.i, i64 16
+  %incdec.ptr.i.i.i39.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i38.i, i64 16
   %tobool.not.i.i.i.i40.i = icmp eq ptr %48, null
   br i1 %tobool.not.i.i.i.i40.i, label %_ZNSt6vectorISt4pairIPvPFvS1_EESaIS4_EE17_M_realloc_insertIJRS1_RS3_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i42.i, label %if.then.i27.i.i.i41.i
 
@@ -1951,7 +1951,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i56, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i58 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i58 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i59 = icmp eq ptr %45, null
   br i1 %tobool.not.i.i.i.i59, label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -2577,7 +2577,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
 
 _ZNSt6vectorIN7rocksdb28FragmentedRangeTombstoneList19RangeTombstoneStackESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i220 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 48
+  %incdec.ptr.i.i220 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 48
   %tobool.not.i.i.i221 = icmp eq ptr %128, null
   br i1 %tobool.not.i.i.i221, label %_ZNSt6vectorIN7rocksdb28FragmentedRangeTombstoneList19RangeTombstoneStackESaIS2_EE17_M_realloc_insertIJRNS0_5SliceES7_RmS8_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -2696,7 +2696,7 @@ for.body.i.i.i.i.i255:                            ; preds = %invoke.cont.i.i248,
 
 _ZNSt6vectorIN7rocksdb28FragmentedRangeTombstoneList19RangeTombstoneStackESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i261: ; preds = %for.body.i.i.i.i.i255, %invoke.cont.i.i248
   %__cur.0.lcssa.i.i.i.i.i262 = phi ptr [ %cond.i17.i.i249, %invoke.cont.i.i248 ], [ %incdec.ptr1.i.i.i.i.i259, %for.body.i.i.i.i.i255 ]
-  %incdec.ptr.i.i263 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i262, i64 48
+  %incdec.ptr.i.i263 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i262, i64 48
   %tobool.not.i.i.i264 = icmp eq ptr %135, null
   br i1 %tobool.not.i.i.i264, label %_ZNSt6vectorIN7rocksdb28FragmentedRangeTombstoneList19RangeTombstoneStackESaIS2_EE17_M_realloc_insertIJRNS0_5SliceES7_RmS8_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i266, label %if.then.i27.i.i265
 
@@ -8189,7 +8189,7 @@ if.then5:                                         ; preds = %invoke.cont
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then5
   %idx.neg = sub i64 0, %sub.i.i.i
-  %add.ptr = getelementptr %"class.rocksdb::Slice", ptr %3, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"class.rocksdb::Slice", ptr %3, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
@@ -8282,7 +8282,7 @@ invoke.cont44.loopexit:                           ; preds = %invoke.cont1.i.i.i.
 invoke.cont44:                                    ; preds = %invoke.cont44.loopexit, %if.else
   %10 = phi ptr [ %.pre, %invoke.cont44.loopexit ], [ %3, %if.else ]
   %sub = sub i64 %sub.i.i.i, %sub.ptr.div.i
-  %add.ptr48 = getelementptr %"class.rocksdb::Slice", ptr %10, i64 %sub
+  %add.ptr48 = getelementptr inbounds %"class.rocksdb::Slice", ptr %10, i64 %sub
   store ptr %add.ptr48, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i35 = icmp eq ptr %__position.coerce, %3
   br i1 %cmp.i.i.not7.i.i.i.i.i35, label %invoke.cont53, label %for.body.i.i.i.i.i36

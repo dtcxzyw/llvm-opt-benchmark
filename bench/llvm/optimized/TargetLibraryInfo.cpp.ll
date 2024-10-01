@@ -8756,7 +8756,7 @@ define linkonce_odr void @_ZNSt6vectorIN4llvm7VecDescESaIS1_EE15_M_range_insertI
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
   %22 = sub nsw i64 0, %9
-  %23 = getelementptr %"class.llvm::VecDesc", ptr %13, i64 %22
+  %23 = getelementptr inbounds %"class.llvm::VecDesc", ptr %13, i64 %22
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -8809,7 +8809,7 @@ _ZSt22__uninitialized_copy_aIPKN4llvm7VecDescEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit.l
 _ZSt22__uninitialized_copy_aIPKN4llvm7VecDescEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKN4llvm7VecDescEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKN4llvm7VecDescEmEvRT_T0_.exit
   %35 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKN4llvm7VecDescEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPKN4llvm7VecDescEmEvRT_T0_.exit ]
   %36 = sub nuw nsw i64 %9, %20
-  %37 = getelementptr %"class.llvm::VecDesc", ptr %35, i64 %36
+  %37 = getelementptr inbounds %"class.llvm::VecDesc", ptr %35, i64 %36
   store ptr %37, ptr %12, align 8
   %.not7.i.i.i.i.i49 = icmp eq ptr %1, %13
   br i1 %.not7.i.i.i.i.i49, label %_ZSt22__uninitialized_move_aIPN4llvm7VecDescES2_SaIS1_EET0_T_S5_S4_RT1_.exit55, label %.lr.ph.i.i.i.i.i50
@@ -8888,7 +8888,7 @@ _ZNSt12_Vector_baseIN4llvm7VecDescESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNK
   %.0810.i.i.i.i67 = phi ptr [ %61, %.lr.ph.i.i.i.i65 ], [ %2, %.lr.ph.i.i.i.i65.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.011.i.i.i.i66, ptr noundef nonnull align 8 dereferenceable(64) %.0810.i.i.i.i67, i64 64, i1 false)
   %61 = getelementptr inbounds i8, ptr %.0810.i.i.i.i67, i64 64
-  %62 = getelementptr i8, ptr %.011.i.i.i.i66, i64 64
+  %62 = getelementptr inbounds i8, ptr %.011.i.i.i.i66, i64 64
   %.not.i.i.i.i68 = icmp eq ptr %61, %3
   br i1 %.not.i.i.i.i68, label %_ZSt22__uninitialized_copy_aIPKN4llvm7VecDescEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit70, label %.lr.ph.i.i.i.i65, !llvm.loop !34
 

@@ -1413,7 +1413,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5
 
 _ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %40, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %45, %.lr.ph.i.i.i.i.i ]
-  %46 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %46 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %26, null
   br i1 %.not.i23.i, label %.noexc, label %47
 
@@ -1569,7 +1569,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5
 
 _ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i57: ; preds = %.lr.ph.i.i.i.i.i46, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i44
   %.0.lcssa.i.i.i.i.i51 = phi ptr [ %92, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i44 ], [ %97, %.lr.ph.i.i.i.i.i46 ]
-  %98 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i51, i64 8
+  %98 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i51, i64 8
   %.not.i23.i59 = icmp eq ptr %78, null
   br i1 %.not.i23.i59, label %.noexc17, label %99
 
@@ -1881,7 +1881,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5
 
 _ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %89, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %94, %.lr.ph.i.i.i.i.i ]
-  %95 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %95 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %75, null
   br i1 %.not.i23.i, label %.noexc30, label %96
 
@@ -3206,7 +3206,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM12ScoreUpdaterESt14default_deleteIS
 
 _ZNSt6vectorISt10unique_ptrIN8LightGBM12ScoreUpdaterESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM12ScoreUpdaterESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %73, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM12ScoreUpdaterESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %78, %.lr.ph.i.i.i.i.i ]
-  %79 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %79 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %59, null
   br i1 %.not.i23.i, label %.noexc, label %80
 
@@ -4716,7 +4716,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5
 
 _ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %349, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %354, %.lr.ph.i.i.i.i.i ]
-  %355 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %355 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %335, null
   br i1 %.not.i23.i, label %.noexc89, label %356
 
@@ -16309,7 +16309,7 @@ _ZNKSt6vectorISt4pairImmESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %284
 
 _ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc63
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %298, %.noexc63 ], [ %302, %.lr.ph.i.i.i.i.i.i ]
-  %303 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %303 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i34.i.i = icmp eq ptr %.sroa.0131.4250, null
   br i1 %.not.i34.i.i, label %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %304
 

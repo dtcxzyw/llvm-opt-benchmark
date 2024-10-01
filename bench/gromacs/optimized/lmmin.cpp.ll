@@ -205,8 +205,8 @@ define void @_Z6lmmin2iPdS_S_iPKdPKvPFvS1_iS3_S_PiEPK17lm_control_structP16lm_st
   %90 = shl nuw nsw i64 %89, 3
   %91 = getelementptr i8, ptr %88, i64 %90
   %92 = getelementptr i8, ptr %91, i64 %86
-  %93 = getelementptr i8, ptr %92, i64 %86
-  %94 = getelementptr i8, ptr %93, i64 %86
+  %93 = getelementptr inbounds i8, ptr %92, i64 %86
+  %94 = getelementptr inbounds i8, ptr %93, i64 %86
   %95 = getelementptr inbounds i8, ptr %94, i64 %84
   %.not658 = icmp eq i32 %64, 0
   %96 = icmp ne i32 %0, 0
@@ -372,7 +372,7 @@ _ZL13lm_print_parsiPKdP8_IO_FILE.exit:            ; preds = %.lr.ph.i, %106
   %.692 = select i1 %.inv777, double %144, double %157
   %158 = fadd double %155, %.692
   store double %158, ptr %154, align 8
-  tail call void %7(ptr noundef %1, i32 noundef %4, ptr noundef %6, ptr noundef %94, ptr noundef nonnull %27)
+  tail call void %7(ptr noundef %1, i32 noundef %4, ptr noundef %6, ptr noundef nonnull %94, ptr noundef nonnull %27)
   %159 = load i32, ptr %28, align 8
   %160 = add nsw i32 %159, 1
   store i32 %160, ptr %28, align 8

@@ -5822,7 +5822,7 @@ _ZNK6vectorIN14var_offset_mapI11expr_offsetE4dataELb0EjE8capacityEv.exit.i.i.i.i
   store i32 %4, ptr %call3.i.i.i.i, align 4
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i, i64 4
   store i32 %3, ptr %incdec.ptr.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i = getelementptr i8, ptr %call3.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i, ptr %m_subst, align 8
   %5 = load ptr, ptr %m_subst3, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -5871,7 +5871,7 @@ call3.i.i.i.noexc:                                ; preds = %_ZNK6vectorISt4pair
   store i32 %10, ptr %call3.i.i.i17, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i17, i64 4
   store i32 %9, ptr %incdec.ptr.i.i.i, align 4
-  %incdec.ptr4.i.i.i = getelementptr i8, ptr %call3.i.i.i17, i64 8
+  %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i17, i64 8
   store ptr %incdec.ptr4.i.i.i, ptr %m_vars, align 8
   %11 = load ptr, ptr %m_vars4, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %11, null
@@ -6043,7 +6043,7 @@ call3.i.i.i.noexc50:                              ; preds = %_ZNK6vectorI11expr_
   store i32 %39, ptr %call3.i.i.i51, align 4
   %incdec.ptr.i.i.i38 = getelementptr inbounds i8, ptr %call3.i.i.i51, i64 4
   store i32 %38, ptr %incdec.ptr.i.i.i38, align 4
-  %incdec.ptr4.i.i.i39 = getelementptr i8, ptr %call3.i.i.i51, i64 8
+  %incdec.ptr4.i.i.i39 = getelementptr inbounds i8, ptr %call3.i.i.i51, i64 8
   store ptr %incdec.ptr4.i.i.i39, ptr %m_todo, align 8
   %40 = load ptr, ptr %m_todo11, align 8
   %cmp.i.i.i.i.i40 = icmp eq ptr %40, null
@@ -6497,7 +6497,7 @@ call3.i.i.i.i.noexc:                              ; preds = %_ZNK6vectorIN15expr
   store i32 %2, ptr %call3.i.i.i.i7, align 4
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i7, i64 4
   store i32 %1, ptr %incdec.ptr.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i = getelementptr i8, ptr %call3.i.i.i.i7, i64 8
+  %incdec.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i7, i64 8
   store ptr %incdec.ptr4.i.i.i.i, ptr %__cur.011, align 8
   %3 = load ptr, ptr %__first.addr.010, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %3, null
@@ -6624,7 +6624,7 @@ call3.i.i.i.i.noexc:                              ; preds = %_ZNK6vectorIN15expr
   store i32 %2, ptr %call3.i.i.i.i7, align 4
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i7, i64 4
   store i32 %1, ptr %incdec.ptr.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i = getelementptr i8, ptr %call3.i.i.i.i7, i64 8
+  %incdec.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i7, i64 8
   store ptr %incdec.ptr4.i.i.i.i, ptr %__cur.011, align 8
   %3 = load ptr, ptr %__first.addr.010, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %3, null
@@ -7189,7 +7189,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i:
   %add.i.i = add nuw nsw i64 %mul.i.i, 8
   %call.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %38, i64 noundef %add.i.i)
   store i64 %cond.i43, ptr %call.i.i, align 8
-  %incdec.ptr.i.i = getelementptr i8, ptr %call.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   br i1 %cmp.i41, label %if.end25, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i, %for.body.i

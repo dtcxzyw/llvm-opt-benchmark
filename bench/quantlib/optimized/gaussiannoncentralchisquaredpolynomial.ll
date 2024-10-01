@@ -10457,7 +10457,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE16_Temporary_valueC2IJRKS1_EEEPS3_DpOT_.exit: ; p
 
 if.then11:                                        ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE16_Temporary_valueC2IJRKS1_EEEPS3_DpOT_.exit
   %idx.neg = sub i64 0, %__n
-  %add.ptr = getelementptr %"class.std::vector.0", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"class.std::vector.0", ptr %1, i64 %idx.neg
   %add.ptr.idx = mul i64 %__n, -24
   %cmp.i.i.not7.i.i.i.i.i = icmp eq i64 %add.ptr.idx, 0
   br i1 %cmp.i.i.not7.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i

@@ -22677,7 +22677,7 @@ _ZNSt6vectorIS_IN7xgboost4tree8ColMaker11ThreadEntryESaIS3_EESaIS5_EE16_Temporar
 
 47:                                               ; preds = %_ZNSt6vectorIS_IN7xgboost4tree8ColMaker11ThreadEntryESaIS3_EESaIS5_EE16_Temporary_valueC2IJRKS5_EEEPS7_DpOT_.exit
   %48 = sub i64 0, %2
-  %49 = getelementptr %"class.std::vector.240", ptr %41, i64 %48
+  %49 = getelementptr inbounds %"class.std::vector.240", ptr %41, i64 %48
   %.idx = mul i64 %2, -24
   %.not11.i.i.i.i.i = icmp eq i64 %.idx, 0
   br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPSt6vectorIN7xgboost4tree8ColMaker11ThreadEntryESaIS4_EES7_SaIS6_EET0_T_SA_S9_RT1_.exit, label %.lr.ph.i.i.i.i.i

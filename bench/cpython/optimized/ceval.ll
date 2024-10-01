@@ -29170,7 +29170,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i, label %for.body.i, label %_PyFrame_Initialize.exit, !llvm.loop !26
 
 _PyFrame_Initialize.exit:                         ; preds = %for.body.i, %_Py_NewRef.exit.i
-  %localsplus = getelementptr i8, ptr %call, i64 72
+  %localsplus = getelementptr inbounds i8, ptr %call, i64 72
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %def345.i)
   %9 = load ptr, ptr %func_code, align 8
   %co_argcount.i = getelementptr inbounds i8, ptr %9, i64 52

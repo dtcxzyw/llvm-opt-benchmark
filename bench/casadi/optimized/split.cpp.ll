@@ -1469,7 +1469,7 @@ define noundef i32 @_ZNK6casadi5Split10sp_forwardEPPKyPPyPxS4_(ptr noundef nonnu
 
 .lr.ph.preheader:                                 ; preds = %18
   %29 = load ptr, ptr %16, align 8
-  %30 = getelementptr i64, ptr %19, i64 %22
+  %30 = getelementptr inbounds i64, ptr %19, i64 %22
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

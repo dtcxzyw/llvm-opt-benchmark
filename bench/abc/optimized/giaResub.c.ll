@@ -13412,7 +13412,7 @@ Abc_ResubPrepareManager.exit:                     ; preds = %72, %74
   %98 = call i32 @Gia_NodeMffcSizeMark(ptr noundef nonnull %0, ptr noundef nonnull %91) #30
   %99 = mul nsw i64 %indvars.iv216, %65
   %.val133 = load ptr, ptr %81, align 8
-  %100 = getelementptr i64, ptr %.val133, i64 %99
+  %100 = getelementptr inbounds i64, ptr %.val133, i64 %99
   br i1 %73, label %.lr.ph.i, label %Abc_TtCopy.exit146
 
 .lr.ph.i:                                         ; preds = %96, %.lr.ph.i

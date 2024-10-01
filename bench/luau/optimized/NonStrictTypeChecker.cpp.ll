@@ -4839,7 +4839,7 @@ _ZNSt12_Vector_baseIN4Luau7NotNullINS0_5ScopeEEESaIS3_EE11_M_allocateEm.exit.i.i
 
 _ZNSt6vectorIN4Luau7NotNullINS0_5ScopeEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN4Luau7NotNullINS0_5ScopeEEESaIS3_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %59, %_ZNSt12_Vector_baseIN4Luau7NotNullINS0_5ScopeEEESaIS3_EE11_M_allocateEm.exit.i.i ], [ %64, %.lr.ph.i.i.i.i.i ]
-  %65 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %65 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %45, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN4Luau7NotNullINS0_5ScopeEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %66
 

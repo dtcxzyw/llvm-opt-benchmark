@@ -10194,7 +10194,7 @@ _ZNSt12_Vector_baseIN3vcg8Matrix44IfEESaIS2_EE11_M_allocateEm.exit.i.i: ; preds 
 
 _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg8Matrix44IfEESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %30, %_ZNSt12_Vector_baseIN3vcg8Matrix44IfEESaIS2_EE11_M_allocateEm.exit.i.i ], [ %33, %.lr.ph.i.i.i.i.i.i ]
-  %34 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 64
+  %34 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 64
   %.not.i23.i.i = icmp eq ptr %16, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %35
 
@@ -10387,7 +10387,7 @@ _ZNSt12_Vector_baseIN3vcg4Box3IfEESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = 
 
 _ZNSt6vectorIN3vcg4Box3IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg4Box3IfEESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %99, %_ZNSt12_Vector_baseIN3vcg4Box3IfEESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %102, %.lr.ph.i.i.i.i.i.i.i ]
-  %103 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
+  %103 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %86, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN3vcg4Box3IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %104
 
@@ -18952,7 +18952,7 @@ _ZNKSt6vectorIN3vcg5SFaceESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %24
   %28 = tail call i64 @llvm.umin.i64(i64 %27, i64 128102389400760775)
   %29 = mul nuw nsw i64 %28, 72
   %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #42
-  %31 = getelementptr i8, ptr %30, i64 %9
+  %31 = getelementptr inbounds i8, ptr %30, i64 %9
   br label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN3vcg5SFaceESaIS1_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
@@ -21516,7 +21516,7 @@ _ZNSt12_Vector_baseIN3vcg3tri8GeodesicINS0_5SMeshEE8VertDistESaIS5_EE11_M_alloca
 
 _ZNSt6vectorIN3vcg3tri8GeodesicINS0_5SMeshEE8VertDistESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg3tri8GeodesicINS0_5SMeshEE8VertDistESaIS5_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %37, %_ZNSt12_Vector_baseIN3vcg3tri8GeodesicINS0_5SMeshEE8VertDistESaIS5_EE11_M_allocateEm.exit.i.i.i ], [ %40, %.lr.ph.i.i.i.i.i.i.i ]
-  %41 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN3vcg3tri8GeodesicINS0_5SMeshEE8VertDistESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %42
 
@@ -48714,7 +48714,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN3vcg7SVertexESt6vectorIS4_SaIS4_EEEE
   br i1 %36, label %.lr.ph92.preheader, label %._crit_edge93
 
 .lr.ph92.preheader:                               ; preds = %35
-  %37 = getelementptr ptr, ptr %.sroa.035.0, i64 %.078
+  %37 = getelementptr inbounds ptr, ptr %.sroa.035.0, i64 %.078
   br label %.lr.ph92
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.lr.ph92
@@ -52395,7 +52395,7 @@ _ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = 
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %111, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EE11_M_allocateEm.exit.i.i ], [ %116, %.lr.ph.i.i.i.i.i.i ]
-  %117 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 4
+  %117 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 4
   %.not.i23.i.i = icmp eq ptr %97, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %118
 
@@ -74845,7 +74845,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE14_M_fill_insertEN9
 
 19:                                               ; preds = %14
   %20 = sub i64 0, %2
-  %21 = getelementptr %"class.vcg::Voxelfc", ptr %9, i64 %20
+  %21 = getelementptr inbounds %"class.vcg::Voxelfc", ptr %9, i64 %20
   %.idx = mul i64 %2, -36
   %.not11.i.i.i.i.i = icmp eq i64 %.idx, 0
   br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN3vcg7VoxelfcES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i.i.i.i
@@ -75000,7 +75000,7 @@ _ZSt24__uninitialized_fill_n_aIPN3vcg7VoxelfcEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3vcg7VoxelfcES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN3vcg7VoxelfcEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %60, %_ZSt24__uninitialized_fill_n_aIPN3vcg7VoxelfcEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit87 ], [ %65, %.lr.ph.i.i.i.i.i89 ]
-  %66 = getelementptr %"class.vcg::Voxelfc", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
+  %66 = getelementptr inbounds %"class.vcg::Voxelfc", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
   %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3vcg7VoxelfcES2_SaIS1_EET0_T_S5_S4_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
@@ -92189,7 +92189,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg4face10vector_ocfINS0_3tri5PlyMCINS0
 
 19:                                               ; preds = %14
   %20 = sub i64 0, %2
-  %21 = getelementptr %"class.vcg::face::vector_ocf<vcg::tri::PlyMC<vcg::SMesh, vcg::SimpleMeshProvider<vcg::SMesh>>::MCFace>::WedgeTexTypePack", ptr %9, i64 %20
+  %21 = getelementptr inbounds %"class.vcg::face::vector_ocf<vcg::tri::PlyMC<vcg::SMesh, vcg::SimpleMeshProvider<vcg::SMesh>>::MCFace>::WedgeTexTypePack", ptr %9, i64 %20
   %.idx = mul i64 %2, -36
   %.not11.i.i.i.i.i = icmp eq i64 %.idx, 0
   br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN3vcg4face10vector_ocfINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS5_EEE6MCFaceEE16WedgeTexTypePackESC_SaISB_EET0_T_SF_SE_RT1_.exit, label %.lr.ph.i.i.i.i.i
@@ -92344,7 +92344,7 @@ _ZSt24__uninitialized_fill_n_aIPN3vcg4face10vector_ocfINS0_3tri5PlyMCINS0_5SMesh
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3vcg4face10vector_ocfINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS5_EEE6MCFaceEE16WedgeTexTypePackESC_SaISB_EET0_T_SF_SE_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN3vcg4face10vector_ocfINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS5_EEE6MCFaceEE16WedgeTexTypePackEmSB_SB_ET_SD_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %60, %_ZSt24__uninitialized_fill_n_aIPN3vcg4face10vector_ocfINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS5_EEE6MCFaceEE16WedgeTexTypePackEmSB_SB_ET_SD_T0_RKT1_RSaIT2_E.exit87 ], [ %65, %.lr.ph.i.i.i.i.i89 ]
-  %66 = getelementptr %"class.vcg::face::vector_ocf<vcg::tri::PlyMC<vcg::SMesh, vcg::SimpleMeshProvider<vcg::SMesh>>::MCFace>::WedgeTexTypePack", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
+  %66 = getelementptr inbounds %"class.vcg::face::vector_ocf<vcg::tri::PlyMC<vcg::SMesh, vcg::SimpleMeshProvider<vcg::SMesh>>::MCFace>::WedgeTexTypePack", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
   %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3vcg4face10vector_ocfINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS5_EEE6MCFaceEE16WedgeTexTypePackESC_SaISB_EET0_T_SF_SE_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
@@ -93184,7 +93184,7 @@ _ZNKSt6vectorIN3vcg3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS3_EEE8MCVerte
   %27 = tail call i64 @llvm.umin.i64(i64 %26, i64 192153584101141162)
   %28 = mul nuw nsw i64 %27, 48
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #42
-  %30 = getelementptr i8, ptr %29, i64 %9
+  %30 = getelementptr inbounds i8, ptr %29, i64 %9
   br label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN3vcg3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS3_EEE8MCVertexESaIS7_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
@@ -99746,7 +99746,7 @@ _ZNSt12_Vector_baseIN3vcg17LocalOptimizationINS0_3tri5PlyMCINS0_5SMeshENS0_18Sim
 
 _ZNSt6vectorIN3vcg17LocalOptimizationINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS4_EEE6MCMeshEE8HeapElemESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg17LocalOptimizationINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS4_EEE6MCMeshEE8HeapElemESaISA_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %155, %_ZNSt12_Vector_baseIN3vcg17LocalOptimizationINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS4_EEE6MCMeshEE8HeapElemESaISA_EE11_M_allocateEm.exit.i.i.i ], [ %158, %.lr.ph.i.i.i.i.i.i.i ]
-  %159 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %159 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %142, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN3vcg17LocalOptimizationINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS4_EEE6MCMeshEE8HeapElemESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %160
 
@@ -100497,7 +100497,7 @@ _ZNSt12_Vector_baseIN3vcg17LocalOptimizationINS0_3tri5PlyMCINS0_5SMeshENS0_18Sim
 
 _ZNSt6vectorIN3vcg17LocalOptimizationINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS4_EEE6MCMeshEE8HeapElemESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg17LocalOptimizationINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS4_EEE6MCMeshEE8HeapElemESaISA_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %142, %_ZNSt12_Vector_baseIN3vcg17LocalOptimizationINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS4_EEE6MCMeshEE8HeapElemESaISA_EE11_M_allocateEm.exit.i.i.i ], [ %145, %.lr.ph.i.i.i.i.i.i.i ]
-  %146 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %146 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %129, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN3vcg17LocalOptimizationINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS4_EEE6MCMeshEE8HeapElemESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %147
 
@@ -100722,7 +100722,7 @@ _ZNSt12_Vector_baseIN3vcg17LocalOptimizationINS0_3tri5PlyMCINS0_5SMeshENS0_18Sim
 
 _ZNSt6vectorIN3vcg17LocalOptimizationINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS4_EEE6MCMeshEE8HeapElemESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i83: ; preds = %.lr.ph.i.i.i.i.i.i.i79, %_ZNSt12_Vector_baseIN3vcg17LocalOptimizationINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS4_EEE6MCMeshEE8HeapElemESaISA_EE11_M_allocateEm.exit.i.i.i77
   %.0.lcssa.i.i.i.i.i.i.i84 = phi ptr [ %251, %_ZNSt12_Vector_baseIN3vcg17LocalOptimizationINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS4_EEE6MCMeshEE8HeapElemESaISA_EE11_M_allocateEm.exit.i.i.i77 ], [ %254, %.lr.ph.i.i.i.i.i.i.i79 ]
-  %255 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i84, i64 16
+  %255 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i84, i64 16
   %.not.i23.i.i.i85 = icmp eq ptr %238, null
   br i1 %.not.i23.i.i.i85, label %_ZNSt6vectorIN3vcg17LocalOptimizationINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS4_EEE6MCMeshEE8HeapElemESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i86, label %256
 
@@ -101918,7 +101918,7 @@ _ZNSt12_Vector_baseIN3vcg4face10VFIteratorINS0_3tri5PlyMCINS0_5SMeshENS0_18Simpl
 
 _ZNSt6vectorIN3vcg4face10VFIteratorINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS5_EEE6MCFaceEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg4face10VFIteratorINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS5_EEE6MCFaceEEESaISA_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %47, %_ZNSt12_Vector_baseIN3vcg4face10VFIteratorINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS5_EEE6MCFaceEEESaISA_EE11_M_allocateEm.exit.i.i ], [ %50, %.lr.ph.i.i.i.i.i.i ]
-  %51 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %51 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %33, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN3vcg4face10VFIteratorINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS5_EEE6MCFaceEEESaISA_EE17_M_realloc_insertIJRKSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i, label %52
 
@@ -101995,7 +101995,7 @@ _ZNSt12_Vector_baseIN3vcg4face10VFIteratorINS0_3tri5PlyMCINS0_5SMeshENS0_18Simpl
 
 _ZNSt6vectorIN3vcg4face10VFIteratorINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS5_EEE6MCFaceEEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i24: ; preds = %.lr.ph.i.i.i.i.i.i20, %_ZNSt12_Vector_baseIN3vcg4face10VFIteratorINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS5_EEE6MCFaceEEESaISA_EE11_M_allocateEm.exit.i.i18
   %.0.lcssa.i.i.i.i.i.i25 = phi ptr [ %75, %_ZNSt12_Vector_baseIN3vcg4face10VFIteratorINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS5_EEE6MCFaceEEESaISA_EE11_M_allocateEm.exit.i.i18 ], [ %78, %.lr.ph.i.i.i.i.i.i20 ]
-  %79 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i25, i64 16
+  %79 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i25, i64 16
   %.not.i23.i.i26 = icmp eq ptr %61, null
   br i1 %.not.i23.i.i26, label %_ZNSt6vectorIN3vcg4face10VFIteratorINS0_3tri5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS5_EEE6MCFaceEEESaISA_EE17_M_realloc_insertIJRKSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i27, label %80
 
@@ -106682,7 +106682,7 @@ _ZNSt12_Vector_baseIN3vcg3tri14UpdateTopologyINS1_5PlyMCINS0_5SMeshENS0_18Simple
 
 _ZNSt6vectorIN3vcg3tri14UpdateTopologyINS1_5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS4_EEE6MCMeshEE5PEdgeESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg3tri14UpdateTopologyINS1_5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS4_EEE6MCMeshEE5PEdgeESaISA_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %77, %_ZNSt12_Vector_baseIN3vcg3tri14UpdateTopologyINS1_5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS4_EEE6MCMeshEE5PEdgeESaISA_EE11_M_allocateEm.exit.i.i.i ], [ %81, %.lr.ph.i.i.i.i.i.i.i ]
-  %82 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 32
+  %82 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 32
   %.not.i23.i.i.i = icmp eq ptr %63, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN3vcg3tri14UpdateTopologyINS1_5PlyMCINS0_5SMeshENS0_18SimpleMeshProviderIS4_EEE6MCMeshEE5PEdgeESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %83
 
@@ -119541,7 +119541,7 @@ _ZNKSt6vectorI8CVertexOSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %22
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 192153584101141162)
   %27 = mul nuw nsw i64 %26, 48
   %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #42
-  %29 = getelementptr i8, ptr %28, i64 %9
+  %29 = getelementptr inbounds i8, ptr %28, i64 %9
   br label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorI8CVertexOSaIS0_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
@@ -119618,7 +119618,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg6vertex10vector_ocfI8CVertexOE9VFAdj
 
 19:                                               ; preds = %14
   %20 = sub i64 0, %2
-  %21 = getelementptr %"struct.vcg::vertex::vector_ocf<CVertexO>::VFAdjType", ptr %9, i64 %20
+  %21 = getelementptr inbounds %"struct.vcg::vertex::vector_ocf<CVertexO>::VFAdjType", ptr %9, i64 %20
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %19, %.lr.ph.i.i.i.i.i
@@ -119768,7 +119768,7 @@ _ZSt24__uninitialized_fill_n_aIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeEmS
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %61, %_ZSt24__uninitialized_fill_n_aIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit87 ], [ %66, %.lr.ph.i.i.i.i.i89 ]
-  %67 = getelementptr %"struct.vcg::vertex::vector_ocf<CVertexO>::VFAdjType", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
+  %67 = getelementptr inbounds %"struct.vcg::vertex::vector_ocf<CVertexO>::VFAdjType", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
   %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3vcg6vertex10vector_ocfI8CVertexOE9VFAdjTypeES6_SaIS5_EET0_T_S9_S8_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
@@ -121297,7 +121297,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE16WedgeTex
 
 19:                                               ; preds = %14
   %20 = sub i64 0, %2
-  %21 = getelementptr %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %9, i64 %20
+  %21 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %9, i64 %20
   %.idx = mul i64 %2, -36
   %.not11.i.i.i.i.i = icmp eq i64 %.idx, 0
   br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackES6_SaIS5_EET0_T_S9_S8_RT1_.exit, label %.lr.ph.i.i.i.i.i
@@ -121452,7 +121452,7 @@ _ZSt24__uninitialized_fill_n_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePac
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %60, %_ZSt24__uninitialized_fill_n_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit87 ], [ %65, %.lr.ph.i.i.i.i.i89 ]
-  %66 = getelementptr %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
+  %66 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
   %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3vcg4face10vector_ocfI6CFaceOE16WedgeTexTypePackES6_SaIS5_EET0_T_S9_S8_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
@@ -122752,7 +122752,7 @@ _ZNSt12_Vector_baseIN3vcg17LocalOptimizationI6CMeshOE8HeapElemESaIS4_EE11_M_allo
 
 _ZNSt6vectorIN3vcg17LocalOptimizationI6CMeshOE8HeapElemESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg17LocalOptimizationI6CMeshOE8HeapElemESaIS4_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %107, %_ZNSt12_Vector_baseIN3vcg17LocalOptimizationI6CMeshOE8HeapElemESaIS4_EE11_M_allocateEm.exit.i.i.i ], [ %110, %.lr.ph.i.i.i.i.i.i.i ]
-  %111 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %111 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %94, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN3vcg17LocalOptimizationI6CMeshOE8HeapElemESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %112
 
@@ -123560,7 +123560,7 @@ _ZNSt12_Vector_baseIN3vcg17LocalOptimizationI6CMeshOE8HeapElemESaIS4_EE11_M_allo
 
 _ZNSt6vectorIN3vcg17LocalOptimizationI6CMeshOE8HeapElemESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg17LocalOptimizationI6CMeshOE8HeapElemESaIS4_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %163, %_ZNSt12_Vector_baseIN3vcg17LocalOptimizationI6CMeshOE8HeapElemESaIS4_EE11_M_allocateEm.exit.i.i.i ], [ %166, %.lr.ph.i.i.i.i.i.i.i ]
-  %167 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %167 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %150, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN3vcg17LocalOptimizationI6CMeshOE8HeapElemESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %168
 
@@ -123787,7 +123787,7 @@ _ZNSt12_Vector_baseIN3vcg17LocalOptimizationI6CMeshOE8HeapElemESaIS4_EE11_M_allo
 
 _ZNSt6vectorIN3vcg17LocalOptimizationI6CMeshOE8HeapElemESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i85: ; preds = %.lr.ph.i.i.i.i.i.i.i81, %_ZNSt12_Vector_baseIN3vcg17LocalOptimizationI6CMeshOE8HeapElemESaIS4_EE11_M_allocateEm.exit.i.i.i79
   %.0.lcssa.i.i.i.i.i.i.i86 = phi ptr [ %274, %_ZNSt12_Vector_baseIN3vcg17LocalOptimizationI6CMeshOE8HeapElemESaIS4_EE11_M_allocateEm.exit.i.i.i79 ], [ %277, %.lr.ph.i.i.i.i.i.i.i81 ]
-  %278 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i86, i64 16
+  %278 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i86, i64 16
   %.not.i23.i.i.i87 = icmp eq ptr %261, null
   br i1 %.not.i23.i.i.i87, label %_ZNSt6vectorIN3vcg17LocalOptimizationI6CMeshOE8HeapElemESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i88, label %279
 
@@ -124834,7 +124834,7 @@ _ZNSt12_Vector_baseIN3vcg4face10VFIteratorI6CFaceOEESaIS4_EE11_M_allocateEm.exit
 
 _ZNSt6vectorIN3vcg4face10VFIteratorI6CFaceOEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg4face10VFIteratorI6CFaceOEESaIS4_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %56, %_ZNSt12_Vector_baseIN3vcg4face10VFIteratorI6CFaceOEESaIS4_EE11_M_allocateEm.exit.i.i ], [ %59, %.lr.ph.i.i.i.i.i.i ]
-  %60 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %60 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %42, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN3vcg4face10VFIteratorI6CFaceOEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %61
 
@@ -124911,7 +124911,7 @@ _ZNSt12_Vector_baseIN3vcg4face10VFIteratorI6CFaceOEESaIS4_EE11_M_allocateEm.exit
 
 _ZNSt6vectorIN3vcg4face10VFIteratorI6CFaceOEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i24: ; preds = %.lr.ph.i.i.i.i.i.i20, %_ZNSt12_Vector_baseIN3vcg4face10VFIteratorI6CFaceOEESaIS4_EE11_M_allocateEm.exit.i.i18
   %.0.lcssa.i.i.i.i.i.i25 = phi ptr [ %84, %_ZNSt12_Vector_baseIN3vcg4face10VFIteratorI6CFaceOEESaIS4_EE11_M_allocateEm.exit.i.i18 ], [ %87, %.lr.ph.i.i.i.i.i.i20 ]
-  %88 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i25, i64 16
+  %88 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i25, i64 16
   %.not.i23.i.i26 = icmp eq ptr %70, null
   br i1 %.not.i23.i.i26, label %_ZNSt6vectorIN3vcg4face10VFIteratorI6CFaceOEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i27, label %89
 
@@ -129839,7 +129839,7 @@ _ZNSt12_Vector_baseIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE11_M_alloca
 
 _ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %77, %_ZNSt12_Vector_baseIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE11_M_allocateEm.exit.i.i.i ], [ %81, %.lr.ph.i.i.i.i.i.i.i ]
-  %82 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 32
+  %82 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 32
   %.not.i23.i.i.i = icmp eq ptr %63, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %83
 

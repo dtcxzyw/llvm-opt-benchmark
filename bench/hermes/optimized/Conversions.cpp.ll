@@ -182,7 +182,7 @@ for.body39:                                       ; preds = %for.body39.preheade
 
 for.end45:                                        ; preds = %for.body39
   store i8 46, ptr %incdec.ptr42, align 1
-  %destPtr.594 = getelementptr i8, ptr %destPtr.491, i64 2
+  %destPtr.594 = getelementptr inbounds i8, ptr %destPtr.491, i64 2
   %cmp4995 = icmp slt i32 %3, %conv
   br i1 %cmp4995, label %for.body50.preheader, label %if.end141
 
@@ -250,7 +250,7 @@ if.else83:                                        ; preds = %if.else57
   %cmp84 = icmp eq i32 %conv, 1
   %21 = call i32 @llvm.abs.i32(i32 %13, i1 true)
   %incdec.ptr89 = getelementptr inbounds i8, ptr %destPtr.0, i64 1
-  %incdec.ptr90 = getelementptr i8, ptr %destPtr.0, i64 2
+  %incdec.ptr90 = getelementptr inbounds i8, ptr %destPtr.0, i64 2
   br i1 %cmp84, label %if.then85, label %if.else104
 
 if.then85:                                        ; preds = %if.else83
@@ -304,7 +304,7 @@ for.end122:                                       ; preds = %for.body116, %if.el
   %28 = load i32, ptr %n, align 4
   %cmp125 = icmp slt i32 %28, 1
   %cond126 = select i1 %cmp125, i8 45, i8 43
-  %incdec.ptr127 = getelementptr i8, ptr %destPtr.9.lcssa, i64 2
+  %incdec.ptr127 = getelementptr inbounds i8, ptr %destPtr.9.lcssa, i64 2
   store i8 %cond126, ptr %incdec.ptr123, align 1
   %cmp13073 = icmp sgt i32 %call109, 0
   br i1 %cmp13073, label %for.body131.preheader, label %if.end141

@@ -19686,7 +19686,7 @@ if.end72:                                         ; preds = %while.end.i100
 if.end74:                                         ; preds = %if.end72, %if.end60
   %zout.3 = phi ptr [ %add.ptr.i107, %if.end72 ], [ %zout.0, %if.end60 ]
   %idx.neg = sub nsw i64 0, %conv55
-  %add.ptr = getelementptr i8, ptr %zout.3, i64 %idx.neg
+  %add.ptr = getelementptr inbounds i8, ptr %zout.3, i64 %idx.neg
   %cmp75 = icmp eq i32 %dist.0, 1
   %tobool78.not = icmp eq i32 %len.0, 0
   br i1 %cmp75, label %if.then77, label %if.else83

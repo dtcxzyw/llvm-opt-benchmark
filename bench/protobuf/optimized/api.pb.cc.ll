@@ -1447,7 +1447,7 @@ entry:
   store i64 %7, ptr %version_11, align 8
   store ptr %__tmp.sroa.0.0.copyload.i9, ptr %version_, align 8
   %source_context_ = getelementptr inbounds i8, ptr %this, i64 112
-  %source_context_12 = getelementptr i8, ptr %other, i64 112
+  %source_context_12 = getelementptr inbounds i8, ptr %other, i64 112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   br label %for.body.i.i
@@ -2519,7 +2519,7 @@ entry:
   store i64 %6, ptr %response_type_url_7, align 8
   store ptr %__tmp.sroa.0.0.copyload.i9, ptr %response_type_url_, align 8
   %request_streaming_ = getelementptr inbounds i8, ptr %this, i64 64
-  %request_streaming_8 = getelementptr i8, ptr %other, i64 64
+  %request_streaming_8 = getelementptr inbounds i8, ptr %other, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   br label %for.body.i.i

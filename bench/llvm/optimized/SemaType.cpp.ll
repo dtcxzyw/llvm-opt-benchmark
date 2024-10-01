@@ -19576,7 +19576,7 @@ _ZNSt17_Temporary_bufferIPSt4pairIPKN5clang14AttributedTypeEPKNS1_4AttrEES8_EC2E
   br label %_ZNSt17_Temporary_bufferIPSt4pairIPKN5clang14AttributedTypeEPKNS1_4AttrEES8_EC2ES9_l.exit.thread23.sink.split.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %3053
-  %.01518.i.i.i.i.i = getelementptr i8, ptr %3052, i64 16
+  %.01518.i.i.i.i.i = getelementptr inbounds i8, ptr %3052, i64 16
   br label %.lr.ph.i.i.i.i165.i
 
 .lr.ph.i.i.i.i165.i:                              ; preds = %.lr.ph.i.i.i.i165.i, %.lr.ph.i.i.preheader.i.i.i
@@ -41836,7 +41836,7 @@ _ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE7reserveEm.exit.i: ; preds = %23
   br i1 %27, label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i, label %_ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE6appendINS_16pointer_iteratorINS1_20ParsedAttributesView8iteratorES3_EEvEEvT_SA_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader.i:               ; preds = %_ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE7reserveEm.exit.i
-  %28 = getelementptr ptr, ptr %25, i64 %26
+  %28 = getelementptr inbounds ptr, ptr %25, i64 %26
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i
@@ -41869,7 +41869,7 @@ _ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE6appendINS_16pointer_iteratorINS
 
 _ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE7reserveEm.exit: ; preds = %38, %39
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr i8, ptr %41, i64 %10
+  %42 = getelementptr inbounds i8, ptr %41, i64 %10
   %43 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   %.idx = shl nsw i64 %43, 3
   %44 = ptrtoint ptr %42 to i64
@@ -41877,7 +41877,7 @@ _ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE7reserveEm.exit: ; preds = %38, 
   %.not = icmp ult i64 %gepdiff, %16
   %45 = load ptr, ptr %0, align 8
   %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  %47 = getelementptr ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
   br i1 %.not, label %85, label %48
 
 48:                                               ; preds = %_ZN4llvm15SmallVectorImplIPN5clang10ParsedAttrEE7reserveEm.exit
@@ -46802,7 +46802,7 @@ _ZNSt17_Temporary_bufferIPSt4pairIPKN5clang14AttributedTypeEPKNS1_4AttrEES8_EC2E
   br label %_ZNSt17_Temporary_bufferIPSt4pairIPKN5clang14AttributedTypeEPKNS1_4AttrEES8_EC2ES9_l.exit.thread23.sink.split
 
 .lr.ph.i.i.preheader.i:                           ; preds = %12
-  %.01518.i.i.i = getelementptr i8, ptr %11, i64 16
+  %.01518.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i

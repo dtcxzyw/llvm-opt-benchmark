@@ -12809,7 +12809,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM15ConstraintEntryESt14default_delet
 
 _ZNSt6vectorISt10unique_ptrIN8LightGBM15ConstraintEntryESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM15ConstraintEntryESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %34, %_ZNSt12_Vector_baseISt10unique_ptrIN8LightGBM15ConstraintEntryESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i ], [ %38, %.lr.ph.i.i.i.i.i.i ]
-  %39 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
+  %39 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %20, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorISt10unique_ptrIN8LightGBM15ConstraintEntryESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPNS1_20BasicConstraintEntryEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %40
 

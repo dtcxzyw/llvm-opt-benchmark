@@ -1712,7 +1712,7 @@ _ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_alloc
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit23.i74: ; preds = %.lr.ph.i.i.i.i63, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i61
   %.0.lcssa.i.i.i.i68 = phi ptr [ %65, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i61 ], [ %69, %.lr.ph.i.i.i.i63 ]
-  %70 = getelementptr i8, ptr %.0.lcssa.i.i.i.i68, i64 16
+  %70 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i68, i64 16
   %.not.i24.i76 = icmp eq ptr %32, null
   br i1 %.not.i24.i76, label %.noexc41, label %71
 
@@ -1804,7 +1804,7 @@ _ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_alloc
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit23.i96: ; preds = %.lr.ph.i.i.i.i85, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i83
   %.0.lcssa.i.i.i.i90 = phi ptr [ %100, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i83 ], [ %104, %.lr.ph.i.i.i.i85 ]
-  %105 = getelementptr i8, ptr %.0.lcssa.i.i.i.i90, i64 16
+  %105 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i90, i64 16
   %.not.i24.i98 = icmp eq ptr %74, null
   br i1 %.not.i24.i98, label %.noexc45, label %106
 
@@ -1936,7 +1936,7 @@ _ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_alloc
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit23.i118: ; preds = %.lr.ph.i.i.i.i107, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i105
   %.0.lcssa.i.i.i.i112 = phi ptr [ %151, %_ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_allocateEm.exit.i105 ], [ %155, %.lr.ph.i.i.i.i107 ]
-  %156 = getelementptr i8, ptr %.0.lcssa.i.i.i.i112, i64 16
+  %156 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i112, i64 16
   %.not.i24.i120 = icmp eq ptr %115, null
   br i1 %.not.i24.i120, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJRPKciEEERS3_DpOT_.exit55, label %157
 

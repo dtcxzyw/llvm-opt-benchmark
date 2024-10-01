@@ -4251,7 +4251,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit25.us.us: ; preds = %.lr.ph23.preheade
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.us:    ; preds = %.lr.ph23.preheader.i.us, %.lr.ph.split.us.split
   %29 = phi i64 [ %.pre49, %.lr.ph23.preheader.i.us ], [ %26, %.lr.ph.split.us.split ]
-  %30 = getelementptr double, ptr %.01426.us, i64 %29
+  %30 = getelementptr inbounds double, ptr %.01426.us, i64 %29
   %31 = load i64, ptr %12, align 8
   %32 = icmp sgt i64 %31, 0
   %or.cond38 = select i1 %.not.i.us, i1 %32, i1 false
@@ -4358,7 +4358,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.loopexit: ; preds = %.lr.ph.i
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit:       ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.loopexit, %.lr.ph.split.split
   %64 = phi i64 [ %.pre, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.loopexit ], [ %58, %.lr.ph.split.split ]
-  %65 = getelementptr double, ptr %.01426, i64 %64
+  %65 = getelementptr inbounds double, ptr %.01426, i64 %64
   %66 = load i64, ptr %12, align 8
   %67 = icmp sgt i64 %66, 0
   %or.cond42 = select i1 %.not.i, i1 %67, i1 false

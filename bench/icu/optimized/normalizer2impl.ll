@@ -5448,7 +5448,7 @@ for.cond.outer.outer:                             ; preds = %if.then170, %for.co
   %p.0.ph.ph = phi ptr [ %add.ptr, %for.cond.preheader ], [ %p.1, %if.then170 ]
   %starter.0.ph250 = ptrtoint ptr %starter.0.ph.ph to i64
   %add.ptr108 = getelementptr i8, ptr %starter.0.ph.ph, i64 4
-  %arrayidx104 = getelementptr inbounds i8, ptr %starter.0.ph.ph, i64 2
+  %arrayidx104 = getelementptr i8, ptr %starter.0.ph.ph, i64 2
   %2 = add i64 %starter.0.ph250, 6
   br label %for.cond.outer
 
@@ -5578,7 +5578,7 @@ if.then48:                                        ; preds = %if.then46
   br i1 %cmp53, label %if.then54, label %if.end80
 
 if.then54:                                        ; preds = %if.then48
-  %add.ptr55 = getelementptr i8, ptr %p.1, i64 -2
+  %add.ptr55 = getelementptr inbounds i8, ptr %p.1, i64 -2
   %narrow = mul nuw nsw i16 %sub50, 21
   %19 = trunc nuw i32 %c.0 to i16
   %20 = add nsw i16 %19, -4449
@@ -5769,7 +5769,7 @@ while.body111.preheader:                          ; preds = %if.else105
   %37 = add i64 %reass.sub, -5
   %38 = and i64 %37, -2
   %39 = add i64 %38, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %arrayidx104, ptr align 2 %add.ptr108, i64 %39, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %arrayidx104, ptr align 2 %add.ptr108, i64 %39, i1 false)
   br label %while.end114
 
 while.end114:                                     ; preds = %while.body111.preheader, %if.else105

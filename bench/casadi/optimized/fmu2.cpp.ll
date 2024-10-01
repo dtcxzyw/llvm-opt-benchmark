@@ -14759,7 +14759,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit450:           ; preds = %217, %224
   %.0355671 = phi i64 [ 0, %.lr.ph673 ], [ %715, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit ]
   %488 = mul i64 %.0355671, %83
   %489 = load ptr, ptr %149, align 8
-  %490 = getelementptr double, ptr %489, i64 %488
+  %490 = getelementptr inbounds double, ptr %489, i64 %488
   %exitcond764.not = icmp eq i64 %.0355671, 5
   br i1 %exitcond764.not, label %491, label %525
 

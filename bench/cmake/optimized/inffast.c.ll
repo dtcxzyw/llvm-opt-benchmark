@@ -270,7 +270,7 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
 178:                                              ; preds = %177
   %179 = sub i32 %23, %173
   %180 = zext i32 %179 to i64
-  %181 = getelementptr i8, ptr %29, i64 %180
+  %181 = getelementptr inbounds i8, ptr %29, i64 %180
   %182 = icmp ult i32 %173, %.0239
   br i1 %182, label %.preheader, label %230
 
@@ -300,7 +300,7 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
 194:                                              ; preds = %192
   %195 = sub i32 %49, %173
   %196 = zext i32 %195 to i64
-  %197 = getelementptr i8, ptr %29, i64 %196
+  %197 = getelementptr inbounds i8, ptr %29, i64 %196
   %198 = sub nuw nsw i32 %173, %27
   %199 = icmp ult i32 %198, %.0239
   br i1 %199, label %.preheader466, label %230
@@ -311,7 +311,7 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   %.2 = phi ptr [ %200, %.preheader466 ], [ %197, %194 ]
   %200 = getelementptr inbounds i8, ptr %.2, i64 1
   %201 = load i8, ptr %.2, align 1
-  %202 = getelementptr i8, ptr %.4260, i64 1
+  %202 = getelementptr inbounds i8, ptr %.4260, i64 1
   store i8 %201, ptr %.4260, align 1
   %203 = add i32 %.1244, -1
   %.not321 = icmp eq i32 %203, 0
@@ -344,7 +344,7 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
 216:                                              ; preds = %192
   %217 = sub nuw i32 %27, %173
   %218 = zext i32 %217 to i64
-  %219 = getelementptr i8, ptr %29, i64 %218
+  %219 = getelementptr inbounds i8, ptr %29, i64 %218
   %220 = icmp ult i32 %173, %.0239
   br i1 %220, label %.preheader467, label %230
 

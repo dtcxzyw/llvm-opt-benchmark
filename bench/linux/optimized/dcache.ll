@@ -6038,7 +6038,7 @@ define internal fastcc void @__d_move(ptr noundef %0, ptr noundef %1, i1 noundef
   %148 = icmp eq ptr %146, %147
   %149 = getelementptr inbounds i8, ptr %0, i64 40
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr i8, ptr %0, i64 56
+  %151 = getelementptr inbounds i8, ptr %0, i64 56
   %152 = icmp eq ptr %150, %151
   br i1 %148, label %160, label %153, !prof !6
 

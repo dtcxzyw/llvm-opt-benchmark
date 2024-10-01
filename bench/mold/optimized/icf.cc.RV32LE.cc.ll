@@ -17860,7 +17860,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %array, align 8
-  %add.ptr.i = getelementptr %"struct.std::array", ptr %agg.tmp.sroa.0.0.copyload, i64 %call
+  %add.ptr.i = getelementptr inbounds %"struct.std::array", ptr %agg.tmp.sroa.0.0.copyload, i64 %call
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.then

@@ -1445,7 +1445,7 @@ _ZNSt12_Vector_baseI19gmx_file_position_tSaIS0_EE11_M_allocateEm.exit.i.i: ; pre
 
 _ZNSt6vectorI19gmx_file_position_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseI19gmx_file_position_tSaIS0_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %50, %_ZNSt12_Vector_baseI19gmx_file_position_tSaIS0_EE11_M_allocateEm.exit.i.i ], [ %53, %.lr.ph.i.i.i.i.i ]
-  %54 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 4128
+  %54 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 4128
   %.not.i22.i.i = icmp eq ptr %36, null
   br i1 %.not.i22.i.i, label %_ZNSt6vectorI19gmx_file_position_tSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %55
 

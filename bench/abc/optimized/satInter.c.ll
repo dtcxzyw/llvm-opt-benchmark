@@ -1275,12 +1275,12 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %.val207 = load i32, ptr %51, align 8
   %52 = mul nsw i32 %.val207, %.val206
   %53 = sext i32 %52 to i64
-  %54 = getelementptr i32, ptr %.val205, i64 %53
+  %54 = getelementptr inbounds i32, ptr %.val205, i64 %53
   %55 = getelementptr i8, ptr %1, i64 24
   %.val204 = load i32, ptr %55, align 8
   %56 = mul nsw i32 %.val204, %.val206
   %57 = sext i32 %56 to i64
-  %58 = getelementptr i32, ptr %.val205, i64 %57
+  %58 = getelementptr inbounds i32, ptr %.val205, i64 %57
   %59 = icmp sgt i32 %.val206, 0
   br i1 %59, label %.lr.ph.preheader.i, label %Int_ManTruthCopy.exit
 

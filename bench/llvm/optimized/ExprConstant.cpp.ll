@@ -31698,7 +31698,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
   br i1 %34, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %33
-  %35 = getelementptr i8, ptr %.053, i64 %.074
+  %35 = getelementptr inbounds i8, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
@@ -36135,7 +36135,7 @@ _ZN4llvm25SmallVectorTemplateCommonIN5clang7APValue15LValuePathEntryEvE20assertS
 
 _ZN4llvm15SmallVectorImplIN5clang7APValue15LValuePathEntryEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonIN5clang7APValue15LValuePathEntryEvE20assertSafeToAddRangeEPKS3_S6_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   %.idx = shl nsw i64 %32, 3
   %33 = ptrtoint ptr %31 to i64
@@ -36290,7 +36290,7 @@ _ZN4llvm15SmallVectorImplIN5clang7APValue15LValuePathEntryEE7reserveEm.exit: ; p
   br i1 %.not7.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang7APValue15LValuePathEntryELb1EE18uninitialized_copyISt13move_iteratorIPS3_ES7_EEvT_S9_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplIN5clang7APValue15LValuePathEntryEE7reserveEm.exit
-  %16 = getelementptr %"class.clang::APValue::LValuePathEntry", ptr %14, i64 %15
+  %16 = getelementptr inbounds %"class.clang::APValue::LValuePathEntry", ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
@@ -64876,7 +64876,7 @@ _ZN4llvm25SmallVectorTemplateCommonIPKN5clang13CXXRecordDeclEvE20assertSafeToAdd
 
 _ZN4llvm15SmallVectorImplIPKN5clang13CXXRecordDeclEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonIPKN5clang13CXXRecordDeclEvE20assertSafeToAddRangeEPKS4_S7_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   %.idx = shl nsw i64 %32, 3
   %33 = ptrtoint ptr %31 to i64

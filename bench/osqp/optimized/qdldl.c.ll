@@ -120,7 +120,7 @@ define i64 @QDLDL_etree(i64 noundef %0, ptr nocapture noundef readonly %1, ptr n
 define i64 @QDLDL_factor(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, ptr nocapture noundef %11, ptr nocapture noundef %12, ptr nocapture noundef %13) local_unnamed_addr #0 {
   %15 = getelementptr inbounds i64, ptr %12, i64 %0
   %.idx = shl nsw i64 %0, 4
-  %16 = getelementptr i8, ptr %12, i64 %.idx
+  %16 = getelementptr inbounds i8, ptr %12, i64 %.idx
   store i64 0, ptr %4, align 8
   %17 = icmp sgt i64 %0, 0
   br i1 %17, label %.lr.ph, label %._crit_edge

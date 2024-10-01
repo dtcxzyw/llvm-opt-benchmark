@@ -3927,7 +3927,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit42:               ; preds = %_ZN4llvm5APIntD2Ev.
 228:                                              ; preds = %"_ZN4llvm8erase_ifINS_15SmallVectorImplIN12_GLOBAL__N_117GuardWideningImpl10RangeCheckEEEZNKS3_18combineRangeChecksERS5_S6_E3$_0EEvRT_T0_.exit.i"
   %.val.i.i42.i = load ptr, ptr %20, align 8
   %229 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #22
-  %230 = getelementptr %"class.(anonymous namespace)::GuardWideningImpl::RangeCheck", ptr %.val.i.i42.i, i64 %229
+  %230 = getelementptr inbounds %"class.(anonymous namespace)::GuardWideningImpl::RangeCheck", ptr %.val.i.i42.i, i64 %229
   %.val.i43.i = load ptr, ptr %7, align 8
   %231 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #22
   %232 = getelementptr inbounds %"class.(anonymous namespace)::GuardWideningImpl::RangeCheck", ptr %.val.i43.i, i64 %231
@@ -4000,7 +4000,7 @@ _ZN4llvm25SmallVectorTemplateCommonIN12_GLOBAL__N_117GuardWideningImpl10RangeChe
 
 _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117GuardWideningImpl10RangeCheckEE7reserveEm.exit.i.i.i: ; preds = %263, %_ZN4llvm25SmallVectorTemplateCommonIN12_GLOBAL__N_117GuardWideningImpl10RangeCheckEvE20assertSafeToAddRangeEPKS3_S6_.exit.i.i.i
   %.val.i4.i.i = load ptr, ptr %20, align 8
-  %264 = getelementptr i8, ptr %.val.i4.i.i, i64 %235
+  %264 = getelementptr inbounds i8, ptr %.val.i4.i.i, i64 %235
   %265 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #22
   %.idx.i.i.i = shl nsw i64 %265, 5
   %266 = ptrtoint ptr %264 to i64
@@ -4014,9 +4014,9 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117GuardWideningImpl10RangeCheckEE7reser
 269:                                              ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117GuardWideningImpl10RangeCheckEE7reserveEm.exit.i.i.i
   %.val.i49.i.i.i = load ptr, ptr %20, align 8
   %270 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #22
-  %271 = getelementptr %"class.(anonymous namespace)::GuardWideningImpl::RangeCheck", ptr %.val.i49.i.i.i, i64 %270
+  %271 = getelementptr inbounds %"class.(anonymous namespace)::GuardWideningImpl::RangeCheck", ptr %.val.i49.i.i.i, i64 %270
   %272 = sub nsw i64 0, %231
-  %273 = getelementptr %"class.(anonymous namespace)::GuardWideningImpl::RangeCheck", ptr %271, i64 %272
+  %273 = getelementptr inbounds %"class.(anonymous namespace)::GuardWideningImpl::RangeCheck", ptr %271, i64 %272
   %.val.i50.i.i.i = load ptr, ptr %20, align 8
   %274 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #22
   %275 = getelementptr inbounds %"class.(anonymous namespace)::GuardWideningImpl::RangeCheck", ptr %.val.i50.i.i.i, i64 %274
@@ -4041,7 +4041,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117GuardWideningImpl10RangeCheckEE7reser
   br i1 %.not7.i.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117GuardWideningImpl10RangeCheckEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i.i:                 ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117GuardWideningImpl10RangeCheckEE7reserveEm.exit.i51.i.i.i
-  %286 = getelementptr %"class.(anonymous namespace)::GuardWideningImpl::RangeCheck", ptr %.val.i.i52.i.i.i, i64 %285
+  %286 = getelementptr inbounds %"class.(anonymous namespace)::GuardWideningImpl::RangeCheck", ptr %.val.i.i52.i.i.i, i64 %285
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i
@@ -7999,7 +7999,7 @@ _ZNSt12_Vector_baseISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEESt8optio
 
 _ZNSt6vectorISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEESt8optionalIPKS5_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEESt8optionalIPKS5_EESaISA_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %61, %_ZNSt12_Vector_baseISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEESt8optionalIPKS5_EESaISA_EE11_M_allocateEm.exit.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i ]
-  %65 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %65 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %47, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEESt8optionalIPKS5_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %66
 

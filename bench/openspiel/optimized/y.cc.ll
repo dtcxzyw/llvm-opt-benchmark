@@ -7845,7 +7845,7 @@ _ZNKSt6vectorISt5arrayIN10open_spiel6y_game4MoveELm6EESaIS4_EE12_M_check_lenEmPK
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 384307168202282325)
   %30 = mul nuw nsw i64 %29, 24
   %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #28
-  %32 = getelementptr i8, ptr %31, i64 %9
+  %32 = getelementptr inbounds i8, ptr %31, i64 %9
   br label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorISt5arrayIN10open_spiel6y_game4MoveELm6EESaIS4_EE12_M_check_lenEmPKc.exit, %_ZSt10_ConstructISt5arrayIN10open_spiel6y_game4MoveELm6EEJEEvPT_DpOT0_.exit.i.i.i36

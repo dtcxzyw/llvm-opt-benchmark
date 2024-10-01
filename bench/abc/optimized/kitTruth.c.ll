@@ -115,8 +115,8 @@ define void @Kit_TruthSwapAdjacentVars(ptr nocapture noundef writeonly %0, ptr n
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph95.us
-  %45 = getelementptr i32, ptr %.07797.us, i64 %39
-  %46 = getelementptr i32, ptr %.098.us, i64 %39
+  %45 = getelementptr inbounds i32, ptr %.07797.us, i64 %39
+  %46 = getelementptr inbounds i32, ptr %.098.us, i64 %39
   %47 = add nsw i32 %.07896.us, %38
   %48 = icmp slt i32 %47, %8
   br i1 %48, label %.lr.ph.us.preheader, label %.loopexit, !llvm.loop !6
@@ -407,8 +407,8 @@ define void @Kit_TruthSwapAdjacentVars2(ptr nocapture noundef readonly %0, ptr n
   br i1 %exitcond193.not, label %._crit_edge, label %.lr.ph137, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph137, %.preheader110
-  %94 = getelementptr i32, ptr %.0140, i64 %73
-  %95 = getelementptr i32, ptr %.0106138, i64 %73
+  %94 = getelementptr inbounds i32, ptr %.0140, i64 %73
+  %95 = getelementptr inbounds i32, ptr %.0106138, i64 %73
   %96 = add nsw i32 %.0104139, %72
   %97 = icmp slt i32 %96, %8
   br i1 %97, label %.preheader110, label %.loopexit, !llvm.loop !21
@@ -530,8 +530,8 @@ define void @Kit_TruthStretch(ptr nocapture noundef %0, ptr nocapture noundef %1
   br label %.lr.ph.us.i
 
 ._crit_edge.us.i:                                 ; preds = %.lr.ph95.us.i
-  %55 = getelementptr i32, ptr %.07797.us.i, i64 %49
-  %56 = getelementptr i32, ptr %.098.us.i, i64 %49
+  %55 = getelementptr inbounds i32, ptr %.07797.us.i, i64 %49
+  %56 = getelementptr inbounds i32, ptr %.098.us.i, i64 %49
   %57 = add nsw i32 %.07896.us.i, %48
   %58 = icmp slt i32 %57, %12
   br i1 %58, label %.lr.ph.us.preheader.i, label %Kit_TruthSwapAdjacentVars.exit, !llvm.loop !6
@@ -774,8 +774,8 @@ define void @Kit_TruthShrink(ptr nocapture noundef %0, ptr nocapture noundef %1,
   br label %.lr.ph.us.i
 
 ._crit_edge.us.i:                                 ; preds = %.lr.ph95.us.i
-  %53 = getelementptr i32, ptr %.07797.us.i, i64 %47
-  %54 = getelementptr i32, ptr %.098.us.i, i64 %47
+  %53 = getelementptr inbounds i32, ptr %.07797.us.i, i64 %47
+  %54 = getelementptr inbounds i32, ptr %.098.us.i, i64 %47
   %55 = add nsw i32 %.07896.us.i, %46
   %56 = icmp slt i32 %55, %11
   br i1 %56, label %.lr.ph.us.preheader.i, label %Kit_TruthSwapAdjacentVars.exit, !llvm.loop !6
@@ -1025,8 +1025,8 @@ define void @Kit_TruthPermute(ptr nocapture noundef %0, ptr nocapture noundef %1
   br i1 %exitcond163.not.i.us, label %._crit_edge.us.i.us, label %.lr.ph95.us.i.us, !llvm.loop !7
 
 ._crit_edge.us.i.us:                              ; preds = %.lr.ph95.us.i.us
-  %51 = getelementptr i32, ptr %.07797.us.i.us, i64 %28
-  %52 = getelementptr i32, ptr %.098.us.i.us, i64 %28
+  %51 = getelementptr inbounds i32, ptr %.07797.us.i.us, i64 %28
+  %52 = getelementptr inbounds i32, ptr %.098.us.i.us, i64 %28
   %53 = add nsw i32 %.07896.us.i.us, %27
   %54 = icmp slt i32 %53, %10
   br i1 %54, label %.lr.ph.us.preheader.i.us, label %Kit_TruthSwapAdjacentVars.exit.us, !llvm.loop !6
@@ -6563,8 +6563,8 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
   br i1 %exitcond163.not.i.us, label %._crit_edge.us.i.us, label %.lr.ph95.us.i.us, !llvm.loop !7
 
 ._crit_edge.us.i.us:                              ; preds = %.lr.ph95.us.i.us
-  %106 = getelementptr i32, ptr %.07797.us.i.us, i64 %83
-  %107 = getelementptr i32, ptr %.098.us.i.us, i64 %83
+  %106 = getelementptr inbounds i32, ptr %.07797.us.i.us, i64 %83
+  %107 = getelementptr inbounds i32, ptr %.098.us.i.us, i64 %83
   %108 = add nsw i32 %.07896.us.i.us, %82
   %109 = icmp slt i32 %108, %9
   br i1 %109, label %.lr.ph.us.preheader.i.us, label %Kit_TruthSwapAdjacentVars.exit.us, !llvm.loop !6
@@ -7183,8 +7183,8 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep591, ptr noundef nonnull align 4 dereferenceable(1) %scevgep592, i64 %87, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep593, ptr noundef nonnull align 4 dereferenceable(1) %scevgep594, i64 %87, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep595, ptr noundef nonnull align 4 dereferenceable(1) %scevgep596, i64 %87, i1 false)
-  %96 = getelementptr i32, ptr %.07797.us.i, i64 %81
-  %97 = getelementptr i32, ptr %.098.us.i, i64 %81
+  %96 = getelementptr inbounds i32, ptr %.07797.us.i, i64 %81
+  %97 = getelementptr inbounds i32, ptr %.098.us.i, i64 %81
   %98 = add nsw i32 %.07896.us.i, %80
   %99 = icmp slt i32 %98, %13
   %indvar.next590 = add nuw nsw i64 %indvar589, 1

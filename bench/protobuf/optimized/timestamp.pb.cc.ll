@@ -493,7 +493,7 @@ entry:
   store i64 %1, ptr %_internal_metadata_, align 8
   store i64 %0, ptr %_internal_metadata_2, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = getelementptr i8, ptr %other, i64 16
+  %3 = getelementptr inbounds i8, ptr %other, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   br label %for.body.i.i

@@ -33164,7 +33164,7 @@ _ZNKSt6vectorIN4pkpy14unique_ptr_128INS0_4ExprEEESaIS3_EE12_M_check_lenEmPKc.exi
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4pkpy14unique_ptr_128INS0_4ExprEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i, %23
   %.0.lcssa.i.i.i.i.i = phi ptr [ %24, %23 ], [ %29, %.lr.ph.i.i.i.i.i ]
-  %30 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %30 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not11.i.i.i.i.i28 = icmp eq ptr %1, %5
   br i1 %.not11.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4pkpy14unique_ptr_128INS0_4ExprEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit34, label %.lr.ph.i.i.i.i.i29
 

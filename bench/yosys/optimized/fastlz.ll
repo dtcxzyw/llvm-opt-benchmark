@@ -1123,8 +1123,8 @@ define i32 @fastlz_decompress(ptr noundef readonly %0, i32 noundef %1, ptr nound
 99:                                               ; preds = %92
   %100 = load i8, ptr %.094.i, align 1
   store i8 %100, ptr %.0109.i, align 1
-  %.3112135.i = getelementptr i8, ptr %.0109.i, i64 1
-  %.3136.i = getelementptr i8, ptr %.094.i, i64 1
+  %.3112135.i = getelementptr inbounds i8, ptr %.0109.i, i64 1
+  %.3136.i = getelementptr inbounds i8, ptr %.094.i, i64 1
   %.not137.i = icmp eq i32 %.0105.i, 0
   br i1 %.not137.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1377,8 +1377,8 @@ define i32 @fastlz_decompress(ptr noundef readonly %0, i32 noundef %1, ptr nound
 219:                                              ; preds = %212
   %220 = load i8, ptr %.0116.i, align 1
   store i8 %220, ptr %.0122.i, align 1
-  %.3125151.i = getelementptr i8, ptr %.0122.i, i64 1
-  %.5121152.i = getelementptr i8, ptr %.0116.i, i64 1
+  %.3125151.i = getelementptr inbounds i8, ptr %.0122.i, i64 1
+  %.5121152.i = getelementptr inbounds i8, ptr %.0116.i, i64 1
   %.not153.i = icmp eq i32 %.0112.i, 0
   br i1 %.not153.i, label %._crit_edge.i15, label %.lr.ph.i13
 

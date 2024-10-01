@@ -18360,7 +18360,7 @@ _ZNSt12_Vector_baseIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE11_M_alloca
 
 _ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %152, %_ZNSt12_Vector_baseIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %155, %.lr.ph.i.i.i.i.i.i ]
-  %156 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 48
+  %156 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 48
   %.not.i23.i.i.i = icmp eq ptr %.sroa.0180.0230.i, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %157
 
@@ -18460,7 +18460,7 @@ _ZNSt12_Vector_baseIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE11_M_alloca
 
 _ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i93.i: ; preds = %.lr.ph.i.i.i.i.i89.i, %_ZNSt12_Vector_baseIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE11_M_allocateEm.exit.i.i87.i
   %.0.lcssa.i.i.i.i.i94.i = phi ptr [ %180, %_ZNSt12_Vector_baseIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE11_M_allocateEm.exit.i.i87.i ], [ %183, %.lr.ph.i.i.i.i.i89.i ]
-  %184 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i94.i, i64 48
+  %184 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i94.i, i64 48
   %.not.i23.i.i95.i = icmp eq ptr %.sroa.0180.0230.i, null
   br i1 %.not.i23.i.i95.i, label %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i96.i, label %185
 

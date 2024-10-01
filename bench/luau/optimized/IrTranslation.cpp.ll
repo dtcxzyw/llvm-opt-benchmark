@@ -1968,7 +1968,7 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_M_allocateEm.ex
 
 _ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %90, %_ZNSt12_Vector_baseIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE11_M_allocateEm.exit.i ], [ %94, %.lr.ph.i.i.i.i ]
-  %95 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %95 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %76, null
   br i1 %.not.i23.i, label %_ZNSt6vectorIN4Luau7CodeGen9IrBuilder8LoopInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit, label %96
 

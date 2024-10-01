@@ -5710,7 +5710,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_7Textur
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 3
   %35 = sub nsw i64 0, %34
-  %36 = getelementptr %"class.mitsuba::ref.4", ptr %25, i64 %35
+  %36 = getelementptr inbounds %"class.mitsuba::ref.4", ptr %25, i64 %35
   %.not13.i.i = icmp eq ptr %30, %29
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferIN7mitsuba3refINS1_7TextureIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEEEERNS_9allocatorISA_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
@@ -7232,7 +7232,7 @@ _ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIc
   %42 = lshr i64 %.sroa.speculated, 2
   %43 = mul nuw i64 %.sroa.speculated, 24
   %44 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #35
-  %45 = getelementptr %"class.std::__1::basic_string", ptr %44, i64 %42
+  %45 = getelementptr inbounds %"class.std::__1::basic_string", ptr %44, i64 %42
   %46 = getelementptr inbounds %"class.std::__1::basic_string", ptr %44, i64 %.sroa.speculated
   %47 = ptrtoint ptr %10 to i64
   %48 = sub i64 %35, %47
@@ -7378,7 +7378,7 @@ _ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIc
   %42 = lshr i64 %.sroa.speculated, 2
   %43 = mul nuw i64 %.sroa.speculated, 24
   %44 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #35
-  %45 = getelementptr %"class.std::__1::basic_string", ptr %44, i64 %42
+  %45 = getelementptr inbounds %"class.std::__1::basic_string", ptr %44, i64 %42
   %46 = getelementptr inbounds %"class.std::__1::basic_string", ptr %44, i64 %.sroa.speculated
   %47 = ptrtoint ptr %10 to i64
   %48 = sub i64 %35, %47

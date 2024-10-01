@@ -14548,7 +14548,7 @@ _ZNSt17_Temporary_bufferIPSt4pairIN5clang9CharUnitsEN12_GLOBAL__N_116PrivateHelp
   br label %_ZNSt17_Temporary_bufferIPSt4pairIN5clang9CharUnitsEN12_GLOBAL__N_116PrivateHelpersTyEES5_EC2ES6_l.exit.thread24.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %292
-  %.01518.i.i.i.i.i.i = getelementptr i8, ptr %288, i64 40
+  %.01518.i.i.i.i.i.i = getelementptr inbounds i8, ptr %288, i64 40
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -89637,7 +89637,7 @@ select.unfold.i.i.i.i.i281.i:                     ; preds = %.lr.ph.i.i.i.i.i270
   br i1 %.not19.i.i.i.i.i.i275.i, label %_ZNSt17_Temporary_bufferIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEES5_EC2ES6_l.exit.thread22.i.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i276.i
 
 .lr.ph.i.i.preheader.i.i.i.i276.i:                ; preds = %1012
-  %.01518.i.i.i.i.i.i277.i = getelementptr i8, ptr %1011, i64 16
+  %.01518.i.i.i.i.i.i277.i = getelementptr inbounds i8, ptr %1011, i64 16
   br label %.lr.ph.i.i.i.i.i.i278.i
 
 .lr.ph.i.i.i.i.i.i278.i:                          ; preds = %.lr.ph.i.i.i.i.i.i278.i, %.lr.ph.i.i.preheader.i.i.i.i276.i

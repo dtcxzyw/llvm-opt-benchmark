@@ -218,7 +218,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE7heapifyEv.omp_outlined(
   %23 = mul i64 %20, %.013
   %24 = getelementptr inbounds float, ptr %22, i64 %23
   %25 = load ptr, ptr %17, align 8
-  %26 = getelementptr i64, ptr %25, i64 %23
+  %26 = getelementptr inbounds i64, ptr %25, i64 %23
   %.not12 = icmp eq i64 %20, 0
   br i1 %.not12, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
 
@@ -1485,7 +1485,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE7heapifyEv.omp_outlined(
   %23 = mul i64 %20, %.013
   %24 = getelementptr inbounds float, ptr %22, i64 %23
   %25 = load ptr, ptr %17, align 8
-  %26 = getelementptr i64, ptr %25, i64 %23
+  %26 = getelementptr inbounds i64, ptr %25, i64 %23
   %.not12 = icmp eq i64 %20, 0
   br i1 %.not12, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
 
@@ -2680,7 +2680,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE7heapifyEv.omp_outlined(
   %23 = mul i64 %20, %.013
   %24 = getelementptr inbounds float, ptr %22, i64 %23
   %25 = load ptr, ptr %17, align 8
-  %26 = getelementptr i32, ptr %25, i64 %23
+  %26 = getelementptr inbounds i32, ptr %25, i64 %23
   %.not12 = icmp eq i64 %20, 0
   br i1 %.not12, label %_ZN5faiss12heap_heapifyINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph45.i
 
@@ -3880,7 +3880,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE7heapifyEv.omp_outlined(
   %23 = mul i64 %20, %.013
   %24 = getelementptr inbounds float, ptr %22, i64 %23
   %25 = load ptr, ptr %17, align 8
-  %26 = getelementptr i32, ptr %25, i64 %23
+  %26 = getelementptr inbounds i32, ptr %25, i64 %23
   %.not12 = icmp eq i64 %20, 0
   br i1 %.not12, label %_ZN5faiss12heap_heapifyINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph45.i
 
@@ -5080,7 +5080,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE7heapifyEv.omp_outlined(
   %23 = mul i64 %20, %.013
   %24 = getelementptr inbounds i32, ptr %22, i64 %23
   %25 = load ptr, ptr %17, align 8
-  %26 = getelementptr i64, ptr %25, i64 %23
+  %26 = getelementptr inbounds i64, ptr %25, i64 %23
   %.not12 = icmp eq i64 %20, 0
   br i1 %.not12, label %_ZN5faiss12heap_heapifyINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
 
@@ -6275,7 +6275,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE7heapifyEv.omp_outlined(
   %23 = mul i64 %20, %.013
   %24 = getelementptr inbounds i32, ptr %22, i64 %23
   %25 = load ptr, ptr %17, align 8
-  %26 = getelementptr i64, ptr %25, i64 %23
+  %26 = getelementptr inbounds i64, ptr %25, i64 %23
   %.not12 = icmp eq i64 %20, 0
   br i1 %.not12, label %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
 

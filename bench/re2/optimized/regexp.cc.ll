@@ -4328,7 +4328,7 @@ for.body.i.i.i.i.i.i86:                           ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN3re29RuneRangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i92: ; preds = %for.body.i.i.i.i.i.i86, %_ZNSt12_Vector_baseIN3re29RuneRangeESaIS1_EE11_M_allocateEm.exit.i.i.i82
   %__cur.0.lcssa.i.i.i.i.i.i93 = phi ptr [ %call5.i.i.i.i.i.i102, %_ZNSt12_Vector_baseIN3re29RuneRangeESaIS1_EE11_M_allocateEm.exit.i.i.i82 ], [ %incdec.ptr1.i.i.i.i.i.i90, %for.body.i.i.i.i.i.i86 ]
-  %incdec.ptr.i.i.i94 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i93, i64 8
+  %incdec.ptr.i.i.i94 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i93, i64 8
   %tobool.not.i.i.i.i95 = icmp eq ptr %v.sroa.0.2.lcssa, null
   br i1 %tobool.not.i.i.i.i95, label %if.end36, label %if.then.i20.i.i.i96
 

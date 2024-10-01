@@ -12804,7 +12804,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz419LZ4_decompres
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %9 = sext i32 %3 to i64
-  %10 = getelementptr i8, ptr %1, i64 %9
+  %10 = getelementptr inbounds i8, ptr %1, i64 %9
   %11 = getelementptr inbounds i8, ptr %8, i64 -16
   %12 = getelementptr inbounds i8, ptr %10, i64 -32
   %13 = icmp eq i32 %3, 0
@@ -13066,7 +13066,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
 
 143:                                              ; preds = %140, %118
   %.022.i.i = phi ptr [ %139, %118 ], [ %142, %140 ]
-  %.0.i.i = getelementptr i8, ptr %.3, i64 8
+  %.0.i.i = getelementptr inbounds i8, ptr %.3, i64 8
   br label %144
 
 144:                                              ; preds = %144, %143
@@ -13219,7 +13219,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
 210:                                              ; preds = %.loopexit690
   %.not627 = icmp ne ptr %207, %8
   %211 = icmp ugt ptr %.0477, %10
-  %or.cond652 = or i1 %.not627, %211
+  %or.cond652 = select i1 %.not627, i1 true, i1 %211
   br i1 %or.cond652, label %.loopexit691, label %212
 
 212:                                              ; preds = %210
@@ -13342,13 +13342,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 273:                                              ; preds = %270, %248
   %.3483 = phi ptr [ %269, %248 ], [ %272, %270 ]
-  %274 = getelementptr i8, ptr %.4, i64 8
+  %274 = getelementptr inbounds i8, ptr %.4, i64 8
   %275 = getelementptr inbounds i8, ptr %10, i64 -12
   %276 = icmp ugt ptr %246, %275
   br i1 %276, label %277, label %297
 
 277:                                              ; preds = %273
-  %278 = getelementptr i8, ptr %10, i64 -7
+  %278 = getelementptr inbounds i8, ptr %10, i64 -7
   %279 = getelementptr inbounds i8, ptr %10, i64 -5
   %280 = icmp ugt ptr %246, %279
   br i1 %280, label %.loopexit691, label %281
@@ -13371,7 +13371,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit668: 
   %287 = ptrtoint ptr %278 to i64
   %288 = ptrtoint ptr %274 to i64
   %289 = sub i64 %287, %288
-  %290 = getelementptr i8, ptr %.3483, i64 %289
+  %290 = getelementptr inbounds i8, ptr %.3483, i64 %289
   br label %291
 
 291:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit668, %281
@@ -13397,7 +13397,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit668: 
   br i1 %299, label %300, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit671
 
 300:                                              ; preds = %297
-  %301 = getelementptr i8, ptr %.4, i64 16
+  %301 = getelementptr inbounds i8, ptr %.4, i64 16
   br label %302
 
 302:                                              ; preds = %302, %300
@@ -13680,7 +13680,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
 
 136:                                              ; preds = %133, %111
   %.022.i.i = phi ptr [ %132, %111 ], [ %135, %133 ]
-  %.0.i.i = getelementptr i8, ptr %.3, i64 8
+  %.0.i.i = getelementptr inbounds i8, ptr %.3, i64 8
   br label %137
 
 137:                                              ; preds = %137, %136
@@ -14020,7 +14020,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br i1 %292, label %293, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit675
 
 293:                                              ; preds = %289
-  %294 = getelementptr i8, ptr %.4, i64 16
+  %294 = getelementptr inbounds i8, ptr %.4, i64 16
   br label %295
 
 295:                                              ; preds = %295, %293
@@ -14063,7 +14063,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz419LZ4_decompres
 
 5:                                                ; preds = %3
   %6 = sext i32 %2 to i64
-  %7 = getelementptr i8, ptr %1, i64 %6
+  %7 = getelementptr inbounds i8, ptr %1, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
   %9 = getelementptr inbounds i8, ptr %7, i64 -26
   %10 = icmp eq i32 %2, 0
@@ -14112,7 +14112,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz419LZ4_decompres
   %.0473 = phi i32 [ %34, %.preheader650 ], [ 0, %24 ]
   %31 = load i8, ptr %.3559, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr i8, ptr %.3559, i64 1
+  %33 = getelementptr inbounds i8, ptr %.3559, i64 1
   %34 = add i32 %.0473, %32
   %35 = icmp eq i8 %31, -1
   br i1 %35, label %.preheader650, label %36, !llvm.loop !12
@@ -14287,7 +14287,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 118:                                              ; preds = %115, %93
   %.022.i.i = phi ptr [ %114, %93 ], [ %117, %115 ]
-  %.0.i.i = getelementptr i8, ptr %.3, i64 8
+  %.0.i.i = getelementptr inbounds i8, ptr %.3, i64 8
   br label %119
 
 119:                                              ; preds = %119, %118
@@ -14529,13 +14529,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit627: 
 
 230:                                              ; preds = %227, %205
   %.3482 = phi ptr [ %226, %205 ], [ %229, %227 ]
-  %231 = getelementptr i8, ptr %.4, i64 8
+  %231 = getelementptr inbounds i8, ptr %.4, i64 8
   %232 = getelementptr inbounds i8, ptr %7, i64 -12
   %233 = icmp ugt ptr %203, %232
   br i1 %233, label %234, label %254
 
 234:                                              ; preds = %230
-  %235 = getelementptr i8, ptr %7, i64 -7
+  %235 = getelementptr inbounds i8, ptr %7, i64 -7
   %236 = getelementptr inbounds i8, ptr %7, i64 -5
   %237 = icmp ugt ptr %203, %236
   br i1 %237, label %263, label %238
@@ -14558,7 +14558,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit630: 
   %244 = ptrtoint ptr %235 to i64
   %245 = ptrtoint ptr %231 to i64
   %246 = sub i64 %244, %245
-  %247 = getelementptr i8, ptr %.3482, i64 %246
+  %247 = getelementptr inbounds i8, ptr %.3482, i64 %246
   br label %248
 
 248:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit630, %238
@@ -14584,7 +14584,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit630: 
   br i1 %256, label %257, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit633
 
 257:                                              ; preds = %254
-  %258 = getelementptr i8, ptr %.4, i64 16
+  %258 = getelementptr inbounds i8, ptr %.4, i64 16
   br label %259
 
 259:                                              ; preds = %259, %257
@@ -14741,7 +14741,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz433LZ4_decompres
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; preds = %.preheader696, %66
   %.6563 = phi ptr [ %67, %66 ], [ %57, %.preheader696 ]
   %.3.idx = phi i64 [ %.1.add, %66 ], [ %.1.add621, %.preheader696 ]
-  %.3.ptr.ptr = getelementptr i8, ptr %1, i64 %.3.idx
+  %.3.ptr.ptr = getelementptr inbounds i8, ptr %1, i64 %.3.idx
   %.6563.val = load i16, ptr %.6563, align 1
   %68 = zext i16 %.6563.val to i64
   %69 = getelementptr inbounds i8, ptr %.6563, i64 2
@@ -14889,7 +14889,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
 
 135:                                              ; preds = %132, %110
   %.022.i.i = phi ptr [ %131, %110 ], [ %134, %132 ]
-  %.0.i.i = getelementptr i8, ptr %.3.ptr.ptr, i64 8
+  %.0.i.i = getelementptr inbounds i8, ptr %.3.ptr.ptr, i64 8
   br label %136
 
 136:                                              ; preds = %136, %135
@@ -15120,7 +15120,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   %.0486 = phi i64 [ %.1487, %227 ], [ %68, %84 ], [ %68, %87 ]
   %.0480.idx = phi i64 [ %.1481.idx, %227 ], [ %.3.add, %84 ], [ %.3.add, %87 ]
   %.4.idx = phi i64 [ %.7.idx, %227 ], [ %.3.idx, %84 ], [ %.3.idx, %87 ]
-  %.4.ptr = getelementptr i8, ptr %1, i64 %.4.idx
+  %.4.ptr = getelementptr inbounds i8, ptr %1, i64 %.4.idx
   %.0480.ptr = getelementptr inbounds i8, ptr %1, i64 %.0480.idx
   %229 = icmp slt i64 %.0480.idx, -65536
   br i1 %229, label %.loopexit701, label %230
@@ -15169,7 +15169,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 257:                                              ; preds = %254, %232
   %.3483 = phi ptr [ %253, %232 ], [ %256, %254 ]
-  %258 = getelementptr i8, ptr %.4.ptr, i64 8
+  %258 = getelementptr inbounds i8, ptr %.4.ptr, i64 8
   %259 = getelementptr inbounds i8, ptr %10, i64 -12
   %260 = icmp ugt ptr %.ptr642, %259
   br i1 %260, label %261, label %281
@@ -15224,7 +15224,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit681: 
   br i1 %283, label %284, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit684
 
 284:                                              ; preds = %281
-  %285 = getelementptr i8, ptr %.4.ptr, i64 16
+  %285 = getelementptr inbounds i8, ptr %.4.ptr, i64 16
   br label %286
 
 286:                                              ; preds = %286, %284
@@ -15269,7 +15269,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz432LZ4_decompres
   %9 = sext i32 %2 to i64
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   %11 = sext i32 %3 to i64
-  %12 = getelementptr i8, ptr %1, i64 %11
+  %12 = getelementptr inbounds i8, ptr %1, i64 %11
   %13 = icmp eq ptr %4, null
   %14 = getelementptr inbounds i8, ptr %4, i64 %5
   %15 = select i1 %13, ptr null, ptr %14
@@ -15589,7 +15589,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
 
 175:                                              ; preds = %172, %150
   %.022.i.i = phi ptr [ %171, %150 ], [ %174, %172 ]
-  %.0.i.i = getelementptr i8, ptr %.3, i64 8
+  %.0.i.i = getelementptr inbounds i8, ptr %.3, i64 8
   br label %176
 
 176:                                              ; preds = %176, %175
@@ -15742,7 +15742,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
 242:                                              ; preds = %.loopexit707
   %.not633 = icmp ne ptr %239, %10
   %243 = icmp ugt ptr %.0479, %12
-  %or.cond663 = or i1 %.not633, %243
+  %or.cond663 = select i1 %.not633, i1 true, i1 %243
   br i1 %or.cond663, label %.loopexit708, label %244
 
 244:                                              ; preds = %242
@@ -15921,13 +15921,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 331:                                              ; preds = %328, %306
   %.3484 = phi ptr [ %327, %306 ], [ %330, %328 ]
-  %332 = getelementptr i8, ptr %.4, i64 8
+  %332 = getelementptr inbounds i8, ptr %.4, i64 8
   %333 = getelementptr inbounds i8, ptr %12, i64 -12
   %334 = icmp ugt ptr %280, %333
   br i1 %334, label %335, label %355
 
 335:                                              ; preds = %331
-  %336 = getelementptr i8, ptr %12, i64 -7
+  %336 = getelementptr inbounds i8, ptr %12, i64 -7
   %337 = getelementptr inbounds i8, ptr %12, i64 -5
   %338 = icmp ugt ptr %280, %337
   br i1 %338, label %.loopexit708, label %339
@@ -15950,7 +15950,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit681: 
   %345 = ptrtoint ptr %336 to i64
   %346 = ptrtoint ptr %332 to i64
   %347 = sub i64 %345, %346
-  %348 = getelementptr i8, ptr %.3484, i64 %347
+  %348 = getelementptr inbounds i8, ptr %.3484, i64 %347
   br label %349
 
 349:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit681, %339
@@ -15976,7 +15976,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit681: 
   br i1 %357, label %358, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit684
 
 358:                                              ; preds = %355
-  %359 = getelementptr i8, ptr %.4, i64 16
+  %359 = getelementptr inbounds i8, ptr %.4, i64 16
   br label %360
 
 360:                                              ; preds = %360, %358
@@ -16095,7 +16095,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz428LZ4_decompres
 
 30:                                               ; preds = %24
   %31 = sub nsw i64 0, %7
-  %32 = getelementptr i8, ptr %2, i64 %31
+  %32 = getelementptr inbounds i8, ptr %2, i64 %31
   %33 = icmp eq ptr %1, null
   br i1 %33, label %.thread, label %34
 
@@ -16104,7 +16104,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz428LZ4_decompres
   %36 = sext i32 %3 to i64
   %37 = getelementptr inbounds i8, ptr %1, i64 %36
   %38 = sext i32 %4 to i64
-  %39 = getelementptr i8, ptr %2, i64 %38
+  %39 = getelementptr inbounds i8, ptr %2, i64 %38
   %40 = icmp eq ptr %35, null
   %41 = getelementptr inbounds i8, ptr %35, i64 %26
   %42 = select i1 %40, ptr null, ptr %41
@@ -16481,7 +16481,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
 229:                                              ; preds = %.loopexit773
   %.not701 = icmp ne ptr %226, %37
   %230 = icmp ugt ptr %.0541, %39
-  %or.cond731 = or i1 %.not701, %230
+  %or.cond731 = select i1 %.not701, i1 true, i1 %230
   br i1 %or.cond731, label %.loopexit774, label %231
 
 231:                                              ; preds = %229
@@ -16661,13 +16661,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 319:                                              ; preds = %316, %294
   %.3546 = phi ptr [ %315, %294 ], [ %318, %316 ]
-  %320 = getelementptr i8, ptr %.4, i64 8
+  %320 = getelementptr inbounds i8, ptr %.4, i64 8
   %321 = getelementptr inbounds i8, ptr %39, i64 -12
   %322 = icmp ugt ptr %267, %321
   br i1 %322, label %323, label %343
 
 323:                                              ; preds = %319
-  %324 = getelementptr i8, ptr %39, i64 -7
+  %324 = getelementptr inbounds i8, ptr %39, i64 -7
   %325 = getelementptr inbounds i8, ptr %39, i64 -5
   %326 = icmp ugt ptr %267, %325
   br i1 %326, label %.loopexit774, label %327
@@ -16690,7 +16690,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit748: 
   %333 = ptrtoint ptr %324 to i64
   %334 = ptrtoint ptr %320 to i64
   %335 = sub i64 %333, %334
-  %336 = getelementptr i8, ptr %.3546, i64 %335
+  %336 = getelementptr inbounds i8, ptr %.3546, i64 %335
   br label %337
 
 337:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit748, %327
@@ -16716,7 +16716,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit748: 
   br i1 %345, label %346, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit751
 
 346:                                              ; preds = %343
-  %347 = getelementptr i8, ptr %.4, i64 16
+  %347 = getelementptr inbounds i8, ptr %.4, i64 16
   br label %348
 
 348:                                              ; preds = %348, %346
@@ -16789,7 +16789,7 @@ define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz
   %10 = sext i32 %2 to i64
   %11 = getelementptr inbounds i8, ptr %0, i64 %10
   %12 = sext i32 %3 to i64
-  %13 = getelementptr i8, ptr %1, i64 %12
+  %13 = getelementptr inbounds i8, ptr %1, i64 %12
   %14 = getelementptr inbounds i8, ptr %11, i64 -16
   %15 = getelementptr inbounds i8, ptr %13, i64 -32
   %16 = icmp eq i32 %3, 0
@@ -17051,7 +17051,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
 
 146:                                              ; preds = %143, %121
   %.022.i.i = phi ptr [ %142, %121 ], [ %145, %143 ]
-  %.0.i.i = getelementptr i8, ptr %.3, i64 8
+  %.0.i.i = getelementptr inbounds i8, ptr %.3, i64 8
   br label %147
 
 147:                                              ; preds = %147, %146
@@ -17204,7 +17204,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L14LZ4_wildCopy32EPvPKvS1_.exit: ; 
 213:                                              ; preds = %.loopexit691
   %.not628 = icmp ne ptr %210, %11
   %214 = icmp ugt ptr %.0478, %13
-  %or.cond653 = or i1 %.not628, %214
+  %or.cond653 = select i1 %.not628, i1 true, i1 %214
   br i1 %or.cond653, label %.loopexit692, label %215
 
 215:                                              ; preds = %213
@@ -17327,13 +17327,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 276:                                              ; preds = %273, %251
   %.3483 = phi ptr [ %272, %251 ], [ %275, %273 ]
-  %277 = getelementptr i8, ptr %.4, i64 8
+  %277 = getelementptr inbounds i8, ptr %.4, i64 8
   %278 = getelementptr inbounds i8, ptr %13, i64 -12
   %279 = icmp ugt ptr %249, %278
   br i1 %279, label %280, label %300
 
 280:                                              ; preds = %276
-  %281 = getelementptr i8, ptr %13, i64 -7
+  %281 = getelementptr inbounds i8, ptr %13, i64 -7
   %282 = getelementptr inbounds i8, ptr %13, i64 -5
   %283 = icmp ugt ptr %249, %282
   br i1 %283, label %.loopexit692, label %284
@@ -17356,7 +17356,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit669: 
   %290 = ptrtoint ptr %281 to i64
   %291 = ptrtoint ptr %277 to i64
   %292 = sub i64 %290, %291
-  %293 = getelementptr i8, ptr %.3483, i64 %292
+  %293 = getelementptr inbounds i8, ptr %.3483, i64 %292
   br label %294
 
 294:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit669, %284
@@ -17382,7 +17382,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit669: 
   br i1 %302, label %303, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit672
 
 303:                                              ; preds = %300
-  %304 = getelementptr i8, ptr %.4, i64 16
+  %304 = getelementptr inbounds i8, ptr %.4, i64 16
   br label %305
 
 305:                                              ; preds = %305, %303
@@ -17454,14 +17454,14 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz428LZ4_decompres
 
 27:                                               ; preds = %21
   %28 = sub nsw i64 0, %6
-  %29 = getelementptr i8, ptr %2, i64 %28
+  %29 = getelementptr inbounds i8, ptr %2, i64 %28
   %30 = icmp eq ptr %1, null
   br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %0, align 8
   %33 = sext i32 %3 to i64
-  %34 = getelementptr i8, ptr %2, i64 %33
+  %34 = getelementptr inbounds i8, ptr %2, i64 %33
   %35 = icmp eq ptr %32, null
   %36 = getelementptr inbounds i8, ptr %32, i64 %23
   %37 = select i1 %35, ptr null, ptr %36
@@ -17514,7 +17514,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz428LZ4_decompres
   %.0527 = phi i32 [ %65, %.preheader723 ], [ 0, %55 ]
   %62 = load i8, ptr %.3615, align 1
   %63 = zext i8 %62 to i32
-  %64 = getelementptr i8, ptr %.3615, i64 1
+  %64 = getelementptr inbounds i8, ptr %.3615, i64 1
   %65 = add i32 %.0527, %63
   %66 = icmp eq i8 %62, -1
   br i1 %66, label %.preheader723, label %67, !llvm.loop !12
@@ -17740,7 +17740,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 177:                                              ; preds = %174, %152
   %.022.i.i = phi ptr [ %173, %152 ], [ %176, %174 ]
-  %.0.i.i = getelementptr i8, ptr %.3, i64 8
+  %.0.i.i = getelementptr inbounds i8, ptr %.3, i64 8
   br label %178
 
 178:                                              ; preds = %178, %177
@@ -18039,13 +18039,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit695: 
 
 315:                                              ; preds = %312, %290
   %.3536 = phi ptr [ %311, %290 ], [ %314, %312 ]
-  %316 = getelementptr i8, ptr %.4, i64 8
+  %316 = getelementptr inbounds i8, ptr %.4, i64 8
   %317 = getelementptr inbounds i8, ptr %34, i64 -12
   %318 = icmp ugt ptr %263, %317
   br i1 %318, label %319, label %339
 
 319:                                              ; preds = %315
-  %320 = getelementptr i8, ptr %34, i64 -7
+  %320 = getelementptr inbounds i8, ptr %34, i64 -7
   %321 = getelementptr inbounds i8, ptr %34, i64 -5
   %322 = icmp ugt ptr %263, %321
   br i1 %322, label %.loopexit727, label %323
@@ -18068,7 +18068,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit698: 
   %329 = ptrtoint ptr %320 to i64
   %330 = ptrtoint ptr %316 to i64
   %331 = sub i64 %329, %330
-  %332 = getelementptr i8, ptr %.3536, i64 %331
+  %332 = getelementptr inbounds i8, ptr %.3536, i64 %331
   br label %333
 
 333:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit698, %323
@@ -18094,7 +18094,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit698: 
   br i1 %341, label %342, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit701
 
 342:                                              ; preds = %339
-  %343 = getelementptr i8, ptr %.4, i64 16
+  %343 = getelementptr inbounds i8, ptr %.4, i64 16
   br label %344
 
 344:                                              ; preds = %344, %342
@@ -18170,7 +18170,7 @@ define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz
 
 7:                                                ; preds = %5
   %8 = sext i32 %2 to i64
-  %9 = getelementptr i8, ptr %1, i64 %8
+  %9 = getelementptr inbounds i8, ptr %1, i64 %8
   %10 = icmp eq ptr %3, null
   %11 = getelementptr inbounds i8, ptr %3, i64 %4
   %12 = select i1 %10, ptr null, ptr %11
@@ -18224,7 +18224,7 @@ define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz
   %.0474 = phi i32 [ %41, %.preheader657 ], [ 0, %31 ]
   %38 = load i8, ptr %.3561, align 1
   %39 = zext i8 %38 to i32
-  %40 = getelementptr i8, ptr %.3561, i64 1
+  %40 = getelementptr inbounds i8, ptr %.3561, i64 1
   %41 = add i32 %.0474, %39
   %42 = icmp eq i8 %38, -1
   br i1 %42, label %.preheader657, label %43, !llvm.loop !12
@@ -18450,7 +18450,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 
 153:                                              ; preds = %150, %128
   %.022.i.i = phi ptr [ %149, %128 ], [ %152, %150 ]
-  %.0.i.i = getelementptr i8, ptr %.3, i64 8
+  %.0.i.i = getelementptr inbounds i8, ptr %.3, i64 8
   br label %154
 
 154:                                              ; preds = %154, %153
@@ -18748,13 +18748,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit633: 
 
 290:                                              ; preds = %287, %265
   %.3483 = phi ptr [ %286, %265 ], [ %289, %287 ]
-  %291 = getelementptr i8, ptr %.4, i64 8
+  %291 = getelementptr inbounds i8, ptr %.4, i64 8
   %292 = getelementptr inbounds i8, ptr %9, i64 -12
   %293 = icmp ugt ptr %239, %292
   br i1 %293, label %294, label %314
 
 294:                                              ; preds = %290
-  %295 = getelementptr i8, ptr %9, i64 -7
+  %295 = getelementptr inbounds i8, ptr %9, i64 -7
   %296 = getelementptr inbounds i8, ptr %9, i64 -5
   %297 = icmp ugt ptr %239, %296
   br i1 %297, label %.loopexit661, label %298
@@ -18777,7 +18777,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit636: 
   %304 = ptrtoint ptr %295 to i64
   %305 = ptrtoint ptr %291 to i64
   %306 = sub i64 %304, %305
-  %307 = getelementptr i8, ptr %.3483, i64 %306
+  %307 = getelementptr inbounds i8, ptr %.3483, i64 %306
   br label %308
 
 308:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit636, %298
@@ -18803,7 +18803,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit636: 
   br i1 %316, label %317, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit639
 
 317:                                              ; preds = %314
-  %318 = getelementptr i8, ptr %.4, i64 16
+  %318 = getelementptr inbounds i8, ptr %.4, i64 16
   br label %319
 
 319:                                              ; preds = %319, %317
@@ -19086,7 +19086,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L23LZ4
 
 37:                                               ; preds = %34, %12
   %.022.i = phi ptr [ %33, %12 ], [ %36, %34 ]
-  %.0.i = getelementptr i8, ptr %0, i64 8
+  %.0.i = getelementptr inbounds i8, ptr %0, i64 8
   br label %38
 
 38:                                               ; preds = %38, %37

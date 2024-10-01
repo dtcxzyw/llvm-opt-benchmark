@@ -1021,7 +1021,7 @@ _ZNKSt6vectorIN3g2o6Line3DESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %11
 
 _ZNSt6vectorIN3g2o6Line3DESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %26
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %27, %26 ], [ %30, %.lr.ph.i.i.i.i.i.i ]
-  %31 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 48
+  %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 48
   %.not.i33.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i33.i.i.i, label %_ZNSt6vectorIN3g2o6Line3DESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %32
 

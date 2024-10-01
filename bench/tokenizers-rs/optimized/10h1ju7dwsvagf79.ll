@@ -10864,7 +10864,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h9c6c960d05a3c43cE.ex
 39:                                               ; preds = %.lr.ph
   %.neg = xor i64 %.sroa.02.08, -1
   %.neg14 = mul i64 %2, %.neg
-  %40 = getelementptr i8, ptr %36, i64 %.neg14
+  %40 = getelementptr inbounds i8, ptr %36, i64 %.neg14
   br label %_ZN4core3ptr19swap_nonoverlapping17h0da1a85550a44f51E.exit
 
 _ZN4core3ptr19swap_nonoverlapping17h0da1a85550a44f51E.exit: ; preds = %.preheader, %39
@@ -10929,7 +10929,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17h1924f170c050b8d6E.llvm.1108
 71:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h1924f170c050b8d6E.llvm.11083375685992158394.exit
   %.neg15 = xor i64 %.0.i.i, -1
   %.neg16 = mul i64 %2, %.neg15
-  %72 = getelementptr i8, ptr %44, i64 %.neg16
+  %72 = getelementptr inbounds i8, ptr %44, i64 %.neg16
   %73 = getelementptr inbounds i8, ptr %44, i64 %.0.i.i
   %74 = load i8, ptr %73, align 1, !noundef !4
   %75 = lshr i64 %41, 57

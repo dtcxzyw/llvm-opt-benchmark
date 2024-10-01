@@ -4412,8 +4412,8 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr nocapture noundef
   %.val125 = load ptr, ptr %33, align 8
   store i8 1, ptr %.val125, align 1
   %34 = zext nneg i32 %12 to i64
-  %.0201.i = getelementptr i8, ptr %.val125, i64 1
-  %.0222.i = getelementptr i8, ptr %14, i64 1
+  %.0201.i = getelementptr inbounds i8, ptr %.val125, i64 1
+  %.0222.i = getelementptr inbounds i8, ptr %14, i64 1
   %.not.i = icmp eq i8 %9, 0
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i
 
@@ -4462,7 +4462,7 @@ define void @png_write_find_filter(ptr noalias noundef %0, ptr nocapture noundef
   %.val127 = load ptr, ptr %46, align 8
   store i8 1, ptr %.val127, align 1
   %47 = zext nneg i32 %12 to i64
-  %.0331.i = getelementptr i8, ptr %.val127, i64 1
+  %.0331.i = getelementptr inbounds i8, ptr %.val127, i64 1
   %.0352.i = getelementptr inbounds i8, ptr %14, i64 1
   %.not.i128 = icmp eq i8 %9, 0
   br i1 %.not.i128, label %.preheader.i131, label %.lr.ph.i129

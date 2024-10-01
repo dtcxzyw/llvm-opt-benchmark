@@ -10537,7 +10537,7 @@ _ZN11realclosure7manager3imp7reset_pER9ptr_arrayINS_5valueEE.exit: ; preds = %en
   %add.i.i.i5 = add nuw nsw i64 %mul.i.i.i4, 8
   %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %7, i64 noundef %add.i.i.i5)
   store i64 %conv.i.i, ptr %call2.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %call2.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 8
   store ptr %incdec.ptr.i.i.i, ptr %p, align 8
   %8 = load i64, ptr %call2.i.i, align 8
   %9 = and i64 %8, 4294967295
@@ -41530,7 +41530,7 @@ _ZN11realclosure7manager3imp11set_array_pER5arrayI9ptr_arrayINS_5valueEELb1EERKN
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
   %call2.i.i = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %17, i64 noundef %add.i.i.i)
   store i64 %conv.i.i, ptr %call2.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %call2.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 8
   store ptr %incdec.ptr.i.i.i, ptr %m_taqrs, align 8
   %20 = load i64, ptr %call2.i.i, align 8
   %21 = and i64 %20, 4294967295
@@ -41610,7 +41610,7 @@ _ZN11realclosure7manager3imp11set_array_pER5arrayI9ptr_arrayINS_5valueEELb1EERKN
   %add.i.i.i38 = add nuw nsw i64 %mul.i.i.i37, 8
   %call2.i.i39 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %34, i64 noundef %add.i.i.i38)
   store i64 %conv.i.i36, ptr %call2.i.i39, align 8
-  %incdec.ptr.i.i.i40 = getelementptr i8, ptr %call2.i.i39, i64 8
+  %incdec.ptr.i.i.i40 = getelementptr inbounds i8, ptr %call2.i.i39, i64 8
   store ptr %incdec.ptr.i.i.i40, ptr %m_sign_conditions, align 8
   %37 = load i64, ptr %call2.i.i39, align 8
   %38 = and i64 %37, 4294967295

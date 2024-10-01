@@ -291,7 +291,7 @@ _ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE12emplace_backIJmS3_EEERS4_DpOT_
   %125 = phi ptr [ %78, %98 ], [ %115, %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE17_M_realloc_insertIJmS3_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ]
   %126 = phi ptr [ %79, %98 ], [ %122, %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE17_M_realloc_insertIJmS3_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ]
   %.pn = phi ptr [ %80, %98 ], [ %.0.lcssa.i.i.i.i.i, %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EE17_M_realloc_insertIJmS3_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ]
-  %127 = getelementptr i8, ptr %.pn, i64 16
+  %127 = getelementptr inbounds i8, ptr %.pn, i64 16
   %128 = getelementptr inbounds i8, ptr %.04.i, i64 32
   %.not.i26 = icmp eq ptr %128, %72
   br i1 %.not.i26, label %_ZL16parseGlobalCtorsPN4llvm14GlobalVariableE.exit, label %74
@@ -1086,7 +1086,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.ex
   br i1 %36, label %.lr.ph93.preheader, label %._crit_edge94
 
 .lr.ph93.preheader:                               ; preds = %35
-  %37 = getelementptr i64, ptr %.sroa.036.0, i64 %.079
+  %37 = getelementptr inbounds i64, ptr %.sroa.036.0, i64 %.079
   br label %.lr.ph93
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93

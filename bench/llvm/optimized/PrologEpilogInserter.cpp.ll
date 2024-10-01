@@ -2080,7 +2080,7 @@ _ZNSt12_Vector_baseIN4llvm15CalleeSavedInfoESaIS1_EE11_M_allocateEm.exit.i.i.i.i
 
 _ZNSt6vectorIN4llvm15CalleeSavedInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm15CalleeSavedInfoESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %813, %_ZNSt12_Vector_baseIN4llvm15CalleeSavedInfoESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i ], [ %816, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %817 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 12
+  %817 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 12
   %.not.i23.i.i.i.i.i = icmp eq ptr %799, null
   br i1 %.not.i23.i.i.i.i.i, label %_ZNSt6vectorIN4llvm15CalleeSavedInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, label %818
 
@@ -2875,7 +2875,7 @@ _ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_all
 
 _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_allocateEm.exit.i.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %1193, %_ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_allocateEm.exit.i.i.i.i.i.i ], [ %1196, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %1197 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.i, i64 16
+  %1197 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i.i.i.i = icmp eq ptr %1179, null
   br i1 %.not.i23.i.i.i.i.i.i, label %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i, label %1198
 
@@ -3059,7 +3059,7 @@ _ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_all
 
 _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i135.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i131.i.i, %_ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_allocateEm.exit.i.i.i.i128.i.i
   %.0.lcssa.i.i.i.i.i.i.i136.i.i = phi ptr [ %1263, %_ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_allocateEm.exit.i.i.i.i128.i.i ], [ %1266, %.lr.ph.i.i.i.i.i.i.i131.i.i ]
-  %1267 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i136.i.i, i64 16
+  %1267 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i136.i.i, i64 16
   %.not.i23.i.i.i.i137.i.i = icmp eq ptr %1249, null
   br i1 %.not.i23.i.i.i.i137.i.i, label %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i138.i.i, label %1268
 

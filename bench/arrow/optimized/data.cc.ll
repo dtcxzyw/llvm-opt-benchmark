@@ -2151,7 +2151,7 @@ if.end48:                                         ; preds = %switch.early.test, 
   br i1 %cmp54109, label %for.body55.lr.ph, label %for.end65
 
 for.body55.lr.ph:                                 ; preds = %if.end48
-  %buffers60 = getelementptr inbounds i8, ptr %this.tr, i64 32
+  %buffers60 = getelementptr i8, ptr %this.tr, i64 32
   %sext = shl i64 %sub.ptr.sub.i48, 28
   %24 = ashr i64 %sext, 32
   %25 = mul nsw i64 %24, 24
@@ -2413,7 +2413,7 @@ _ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit89: ; preds 
 _ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit: ; preds = %tailrecurse.i, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit89, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit
   %cmp1463 = phi i1 [ true, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit ], [ false, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit89 ], [ true, %tailrecurse.i ]
   %retval.0.i = phi i32 [ 1, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit ], [ 3, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit.loopexit89 ], [ 2, %tailrecurse.i ]
-  %buffers = getelementptr inbounds i8, ptr %span.tr, i64 32
+  %buffers = getelementptr i8, ptr %span.tr, i64 32
   %wide.trip.count = zext nneg i32 %retval.0.i to i64
   br label %for.body
 

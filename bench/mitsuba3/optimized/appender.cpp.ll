@@ -1453,7 +1453,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne1
   br i1 %.not3944.i, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE23__insert_from_safe_copyB8ne190000IPKcS8_EENS_11__wrap_iterIPcEEmmT_T0_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne190000Em.exit.i
-  %54 = getelementptr i8, ptr %.034.i, i64 %15
+  %54 = getelementptr inbounds i8, ptr %.034.i, i64 %15
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -1620,7 +1620,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne1
   br i1 %.not4243.i, label %.loopexit, label %.lr.ph.preheader.i24
 
 .lr.ph.preheader.i24:                             ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE10__set_sizeB8ne190000Em.exit.i23
-  %120 = getelementptr i8, ptr %.0.i, i64 %15
+  %120 = getelementptr inbounds i8, ptr %.0.i, i64 %15
   br label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %.lr.ph.i25, %.lr.ph.preheader.i24

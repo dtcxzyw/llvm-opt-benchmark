@@ -1145,7 +1145,7 @@ _ZNSt12_Vector_baseIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE11_M_allocate
 
 _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i27, %_ZNSt12_Vector_baseIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %83, %_ZNSt12_Vector_baseIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE11_M_allocateEm.exit.i.i ], [ %86, %.lr.ph.i.i.i.i.i.i27 ]
-  %87 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %87 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i = icmp eq ptr %69, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %88
 

@@ -7536,7 +7536,7 @@ _ZNSt6vectorIS_IN10open_spiel5twixt4CellESaIS2_EESaIS4_EE16_Temporary_valueC2IJR
 
 41:                                               ; preds = %_ZNSt6vectorIS_IN10open_spiel5twixt4CellESaIS2_EESaIS4_EE16_Temporary_valueC2IJRKS4_EEEPS6_DpOT_.exit
   %42 = sub i64 0, %2
-  %43 = getelementptr %"class.std::vector.24", ptr %10, i64 %42
+  %43 = getelementptr inbounds %"class.std::vector.24", ptr %10, i64 %42
   %.idx = mul i64 %2, -24
   %.not11.i.i.i.i.i = icmp eq i64 %.idx, 0
   br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPSt6vectorIN10open_spiel5twixt4CellESaIS3_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit, label %.lr.ph.i.i.i.i.i

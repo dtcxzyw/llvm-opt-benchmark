@@ -4128,7 +4128,7 @@ define internal fastcc void @"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$15rehash_
 39:                                               ; preds = %.lr.ph
   %.neg = xor i64 %.sroa.02.09, -1
   %.neg14 = mul i64 %2, %.neg
-  %40 = getelementptr i8, ptr %36, i64 %.neg14
+  %40 = getelementptr inbounds i8, ptr %36, i64 %.neg14
   br label %_ZN4core3ptr19swap_nonoverlapping17h04fedd8eb72e1165E.exit
 
 _ZN4core3ptr19swap_nonoverlapping17h04fedd8eb72e1165E.exit: ; preds = %.preheader, %39
@@ -4193,7 +4193,7 @@ _ZN4core3ptr19swap_nonoverlapping17h04fedd8eb72e1165E.exit: ; preds = %.preheade
 68:                                               ; preds = %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$16find_insert_slot17hf7ce7505ed056bb7E.exit"
   %.neg15 = xor i64 %.0.i.i, -1
   %.neg16 = mul i64 %2, %.neg15
-  %69 = getelementptr i8, ptr %.val, i64 %.neg16
+  %69 = getelementptr inbounds i8, ptr %.val, i64 %.neg16
   %70 = getelementptr inbounds i8, ptr %.val, i64 %.0.i.i
   %71 = load i8, ptr %70, align 1, !noundef !4
   %72 = lshr i64 %41, 57

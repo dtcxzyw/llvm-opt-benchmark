@@ -600,7 +600,7 @@ _ZNSt12_Vector_baseISt4pairIjPN4llvm6RecordEESaIS4_EE11_M_allocateEm.exit.i.i.i:
 
 _ZNSt6vectorISt4pairIjPN4llvm6RecordEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIjPN4llvm6RecordEESaIS4_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %100, %_ZNSt12_Vector_baseISt4pairIjPN4llvm6RecordEESaIS4_EE11_M_allocateEm.exit.i.i.i ], [ %103, %.lr.ph.i.i.i.i.i.i ]
-  %104 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %104 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %86, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIjPN4llvm6RecordEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %105
 

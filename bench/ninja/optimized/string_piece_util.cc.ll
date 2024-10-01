@@ -234,7 +234,7 @@ _ZNSt12_Vector_baseI11StringPieceSaIS0_EE11_M_allocateEm.exit.i.i.i: ; preds = %
 
 _ZNSt6vectorI11StringPieceSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseI11StringPieceSaIS0_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %82, %_ZNSt12_Vector_baseI11StringPieceSaIS0_EE11_M_allocateEm.exit.i.i.i ], [ %85, %.lr.ph.i.i.i.i.i.i ]
-  %86 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %86 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %69, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %87
 
@@ -328,7 +328,7 @@ _ZNSt12_Vector_baseI11StringPieceSaIS0_EE11_M_allocateEm.exit.i.i.i20: ; preds =
 
 _ZNSt6vectorI11StringPieceSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i26: ; preds = %.lr.ph.i.i.i.i.i.i22, %_ZNSt12_Vector_baseI11StringPieceSaIS0_EE11_M_allocateEm.exit.i.i.i20
   %.0.lcssa.i.i.i.i.i.i27 = phi ptr [ %110, %_ZNSt12_Vector_baseI11StringPieceSaIS0_EE11_M_allocateEm.exit.i.i.i20 ], [ %113, %.lr.ph.i.i.i.i.i.i22 ]
-  %114 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i27, i64 16
+  %114 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i27, i64 16
   %.not.i23.i.i.i28 = icmp eq ptr %23, null
   br i1 %.not.i23.i.i.i28, label %_ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i29, label %115
 

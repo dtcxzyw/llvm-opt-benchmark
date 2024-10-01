@@ -20244,7 +20244,7 @@ entry:
   %div24 = lshr i32 %sub, 6
   %div125 = lshr i32 %srcLSB, 6
   %idx.ext = zext nneg i32 %div125 to i64
-  %add.ptr = getelementptr i64, ptr %src, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i64, ptr %src, i64 %idx.ext
   %cmp4.not.i = icmp ult i32 %sub, 64
   br i1 %cmp4.not.i, label %_ZN4llvh5APInt8tcAssignEPmPKmj.exit.thread, label %for.body.preheader.i
 

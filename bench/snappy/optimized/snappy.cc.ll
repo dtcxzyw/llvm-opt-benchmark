@@ -2957,7 +2957,7 @@ _ZN6snappy9MemCopy64EPcPKvm.exit:                 ; preds = %if.end, %if.then.i6
   br i1 %cmp21, label %if.end51.thread119, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZN6snappy9MemCopy64EPcPKvm.exit
-  %add.ptr22 = getelementptr i8, ptr %op_base, i64 %add
+  %add.ptr22 = getelementptr inbounds i8, ptr %op_base, i64 %add
   %sub23 = sub nsw i64 %and, %sub10
   %cmp.i = icmp ult i64 %sub23, 16
   br i1 %cmp.i, label %if.then.i, label %for.cond23.i.preheader
@@ -4943,7 +4943,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i20.i.i
 

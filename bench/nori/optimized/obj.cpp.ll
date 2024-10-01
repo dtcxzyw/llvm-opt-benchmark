@@ -752,7 +752,7 @@ _ZNSt12_Vector_baseIN4nori7TVectorIfLi3EEESaIS2_EE11_M_allocateEm.exit.i.i.i: ; 
 
 _ZNSt6vectorIN4nori7TVectorIfLi3EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4nori7TVectorIfLi3EEESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %219, %_ZNSt12_Vector_baseIN4nori7TVectorIfLi3EEESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %222, %.lr.ph.i.i.i.i.i.i ]
-  %223 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
+  %223 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
   %.not.i23.i.i.i = icmp eq ptr %.sroa.0292.0, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4nori7TVectorIfLi3EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %224
 
@@ -873,7 +873,7 @@ _ZNSt12_Vector_baseIN4nori7TVectorIfLi2EEESaIS2_EE11_M_allocateEm.exit.i.i.i: ; 
 
 _ZNSt6vectorIN4nori7TVectorIfLi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i74, %_ZNSt12_Vector_baseIN4nori7TVectorIfLi2EEESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i78 = phi ptr [ %255, %_ZNSt12_Vector_baseIN4nori7TVectorIfLi2EEESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %259, %.lr.ph.i.i.i.i.i.i74 ]
-  %260 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i78, i64 8
+  %260 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i78, i64 8
   %.not.i23.i.i.i79 = icmp eq ptr %.sroa.0282.0, null
   br i1 %.not.i23.i.i.i79, label %_ZNSt6vectorIN4nori7TVectorIfLi2EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %261
 
@@ -1008,7 +1008,7 @@ _ZNSt12_Vector_baseIN4nori7TVectorIfLi3EEESaIS2_EE11_M_allocateEm.exit.i.i.i86: 
 
 _ZNSt6vectorIN4nori7TVectorIfLi3EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i92: ; preds = %.lr.ph.i.i.i.i.i.i88, %_ZNSt12_Vector_baseIN4nori7TVectorIfLi3EEESaIS2_EE11_M_allocateEm.exit.i.i.i86
   %.0.lcssa.i.i.i.i.i.i93 = phi ptr [ %326, %_ZNSt12_Vector_baseIN4nori7TVectorIfLi3EEESaIS2_EE11_M_allocateEm.exit.i.i.i86 ], [ %329, %.lr.ph.i.i.i.i.i.i88 ]
-  %330 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i93, i64 12
+  %330 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i93, i64 12
   %.not.i23.i.i.i94 = icmp eq ptr %.sroa.0273.0, null
   br i1 %.not.i23.i.i.i94, label %_ZNSt6vectorIN4nori7TVectorIfLi3EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i95, label %331
 
@@ -1339,7 +1339,7 @@ _ZNSt12_Vector_baseIN4nori12WavefrontOBJ9OBJVertexESaIS2_EE11_M_allocateEm.exit.
 
 _ZNSt6vectorIN4nori12WavefrontOBJ9OBJVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i107, %_ZNSt12_Vector_baseIN4nori12WavefrontOBJ9OBJVertexESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %450, %_ZNSt12_Vector_baseIN4nori12WavefrontOBJ9OBJVertexESaIS2_EE11_M_allocateEm.exit.i.i ], [ %453, %.lr.ph.i.i.i.i.i107 ]
-  %454 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 12
+  %454 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 12
   %.not.i23.i.i = icmp eq ptr %.sroa.0237.5495, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN4nori12WavefrontOBJ9OBJVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %455
 
@@ -1540,7 +1540,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   unreachable
 
 520:                                              ; preds = %512
-  %521 = getelementptr %"struct.nori::TVector", ptr %.sroa.0292.0, i64 %517
+  %521 = getelementptr inbounds %"struct.nori::TVector", ptr %.sroa.0292.0, i64 %517
   %522 = load ptr, ptr %497, align 8, !noalias !37
   %523 = load i64, ptr %511, align 8, !noalias !37
   %524 = mul nsw i64 %523, %513
@@ -1641,7 +1641,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %.not.i.i127, label %569, label %.invoke797
 
 569:                                              ; preds = %563
-  %570 = getelementptr %"struct.nori::TVector", ptr %.sroa.0273.0, i64 %568
+  %570 = getelementptr inbounds %"struct.nori::TVector", ptr %.sroa.0273.0, i64 %568
   %571 = load ptr, ptr %557, align 8, !noalias !43
   %572 = load i64, ptr %562, align 8, !noalias !43
   %573 = mul nsw i64 %572, %564
@@ -1743,7 +1743,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %.not.i.i148, label %619, label %.invoke797
 
 619:                                              ; preds = %613
-  %620 = getelementptr %"struct.nori::TVector.80", ptr %.sroa.0282.0, i64 %618
+  %620 = getelementptr inbounds %"struct.nori::TVector.80", ptr %.sroa.0282.0, i64 %618
   %621 = load ptr, ptr %606, align 8, !noalias !47
   %622 = load i64, ptr %612, align 8, !noalias !47
   %623 = mul nsw i64 %622, %614

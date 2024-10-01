@@ -102,7 +102,7 @@ if.then17:                                        ; preds = %if.end
   br i1 %cmp18.not, label %if.end24, label %if.then19
 
 if.then19:                                        ; preds = %if.then17
-  %charErrorBuffer = getelementptr i8, ptr %cnv, i64 104
+  %charErrorBuffer = getelementptr inbounds i8, ptr %cnv, i64 104
   %conv = trunc i32 %length.addr.1 to i8
   %charErrorBufferLength = getelementptr inbounds i8, ptr %cnv, i64 91
   store i8 %conv, ptr %charErrorBufferLength, align 1
@@ -204,7 +204,7 @@ if.then17:                                        ; preds = %if.end
   br i1 %cmp18.not, label %if.end24, label %if.then19
 
 if.then19:                                        ; preds = %if.then17
-  %UCharErrorBuffer = getelementptr i8, ptr %cnv, i64 144
+  %UCharErrorBuffer = getelementptr inbounds i8, ptr %cnv, i64 144
   %conv = trunc i32 %length.addr.1 to i8
   %UCharErrorBufferLength = getelementptr inbounds i8, ptr %cnv, i64 93
   store i8 %conv, ptr %UCharErrorBufferLength, align 1

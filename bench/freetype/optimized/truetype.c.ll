@@ -18528,7 +18528,7 @@ define internal fastcc i32 @tt_size_run_prep(ptr noundef nonnull %0, i8 noundef 
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %3, i64 1128
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr i8, ptr %31, i64 792
+  %42 = getelementptr inbounds i8, ptr %31, i64 792
   %43 = getelementptr inbounds i8, ptr %31, i64 808
   store ptr %39, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %31, i64 816

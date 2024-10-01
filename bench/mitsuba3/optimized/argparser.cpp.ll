@@ -3220,7 +3220,7 @@ _ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIc
   %42 = lshr i64 %.sroa.speculated, 2
   %43 = mul nuw i64 %.sroa.speculated, 24
   %44 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #18
-  %45 = getelementptr %"class.std::__1::basic_string", ptr %44, i64 %42
+  %45 = getelementptr inbounds %"class.std::__1::basic_string", ptr %44, i64 %42
   %46 = getelementptr inbounds %"class.std::__1::basic_string", ptr %44, i64 %.sroa.speculated
   %47 = ptrtoint ptr %10 to i64
   %48 = sub i64 %35, %47

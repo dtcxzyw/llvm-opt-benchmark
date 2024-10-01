@@ -2886,7 +2886,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default
 
 _ZNSt6vectorISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i59, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %945, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %949, %.lr.ph.i.i.i.i59 ]
-  %950 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %950 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %931, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit, label %951
 
@@ -3558,7 +3558,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   br label %.lr.ph.i.i.i9.preheader.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %68
-  %.01317.i.i.i.i.i.i = getelementptr i8, ptr %67, i64 8
+  %.01317.i.i.i.i.i.i = getelementptr inbounds i8, ptr %67, i64 8
   %load_initial = load i64, ptr %67, align 8
   br label %.lr.ph.i.i.i.i.i.i
 
@@ -7734,7 +7734,7 @@ _ZN4llvm25SmallVectorTemplateCommonINS_26MachineInstrBundleIteratorINS_12Machine
 
 _ZN4llvm15SmallVectorImplINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEvE20assertSafeToAddRangeEPKS3_S6_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   %.idx = shl nsw i64 %32, 3
   %33 = ptrtoint ptr %31 to i64
@@ -7889,7 +7889,7 @@ _ZN4llvm15SmallVectorImplINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0E
   br i1 %.not7.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEELb1EE18uninitialized_copyISt13move_iteratorIPS3_ES7_EEvT_S9_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEE7reserveEm.exit
-  %16 = getelementptr %"class.llvm::MachineInstrBundleIterator", ptr %14, i64 %15
+  %16 = getelementptr inbounds %"class.llvm::MachineInstrBundleIterator", ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
@@ -7956,7 +7956,7 @@ _ZN4llvm25SmallVectorTemplateCommonIjvE20assertSafeToAddRangeEPKjS3_.exit: ; pre
 
 _ZN4llvm15SmallVectorImplIjE7reserveEm.exit:      ; preds = %_ZN4llvm25SmallVectorTemplateCommonIjvE20assertSafeToAddRangeEPKjS3_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   %.idx = shl nsw i64 %32, 2
   %33 = ptrtoint ptr %31 to i64
@@ -10244,7 +10244,7 @@ _ZNK4llvm8outliner16OutlinedFunction16getOutliningCostEv.exit.i.i.i69: ; preds =
   br i1 %188, label %.lr.ph60.preheader.i.i, label %._crit_edge61.i.i
 
 .lr.ph60.preheader.i.i:                           ; preds = %187
-  %189 = getelementptr %"class.std::unique_ptr.475", ptr %.sroa.020.0.i.i, i64 %.049.i.i
+  %189 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.sroa.020.0.i.i, i64 %.049.i.i
   br label %.lr.ph60.i.i
 
 .lr.ph60.i.i:                                     ; preds = %.lr.ph60.i.i, %.lr.ph60.preheader.i.i
@@ -12482,7 +12482,7 @@ _ZSt13move_backwardIPSt10unique_ptrIN4llvm8outliner16OutlinedFunctionESt14defaul
   br i1 %113, label %.lr.ph60.preheader.i.i, label %._crit_edge61.i.i
 
 .lr.ph60.preheader.i.i:                           ; preds = %112
-  %114 = getelementptr %"class.std::unique_ptr.475", ptr %.sroa.020.0.i.i, i64 %.049.i.i
+  %114 = getelementptr inbounds %"class.std::unique_ptr.475", ptr %.sroa.020.0.i.i, i64 %.049.i.i
   br label %.lr.ph60.i.i
 
 .lr.ph60.i.i:                                     ; preds = %.lr.ph60.i.i, %.lr.ph60.preheader.i.i

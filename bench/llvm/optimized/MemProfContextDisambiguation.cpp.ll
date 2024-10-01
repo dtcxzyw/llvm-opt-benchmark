@@ -4890,7 +4890,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextG
 
 _ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit26.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %130, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %133, %.lr.ph.i.i.i.i.i.i ]
-  %134 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %134 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i27.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i27.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, label %135
 
@@ -7583,7 +7583,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextG
 
 _ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit26.i.i.i102: ; preds = %.lr.ph.i.i.i.i.i.i98, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i94
   %.0.lcssa.i.i.i.i.i.i103 = phi ptr [ %1342, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i94 ], [ %1345, %.lr.ph.i.i.i.i.i.i98 ]
-  %1346 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i103, i64 16
+  %1346 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i103, i64 16
   %.not.i27.i.i.i104 = icmp eq ptr %.val.i.i.i93, null
   br i1 %.not.i27.i.i.i104, label %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i105, label %1347
 
@@ -10565,7 +10565,7 @@ _ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGr
   %2727 = phi ptr [ %2720, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE7reserveEm.exit.thread.i ], [ %2725, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE7reserveEm.exit.i ]
   %.sroa.28.2.i = phi ptr [ %2722, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE7reserveEm.exit.thread.i ], [ %2726, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE7reserveEm.exit.i ]
   %.sroa.0199.2.i = phi ptr [ %2721, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE7reserveEm.exit.thread.i ], [ %2724, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE7reserveEm.exit.i ]
-  %.sroa.10.2.i = getelementptr i8, ptr %.sroa.0199.2.i, i64 16
+  %.sroa.10.2.i = getelementptr inbounds i8, ptr %.sroa.0199.2.i, i64 16
   %.val38.i = load ptr, ptr %2710, align 8
   %.val32.i = load ptr, ptr %2711, align 8
   %2728 = ptrtoint ptr %.sroa.0199.2.i to i64
@@ -10581,7 +10581,7 @@ _ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGr
   %2735 = ptrtoint ptr %.sroa.28.2.i to i64
   %2736 = sub i64 %2735, %2730
   %.not.i.i.i74.i = icmp ult i64 %2736, %2733
-  br i1 %.not.i.i.i74.i, label %2740, label %.lr.ph.i.i.i.i.i.i.i.i156
+  br i1 %.not.i.i.i74.i, label %2739, label %.lr.ph.i.i.i.i.i.i.i.i156
 
 .lr.ph.i.i.i.i.i.i.i.i156:                        ; preds = %2729, %.lr.ph.i.i.i.i.i.i.i.i156
   %.09.i.i.i.i.i.i.i.i = phi ptr [ %2738, %.lr.ph.i.i.i.i.i.i.i.i156 ], [ %.sroa.10.2.i, %2729 ]
@@ -10590,55 +10590,49 @@ _ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGr
   %2737 = getelementptr inbounds i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i, i64 16
   %2738 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i.i157 = icmp eq ptr %2737, %.val32.i
-  br i1 %.not.i.i.i.i.i.i.i.i157, label %_ZSt22__uninitialized_move_aIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoES9_SaIS8_EET0_T_SC_SB_RT1_.exit57.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i156, !llvm.loop !216
+  br i1 %.not.i.i.i.i.i.i.i.i157, label %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i156, !llvm.loop !216
 
-_ZSt22__uninitialized_move_aIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoES9_SaIS8_EET0_T_SC_SB_RT1_.exit57.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i156
-  %2739 = getelementptr i8, ptr %.sroa.10.2.i, i64 %2733
-  br label %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i
+2739:                                             ; preds = %2729
+  %2740 = icmp ugt i64 %2734, 576460752303423486
+  br i1 %2740, label %2741, label %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
-2740:                                             ; preds = %2729
-  %2741 = icmp ugt i64 %2734, 576460752303423486
-  br i1 %2741, label %2742, label %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i
-
-2742:                                             ; preds = %2740
+2741:                                             ; preds = %2739
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.195) #29
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %2740
+_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %2739
   %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %2734, i64 1)
-  %2743 = add nuw nsw i64 %.sroa.speculated.i.i.i.i.i, 1
-  %2744 = shl nuw nsw i64 %2743, 4
-  %2745 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %2744) #28
-  %2746 = getelementptr i8, ptr %2745, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2745, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0199.2.i, i64 16, i1 false)
+  %2742 = add nuw nsw i64 %.sroa.speculated.i.i.i.i.i, 1
+  %2743 = shl nuw nsw i64 %2742, 4
+  %2744 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %2743) #28
+  %2745 = getelementptr inbounds i8, ptr %2744, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2744, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0199.2.i, i64 16, i1 false)
   br label %.lr.ph.i.i.i.i71.i.i.i.i
 
 .lr.ph.i.i.i.i71.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i71.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %.09.i.i.i.i72.i.i.i.i = phi ptr [ %2748, %.lr.ph.i.i.i.i71.i.i.i.i ], [ %2746, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
-  %.sroa.06.08.i.i.i.i73.i.i.i.i = phi ptr [ %2747, %.lr.ph.i.i.i.i71.i.i.i.i ], [ %.val38.i, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
+  %.09.i.i.i.i72.i.i.i.i = phi ptr [ %2747, %.lr.ph.i.i.i.i71.i.i.i.i ], [ %2745, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
+  %.sroa.06.08.i.i.i.i73.i.i.i.i = phi ptr [ %2746, %.lr.ph.i.i.i.i71.i.i.i.i ], [ %.val38.i, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i72.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.06.08.i.i.i.i73.i.i.i.i, i64 16, i1 false)
-  %2747 = getelementptr inbounds i8, ptr %.sroa.06.08.i.i.i.i73.i.i.i.i, i64 16
-  %2748 = getelementptr i8, ptr %.09.i.i.i.i72.i.i.i.i, i64 16
-  %.not.i.i.i.i74.i.i.i.i = icmp eq ptr %2747, %.val32.i
+  %2746 = getelementptr inbounds i8, ptr %.sroa.06.08.i.i.i.i73.i.i.i.i, i64 16
+  %2747 = getelementptr inbounds i8, ptr %.09.i.i.i.i72.i.i.i.i, i64 16
+  %.not.i.i.i.i74.i.i.i.i = icmp eq ptr %2746, %.val32.i
   br i1 %.not.i.i.i.i74.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i, label %.lr.ph.i.i.i.i71.i.i.i.i, !llvm.loop !216
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i71.i.i.i.i
-  %2749 = sub i64 %2735, %2728
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0199.2.i, i64 noundef %2749) #27
-  %2750 = getelementptr inbounds %"struct.(anonymous namespace)::CallsiteContextGraph<(anonymous namespace)::ModuleCallsiteContextGraph, llvm::Function, llvm::Instruction *>::CallInfo", ptr %2745, i64 %2743
-  br label %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i
+  %2748 = sub i64 %2735, %2728
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0199.2.i, i64 noundef %2748) #27
+  %2749 = getelementptr inbounds %"struct.(anonymous namespace)::CallsiteContextGraph<(anonymous namespace)::ModuleCallsiteContextGraph, llvm::Function, llvm::Instruction *>::CallInfo", ptr %2744, i64 %2742
+  br label %.lr.ph288.i
 
-_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i, %_ZSt22__uninitialized_move_aIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoES9_SaIS8_EET0_T_SC_SB_RT1_.exit57.i.i.i.i
-  %.sroa.28.3.i = phi ptr [ %2750, %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i ], [ %.sroa.28.2.i, %_ZSt22__uninitialized_move_aIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoES9_SaIS8_EET0_T_SC_SB_RT1_.exit57.i.i.i.i ]
-  %.sroa.10.3.i = phi ptr [ %2748, %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i ], [ %2739, %_ZSt22__uninitialized_move_aIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoES9_SaIS8_EET0_T_SC_SB_RT1_.exit57.i.i.i.i ]
-  %.sroa.0199.3.i = phi ptr [ %2745, %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i ], [ %.sroa.0199.2.i, %_ZSt22__uninitialized_move_aIPN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoES9_SaIS8_EET0_T_SC_SB_RT1_.exit57.i.i.i.i ]
-  %.not227286.i = icmp eq ptr %.sroa.0199.3.i, %.sroa.10.3.i
+_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i156
+  %2750 = getelementptr inbounds i8, ptr %.sroa.10.2.i, i64 %2733
+  %.not227286.i = icmp eq ptr %.sroa.0199.2.i, %2750
   br i1 %.not227286.i, label %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE9push_backEOSC_.exit.i, label %.lr.ph288.i
 
-.lr.ph288.i:                                      ; preds = %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE9push_backERKS8_.exit.i
-  %.sroa.0199.3357.i = phi ptr [ %.sroa.0199.3.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %.sroa.0199.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE9push_backERKS8_.exit.i ]
-  %.sroa.10.3355.i = phi ptr [ %.sroa.10.3.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %.sroa.10.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE9push_backERKS8_.exit.i ]
-  %.sroa.28.3353.i = phi ptr [ %.sroa.28.3.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %.sroa.28.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE9push_backERKS8_.exit.i ]
+.lr.ph288.i:                                      ; preds = %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE9push_backERKS8_.exit.i
+  %.sroa.0199.3357.i = phi ptr [ %.sroa.0199.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %2744, %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i ], [ %.sroa.0199.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE9push_backERKS8_.exit.i ]
+  %.sroa.10.3355.i = phi ptr [ %2750, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %2747, %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i ], [ %.sroa.10.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE9push_backERKS8_.exit.i ]
+  %.sroa.28.3353.i = phi ptr [ %.sroa.28.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %2749, %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE13_M_deallocateEPS8_m.exit.i.i.i.i ], [ %.sroa.28.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE9push_backERKS8_.exit.i ]
   %2751 = getelementptr inbounds nuw i8, ptr %2709, i64 64
   %2752 = getelementptr i8, ptr %2709, i64 72
   br label %2753
@@ -10961,7 +10955,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextG
 
 _ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit26.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i83.i, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %2888, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %2891, %.lr.ph.i.i.i.i.i.i.i83.i ]
-  %2892 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 16
+  %2892 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 16
   %.not.i27.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i189, null
   br i1 %.not.i27.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i, label %2893
 
@@ -11913,7 +11907,7 @@ _ZNKSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsite
 
 _ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit26.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i91.i, %_ZNKSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %3294, %_ZNKSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %3297, %.lr.ph.i.i.i.i.i.i91.i ]
-  %3298 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
+  %3298 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
   %.not.i27.i.i.i.i = icmp eq ptr %.sroa.0215.0298.i, null
   br i1 %.not.i27.i.i.i.i, label %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i, label %3299
 
@@ -11931,10 +11925,10 @@ _ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteC
   br i1 %.not227.i, label %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE9push_backEOSC_.exit.i, label %2753, !llvm.loop !237
 
 _ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE9push_backEOSC_.exit.i: ; preds = %3301, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i, %3279, %.critedge.i174, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i
-  %.sroa.0199.3358.i = phi ptr [ %.sroa.0199.3357.i, %.critedge.i174 ], [ %.sroa.0199.3357.i, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i ], [ %.sroa.0199.3357.i, %3279 ], [ %.sroa.0199.3.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %.sroa.0199.3357.i, %3301 ]
-  %.sroa.10.3356.i = phi ptr [ %.sroa.10.3355.i, %.critedge.i174 ], [ %.sroa.10.3355.i, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i ], [ %.sroa.10.3355.i, %3279 ], [ %.sroa.10.3.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %.sroa.10.3355.i, %3301 ]
-  %.sroa.28.3354.i = phi ptr [ %.sroa.28.3353.i, %.critedge.i174 ], [ %.sroa.28.3353.i, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i ], [ %.sroa.28.3353.i, %3279 ], [ %.sroa.28.3.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %.sroa.28.3353.i, %3301 ]
-  %.sroa.0194.0246.i = phi ptr [ %.sroa.0194.0287.i, %.critedge.i174 ], [ %.sroa.0194.0287.i, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i ], [ %.sroa.0194.0287.i, %3279 ], [ %.sroa.0199.3.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %3302, %3301 ]
+  %.sroa.0199.3358.i = phi ptr [ %.sroa.0199.3357.i, %.critedge.i174 ], [ %.sroa.0199.3357.i, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i ], [ %.sroa.0199.3357.i, %3279 ], [ %.sroa.0199.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %.sroa.0199.3357.i, %3301 ]
+  %.sroa.10.3356.i = phi ptr [ %.sroa.10.3355.i, %.critedge.i174 ], [ %.sroa.10.3355.i, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i ], [ %.sroa.10.3355.i, %3279 ], [ %.sroa.0199.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %.sroa.10.3355.i, %3301 ]
+  %.sroa.28.3354.i = phi ptr [ %.sroa.28.3353.i, %.critedge.i174 ], [ %.sroa.28.3353.i, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i ], [ %.sroa.28.3353.i, %3279 ], [ %.sroa.28.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %.sroa.28.3353.i, %3301 ]
+  %.sroa.0194.0246.i = phi ptr [ %.sroa.0194.0287.i, %.critedge.i174 ], [ %.sroa.0194.0287.i, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i ], [ %.sroa.0194.0287.i, %3279 ], [ %.sroa.0199.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %3302, %3301 ]
   %.sroa.10218.1.i = phi ptr [ %.sroa.10218.0296.i, %.critedge.i174 ], [ %3300, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i ], [ %.sroa.10218.0296.i, %3279 ], [ %.sroa.10218.0296.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %.sroa.10218.0296.i, %3301 ]
   %.sroa.5216.1.i = phi ptr [ %.sroa.5216.0297.i, %.critedge.i174 ], [ %3298, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i ], [ %3280, %3279 ], [ %.sroa.5216.0297.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %.sroa.5216.0297.i, %3301 ]
   %.sroa.0215.1.i = phi ptr [ %.sroa.0215.0298.i, %.critedge.i174 ], [ %3294, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS4_11InstructionEE8CallInfoEPNS8_11ContextNodeEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i.i ], [ %.sroa.0215.0298.i, %3279 ], [ %.sroa.0215.0298.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE6insertIN9__gnu_cxx17__normal_iteratorIPS8_SA_EEvEESF_NSD_IPKS8_SA_EET_SJ_.exit.i ], [ %.sroa.0215.0298.i, %3301 ]
@@ -12066,7 +12060,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextG
 
 _ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit26.i.i105.i: ; preds = %.lr.ph.i.i.i.i.i101.i, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i97.i
   %.0.lcssa.i.i.i.i.i106.i = phi ptr [ %3350, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i97.i ], [ %3353, %.lr.ph.i.i.i.i.i101.i ]
-  %3354 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i106.i, i64 16
+  %3354 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i106.i, i64 16
   %.not.i27.i.i107.i = icmp eq ptr %.val.i.i96.i, null
   br i1 %.not.i27.i.i107.i, label %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i108.i, label %3355
 
@@ -19546,7 +19540,7 @@ _ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGra
   %2953 = phi ptr [ %2946, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE7reserveEm.exit.thread.i ], [ %2951, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE7reserveEm.exit.i ]
   %.sroa.28.2.i = phi ptr [ %2948, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE7reserveEm.exit.thread.i ], [ %2952, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE7reserveEm.exit.i ]
   %.sroa.0210.2.i = phi ptr [ %2947, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE7reserveEm.exit.thread.i ], [ %2950, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE7reserveEm.exit.i ]
-  %.sroa.10.2.i = getelementptr i8, ptr %.sroa.0210.2.i, i64 16
+  %.sroa.10.2.i = getelementptr inbounds i8, ptr %.sroa.0210.2.i, i64 16
   %.val41.i = load ptr, ptr %2936, align 8
   %.val35.i = load ptr, ptr %2937, align 8
   %2954 = ptrtoint ptr %.sroa.0210.2.i to i64
@@ -19562,7 +19556,7 @@ _ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGra
   %2961 = ptrtoint ptr %.sroa.28.2.i to i64
   %2962 = sub i64 %2961, %2956
   %.not.i.i.i81.i = icmp ult i64 %2962, %2959
-  br i1 %.not.i.i.i81.i, label %2966, label %.lr.ph.i.i.i.i.i.i.i.i146
+  br i1 %.not.i.i.i81.i, label %2965, label %.lr.ph.i.i.i.i.i.i.i.i146
 
 .lr.ph.i.i.i.i.i.i.i.i146:                        ; preds = %2955, %.lr.ph.i.i.i.i.i.i.i.i146
   %.09.i.i.i.i.i.i.i.i = phi ptr [ %2964, %.lr.ph.i.i.i.i.i.i.i.i146 ], [ %.sroa.10.2.i, %2955 ]
@@ -19571,55 +19565,49 @@ _ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGra
   %2963 = getelementptr inbounds i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i, i64 16
   %2964 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %2963, %.val35.i
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoES8_SaIS7_EET0_T_SB_SA_RT1_.exit57.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i146, !llvm.loop !386
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i146, !llvm.loop !386
 
-_ZSt22__uninitialized_move_aIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoES8_SaIS7_EET0_T_SB_SA_RT1_.exit57.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i146
-  %2965 = getelementptr i8, ptr %.sroa.10.2.i, i64 %2959
-  br label %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i
+2965:                                             ; preds = %2955
+  %2966 = icmp ugt i64 %2960, 576460752303423486
+  br i1 %2966, label %2967, label %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
-2966:                                             ; preds = %2955
-  %2967 = icmp ugt i64 %2960, 576460752303423486
-  br i1 %2967, label %2968, label %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i
-
-2968:                                             ; preds = %2966
+2967:                                             ; preds = %2965
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.195) #29
   unreachable
 
-_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %2966
+_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %2965
   %.sroa.speculated.i.i.i.i.i176 = call i64 @llvm.umax.i64(i64 %2960, i64 1)
-  %2969 = add nuw nsw i64 %.sroa.speculated.i.i.i.i.i176, 1
-  %2970 = shl nuw nsw i64 %2969, 4
-  %2971 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %2970) #28
-  %2972 = getelementptr i8, ptr %2971, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2971, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0210.2.i, i64 16, i1 false)
+  %2968 = add nuw nsw i64 %.sroa.speculated.i.i.i.i.i176, 1
+  %2969 = shl nuw nsw i64 %2968, 4
+  %2970 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %2969) #28
+  %2971 = getelementptr inbounds i8, ptr %2970, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2970, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0210.2.i, i64 16, i1 false)
   br label %.lr.ph.i.i.i.i71.i.i.i.i
 
 .lr.ph.i.i.i.i71.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i71.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %.09.i.i.i.i72.i.i.i.i = phi ptr [ %2974, %.lr.ph.i.i.i.i71.i.i.i.i ], [ %2972, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
-  %.sroa.06.08.i.i.i.i73.i.i.i.i = phi ptr [ %2973, %.lr.ph.i.i.i.i71.i.i.i.i ], [ %.val41.i, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
+  %.09.i.i.i.i72.i.i.i.i = phi ptr [ %2973, %.lr.ph.i.i.i.i71.i.i.i.i ], [ %2971, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
+  %.sroa.06.08.i.i.i.i73.i.i.i.i = phi ptr [ %2972, %.lr.ph.i.i.i.i71.i.i.i.i ], [ %.val41.i, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i72.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.06.08.i.i.i.i73.i.i.i.i, i64 16, i1 false)
-  %2973 = getelementptr inbounds i8, ptr %.sroa.06.08.i.i.i.i73.i.i.i.i, i64 16
-  %2974 = getelementptr i8, ptr %.09.i.i.i.i72.i.i.i.i, i64 16
-  %.not.i.i.i.i74.i.i.i.i = icmp eq ptr %2973, %.val35.i
+  %2972 = getelementptr inbounds i8, ptr %.sroa.06.08.i.i.i.i73.i.i.i.i, i64 16
+  %2973 = getelementptr inbounds i8, ptr %.09.i.i.i.i72.i.i.i.i, i64 16
+  %.not.i.i.i.i74.i.i.i.i = icmp eq ptr %2972, %.val35.i
   br i1 %.not.i.i.i.i74.i.i.i.i, label %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE13_M_deallocateEPS7_m.exit.i.i.i.i, label %.lr.ph.i.i.i.i71.i.i.i.i, !llvm.loop !386
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE13_M_deallocateEPS7_m.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i71.i.i.i.i
-  %2975 = sub i64 %2961, %2954
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0210.2.i, i64 noundef %2975) #27
-  %2976 = getelementptr inbounds %"struct.(anonymous namespace)::CallsiteContextGraph<(anonymous namespace)::IndexCallsiteContextGraph, llvm::FunctionSummary, (anonymous namespace)::IndexCall>::CallInfo", ptr %2971, i64 %2969
-  br label %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i
+  %2974 = sub i64 %2961, %2954
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0210.2.i, i64 noundef %2974) #27
+  %2975 = getelementptr inbounds %"struct.(anonymous namespace)::CallsiteContextGraph<(anonymous namespace)::IndexCallsiteContextGraph, llvm::FunctionSummary, (anonymous namespace)::IndexCall>::CallInfo", ptr %2970, i64 %2968
+  br label %.lr.ph297.i
 
-_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE13_M_deallocateEPS7_m.exit.i.i.i.i, %_ZSt22__uninitialized_move_aIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoES8_SaIS7_EET0_T_SB_SA_RT1_.exit57.i.i.i.i
-  %.sroa.28.3.i = phi ptr [ %2976, %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE13_M_deallocateEPS7_m.exit.i.i.i.i ], [ %.sroa.28.2.i, %_ZSt22__uninitialized_move_aIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoES8_SaIS7_EET0_T_SB_SA_RT1_.exit57.i.i.i.i ]
-  %.sroa.10.3.i = phi ptr [ %2974, %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE13_M_deallocateEPS7_m.exit.i.i.i.i ], [ %2965, %_ZSt22__uninitialized_move_aIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoES8_SaIS7_EET0_T_SB_SA_RT1_.exit57.i.i.i.i ]
-  %.sroa.0210.3.i = phi ptr [ %2971, %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE13_M_deallocateEPS7_m.exit.i.i.i.i ], [ %.sroa.0210.2.i, %_ZSt22__uninitialized_move_aIPN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoES8_SaIS7_EET0_T_SB_SA_RT1_.exit57.i.i.i.i ]
-  %.not237295.i = icmp eq ptr %.sroa.0210.3.i, %.sroa.10.3.i
+_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i146
+  %2976 = getelementptr inbounds i8, ptr %.sroa.10.2.i, i64 %2959
+  %.not237295.i = icmp eq ptr %.sroa.0210.2.i, %2976
   br i1 %.not237295.i, label %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE9push_backEOSB_.exit.i, label %.lr.ph297.i
 
-.lr.ph297.i:                                      ; preds = %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE9push_backERKS7_.exit.i
-  %.sroa.0210.3366.i = phi ptr [ %.sroa.0210.3.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %.sroa.0210.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE9push_backERKS7_.exit.i ]
-  %.sroa.10.3364.i = phi ptr [ %.sroa.10.3.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %.sroa.10.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE9push_backERKS7_.exit.i ]
-  %.sroa.28.3362.i = phi ptr [ %.sroa.28.3.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %.sroa.28.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE9push_backERKS7_.exit.i ]
+.lr.ph297.i:                                      ; preds = %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE13_M_deallocateEPS7_m.exit.i.i.i.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE9push_backERKS7_.exit.i
+  %.sroa.0210.3366.i = phi ptr [ %.sroa.0210.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %2970, %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE13_M_deallocateEPS7_m.exit.i.i.i.i ], [ %.sroa.0210.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE9push_backERKS7_.exit.i ]
+  %.sroa.10.3364.i = phi ptr [ %2976, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %2973, %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE13_M_deallocateEPS7_m.exit.i.i.i.i ], [ %.sroa.10.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE9push_backERKS7_.exit.i ]
+  %.sroa.28.3362.i = phi ptr [ %.sroa.28.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %2975, %_ZNSt12_Vector_baseIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE13_M_deallocateEPS7_m.exit.i.i.i.i ], [ %.sroa.28.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE9push_backERKS7_.exit.i ]
   %2977 = getelementptr inbounds nuw i8, ptr %2935, i64 64
   %2978 = getelementptr i8, ptr %2935, i64 72
   br label %2979
@@ -20002,7 +19990,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGr
 
 _ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i91.i, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %3131, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %3134, %.lr.ph.i.i.i.i.i.i.i91.i ]
-  %3135 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 16
+  %3135 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 16
   %.not.i27.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i173, null
   br i1 %.not.i27.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i.i, label %3136
 
@@ -20952,7 +20940,7 @@ _ZNKSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteC
 
 _ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit26.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i99.i, %_ZNKSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %3532, %_ZNKSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %3535, %.lr.ph.i.i.i.i.i.i99.i ]
-  %3536 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
+  %3536 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
   %.not.i27.i.i.i.i = icmp eq ptr %.sroa.0226.0307.i, null
   br i1 %.not.i27.i.i.i.i, label %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i.i, label %3537
 
@@ -20970,10 +20958,10 @@ _ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteCo
   br i1 %.not237.i, label %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE9push_backEOSB_.exit.i, label %2979, !llvm.loop !407
 
 _ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE9push_backEOSB_.exit.i: ; preds = %3539, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i.i, %3517, %.critedge.i157, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i
-  %.sroa.0210.3367.i = phi ptr [ %.sroa.0210.3366.i, %.critedge.i157 ], [ %.sroa.0210.3366.i, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i.i ], [ %.sroa.0210.3366.i, %3517 ], [ %.sroa.0210.3.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %.sroa.0210.3366.i, %3539 ]
-  %.sroa.10.3365.i = phi ptr [ %.sroa.10.3364.i, %.critedge.i157 ], [ %.sroa.10.3364.i, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i.i ], [ %.sroa.10.3364.i, %3517 ], [ %.sroa.10.3.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %.sroa.10.3364.i, %3539 ]
-  %.sroa.28.3363.i = phi ptr [ %.sroa.28.3362.i, %.critedge.i157 ], [ %.sroa.28.3362.i, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i.i ], [ %.sroa.28.3362.i, %3517 ], [ %.sroa.28.3.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %.sroa.28.3362.i, %3539 ]
-  %.sroa.0205.0255.i = phi ptr [ %.sroa.0205.0296.i, %.critedge.i157 ], [ %.sroa.0205.0296.i, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i.i ], [ %.sroa.0205.0296.i, %3517 ], [ %.sroa.0210.3.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %3540, %3539 ]
+  %.sroa.0210.3367.i = phi ptr [ %.sroa.0210.3366.i, %.critedge.i157 ], [ %.sroa.0210.3366.i, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i.i ], [ %.sroa.0210.3366.i, %3517 ], [ %.sroa.0210.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %.sroa.0210.3366.i, %3539 ]
+  %.sroa.10.3365.i = phi ptr [ %.sroa.10.3364.i, %.critedge.i157 ], [ %.sroa.10.3364.i, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i.i ], [ %.sroa.10.3364.i, %3517 ], [ %.sroa.0210.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %.sroa.10.3364.i, %3539 ]
+  %.sroa.28.3363.i = phi ptr [ %.sroa.28.3362.i, %.critedge.i157 ], [ %.sroa.28.3362.i, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i.i ], [ %.sroa.28.3362.i, %3517 ], [ %.sroa.28.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %.sroa.28.3362.i, %3539 ]
+  %.sroa.0205.0255.i = phi ptr [ %.sroa.0205.0296.i, %.critedge.i157 ], [ %.sroa.0205.0296.i, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i.i ], [ %.sroa.0205.0296.i, %3517 ], [ %.sroa.0210.2.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %3540, %3539 ]
   %.sroa.10229.1.i = phi ptr [ %.sroa.10229.0305.i, %.critedge.i157 ], [ %3538, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i.i ], [ %.sroa.10229.0305.i, %3517 ], [ %.sroa.10229.0305.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %.sroa.10229.0305.i, %3539 ]
   %.sroa.5227.1.i = phi ptr [ %.sroa.5227.0306.i, %.critedge.i157 ], [ %3536, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i.i ], [ %3518, %3517 ], [ %.sroa.5227.0306.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %.sroa.5227.0306.i, %3539 ]
   %.sroa.0226.1.i = phi ptr [ %.sroa.0226.0307.i, %.critedge.i157 ], [ %3532, %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS1_9IndexCallEE8CallInfoEPNS7_11ContextNodeEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i.i ], [ %.sroa.0226.0307.i, %3517 ], [ %.sroa.0226.0307.i, %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE6insertIN9__gnu_cxx17__normal_iteratorIPS7_S9_EEvEESE_NSC_IPKS7_S9_EET_SI_.exit.i ], [ %.sroa.0226.0307.i, %3539 ]
@@ -21079,7 +21067,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGr
 
 _ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26.i.i112.i: ; preds = %.lr.ph.i.i.i.i.i108.i, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i104.i
   %.0.lcssa.i.i.i.i.i113.i = phi ptr [ %3576, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i104.i ], [ %3579, %.lr.ph.i.i.i.i.i108.i ]
-  %3580 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i113.i, i64 16
+  %3580 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i113.i, i64 16
   %.not.i27.i.i114.i = icmp eq ptr %.val.i.i103.i, null
   br i1 %.not.i27.i.i114.i, label %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i115.i, label %3581
 
@@ -28383,8 +28371,8 @@ _ZSt4moveIPSt10unique_ptrIN4llvm8ValueMapIPKNS1_5ValueENS1_14WeakTrackingVHENS1_
 
 .lr.ph.i.i.i.i.i63.preheader:                     ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm8ValueMapIPKNS1_5ValueENS1_14WeakTrackingVHENS1_14ValueMapConfigIS5_NS1_3sys10SmartMutexILb0EEEEEEESt14default_deleteISC_EESG_ET0_T_SI_SH_.exit62
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr %"class.std::unique_ptr.283", ptr %75, i64 %.026
-  %77 = getelementptr %"class.std::unique_ptr.283", ptr %72, i64 %.026
+  %76 = getelementptr inbounds %"class.std::unique_ptr.283", ptr %75, i64 %.026
+  %77 = getelementptr inbounds %"class.std::unique_ptr.283", ptr %72, i64 %.026
   br label %.lr.ph.i.i.i.i.i63
 
 .lr.ph.i.i.i.i.i63:                               ; preds = %.lr.ph.i.i.i.i.i63.preheader, %.lr.ph.i.i.i.i.i63
@@ -37674,7 +37662,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextG
 
 _ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit26.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %242, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %245, %.lr.ph.i.i.i.i.i.i ]
-  %246 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %246 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i27.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i27.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8CallInfoESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, label %247
 
@@ -46599,7 +46587,7 @@ _ZNSt12_Vector_baseISt4pairIPN4llvm11InstructionEPNS1_8FunctionEESaIS6_EE11_M_al
 
 _ZNSt6vectorISt4pairIPN4llvm11InstructionEPNS1_8FunctionEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPN4llvm11InstructionEPNS1_8FunctionEESaIS6_EE11_M_allocateEm.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %76, %_ZNSt12_Vector_baseISt4pairIPN4llvm11InstructionEPNS1_8FunctionEESaIS6_EE11_M_allocateEm.exit.i.i.i.i ], [ %79, %.lr.ph.i.i.i.i.i.i.i ]
-  %80 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %80 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorISt4pairIPN4llvm11InstructionEPNS1_8FunctionEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i, label %81
 
@@ -46688,7 +46676,7 @@ _ZNSt12_Vector_baseISt4pairIPN4llvm11InstructionEPNS1_8FunctionEESaIS6_EE11_M_al
 
 _ZNSt6vectorISt4pairIPN4llvm11InstructionEPNS1_8FunctionEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i.i87: ; preds = %.lr.ph.i.i.i.i.i.i.i83, %_ZNSt12_Vector_baseISt4pairIPN4llvm11InstructionEPNS1_8FunctionEESaIS6_EE11_M_allocateEm.exit.i.i.i.i80
   %.0.lcssa.i.i.i.i.i.i.i88 = phi ptr [ %109, %_ZNSt12_Vector_baseISt4pairIPN4llvm11InstructionEPNS1_8FunctionEESaIS6_EE11_M_allocateEm.exit.i.i.i.i80 ], [ %112, %.lr.ph.i.i.i.i.i.i.i83 ]
-  %113 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i88, i64 16
+  %113 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i88, i64 16
   %.not.i23.i.i.i.i89 = icmp eq ptr %95, null
   br i1 %.not.i23.i.i.i.i89, label %_ZNSt6vectorISt4pairIPN4llvm11InstructionEPNS1_8FunctionEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i90, label %114
 
@@ -55485,7 +55473,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGr
 
 _ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %202, %_ZNKSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %205, %.lr.ph.i.i.i.i.i.i ]
-  %206 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %206 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i27.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i27.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8CallInfoESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i, label %207
 
@@ -63250,7 +63238,7 @@ _ZNKSt6vectorISt4pairIN12_GLOBAL__N_19IndexCallEPN4llvm15FunctionSummaryEESaIS6_
 
 _ZNSt6vectorISt4pairIN12_GLOBAL__N_19IndexCallEPN4llvm15FunctionSummaryEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit26.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorISt4pairIN12_GLOBAL__N_19IndexCallEPN4llvm15FunctionSummaryEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %161, %_ZNKSt6vectorISt4pairIN12_GLOBAL__N_19IndexCallEPN4llvm15FunctionSummaryEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %164, %.lr.ph.i.i.i.i.i.i ]
-  %165 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %165 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i27.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i27.i.i.i, label %_ZNSt6vectorISt4pairIN12_GLOBAL__N_19IndexCallEPN4llvm15FunctionSummaryEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i, label %166
 

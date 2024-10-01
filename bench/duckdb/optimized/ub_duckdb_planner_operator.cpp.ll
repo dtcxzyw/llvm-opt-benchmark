@@ -30052,7 +30052,7 @@ for.body.i.i.i.i171:                              ; preds = %for.body.i.i.i.i171
   %__first.sroa.0.014.i.i.i.i173 = phi ptr [ %incdec.ptr.i.i.i.i.i174, %for.body.i.i.i.i171 ], [ %__first.coerce, %for.body.i.i.i.i171.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.015.i.i.i.i172, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.014.i.i.i.i173, i64 16, i1 false), !tbaa.struct !70
   %incdec.ptr.i.i.i.i.i174 = getelementptr inbounds i8, ptr %__first.sroa.0.014.i.i.i.i173, i64 16
-  %incdec.ptr.i.i.i.i175 = getelementptr i8, ptr %__cur.015.i.i.i.i172, i64 16
+  %incdec.ptr.i.i.i.i175 = getelementptr inbounds i8, ptr %__cur.015.i.i.i.i172, i64 16
   %cmp.i.not.i.i.i.i176 = icmp eq ptr %incdec.ptr.i.i.i.i.i174, %__last.coerce
   br i1 %cmp.i.not.i.i.i.i176, label %invoke.cont83, label %for.body.i.i.i.i171, !llvm.loop !828
 

@@ -3047,7 +3047,7 @@ if.then.i:                                        ; preds = %while.body
 
 if.end.i13:                                       ; preds = %while.body
   %9 = load ptr, ptr %6, align 8
-  %add.ptr.i14 = getelementptr i8, ptr %9, i64 %conv.i7
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %9, i64 %conv.i7
   %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr.i14, i64 %.sroa.speculated
   br label %while.body.i
 

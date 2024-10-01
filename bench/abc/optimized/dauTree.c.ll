@@ -881,7 +881,7 @@ Dss_ObjCreateNtk.exit:                            ; preds = %145, %._crit_edge11
   %165 = lshr i32 %164, 19
   %166 = and i32 %165, 63
   %167 = zext nneg i32 %166 to i64
-  %168 = getelementptr i64, ptr %163, i64 %167
+  %168 = getelementptr inbounds i64, ptr %163, i64 %167
   br i1 %86, label %.lr.ph18.preheader.i86, label %Abc_TtCopy.exit92
 
 .lr.ph18.preheader.i86:                           ; preds = %Dss_ObjCreateNtk.exit
@@ -1803,7 +1803,7 @@ define noundef ptr @Dss_ObjCreate(ptr nocapture noundef readonly %0, i32 noundef
   %13 = lshr i32 %12, 19
   %14 = and i32 %13, 63
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr i64, ptr %10, i64 %15
+  %16 = getelementptr inbounds i64, ptr %10, i64 %15
   %.val33 = load i32, ptr %6, align 4
   %17 = icmp slt i32 %.val33, 7
   %18 = add nsw i32 %.val33, -6
@@ -4280,7 +4280,7 @@ Dss_ObjHashLookup.exit.thread:                    ; preds = %.critedge.i.i, %Dss
   %216 = lshr i32 %215, 19
   %217 = and i32 %216, 63
   %218 = zext nneg i32 %217 to i64
-  %219 = getelementptr i64, ptr %213, i64 %218
+  %219 = getelementptr inbounds i64, ptr %213, i64 %218
   %.val33.i = load i32, ptr %212, align 4
   %220 = icmp slt i32 %.val33.i, 7
   %221 = add nsw i32 %.val33.i, -6

@@ -6837,7 +6837,7 @@ for.inc.i.i:                                      ; preds = %invoke.cont20, %for
 invoke.cont22:                                    ; preds = %for.inc.i.i, %invoke.cont20
   %move_values.sroa.0.1 = phi ptr [ %.sink3.i, %invoke.cont20 ], [ %incdec.ptr.i.i.i.i31, %for.inc.i.i ]
   store ptr %call5.i.i.i.i28, ptr %move_construction_tx, align 8
-  %add.ptr24 = getelementptr i8, ptr %call5.i.i.i.i28, i64 %add
+  %add.ptr24 = getelementptr inbounds i8, ptr %call5.i.i.i.i28, i64 %add
   %sub = sub i64 %shr.i.sink.i, %sub.ptr.sub.i.i
   %cmp6.not.i = icmp eq i64 %shr.i.sink.i, %sub.ptr.sub.i.i
   br i1 %cmp6.not.i, label %invoke.cont32, label %for.inc.i
@@ -6899,19 +6899,19 @@ if.else:                                          ; preds = %entry
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %add, i64 %shr.i.sink.i)
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %move_construction_tx41, ptr noundef nonnull align 1 dereferenceable(1) %this) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %move_construction_tx41, i8 0, i64 16, i1 false)
-  %add.ptr51 = getelementptr i8, ptr %.sink3.i, i64 %.sroa.speculated
+  %add.ptr51 = getelementptr inbounds i8, ptr %.sink3.i, i64 %.sroa.speculated
   %sub52 = sub i64 %add3, %.sroa.speculated
-  %add.ptr54 = getelementptr i8, ptr %.sink3.i, i64 %sub.ptr.sub.i.i
+  %add.ptr54 = getelementptr inbounds i8, ptr %.sink3.i, i64 %sub.ptr.sub.i.i
   %add.ptr56 = getelementptr inbounds i8, ptr %.sink3.i, i64 %add
   %sub57 = sub i64 %.sroa.speculated, %add
-  %add.ptr61 = getelementptr i8, ptr %add.ptr54, i64 %sub52
+  %add.ptr61 = getelementptr inbounds i8, ptr %add.ptr54, i64 %sub52
   %sub63 = sub i64 %insert_count, %sub52
   %cmp6.not.i.i45 = icmp eq i64 %add3, %.sroa.speculated
   br i1 %cmp6.not.i.i45, label %invoke.cont66, label %for.inc.i.i48.preheader
 
 for.inc.i.i48.preheader:                          ; preds = %if.else
   %sub45 = sub i64 %.sroa.speculated, %insert_count
-  %add.ptr46 = getelementptr i8, ptr %.sink3.i, i64 %sub45
+  %add.ptr46 = getelementptr inbounds i8, ptr %.sink3.i, i64 %sub45
   br label %for.inc.i.i48
 
 for.inc.i.i48:                                    ; preds = %for.inc.i.i48.preheader, %for.inc.i.i48

@@ -14789,7 +14789,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
 
 100:                                              ; preds = %98
   %101 = getelementptr inbounds i8, ptr %52, i64 -16
-  %102 = getelementptr ptr, ptr %52, i64 %.0127.neg
+  %102 = getelementptr inbounds ptr, ptr %52, i64 %.0127.neg
   %103 = getelementptr inbounds i8, ptr %0, i64 264304
   %104 = load ptr, ptr %103, align 8
   %.not316 = icmp ult ptr %99, %104
@@ -15360,7 +15360,7 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit194.unreachable: ; preds = %.noexc221
 
 346:                                              ; preds = %98
   %347 = getelementptr inbounds i8, ptr %52, i64 -16
-  %348 = getelementptr ptr, ptr %52, i64 %.0127.neg
+  %348 = getelementptr inbounds ptr, ptr %52, i64 %.0127.neg
   %349 = getelementptr inbounds i8, ptr %.0307, i64 24
   %350 = getelementptr inbounds i8, ptr %.0307, i64 40
   %351 = load ptr, ptr %350, align 8

@@ -1306,7 +1306,7 @@ _ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_alloca
 
 _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %89, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i ], [ %92, %.lr.ph.i.i.i.i.i ]
-  %93 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
+  %93 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
   %.not.i23.i.i = icmp eq ptr %66, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %94
 
@@ -1477,7 +1477,7 @@ _ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_alloca
 
 _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i73: ; preds = %.lr.ph.i.i.i.i.i69, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i67
   %.0.lcssa.i.i.i.i.i74 = phi ptr [ %141, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i67 ], [ %144, %.lr.ph.i.i.i.i.i69 ]
-  %145 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i74, i64 32
+  %145 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i74, i64 32
   %.not.i23.i.i75 = icmp eq ptr %128, null
   br i1 %.not.i23.i.i75, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i76, label %146
 
@@ -1703,7 +1703,7 @@ _ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_alloca
 
 _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i94: ; preds = %.lr.ph.i.i.i.i.i90, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i88
   %.0.lcssa.i.i.i.i.i95 = phi ptr [ %234, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i88 ], [ %237, %.lr.ph.i.i.i.i.i90 ]
-  %238 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i95, i64 32
+  %238 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i95, i64 32
   %.not.i23.i.i96 = icmp eq ptr %221, null
   br i1 %.not.i23.i.i96, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i97, label %239
 
@@ -7672,7 +7672,7 @@ _ZNSt12_Vector_baseIN10open_spiel10battleship8GameMoveESaIS2_EE11_M_allocateEm.e
 
 _ZNSt6vectorIN10open_spiel10battleship8GameMoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN10open_spiel10battleship8GameMoveESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %75, %_ZNSt12_Vector_baseIN10open_spiel10battleship8GameMoveESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %78, %.lr.ph.i.i.i.i.i.i ]
-  %79 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 48
+  %79 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 48
   %.not.i23.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN10open_spiel10battleship8GameMoveESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %80
 
@@ -7775,7 +7775,7 @@ _ZNSt12_Vector_baseIN10open_spiel10battleship8GameMoveESaIS2_EE11_M_allocateEm.e
 
 _ZNSt6vectorIN10open_spiel10battleship8GameMoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i27: ; preds = %.lr.ph.i.i.i.i.i.i23, %_ZNSt12_Vector_baseIN10open_spiel10battleship8GameMoveESaIS2_EE11_M_allocateEm.exit.i.i.i21
   %.0.lcssa.i.i.i.i.i.i28 = phi ptr [ %110, %_ZNSt12_Vector_baseIN10open_spiel10battleship8GameMoveESaIS2_EE11_M_allocateEm.exit.i.i.i21 ], [ %113, %.lr.ph.i.i.i.i.i.i23 ]
-  %114 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i28, i64 48
+  %114 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i28, i64 48
   %.not.i23.i.i.i29 = icmp eq ptr %97, null
   br i1 %.not.i23.i.i.i29, label %_ZNSt6vectorIN10open_spiel10battleship8GameMoveESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i30, label %115
 
@@ -20550,7 +20550,7 @@ define linkonce_odr void @_ZNSt6vectorIN4absl7debian211string_viewESaIS2_EE15_M_
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
   %22 = sub nsw i64 0, %9
-  %23 = getelementptr %"class.absl::debian2::string_view", ptr %13, i64 %22
+  %23 = getelementptr inbounds %"class.absl::debian2::string_view", ptr %13, i64 %22
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -20640,7 +20640,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl7debian216strings_internal8SplitterINS1_6B
 _ZSt22__uninitialized_copy_aIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewPS6_S6_ET0_T_SJ_SI_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewPS6_S6_ET0_T_SJ_SI_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewmEvRT_T0_.exit
   %52 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewPS6_S6_ET0_T_SJ_SI_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewmEvRT_T0_.exit ]
   %53 = sub nuw nsw i64 %9, %20
-  %54 = getelementptr %"class.absl::debian2::string_view", ptr %52, i64 %53
+  %54 = getelementptr inbounds %"class.absl::debian2::string_view", ptr %52, i64 %53
   store ptr %54, ptr %12, align 8
   %.not11.i.i.i.i.i58 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i58, label %_ZSt22__uninitialized_move_aIPN4absl7debian211string_viewES3_SaIS2_EET0_T_S6_S5_RT1_.exit64, label %.lr.ph.i.i.i.i.i59
@@ -20753,7 +20753,7 @@ _ZNSt12_Vector_baseIN4absl7debian211string_viewESaIS2_EE11_M_allocateEm.exit: ; 
   %94 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i81, i64 8
   store i64 %89, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %.01215.i.i.i.i82, i64 16
-  %96 = getelementptr i8, ptr %.016.i.i.i.i81, i64 16
+  %96 = getelementptr inbounds i8, ptr %.016.i.i.i.i81, i64 16
   %.not.i.i.i.i83 = icmp eq ptr %95, %3
   br i1 %.not.i.i.i.i83, label %_ZSt22__uninitialized_copy_aIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewPS6_S6_ET0_T_SJ_SI_RSaIT1_E.exit85, label %.lr.ph.i.i.i.i80, !llvm.loop !141
 

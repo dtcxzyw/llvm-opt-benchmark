@@ -3034,7 +3034,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i24 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 12
+  %incdec.ptr.i.i24 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 12
   %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -3155,7 +3155,7 @@ for.body.i.i.i.i.i73:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i79: ; preds = %for.body.i.i.i.i.i73, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i69
   %__cur.0.lcssa.i.i.i.i.i80 = phi ptr [ %cond.i10.i.i70, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i69 ], [ %incdec.ptr1.i.i.i.i.i77, %for.body.i.i.i.i.i73 ]
-  %incdec.ptr.i.i81 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i80, i64 12
+  %incdec.ptr.i.i81 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i80, i64 12
   %tobool.not.i.i.i82 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i82, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i84, label %if.then.i20.i.i83
 
@@ -3335,7 +3335,7 @@ for.body.i.i.i.i.i117:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorI9aiColor4tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i: ; preds = %for.body.i.i.i.i.i117, %_ZNSt12_Vector_baseI9aiColor4tIfESaIS1_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i123 = phi ptr [ %cond.i10.i.i114, %_ZNSt12_Vector_baseI9aiColor4tIfESaIS1_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i121, %for.body.i.i.i.i.i117 ]
-  %incdec.ptr.i.i124 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i123, i64 16
+  %incdec.ptr.i.i124 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i123, i64 16
   %tobool.not.i.i.i125 = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i125, label %_ZNSt6vectorI9aiColor4tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i20.i.i126
 
@@ -3459,7 +3459,7 @@ for.body.i.i.i.i.i177:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i183: ; preds = %for.body.i.i.i.i.i177, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i173
   %__cur.0.lcssa.i.i.i.i.i184 = phi ptr [ %cond.i10.i.i174, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i173 ], [ %incdec.ptr1.i.i.i.i.i181, %for.body.i.i.i.i.i177 ]
-  %incdec.ptr.i.i185 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i184, i64 12
+  %incdec.ptr.i.i185 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i184, i64 12
   %tobool.not.i.i.i186 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i186, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i188, label %if.then.i20.i.i187
 
@@ -3558,7 +3558,7 @@ for.body.i.i.i.i.i224:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i230: ; preds = %for.body.i.i.i.i.i224, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i220
   %__cur.0.lcssa.i.i.i.i.i231 = phi ptr [ %cond.i10.i.i221, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i220 ], [ %incdec.ptr1.i.i.i.i.i228, %for.body.i.i.i.i.i224 ]
-  %incdec.ptr.i.i232 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i231, i64 12
+  %incdec.ptr.i.i232 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i231, i64 12
   %tobool.not.i.i.i233 = icmp eq ptr %46, null
   br i1 %tobool.not.i.i.i233, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i235, label %if.then.i20.i.i234
 
@@ -3682,7 +3682,7 @@ for.body.i.i.i.i.i287:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i293: ; preds = %for.body.i.i.i.i.i287, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i283
   %__cur.0.lcssa.i.i.i.i.i294 = phi ptr [ %cond.i10.i.i284, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i283 ], [ %incdec.ptr1.i.i.i.i.i291, %for.body.i.i.i.i.i287 ]
-  %incdec.ptr.i.i295 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i294, i64 12
+  %incdec.ptr.i.i295 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i294, i64 12
   %tobool.not.i.i.i296 = icmp eq ptr %55, null
   br i1 %tobool.not.i.i.i296, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i298, label %if.then.i20.i.i297
 
@@ -3806,7 +3806,7 @@ for.body.i.i.i.i.i350:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i356: ; preds = %for.body.i.i.i.i.i350, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i346
   %__cur.0.lcssa.i.i.i.i.i357 = phi ptr [ %cond.i10.i.i347, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i346 ], [ %incdec.ptr1.i.i.i.i.i354, %for.body.i.i.i.i.i350 ]
-  %incdec.ptr.i.i358 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i357, i64 12
+  %incdec.ptr.i.i358 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i357, i64 12
   %tobool.not.i.i.i359 = icmp eq ptr %64, null
   br i1 %tobool.not.i.i.i359, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i361, label %if.then.i20.i.i360
 

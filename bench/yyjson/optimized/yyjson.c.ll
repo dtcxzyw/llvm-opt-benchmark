@@ -36721,7 +36721,7 @@ land.lhs.true.i:                                  ; preds = %if.end45.i
   br i1 %tobool56.i.not, label %if.else.i, label %if.then57.i
 
 if.then57.i:                                      ; preds = %land.lhs.true.i
-  %incdec.ptr.i473 = getelementptr i8, ptr %call42.i, i64 1
+  %incdec.ptr.i473 = getelementptr inbounds i8, ptr %call42.i, i64 1
   store i8 34, ptr %call42.i, align 1
   %cmp.i4755318 = icmp ugt i64 %0, 4095
   br i1 %cmp.i4755318, label %while.body.i491, label %while.cond2.i477.preheader
@@ -39922,7 +39922,7 @@ land.lhs.true.i82:                                ; preds = %write_indent.exit
   br i1 %tobool143.i.not, label %if.else.i81, label %if.then144.i
 
 if.then144.i:                                     ; preds = %land.lhs.true.i82
-  %incdec.ptr.i445 = getelementptr i8, ptr %cur.addr.i9632.0.lcssa, i64 1
+  %incdec.ptr.i445 = getelementptr inbounds i8, ptr %cur.addr.i9632.0.lcssa, i64 1
   store i8 34, ptr %cur.addr.i9632.0.lcssa, align 1
   %cmp.i4475183 = icmp ugt i64 %299, 4095
   br i1 %cmp.i4475183, label %while.body.i463, label %while.cond2.i449.preheader
@@ -43601,7 +43601,7 @@ land.lhs.true.i196:                               ; preds = %if.end99.i
   br i1 %tobool110.i.not, label %if.else.i194, label %if.then111.i
 
 if.then111.i:                                     ; preds = %land.lhs.true.i196
-  %incdec.ptr.i435 = getelementptr i8, ptr %cur.i107.1, i64 1
+  %incdec.ptr.i435 = getelementptr inbounds i8, ptr %cur.i107.1, i64 1
   store i8 34, ptr %cur.i107.1, align 1
   %cmp.i4365260 = icmp ugt i64 %600, 4095
   br i1 %cmp.i4365260, label %while.body.i, label %while.cond2.i.preheader
@@ -47321,7 +47321,7 @@ land.lhs.true.i.i:                                ; preds = %if.end45.i.i
   br i1 %tobool56.i.i.not, label %if.else.i.i, label %if.then57.i.i
 
 if.then57.i.i:                                    ; preds = %land.lhs.true.i.i
-  %incdec.ptr.i39.i = getelementptr i8, ptr %call42.i.i, i64 1
+  %incdec.ptr.i39.i = getelementptr inbounds i8, ptr %call42.i.i, i64 1
   store i8 34, ptr %call42.i.i, align 1
   %cmp.i40.i5349 = icmp ugt i64 %0, 4095
   br i1 %cmp.i40.i5349, label %while.body.i.i, label %while.cond2.i.i.preheader
@@ -50532,7 +50532,7 @@ land.lhs.true.i:                                  ; preds = %write_indent.exit33
   br i1 %tobool149.i.not, label %if.else.i, label %if.then150.i
 
 if.then150.i:                                     ; preds = %land.lhs.true.i
-  %incdec.ptr.i.i1399 = getelementptr i8, ptr %cur.addr.i3343.i.0.lcssa, i64 1
+  %incdec.ptr.i.i1399 = getelementptr inbounds i8, ptr %cur.addr.i3343.i.0.lcssa, i64 1
   store i8 34, ptr %cur.addr.i3343.i.0.lcssa, align 1
   %cmp.i1158.i5214 = icmp ugt i64 %299, 4095
   br i1 %cmp.i1158.i5214, label %while.body.i.i1417, label %while.cond2.i.i1402.preheader
@@ -54248,7 +54248,7 @@ land.lhs.true.i2878:                              ; preds = %if.end105.i
   br i1 %tobool116.i.not, label %if.else.i2343, label %if.then117.i
 
 if.then117.i:                                     ; preds = %land.lhs.true.i2878
-  %incdec.ptr.i.i2879 = getelementptr i8, ptr %cur.i1711.1, i64 1
+  %incdec.ptr.i.i2879 = getelementptr inbounds i8, ptr %cur.i1711.1, i64 1
   store i8 34, ptr %cur.i1711.1, align 1
   %cmp.i854.i5291 = icmp ugt i64 %606, 4095
   br i1 %cmp.i854.i5291, label %while.body.i.i2897, label %while.cond2.i.i2882.preheader

@@ -5815,7 +5815,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_all
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i239.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_allocateEm.exit.i237.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %739, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_allocateEm.exit.i237.i ], [ %744, %.lr.ph.i.i.i.i239.i ]
-  %745 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %745 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %725, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backEOS1_.exit.i, label %746
 
@@ -6276,7 +6276,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_all
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i263.i: ; preds = %.lr.ph.i.i.i.i252.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_allocateEm.exit.i250.i
   %.0.lcssa.i.i.i.i257.i = phi ptr [ %941, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_allocateEm.exit.i250.i ], [ %946, %.lr.ph.i.i.i.i252.i ]
-  %947 = getelementptr i8, ptr %.0.lcssa.i.i.i.i257.i, i64 8
+  %947 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i257.i, i64 8
   %.not.i23.i265.i = icmp eq ptr %927, null
   br i1 %.not.i23.i265.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backEOS1_.exit95.i, label %948
 
@@ -6943,7 +6943,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_all
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i286.i: ; preds = %.lr.ph.i.i.i.i275.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_allocateEm.exit.i273.i
   %.0.lcssa.i.i.i.i280.i = phi ptr [ %1202, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_allocateEm.exit.i273.i ], [ %1207, %.lr.ph.i.i.i.i275.i ]
-  %1208 = getelementptr i8, ptr %.0.lcssa.i.i.i.i280.i, i64 8
+  %1208 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i280.i, i64 8
   %.not.i23.i288.i = icmp eq ptr %1188, null
   br i1 %.not.i23.i288.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backEOS1_.exit135.i, label %1209
 
@@ -7400,7 +7400,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_all
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i309.i: ; preds = %.lr.ph.i.i.i.i298.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_allocateEm.exit.i296.i
   %.0.lcssa.i.i.i.i303.i = phi ptr [ %1406, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_allocateEm.exit.i296.i ], [ %1411, %.lr.ph.i.i.i.i298.i ]
-  %1412 = getelementptr i8, ptr %.0.lcssa.i.i.i.i303.i, i64 8
+  %1412 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i303.i, i64 8
   %.not.i23.i311.i = icmp eq ptr %1392, null
   br i1 %.not.i23.i311.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backEOS1_.exit171.i, label %1413
 
@@ -9266,7 +9266,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constr
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %35, %.lr.ph.i.i.i ]
-  %36 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i17
 

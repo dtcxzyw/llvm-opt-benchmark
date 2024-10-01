@@ -11449,7 +11449,7 @@ _ZNSt12_Vector_baseIN4llvm12scc_iteratorIPKNS0_8FunctionENS0_11GraphTraitsIS4_EE
 
 _ZNSt6vectorIN4llvm12scc_iteratorIPKNS0_8FunctionENS0_11GraphTraitsIS4_EEE12StackElementESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm12scc_iteratorIPKNS0_8FunctionENS0_11GraphTraitsIS4_EEE12StackElementESaIS8_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %106, %_ZNSt12_Vector_baseIN4llvm12scc_iteratorIPKNS0_8FunctionENS0_11GraphTraitsIS4_EEE12StackElementESaIS8_EE11_M_allocateEm.exit.i.i.i ], [ %109, %.lr.ph.i.i.i.i.i.i ]
-  %110 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
+  %110 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
   %.not.i23.i.i.i = icmp eq ptr %92, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm12scc_iteratorIPKNS0_8FunctionENS0_11GraphTraitsIS4_EEE12StackElementESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, label %111
 
@@ -13867,8 +13867,8 @@ _ZSt4copyIPKSt5tupleIJPKN4llvm10BasicBlockENS1_12SuccIteratorIKNS1_11Instruction
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKSt5tupleIJPKN4llvm10BasicBlockENS1_12SuccIteratorIKNS1_11InstructionES3_EES8_EEPS9_ET0_T_SE_SD_.exit36
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr %"class.std::tuple.360", ptr %62, i64 %.022
-  %64 = getelementptr %"class.std::tuple.360", ptr %59, i64 %.022
+  %63 = getelementptr inbounds %"class.std::tuple.360", ptr %62, i64 %.022
+  %64 = getelementptr inbounds %"class.std::tuple.360", ptr %59, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i

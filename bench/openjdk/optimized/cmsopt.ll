@@ -1155,7 +1155,7 @@ define internal fastcc ptr @PrelinOpt16alloc(ptr noundef %0, ptr noundef %1, i32
 
 .lr.ph:                                           ; preds = %9
   %12 = icmp eq ptr %3, null
-  %13 = getelementptr i8, ptr %7, i64 136
+  %13 = getelementptr inbounds i8, ptr %7, i64 136
   %14 = getelementptr inbounds i8, ptr %7, i64 16
   %wide.trip.count71 = zext i32 %2 to i64
   br i1 %12, label %.lr.ph.split.us, label %.lr.ph.split

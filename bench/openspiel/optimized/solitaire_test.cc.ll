@@ -346,7 +346,7 @@ _ZNSt12_Vector_baseIN10open_spiel9solitaire4MoveESaIS2_EE11_M_allocateEm.exit.i.
 
 _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i.i: ; preds = %.lr.ph.i.i.i.i.i, %83
   %.0.lcssa.i.i.i.i.i = phi ptr [ %81, %83 ], [ %85, %.lr.ph.i.i.i.i.i ]
-  %86 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 40
+  %86 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 40
   %.not.i34.i.i = icmp eq ptr %67, null
   br i1 %.not.i34.i.i, label %.noexc62.i, label %87
 
@@ -650,7 +650,7 @@ _ZNSt12_Vector_baseIN10open_spiel9solitaire4MoveESaIS2_EE11_M_allocateEm.exit.i1
 
 _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i128.i: ; preds = %.lr.ph.i.i.i.i117.i, %171
   %.0.lcssa.i.i.i.i122.i = phi ptr [ %169, %171 ], [ %173, %.lr.ph.i.i.i.i117.i ]
-  %174 = getelementptr i8, ptr %.0.lcssa.i.i.i.i122.i, i64 40
+  %174 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i122.i, i64 40
   %.not.i34.i130.i = icmp eq ptr %155, null
   br i1 %.not.i34.i130.i, label %.noexc83.i, label %175
 
@@ -1457,7 +1457,7 @@ _ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8Ra
 
 _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8RankTypeERKNS1_8SuitTypeES6_S9_EEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %26, %_ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8RankTypeERKNS1_8SuitTypeES6_S9_EEEvRS3_PT_DpOT0_.exit ], [ %33, %.lr.ph.i.i.i ]
-  %34 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 40
+  %34 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 40
   %.not10.i.i.i29 = icmp eq ptr %1, %8
   br i1 %.not10.i.i.i29, label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i30
 
@@ -1587,7 +1587,7 @@ _ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8Ra
 
 _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8RankTypeENS1_8SuitTypeES6_RKS7_EEEvRS3_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %26, %_ZNSt16allocator_traitsISaIN10open_spiel9solitaire4MoveEEE9constructIS2_JNS1_8RankTypeENS1_8SuitTypeES6_RKS7_EEEvRS3_PT_DpOT0_.exit ], [ %33, %.lr.ph.i.i.i ]
-  %34 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 40
+  %34 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 40
   %.not10.i.i.i29 = icmp eq ptr %1, %8
   br i1 %.not10.i.i.i29, label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, label %.lr.ph.i.i.i30
 

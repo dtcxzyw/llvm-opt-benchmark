@@ -2372,7 +2372,7 @@ _ZN2cv29Bayer2RGB_EdgeAware_T_InvokerIhNS_26SIMDBayerStubInterpolator_IhEEEC2ERK
   %1218 = add nsw i32 %1202, -1
   %1219 = sext i32 %1218 to i64
   %1220 = mul i64 %1215, %1219
-  %1221 = getelementptr i8, ptr %1217, i64 %1220
+  %1221 = getelementptr inbounds i8, ptr %1217, i64 %1220
   %1222 = icmp sgt i32 %1202, 2
   %1223 = icmp sgt i32 %1207, 0
   br i1 %1222, label %.preheader.i211, label %.preheader55.i204
@@ -2543,7 +2543,7 @@ _ZN2cv29Bayer2RGB_EdgeAware_T_InvokerItNS_26SIMDBayerStubInterpolator_ItEEEC2ERK
   %1296 = add nsw i32 %1280, -1
   %1297 = sext i32 %1296 to i64
   %1298 = mul i64 %1293, %1297
-  %1299 = getelementptr i16, ptr %1295, i64 %1298
+  %1299 = getelementptr inbounds i16, ptr %1295, i64 %1298
   %1300 = icmp sgt i32 %1280, 2
   %1301 = icmp sgt i32 %1285, 0
   br i1 %1300, label %.preheader.i235, label %.preheader55.i228

@@ -15076,7 +15076,7 @@ _ZNSt17_Temporary_bufferIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicB
   br label %_ZNSt17_Temporary_bufferIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES5_EC2ES6_l.exit.thread23.sink.split.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %1289
-  %.01518.i.i.i.i.i.i.i = getelementptr i8, ptr %1288, i64 16
+  %.01518.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1288, i64 16
   br label %.lr.ph.i.i.i.i.i.i162.i
 
 .lr.ph.i.i.i.i.i.i162.i:                          ; preds = %.lr.ph.i.i.i.i.i.i162.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -18589,7 +18589,7 @@ _ZSt4moveIPPN4llvm17MachineBasicBlockES3_ET0_T_S5_S4_.exit: ; preds = %29, %32
   br i1 %36, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %35
-  %37 = getelementptr ptr, ptr %.053, i64 %.074
+  %37 = getelementptr inbounds ptr, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
@@ -21406,7 +21406,7 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
   br i1 %.not19.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_121MachineBlockPlacement12WeightedEdgeES2_EC2ES3_l.exit.thread24.i.i, label %.lr.ph.i.i.preheader.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %12
-  %.01518.i.i.i.i.i = getelementptr i8, ptr %8, i64 24
+  %.01518.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 24
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i

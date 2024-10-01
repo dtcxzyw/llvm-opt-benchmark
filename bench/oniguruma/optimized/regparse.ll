@@ -11864,7 +11864,7 @@ CC_ESC_WARN.exit304:                              ; preds = %319, %322, %327
   %358 = load i32, ptr %357, align 8
   %359 = and i32 %358, 1
   %360 = icmp ne i32 %359, 0
-  %361 = getelementptr i8, ptr %.0225.ph, i64 20
+  %361 = getelementptr inbounds i8, ptr %.0225.ph, i64 20
   %362 = getelementptr inbounds i8, ptr %.0225.ph, i64 56
   %363 = load ptr, ptr %362, align 8
   %364 = getelementptr inbounds i8, ptr %351, i64 16
@@ -16704,7 +16704,7 @@ define internal fastcc range(i32 -205, 1) i32 @and_cclass(ptr noundef nonnull %0
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 1
   %11 = icmp ne i32 %10, 0
-  %12 = getelementptr i8, ptr %0, i64 20
+  %12 = getelementptr inbounds i8, ptr %0, i64 20
   %13 = getelementptr inbounds i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 16

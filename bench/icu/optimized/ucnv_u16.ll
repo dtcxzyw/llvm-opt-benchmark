@@ -1124,7 +1124,7 @@ if.then21:                                        ; preds = %if.then18
   br i1 %cmp31, label %if.end49, label %if.then51
 
 if.else37:                                        ; preds = %if.then18
-  %toUBytes39 = getelementptr i8, ptr %0, i64 65
+  %toUBytes39 = getelementptr inbounds i8, ptr %0, i64 65
   %sub.ptr.sub = sub i64 %5, %3
   %conv41 = trunc i64 %sub.ptr.sub to i8
   %toULength43 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2493,7 +2493,7 @@ if.then21:                                        ; preds = %if.then18
   br i1 %cmp31, label %if.end49, label %if.then51
 
 if.else37:                                        ; preds = %if.then18
-  %toUBytes39 = getelementptr i8, ptr %0, i64 65
+  %toUBytes39 = getelementptr inbounds i8, ptr %0, i64 65
   %sub.ptr.sub = sub i64 %5, %3
   %conv41 = trunc i64 %sub.ptr.sub to i8
   %toULength43 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2695,7 +2695,7 @@ if.then21.i:                                      ; preds = %if.then18.i
   br i1 %cmp31.i, label %if.end49.i, label %if.then51.i
 
 if.else37.i:                                      ; preds = %if.then18.i
-  %toUBytes39.i = getelementptr i8, ptr %0, i64 65
+  %toUBytes39.i = getelementptr inbounds i8, ptr %0, i64 65
   %sub.ptr.sub.i = sub i64 %5, %3
   %conv41.i = trunc i64 %sub.ptr.sub.i to i8
   %toULength43.i = getelementptr inbounds i8, ptr %0, i64 64
@@ -2807,7 +2807,7 @@ if.then21.i35:                                    ; preds = %if.then18.i32
   br i1 %cmp31.i36, label %if.end49.i37, label %if.then51.i28
 
 if.else37.i43:                                    ; preds = %if.then18.i32
-  %toUBytes39.i44 = getelementptr i8, ptr %0, i64 65
+  %toUBytes39.i44 = getelementptr inbounds i8, ptr %0, i64 65
   %sub.ptr.sub.i45 = sub i64 %21, %19
   %conv41.i46 = trunc i64 %sub.ptr.sub.i45 to i8
   %toULength43.i47 = getelementptr inbounds i8, ptr %0, i64 64

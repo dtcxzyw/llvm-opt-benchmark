@@ -5712,7 +5712,7 @@ for.body.i.i.i.i743:                              ; preds = %invoke.cont.i738, %
 
 _ZNSt6vectorISt4pairIddESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i759: ; preds = %for.body.i.i.i.i743, %invoke.cont.i738
   %__cur.0.lcssa.i.i.i.i750 = phi ptr [ %cond.i17.i739, %invoke.cont.i738 ], [ %incdec.ptr1.i.i.i.i747, %for.body.i.i.i.i743 ]
-  %incdec.ptr.i751 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i750, i64 16
+  %incdec.ptr.i751 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i750, i64 16
   %tobool.not.i.i762 = icmp eq ptr %w.sroa.0.01338, null
   br i1 %tobool.not.i.i762, label %.noexc475, label %if.then.i27.i763
 

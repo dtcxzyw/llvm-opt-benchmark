@@ -1652,7 +1652,7 @@ define dso_local void @_ZN4Luau7CodeGen24executeGETVARARGSMultRetEP9lua_StatePKj
   %34 = getelementptr inbounds i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = sext i32 %3 to i64
-  %37 = getelementptr %struct.lua_TValue, ptr %35, i64 %36
+  %37 = getelementptr inbounds %struct.lua_TValue, ptr %35, i64 %36
   %38 = icmp sgt i32 %21, 0
   br i1 %38, label %.lr.ph, label %._crit_edge
 
@@ -1699,7 +1699,7 @@ define dso_local void @_ZN4Luau7CodeGen22executeGETVARARGSConstEP9lua_StateP10lu
   %21 = add i32 %20, %14
   %.fr = freeze i32 %21
   %22 = sext i32 %2 to i64
-  %23 = getelementptr %struct.lua_TValue, ptr %1, i64 %22
+  %23 = getelementptr inbounds %struct.lua_TValue, ptr %1, i64 %22
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %3, i32 %.fr)
   %24 = icmp sgt i32 %invariant.smin, 0
   br i1 %24, label %.lr.ph, label %.preheader

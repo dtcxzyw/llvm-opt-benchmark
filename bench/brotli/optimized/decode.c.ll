@@ -9597,7 +9597,7 @@ for.cond.preheader.i:                             ; preds = %do.body.i
   br i1 %cmp426.not.i, label %InverseMoveToFrontTransform.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %arrayidx10.i = getelementptr inbounds i8, ptr %s, i64 451
+  %arrayidx10.i = getelementptr i8, ptr %s, i64 451
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i

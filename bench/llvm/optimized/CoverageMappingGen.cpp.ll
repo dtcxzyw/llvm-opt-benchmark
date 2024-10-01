@@ -832,7 +832,7 @@ _ZNSt12_Vector_baseIN5clang12SkippedRangeESaIS1_EE11_M_allocateEm.exit.i.i.i: ; 
 
 _ZNSt6vectorIN5clang12SkippedRangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN5clang12SkippedRangeESaIS1_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %51, %_ZNSt12_Vector_baseIN5clang12SkippedRangeESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %54, %.lr.ph.i.i.i.i.i.i ]
-  %55 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 20
+  %55 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 20
   %.not.i23.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN5clang12SkippedRangeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %56
 
@@ -4102,7 +4102,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %197, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %206, %.lr.ph.i.i.i.i.i.i ]
-  %207 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 52
+  %207 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 52
   %.not.i32.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i32.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %208
 
@@ -9003,7 +9003,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %873, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %876, %.lr.ph.i.i.i.i.i ]
-  %877 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 52
+  %877 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 52
   %.not.i27.i.i = icmp eq ptr %.val.i.i173, null
   br i1 %.not.i27.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %878
 
@@ -15144,7 +15144,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %163, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %172, %.lr.ph.i.i.i.i.i ]
-  %173 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 52
+  %173 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 52
   %.not.i39.i.i = icmp eq ptr %.val27.i.i, null
   br i1 %.not.i39.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterES9_RKSt7variantIJSt9monostateNS6_4mcdc18DecisionParametersENSC_16BranchParametersEEERN5clang14SourceLocationESJ_bEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %174
 
@@ -15245,7 +15245,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i: ; preds = %.lr.ph.i.i.i.i.i87, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i82
   %.0.lcssa.i.i.i.i.i91 = phi ptr [ %201, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i82 ], [ %210, %.lr.ph.i.i.i.i.i87 ]
-  %211 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i91, i64 52
+  %211 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i91, i64 52
   %.not.i32.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i32.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESB_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %212
 
@@ -15405,7 +15405,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i.i109: ; preds = %.lr.ph.i.i.i.i.i105, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i98
   %.0.lcssa.i.i.i.i.i110 = phi ptr [ %260, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i.i98 ], [ %269, %.lr.ph.i.i.i.i.i105 ]
-  %270 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i110, i64 52
+  %270 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i110, i64 52
   %.not.i32.i.i111 = icmp eq ptr %.val.i.i97, null
   br i1 %.not.i32.i.i111, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRN4llvm8coverage7CounterERN5clang14SourceLocationESA_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %271
 
@@ -20174,7 +20174,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %28, %_ZNKSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12_M_check_lenEmPKc.exit.i ], [ %37, %.lr.ph.i.i.i.i ]
-  %38 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 52
+  %38 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 52
   %.not.i32.i = icmp eq ptr %.val.i, null
   br i1 %.not.i32.i, label %_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE17_M_realloc_insertIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %39
 
@@ -22046,7 +22046,7 @@ _ZNSt17_Temporary_bufferIPSt4pairIN5clang14SourceLocationEjES3_EC2ES4_l.exit.thr
   br label %_ZNSt17_Temporary_bufferIPSt4pairIN5clang14SourceLocationEjES3_EC2ES4_l.exit.thread23.sink.split
 
 .lr.ph.i.i.preheader.i:                           ; preds = %12
-  %.01518.i.i.i = getelementptr i8, ptr %11, i64 8
+  %.01518.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %load_initial = load i64, ptr %11, align 4
   br label %.lr.ph.i.i.i
 

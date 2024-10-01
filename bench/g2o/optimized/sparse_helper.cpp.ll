@@ -371,7 +371,7 @@ _ZNSt12_Vector_baseIN3g2o12TripletEntryESaIS1_EE11_M_allocateEm.exit.i.i42: ; pr
 
 _ZNSt6vectorIN3g2o12TripletEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i48: ; preds = %.lr.ph.i.i.i.i.i44, %_ZNSt12_Vector_baseIN3g2o12TripletEntryESaIS1_EE11_M_allocateEm.exit.i.i42
   %.0.lcssa.i.i.i.i.i49 = phi ptr [ %85, %_ZNSt12_Vector_baseIN3g2o12TripletEntryESaIS1_EE11_M_allocateEm.exit.i.i42 ], [ %88, %.lr.ph.i.i.i.i.i44 ]
-  %89 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i49, i64 16
+  %89 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i49, i64 16
   %.not.i23.i.i50 = icmp eq ptr %62, null
   br i1 %.not.i23.i.i50, label %_ZNSt6vectorIN3g2o12TripletEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i51, label %90
 
@@ -826,7 +826,7 @@ _ZNSt12_Vector_baseIN3g2o12TripletEntryESaIS1_EE11_M_allocateEm.exit.i.i35: ; pr
 
 _ZNSt6vectorIN3g2o12TripletEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i41: ; preds = %.lr.ph.i.i.i.i.i37, %_ZNSt12_Vector_baseIN3g2o12TripletEntryESaIS1_EE11_M_allocateEm.exit.i.i35
   %.0.lcssa.i.i.i.i.i42 = phi ptr [ %72, %_ZNSt12_Vector_baseIN3g2o12TripletEntryESaIS1_EE11_M_allocateEm.exit.i.i35 ], [ %75, %.lr.ph.i.i.i.i.i37 ]
-  %76 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i42, i64 16
+  %76 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i42, i64 16
   %.not.i23.i.i43 = icmp eq ptr %49, null
   br i1 %.not.i23.i.i43, label %_ZNSt6vectorIN3g2o12TripletEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i44, label %77
 
@@ -893,11 +893,11 @@ _ZNSt6vectorIN3g2o12TripletEntryESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit47:
   %98 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %97, i1 true)
   %99 = shl nuw nsw i64 %98, 1
   %100 = xor i64 %99, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3g2o12TripletEntryESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterINS2_14TripletColSortEEEEvT_SD_T0_T1_(ptr %90, ptr %89, i64 noundef %100)
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3g2o12TripletEntryESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterINS2_14TripletColSortEEEEvT_SD_T0_T1_(ptr %90, ptr nonnull %89, i64 noundef %100)
           to label %.noexc49 unwind label %.loopexit.split-lp
 
 .noexc49:                                         ; preds = %93
-  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3g2o12TripletEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_14TripletColSortEEEEvT_SD_T0_(ptr %90, ptr %89)
+  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3g2o12TripletEntryESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_14TripletColSortEEEEvT_SD_T0_(ptr %90, ptr nonnull %89)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3g2o12TripletEntryESt6vectorIS3_SaIS3_EEEENS2_14TripletColSortEEvT_SA_T0_.exit unwind label %.loopexit.split-lp
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3g2o12TripletEntryESt6vectorIS3_SaIS3_EEEENS2_14TripletColSortEEvT_SA_T0_.exit: ; preds = %13, %92, %.noexc49

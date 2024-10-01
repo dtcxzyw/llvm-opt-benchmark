@@ -19312,7 +19312,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i.i
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit28.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %cond.i17.i.i.i.i, %invoke.cont.i.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %113, null
   br i1 %tobool.not.i.i.i.i.i, label %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRZL29llama_convert_tensor_internalP11ggml_tensorRS_I7no_initIfESaIS7_EERS2_miE3$_0R9ggml_typePhPfRmEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i", label %if.then.i29.i.i.i.i
 
@@ -19683,7 +19683,7 @@ for.body.i.i.i.i.i.i269.i:                        ; preds = %invoke.cont.i.i267.
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit28.i.i.i: ; preds = %for.body.i.i.i.i.i.i269.i, %invoke.cont.i.i267.i
   %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %cond.i17.i.i.i, %invoke.cont.i.i267.i ], [ %incdec.ptr1.i.i.i.i.i.i273.i, %for.body.i.i.i.i.i.i269.i ]
-  %incdec.ptr.i.i274.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i274.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i275.i = icmp eq ptr %146, null
   br i1 %tobool.not.i.i.i275.i, label %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJRZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_PK27llama_model_quantize_paramsE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i", label %if.then.i29.i.i.i
 

@@ -6511,7 +6511,7 @@ _ZNSt12_Vector_baseIN5clang14SourceLocationESaIS1_EE11_M_allocateEm.exit.i: ; pr
 
 _ZNSt6vectorIN5clang14SourceLocationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN5clang14SourceLocationESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %39, %_ZNSt12_Vector_baseIN5clang14SourceLocationESaIS1_EE11_M_allocateEm.exit.i ], [ %43, %.lr.ph.i.i.i.i ]
-  %44 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 4
+  %44 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 4
   %.not.i23.i = icmp eq ptr %25, null
   br i1 %.not.i23.i, label %_ZNSt6vectorIN5clang14SourceLocationESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %45
 

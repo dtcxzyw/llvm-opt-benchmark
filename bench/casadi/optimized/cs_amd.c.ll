@@ -175,22 +175,22 @@ define ptr @cs_amd(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %92 = getelementptr inbounds i32, ptr %79, i64 %91
   %93 = shl nsw i32 %76, 1
   %94 = sext i32 %93 to i64
-  %95 = getelementptr i32, ptr %79, i64 %94
+  %95 = getelementptr inbounds i32, ptr %79, i64 %94
   %96 = mul i32 %76, 3
   %97 = sext i32 %96 to i64
   %98 = getelementptr i32, ptr %79, i64 %97
   %99 = shl nsw i32 %76, 2
   %100 = sext i32 %99 to i64
-  %101 = getelementptr i32, ptr %79, i64 %100
+  %101 = getelementptr inbounds i32, ptr %79, i64 %100
   %102 = mul nsw i32 %76, 5
   %103 = sext i32 %102 to i64
-  %104 = getelementptr i32, ptr %79, i64 %103
+  %104 = getelementptr inbounds i32, ptr %79, i64 %103
   %105 = mul nsw i32 %76, 6
   %106 = sext i32 %105 to i64
   %107 = getelementptr inbounds i32, ptr %79, i64 %106
   %108 = mul nsw i32 %76, 7
   %109 = sext i32 %108 to i64
-  %110 = getelementptr i32, ptr %79, i64 %109
+  %110 = getelementptr inbounds i32, ptr %79, i64 %109
   %111 = icmp sgt i32 %15, 0
   br i1 %111, label %.lr.ph864.preheader, label %._crit_edge865
 

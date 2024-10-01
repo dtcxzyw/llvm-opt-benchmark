@@ -493,7 +493,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allo
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %138, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i ], [ %141, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %142 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 16
+  %142 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i.i = icmp eq ptr %112, null
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i, label %143
 
@@ -715,7 +715,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allo
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i62: ; preds = %.lr.ph.i.i.i.i.i.i.i.i58, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i56
   %.0.lcssa.i.i.i.i.i.i.i.i63 = phi ptr [ %240, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i56 ], [ %243, %.lr.ph.i.i.i.i.i.i.i.i58 ]
-  %244 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i63, i64 16
+  %244 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i63, i64 16
   %.not.i23.i.i.i.i64 = icmp eq ptr %214, null
   br i1 %.not.i23.i.i.i.i64, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i65, label %245
 

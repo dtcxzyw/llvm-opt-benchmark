@@ -3016,7 +3016,7 @@ stbi__zreceive.exit82.i.i:                        ; preds = %stbi__zget8.exit.i.
 530:                                              ; preds = %526, %499
   %.3.i.i = phi ptr [ %528, %526 ], [ %.057.i.i, %499 ]
   %531 = sub nsw i64 0, %496
-  %532 = getelementptr i8, ptr %.3.i.i, i64 %531
+  %532 = getelementptr inbounds i8, ptr %.3.i.i, i64 %531
   %533 = icmp eq i32 %.054.i.i, 1
   %.not70.i.i = icmp eq i32 %.055.i.i, 0
   br i1 %533, label %534, label %539
@@ -29578,8 +29578,8 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
 ._crit_edge792:                                   ; preds = %.lr.ph791, %.preheader698
   %213 = getelementptr inbounds i8, ptr %.2544795, i64 %209
   store i8 -1, ptr %213, align 1
-  %214 = getelementptr i8, ptr %.3525796, i64 %209
-  %215 = getelementptr i8, ptr %.2544795, i64 %56
+  %214 = getelementptr inbounds i8, ptr %.3525796, i64 %209
+  %215 = getelementptr inbounds i8, ptr %.2544795, i64 %56
   %.0556 = add i32 %.0556797, -1
   %.not617 = icmp eq i32 %.0556, 0
   br i1 %.not617, label %.loopexit719, label %.preheader698

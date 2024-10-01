@@ -15112,7 +15112,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.ex
 39:                                               ; preds = %.lr.ph
   %.neg = xor i64 %.sroa.02.011, -1
   %.neg16 = mul i64 %2, %.neg
-  %40 = getelementptr i8, ptr %36, i64 %.neg16
+  %40 = getelementptr inbounds i8, ptr %36, i64 %.neg16
   br label %_ZN4core3ptr19swap_nonoverlapping17hf5a3baf2d7ee5903E.exit
 
 _ZN4core3ptr19swap_nonoverlapping17hf5a3baf2d7ee5903E.exit: ; preds = %.preheader, %39
@@ -15177,7 +15177,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17h936d2cdcb480a581E.llvm.4513
 70:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17h936d2cdcb480a581E.llvm.4513845701186752324.exit
   %.neg17 = xor i64 %.0.i.i, -1
   %.neg18 = mul i64 %2, %.neg17
-  %71 = getelementptr i8, ptr %44, i64 %.neg18
+  %71 = getelementptr inbounds i8, ptr %44, i64 %.neg18
   %72 = getelementptr inbounds i8, ptr %44, i64 %.0.i.i
   %73 = load i8, ptr %72, align 1, !noundef !4
   %74 = lshr i64 %41, 57
@@ -42918,7 +42918,7 @@ _ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17h3fecbacdbec0d5
 37:                                               ; preds = %.lr.ph
   %38 = shl i64 %.sroa.02.011, 3
   %39 = sub nuw nsw i64 -8, %38
-  %40 = getelementptr i8, ptr %34, i64 %39
+  %40 = getelementptr inbounds i8, ptr %34, i64 %39
   br label %_ZN4core3ptr19swap_nonoverlapping17hf5a3baf2d7ee5903E.exit
 
 _ZN4core3ptr19swap_nonoverlapping17hf5a3baf2d7ee5903E.exit: ; preds = %.preheader, %37
@@ -42983,7 +42983,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hea573721a387a555E.llv
 70:                                               ; preds = %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17hea573721a387a555E.llvm.4513845701186752324.exit
   %71 = shl i64 %.0.i.i, 3
   %72 = sub nuw nsw i64 -8, %71
-  %73 = getelementptr i8, ptr %44, i64 %72
+  %73 = getelementptr inbounds i8, ptr %44, i64 %72
   %74 = getelementptr inbounds i8, ptr %44, i64 %.0.i.i
   %75 = load i8, ptr %74, align 1, !noundef !4
   %76 = lshr i64 %41, 57

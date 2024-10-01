@@ -1816,7 +1816,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_del
 
 _ZNSt6vectorISt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %70, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %75, %.lr.ph.i.i.i.i ]
-  %76 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %76 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %56, null
   br i1 %.not.i23.i, label %.noexc, label %77
 
@@ -1954,7 +1954,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_del
 
 _ZNSt6vectorISt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i82: ; preds = %.lr.ph.i.i.i.i71, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i69
   %.0.lcssa.i.i.i.i76 = phi ptr [ %115, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx22ComputeDebyeScatteringESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i69 ], [ %120, %.lr.ph.i.i.i.i71 ]
-  %121 = getelementptr i8, ptr %.0.lcssa.i.i.i.i76, i64 8
+  %121 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i76, i64 8
   %.not.i23.i84 = icmp eq ptr %101, null
   br i1 %.not.i23.i84, label %.noexc32, label %122
 

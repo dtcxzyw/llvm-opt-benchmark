@@ -14268,7 +14268,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI35cmGeneratorExpressionEvaluationFileSt14defa
 
 _ZNSt6vectorISt10unique_ptrI35cmGeneratorExpressionEvaluationFileSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrI35cmGeneratorExpressionEvaluationFileSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %39, %_ZNSt12_Vector_baseISt10unique_ptrI35cmGeneratorExpressionEvaluationFileSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i ], [ %44, %.lr.ph.i.i.i.i ]
-  %45 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %45 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %25, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrI35cmGeneratorExpressionEvaluationFileSt14default_deleteIS1_EESaIS4_EE9push_backEOS4_.exit, label %46
 
@@ -25654,7 +25654,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI18cmInstallGeneratorSt14default_deleteIS1_EES
 
 _ZNSt6vectorISt10unique_ptrI18cmInstallGeneratorSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrI18cmInstallGeneratorSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %186, %_ZNSt12_Vector_baseISt10unique_ptrI18cmInstallGeneratorSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i ], [ %190, %.lr.ph.i.i.i.i ]
-  %191 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %191 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %172, null
   br i1 %.not.i23.i, label %.noexc62, label %192
 
@@ -31812,7 +31812,7 @@ _ZNSt12_Vector_baseI8t_lookupSaIS0_EE11_M_allocateEm.exit.i.i: ; preds = %183, %
 
 _ZNSt6vectorI8t_lookupSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseI8t_lookupSaIS0_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %186, %_ZNSt12_Vector_baseI8t_lookupSaIS0_EE11_M_allocateEm.exit.i.i ], [ %189, %.lr.ph.i.i.i.i.i ]
-  %190 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %190 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %.sroa.0236.1, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorI8t_lookupSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %191
 
@@ -35614,7 +35614,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI12cmSourceFileSt14default_deleteIS1_EESaIS4_E
 
 _ZNSt6vectorISt10unique_ptrI12cmSourceFileSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrI12cmSourceFileSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %82, %_ZNSt12_Vector_baseISt10unique_ptrI12cmSourceFileSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i ], [ %86, %.lr.ph.i.i.i.i ]
-  %87 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %87 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %69, null
   br i1 %.not.i23.i, label %.noexc9, label %88
 
@@ -40599,7 +40599,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI8cmTargetSt14default_deleteIS1_EESaIS4_EE11_M
 
 _ZNSt6vectorISt10unique_ptrI8cmTargetSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrI8cmTargetSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %42, %_ZNSt12_Vector_baseISt10unique_ptrI8cmTargetSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i ], [ %46, %.lr.ph.i.i.i.i ]
-  %47 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %47 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %28, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrI8cmTargetSt14default_deleteIS1_EESaIS4_EE9push_backEOS4_.exit, label %48
 
@@ -47003,7 +47003,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI26cmExportBuildFileGeneratorSt14default_delet
 
 _ZNSt6vectorISt10unique_ptrI26cmExportBuildFileGeneratorSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrI26cmExportBuildFileGeneratorSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrI26cmExportBuildFileGeneratorSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrI26cmExportBuildFileGeneratorSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i17
 
@@ -49516,7 +49516,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI18cmInstallGeneratorSt14default_deleteIS1_EES
 
 _ZNSt6vectorISt10unique_ptrI18cmInstallGeneratorSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrI18cmInstallGeneratorSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrI18cmInstallGeneratorSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrI18cmInstallGeneratorSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i17
 
@@ -49608,7 +49608,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI15cmTestGeneratorSt14default_deleteIS1_EESaIS
 
 _ZNSt6vectorISt10unique_ptrI15cmTestGeneratorSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrI15cmTestGeneratorSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrI15cmTestGeneratorSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrI15cmTestGeneratorSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i17
 
@@ -53611,7 +53611,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI17cmFunctionBlockerSt14default_deleteIS1_EESa
 
 _ZNSt6vectorISt10unique_ptrI17cmFunctionBlockerSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrI17cmFunctionBlockerSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrI17cmFunctionBlockerSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrI17cmFunctionBlockerSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i17
 

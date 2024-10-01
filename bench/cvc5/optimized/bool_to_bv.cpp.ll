@@ -1542,7 +1542,7 @@ for.inc.i.i.i.i.i.i.i329:                         ; preds = %invoke.cont.i.i325,
 
 invoke.cont14.i.i335:                             ; preds = %for.inc.i.i.i.i.i.i.i329, %invoke.cont.i.i325
   %__cur.0.lcssa.i.i.i.i.i.i.i336 = phi ptr [ %cond.i19.i.i326, %invoke.cont.i.i325 ], [ %incdec.ptr1.i.i.i.i.i.i.i333, %for.inc.i.i.i.i.i.i.i329 ]
-  %incdec.ptr.i.i337 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i336, i64 8
+  %incdec.ptr.i.i337 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i336, i64 8
   %tobool.not.i.i.i338 = icmp eq ptr %visit.sroa.0.0552, null
   br i1 %tobool.not.i.i.i338, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i340, label %if.then.i29.i.i339
 
@@ -3355,7 +3355,7 @@ for.inc.i.i.i.i.i.i.i187:                         ; preds = %invoke.cont.i.i183,
 
 invoke.cont14.i.i193:                             ; preds = %for.inc.i.i.i.i.i.i.i187, %invoke.cont.i.i183
   %__cur.0.lcssa.i.i.i.i.i.i.i194 = phi ptr [ %cond.i19.i.i184, %invoke.cont.i.i183 ], [ %incdec.ptr1.i.i.i.i.i.i.i191, %for.inc.i.i.i.i.i.i.i187 ]
-  %incdec.ptr.i.i195 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i194, i64 8
+  %incdec.ptr.i.i195 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i194, i64 8
   %tobool.not.i.i.i196 = icmp eq ptr %to_visit.sroa.0.0296, null
   br i1 %tobool.not.i.i.i196, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i198, label %if.then.i29.i.i197
 

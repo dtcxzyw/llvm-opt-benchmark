@@ -9039,7 +9039,7 @@ for.body.i.i.i.i27:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i: ; preds = %for.body.i.i.i.i27, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i24
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i24 ], [ %incdec.ptr1.i.i.i.i31, %for.body.i.i.i.i27 ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i34 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i34, label %invoke.cont10, label %if.then.i20.i
 

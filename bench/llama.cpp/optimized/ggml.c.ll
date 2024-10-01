@@ -41730,9 +41730,9 @@ for.body71.us.us.us.i:                            ; preds = %ggml_vec_scale_f32.
   %i01.0133.us.us.us.i = phi i64 [ %conv.i, %for.body67.us.us.us.i ], [ %add119.us.us.us.i, %ggml_vec_scale_f32.exit125.us.us.us.i ]
   %33 = load ptr, ptr %data.i, align 8
   %mul.us.us.us.i = mul i64 %i01.0133.us.us.us.i, %19
-  %add.ptr.us.us.us.i = getelementptr i8, ptr %33, i64 %mul.us.us.us.i
-  %add.ptr73.us.us.us.i = getelementptr i8, ptr %add.ptr.us.us.us.i, i64 %mul72.us.us.us.i
-  %add.ptr75.us.us.us.i = getelementptr i8, ptr %add.ptr73.us.us.us.i, i64 %mul74.us.us.i
+  %add.ptr.us.us.us.i = getelementptr inbounds i8, ptr %33, i64 %mul.us.us.us.i
+  %add.ptr73.us.us.us.i = getelementptr inbounds i8, ptr %add.ptr.us.us.us.i, i64 %mul72.us.us.us.i
+  %add.ptr75.us.us.us.i = getelementptr inbounds i8, ptr %add.ptr73.us.us.us.i, i64 %mul74.us.us.i
   %34 = load ptr, ptr %data76.i, align 8
   %mul77.us.us.us.i = mul i64 %i01.0133.us.us.us.i, %22
   %add.ptr78.us.us.us.i = getelementptr inbounds i8, ptr %34, i64 %mul77.us.us.us.i
@@ -41755,9 +41755,9 @@ for.end.us.us.us.i:                               ; preds = %for.end.us.us.us.lo
   %div103.us.us.us.i = fdiv float 1.000000e+00, %call102.us.us.us.i
   %38 = load ptr, ptr %data104.i, align 8
   %mul105.us.us.us.i = mul i64 %i01.0133.us.us.us.i, %25
-  %add.ptr106.us.us.us.i = getelementptr i8, ptr %38, i64 %mul105.us.us.us.i
-  %add.ptr108.us.us.us.i = getelementptr i8, ptr %add.ptr106.us.us.us.i, i64 %mul107.us.us.us.i
-  %add.ptr110.us.us.us.i = getelementptr i8, ptr %add.ptr108.us.us.us.i, i64 %mul109.us.us.i
+  %add.ptr106.us.us.us.i = getelementptr inbounds i8, ptr %38, i64 %mul105.us.us.us.i
+  %add.ptr108.us.us.us.i = getelementptr inbounds i8, ptr %add.ptr106.us.us.us.i, i64 %mul107.us.us.us.i
+  %add.ptr110.us.us.us.i = getelementptr inbounds i8, ptr %add.ptr108.us.us.us.i, i64 %mul109.us.us.i
   br i1 %cmp4.i.i, label %for.body.i.us.us.us.i, label %ggml_vec_cpy_f32.exit.us.us.us.i
 
 for.body.i.us.us.us.i:                            ; preds = %for.end.us.us.us.i, %for.body.i.us.us.us.i
@@ -46274,7 +46274,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %if.en
   %add17.i = add nsw i64 %conv16.i, 16
   %conv18.i = sext i32 %2 to i64
   %mul19.i = mul nsw i64 %add17.i, %conv18.i
-  %add.ptr20.i = getelementptr float, ptr %9, i64 %mul19.i
+  %add.ptr20.i = getelementptr inbounds float, ptr %9, i64 %mul19.i
   %cmp21104.i = icmp slt i32 %mul.i, %cond15.i
   br i1 %cmp21104.i, label %for.body.lr.ph.i, label %ggml_compute_forward_soft_max_f32.exit
 
@@ -46304,7 +46304,7 @@ for.body.i:                                       ; preds = %ggml_vec_scale_f32.
   %13 = load ptr, ptr %data.i, align 8
   %14 = load i64, ptr %arrayidx24.i, align 8
   %mul25.i = mul i64 %14, %indvars.iv107.i
-  %add.ptr26.i = getelementptr i8, ptr %13, i64 %mul25.i
+  %add.ptr26.i = getelementptr inbounds i8, ptr %13, i64 %mul25.i
   %15 = load ptr, ptr %data27.i, align 8
   %16 = load i64, ptr %arrayidx30.i, align 8
   %mul31.i = mul i64 %16, %indvars.iv107.i
@@ -46743,7 +46743,7 @@ for.body.i:                                       ; preds = %ggml_vec_mul_f32.ex
   %48 = load ptr, ptr %data.i, align 8
   %49 = load i64, ptr %arrayidx2.i.i, align 8
   %mul47.i = mul i64 %49, %indvars.iv.i
-  %add.ptr.i = getelementptr i8, ptr %48, i64 %mul47.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %48, i64 %mul47.i
   %50 = load ptr, ptr %data48.i, align 8
   %51 = load i64, ptr %arrayidx2.i40.i, align 8
   %mul52.i = mul i64 %51, %indvars.iv.i
@@ -46751,7 +46751,7 @@ for.body.i:                                       ; preds = %ggml_vec_mul_f32.ex
   %52 = load ptr, ptr %data54.i, align 8
   %53 = load i64, ptr %arrayidx2.i63.i, align 8
   %mul58.i = mul i64 %53, %indvars.iv.i
-  %add.ptr59.i = getelementptr i8, ptr %52, i64 %mul58.i
+  %add.ptr59.i = getelementptr inbounds i8, ptr %52, i64 %mul58.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !543)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !546)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %sum.i.i)

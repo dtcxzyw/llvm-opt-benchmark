@@ -271,7 +271,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN10open_spiel3BotESt14default_deleteIS2_EESaI
 
 _ZNSt6vectorISt10unique_ptrIN10open_spiel3BotESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i45.i, %_ZNSt12_Vector_baseISt10unique_ptrIN10open_spiel3BotESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %68, %_ZNSt12_Vector_baseISt10unique_ptrIN10open_spiel3BotESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i ], [ %73, %.lr.ph.i.i.i.i45.i ]
-  %74 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %74 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i23.i.i = icmp eq ptr %54, null
   br i1 %.not.i23.i.i, label %.noexc24.i, label %75
 

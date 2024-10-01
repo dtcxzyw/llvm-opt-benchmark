@@ -8848,7 +8848,7 @@ _ZNSt12_Vector_baseISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_M_allocat
 
 _ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %174, %_ZNSt12_Vector_baseISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE11_M_allocateEm.exit.i.i.i ], [ %177, %.lr.ph.i.i.i.i.i.i.i ]
-  %178 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 40
+  %178 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 40
   %.not.i23.i.i.i = icmp eq ptr %160, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIjN5osgeo4proj8QuadTree7RectObjEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %179
 

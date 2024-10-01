@@ -1948,7 +1948,7 @@ cond.end80:                                       ; preds = %cond.false79, %cond
   %38 = load i32, ptr %36, align 4
   %sub90 = sub i32 %37, %38
   %idx.ext93 = zext i32 %38 to i64
-  %add.ptr94 = getelementptr i8, ptr %cond.i176, i64 %idx.ext93
+  %add.ptr94 = getelementptr inbounds i8, ptr %cond.i176, i64 %idx.ext93
   %cmp.i183 = icmp eq i32 %37, %38
   br i1 %cmp.i183, label %for.end107, label %for.body100.preheader
 
@@ -2020,7 +2020,7 @@ for.body128.us:                                   ; preds = %for.body128.lr.ph.s
   %conv143.us = and i32 %i125.0236.us, 65535
   %mul144.us = mul i32 %51, %conv143.us
   %idx.ext145.us = zext i32 %mul144.us to i64
-  %add.ptr146.us = getelementptr i8, ptr %cond.i188, i64 %idx.ext145.us
+  %add.ptr146.us = getelementptr inbounds i8, ptr %cond.i188, i64 %idx.ext145.us
   %cmp.i195.us = icmp eq i32 %51, 0
   br i1 %cmp.i195.us, label %for.end161.us, label %for.body154.us.preheader
 
@@ -2060,7 +2060,7 @@ for.body128:                                      ; preds = %for.body128.lr.ph.s
   %conv143 = zext i16 %54 to i32
   %mul144 = mul i32 %55, %conv143
   %idx.ext145 = zext i32 %mul144 to i64
-  %add.ptr146 = getelementptr i8, ptr %cond.i188, i64 %idx.ext145
+  %add.ptr146 = getelementptr inbounds i8, ptr %cond.i188, i64 %idx.ext145
   %cmp.i195 = icmp eq i32 %55, 0
   br i1 %cmp.i195, label %for.end161, label %for.body154.preheader
 

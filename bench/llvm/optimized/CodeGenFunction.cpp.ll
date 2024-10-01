@@ -23383,7 +23383,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplIPKN5clang11Par
 
 _ZN4llvm15SmallVectorImplIPKN5clang11ParmVarDeclEE7reserveEm.exit: ; preds = %15, %24
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr i8, ptr %26, i64 %8
+  %27 = getelementptr inbounds i8, ptr %26, i64 %8
   %28 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   %.idx = shl nsw i64 %28, 3
   %29 = ptrtoint ptr %27 to i64
@@ -23391,7 +23391,7 @@ _ZN4llvm15SmallVectorImplIPKN5clang11ParmVarDeclEE7reserveEm.exit: ; preds = %15
   %.not = icmp ult i64 %gepdiff, %18
   %30 = load ptr, ptr %0, align 8
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
   br i1 %.not, label %70, label %33
 
 33:                                               ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang11ParmVarDeclEE7reserveEm.exit
@@ -23546,7 +23546,7 @@ _ZN4llvm15SmallVectorImplIPKN5clang11ParmVarDeclEE7reserveEm.exit: ; preds = %3,
   br i1 %16, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang11ParmVarDeclELb1EE18uninitialized_copyIPKPS2_PS4_EEvT_SB_T0_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang11ParmVarDeclEE7reserveEm.exit
-  %17 = getelementptr ptr, ptr %14, i64 %15
+  %17 = getelementptr inbounds ptr, ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i

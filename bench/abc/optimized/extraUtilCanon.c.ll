@@ -131,7 +131,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   %76 = sext i32 %0 to i64
   %77 = zext nneg i32 %4 to i64
   %78 = getelementptr inbounds [7 x [2 x [2 x i32]]], ptr @Extra_TruthCanonN_rec.uTruthStore, i64 0, i64 %76, i64 %77
-  %79 = getelementptr [7 x [2 x [64 x i8]]], ptr @Extra_TruthCanonN_rec.uPhaseStore, i64 0, i64 %76, i64 %77
+  %79 = getelementptr inbounds [7 x [2 x [64 x i8]]], ptr @Extra_TruthCanonN_rec.uPhaseStore, i64 0, i64 %76, i64 %77
   %80 = icmp eq i32 %.0177, 0
   br i1 %80, label %81, label %91
 

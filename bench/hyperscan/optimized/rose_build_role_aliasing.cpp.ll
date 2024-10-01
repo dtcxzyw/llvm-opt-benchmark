@@ -1104,7 +1104,7 @@ _ZSt7advanceIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPN
   br i1 %cmp.i.i.i.i.not15.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPNS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEELb1EEEKSD_EESE_SD_ET0_T_SJ_SI_RSaIT1_E.exit.i, label %invoke.cont4.i.i.i.i.i.preheader
 
 invoke.cont4.i.i.i.i.i.preheader:                 ; preds = %_ZSt7advanceIN3ue211flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPNS0_12graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEELb1EEEKSD_EEmEvRT_T0_.exit.i
-  %incdec.ptr.i.i.i.i.i.i127.i = getelementptr i8, ptr %46, i64 %sub.ptr.sub.i.i.i
+  %incdec.ptr.i.i.i.i.i.i127.i = getelementptr inbounds i8, ptr %46, i64 %sub.ptr.sub.i.i.i
   br label %invoke.cont4.i.i.i.i.i
 
 invoke.cont4.i.i.i.i.i:                           ; preds = %invoke.cont4.i.i.i.i.i.preheader, %invoke.cont4.i.i.i.i.i
@@ -1200,7 +1200,7 @@ invoke.cont4.i.i.i.i169.i:                        ; preds = %invoke.cont4.i.i.i.
   %__cur.016.i.i.i.i171.i = phi ptr [ %incdec.ptr.i.i.i.i173.i, %invoke.cont4.i.i.i.i169.i ], [ %cond.i159.i, %invoke.cont4.i.i.i.i169.preheader.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.016.i.i.i.i171.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.0.0.i.i.i170.i, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i172.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i170.i, i64 16
-  %incdec.ptr.i.i.i.i173.i = getelementptr i8, ptr %__cur.016.i.i.i.i171.i, i64 16
+  %incdec.ptr.i.i.i.i173.i = getelementptr inbounds i8, ptr %__cur.016.i.i.i.i171.i, i64 16
   %cmp.i.i.i.i.not.i.i.i.i174.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i172.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not.i.i.i.i174.i, label %invoke.cont71.i, label %invoke.cont4.i.i.i.i169.i, !llvm.loop !35
 
@@ -13998,7 +13998,7 @@ for.body.i.i.i.i186:                              ; preds = %for.body.i.i.i.i186
   %__first.sroa.0.018.i.i.i.i188 = phi ptr [ %incdec.ptr.i.i.i.i.i.i189, %for.body.i.i.i.i186 ], [ %__first.coerce, %for.body.i.i.i.i186.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.019.i.i.i.i187, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.018.i.i.i.i188, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i.i189 = getelementptr inbounds i8, ptr %__first.sroa.0.018.i.i.i.i188, i64 16
-  %incdec.ptr.i.i.i.i190 = getelementptr i8, ptr %__cur.019.i.i.i.i187, i64 16
+  %incdec.ptr.i.i.i.i190 = getelementptr inbounds i8, ptr %__cur.019.i.i.i.i187, i64 16
   %cmp.i.i.i.not.i.i.i.i191 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i189, %__last.coerce
   br i1 %cmp.i.i.i.not.i.i.i.i191, label %invoke.cont95, label %for.body.i.i.i.i186, !llvm.loop !432
 
@@ -30288,7 +30288,7 @@ for.body.i.i.i.i177:                              ; preds = %for.body.i.i.i.i177
   %_M_storage.i.i.i.i.i.i180 = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i179, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.010.i.i.i.i178, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i.i.i180, i64 16, i1 false)
   %call.i.i.i.i.i181 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.09.i.i.i.i179) #24
-  %incdec.ptr.i.i.i.i182 = getelementptr i8, ptr %__cur.010.i.i.i.i178, i64 16
+  %incdec.ptr.i.i.i.i182 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i178, i64 16
   %cmp.i.not.i.i.i.i183 = icmp eq ptr %call.i.i.i.i.i181, %__last.coerce
   br i1 %cmp.i.not.i.i.i.i183, label %invoke.cont83, label %for.body.i.i.i.i177, !llvm.loop !821
 

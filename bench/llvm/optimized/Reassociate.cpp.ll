@@ -9970,7 +9970,7 @@ select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i
   br i1 %.not19.i.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN4llvm11reassociate6FactorES2_EC2ES3_l.exit.thread23.i.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %100
-  %.01518.i.i.i.i.i.i.i = getelementptr i8, ptr %99, i64 16
+  %.01518.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %99, i64 16
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -16279,7 +16279,7 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
   br i1 %.not19.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN4llvm11reassociate10ValueEntryES2_EC2ES3_l.exit.thread20.i.i, label %.lr.ph.i.i.preheader.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %10
-  %.01518.i.i.i.i.i = getelementptr i8, ptr %9, i64 16
+  %.01518.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
@@ -23894,7 +23894,7 @@ _ZSt4moveIPPN4llvm11reassociate7XorOpndES4_ET0_T_S6_S5_.exit: ; preds = %29, %32
   br i1 %36, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %35
-  %37 = getelementptr ptr, ptr %.053, i64 %.074
+  %37 = getelementptr inbounds ptr, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
@@ -26497,7 +26497,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EN4llvm11AssertingVH
   %.09.i = phi ptr [ %33, %30 ], [ %.sroa.0100.0, %.lr.ph.i ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.014.i, i64 %storemerge15.i)
   %35 = sub nsw i64 0, %.sroa.speculated.i
-  %36 = getelementptr %"class.llvm::AssertingVH.48", ptr %.016.i, i64 %35
+  %36 = getelementptr inbounds %"class.llvm::AssertingVH.48", ptr %.016.i, i64 %35
   %37 = icmp sgt i64 %.sroa.speculated.i, 0
   br i1 %37, label %.lr.ph.i.i.i.i, label %_ZSt23__copy_move_backward_a1ILb1EPN4llvm11AssertingVHINS0_11InstructionEEES4_ET1_T0_S6_S5_.exit.i
 
@@ -26613,7 +26613,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN4llvm11AssertingVHINS0_11InstructionEEES3_EN
   %.09.i14 = phi ptr [ %84, %81 ], [ %.sroa.094.0, %75 ]
   %.sroa.speculated.i15 = tail call i64 @llvm.smin.i64(i64 %.014.i13, i64 %storemerge15.i11)
   %86 = sub nsw i64 0, %.sroa.speculated.i15
-  %87 = getelementptr %"class.llvm::AssertingVH.48", ptr %.016.i10, i64 %86
+  %87 = getelementptr inbounds %"class.llvm::AssertingVH.48", ptr %.016.i10, i64 %86
   %88 = icmp sgt i64 %.sroa.speculated.i15, 0
   br i1 %88, label %.lr.ph.i.i.i.i20, label %_ZSt23__copy_move_backward_a1ILb1EPN4llvm11AssertingVHINS0_11InstructionEEES4_ET1_T0_S6_S5_.exit.i16
 
@@ -26729,7 +26729,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN4llvm11AssertingVHINS0_11InstructionEEES3_EN
   %.09.i41 = phi ptr [ %137, %134 ], [ %.sroa.088.0, %.lr.ph.i35 ]
   %.sroa.speculated.i42 = tail call i64 @llvm.smin.i64(i64 %.014.i40, i64 %storemerge15.i38)
   %139 = sub nsw i64 0, %.sroa.speculated.i42
-  %140 = getelementptr %"class.llvm::AssertingVH.48", ptr %.016.i37, i64 %139
+  %140 = getelementptr inbounds %"class.llvm::AssertingVH.48", ptr %.016.i37, i64 %139
   %141 = icmp sgt i64 %.sroa.speculated.i42, 0
   br i1 %141, label %.lr.ph.i.i.i.i47, label %_ZSt23__copy_move_backward_a1ILb1EPN4llvm11AssertingVHINS0_11InstructionEEES4_ET1_T0_S6_S5_.exit.i43
 
@@ -26837,7 +26837,7 @@ _ZNSt15_Deque_iteratorIN4llvm11AssertingVHINS0_11InstructionEEERS3_PS3_EmIEl.exi
   %.09.i68 = phi ptr [ %192, %189 ], [ %.sroa.0.0, %.lr.ph.i62 ]
   %.sroa.speculated.i69 = tail call i64 @llvm.smin.i64(i64 %.014.i67, i64 %storemerge15.i65)
   %194 = sub nsw i64 0, %.sroa.speculated.i69
-  %195 = getelementptr %"class.llvm::AssertingVH.48", ptr %.016.i64, i64 %194
+  %195 = getelementptr inbounds %"class.llvm::AssertingVH.48", ptr %.016.i64, i64 %194
   %196 = icmp sgt i64 %.sroa.speculated.i69, 0
   br i1 %196, label %.lr.ph.i.i.i.i74, label %_ZSt23__copy_move_backward_a1ILb1EPN4llvm11AssertingVHINS0_11InstructionEEES4_ET1_T0_S6_S5_.exit.i70
 
@@ -30380,8 +30380,8 @@ _ZSt4copyIPKSt5tupleIJPN4llvm10BasicBlockENS1_12SuccIteratorINS1_11InstructionES
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKSt5tupleIJPN4llvm10BasicBlockENS1_12SuccIteratorINS1_11InstructionES2_EES6_EEPS7_ET0_T_SC_SB_.exit36
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr %"class.std::tuple.387", ptr %62, i64 %.022
-  %64 = getelementptr %"class.std::tuple.387", ptr %59, i64 %.022
+  %63 = getelementptr inbounds %"class.std::tuple.387", ptr %62, i64 %.022
+  %64 = getelementptr inbounds %"class.std::tuple.387", ptr %59, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i

@@ -19836,7 +19836,7 @@ define internal void @_ZNK12_GLOBAL__N_117IRIntrinsicResult17morePrerequisitesER
   %6 = ptrtoint ptr %.val to i64
   %7 = ptrtoint ptr %.val8.i to i64
   %8 = sub i64 %6, %7
-  %9 = getelementptr i8, ptr %.val8.i, i64 %8
+  %9 = getelementptr inbounds i8, ptr %.val8.i, i64 %8
   %.not93.i.i.i = icmp eq ptr %.val5, %.val6
   br i1 %.not93.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_16ResultEESaIS3_EE6insertIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEvEENS8_IPS3_S5_EESB_T_SE_.exit, label %10
 

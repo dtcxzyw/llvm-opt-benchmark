@@ -2794,7 +2794,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 1205:                                             ; preds = %1200
   %1206 = zext i32 %.211113048 to i64
-  %1207 = getelementptr i8, ptr %43, i64 %1206
+  %1207 = getelementptr inbounds i8, ptr %43, i64 %1206
   %1208 = icmp ugt i32 %.61120, %.211113048
   %1209 = zext i32 %.61120 to i64
   br i1 %1208, label %1210, label %.lr.ph3032.preheader
@@ -2825,7 +2825,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 1220:                                             ; preds = %._crit_edge3216
   %1221 = sub i32 %1202, %1213
   %1222 = zext i32 %1221 to i64
-  %1223 = getelementptr i8, ptr %43, i64 %1222
+  %1223 = getelementptr inbounds i8, ptr %43, i64 %1222
   %1224 = icmp slt i32 %1213, %.11158
   br i1 %1224, label %1225, label %.loopexit1441
 
@@ -2867,7 +2867,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 .lr.ph3032.preheader:                             ; preds = %1205
   %1239 = sub nsw i64 0, %1209
-  %1240 = getelementptr i8, ptr %1207, i64 %1239
+  %1240 = getelementptr inbounds i8, ptr %1207, i64 %1239
   br label %.lr.ph3032
 
 .lr.ph3032:                                       ; preds = %.lr.ph3032.preheader, %.lr.ph3032

@@ -1397,7 +1397,7 @@ define void @Gem_FuncExpand(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
   %27 = and i32 %26, %1
   %28 = mul nsw i32 %27, %24
   %29 = sext i32 %28 to i64
-  %30 = getelementptr i64, ptr %23, i64 %29
+  %30 = getelementptr inbounds i64, ptr %23, i64 %29
   %31 = getelementptr inbounds i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %0, align 8
@@ -2681,7 +2681,7 @@ define noundef i32 @Gem_FuncReduce(ptr nocapture noundef %0, i32 noundef %1, i32
   %28 = and i32 %27, %1
   %29 = mul nsw i32 %28, %25
   %30 = sext i32 %29 to i64
-  %31 = getelementptr i64, ptr %24, i64 %30
+  %31 = getelementptr inbounds i64, ptr %24, i64 %30
   %32 = getelementptr inbounds i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %0, align 8

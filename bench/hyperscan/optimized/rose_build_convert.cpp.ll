@@ -8675,7 +8675,7 @@ for.body.i.i.i.i177:                              ; preds = %for.body.i.i.i.i177
   %_M_storage.i.i.i.i.i.i180 = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i179, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.010.i.i.i.i178, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i.i.i180, i64 16, i1 false)
   %call.i.i.i.i.i181 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.09.i.i.i.i179) #25
-  %incdec.ptr.i.i.i.i182 = getelementptr i8, ptr %__cur.010.i.i.i.i178, i64 16
+  %incdec.ptr.i.i.i.i182 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i178, i64 16
   %cmp.i.not.i.i.i.i183 = icmp eq ptr %call.i.i.i.i.i181, %__last.coerce
   br i1 %cmp.i.not.i.i.i.i183, label %invoke.cont83, label %for.body.i.i.i.i177, !llvm.loop !274
 

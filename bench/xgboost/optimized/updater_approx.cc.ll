@@ -20229,7 +20229,7 @@ _ZNKSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE12_M_check_lenEmPK
 
 _ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i: ; preds = %.lr.ph.i.i.i.i, %51
   %.0.lcssa.i.i.i.i = phi ptr [ %52, %51 ], [ %55, %.lr.ph.i.i.i.i ]
-  %56 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 24
+  %56 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
   %.not.i35.i = icmp eq ptr %37, null
   br i1 %.not.i35.i, label %_ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE17_M_realloc_insertIJRKPmS9_iEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit, label %57
 
@@ -20315,7 +20315,7 @@ _ZNKSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE12_M_check_lenEmPK
 
 _ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i19: ; preds = %.lr.ph.i.i.i.i8, %87
   %.0.lcssa.i.i.i.i13 = phi ptr [ %88, %87 ], [ %93, %.lr.ph.i.i.i.i8 ]
-  %94 = getelementptr i8, ptr %.0.lcssa.i.i.i.i13, i64 24
+  %94 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i13, i64 24
   %.not.i35.i21 = icmp eq ptr %73, null
   br i1 %.not.i35.i21, label %_ZNSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE17_M_realloc_insertIJRPmS8_iEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit, label %95
 
@@ -26775,7 +26775,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %68, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %71, %.lr.ph.i.i.i.i ]
-  %72 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %72 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %55, null
   br i1 %.not.i34.i, label %.noexc22, label %73
 
@@ -31538,7 +31538,7 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdE
 
 19:                                               ; preds = %14
   %20 = sub i64 0, %2
-  %21 = getelementptr %"class.xgboost::detail::GradientPairInternal.446", ptr %9, i64 %20
+  %21 = getelementptr inbounds %"class.xgboost::detail::GradientPairInternal.446", ptr %9, i64 %20
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %19, %.lr.ph.i.i.i.i.i
@@ -31688,7 +31688,7 @@ _ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %61, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87 ], [ %66, %.lr.ph.i.i.i.i.i89 ]
-  %67 = getelementptr %"class.xgboost::detail::GradientPairInternal.446", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
+  %67 = getelementptr inbounds %"class.xgboost::detail::GradientPairInternal.446", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
   %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
@@ -32324,7 +32324,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %67, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %70, %.lr.ph.i.i.i.i ]
-  %71 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %71 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %54, null
   br i1 %.not.i34.i, label %.noexc22, label %72
 
@@ -32894,7 +32894,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %67, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %70, %.lr.ph.i.i.i.i ]
-  %71 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %71 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %54, null
   br i1 %.not.i34.i, label %.noexc22, label %72
 
@@ -37953,7 +37953,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %81, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %84, %.lr.ph.i.i.i.i ]
-  %85 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %85 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %68, null
   br i1 %.not.i34.i, label %.noexc22, label %86
 
@@ -44399,7 +44399,7 @@ _ZNKSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE12_M_check_lenEmPK
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 384307168202282325)
   %27 = mul nuw nsw i64 %26, 24
   %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #36
-  %29 = getelementptr i8, ptr %28, i64 %9
+  %29 = getelementptr inbounds i8, ptr %28, i64 %9
   br label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN7xgboost6common16RowSetCollection4ElemESaIS3_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
@@ -45049,7 +45049,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %81, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %84, %.lr.ph.i.i.i.i ]
-  %85 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %85 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %68, null
   br i1 %.not.i34.i, label %.noexc22, label %86
 
@@ -50219,7 +50219,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %81, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %84, %.lr.ph.i.i.i.i ]
-  %85 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %85 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %68, null
   br i1 %.not.i34.i, label %.noexc22, label %86
 
@@ -55238,7 +55238,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %81, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %84, %.lr.ph.i.i.i.i ]
-  %85 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %85 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %68, null
   br i1 %.not.i34.i, label %.noexc22, label %86
 
@@ -60246,7 +60246,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %81, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %84, %.lr.ph.i.i.i.i ]
-  %85 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %85 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %68, null
   br i1 %.not.i34.i, label %.noexc22, label %86
 
@@ -65377,7 +65377,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %81, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %84, %.lr.ph.i.i.i.i ]
-  %85 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %85 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %68, null
   br i1 %.not.i34.i, label %.noexc22, label %86
 
@@ -69683,7 +69683,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %81, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %84, %.lr.ph.i.i.i.i ]
-  %85 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %85 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %68, null
   br i1 %.not.i34.i, label %.noexc22, label %86
 
@@ -73978,7 +73978,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %81, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %84, %.lr.ph.i.i.i.i ]
-  %85 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %85 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %68, null
   br i1 %.not.i34.i, label %.noexc22, label %86
 
@@ -78396,7 +78396,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %81, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %84, %.lr.ph.i.i.i.i ]
-  %85 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %85 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %68, null
   br i1 %.not.i34.i, label %.noexc22, label %86
 
@@ -82807,7 +82807,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %81, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %84, %.lr.ph.i.i.i.i ]
-  %85 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %85 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %68, null
   br i1 %.not.i34.i, label %.noexc22, label %86
 
@@ -87218,7 +87218,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %81, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %84, %.lr.ph.i.i.i.i ]
-  %85 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %85 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %68, null
   br i1 %.not.i34.i, label %.noexc22, label %86
 
@@ -91197,7 +91197,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %81, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %84, %.lr.ph.i.i.i.i ]
-  %85 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %85 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %68, null
   br i1 %.not.i34.i, label %.noexc22, label %86
 
@@ -97653,7 +97653,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %69, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %72, %.lr.ph.i.i.i.i ]
-  %73 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %73 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %56, null
   br i1 %.not.i34.i, label %.noexc22, label %74
 
@@ -103283,7 +103283,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.ex
   br i1 %36, label %.lr.ph93.preheader, label %._crit_edge94
 
 .lr.ph93.preheader:                               ; preds = %35
-  %37 = getelementptr i64, ptr %.sroa.036.0, i64 %.079
+  %37 = getelementptr inbounds i64, ptr %.sroa.036.0, i64 %.079
   br label %.lr.ph93
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
@@ -109854,7 +109854,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %76, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %79, %.lr.ph.i.i.i.i ]
-  %80 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %80 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %63, null
   br i1 %.not.i34.i, label %.noexc22, label %81
 
@@ -110312,7 +110312,7 @@ _ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS
 
 _ZNSt6vectorIN7xgboost6common7Range1dESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %76, %_ZNSt16allocator_traitsISaIN7xgboost6common7Range1dEEE9constructIS2_JRmS6_EEEvRS3_PT_DpOT0_.exit.i ], [ %79, %.lr.ph.i.i.i.i ]
-  %80 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %80 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %63, null
   br i1 %.not.i34.i, label %.noexc22, label %81
 

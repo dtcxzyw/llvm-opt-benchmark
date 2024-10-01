@@ -4060,7 +4060,7 @@ _ZNSt17_Temporary_bufferIPSt4pairIPKN4llvm4LoopElES5_EC2ES6_l.exit.thread28: ; p
   br label %_ZNSt17_Temporary_bufferIPSt4pairIPKN4llvm4LoopElES5_EC2ES6_l.exit.thread23.sink.split
 
 .lr.ph.i.i.preheader.i:                           ; preds = %12
-  %.01518.i.i.i = getelementptr i8, ptr %11, i64 16
+  %.01518.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
@@ -10307,8 +10307,8 @@ _ZSt4moveIPSt10unique_ptrIN4llvm16IndexedReferenceESt14default_deleteIS2_EES6_ET
 
 .lr.ph.i.i.i.i.i44.preheader:                     ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm16IndexedReferenceESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit43
   %93 = load ptr, ptr %0, align 8
-  %94 = getelementptr %"class.std::unique_ptr.171", ptr %93, i64 %.026
-  %95 = getelementptr %"class.std::unique_ptr.171", ptr %90, i64 %.026
+  %94 = getelementptr inbounds %"class.std::unique_ptr.171", ptr %93, i64 %.026
+  %95 = getelementptr inbounds %"class.std::unique_ptr.171", ptr %90, i64 %.026
   br label %.lr.ph.i.i.i.i.i44
 
 .lr.ph.i.i.i.i.i44:                               ; preds = %.lr.ph.i.i.i.i.i44.preheader, %.lr.ph.i.i.i.i.i44

@@ -837,7 +837,7 @@ _ZNSt12_Vector_baseISt4pairImPN4llvm8FunctionEESaIS4_EE11_M_allocateEm.exit.i.i.
 
 _ZNSt6vectorISt4pairImPN4llvm8FunctionEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairImPN4llvm8FunctionEESaIS4_EE11_M_allocateEm.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %212, %_ZNSt12_Vector_baseISt4pairImPN4llvm8FunctionEESaIS4_EE11_M_allocateEm.exit.i.i.i.i ], [ %215, %.lr.ph.i.i.i.i.i.i.i ]
-  %216 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %216 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i.i = icmp eq ptr %.sroa.083.0116.i, null
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorISt4pairImPN4llvm8FunctionEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i, label %217
 
@@ -2584,7 +2584,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImPN4llvm8Functi
   br label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImPN4llvm8FunctionEESt6vectorIS6_SaIS6_EEEES6_EC2ESB_l.exit.thread23.sink.split
 
 .lr.ph.i.i.preheader.i:                           ; preds = %12
-  %.01317.i.i.i = getelementptr i8, ptr %11, i64 16
+  %.01317.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i

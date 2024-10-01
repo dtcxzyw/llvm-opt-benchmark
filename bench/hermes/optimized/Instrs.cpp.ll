@@ -2400,7 +2400,7 @@ if.end23:                                         ; preds = %if.then15
   br i1 %cmp2767, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end23
-  %add.ptr24 = getelementptr i8, ptr %__p.0, i64 %__k.0
+  %add.ptr24 = getelementptr inbounds i8, ptr %__p.0, i64 %__k.0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body

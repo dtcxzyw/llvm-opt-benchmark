@@ -2398,7 +2398,7 @@ entry:
   %0 = load ptr, ptr %split_, align 8
   %num_contexts_ = getelementptr inbounds i8, ptr %self, i64 8
   %1 = load i64, ptr %num_contexts_, align 8
-  %last_entropy_ = getelementptr i8, ptr %self, i64 112
+  %last_entropy_ = getelementptr inbounds i8, ptr %self, i64 112
   %histograms_ = getelementptr inbounds i8, ptr %self, i64 56
   %2 = load ptr, ptr %histograms_, align 8
   %block_size_ = getelementptr inbounds i8, ptr %self, i64 80

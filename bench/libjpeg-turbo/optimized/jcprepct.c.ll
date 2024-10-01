@@ -145,7 +145,7 @@ define void @jinit_c_prep_controller(ptr noundef %0, i32 noundef %1) local_unnam
 ._crit_edge.us.i:                                 ; preds = %84
   %91 = getelementptr inbounds [10 x ptr], ptr %61, i64 0, i64 %indvars.iv58.i
   store ptr %83, ptr %91, align 8
-  %92 = getelementptr ptr, ptr %.04147.us.i, i64 %62
+  %92 = getelementptr inbounds ptr, ptr %.04147.us.i, i64 %62
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %93 = getelementptr inbounds i8, ptr %.04346.us.i, i64 96
   %94 = load i32, ptr %43, align 4

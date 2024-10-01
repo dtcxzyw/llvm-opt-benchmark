@@ -9696,7 +9696,7 @@ _ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE7reserveEm.exit: ; preds = %3, 
   br i1 %.not7.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9LiveRange7SegmentELb1EE18uninitialized_copyISt13move_iteratorIPS2_ES6_EEvT_S8_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE7reserveEm.exit
-  %16 = getelementptr %"struct.llvm::LiveRange::Segment", ptr %14, i64 %15
+  %16 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i

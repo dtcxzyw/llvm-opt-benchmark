@@ -4001,7 +4001,7 @@ _ZNKSt6vectorISt4pairIiN10open_spiel8quoridor4MoveEESaIS4_EE12_M_check_lenEmPKc.
 
 _ZNSt6vectorISt4pairIiN10open_spiel8quoridor4MoveEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i.i: ; preds = %.lr.ph.i.i.i.i.i, %145
   %.0.lcssa.i.i.i.i.i = phi ptr [ %146, %145 ], [ %150, %.lr.ph.i.i.i.i.i ]
-  %151 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 20
+  %151 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 20
   %.not.i34.i.i = icmp eq ptr %131, null
   br i1 %.not.i34.i.i, label %_ZNSt6vectorISt4pairIiN10open_spiel8quoridor4MoveEESaIS4_EE17_M_realloc_insertIJRiRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %152
 
@@ -5215,7 +5215,7 @@ _ZNKSt6vectorISt4pairIiN10open_spiel8quoridor4MoveEESaIS4_EE12_M_check_lenEmPKc.
 
 _ZNSt6vectorISt4pairIiN10open_spiel8quoridor4MoveEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %41
   %.0.lcssa.i.i.i.i = phi ptr [ %42, %41 ], [ %46, %.lr.ph.i.i.i.i ]
-  %47 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 20
+  %47 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 20
   %.not.i34.i = icmp eq ptr %27, null
   br i1 %.not.i34.i, label %_ZNSt6vectorISt4pairIiN10open_spiel8quoridor4MoveEESaIS4_EE17_M_realloc_insertIJRiRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit, label %48
 

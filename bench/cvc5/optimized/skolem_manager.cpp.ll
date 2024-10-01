@@ -4383,7 +4383,7 @@ for.inc.i.i.i.i.i.i.i:                            ; preds = %invoke.cont.i.i262,
 
 invoke.cont14.i.i:                                ; preds = %for.inc.i.i.i.i.i.i.i, %invoke.cont.i.i262
   %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %cond.i19.i.i, %invoke.cont.i.i262 ], [ %incdec.ptr1.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ]
-  %incdec.ptr.i.i264 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i264 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %visit.sroa.0.1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i29.i.i
 
@@ -4456,7 +4456,7 @@ for.inc.i.i.i.i.i.i.i.i290:                       ; preds = %invoke.cont.i.i.i28
 
 invoke.cont14.i.i.i296:                           ; preds = %for.inc.i.i.i.i.i.i.i.i290, %invoke.cont.i.i.i286
   %__cur.0.lcssa.i.i.i.i.i.i.i.i297 = phi ptr [ %cond.i19.i.i.i287, %invoke.cont.i.i.i286 ], [ %incdec.ptr1.i.i.i.i.i.i.i.i294, %for.inc.i.i.i.i.i.i.i.i290 ]
-  %incdec.ptr.i.i.i298 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i297, i64 8
+  %incdec.ptr.i.i.i298 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i297, i64 8
   %tobool.not.i.i.i.i299 = icmp eq ptr %visit.sroa.0.10, null
   br i1 %tobool.not.i.i.i.i299, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i301, label %if.then.i29.i.i.i300
 
@@ -4682,7 +4682,7 @@ for.inc.i.i.i.i.i.i.i389:                         ; preds = %invoke.cont.i.i385,
 
 invoke.cont14.i.i395:                             ; preds = %for.inc.i.i.i.i.i.i.i389, %invoke.cont.i.i385
   %__cur.0.lcssa.i.i.i.i.i.i.i396 = phi ptr [ %cond.i19.i.i386, %invoke.cont.i.i385 ], [ %incdec.ptr1.i.i.i.i.i.i.i393, %for.inc.i.i.i.i.i.i.i389 ]
-  %incdec.ptr.i.i397 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i396, i64 8
+  %incdec.ptr.i.i397 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i396, i64 8
   %tobool.not.i.i.i398 = icmp eq ptr %visit.sroa.0.1, null
   br i1 %tobool.not.i.i.i398, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i400, label %if.then.i29.i.i399
 

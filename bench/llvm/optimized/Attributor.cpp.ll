@@ -59818,8 +59818,8 @@ _ZSt4moveIPSt10unique_ptrIN4llvm10Attributor23ArgumentReplacementInfoESt14defaul
 
 .lr.ph.i.i.i.i.i61.preheader:                     ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm10Attributor23ArgumentReplacementInfoESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit60
   %151 = load ptr, ptr %0, align 8
-  %152 = getelementptr %"class.std::unique_ptr.650", ptr %151, i64 %.026
-  %153 = getelementptr %"class.std::unique_ptr.650", ptr %148, i64 %.026
+  %152 = getelementptr inbounds %"class.std::unique_ptr.650", ptr %151, i64 %.026
+  %153 = getelementptr inbounds %"class.std::unique_ptr.650", ptr %148, i64 %.026
   br label %.lr.ph.i.i.i.i.i61
 
 .lr.ph.i.i.i.i.i61:                               ; preds = %.lr.ph.i.i.i.i.i61.preheader, %.lr.ph.i.i.i.i.i61

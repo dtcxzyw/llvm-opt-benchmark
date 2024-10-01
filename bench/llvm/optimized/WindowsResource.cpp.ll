@@ -3178,7 +3178,7 @@ _ZNSt12_Vector_baseIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE11_
 
 _ZNSt6vectorIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %96, %_ZNSt12_Vector_baseIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ %99, %.lr.ph.i.i.i.i.i.i ]
-  %100 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
+  %100 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
   %.not.i23.i.i.i = icmp eq ptr %82, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %101
 
@@ -3290,7 +3290,7 @@ _ZNSt12_Vector_baseIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE11_
 
 _ZNSt6vectorIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i83: ; preds = %.lr.ph.i.i.i.i.i.i79, %_ZNSt12_Vector_baseIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE11_M_allocateEm.exit.i.i.i77
   %.0.lcssa.i.i.i.i.i.i84 = phi ptr [ %132, %_ZNSt12_Vector_baseIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE11_M_allocateEm.exit.i.i.i77 ], [ %135, %.lr.ph.i.i.i.i.i.i79 ]
-  %136 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i84, i64 32
+  %136 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i84, i64 32
   %.not.i23.i.i.i85 = icmp eq ptr %118, null
   br i1 %.not.i23.i.i.i85, label %_ZNSt6vectorIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i86, label %137
 
@@ -3458,7 +3458,7 @@ _ZNSt12_Vector_baseIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE11_
 
 _ZNSt6vectorIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i107: ; preds = %.lr.ph.i.i.i.i.i.i103, %_ZNSt12_Vector_baseIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE11_M_allocateEm.exit.i.i.i101
   %.0.lcssa.i.i.i.i.i.i108 = phi ptr [ %187, %_ZNSt12_Vector_baseIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE11_M_allocateEm.exit.i.i.i101 ], [ %190, %.lr.ph.i.i.i.i.i.i103 ]
-  %191 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i108, i64 32
+  %191 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i108, i64 32
   %.not.i23.i.i.i109 = icmp eq ptr %173, null
   br i1 %.not.i23.i.i.i109, label %_ZNSt6vectorIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i110, label %192
 
@@ -5275,7 +5275,7 @@ define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter5writeEj(ptr de
 
 .lr.ph.i.i.i.i.i.i.preheader.i:                   ; preds = %.lr.ph.i
   %75 = load ptr, ptr %7, align 8
-  %76 = getelementptr i8, ptr %75, i64 %67
+  %76 = getelementptr inbounds i8, ptr %75, i64 %67
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.preheader.i
@@ -5659,7 +5659,7 @@ define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter18writeSecondSe
 
 .lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %9
   %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr i8, ptr %18, i64 %10
+  %19 = getelementptr inbounds i8, ptr %18, i64 %10
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i
@@ -7799,7 +7799,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_E
 
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 

@@ -2552,13 +2552,13 @@ _ZN4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi25
   %392 = getelementptr inbounds i8, ptr %391, i64 10
   %393 = load i8, ptr %392, align 1
   %394 = zext i8 %393 to i64
-  %395 = getelementptr i8, ptr %391, i64 12
+  %395 = getelementptr inbounds i8, ptr %391, i64 12
   %396 = getelementptr inbounds i32, ptr %395, i64 %394
   %.not14.i.i = icmp eq i8 %393, 0
   br i1 %.not14.i.i, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nElllPS8_PS6_.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.noexc79
-  %397 = getelementptr i8, ptr %386, i64 12
+  %397 = getelementptr inbounds i8, ptr %386, i64 12
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -6722,7 +6722,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal10btree_
   store i32 %16, ptr %13, align 4
   %17 = add nsw i32 %1, -1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr i8, ptr %2, i64 12
+  %19 = getelementptr inbounds i8, ptr %2, i64 12
   %20 = getelementptr inbounds i32, ptr %19, i64 %18
   %.not14.i = icmp eq i32 %17, 0
   br i1 %.not14.i, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nElllPS8_PS6_.exit, label %.lr.ph.preheader.i
@@ -6731,7 +6731,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal10btree_
   %21 = shl nuw nsw i64 %7, 32
   %sext13.i = add nuw nsw i64 %21, 4294967296
   %22 = lshr exact i64 %sext13.i, 30
-  %23 = getelementptr i8, ptr %12, i64 %22
+  %23 = getelementptr inbounds i8, ptr %12, i64 %22
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -6767,7 +6767,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
   %37 = sext i32 %36 to i64
   %38 = sext i32 %1 to i64
   %39 = shl nsw i64 %38, 2
-  %40 = getelementptr i8, ptr %19, i64 %39
+  %40 = getelementptr inbounds i8, ptr %19, i64 %39
   %41 = getelementptr inbounds i32, ptr %40, i64 %37
   %.not14.i46 = icmp eq i32 %1, %35
   br i1 %.not14.i46, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nElllPS8_PS6_.exit53, label %.lr.ph.i49
@@ -6862,7 +6862,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal10btree_
   %5 = getelementptr inbounds i8, ptr %2, i64 10
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr i8, ptr %2, i64 12
+  %8 = getelementptr inbounds i8, ptr %2, i64 12
   %9 = shl nuw nsw i64 %7, 32
   %sext.i = add nsw i64 %9, -4294967296
   %10 = ashr exact i64 %sext.i, 30
@@ -6910,9 +6910,9 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
   %35 = zext i8 %34 to i32
   %36 = sub nsw i32 %35, %22
   %37 = sext i32 %36 to i64
-  %38 = getelementptr i8, ptr %0, i64 12
+  %38 = getelementptr inbounds i8, ptr %0, i64 12
   %39 = shl nsw i64 %37, 2
-  %40 = getelementptr i8, ptr %38, i64 %39
+  %40 = getelementptr inbounds i8, ptr %38, i64 %39
   %41 = getelementptr inbounds i32, ptr %40, i64 %23
   %.not14.i = icmp eq i32 %22, 0
   br i1 %.not14.i, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nElllPS8_PS6_.exit, label %.lr.ph.i48
@@ -7046,15 +7046,15 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal10btree_
   %19 = load i8, ptr %17, align 1
   %20 = zext i8 %19 to i64
   %21 = zext i8 %18 to i64
-  %22 = getelementptr i8, ptr %0, i64 12
+  %22 = getelementptr inbounds i8, ptr %0, i64 12
   %sext.i = shl nuw nsw i64 %21, 2
-  %23 = getelementptr i8, ptr %22, i64 %sext.i
+  %23 = getelementptr inbounds i8, ptr %22, i64 %sext.i
   %24 = getelementptr inbounds i32, ptr %23, i64 %20
   %.not14.i = icmp eq i8 %19, 0
   br i1 %.not14.i, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nElllPS8_PS6_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %13
-  %25 = getelementptr i8, ptr %2, i64 12
+  %25 = getelementptr inbounds i8, ptr %2, i64 12
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

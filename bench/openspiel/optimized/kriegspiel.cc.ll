@@ -3444,7 +3444,7 @@ _ZNKSt6vectorISt4pairIN10open_spiel5chess4MoveENS1_10kriegspiel23KriegspielUmpir
 
 _ZNSt6vectorISt4pairIN10open_spiel5chess4MoveENS1_10kriegspiel23KriegspielUmpireMessageEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit33.i.i: ; preds = %.lr.ph.i.i.i.i.i, %44
   %.0.lcssa.i.i.i.i.i = phi ptr [ %45, %44 ], [ %49, %.lr.ph.i.i.i.i.i ]
-  %50 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 40
+  %50 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 40
   %.not.i34.i.i = icmp eq ptr %30, null
   br i1 %.not.i34.i.i, label %_ZNSt6vectorISt4pairIN10open_spiel5chess4MoveENS1_10kriegspiel23KriegspielUmpireMessageEESaIS6_EE17_M_realloc_insertIJRS3_RS5_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %51
 
@@ -3553,7 +3553,7 @@ _ZNSt12_Vector_baseIN10open_spiel5chess4MoveESaIS2_EE11_M_allocateEm.exit.i.i: ;
 
 _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i6, %_ZNSt12_Vector_baseIN10open_spiel5chess4MoveESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i10 = phi ptr [ %94, %_ZNSt12_Vector_baseIN10open_spiel5chess4MoveESaIS2_EE11_M_allocateEm.exit.i.i ], [ %97, %.lr.ph.i.i.i.i.i6 ]
-  %98 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i10, i64 12
+  %98 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i10, i64 12
   %.not.i23.i.i = icmp eq ptr %80, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %99
 

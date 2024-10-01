@@ -6900,7 +6900,7 @@ _ZNKSt6vectorISt4pairIldESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %89
 
 _ZNSt6vectorISt4pairIldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i: ; preds = %.lr.ph.i.i.i.i32, %.noexc39
   %.0.lcssa.i.i.i.i = phi ptr [ %102, %.noexc39 ], [ %106, %.lr.ph.i.i.i.i32 ]
-  %107 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %107 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i34.i = icmp eq ptr %84, null
   br i1 %.not.i34.i, label %.noexc26, label %108
 
@@ -9020,7 +9020,7 @@ _ZNKSt6vectorISt4pairIN10open_spiel11tiny_bridge4SeatEiESaIS4_EE12_M_check_lenEm
 
 _ZNSt6vectorISt4pairIN10open_spiel11tiny_bridge4SeatEiESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %33
   %.0.lcssa.i.i.i.i = phi ptr [ %34, %33 ], [ %40, %.lr.ph.i.i.i.i ]
-  %41 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i34.i = icmp eq ptr %6, null
   br i1 %.not.i34.i, label %_ZNSt6vectorISt4pairIN10open_spiel11tiny_bridge4SeatEiESaIS4_EE17_M_realloc_insertIJS3_RlEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit, label %42
 

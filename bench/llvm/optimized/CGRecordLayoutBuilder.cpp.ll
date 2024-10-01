@@ -1094,7 +1094,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_l
 
 _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %301, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %304, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %305 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 32
+  %305 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 32
   %.not.i27.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
   br i1 %.not.i27.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i, label %306
 
@@ -1178,7 +1178,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_l
 
 _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i97.i.i: ; preds = %.lr.ph.i.i.i.i.i.i93.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i90.i.i
   %.0.lcssa.i.i.i.i.i.i98.i.i = phi ptr [ %327, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i90.i.i ], [ %330, %.lr.ph.i.i.i.i.i.i93.i.i ]
-  %331 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i98.i.i, i64 32
+  %331 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i98.i.i, i64 32
   %.not.i27.i.i.i99.i.i = icmp eq ptr %.val.i.i.i89.i.i, null
   br i1 %.not.i27.i.i.i99.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i100.i.i, label %332
 
@@ -1783,7 +1783,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_l
 
 _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i144.i.i: ; preds = %.lr.ph.i.i.i.i.i.i140.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i137.i.i
   %.0.lcssa.i.i.i.i.i.i145.i.i = phi ptr [ %626, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i137.i.i ], [ %629, %.lr.ph.i.i.i.i.i.i140.i.i ]
-  %630 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i145.i.i, i64 32
+  %630 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i145.i.i, i64 32
   %.not.i27.i.i.i146.i.i = icmp eq ptr %.val.i.i.i136.i.i, null
   br i1 %.not.i27.i.i.i146.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i147.i.i, label %631
 
@@ -1872,7 +1872,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_l
 
 _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i160.i.i: ; preds = %.lr.ph.i.i.i.i.i.i156.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i153.i.i
   %.0.lcssa.i.i.i.i.i.i161.i.i = phi ptr [ %654, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i153.i.i ], [ %657, %.lr.ph.i.i.i.i.i.i156.i.i ]
-  %658 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i161.i.i, i64 32
+  %658 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i161.i.i, i64 32
   %.not.i27.i.i.i162.i.i = icmp eq ptr %.val.i.i.i152.i.i, null
   br i1 %.not.i27.i.i.i162.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i163.i.i, label %659
 
@@ -2094,7 +2094,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_l
 
 _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %745, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %748, %.lr.ph.i.i.i.i.i.i.i ]
-  %749 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 32
+  %749 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 32
   %.not.i27.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
   br i1 %.not.i27.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %750
 
@@ -2226,7 +2226,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_l
 
 _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i.i40: ; preds = %.lr.ph.i.i.i.i.i.i.i36, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i33
   %.0.lcssa.i.i.i.i.i.i.i41 = phi ptr [ %800, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i33 ], [ %803, %.lr.ph.i.i.i.i.i.i.i36 ]
-  %804 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i41, i64 32
+  %804 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i41, i64 32
   %.not.i27.i.i.i.i42 = icmp eq ptr %.val.i.i.i.i32, null
   br i1 %.not.i27.i.i.i.i42, label %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i43, label %805
 
@@ -2328,7 +2328,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_l
 
 _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i11.i: ; preds = %.lr.ph.i.i.i.i.i.i7.i, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i4.i
   %.0.lcssa.i.i.i.i.i.i12.i = phi ptr [ %842, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i4.i ], [ %845, %.lr.ph.i.i.i.i.i.i7.i ]
-  %846 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i12.i, i64 32
+  %846 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i12.i, i64 32
   %.not.i27.i.i.i13.i = icmp eq ptr %.val.i.i.i3.i, null
   br i1 %.not.i27.i.i.i13.i, label %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i14.i, label %847
 
@@ -2426,7 +2426,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_l
 
 _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i.i63: ; preds = %.lr.ph.i.i.i.i.i.i.i59, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i56
   %.0.lcssa.i.i.i.i.i.i.i64 = phi ptr [ %881, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i56 ], [ %884, %.lr.ph.i.i.i.i.i.i.i59 ]
-  %885 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i64, i64 32
+  %885 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i64, i64 32
   %.not.i27.i.i.i.i65 = icmp eq ptr %.val.i.i.i.i55, null
   br i1 %.not.i27.i.i.i.i65, label %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i66, label %886
 
@@ -2639,7 +2639,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_l
 
 _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i38.i: ; preds = %.lr.ph.i.i.i.i.i.i34.i, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i31.i
   %.0.lcssa.i.i.i.i.i.i39.i = phi ptr [ %982, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i31.i ], [ %985, %.lr.ph.i.i.i.i.i.i34.i ]
-  %986 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i39.i, i64 32
+  %986 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i39.i, i64 32
   %.not.i27.i.i.i40.i = icmp eq ptr %.val.i.i.i30.i, null
   br i1 %.not.i27.i.i.i40.i, label %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i41.i, label %987
 
@@ -2868,7 +2868,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_l
 
 _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i.i93: ; preds = %.lr.ph.i.i.i.i.i.i.i89, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i87
   %.0.lcssa.i.i.i.i.i.i.i94 = phi ptr [ %1083, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i87 ], [ %1086, %.lr.ph.i.i.i.i.i.i.i89 ]
-  %1087 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i94, i64 32
+  %1087 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i94, i64 32
   %.not.i27.i.i.i.i95 = icmp eq ptr %.val.i.i.i.i86, null
   br i1 %.not.i27.i.i.i.i95, label %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i96, label %1088
 
@@ -3019,7 +3019,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_l
 
 _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i40.i: ; preds = %.lr.ph.i.i.i.i.i.i36.i, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i33.i
   %.0.lcssa.i.i.i.i.i.i41.i = phi ptr [ %1160, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i33.i ], [ %1163, %.lr.ph.i.i.i.i.i.i36.i ]
-  %1164 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i41.i, i64 32
+  %1164 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i41.i, i64 32
   %.not.i27.i.i.i42.i = icmp eq ptr %.val.i.i.i32.i, null
   br i1 %.not.i27.i.i.i42.i, label %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i43.i, label %1165
 
@@ -3102,7 +3102,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_l
 
 _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i54.i: ; preds = %.lr.ph.i.i.i.i.i.i50.i, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i47.i
   %.0.lcssa.i.i.i.i.i.i55.i = phi ptr [ %1188, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i47.i ], [ %1191, %.lr.ph.i.i.i.i.i.i50.i ]
-  %1192 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i55.i, i64 32
+  %1192 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i55.i, i64 32
   %.not.i27.i.i.i56.i = icmp eq ptr %.val.i.i.i46.i, null
   br i1 %.not.i27.i.i.i56.i, label %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i57.i, label %1193
 
@@ -3158,7 +3158,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i99
   br i1 %.not18.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_116CGRecordLowering10MemberInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.thread22.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %1207
-  %.01317.i.i.i.i.i.i = getelementptr i8, ptr %1206, i64 32
+  %.01317.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1206, i64 32
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -3271,7 +3271,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_l
 
 _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i106, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %1247, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %1250, %.lr.ph.i.i.i.i.i.i106 ]
-  %1251 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
+  %1251 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
   %.not.i27.i.i.i = icmp eq ptr %.val.i.i.i104, null
   br i1 %.not.i27.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %1252
 
@@ -3538,7 +3538,7 @@ _ZNSt12_Vector_baseISt4pairIN5clang9CharUnitsES2_ESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt6vectorISt4pairIN5clang9CharUnitsES2_ESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i151, %_ZNSt12_Vector_baseISt4pairIN5clang9CharUnitsES2_ESaIS3_EE11_M_allocateEm.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i153 = phi ptr [ %1361, %_ZNSt12_Vector_baseISt4pairIN5clang9CharUnitsES2_ESaIS3_EE11_M_allocateEm.exit.i.i.i.i ], [ %1364, %.lr.ph.i.i.i.i.i.i.i151 ]
-  %1365 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i153, i64 16
+  %1365 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i153, i64 16
   %.not.i23.i.i.i.i = icmp eq ptr %.sroa.065.091.i, null
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorISt4pairIN5clang9CharUnitsES2_ESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, label %1366
 
@@ -3682,7 +3682,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_l
 
 _ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i.i146: ; preds = %.lr.ph.i.i.i.i.i.i23.i, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i142
   %.0.lcssa.i.i.i.i.i.i25.i = phi ptr [ %1417, %_ZNKSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i142 ], [ %1420, %.lr.ph.i.i.i.i.i.i23.i ]
-  %1421 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i25.i, i64 32
+  %1421 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i25.i, i64 32
   %.not.i27.i.i.i.i147 = icmp eq ptr %.val.i.i.i.i141, null
   br i1 %.not.i27.i.i.i.i147, label %_ZNSt6vectorIN12_GLOBAL__N_116CGRecordLowering10MemberInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i148, label %1422
 
@@ -3736,7 +3736,7 @@ select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i1
   br i1 %.not18.i.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_116CGRecordLowering10MemberInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.thread22.i.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %1435
-  %.01317.i.i.i.i.i.i.i = getelementptr i8, ptr %1434, i64 32
+  %.01317.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1434, i64 32
   br label %.lr.ph.i.i.i.i.i.i26.i
 
 .lr.ph.i.i.i.i.i.i26.i:                           ; preds = %.lr.ph.i.i.i.i.i.i26.i, %.lr.ph.i.i.preheader.i.i.i.i.i
@@ -3753,11 +3753,11 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_116CGReco
   br label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_116CGRecordLowering10MemberInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.thread22.i.i.i.i
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_116CGRecordLowering10MemberInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.thread.i.i.i.i: ; preds = %select.unfold.i.i.i.i.i.i, %1427
-  call fastcc void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_116CGRecordLowering10MemberInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_(ptr %.val9.i137, ptr %.val10.i136)
+  call fastcc void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_116CGRecordLowering10MemberInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_(ptr %.val9.i137, ptr nonnull %.val10.i136)
   br label %1438
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_116CGRecordLowering10MemberInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.thread22.i.i.i.i: ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_116CGRecordLowering10MemberInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i.i.i, %1435
-  call fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_116CGRecordLowering10MemberInfoESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_T2_(ptr nonnull %.val9.i137, ptr %.val10.i136, ptr noundef nonnull %1434, i64 noundef %storemerge28.i.i.i.i.i.i)
+  call fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_116CGRecordLowering10MemberInfoESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_T2_(ptr nonnull %.val9.i137, ptr nonnull %.val10.i136, ptr noundef nonnull %1434, i64 noundef %storemerge28.i.i.i.i.i.i)
   br label %1438
 
 1438:                                             ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_116CGRecordLowering10MemberInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.thread22.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_116CGRecordLowering10MemberInfoESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.thread.i.i.i.i

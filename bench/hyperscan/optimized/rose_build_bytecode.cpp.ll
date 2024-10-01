@@ -32453,7 +32453,7 @@ _ZNSt6vectorIN3ue29CharReachESaIS1_EE13_M_insert_auxIS1_EEvN9__gnu_cxx17__normal
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEOS1_.exit
 
 if.else21.i.i:                                    ; preds = %for.body
-  %add.ptr.i39.i.i = getelementptr i8, ptr %6, i64 %sub.ptr.sub.i.i.i
+  %add.ptr.i39.i.i = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub.i.i.i
   %sub.ptr.lhs.cast.i.i.i5 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i.i7 = sub i64 %sub.ptr.lhs.cast.i.i.i5, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i7, 9223372036854775776
@@ -33034,7 +33034,7 @@ for.body.i.i.i.i186:                              ; preds = %for.body.i.i.i.i186
   %__first.sroa.0.018.i.i.i.i188 = phi ptr [ %incdec.ptr.i.i.i.i.i.i189, %for.body.i.i.i.i186 ], [ %__first.coerce, %for.body.i.i.i.i186.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.019.i.i.i.i187, ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.018.i.i.i.i188, i64 32, i1 false)
   %incdec.ptr.i.i.i.i.i.i189 = getelementptr inbounds i8, ptr %__first.sroa.0.018.i.i.i.i188, i64 32
-  %incdec.ptr.i.i.i.i190 = getelementptr i8, ptr %__cur.019.i.i.i.i187, i64 32
+  %incdec.ptr.i.i.i.i190 = getelementptr inbounds i8, ptr %__cur.019.i.i.i.i187, i64 32
   %cmp.i.i.i.not.i.i.i.i191 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i189, %__last.coerce
   br i1 %cmp.i.i.i.not.i.i.i.i191, label %invoke.cont95, label %for.body.i.i.i.i186, !llvm.loop !523
 
@@ -48575,7 +48575,7 @@ for.body.i.i.i.i186:                              ; preds = %for.body.i.i.i.i186
   %__first.sroa.0.018.i.i.i.i188 = phi ptr [ %incdec.ptr.i.i.i.i.i.i189, %for.body.i.i.i.i186 ], [ %__first.coerce, %for.body.i.i.i.i186.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.019.i.i.i.i187, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.018.i.i.i.i188, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i.i189 = getelementptr inbounds i8, ptr %__first.sroa.0.018.i.i.i.i188, i64 16
-  %incdec.ptr.i.i.i.i190 = getelementptr i8, ptr %__cur.019.i.i.i.i187, i64 16
+  %incdec.ptr.i.i.i.i190 = getelementptr inbounds i8, ptr %__cur.019.i.i.i.i187, i64 16
   %cmp.i.i.i.not.i.i.i.i191 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i189, %__last.coerce
   br i1 %cmp.i.i.i.not.i.i.i.i191, label %invoke.cont95, label %for.body.i.i.i.i186, !llvm.loop !778
 

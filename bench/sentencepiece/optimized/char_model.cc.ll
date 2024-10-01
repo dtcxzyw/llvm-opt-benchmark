@@ -312,7 +312,7 @@ _ZNKSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE12_M_c
 
 _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %.noexc9
   %.0.lcssa.i.i.i.i = phi ptr [ %47, %.noexc9 ], [ %51, %.lr.ph.i.i.i.i ]
-  %52 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 24
+  %52 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
   %.not.i34.i = icmp eq ptr %19, null
   br i1 %.not.i34.i, label %.noexc, label %53
 

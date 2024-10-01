@@ -5218,7 +5218,7 @@ cond.true.i.i:                                    ; preds = %if.then867
 
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i: ; preds = %cond.true.i.i
   store i64 %350, ptr %call5.i.i.i.i1536, align 8, !tbaa !30
-  %incdec.ptr.i1532 = getelementptr inbounds i8, ptr %call5.i.i.i.i1536, i64 8
+  %incdec.ptr.i1532 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1536, i64 8
   %tobool.not.i.i = icmp eq ptr %502, null
   br i1 %tobool.not.i.i, label %.noexc926, label %if.then.i20.i
 
@@ -6348,7 +6348,7 @@ cond.true.i.i1552:                                ; preds = %invoke.cont1229
 
 invoke.cont1240:                                  ; preds = %cond.true.i.i1552
   store i64 %637, ptr %call5.i.i.i.i1585, align 8, !tbaa !30
-  %incdec.ptr.i1566 = getelementptr inbounds i8, ptr %call5.i.i.i.i1585, i64 8
+  %incdec.ptr.i1566 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1585, i64 8
   store ptr %call5.i.i.i.i1585, ptr %localNodes, align 8, !tbaa !150
   store ptr %incdec.ptr.i1566, ptr %_M_finish.i1177, align 8, !tbaa !149
   store ptr %incdec.ptr.i1566, ptr %_M_end_of_storage.i1178, align 8, !tbaa !147
@@ -6524,7 +6524,7 @@ for.body.i.i.i.i1608:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i1624: ; preds = %for.body.i.i.i.i1608, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE11_M_allocateEm.exit.i1604
   %__cur.0.lcssa.i.i.i.i1615 = phi ptr [ %cond.i10.i1605, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE11_M_allocateEm.exit.i1604 ], [ %incdec.ptr1.i.i.i.i1612, %for.body.i.i.i.i1608 ]
-  %incdec.ptr.i1616 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i1615, i64 8
+  %incdec.ptr.i1616 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i1615, i64 8
   %tobool.not.i.i1627 = icmp eq ptr %658, null
   br i1 %tobool.not.i.i1627, label %.noexc1240, label %if.then.i20.i1628
 
@@ -11729,7 +11729,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i, i64 8
   %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19, label %for.body.i.i.i12
 
@@ -11796,7 +11796,7 @@ if.then9:                                         ; preds = %if.then
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr %"class.QuantLib::Date", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"class.QuantLib::Date", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
@@ -11849,7 +11849,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6
 
 for.body.i.i.i.i.i34.preheader:                   ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  %add.ptr50 = getelementptr %"class.QuantLib::Date", ptr %1, i64 %sub
+  %add.ptr50 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i34
 
 for.body.i.i.i.i.i34:                             ; preds = %for.body.i.i.i.i.i34.preheader, %for.body.i.i.i.i.i34

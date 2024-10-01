@@ -10212,7 +10212,7 @@ _ZN4llvm7memprof12_GLOBAL__N_119readMemInfoBlocksV3EPKc.exit: ; preds = %13, %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %.sroa.0.i, ptr noundef nonnull align 1 dereferenceable(132) %22, i64 132, i1 false), !noalias !388
   %.sroa.2.0..sroa_idx.i4 = getelementptr inbounds i8, ptr %.01821.i, i64 140
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i4, align 1, !noalias !388
-  %23 = getelementptr i8, ptr %.01821.i, i64 152
+  %23 = getelementptr inbounds i8, ptr %.01821.i, i64 152
   %.not.i5 = icmp eq i32 %.sroa.2.0.copyload.i, 0
   br i1 %.not.i5, label %.thread.i, label %.lr.ph.i6
 
@@ -12425,7 +12425,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_E
 
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
@@ -13848,7 +13848,7 @@ _ZSt4moveIPSt6vectorIN4llvm7memprof5FrameESaIS3_EES6_ET0_T_S8_S7_.exit70: ; pred
 .lr.ph.i.i.i.i.i71.preheader:                     ; preds = %_ZSt4moveIPSt6vectorIN4llvm7memprof5FrameESaIS3_EES6_ET0_T_S8_S7_.exit70
   %132 = load ptr, ptr %0, align 8
   %133 = getelementptr inbounds %"class.std::vector.283", ptr %132, i64 %.026
-  %134 = getelementptr %"class.std::vector.283", ptr %129, i64 %.026
+  %134 = getelementptr inbounds %"class.std::vector.283", ptr %129, i64 %.026
   br label %.lr.ph.i.i.i.i.i71
 
 .lr.ph.i.i.i.i.i71:                               ; preds = %.lr.ph.i.i.i.i.i71.preheader, %.lr.ph.i.i.i.i.i71

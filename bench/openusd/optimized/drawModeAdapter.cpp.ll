@@ -11624,7 +11624,7 @@ _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESa
 
 _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i96: ; preds = %.lr.ph.i.i.i.i.i.i92.preheader, %_ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE11_M_allocateEm.exit.i.i.i90
   %.0.lcssa.i.i.i.i.i.i97 = phi ptr [ %190, %_ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE11_M_allocateEm.exit.i.i.i90 ], [ %scevgep, %.lr.ph.i.i.i.i.i.i92.preheader ]
-  %197 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i97, i64 136
+  %197 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i97, i64 136
   %.not.i23.i.i.i98 = icmp eq ptr %.sroa.0296.1, null
   br i1 %.not.i23.i.i.i98, label %_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i99, label %198
 
@@ -11779,7 +11779,7 @@ _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESa
 
 _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i120: ; preds = %.lr.ph.i.i.i.i.i.i116, %_ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE11_M_allocateEm.exit.i.i.i114
   %.0.lcssa.i.i.i.i.i.i121 = phi ptr [ %255, %_ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE11_M_allocateEm.exit.i.i.i114 ], [ %258, %.lr.ph.i.i.i.i.i.i116 ]
-  %259 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i121, i64 136
+  %259 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i121, i64 136
   %.not.i23.i.i.i122 = icmp eq ptr %.sroa.0296.3, null
   br i1 %.not.i23.i.i.i122, label %_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i123, label %260
 
@@ -11934,7 +11934,7 @@ _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESa
 
 _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i144: ; preds = %.lr.ph.i.i.i.i.i.i140, %_ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE11_M_allocateEm.exit.i.i.i138
   %.0.lcssa.i.i.i.i.i.i145 = phi ptr [ %317, %_ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE11_M_allocateEm.exit.i.i.i138 ], [ %320, %.lr.ph.i.i.i.i.i.i140 ]
-  %321 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i145, i64 136
+  %321 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i145, i64 136
   %.not.i23.i.i.i146 = icmp eq ptr %.sroa.0296.4, null
   br i1 %.not.i23.i.i.i146, label %_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i147, label %322
 
@@ -12089,7 +12089,7 @@ _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESa
 
 _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i168: ; preds = %.lr.ph.i.i.i.i.i.i164, %_ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE11_M_allocateEm.exit.i.i.i162
   %.0.lcssa.i.i.i.i.i.i169 = phi ptr [ %379, %_ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE11_M_allocateEm.exit.i.i.i162 ], [ %382, %.lr.ph.i.i.i.i.i.i164 ]
-  %383 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i169, i64 136
+  %383 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i169, i64 136
   %.not.i23.i.i.i170 = icmp eq ptr %.sroa.0296.5, null
   br i1 %.not.i23.i.i.i170, label %_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i171, label %384
 
@@ -12244,7 +12244,7 @@ _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESa
 
 _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i192: ; preds = %.lr.ph.i.i.i.i.i.i188, %_ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE11_M_allocateEm.exit.i.i.i186
   %.0.lcssa.i.i.i.i.i.i193 = phi ptr [ %441, %_ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE11_M_allocateEm.exit.i.i.i186 ], [ %444, %.lr.ph.i.i.i.i.i.i188 ]
-  %445 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i193, i64 136
+  %445 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i193, i64 136
   %.not.i23.i.i.i194 = icmp eq ptr %.sroa.0296.6, null
   br i1 %.not.i23.i.i.i194, label %_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEiESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i195, label %446
 

@@ -966,10 +966,10 @@ define hidden noundef i32 @_ZNK4ncnn15Flatten_x86_avx7forwardERKNS_3MatERS1_RKNS
   %549 = mul i64 %548, %indvars.iv1209
   %550 = load i64, ptr %78, align 8
   %551 = mul i64 %549, %550
-  %552 = getelementptr i8, ptr %547, i64 %551
+  %552 = getelementptr inbounds i8, ptr %547, i64 %551
   %553 = load ptr, ptr %2, align 8
   %554 = mul nuw nsw i64 %indvars.iv1209, %545
-  %555 = getelementptr float, ptr %553, i64 %554
+  %555 = getelementptr inbounds float, ptr %553, i64 %554
   br label %560
 
 ._crit_edge1133.us:                               ; preds = %.lr.ph1132.us, %..preheader_crit_edge.us
@@ -995,8 +995,8 @@ define hidden noundef i32 @_ZNK4ncnn15Flatten_x86_avx7forwardERKNS_3MatERS1_RKNS
   %.07781121.us = phi ptr [ %552, %.lr.ph1125.us ], [ %562, %560 ]
   %561 = load <8 x float>, ptr %.07781121.us, align 1
   store <8 x float> %561, ptr %.07761122.us, align 1
-  %562 = getelementptr i8, ptr %.07781121.us, i64 32
-  %563 = getelementptr i8, ptr %.07761122.us, i64 32
+  %562 = getelementptr inbounds i8, ptr %.07781121.us, i64 32
+  %563 = getelementptr inbounds i8, ptr %.07761122.us, i64 32
   %564 = add nuw nsw i32 %.01123.us, 8
   %565 = or disjoint i32 %564, 7
   %566 = icmp slt i32 %565, %81
@@ -1021,10 +1021,10 @@ define hidden noundef i32 @_ZNK4ncnn15Flatten_x86_avx7forwardERKNS_3MatERS1_RKNS
   %571 = mul i64 %570, %indvars.iv1203
   %572 = load i64, ptr %78, align 8
   %573 = mul i64 %571, %572
-  %574 = getelementptr i8, ptr %569, i64 %573
+  %574 = getelementptr inbounds i8, ptr %569, i64 %573
   %575 = load ptr, ptr %2, align 8
   %576 = mul nuw nsw i64 %indvars.iv1203, %568
-  %577 = getelementptr float, ptr %575, i64 %576
+  %577 = getelementptr inbounds float, ptr %575, i64 %576
   br label %578
 
 578:                                              ; preds = %.preheader.us1136, %578
@@ -1544,10 +1544,10 @@ define hidden noundef i32 @_ZNK4ncnn15Flatten_x86_avx12forward_int8ERKNS_3MatERS
   %296 = mul i64 %295, %indvars.iv421
   %297 = load i64, ptr %69, align 8
   %298 = mul i64 %296, %297
-  %299 = getelementptr i8, ptr %294, i64 %298
+  %299 = getelementptr inbounds i8, ptr %294, i64 %298
   %300 = load ptr, ptr %2, align 8
   %301 = mul nuw nsw i64 %indvars.iv421, %293
-  %302 = getelementptr i8, ptr %300, i64 %301
+  %302 = getelementptr inbounds i8, ptr %300, i64 %301
   br label %303
 
 303:                                              ; preds = %.lr.ph403.us, %303

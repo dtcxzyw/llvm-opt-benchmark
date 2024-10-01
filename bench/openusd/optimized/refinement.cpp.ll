@@ -3976,7 +3976,7 @@ define linkonce_odr void @_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refine
 
 18:                                               ; preds = %13
   %19 = sub i64 0, %2
-  %20 = getelementptr %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %9, i64 %19
+  %20 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %9, i64 %19
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %18, %.lr.ph.i.i.i.i.i
@@ -4093,7 +4093,7 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagESaIS5_EE12_
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i87, %54
   %.0.lcssa.i.i.i.i.i91 = phi ptr [ %55, %54 ], [ %59, %.lr.ph.i.i.i.i.i87 ]
-  %60 = getelementptr %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %.0.lcssa.i.i.i.i.i91, i64 %2
+  %60 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::ChildTag", ptr %.0.lcssa.i.i.i.i.i91, i64 %2
   %.not11.i.i.i.i.i92 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i92, label %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Vtr8internal10Refinement8ChildTagES6_SaIS5_EET0_T_S9_S8_RT1_.exit98, label %.lr.ph.i.i.i.i.i93
 

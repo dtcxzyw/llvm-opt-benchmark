@@ -45393,7 +45393,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN11flexbuffers7Builder5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN11flexbuffers7Builder5ValueESaIS2_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN11flexbuffers7Builder5ValueESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN11flexbuffers7Builder5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -46271,7 +46271,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN11flexbuffers7Builder5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN11flexbuffers7Builder5ValueESaIS2_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN11flexbuffers7Builder5ValueESaIS2_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN11flexbuffers7Builder5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -46368,7 +46368,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN11flexbuffers7Builder5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN11flexbuffers7Builder5ValueESaIS2_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN11flexbuffers7Builder5ValueESaIS2_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN11flexbuffers7Builder5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -46475,7 +46475,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN11flexbuffers7Builder5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN11flexbuffers7Builder5ValueESaIS2_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN11flexbuffers7Builder5ValueESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN11flexbuffers7Builder5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -46566,7 +46566,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN11flexbuffers7Builder5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN11flexbuffers7Builder5ValueESaIS2_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN11flexbuffers7Builder5ValueESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN11flexbuffers7Builder5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -46648,7 +46648,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN11flexbuffers7Builder5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN11flexbuffers7Builder5ValueESaIS2_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN11flexbuffers7Builder5ValueESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN11flexbuffers7Builder5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -59805,7 +59805,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 4
   %tobool.not.i.i.i.i = icmp eq ptr %attrs.sroa.0.053, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -71215,7 +71215,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN11flexbuffers7Builder5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN11flexbuffers7Builder5ValueESaIS2_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN11flexbuffers7Builder5ValueESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN11flexbuffers7Builder5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -71840,7 +71840,7 @@ if.then.i:                                        ; preds = %while.body.i.i
   br i1 %cmp1.not12.i.i.i, label %invoke.cont10, label %for.body.i.i.preheader.i
 
 for.body.i.i.preheader.i:                         ; preds = %if.then.i
-  %__cur.011.i.i.i = getelementptr i8, ptr %call.i.i, i64 4
+  %__cur.011.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   %load_initial = load i32, ptr %call.i.i, align 4
   br label %for.body.i.i.i
 
@@ -72464,7 +72464,7 @@ if.then17.i.i:                                    ; preds = %for.cond.i.i
   br i1 %cmp2144.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then17.i.i
-  %add.ptr18.i.i = getelementptr %"struct.flatbuffers::Offset.412", ptr %__p.0.i.i, i64 %__k.0.i.i
+  %add.ptr18.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.412", ptr %__p.0.i.i, i64 %__k.0.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -73433,7 +73433,7 @@ if.then17.i.i:                                    ; preds = %for.cond.i.i
   br i1 %cmp2144.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then17.i.i
-  %add.ptr18.i.i = getelementptr %"struct.flatbuffers::Offset.412", ptr %__p.0.i.i, i64 %__k.0.i.i
+  %add.ptr18.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.412", ptr %__p.0.i.i, i64 %__k.0.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -79485,7 +79485,7 @@ if.then.i:                                        ; preds = %while.body.i.i
   br i1 %cmp1.not12.i.i.i, label %invoke.cont10, label %for.body.i.i.preheader.i
 
 for.body.i.i.preheader.i:                         ; preds = %if.then.i
-  %__cur.011.i.i.i = getelementptr i8, ptr %call.i.i, i64 4
+  %__cur.011.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   %load_initial = load i32, ptr %call.i.i, align 4
   br label %for.body.i.i.i
 
@@ -80106,7 +80106,7 @@ if.then17.i.i:                                    ; preds = %for.cond.i.i
   br i1 %cmp2144.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then17.i.i
-  %add.ptr18.i.i = getelementptr %"struct.flatbuffers::Offset.269", ptr %__p.0.i.i, i64 %__k.0.i.i
+  %add.ptr18.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.269", ptr %__p.0.i.i, i64 %__k.0.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -81075,7 +81075,7 @@ if.then17.i.i:                                    ; preds = %for.cond.i.i
   br i1 %cmp2144.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then17.i.i
-  %add.ptr18.i.i = getelementptr %"struct.flatbuffers::Offset.269", ptr %__p.0.i.i, i64 %__k.0.i.i
+  %add.ptr18.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.269", ptr %__p.0.i.i, i64 %__k.0.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -81422,7 +81422,7 @@ if.then.i:                                        ; preds = %while.body.i.i
   br i1 %cmp1.not12.i.i.i, label %invoke.cont10, label %for.body.i.i.preheader.i
 
 for.body.i.i.preheader.i:                         ; preds = %if.then.i
-  %__cur.011.i.i.i = getelementptr i8, ptr %call.i.i, i64 4
+  %__cur.011.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   %load_initial = load i32, ptr %call.i.i, align 4
   br label %for.body.i.i.i
 
@@ -82043,7 +82043,7 @@ if.then17.i.i:                                    ; preds = %for.cond.i.i
   br i1 %cmp2144.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then17.i.i
-  %add.ptr18.i.i = getelementptr %"struct.flatbuffers::Offset.233", ptr %__p.0.i.i, i64 %__k.0.i.i
+  %add.ptr18.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.233", ptr %__p.0.i.i, i64 %__k.0.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -83012,7 +83012,7 @@ if.then17.i.i:                                    ; preds = %for.cond.i.i
   br i1 %cmp2144.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then17.i.i
-  %add.ptr18.i.i = getelementptr %"struct.flatbuffers::Offset.233", ptr %__p.0.i.i, i64 %__k.0.i.i
+  %add.ptr18.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.233", ptr %__p.0.i.i, i64 %__k.0.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -83359,7 +83359,7 @@ if.then.i:                                        ; preds = %while.body.i.i
   br i1 %cmp1.not12.i.i.i, label %invoke.cont10, label %for.body.i.i.preheader.i
 
 for.body.i.i.preheader.i:                         ; preds = %if.then.i
-  %__cur.011.i.i.i = getelementptr i8, ptr %call.i.i, i64 4
+  %__cur.011.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   %load_initial = load i32, ptr %call.i.i, align 4
   br label %for.body.i.i.i
 
@@ -83980,7 +83980,7 @@ if.then17.i.i:                                    ; preds = %for.cond.i.i
   br i1 %cmp2144.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then17.i.i
-  %add.ptr18.i.i = getelementptr %"struct.flatbuffers::Offset.239", ptr %__p.0.i.i, i64 %__k.0.i.i
+  %add.ptr18.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.239", ptr %__p.0.i.i, i64 %__k.0.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -84949,7 +84949,7 @@ if.then17.i.i:                                    ; preds = %for.cond.i.i
   br i1 %cmp2144.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then17.i.i
-  %add.ptr18.i.i = getelementptr %"struct.flatbuffers::Offset.239", ptr %__p.0.i.i, i64 %__k.0.i.i
+  %add.ptr18.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.239", ptr %__p.0.i.i, i64 %__k.0.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -85296,7 +85296,7 @@ if.then.i:                                        ; preds = %while.body.i.i
   br i1 %cmp1.not12.i.i.i, label %invoke.cont10, label %for.body.i.i.preheader.i
 
 for.body.i.i.preheader.i:                         ; preds = %if.then.i
-  %__cur.011.i.i.i = getelementptr i8, ptr %call.i.i, i64 4
+  %__cur.011.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   %load_initial = load i32, ptr %call.i.i, align 4
   br label %for.body.i.i.i
 
@@ -85917,7 +85917,7 @@ if.then17.i.i:                                    ; preds = %for.cond.i.i
   br i1 %cmp2144.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then17.i.i
-  %add.ptr18.i.i = getelementptr %"struct.flatbuffers::Offset.245", ptr %__p.0.i.i, i64 %__k.0.i.i
+  %add.ptr18.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.245", ptr %__p.0.i.i, i64 %__k.0.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -86886,7 +86886,7 @@ if.then17.i.i:                                    ; preds = %for.cond.i.i
   br i1 %cmp2144.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then17.i.i
-  %add.ptr18.i.i = getelementptr %"struct.flatbuffers::Offset.245", ptr %__p.0.i.i, i64 %__k.0.i.i
+  %add.ptr18.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.245", ptr %__p.0.i.i, i64 %__k.0.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -87233,7 +87233,7 @@ if.then.i:                                        ; preds = %while.body.i.i
   br i1 %cmp1.not12.i.i.i, label %invoke.cont10, label %for.body.i.i.preheader.i
 
 for.body.i.i.preheader.i:                         ; preds = %if.then.i
-  %__cur.011.i.i.i = getelementptr i8, ptr %call.i.i, i64 4
+  %__cur.011.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   %load_initial = load i32, ptr %call.i.i, align 4
   br label %for.body.i.i.i
 
@@ -87854,7 +87854,7 @@ if.then17.i.i:                                    ; preds = %for.cond.i.i
   br i1 %cmp2144.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then17.i.i
-  %add.ptr18.i.i = getelementptr %"struct.flatbuffers::Offset.259", ptr %__p.0.i.i, i64 %__k.0.i.i
+  %add.ptr18.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.259", ptr %__p.0.i.i, i64 %__k.0.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -88823,7 +88823,7 @@ if.then17.i.i:                                    ; preds = %for.cond.i.i
   br i1 %cmp2144.i.i, label %for.body.preheader.i.i, label %for.end.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.then17.i.i
-  %add.ptr18.i.i = getelementptr %"struct.flatbuffers::Offset.259", ptr %__p.0.i.i, i64 %__k.0.i.i
+  %add.ptr18.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.259", ptr %__p.0.i.i, i64 %__k.0.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -98065,7 +98065,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN11flexbuffers7Builder5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN11flexbuffers7Builder5ValueESaIS2_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN11flexbuffers7Builder5ValueESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN11flexbuffers7Builder5ValueESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 

@@ -14303,11 +14303,11 @@ cond.end.i:                                       ; preds = %cond.false.i, %entr
 if.end.i:                                         ; preds = %cond.end.i
   %tail.i.i = getelementptr inbounds i8, ptr %call.i40.i, i64 8
   store i64 0, ptr %tail.i.i, align 8
-  %add.ptr.i = getelementptr i8, ptr %call.i40.i, i64 40
+  %add.ptr.i = getelementptr inbounds i8, ptr %call.i40.i, i64 40
   %3 = ptrtoint ptr %add.ptr.i to i64
   %sub.i.i = sub i64 0, %3
   %rem1.i.i = and i64 %sub.i.i, 7
-  %add.ptr.i.i = getelementptr i8, ptr %add.ptr.i, i64 %rem1.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %rem1.i.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %mul.i
   %4 = ptrtoint ptr %add.ptr15.i to i64
   %sub.i41.i = sub i64 0, %4
@@ -14655,11 +14655,11 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.e
 if.end.i:                                         ; preds = %cond.end.i
   %tail.i.i = getelementptr inbounds i8, ptr %call.i40.i, i64 8
   store i64 0, ptr %tail.i.i, align 8
-  %add.ptr.i = getelementptr i8, ptr %call.i40.i, i64 40
+  %add.ptr.i = getelementptr inbounds i8, ptr %call.i40.i, i64 40
   %10 = ptrtoint ptr %add.ptr.i to i64
   %sub.i.i = sub i64 0, %10
   %rem1.i.i = and i64 %sub.i.i, 7
-  %add.ptr.i.i = getelementptr i8, ptr %add.ptr.i, i64 %rem1.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %rem1.i.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %mul.i
   %11 = ptrtoint ptr %add.ptr15.i to i64
   %sub.i41.i = sub i64 0, %11
@@ -29537,7 +29537,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN4asio6detail11timer_queueINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS6_EEEEE10heap_entryESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN4asio6detail11timer_queueINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS6_EEEEE10heap_entryESaISB_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN4asio6detail11timer_queueINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS6_EEEEE10heap_entryESaISB_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4asio6detail11timer_queueINS1_18chrono_time_traitsINSt6chrono3_V212steady_clockENS0_11wait_traitsIS6_EEEEE10heap_entryESaISB_EE17_M_realloc_insertIJRKSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -53256,11 +53256,11 @@ cond.end.i:                                       ; preds = %cond.false.i, %entr
 if.end.i:                                         ; preds = %cond.end.i
   %tail.i.i = getelementptr inbounds i8, ptr %call.i40.i, i64 8
   store i64 0, ptr %tail.i.i, align 8
-  %add.ptr.i = getelementptr i8, ptr %call.i40.i, i64 40
+  %add.ptr.i = getelementptr inbounds i8, ptr %call.i40.i, i64 40
   %3 = ptrtoint ptr %add.ptr.i to i64
   %sub.i.i = sub i64 0, %3
   %rem1.i.i = and i64 %sub.i.i, 7
-  %add.ptr.i.i = getelementptr i8, ptr %add.ptr.i, i64 %rem1.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %rem1.i.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %mul.i
   %4 = ptrtoint ptr %add.ptr15.i to i64
   %sub.i41.i = sub i64 0, %4
@@ -53569,11 +53569,11 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.e
 if.end.i:                                         ; preds = %cond.end.i
   %tail.i.i = getelementptr inbounds i8, ptr %call.i40.i, i64 8
   store i64 0, ptr %tail.i.i, align 8
-  %add.ptr.i = getelementptr i8, ptr %call.i40.i, i64 40
+  %add.ptr.i = getelementptr inbounds i8, ptr %call.i40.i, i64 40
   %10 = ptrtoint ptr %add.ptr.i to i64
   %sub.i.i = sub i64 0, %10
   %rem1.i.i = and i64 %sub.i.i, 7
-  %add.ptr.i.i = getelementptr i8, ptr %add.ptr.i, i64 %rem1.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %rem1.i.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %mul.i
   %11 = ptrtoint ptr %add.ptr15.i to i64
   %sub.i41.i = sub i64 0, %11
@@ -72156,11 +72156,11 @@ cond.end.i:                                       ; preds = %cond.false.i, %entr
 if.end.i:                                         ; preds = %cond.end.i
   %tail.i.i = getelementptr inbounds i8, ptr %call.i40.i, i64 8
   store i64 0, ptr %tail.i.i, align 8
-  %add.ptr.i = getelementptr i8, ptr %call.i40.i, i64 40
+  %add.ptr.i = getelementptr inbounds i8, ptr %call.i40.i, i64 40
   %3 = ptrtoint ptr %add.ptr.i to i64
   %sub.i.i = sub i64 0, %3
   %rem1.i.i = and i64 %sub.i.i, 7
-  %add.ptr.i.i = getelementptr i8, ptr %add.ptr.i, i64 %rem1.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %rem1.i.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %mul.i
   %4 = ptrtoint ptr %add.ptr15.i to i64
   %sub.i41.i = sub i64 0, %4
@@ -72481,11 +72481,11 @@ cond.end.i:                                       ; preds = %cond.false.i, %if.e
 if.end.i:                                         ; preds = %cond.end.i
   %tail.i.i = getelementptr inbounds i8, ptr %call.i40.i, i64 8
   store i64 0, ptr %tail.i.i, align 8
-  %add.ptr.i = getelementptr i8, ptr %call.i40.i, i64 40
+  %add.ptr.i = getelementptr inbounds i8, ptr %call.i40.i, i64 40
   %10 = ptrtoint ptr %add.ptr.i to i64
   %sub.i.i = sub i64 0, %10
   %rem1.i.i = and i64 %sub.i.i, 7
-  %add.ptr.i.i = getelementptr i8, ptr %add.ptr.i, i64 %rem1.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %rem1.i.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %mul.i
   %11 = ptrtoint ptr %add.ptr15.i to i64
   %sub.i41.i = sub i64 0, %11
@@ -77455,7 +77455,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN7coro_io15ExecutorWrapperIN4asio10io_context19basic_executor_typeISaIvELm0EEEEESt14default_deleteIS8_EESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN7coro_io15ExecutorWrapperIN4asio10io_context19basic_executor_typeISaIvELm0EEEEESt14default_deleteIS8_EESaISB_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN7coro_io15ExecutorWrapperIN4asio10io_context19basic_executor_typeISaIvELm0EEEEESt14default_deleteIS8_EESaISB_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i90 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
+  %incdec.ptr.i90 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %36, null
   br i1 %tobool.not.i.i, label %.noexc18, label %if.then.i20.i
 
@@ -107490,7 +107490,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN4asio12const_bufferESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4asio12const_bufferESaIS1_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN4asio12const_bufferESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i224 = icmp eq ptr %192, null
   br i1 %tobool.not.i.i.i.i224, label %_ZNSt6vectorIN4asio12const_bufferESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -107572,7 +107572,7 @@ for.body.i.i.i.i.i.i255:                          ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN4asio12const_bufferESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i261: ; preds = %for.body.i.i.i.i.i.i255, %_ZNSt12_Vector_baseIN4asio12const_bufferESaIS1_EE11_M_allocateEm.exit.i.i.i251
   %__cur.0.lcssa.i.i.i.i.i.i262 = phi ptr [ %cond.i10.i.i.i252, %_ZNSt12_Vector_baseIN4asio12const_bufferESaIS1_EE11_M_allocateEm.exit.i.i.i251 ], [ %incdec.ptr1.i.i.i.i.i.i259, %for.body.i.i.i.i.i.i255 ]
-  %incdec.ptr.i.i.i263 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i262, i64 16
+  %incdec.ptr.i.i.i263 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i262, i64 16
   %tobool.not.i.i.i.i264 = icmp eq ptr %199, null
   br i1 %tobool.not.i.i.i.i264, label %_ZNSt6vectorIN4asio12const_bufferESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i266, label %if.then.i20.i.i.i265
 

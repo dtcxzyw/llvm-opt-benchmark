@@ -480,7 +480,7 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen13BytecodeBlockESaIS2_EE11_M_allocateEm.exit.i
 
 _ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN4Luau7CodeGen13BytecodeBlockESaIS2_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %28, %_ZNSt12_Vector_baseIN4Luau7CodeGen13BytecodeBlockESaIS2_EE11_M_allocateEm.exit.i ], [ %32, %.lr.ph.i.i.i.i ]
-  %33 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %14, null
   br i1 %.not.i23.i, label %_ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %34
 
@@ -593,7 +593,7 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen13BytecodeBlockESaIS2_EE11_M_allocateEm.exit.i
 
 _ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i56: ; preds = %.lr.ph.i.i.i.i45, %_ZNSt12_Vector_baseIN4Luau7CodeGen13BytecodeBlockESaIS2_EE11_M_allocateEm.exit.i43
   %.0.lcssa.i.i.i.i50 = phi ptr [ %75, %_ZNSt12_Vector_baseIN4Luau7CodeGen13BytecodeBlockESaIS2_EE11_M_allocateEm.exit.i43 ], [ %79, %.lr.ph.i.i.i.i45 ]
-  %80 = getelementptr i8, ptr %.0.lcssa.i.i.i.i50, i64 8
+  %80 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i50, i64 8
   %.not.i23.i58 = icmp eq ptr %61, null
   br i1 %.not.i23.i58, label %_ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit59, label %81
 
@@ -762,7 +762,7 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen13BytecodeBlockESaIS2_EE11_M_allocateEm.exit.i
 
 _ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i76: ; preds = %.lr.ph.i.i.i.i65, %_ZNSt12_Vector_baseIN4Luau7CodeGen13BytecodeBlockESaIS2_EE11_M_allocateEm.exit.i63
   %.0.lcssa.i.i.i.i70 = phi ptr [ %128, %_ZNSt12_Vector_baseIN4Luau7CodeGen13BytecodeBlockESaIS2_EE11_M_allocateEm.exit.i63 ], [ %132, %.lr.ph.i.i.i.i65 ]
-  %133 = getelementptr i8, ptr %.0.lcssa.i.i.i.i70, i64 8
+  %133 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i70, i64 8
   %.not.i23.i78 = icmp eq ptr %114, null
   br i1 %.not.i23.i78, label %_ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit79, label %134
 

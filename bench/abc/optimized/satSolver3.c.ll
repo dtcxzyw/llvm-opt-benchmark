@@ -719,13 +719,13 @@ define i32 @sat_solver3_propagate(ptr nocapture noundef %0) local_unnamed_addr #
 
 52:                                               ; preds = %43
   %53 = getelementptr inbounds i8, ptr %.088135, i64 4
-  %54 = getelementptr i8, ptr %.091134, i64 4
+  %54 = getelementptr inbounds i8, ptr %.091134, i64 4
   store i32 %41, ptr %.091134, align 4
   %55 = icmp ult ptr %53, %33
   br i1 %55, label %40, label %.outer._crit_edge, !llvm.loop !10
 
 56:                                               ; preds = %43
-  %57 = getelementptr i8, ptr %.091134, i64 4
+  %57 = getelementptr inbounds i8, ptr %.091134, i64 4
   store i32 %41, ptr %.091134, align 4
   %58 = load i32, ptr %.088135, align 4
   %59 = ashr i32 %58, 1
@@ -894,7 +894,7 @@ clause_read.exit:                                 ; preds = %94, %95
 
 ._crit_edge149:                                   ; preds = %141, %121
   %144 = load i32, ptr %.088135, align 4
-  %145 = getelementptr i8, ptr %.091134, i64 4
+  %145 = getelementptr inbounds i8, ptr %.091134, i64 4
   store i32 %144, ptr %.091134, align 4
   %146 = load i32, ptr %103, align 4
   %147 = and i32 %146, 1

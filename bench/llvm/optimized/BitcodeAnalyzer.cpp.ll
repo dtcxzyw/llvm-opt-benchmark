@@ -6010,7 +6010,7 @@ _ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.i: ; preds = %693, %
 
 _ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %696, %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.i ], [ %700, %.lr.ph.i.i.i.i ]
-  %701 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %701 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %.sroa.0343.1386, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt4pairIjjESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %702
 
@@ -9598,7 +9598,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3
   br label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIjjESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread19.sink.split
 
 .lr.ph.i.i.preheader.i:                           ; preds = %12
-  %.01317.i.i.i = getelementptr i8, ptr %11, i64 8
+  %.01317.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %load_initial = load i64, ptr %11, align 4
   br label %.lr.ph.i.i.i
 

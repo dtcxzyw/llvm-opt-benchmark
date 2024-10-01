@@ -57,7 +57,7 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
 
 41:                                               ; preds = %8
   %42 = sext i32 %23 to i64
-  %43 = getelementptr i32, ptr %33, i64 %42
+  %43 = getelementptr inbounds i32, ptr %33, i64 %42
   %44 = icmp sgt i32 %23, 0
   br i1 %44, label %.lr.ph.preheader, label %._crit_edge
 

@@ -1321,7 +1321,7 @@ Ssc_SimAnd.exit:                                  ; preds = %.lr.ph.i, %.lr.ph48
   %146 = sub i32 %.neg, %.val76.val166
   %147 = mul nsw i32 %145, %146
   %148 = sext i32 %147 to i64
-  %149 = getelementptr i64, ptr %.val.i111, i64 %148
+  %149 = getelementptr inbounds i64, ptr %.val.i111, i64 %148
   %wide.trip.count.i114 = zext nneg i32 %9 to i64
   %150 = sext i32 %9 to i64
   br label %151
@@ -1380,7 +1380,7 @@ Ssc_SimAnd.exit:                                  ; preds = %.lr.ph.i, %.lr.ph48
   br i1 %exitcond25.not.i125, label %Ssc_SimDup.exit126, label %.lr.ph18.i122, !llvm.loop !16
 
 Ssc_SimDup.exit126:                               ; preds = %.lr.ph.i115, %.lr.ph18.i122, %.preheader14.i, %.preheader.i119
-  %173 = getelementptr i64, ptr %.3167, i64 %150
+  %173 = getelementptr inbounds i64, ptr %.3167, i64 %150
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %.val75 = load i32, ptr %5, align 8
   %.val76 = load ptr, ptr %136, align 8

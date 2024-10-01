@@ -5530,7 +5530,7 @@ invoke.cont.i:                                    ; preds = %_ZSt4copyIN9__gnu_c
   br label %if.end61
 
 if.else41:                                        ; preds = %if.else
-  %incdec.ptr.i8.sink.i.i = getelementptr i8, ptr %__first.coerce, i64 %sub.ptr.sub.i9
+  %incdec.ptr.i8.sink.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i9
   %sub.ptr.div.i.i.i.i.i21 = ashr exact i64 %sub.ptr.sub.i9, 4
   %cmp6.i.i.i.i.i22 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i21, 0
   br i1 %cmp6.i.i.i.i.i22, label %for.body.i.i.i.i.i24, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairIiPN7rocksdb12FileMetaDataEESt6vectorIS6_SaIS6_EEEEPS6_ET0_T_SF_SE_.exit34

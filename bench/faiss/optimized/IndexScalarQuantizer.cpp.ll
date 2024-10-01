@@ -1167,7 +1167,7 @@ define internal void @_ZNK5faiss20IndexScalarQuantizer6searchElPKflPfPlPKNS_16Se
   %34 = mul nsw i64 %33, %.040
   %35 = getelementptr inbounds float, ptr %32, i64 %34
   %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr i64, ptr %36, i64 %34
+  %37 = getelementptr inbounds i64, ptr %36, i64 %34
   %38 = load i32, ptr %15, align 4
   %39 = icmp eq i32 %38, 1
   %.not37 = icmp eq i64 %33, 0

@@ -300,7 +300,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %.noexc
 
 .noexc.i:                                         ; preds = %9
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr i8, ptr %13, i64 16
+  %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = getelementptr inbounds i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %13, i64 12
@@ -318,7 +318,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %.noexc
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %22, i64 %25
   %27 = sext i32 %16 to i64
-  %28 = getelementptr ptr, ptr %14, i64 %27
+  %28 = getelementptr inbounds ptr, ptr %14, i64 %27
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -519,7 +519,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i:            ; preds = %_ZN11StringValueD2E
 
 .noexc:                                           ; preds = %21
   %25 = load ptr, ptr %16, align 8
-  %26 = getelementptr i8, ptr %25, i64 16
+  %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = getelementptr inbounds i8, ptr %25, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %25, i64 12
@@ -537,7 +537,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i:            ; preds = %_ZN11StringValueD2E
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds ptr, ptr %34, i64 %37
   %39 = sext i32 %28 to i64
-  %40 = getelementptr ptr, ptr %26, i64 %39
+  %40 = getelementptr inbounds ptr, ptr %26, i64 %39
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i, %.lr.ph.i.preheader.i.i

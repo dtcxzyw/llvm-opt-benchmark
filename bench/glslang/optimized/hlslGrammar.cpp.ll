@@ -2157,7 +2157,7 @@ _ZNSt12_Vector_baseIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE11_M_allocateE
 
 _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S5_EEDpOT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %148, %_ZNSt12_Vector_baseIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i.i ], [ %152, %.lr.ph.i.i.i.i.i ]
-  %153 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %153 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   store ptr %148, ptr %132, align 8
   store ptr %153, ptr %124, align 8
   %154 = getelementptr inbounds ptr, ptr %148, i64 %143
@@ -7891,7 +7891,7 @@ _ZNSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE9push_backERKS1_.exit
   store ptr %14, ptr %111, align 8
   %.sroa.3.0..sroa_idx34 = getelementptr inbounds i8, ptr %111, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx34, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, i64 24, i1 false)
-  %112 = getelementptr i8, ptr %111, i64 32
+  %112 = getelementptr inbounds i8, ptr %111, i64 32
   store ptr %111, ptr %107, align 8
   store ptr %112, ptr %109, align 8
   store ptr %112, ptr %110, align 8
@@ -9199,7 +9199,7 @@ _ZNSt12_Vector_baseIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE11_M_allocateE
 
 _ZNSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S4_EEDpOT_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i = phi ptr [ %203, %_ZNSt12_Vector_baseIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i ], [ %206, %.lr.ph.i.i.i.i ]
-  %207 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 32
+  %207 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 32
   store ptr %203, ptr %187, align 8
   store ptr %207, ptr %179, align 8
   %208 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %203, i64 %198
@@ -9972,7 +9972,7 @@ _ZNSt12_Vector_baseIN7glslang9HlslTokenENS0_14pool_allocatorIS1_EEE11_M_allocate
 
 _ZNSt6vectorIN7glslang9HlslTokenENS0_14pool_allocatorIS1_EEE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S4_EEDpOT_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN7glslang9HlslTokenENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i = phi ptr [ %36, %_ZNSt12_Vector_baseIN7glslang9HlslTokenENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i ], [ %39, %.lr.ph.i.i.i.i ]
-  %40 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 40
+  %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 40
   store ptr %36, ptr %7, align 8
   store ptr %40, ptr %5, align 8
   %41 = getelementptr inbounds %"struct.glslang::HlslToken", ptr %36, i64 %31
@@ -16242,7 +16242,7 @@ define linkonce_odr void @_ZNSt6vectorIN7glslang10TArraySizeENS0_14pool_allocato
 
 .lr.ph.i.i.preheader:                             ; preds = %17
   %22 = sub nsw i64 0, %9
-  %23 = getelementptr %"struct.glslang::TArraySize", ptr %13, i64 %22
+  %23 = getelementptr inbounds %"struct.glslang::TArraySize", ptr %13, i64 %22
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -16295,7 +16295,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySi
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEES4_S7_ET0_T_SB_SA_RT1_.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEES4_S7_ET0_T_SB_SA_RT1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEEmEvRT_T0_.exit
   %35 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEES4_S7_ET0_T_SB_SA_RT1_.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN7glslang10TArraySizeESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEEmEvRT_T0_.exit ]
   %36 = sub nuw nsw i64 %9, %20
-  %37 = getelementptr %"struct.glslang::TArraySize", ptr %35, i64 %36
+  %37 = getelementptr inbounds %"struct.glslang::TArraySize", ptr %35, i64 %36
   store ptr %37, ptr %12, align 8
   %.not8.i.i44 = icmp eq ptr %1, %13
   br i1 %.not8.i.i44, label %_ZSt22__uninitialized_move_aIPN7glslang10TArraySizeES2_NS0_14pool_allocatorIS1_EEET0_T_S6_S5_RT1_.exit50, label %.lr.ph.i.i45
@@ -16770,7 +16770,7 @@ _ZNSt12_Vector_baseIN7glslang10TArraySizeENS0_14pool_allocatorIS1_EEE11_M_alloca
 
 _ZNSt6vectorIN7glslang10TArraySizeENS0_14pool_allocatorIS1_EEE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S4_EEDpOT_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN7glslang10TArraySizeENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i = phi ptr [ %37, %_ZNSt12_Vector_baseIN7glslang10TArraySizeENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i ], [ %40, %.lr.ph.i.i.i.i ]
-  %41 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   store ptr %37, ptr %21, align 8
   store ptr %41, ptr %13, align 8
   %42 = getelementptr inbounds %"struct.glslang::TArraySize", ptr %37, i64 %32

@@ -852,13 +852,13 @@ define void @Gia_ManPerformOneIter(ptr nocapture noundef readonly %0) local_unna
   %75 = trunc nuw nsw i64 %indvars.iv to i32
   %76 = mul nsw i32 %.val23.i, %75
   %77 = sext i32 %76 to i64
-  %78 = getelementptr i32, ptr %.val24.i, i64 %77
+  %78 = getelementptr inbounds i32, ptr %.val24.i, i64 %77
   %79 = trunc i64 %.val13 to i32
   %80 = and i32 %79, 536870911
   %81 = sub nsw i32 %75, %80
   %82 = mul nsw i32 %.val23.i, %81
   %83 = sext i32 %82 to i64
-  %84 = getelementptr i32, ptr %.val24.i, i64 %83
+  %84 = getelementptr inbounds i32, ptr %.val24.i, i64 %83
   %85 = and i32 %79, 536870912
   %.not.i19 = icmp eq i32 %85, 0
   %86 = icmp sgt i32 %.val23.i, 0

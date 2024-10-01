@@ -2428,7 +2428,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinement37populateChildV
   %66 = getelementptr inbounds nuw i8, ptr %57, i64 120
   %67 = sext i32 %65 to i64
   %68 = load ptr, ptr %66, align 8
-  %69 = getelementptr i16, ptr %68, i64 %67
+  %69 = getelementptr inbounds i16, ptr %68, i64 %67
   %70 = load ptr, ptr %9, align 8
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 264
@@ -2442,7 +2442,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinement37populateChildV
   %80 = getelementptr inbounds nuw i8, ptr %70, i64 120
   %81 = sext i32 %79 to i64
   %82 = load ptr, ptr %80, align 8
-  %83 = getelementptr i16, ptr %82, i64 %81
+  %83 = getelementptr inbounds i16, ptr %82, i64 %81
   %84 = icmp sgt i32 %76, 0
   br i1 %84, label %.lr.ph.preheader.i, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinement34populateChildValuesForVertexVertexEii.exit
 

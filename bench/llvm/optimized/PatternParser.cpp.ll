@@ -4324,8 +4324,8 @@ _ZSt4moveIPSt10unique_ptrIN4llvm2gi7PatternESt14default_deleteIS3_EES7_ET0_T_S9_
 
 .lr.ph.i.i.i.i.i63.preheader:                     ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm2gi7PatternESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit62
   %93 = load ptr, ptr %0, align 8
-  %94 = getelementptr %"class.std::unique_ptr", ptr %93, i64 %.026
-  %95 = getelementptr %"class.std::unique_ptr", ptr %90, i64 %.026
+  %94 = getelementptr inbounds %"class.std::unique_ptr", ptr %93, i64 %.026
+  %95 = getelementptr inbounds %"class.std::unique_ptr", ptr %90, i64 %.026
   br label %.lr.ph.i.i.i.i.i63
 
 .lr.ph.i.i.i.i.i63:                               ; preds = %.lr.ph.i.i.i.i.i63.preheader, %.lr.ph.i.i.i.i.i63

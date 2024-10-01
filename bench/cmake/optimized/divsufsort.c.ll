@@ -1670,7 +1670,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2058
 .lr.ph257.preheader.i84.i:                        ; preds = %674
   %686 = zext nneg i32 %spec.select.i73.i to i64
   %687 = sub nsw i64 0, %686
-  %688 = getelementptr i32, ptr %.3157.lcssa.i70.i, i64 %687
+  %688 = getelementptr inbounds i32, ptr %.3157.lcssa.i70.i, i64 %687
   br label %.lr.ph257.i85.i
 
 .lr.ph257.i85.i:                                  ; preds = %.lr.ph257.i85.i, %.lr.ph257.preheader.i84.i
@@ -1704,7 +1704,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2058
 .lr.ph263.preheader.i79.i:                        ; preds = %._crit_edge258.i74.i
   %705 = zext nneg i32 %spec.select202.i75.i to i64
   %706 = sub nsw i64 0, %705
-  %707 = getelementptr i32, ptr %.0463.ph.i.i, i64 %706
+  %707 = getelementptr inbounds i32, ptr %.0463.ph.i.i, i64 %706
   br label %.lr.ph263.i80.i
 
 .lr.ph263.i80.i:                                  ; preds = %.lr.ph263.i80.i, %.lr.ph263.preheader.i79.i
@@ -3424,7 +3424,7 @@ tr_pivot.exit.i.i:                                ; preds = %1604, %tr_median3.e
 .lr.ph257.preheader.i.i:                          ; preds = %1700
   %1711 = zext nneg i32 %spec.select.i.i to i64
   %1712 = sub nsw i64 0, %1711
-  %1713 = getelementptr i32, ptr %.3157.lcssa.i.i, i64 %1712
+  %1713 = getelementptr inbounds i32, ptr %.3157.lcssa.i.i, i64 %1712
   br label %.lr.ph257.i.i
 
 .lr.ph257.i.i:                                    ; preds = %.lr.ph257.i.i, %.lr.ph257.preheader.i.i
@@ -3458,7 +3458,7 @@ tr_pivot.exit.i.i:                                ; preds = %1604, %tr_median3.e
 .lr.ph263.preheader.i.i:                          ; preds = %._crit_edge258.i.i
   %1730 = zext nneg i32 %spec.select202.i.i to i64
   %1731 = sub nsw i64 0, %1730
-  %1732 = getelementptr i32, ptr %.0463.ph.i.i, i64 %1731
+  %1732 = getelementptr inbounds i32, ptr %.0463.ph.i.i, i64 %1731
   br label %.lr.ph263.i.i
 
 .lr.ph263.i.i:                                    ; preds = %.lr.ph263.i.i, %.lr.ph263.preheader.i.i
@@ -6255,7 +6255,7 @@ ss_pivot.exit:                                    ; preds = %405, %437, %446, %s
 .lr.ph633.preheader:                              ; preds = %817
   %828 = zext nneg i32 %spec.select to i64
   %829 = sub nsw i64 0, %828
-  %830 = getelementptr i32, ptr %.3417.lcssa, i64 %829
+  %830 = getelementptr inbounds i32, ptr %.3417.lcssa, i64 %829
   br label %.lr.ph633
 
 .lr.ph633:                                        ; preds = %.lr.ph633.preheader, %.lr.ph633
@@ -6289,7 +6289,7 @@ ss_pivot.exit:                                    ; preds = %405, %437, %446, %s
 .lr.ph639.preheader:                              ; preds = %._crit_edge634
   %847 = zext nneg i32 %spec.select499 to i64
   %848 = sub nsw i64 0, %847
-  %849 = getelementptr i32, ptr %.0436, i64 %848
+  %849 = getelementptr inbounds i32, ptr %.0436, i64 %848
   br label %.lr.ph639
 
 .lr.ph639:                                        ; preds = %.lr.ph639.preheader, %.lr.ph639
@@ -7948,7 +7948,7 @@ ss_compare.exit385.thread:                        ; preds = %.thread.i378, %489,
 501:                                              ; preds = %._crit_edge
   %502 = zext nneg i32 %.1223 to i64
   %503 = sub nsw i64 0, %502
-  %504 = getelementptr i32, ptr %.0226, i64 %503
+  %504 = getelementptr inbounds i32, ptr %.0226, i64 %503
   br label %.lr.ph.i387
 
 .lr.ph.i387:                                      ; preds = %501, %.lr.ph.i387

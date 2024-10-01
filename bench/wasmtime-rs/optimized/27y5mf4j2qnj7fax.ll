@@ -4522,7 +4522,7 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17hd6
   %.sroa.0.0.i42 = phi ptr [ %78, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$4grow17hf4afe58f79da5107E.exit" ], [ @anon.01b6a15726ed4c970b35a914a585cc1d.36, %18 ]
   %.sroa.3.0.i41 = phi i64 [ %.0.i, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$4grow17hf4afe58f79da5107E.exit" ], [ 0, %18 ]
   %.idx51 = shl nsw i64 %80, 2
-  %81 = getelementptr i8, ptr %.sroa.0.0.i42, i64 %.idx51
+  %81 = getelementptr inbounds i8, ptr %.sroa.0.0.i42, i64 %.idx51
   %82 = sub nsw i64 %.sroa.3.0.i41, %80
   %gepdiff = and i64 %82, 4611686018427387903
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %gepdiff)

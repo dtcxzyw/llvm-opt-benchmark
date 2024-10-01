@@ -420,7 +420,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteI
 
 _ZNSt6vectorISt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i28, %_ZNSt12_Vector_baseISt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i26
   %.0.lcssa.i.i.i.i = phi ptr [ %78, %_ZNSt12_Vector_baseISt10unique_ptrIN5ceres8internal8CellInfoESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i26 ], [ %83, %.lr.ph.i.i.i.i28 ]
-  %84 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %84 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %64, null
   br i1 %.not.i23.i, label %.noexc18, label %85
 

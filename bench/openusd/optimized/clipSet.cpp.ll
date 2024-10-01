@@ -3724,7 +3724,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESa
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %277, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %280, %.lr.ph.i.i.i.i.i.i ]
-  %281 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %281 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %263, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %282
 
@@ -4720,7 +4720,7 @@ define linkonce_odr ptr @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8Usd_Cl
   br label %55
 
 28:                                               ; preds = %3
-  %29 = getelementptr i8, ptr %4, i64 %7
+  %29 = getelementptr inbounds i8, ptr %4, i64 %7
   %30 = ptrtoint ptr %9 to i64
   %31 = sub i64 %30, %6
   %32 = icmp eq i64 %31, 9223372036854775800
@@ -4764,7 +4764,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESa
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESaIS2_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %43, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESaIS2_EE11_M_allocateEm.exit.i ], [ %46, %.lr.ph.i.i.i.i ]
-  %47 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 24
+  %47 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
   %.not10.i.i.i16.i = icmp eq ptr %1, %9
   br i1 %.not10.i.i.i16.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, label %.lr.ph.i.i.i17.i
 
@@ -10316,7 +10316,7 @@ select.unfold.i.i:                                ; preds = %.lr.ph.i.i
   br i1 %.not18.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.thread28, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %15
-  %.01317.i.i.i = getelementptr i8, ptr %11, i64 24
+  %.01317.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i

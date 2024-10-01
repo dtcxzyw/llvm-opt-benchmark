@@ -31,7 +31,7 @@ define void @softfloat_shiftRightJam256M(ptr nocapture noundef readonly %0, i64 
   br i1 %13, label %.thread, label %.loopexit.loopexit
 
 .thread:                                          ; preds = %11
-  %14 = getelementptr i64, ptr %0, i64 %spec.store.select
+  %14 = getelementptr inbounds i64, ptr %0, i64 %spec.store.select
   %15 = and i64 %1, 63
   %.not47 = icmp eq i64 %15, 0
   br i1 %.not47, label %.lr.ph.preheader, label %16

@@ -23996,7 +23996,7 @@ if.then.i.i:                                      ; preds = %_ZSt13move_backward
   br label %if.end29
 
 if.else21:                                        ; preds = %entry
-  %add.ptr.i7 = getelementptr i8, ptr %0, i64 %sub.ptr.sub.i
+  %add.ptr.i7 = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
   %cmp.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, 9223372036854775800
@@ -24042,7 +24042,7 @@ for.inc.i.i.i.i.i.i:                              ; preds = %invoke.cont.i, %for
 
 invoke.cont10.i:                                  ; preds = %for.inc.i.i.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i19.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i.i.i11, %for.inc.i.i.i.i.i.i ]
-  %incdec.ptr.i12 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i12 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 8
   %cmp.not7.i.i.i.i.i20.i = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.not7.i.i.i.i.i20.i, label %invoke.cont14.i, label %for.inc.i.i.i.i.i21.i
 

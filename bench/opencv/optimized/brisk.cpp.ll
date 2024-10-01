@@ -3914,7 +3914,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = 
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %203, %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %206, %.lr.ph.i.i.i.i.i.i.i ]
-  %207 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 28
+  %207 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 28
   %.not.i23.i.i.i = icmp eq ptr %190, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %208
 
@@ -4174,7 +4174,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i163: ; preds
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i169: ; preds = %.lr.ph.i.i.i.i.i.i.i165, %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i163
   %.0.lcssa.i.i.i.i.i.i.i170 = phi ptr [ %340, %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i163 ], [ %343, %.lr.ph.i.i.i.i.i.i.i165 ]
-  %344 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i170, i64 28
+  %344 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i170, i64 28
   %.not.i23.i.i.i171 = icmp eq ptr %327, null
   br i1 %.not.i23.i.i.i171, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i172, label %345
 
@@ -4319,7 +4319,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i183: ; preds
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i189: ; preds = %.lr.ph.i.i.i.i.i.i.i185, %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i183
   %.0.lcssa.i.i.i.i.i.i.i190 = phi ptr [ %394, %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.i183 ], [ %397, %.lr.ph.i.i.i.i.i.i.i185 ]
-  %398 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i190, i64 28
+  %398 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i190, i64 28
   %.not.i23.i.i.i191 = icmp eq ptr %381, null
   br i1 %.not.i23.i.i.i191, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i192, label %399
 

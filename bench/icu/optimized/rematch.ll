@@ -18052,7 +18052,7 @@ if.end6:                                          ; preds = %_ZN6icu_759UVector6
   %8 = load i32, ptr %fFrameSize, align 8
   %idx.ext = sext i32 %8 to i64
   %idx.neg = sub nsw i64 0, %idx.ext
-  %add.ptr = getelementptr i64, ptr %retval.0.i, i64 %idx.neg
+  %add.ptr = getelementptr inbounds i64, ptr %retval.0.i, i64 %idx.neg
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond, %if.end6

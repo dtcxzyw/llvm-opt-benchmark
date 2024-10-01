@@ -1059,7 +1059,7 @@ _ZL14mergePolyVertsPtS_iiS_i.exit:                ; preds = %447, %.preheader.i
   %467 = load ptr, ptr %82, align 8
   %468 = mul i32 %149, %466
   %469 = sext i32 %468 to i64
-  %470 = getelementptr i16, ptr %467, i64 %469
+  %470 = getelementptr inbounds i16, ptr %467, i64 %469
   %471 = mul nsw i64 %indvars.iv669, %77
   %472 = getelementptr inbounds i16, ptr %136, i64 %471
   br i1 %151, label %.lr.ph593, label %._crit_edge594
@@ -3753,7 +3753,7 @@ _ZL14mergePolyVertsPtS_iiS_i.exit:                ; preds = %476, %.preheader.i
   %515 = load ptr, ptr %505, align 8
   %516 = mul i32 %506, %513
   %517 = sext i32 %516 to i64
-  %518 = getelementptr i16, ptr %515, i64 %517
+  %518 = getelementptr inbounds i16, ptr %515, i64 %517
   tail call void @llvm.memset.p0.i64(ptr align 2 %518, i8 -1, i64 %507, i1 false)
   br i1 %508, label %.lr.ph735, label %._crit_edge736
 

@@ -9518,7 +9518,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11
   %546 = load ptr, ptr %19, align 8
   store ptr null, ptr %19, align 8
   store ptr %546, ptr %545, align 8
-  %547 = getelementptr i8, ptr %545, i64 8
+  %547 = getelementptr inbounds i8, ptr %545, i64 8
   %.not10.i.i.i16.i = icmp eq ptr %496, %498
   br i1 %.not10.i.i.i16.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, label %.lr.ph.i.i.i17.i
 
@@ -9727,7 +9727,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11
   %623 = load ptr, ptr %21, align 8
   store ptr null, ptr %21, align 8
   store ptr %623, ptr %622, align 8
-  %624 = getelementptr i8, ptr %622, i64 8
+  %624 = getelementptr inbounds i8, ptr %622, i64 8
   %.not10.i.i.i16.i326 = icmp eq ptr %575, %576
   br i1 %.not10.i.i.i16.i326, label %_ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i331, label %.lr.ph.i.i.i17.i327
 
@@ -9911,7 +9911,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11
   %687 = load ptr, ptr %26, align 8
   store ptr null, ptr %26, align 8
   store ptr %687, ptr %686, align 8
-  %688 = getelementptr i8, ptr %686, i64 8
+  %688 = getelementptr inbounds i8, ptr %686, i64 8
   %.not10.i.i.i16.i347 = icmp eq ptr %639, %640
   br i1 %.not10.i.i.i16.i347, label %_ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i352, label %.lr.ph.i.i.i17.i348
 
@@ -10137,7 +10137,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11
   %764 = load ptr, ptr %27, align 8
   store ptr null, ptr %27, align 8
   store ptr %764, ptr %763, align 8
-  %765 = getelementptr i8, ptr %763, i64 8
+  %765 = getelementptr inbounds i8, ptr %763, i64 8
   %.not10.i.i.i16.i368 = icmp eq ptr %716, %717
   br i1 %.not10.i.i.i16.i368, label %_ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i373, label %.lr.ph.i.i.i17.i369
 
@@ -10354,7 +10354,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11
   %838 = load ptr, ptr %29, align 8
   store ptr null, ptr %29, align 8
   store ptr %838, ptr %837, align 8
-  %839 = getelementptr i8, ptr %837, i64 8
+  %839 = getelementptr inbounds i8, ptr %837, i64 8
   %.not10.i.i.i16.i389 = icmp eq ptr %790, %791
   br i1 %.not10.i.i.i16.i389, label %_ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i394, label %.lr.ph.i.i.i17.i390
 
@@ -10840,7 +10840,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS
 
 _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i402, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i406 = phi ptr [ %1034, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %1039, %.lr.ph.i.i.i.i402 ]
-  %1040 = getelementptr i8, ptr %.0.lcssa.i.i.i.i406, i64 8
+  %1040 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i406, i64 8
   %.not.i23.i413 = icmp eq ptr %1021, null
   br i1 %.not.i23.i413, label %.noexc289, label %1041
 
@@ -14894,7 +14894,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementES
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
   %22 = sub nsw i64 0, %9
-  %23 = getelementptr %"class.std::unique_ptr.275", ptr %13, i64 %22
+  %23 = getelementptr inbounds %"class.std::unique_ptr.275", ptr %13, i64 %22
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -14995,7 +14995,7 @@ _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS
 _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit.loopexit, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEmEvRT_T0_.exit
   %55 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEEmEvRT_T0_.exit ]
   %56 = sub nuw nsw i64 %9, %20
-  %57 = getelementptr %"class.std::unique_ptr.275", ptr %55, i64 %56
+  %57 = getelementptr inbounds %"class.std::unique_ptr.275", ptr %55, i64 %56
   store ptr %57, ptr %12, align 8
   %.not11.i.i.i.i.i56 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i56, label %_ZSt22__uninitialized_move_aIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit62, label %.lr.ph.i.i.i.i.i57

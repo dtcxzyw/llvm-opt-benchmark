@@ -546,7 +546,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBase38getF
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
   %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr i32, ptr %51, i64 %50
+  %52 = getelementptr inbounds i32, ptr %51, i64 %50
   %53 = sext i32 %44 to i64
   %54 = getelementptr inbounds i32, ptr %47, i64 %53
   %55 = load i32, ptr %54, align 4
@@ -882,7 +882,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBase25getF
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
   %53 = load ptr, ptr %11, align 8
-  %54 = getelementptr i32, ptr %53, i64 %52
+  %54 = getelementptr inbounds i32, ptr %53, i64 %52
   %55 = sext i32 %46 to i64
   %56 = getelementptr inbounds i32, ptr %49, i64 %55
   %57 = load i32, ptr %56, align 4

@@ -245,7 +245,7 @@ define noundef ptr @php_conv_fp(i8 noundef signext %0, double noundef %1, i1 nou
   %.not79 = icmp sgt i32 %80, 0
   %91 = select i1 %.not79, i8 43, i8 45
   store i8 %91, ptr %79, align 1
-  %92 = getelementptr i8, ptr %.466.lcssa, i64 2
+  %92 = getelementptr inbounds i8, ptr %.466.lcssa, i64 2
   %93 = ptrtoint ptr %83 to i64
   %94 = ptrtoint ptr %90 to i64
   %95 = sub i64 %93, %94

@@ -1846,7 +1846,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
 .backedge:                                        ; preds = %84, %114
   %storemerge = phi i64 [ %86, %84 ], [ %.sroa.074.0.insert.insert78, %114 ]
   %.061.be = phi ptr [ %85, %84 ], [ %100, %114 ]
-  %.064.be = getelementptr i8, ptr %.064125, i64 8
+  %.064.be = getelementptr inbounds i8, ptr %.064125, i64 8
   store i64 %storemerge, ptr %.064125, align 4
   %.not = icmp eq ptr %.061.be, %64
   br i1 %.not, label %.outer._crit_edge, label %70, !llvm.loop !10
@@ -1870,7 +1870,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
 
 98:                                               ; preds = %95, %87
   %99 = phi i32 [ %97, %95 ], [ %93, %87 ]
-  %100 = getelementptr i8, ptr %.061126, i64 8
+  %100 = getelementptr inbounds i8, ptr %.061126, i64 8
   %.not103 = icmp eq i32 %99, %.sroa.034.0.copyload
   br i1 %.not103, label %.critedge, label %101
 
@@ -2014,7 +2014,7 @@ _ZN7Minisat3vecINS_6Solver7WatcherEiE4pushERKS2_.exit: ; preds = %._ZN7Minisat3v
 
 ._crit_edge135:                                   ; preds = %122, %.critedge.._crit_edge135_crit_edge
   %.pre-phi182 = phi i8 [ %.pre181, %.critedge.._crit_edge135_crit_edge ], [ %121, %122 ]
-  %173 = getelementptr i8, ptr %.064125, i64 8
+  %173 = getelementptr inbounds i8, ptr %.064125, i64 8
   %.sroa.4.0.insert.ext = zext i32 %.lcssa161 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.074.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %90

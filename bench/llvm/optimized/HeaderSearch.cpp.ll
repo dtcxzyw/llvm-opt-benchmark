@@ -1283,7 +1283,7 @@ _ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE13_M_insert_auxIS1_EEvN9__gnu_cxx1
   br label %55
 
 28:                                               ; preds = %3
-  %29 = getelementptr i8, ptr %4, i64 %7
+  %29 = getelementptr inbounds i8, ptr %4, i64 %7
   %30 = ptrtoint ptr %9 to i64
   %31 = sub i64 %30, %6
   %32 = icmp eq i64 %31, 9223372036854775792
@@ -1327,7 +1327,7 @@ _ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i: ; p
 
 _ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %43, %_ZNSt12_Vector_baseIN5clang15DirectoryLookupESaIS1_EE11_M_allocateEm.exit.i ], [ %46, %.lr.ph.i.i.i.i ]
-  %47 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %47 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not10.i.i.i16.i = icmp eq ptr %1, %9
   br i1 %.not10.i.i.i16.i, label %_ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i, label %.lr.ph.i.i.i17.i
 
@@ -5193,7 +5193,7 @@ _ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit: ; pre
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %_ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit, %27
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr i8, ptr %29, i64 %8
+  %30 = getelementptr inbounds i8, ptr %29, i64 %8
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #22
   %32 = ptrtoint ptr %30 to i64
   %gepdiff = sub nsw i64 %31, %8
@@ -12434,7 +12434,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_E
 
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 

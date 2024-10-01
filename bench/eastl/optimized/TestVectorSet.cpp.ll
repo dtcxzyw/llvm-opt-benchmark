@@ -139369,7 +139369,7 @@ for.body.i.i.i:                                   ; preds = %_ZN5eastl12basic_st
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_12basic_stringIcNS_9allocatorEEES4_S4_EET1_T_T0_S5_.exit: ; preds = %for.body.i.i.i, %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit57
   %retval.sroa.0.0.lcssa.i.i.i = phi ptr [ %retval.0.i, %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit57 ], [ %incdec.ptr.i1.i.i.i, %for.body.i.i.i ]
   %23 = load ptr, ptr %mpEnd, align 8
-  %incdec.ptr26 = getelementptr i8, ptr %retval.sroa.0.0.lcssa.i.i.i, i64 24
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %retval.sroa.0.0.lcssa.i.i.i, i64 24
   %cmp.i.not6.i.i.i61 = icmp eq ptr %position, %23
   br i1 %cmp.i.not6.i.i.i61, label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_12basic_stringIcNS_9allocatorEEES4_S4_EET1_T_T0_S5_.exit71, label %for.body.i.i.i62
 

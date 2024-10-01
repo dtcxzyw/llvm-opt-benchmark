@@ -347,13 +347,13 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
   %24 = add nsw i32 %2, -8
   %25 = add nsw i32 %24, %3
   %26 = ashr i32 %25, 3
-  %.087104 = getelementptr i8, ptr %1, i64 1
-  %.0105 = getelementptr i8, ptr %0, i64 1
+  %.087104 = getelementptr inbounds i8, ptr %1, i64 1
+  %.0105 = getelementptr inbounds i8, ptr %0, i64 1
   %27 = icmp sgt i32 %26, 0
   %28 = ptrtoint ptr %.087104 to i64
   %29 = and i64 %28, 7
   %30 = icmp ne i64 %29, 0
-  %31 = and i1 %27, %30
+  %31 = select i1 %27, i1 %30, i1 false
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
@@ -450,8 +450,8 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
   %.pn.in.in = phi i32 [ 0, %.preheader ], [ 0, %51 ], [ %46, %.lr.ph123 ], [ %65, %66 ]
   %.pn.in = shl i32 %.pn.in.in, 3
   %.pn = sext i32 %.pn.in to i64
-  %.1 = getelementptr i8, ptr %.0.lcssa, i64 %.pn
-  %.188 = getelementptr i8, ptr %.087.lcssa, i64 %.pn
+  %.1 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %.pn
+  %.188 = getelementptr inbounds i8, ptr %.087.lcssa, i64 %.pn
   %74 = icmp slt i32 %.294, %26
   br i1 %74, label %.lr.ph130, label %._crit_edge131
 

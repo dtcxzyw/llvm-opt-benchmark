@@ -1033,7 +1033,7 @@ while.end.i29:                                    ; preds = %for.body.us.i, %whi
 while.body14.preheader.i:                         ; preds = %while.end.i29
   %cmp10.i = icmp eq i64 %i.0.lcssa.i, %sourceByteCount
   %spec.store.select.i = select i1 %cmp10.i, i64 0, i64 %i.0.lcssa.i
-  %add.ptr.i30 = getelementptr i8, ptr %pSource, i64 %spec.store.select.i
+  %add.ptr.i30 = getelementptr inbounds i8, ptr %pSource, i64 %spec.store.select.i
   br label %while.body14.i
 
 while.body14.i:                                   ; preds = %while.body14.i, %while.body14.preheader.i
@@ -1448,7 +1448,7 @@ while.end:                                        ; preds = %for.body.us, %while
 while.body15.preheader:                           ; preds = %while.end
   %cmp10 = icmp eq i64 %i.0.lcssa, %sourceBytes
   %spec.store.select = select i1 %cmp10, i64 0, i64 %i.0.lcssa
-  %add.ptr12 = getelementptr i8, ptr %pSource, i64 %spec.store.select
+  %add.ptr12 = getelementptr inbounds i8, ptr %pSource, i64 %spec.store.select
   br label %while.body15
 
 while.body15:                                     ; preds = %while.body15.preheader, %while.body15
@@ -1950,7 +1950,7 @@ while.end.i:                                      ; preds = %for.body.us.i, %whi
 while.body14.preheader.i:                         ; preds = %while.end.i
   %cmp10.i = icmp eq i64 %i.0.lcssa.i, 8
   %spec.store.select.i = select i1 %cmp10.i, i64 0, i64 %i.0.lcssa.i
-  %add.ptr.i = getelementptr i8, ptr %c.addr, i64 %spec.store.select.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %c.addr, i64 %spec.store.select.i
   br label %while.body14.i
 
 while.body14.i:                                   ; preds = %while.body14.i, %while.body14.preheader.i

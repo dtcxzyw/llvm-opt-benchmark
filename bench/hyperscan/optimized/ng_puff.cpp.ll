@@ -828,7 +828,7 @@ for.body.i.i.i.i.i221.i:                          ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i.i227.i: ; preds = %for.body.i.i.i.i.i221.i, %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i.i217.i
   %__cur.0.lcssa.i.i.i.i.i228.i = phi ptr [ %call5.i.i.i.i.i237.i, %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i.i217.i ], [ %incdec.ptr1.i.i.i.i.i225.i, %for.body.i.i.i.i.i221.i ]
-  %incdec.ptr.i.i229.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i228.i, i64 16
+  %incdec.ptr.i.i229.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i228.i, i64 16
   %tobool.not.i.i.i230.i = icmp eq ptr %nodes.sroa.0.2840.i, null
   br i1 %tobool.not.i.i.i230.i, label %invoke.cont116.i, label %if.then.i20.i.i231.i
 

@@ -6559,7 +6559,7 @@ _ZNSt17_Temporary_bufferIPN12_GLOBAL__N_110SlowAssignIjEES2_EC2ES3_l.exit.thread
   br label %if.else.sink.split.i.i
 
 for.inc.i.i.preheader.i.i.i:                      ; preds = %if.then.i.i.i1816
-  %__cur.116.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i1814, i64 4
+  %__cur.116.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i1814, i64 4
   %load_initial = load i32, ptr %call.i.i.i.i1814, align 4
   br label %for.inc.i.i.i.i.i
 
@@ -15204,7 +15204,7 @@ invoke.cont105.i:                                 ; preds = %_ZN2EA4StdC9Stopwat
 
 for.body111.i:                                    ; preds = %invoke.cont105.i, %_ZN5eastl10merge_sortIPN12_GLOBAL__N_110SlowAssignIjEENS_9allocatorENS_4lessIS3_EEEEvT_S8_RT0_T1_.exit.i
   %begin106.0536.i = phi ptr [ %add.ptr112.i, %_ZN5eastl10merge_sortIPN12_GLOBAL__N_110SlowAssignIjEENS_9allocatorENS_4lessIS3_EEEEvT_S8_RT0_T1_.exit.i ], [ %v.val105.i, %invoke.cont105.i ]
-  %add.ptr112.i = getelementptr %"struct.(anonymous namespace)::SlowAssign", ptr %begin106.0536.i, i64 %547
+  %add.ptr112.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %begin106.0536.i, i64 %547
   %call.i249.i = invoke noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
           to label %invoke.cont113.i unwind label %lpad29.loopexit.split-lp.loopexit.i
 
@@ -16023,7 +16023,7 @@ _ZNSt17_Temporary_bufferIPN12_GLOBAL__N_110SlowAssignIjEES2_EC2ES3_l.exit.thread
   br label %if.else.sink.split.i.i.i
 
 for.inc.i.i.preheader.i.i.i.i:                    ; preds = %if.then.i.i.i447.i
-  %__cur.116.i.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i390, i64 4
+  %__cur.116.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i390, i64 4
   %load_initial = load i32, ptr %call.i.i.i.i.i390, align 4
   br label %for.inc.i.i.i.i.i.i
 
@@ -18024,7 +18024,7 @@ if.end25:                                         ; preds = %if.then17
   br i1 %cmp2967, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end25
-  %add.ptr26 = getelementptr i32, ptr %__p.0, i64 %__k.0
+  %add.ptr26 = getelementptr inbounds i32, ptr %__p.0, i64 %__k.0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -19718,7 +19718,7 @@ if.then17.i:                                      ; preds = %for.cond.i
   br i1 %cmp2147.i, label %for.body.preheader.i, label %for.end.i
 
 for.body.preheader.i:                             ; preds = %if.then17.i
-  %add.ptr18.i = getelementptr %"struct.(anonymous namespace)::SlowAssign", ptr %__p.0.i, i64 %__k.0.i
+  %add.ptr18.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__p.0.i, i64 %__k.0.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -20162,7 +20162,7 @@ while.body.i72:                                   ; preds = %while.body.i72.oute
   %__last2.addr.0.val20.i = load i32, ptr %__last2.addr.0.i, align 4
   %__last1.addr.0.val21.i = load i32, ptr %__last1.addr.0.i.ph, align 4
   %cmp.i.i.i.i73 = icmp ult i32 %__last2.addr.0.val20.i, %__last1.addr.0.val21.i
-  %incdec.ptr7.i = getelementptr i8, ptr %__result.addr.0.i, i64 -4
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %__result.addr.0.i, i64 -4
   %inc.i.i = add nsw i32 %inc.i4042.i, 1
   store i32 %inc.i.i, ptr @_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE, align 4
   br i1 %cmp.i.i.i.i73, label %if.then6.i, label %if.else15.i
@@ -30309,7 +30309,7 @@ if.end25:                                         ; preds = %if.then17
   br i1 %cmp2967, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end25
-  %add.ptr26 = getelementptr i32, ptr %__p.0, i64 %__k.0
+  %add.ptr26 = getelementptr inbounds i32, ptr %__p.0, i64 %__k.0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -30896,7 +30896,7 @@ while.body:                                       ; preds = %while.body.lr.ph.sp
   %__first.addr.085 = phi ptr [ %__first, %while.body.lr.ph.split ], [ %add.ptr2, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEEET0_T_S9_S9_S9_S8_T1_.exit ]
   %__result.addr.084 = phi ptr [ %__result, %while.body.lr.ph.split ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEEET0_T_S9_S9_S9_S8_T1_.exit ]
   %add.ptr = getelementptr inbounds i32, ptr %__first.addr.085, i64 %__step_size
-  %add.ptr2 = getelementptr i32, ptr %__first.addr.085, i64 %mul
+  %add.ptr2 = getelementptr inbounds i32, ptr %__first.addr.085, i64 %mul
   br i1 %4, label %while.body.i, label %while.body.us.i
 
 while.body.us.i:                                  ; preds = %while.body, %while.body.us.i
@@ -31900,7 +31900,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp7.i.i.i.i, label %for.body.i.i.i.i.preheader, label %_ZN5eastl4copyIPN12_GLOBAL__N_110SlowAssignIjEES4_EET0_T_S6_S5_.exit
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.then
-  %add.ptr = getelementptr %"struct.(anonymous namespace)::SlowAssign", ptr %first, i64 %3
+  %add.ptr = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %first, i64 %3
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %for.body.i.i.i.i
@@ -32000,8 +32000,8 @@ if.else42:                                        ; preds = %entry
   br i1 %cmp7.i.i.i.i95, label %for.body.i.i.i.i97.preheader, label %_ZN5eastl4copyIPN12_GLOBAL__N_110SlowAssignIjEES4_EET0_T_S6_S5_.exit107
 
 for.body.i.i.i.i97.preheader:                     ; preds = %if.else42
-  %add.ptr43 = getelementptr %"struct.(anonymous namespace)::SlowAssign", ptr %first, i64 %3
-  %add.ptr44 = getelementptr %"struct.(anonymous namespace)::SlowAssign", ptr %add.ptr43, i64 %1
+  %add.ptr43 = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %first, i64 %3
+  %add.ptr44 = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %add.ptr43, i64 %1
   br label %for.body.i.i.i.i97
 
 for.body.i.i.i.i97:                               ; preds = %for.body.i.i.i.i97.preheader, %for.body.i.i.i.i97
@@ -32396,7 +32396,7 @@ for.body.i.i.i.i27.i55.i:                         ; preds = %if.else9.i48.i, %fo
 
 if.else11.i:                                      ; preds = %if.end15
   %add.ptr15.idx.i = shl nuw nsw i64 %div27, 2
-  %add.ptr15.i = getelementptr i8, ptr %pBuffer, i64 %add.ptr15.idx.i
+  %add.ptr15.i = getelementptr inbounds i8, ptr %pBuffer, i64 %add.ptr15.idx.i
   br i1 %cmp1.i, label %if.then13.i, label %if.else22.i
 
 if.then13.i:                                      ; preds = %if.else11.i
@@ -33647,7 +33647,7 @@ while.body.i72:                                   ; preds = %while.body.i72.oute
   %__last2.addr.0.val20.i = load i32, ptr %__last2.addr.0.i, align 4
   %__last1.addr.0.val21.i = load i32, ptr %__last1.addr.0.i.ph, align 4
   %cmp.i.i.i.i73 = icmp ult i32 %__last2.addr.0.val20.i, %__last1.addr.0.val21.i
-  %incdec.ptr7.i = getelementptr i8, ptr %__result.addr.0.i, i64 -4
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %__result.addr.0.i, i64 -4
   %inc.i.i = add nsw i32 %inc.i4042.i, 1
   store i32 %inc.i.i, ptr @_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE, align 4
   br i1 %cmp.i.i.i.i73, label %if.then6.i, label %if.else15.i

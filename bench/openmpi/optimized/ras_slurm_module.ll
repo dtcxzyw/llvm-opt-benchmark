@@ -2949,7 +2949,7 @@ define internal fastcc noundef i32 @prte_ras_slurm_parse_range(ptr nocapture nou
   br i1 %.not74103, label %._crit_edge107, label %.lr.ph106
 
 .lr.ph106:                                        ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %49, i64 %6
+  %55 = getelementptr i8, ptr %49, i64 %6
   %56 = add i64 %.06287, %6
   br label %57
 

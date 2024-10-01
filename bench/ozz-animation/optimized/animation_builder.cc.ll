@@ -714,7 +714,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimati
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimation14TranslationKeyEEES8_NS0_12StdAllocatorIS7_EEET0_T_SC_SB_RT1_.exit38.i.i: ; preds = %.lr.ph.i.i.i.i, %334
   %.0.lcssa.i.i.i.i661 = phi ptr [ %330, %334 ], [ %337, %.lr.ph.i.i.i.i ]
-  %338 = getelementptr i8, ptr %.0.lcssa.i.i.i.i661, i64 24
+  %338 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i661, i64 24
   %.not.i39.i.i = icmp eq ptr %304, null
   br i1 %.not.i39.i.i, label %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimation14TranslationKeyEEENS0_12StdAllocatorIS7_EEE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_SA_EEDpOT_.exit.i, label %339
 
@@ -1003,7 +1003,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimati
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimation11RotationKeyEEES8_NS0_12StdAllocatorIS7_EEET0_T_SC_SB_RT1_.exit38.i.i: ; preds = %.lr.ph.i.i.i.i667, %441
   %.0.lcssa.i.i.i.i671 = phi ptr [ %437, %441 ], [ %444, %.lr.ph.i.i.i.i667 ]
-  %445 = getelementptr i8, ptr %.0.lcssa.i.i.i.i671, i64 28
+  %445 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i671, i64 28
   %.not.i39.i.i672 = icmp eq ptr %411, null
   br i1 %.not.i39.i.i672, label %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimation11RotationKeyEEENS0_12StdAllocatorIS7_EEE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_SA_EEDpOT_.exit.i, label %446
 
@@ -1300,7 +1300,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimati
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimation8ScaleKeyEEES8_NS0_12StdAllocatorIS7_EEET0_T_SC_SB_RT1_.exit38.i.i: ; preds = %.lr.ph.i.i.i.i678, %549
   %.0.lcssa.i.i.i.i682 = phi ptr [ %545, %549 ], [ %552, %.lr.ph.i.i.i.i678 ]
-  %553 = getelementptr i8, ptr %.0.lcssa.i.i.i.i682, i64 24
+  %553 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i682, i64 24
   %.not.i39.i.i683 = icmp eq ptr %518, null
   br i1 %.not.i39.i.i683, label %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimation8ScaleKeyEEENS0_12StdAllocatorIS7_EEE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_SA_EEDpOT_.exit.i, label %554
 
@@ -2201,7 +2201,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i65.i
   br i1 %.not18.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS4_12RawAnimation14TranslationKeyEEESt6vectorIS9_NS2_12StdAllocatorIS9_EEEEES9_EC2ESF_l.exit.thread43.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %890
-  %.01317.i.i.i.i.i.i = getelementptr i8, ptr %884, i64 24
+  %.01317.i.i.i.i.i.i = getelementptr inbounds i8, ptr %884, i64 24
   br label %.lr.ph.i.i.i.i.i67.i
 
 .lr.ph.i.i.i.i.i67.i:                             ; preds = %.lr.ph.i.i.i.i.i67.i, %.lr.ph.i.i.preheader.i.i.i.i
@@ -2777,7 +2777,7 @@ select.unfold.i.i.i.i.i290:                       ; preds = %.lr.ph.i.i.i.i64.i
   br i1 %.not18.i.i.i.i.i.i283, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS4_12RawAnimation11RotationKeyEEESt6vectorIS9_NS2_12StdAllocatorIS9_EEEEES9_EC2ESF_l.exit.thread43.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i284
 
 .lr.ph.i.i.preheader.i.i.i.i284:                  ; preds = %1091
-  %.01317.i.i.i.i.i.i285 = getelementptr i8, ptr %1085, i64 28
+  %.01317.i.i.i.i.i.i285 = getelementptr inbounds i8, ptr %1085, i64 28
   br label %.lr.ph.i.i.i.i.i66.i
 
 .lr.ph.i.i.i.i.i66.i:                             ; preds = %.lr.ph.i.i.i.i.i66.i, %.lr.ph.i.i.preheader.i.i.i.i284
@@ -3354,7 +3354,7 @@ select.unfold.i.i.i.i.i389:                       ; preds = %.lr.ph.i.i.i.i65.i3
   br i1 %.not18.i.i.i.i.i.i381, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS4_12RawAnimation8ScaleKeyEEESt6vectorIS9_NS2_12StdAllocatorIS9_EEEEES9_EC2ESF_l.exit.thread43.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i382
 
 .lr.ph.i.i.preheader.i.i.i.i382:                  ; preds = %1290
-  %.01317.i.i.i.i.i.i383 = getelementptr i8, ptr %1284, i64 24
+  %.01317.i.i.i.i.i.i383 = getelementptr inbounds i8, ptr %1284, i64 24
   br label %.lr.ph.i.i.i.i.i67.i384
 
 .lr.ph.i.i.i.i.i67.i384:                          ; preds = %.lr.ph.i.i.i.i.i67.i384, %.lr.ph.i.i.preheader.i.i.i.i382
@@ -6341,7 +6341,7 @@ _ZNKSt6vectorIfN3ozz12StdAllocatorIfEEE12_M_check_lenEmPKc.exit: ; preds = %3
 
 _ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3ozz12StdAllocatorIfEEET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i, %31
   %.0.lcssa.i.i = phi ptr [ %32, %31 ], [ %37, %.lr.ph.i.i ]
-  %38 = getelementptr i8, ptr %.0.lcssa.i.i, i64 4
+  %38 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 4
   %.not13.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_N3ozz12StdAllocatorIfEEET0_T_S5_S4_RT1_.exit34, label %.lr.ph.i.i29
 
@@ -6997,7 +6997,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimati
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimation14TranslationKeyEEES8_NS0_12StdAllocatorIS7_EEET0_T_SC_SB_RT1_.exit38.i: ; preds = %.lr.ph.i.i.i, %32
   %.0.lcssa.i.i.i = phi ptr [ %28, %32 ], [ %35, %.lr.ph.i.i.i ]
-  %36 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 24
+  %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not.i39.i = icmp eq ptr %.val.i, null
   br i1 %.not.i39.i, label %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimation14TranslationKeyEEENS0_12StdAllocatorIS7_EEE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_SA_EEDpOT_.exit, label %37
 
@@ -7102,7 +7102,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimati
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimation11RotationKeyEEES8_NS0_12StdAllocatorIS7_EEET0_T_SC_SB_RT1_.exit38.i: ; preds = %.lr.ph.i.i.i, %32
   %.0.lcssa.i.i.i = phi ptr [ %28, %32 ], [ %35, %.lr.ph.i.i.i ]
-  %36 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 28
+  %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 28
   %.not.i39.i = icmp eq ptr %.val.i, null
   br i1 %.not.i39.i, label %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimation11RotationKeyEEENS0_12StdAllocatorIS7_EEE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_SA_EEDpOT_.exit, label %37
 
@@ -7207,7 +7207,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimati
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimation8ScaleKeyEEES8_NS0_12StdAllocatorIS7_EEET0_T_SC_SB_RT1_.exit38.i: ; preds = %.lr.ph.i.i.i, %32
   %.0.lcssa.i.i.i = phi ptr [ %28, %32 ], [ %35, %.lr.ph.i.i.i ]
-  %36 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 24
+  %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not.i39.i = icmp eq ptr %.val.i, null
   br i1 %.not.i39.i, label %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimation8ScaleKeyEEENS0_12StdAllocatorIS7_EEE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_SA_EEDpOT_.exit, label %37
 
@@ -10561,7 +10561,7 @@ _ZNKSt6vectorIjN3ozz12StdAllocatorIjEEE12_M_check_lenEmPKc.exit: ; preds = %3
 
 _ZSt34__uninitialized_move_if_noexcept_aIPjS0_N3ozz12StdAllocatorIjEEET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i, %31
   %.0.lcssa.i.i = phi ptr [ %32, %31 ], [ %37, %.lr.ph.i.i ]
-  %38 = getelementptr i8, ptr %.0.lcssa.i.i, i64 4
+  %38 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 4
   %.not13.i.i28 = icmp eq ptr %1, %5
   br i1 %.not13.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_N3ozz12StdAllocatorIjEEET0_T_S5_S4_RT1_.exit34, label %.lr.ph.i.i29
 
@@ -10634,7 +10634,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIhN3ozz12StdAllocatorIhEEE15_M_r
 
 .lr.ph.i.i.preheader:                             ; preds = %16
   %20 = sub i64 0, %8
-  %21 = getelementptr i8, ptr %12, i64 %20
+  %21 = getelementptr inbounds i8, ptr %12, i64 %20
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
@@ -10688,7 +10688,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhN3ozz1
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhN3ozz12StdAllocatorIhEEEEEPhS7_ET0_T_SC_SB_RT1_.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhN3ozz12StdAllocatorIhEEEEEPhS7_ET0_T_SC_SB_RT1_.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhN3ozz12StdAllocatorIhEEEEEmEvRT_T0_.exit
   %34 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhN3ozz12StdAllocatorIhEEEEEPhS7_ET0_T_SC_SB_RT1_.exit.loopexit ], [ %12, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhN3ozz12StdAllocatorIhEEEEEmEvRT_T0_.exit ]
   %35 = sub nuw i64 %8, %18
-  %36 = getelementptr i8, ptr %34, i64 %35
+  %36 = getelementptr inbounds i8, ptr %34, i64 %35
   store ptr %36, ptr %11, align 8
   %.not13.i.i52 = icmp eq ptr %1, %12
   br i1 %.not13.i.i52, label %_ZSt22__uninitialized_move_aIPhS0_N3ozz12StdAllocatorIhEEET0_T_S5_S4_RT1_.exit58, label %.lr.ph.i.i53

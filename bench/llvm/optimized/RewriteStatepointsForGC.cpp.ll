@@ -10972,7 +10972,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119DeferredReplacementESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119DeferredReplacementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119DeferredReplacementESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %4217, %_ZNKSt6vectorIN12_GLOBAL__N_119DeferredReplacementESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %4220, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %4221 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 24
+  %4221 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 24
   %.not.i27.i.i.i.i.i = icmp eq ptr %.sroa.0951.01402, null
   br i1 %.not.i27.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DeferredReplacementESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i, label %4222
 
@@ -11090,7 +11090,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119DeferredReplacementESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119DeferredReplacementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i322, %_ZNKSt6vectorIN12_GLOBAL__N_119DeferredReplacementESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %4264, %_ZNKSt6vectorIN12_GLOBAL__N_119DeferredReplacementESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %4267, %.lr.ph.i.i.i.i.i.i.i322 ]
-  %4268 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
+  %4268 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
   %.not.i27.i.i.i.i = icmp eq ptr %.sroa.0951.01402, null
   br i1 %.not.i27.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DeferredReplacementESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, label %4269
 
@@ -11157,7 +11157,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_119DeferredReplacementESaIS1_EE12_M_check_lenEmPKc.e
 
 _ZNSt6vectorIN12_GLOBAL__N_119DeferredReplacementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i226.i.i: ; preds = %.lr.ph.i.i.i.i.i222.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_119DeferredReplacementESaIS1_EE12_M_check_lenEmPKc.exit.i.i219.i.i
   %.0.lcssa.i.i.i.i.i227.i.i = phi ptr [ %4287, %_ZNKSt6vectorIN12_GLOBAL__N_119DeferredReplacementESaIS1_EE12_M_check_lenEmPKc.exit.i.i219.i.i ], [ %4290, %.lr.ph.i.i.i.i.i222.i.i ]
-  %4291 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i227.i.i, i64 24
+  %4291 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i227.i.i, i64 24
   %.not.i27.i.i228.i.i = icmp eq ptr %.sroa.0951.01402, null
   br i1 %.not.i27.i.i228.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_119DeferredReplacementESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i229.i.i, label %4292
 

@@ -1111,7 +1111,7 @@ define void @Gia_ManSimInfoTransfer(ptr nocapture noundef readonly %0) local_unn
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = mul nsw i32 %.val18, %20
   %22 = sext i32 %21 to i64
-  %23 = getelementptr i32, ptr %.val19, i64 %22
+  %23 = getelementptr inbounds i32, ptr %.val19, i64 %22
   br i1 %19, label %24, label %30
 
 24:                                               ; preds = %9
@@ -1141,7 +1141,7 @@ define void @Gia_ManSimInfoTransfer(ptr nocapture noundef readonly %0) local_unn
   %.val21 = load ptr, ptr %8, align 8
   %35 = mul nsw i32 %34, %.val18
   %36 = sext i32 %35 to i64
-  %37 = getelementptr i32, ptr %.val21, i64 %36
+  %37 = getelementptr inbounds i32, ptr %.val21, i64 %36
   %38 = icmp sgt i32 %.val18, 0
   br i1 %38, label %.lr.ph.preheader.i32, label %Gia_ManSimInfoRandom.exit
 
@@ -1338,13 +1338,13 @@ Gia_ManSimInfoZero.exit:                          ; preds = %1, %.lr.ph.preheade
   %.val20.i = load ptr, ptr %11, align 8
   %78 = mul nsw i32 %.val19.i, %.055
   %79 = sext i32 %78 to i64
-  %80 = getelementptr i32, ptr %.val20.i, i64 %79
+  %80 = getelementptr inbounds i32, ptr %.val20.i, i64 %79
   %81 = trunc i64 %.val25 to i32
   %82 = and i32 %81, 536870911
   %.val18.i = load ptr, ptr %3, align 8
   %83 = mul nsw i32 %.val19.i, %82
   %84 = sext i32 %83 to i64
-  %85 = getelementptr i32, ptr %.val18.i, i64 %84
+  %85 = getelementptr inbounds i32, ptr %.val18.i, i64 %84
   %86 = and i32 %81, 536870912
   %.not.i36 = icmp eq i32 %86, 0
   %87 = icmp sgt i32 %.val19.i, 0
@@ -1393,11 +1393,11 @@ Gia_ManSimInfoZero.exit:                          ; preds = %1, %.lr.ph.preheade
   %.val10.i = load ptr, ptr %3, align 8
   %102 = mul nsw i32 %.val.i, %.val32
   %103 = sext i32 %102 to i64
-  %104 = getelementptr i32, ptr %.val10.i, i64 %103
+  %104 = getelementptr inbounds i32, ptr %.val10.i, i64 %103
   %.val12.i = load ptr, ptr %12, align 8
   %105 = mul nsw i32 %.val.i, %.01654
   %106 = sext i32 %105 to i64
-  %107 = getelementptr i32, ptr %.val12.i, i64 %106
+  %107 = getelementptr inbounds i32, ptr %.val12.i, i64 %106
   %108 = icmp sgt i32 %.val.i, 0
   br i1 %108, label %.lr.ph.preheader.i43, label %Gia_ManSimulateNode.exit
 
@@ -2030,7 +2030,7 @@ Abc_Clock.exit73:                                 ; preds = %Gia_ManCheckPos.exi
   %191 = trunc nuw nsw i64 %indvars.iv.i75 to i32
   %192 = mul nsw i32 %.val18.i76, %191
   %193 = sext i32 %192 to i64
-  %194 = getelementptr i32, ptr %.val19.i, i64 %193
+  %194 = getelementptr inbounds i32, ptr %.val19.i, i64 %193
   br i1 %190, label %195, label %201
 
 195:                                              ; preds = %.lr.ph.i74
@@ -2060,7 +2060,7 @@ Abc_Clock.exit73:                                 ; preds = %Gia_ManCheckPos.exi
   %.val21.i = load ptr, ptr %100, align 8
   %206 = mul nsw i32 %205, %.val18.i76
   %207 = sext i32 %206 to i64
-  %208 = getelementptr i32, ptr %.val21.i, i64 %207
+  %208 = getelementptr inbounds i32, ptr %.val21.i, i64 %207
   %209 = icmp sgt i32 %.val18.i76, 0
   br i1 %209, label %.lr.ph.preheader.i32.i, label %Gia_ManSimInfoRandom.exit.i77
 

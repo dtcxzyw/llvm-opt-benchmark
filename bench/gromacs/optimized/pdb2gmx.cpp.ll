@@ -5159,7 +5159,7 @@ _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds 
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i: ; preds = %.lr.ph.i.i.i.i1324, %.noexc1327
   %.0.lcssa.i.i.i.i = phi ptr [ %1186, %.noexc1327 ], [ %1196, %.lr.ph.i.i.i.i1324 ]
-  %1197 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 12
+  %1197 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 12
   %.not.i33.i = icmp eq ptr %1172, null
   br i1 %.not.i33.i, label %.noexc796, label %1198
 
@@ -12760,7 +12760,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i.i.i: ; 
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i108.i, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %4169, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %4172, %.lr.ph.i.i.i.i.i108.i ]
-  %4173 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
+  %4173 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
   %.not.i23.i.i.i = icmp eq ptr %4155, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %4174
 
@@ -15089,7 +15089,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i.i: ; pr
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i1195, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i1197 = phi ptr [ %5035, %_ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE11_M_allocateEm.exit.i.i ], [ %5038, %.lr.ph.i.i.i.i.i1195 ]
-  %5039 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i1197, i64 12
+  %5039 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i1197, i64 12
   %.not.i23.i.i = icmp eq ptr %5021, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %5040
 

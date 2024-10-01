@@ -3276,7 +3276,7 @@ for.body7.preheader:                              ; preds = %_ZN6dmg_fpL6BallocE
 
 for.end10:                                        ; preds = %for.body7.preheader, %_ZN6dmg_fpL6BallocEi.exit
   %x1.0.lcssa = phi ptr [ %x4, %_ZN6dmg_fpL6BallocEi.exit ], [ %scevgep, %for.body7.preheader ]
-  %x11 = getelementptr i8, ptr %b, i64 24
+  %x11 = getelementptr inbounds i8, ptr %b, i64 24
   %12 = load i32, ptr %wds, align 4
   %idx.ext = sext i32 %12 to i64
   %add.ptr = getelementptr inbounds i32, ptr %x11, i64 %idx.ext

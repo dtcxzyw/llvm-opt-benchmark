@@ -448,7 +448,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %out.sroa.0.151, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -1542,7 +1542,7 @@ for.body.i.i.i.i.i.i49.i:                         ; preds = %for.body.i.i.i.i.i.
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i55.i: ; preds = %for.body.i.i.i.i.i.i49.i, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i.i45.i
   %__cur.0.lcssa.i.i.i.i.i.i56.i = phi ptr [ %cond.i10.i.i.i46.i, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i.i45.i ], [ %incdec.ptr1.i.i.i.i.i.i53.i, %for.body.i.i.i.i.i.i49.i ]
-  %incdec.ptr.i.i.i57.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i56.i, i64 8
+  %incdec.ptr.i.i.i57.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i56.i, i64 8
   %tobool.not.i.i.i.i58.i = icmp eq ptr %accepts.sroa.0.3, null
   br i1 %tobool.not.i.i.i.i58.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i60.i, label %if.then.i20.i.i.i59.i
 
@@ -1684,7 +1684,7 @@ for.body.i.i.i.i.i.i102.i:                        ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i108.i: ; preds = %for.body.i.i.i.i.i.i102.i, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i.i98.i
   %__cur.0.lcssa.i.i.i.i.i.i109.i = phi ptr [ %cond.i10.i.i.i99.i, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i.i98.i ], [ %incdec.ptr1.i.i.i.i.i.i106.i, %for.body.i.i.i.i.i.i102.i ]
-  %incdec.ptr.i.i.i110.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i109.i, i64 8
+  %incdec.ptr.i.i.i110.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i109.i, i64 8
   %tobool.not.i.i.i.i111.i = icmp eq ptr %accepts.sroa.0.4, null
   br i1 %tobool.not.i.i.i.i111.i, label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i113.i, label %if.then.i20.i.i.i112.i
 
@@ -1761,7 +1761,7 @@ for.body.i.i.i.i.i.i142.i:                        ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i148.i: ; preds = %for.body.i.i.i.i.i.i142.i, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i.i138.i
   %__cur.0.lcssa.i.i.i.i.i.i149.i = phi ptr [ %call5.i.i.i.i.i.i137.i26, %_ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE11_M_allocateEm.exit.i.i.i138.i ], [ %incdec.ptr1.i.i.i.i.i.i146.i, %for.body.i.i.i.i.i.i142.i ]
-  %incdec.ptr.i.i.i150.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i149.i, i64 8
+  %incdec.ptr.i.i.i150.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i149.i, i64 8
   %tobool.not.i.i.i.i151.i = icmp eq ptr %accepts.sroa.0.5, null
   br i1 %tobool.not.i.i.i.i151.i, label %invoke.cont, label %if.then.i20.i.i.i152.i
 
@@ -4889,7 +4889,7 @@ if.then9:                                         ; preds = %if.then
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr %"class.ue2::PositionInfo", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"class.ue2::PositionInfo", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
@@ -4944,7 +4944,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInf
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %4 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  %add.ptr50 = getelementptr %"class.ue2::PositionInfo", ptr %4, i64 %sub
+  %add.ptr50 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %4, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
   %cmp.i.i.not7.i.i.i.i.i33 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i33, label %_ZSt22__uninitialized_move_aIPN3ue212PositionInfoES2_SaIS1_EET0_T_S5_S4_RT1_.exit41, label %for.body.i.i.i.i.i34

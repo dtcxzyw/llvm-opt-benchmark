@@ -1694,7 +1694,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   br label %.lr.ph.i.i.i17.preheader.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %113
-  %.01318.i.i.i.i.i.i = getelementptr i8, ptr %112, i64 8
+  %.01318.i.i.i.i.i.i = getelementptr inbounds i8, ptr %112, i64 8
   %load_initial = load i64, ptr %112, align 8
   br label %.lr.ph.i.i.i.i.i.i
 
@@ -6639,7 +6639,7 @@ _ZN4llvm15SmallVectorImplIPKN12_GLOBAL__N_19ClassInfoEE7reserveEm.exit.i.i.i.i: 
   br i1 %2391, label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i.i.i, label %_ZN4llvm11SmallVectorIPKN12_GLOBAL__N_19ClassInfoELj16EEC2IN9__gnu_cxx17__normal_iteratorIPKPS2_St6vectorIS9_SaIS9_EEEEvEET_SG_.exit.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader.i.i.i.i:         ; preds = %_ZN4llvm15SmallVectorImplIPKN12_GLOBAL__N_19ClassInfoEE7reserveEm.exit.i.i.i.i
-  %2392 = getelementptr ptr, ptr %.val.i.i.i.i.i920, i64 %2390
+  %2392 = getelementptr inbounds ptr, ptr %.val.i.i.i.i.i920, i64 %2390
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i.i.i
@@ -6846,7 +6846,7 @@ _ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EE11_M_allocateEm.exit.i.i.i60.i: ; p
 
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i66.i: ; preds = %.lr.ph.i.i.i.i.i.i62.i, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EE11_M_allocateEm.exit.i.i.i60.i
   %.0.lcssa.i.i.i.i.i.i67.i = phi ptr [ %2466, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EE11_M_allocateEm.exit.i.i.i60.i ], [ %2469, %.lr.ph.i.i.i.i.i.i62.i ]
-  %2470 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i67.i, i64 16
+  %2470 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i67.i, i64 16
   %.not.i23.i.i.i68.i = icmp eq ptr %.sroa.016.346.i, null
   br i1 %.not.i23.i.i.i68.i, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i69.i, label %2471
 
@@ -24886,7 +24886,7 @@ _ZNKSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS
 
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %276, %_ZNKSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %280, %.lr.ph.i.i.i.i.i.i ]
-  %281 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
+  %281 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
   %.not.i28.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i28.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %282
 
@@ -25066,7 +25066,7 @@ _ZNKSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS
 
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i.i174: ; preds = %.lr.ph.i.i.i.i.i.i169, %_ZNKSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i164
   %.0.lcssa.i.i.i.i.i.i175 = phi ptr [ %356, %_ZNKSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i164 ], [ %360, %.lr.ph.i.i.i.i.i.i169 ]
-  %361 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i175, i64 8
+  %361 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i175, i64 8
   %.not.i28.i.i.i176 = icmp eq ptr %.val.i.i.i163, null
   br i1 %.not.i28.i.i.i176, label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i177, label %362
 
@@ -29463,7 +29463,7 @@ _ZNKSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS
 
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i.i309: ; preds = %.lr.ph.i.i.i.i.i.i304, %_ZNKSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i299
   %.0.lcssa.i.i.i.i.i.i310 = phi ptr [ %2108, %_ZNKSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i299 ], [ %2112, %.lr.ph.i.i.i.i.i.i304 ]
-  %2113 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i310, i64 8
+  %2113 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i310, i64 8
   %.not.i28.i.i.i311 = icmp eq ptr %.sroa.0416.0658, null
   br i1 %.not.i28.i.i.i311, label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i312, label %2114
 
@@ -30182,7 +30182,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS1_EED2Ev.ex
 
 _ZSt22__uninitialized_move_aIPSt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit60.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i354
   %.pre.i.i.i356 = load ptr, ptr %1476, align 8
-  %2403 = getelementptr i8, ptr %.pre.i.i.i356, i64 %2395
+  %2403 = getelementptr inbounds i8, ptr %.pre.i.i.i356, i64 %2395
   store ptr %2403, ptr %1476, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2_EESaIS5_EE6insertISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS5_S7_EEEvEESD_NSB_IPKS5_S7_EET_SI_.exit
 
@@ -30238,7 +30238,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_de
   store i64 %.val.i.i.i.i.i.i.i.i80.i.i.i, ptr %.09.i.i.i.i78.i.i.i, align 8
   store ptr null, ptr %.sroa.06.08.i.i.i.i79.i.i.i, align 8
   %2420 = getelementptr inbounds i8, ptr %.sroa.06.08.i.i.i.i79.i.i.i, i64 8
-  %2421 = getelementptr i8, ptr %.09.i.i.i.i78.i.i.i, i64 8
+  %2421 = getelementptr inbounds i8, ptr %.09.i.i.i.i78.i.i.i, i64 8
   %.not.i.i.i.i81.i.i.i = icmp eq ptr %2420, %.sroa.7.1
   br i1 %.not.i.i.i.i81.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_deleteIS2_EES6_SaIS5_EET0_T_S9_S8_RT1_.exit91.i.i.i, label %.lr.ph.i.i.i.i77.i.i.i, !llvm.loop !309
 
@@ -45709,7 +45709,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN12_GLOBAL__N_113Mat
   br i1 %75, label %.lr.ph62.preheader.i.i, label %._crit_edge63.i.i
 
 .lr.ph62.preheader.i.i:                           ; preds = %74
-  %76 = getelementptr %"class.std::unique_ptr.124", ptr %.sroa.032.0.i.i, i64 %.051.i.i
+  %76 = getelementptr inbounds %"class.std::unique_ptr.124", ptr %.sroa.032.0.i.i, i64 %.051.i.i
   br label %.lr.ph62.i.i
 
 .lr.ph62.i.i:                                     ; preds = %.lr.ph62.i.i, %.lr.ph62.preheader.i.i
@@ -46956,7 +46956,7 @@ _ZSt13move_backwardIPSt10unique_ptrIN12_GLOBAL__N_113MatchableInfoESt14default_d
   br i1 %242, label %.lr.ph62.preheader.i.i.i, label %._crit_edge63.i.i.i
 
 .lr.ph62.preheader.i.i.i:                         ; preds = %241
-  %243 = getelementptr %"class.std::unique_ptr.124", ptr %.sroa.032.0.i.i.i, i64 %.051.i.i.i
+  %243 = getelementptr inbounds %"class.std::unique_ptr.124", ptr %.sroa.032.0.i.i.i, i64 %.051.i.i.i
   br label %.lr.ph62.i.i.i
 
 .lr.ph62.i.i.i:                                   ; preds = %.lr.ph62.i.i.i, %.lr.ph62.preheader.i.i.i

@@ -3710,7 +3710,7 @@ Balloc.exit:                                      ; preds = %35, %65
 
 ._crit_edge60:                                    ; preds = %.lr.ph59.preheader, %Balloc.exit
   %.038.lcssa = phi ptr [ %71, %Balloc.exit ], [ %scevgep, %.lr.ph59.preheader ]
-  %77 = getelementptr i8, ptr %0, i64 24
+  %77 = getelementptr inbounds i8, ptr %0, i64 24
   %78 = load i32, ptr %6, align 4
   %79 = sext i32 %78 to i64
   %80 = getelementptr i32, ptr %77, i64 %79

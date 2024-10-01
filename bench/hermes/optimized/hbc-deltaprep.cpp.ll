@@ -373,7 +373,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %if.end
 
 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #21
-  %add.ptr.i.i44 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i44 = getelementptr i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i, ptr align 1 %13, i64 %sub.ptr.sub.i.i, i1 false)
   %15 = ptrtoint ptr %add.ptr.i.i44 to i64
   br label %_ZNSt6vectorIhSaIhEEC2IPKcvEET_S5_RKS0_.exit

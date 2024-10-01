@@ -1703,7 +1703,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI19cmCustomCommandLineSaIS0_EE15
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
   %22 = sub nsw i64 0, %9
-  %23 = getelementptr %class.cmCustomCommandLine, ptr %13, i64 %22
+  %23 = getelementptr inbounds %class.cmCustomCommandLine, ptr %13, i64 %22
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i

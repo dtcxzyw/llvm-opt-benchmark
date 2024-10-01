@@ -434,10 +434,10 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %233 = load i32, ptr %232, align 1
   %234 = sub i32 %233, %4
   %235 = zext i32 %234 to i64
-  %236 = getelementptr i8, ptr %1, i64 %235
+  %236 = getelementptr inbounds i8, ptr %1, i64 %235
   %237 = sub nuw i32 %219, %6
   %.pn10671153 = zext i32 %237 to i64
-  %.19051154 = getelementptr i8, ptr %1, i64 %.pn10671153
+  %.19051154 = getelementptr inbounds i8, ptr %1, i64 %.pn10671153
   %238 = shl nuw nsw i32 %108, 10
   %239 = or disjoint i32 %238, 112
   %.not1073 = icmp ugt i32 %239, %2
@@ -485,7 +485,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %259 = load i32, ptr %258, align 1
   %260 = sub i32 %259, %4
   %.pn1067 = zext i32 %260 to i64
-  %.1905 = getelementptr i8, ptr %1, i64 %.pn1067
+  %.1905 = getelementptr inbounds i8, ptr %1, i64 %.pn1067
   %261 = shl nuw nsw i32 %108, 10
   %262 = or disjoint i32 %261, 180
   %263 = zext nneg i32 %262 to i64
@@ -756,8 +756,8 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %400 = getelementptr inbounds i8, ptr %383, i64 4
   %401 = load i32, ptr %400, align 1
   %402 = sext i32 %401 to i64
-  %403 = getelementptr i8, ptr %1, i64 %402
-  %404 = getelementptr i8, ptr %403, i64 %395
+  %403 = getelementptr inbounds i8, ptr %1, i64 %402
+  %404 = getelementptr inbounds i8, ptr %403, i64 %395
   %405 = sub i32 %401, %6
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9, i32 noundef %401, i32 noundef %405) #3
   %406 = getelementptr inbounds i8, ptr %383, i64 8
@@ -770,7 +770,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   br label %633
 
 410:                                              ; preds = %389
-  %411 = getelementptr i8, ptr %383, i64 12
+  %411 = getelementptr inbounds i8, ptr %383, i64 12
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11, i32 noundef %407) #3
   %narrow = add nuw i32 %407, %373
   %412 = icmp ugt i32 %narrow, 1073741823
@@ -782,7 +782,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %.not1008 = icmp ugt i32 %414, %2
   %or.cond1126 = select i1 %.not1007, i1 true, i1 %.not1008
   %.not1009 = icmp ult ptr %411, %1
-  %or.cond1172 = or i1 %or.cond1126, %.not1009
+  %or.cond1172 = select i1 %or.cond1126, i1 true, i1 %.not1009
   br i1 %or.cond1172, label %633, label %415
 
 415:                                              ; preds = %413
@@ -813,7 +813,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %428 = icmp ugt i64 %427, %347
   %or.cond1130 = and i1 %.not1014, %428
   %429 = icmp ugt i64 %350, %425
-  %or.cond1131 = and i1 %or.cond1130, %429
+  %or.cond1131 = select i1 %or.cond1130, i1 %429, i1 false
   br i1 %or.cond1131, label %.lr.ph1216, label %633
 
 .lr.ph1216:                                       ; preds = %426, %.lr.ph1216

@@ -2849,7 +2849,7 @@ for.body.i1739:                                   ; preds = %for.body.i1739.lr.p
   %398 = load i32, ptr %queueCount.i2692, align 4
   %399 = load ptr, ptr %queues1.i, align 16
   %idx.ext.i2694 = zext i32 %add.i1743 to i64
-  %add.ptr.i2695 = getelementptr %struct.mq, ptr %399, i64 %idx.ext.i2694
+  %add.ptr.i2695 = getelementptr inbounds %struct.mq, ptr %399, i64 %idx.ext.i2694
   %400 = load i32, ptr %nfaInfoOffset.i176.i, align 4
   %idx.ext.i177.i = zext i32 %400 to i64
   %add.ptr.i178.i = getelementptr inbounds i8, ptr %t, i64 %idx.ext.i177.i
@@ -4199,7 +4199,7 @@ lor.end.i:                                        ; preds = %if.end.i3222.lor.en
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %items.i3189, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx24.i3230, i64 24, i1 false)
   store i32 0, ptr %cur.i32152457, align 8
   store i32 1, ptr %end.i3190, align 4
-  %arrayidx28.i = getelementptr i8, ptr %add.ptr.i2695, i64 128
+  %arrayidx28.i = getelementptr inbounds i8, ptr %add.ptr.i2695, i64 128
   %cmp31.i2689 = icmp eq i32 %cond.i3229, 0
   %or.cond2772.not = or i1 %cmp31.i2689, %tobool.i3199.not
   br i1 %or.cond2772.not, label %if.end40.i, label %for.body.i3236.lr.ph

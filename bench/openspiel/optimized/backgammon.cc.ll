@@ -3050,7 +3050,7 @@ _ZNSt12_Vector_baseIN10open_spiel10backgammon11CheckerMoveESaIS2_EE11_M_allocate
 
 _ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN10open_spiel10backgammon11CheckerMoveESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %90, %_ZNSt12_Vector_baseIN10open_spiel10backgammon11CheckerMoveESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %93, %.lr.ph.i.i.i.i.i.i ]
-  %94 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
+  %94 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
   %.not.i23.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %95
 
@@ -3128,7 +3128,7 @@ _ZNSt12_Vector_baseIN10open_spiel10backgammon11CheckerMoveESaIS2_EE11_M_allocate
 
 _ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i47: ; preds = %.lr.ph.i.i.i.i.i.i43, %_ZNSt12_Vector_baseIN10open_spiel10backgammon11CheckerMoveESaIS2_EE11_M_allocateEm.exit.i.i.i41
   %.0.lcssa.i.i.i.i.i.i48 = phi ptr [ %117, %_ZNSt12_Vector_baseIN10open_spiel10backgammon11CheckerMoveESaIS2_EE11_M_allocateEm.exit.i.i.i41 ], [ %120, %.lr.ph.i.i.i.i.i.i43 ]
-  %121 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i48, i64 12
+  %121 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i48, i64 12
   %.not.i23.i.i.i49 = icmp eq ptr %54, null
   br i1 %.not.i23.i.i.i49, label %_ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i50, label %122
 
@@ -9756,7 +9756,7 @@ _ZNSt12_Vector_baseIN10open_spiel10backgammon11CheckerMoveESaIS2_EE11_M_allocate
 
 _ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN10open_spiel10backgammon11CheckerMoveESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %67, %_ZNSt12_Vector_baseIN10open_spiel10backgammon11CheckerMoveESaIS2_EE11_M_allocateEm.exit.i.i ], [ %70, %.lr.ph.i.i.i.i.i ]
-  %71 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 12
+  %71 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 12
   %.not.i23.i.i = icmp eq ptr %53, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %72
 

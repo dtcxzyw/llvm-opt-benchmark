@@ -1708,7 +1708,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %84
 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %91 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %89) #25
   store ptr %91, ptr %10, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 %89
+  %92 = getelementptr i8, ptr %91, i64 %89
   %93 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %92, ptr %93, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr align 1 %85, i64 %89, i1 false)

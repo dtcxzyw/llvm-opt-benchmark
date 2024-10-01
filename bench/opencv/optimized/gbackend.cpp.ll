@@ -2680,7 +2680,7 @@ _ZN2cv7GRunArgC2INS_4RMatEEERKT_RKSt13unordered_mapINSt7__cxx1112basic_stringIcS
 
 _ZNKSt13unordered_mapIiN2cv7Scalar_IdEESt4hashIiESt8equal_toIiESaISt4pairIKiS2_EEE2atERS8_.exit: ; preds = %135, %117, %130
   %.sroa.06.1.i.i.i40 = phi ptr [ %131, %130 ], [ %.sroa.06.0.i.i.i42, %117 ], [ %137, %135 ]
-  %143 = getelementptr i8, ptr %.sroa.06.1.i.i.i40, i64 16
+  %143 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i40, i64 16
   %144 = getelementptr inbounds i8, ptr %1, i64 528
   %145 = load i64, ptr %144, align 8
   %.not.not.i.i.i44 = icmp eq i64 %145, 0

@@ -36745,7 +36745,7 @@ _ZNKSt6vectorIN8WasmEdge3AST12TableSegmentESaIS2_EE12_M_check_lenEmPKc.exit: ; p
   %27 = tail call i64 @llvm.umin.i64(i64 %26, i64 192153584101141162)
   %28 = mul nuw nsw i64 %27, 48
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #22
-  %30 = getelementptr i8, ptr %29, i64 %9
+  %30 = getelementptr inbounds i8, ptr %29, i64 %9
   br label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN8WasmEdge3AST12TableSegmentESaIS2_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
@@ -37205,7 +37205,7 @@ _ZNKSt6vectorIN8WasmEdge3AST13GlobalSegmentESaIS2_EE12_M_check_lenEmPKc.exit: ; 
   %27 = tail call i64 @llvm.umin.i64(i64 %26, i64 230584300921369395)
   %28 = mul nuw nsw i64 %27, 40
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #22
-  %30 = getelementptr i8, ptr %29, i64 %9
+  %30 = getelementptr inbounds i8, ptr %29, i64 %9
   br label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN8WasmEdge3AST13GlobalSegmentESaIS2_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30

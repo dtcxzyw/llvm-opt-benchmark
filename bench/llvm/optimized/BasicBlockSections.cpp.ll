@@ -2989,8 +2989,8 @@ _ZSt4moveIPSt10unique_ptrIN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEESt14
 
 .lr.ph.i.i.i.i.i53.preheader:                     ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEESt14default_deleteIS4_EES8_ET0_T_SA_S9_.exit52
   %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr %"class.std::unique_ptr.358", ptr %94, i64 %.026
-  %96 = getelementptr %"class.std::unique_ptr.358", ptr %91, i64 %.026
+  %95 = getelementptr inbounds %"class.std::unique_ptr.358", ptr %94, i64 %.026
+  %96 = getelementptr inbounds %"class.std::unique_ptr.358", ptr %91, i64 %.026
   br label %.lr.ph.i.i.i.i.i53
 
 .lr.ph.i.i.i.i.i53:                               ; preds = %.lr.ph.i.i.i.i.i53.preheader, %.lr.ph.i.i.i.i.i53

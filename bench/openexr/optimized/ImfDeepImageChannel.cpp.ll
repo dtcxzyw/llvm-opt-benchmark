@@ -404,7 +404,7 @@ entry:
   %1 = load ptr, ptr %arrayidx, align 8
   %_sampleBuffer = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %_sampleBuffer, align 8
-  %add.ptr = getelementptr %"class.Imath_3_2::half", ptr %2, i64 %newSampleListPosition
+  %add.ptr = getelementptr inbounds %"class.Imath_3_2::half", ptr %2, i64 %newSampleListPosition
   %cmp = icmp ugt i32 %oldNumSamples, %newNumSamples
   br i1 %cmp, label %for.cond.preheader, label %for.cond7.preheader
 
@@ -961,7 +961,7 @@ entry:
   %1 = load ptr, ptr %arrayidx, align 8
   %_sampleBuffer = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %_sampleBuffer, align 8
-  %add.ptr = getelementptr float, ptr %2, i64 %newSampleListPosition
+  %add.ptr = getelementptr inbounds float, ptr %2, i64 %newSampleListPosition
   %cmp = icmp ugt i32 %oldNumSamples, %newNumSamples
   br i1 %cmp, label %for.cond.preheader, label %for.cond7.preheader
 
@@ -1499,7 +1499,7 @@ entry:
   %1 = load ptr, ptr %arrayidx, align 8
   %_sampleBuffer = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %_sampleBuffer, align 8
-  %add.ptr = getelementptr i32, ptr %2, i64 %newSampleListPosition
+  %add.ptr = getelementptr inbounds i32, ptr %2, i64 %newSampleListPosition
   %cmp = icmp ugt i32 %oldNumSamples, %newNumSamples
   br i1 %cmp, label %for.cond.preheader, label %for.cond7.preheader
 

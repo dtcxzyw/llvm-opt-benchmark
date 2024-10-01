@@ -1071,7 +1071,7 @@ call3.i.i.i.i.noexc.i:                            ; preds = %_ZNK6vectorI6symbol
   store i32 %3, ptr %call3.i.i.i.i2.i, align 4
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i2.i, i64 4
   store i32 %2, ptr %incdec.ptr.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i = getelementptr i8, ptr %call3.i.i.i.i2.i, i64 8
+  %incdec.ptr4.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i2.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i, ptr %m_labels.i, align 8
   %4 = load ptr, ptr %r, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %4, null
@@ -2277,7 +2277,7 @@ call3.i.i.i.i.noexc.i:                            ; preds = %_ZNK6vectorI6symbol
   store i32 %4, ptr %call3.i.i.i.i2.i, align 4
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i2.i, i64 4
   store i32 %3, ptr %incdec.ptr.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i = getelementptr i8, ptr %call3.i.i.i.i2.i, i64 8
+  %incdec.ptr4.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i2.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i, ptr %m_labels.i, align 8
   %5 = load ptr, ptr %m_labels, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %5, null

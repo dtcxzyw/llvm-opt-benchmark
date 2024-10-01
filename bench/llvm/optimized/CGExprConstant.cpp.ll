@@ -8728,7 +8728,7 @@ _ZSt13move_backwardIPN5clang9CharUnitsES2_ET0_T_S4_S3_.exit.i.i.i.i220.i: ; pred
   br i1 %762, label %_ZN12_GLOBAL__N_17replaceIN4llvm11SmallVectorIPNS1_8ConstantELj32EEESt16initializer_listIS4_EEEvRT_mmT0_.exit.i, label %.lr.ph.i.i.i249.i.preheader
 
 .lr.ph.i.i.i249.i.preheader:                      ; preds = %736
-  %763 = getelementptr i8, ptr %760, i64 %.idx
+  %763 = getelementptr inbounds i8, ptr %760, i64 %.idx
   br label %.lr.ph.i.i.i249.i
 
 .lr.ph.i.i.i249.i:                                ; preds = %.lr.ph.i.i.i249.i.preheader, %.lr.ph.i.i.i249.i
@@ -8756,7 +8756,7 @@ _ZN12_GLOBAL__N_17replaceIN4llvm11SmallVectorIPNS1_8ConstantELj32EEESt16initiali
   br i1 %762, label %.lr.ph.i.i.i256.i._crit_edge, label %.lr.ph.i.i.i256.i.preheader
 
 .lr.ph.i.i.i256.i.preheader:                      ; preds = %_ZN12_GLOBAL__N_17replaceIN4llvm11SmallVectorIPNS1_8ConstantELj32EEESt16initializer_listIS4_EEEvRT_mmT0_.exit.i
-  %769 = getelementptr i8, ptr %.pre.i, i64 %.idx
+  %769 = getelementptr inbounds i8, ptr %.pre.i, i64 %.idx
   br label %.lr.ph.i.i.i256.i
 
 .lr.ph.i.i.i256.i._crit_edge.loopexit:            ; preds = %.lr.ph.i.i.i256.i
@@ -9051,7 +9051,7 @@ _ZN4llvm25SmallVectorTemplateCommonIPNS_8ConstantEvE20assertSafeToAddRangeEPKS2_
 
 _ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonIPNS_8ConstantEvE20assertSafeToAddRangeEPKS2_S5_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   %.idx = shl nsw i64 %32, 3
   %33 = ptrtoint ptr %31 to i64
@@ -9258,7 +9258,7 @@ _ZN4llvm25SmallVectorTemplateCommonIN5clang9CharUnitsEvE20assertSafeToAddRangeEP
 
 _ZN4llvm15SmallVectorImplIN5clang9CharUnitsEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonIN5clang9CharUnitsEvE20assertSafeToAddRangeEPKS2_S5_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   %.idx = shl nsw i64 %32, 3
   %33 = ptrtoint ptr %31 to i64
@@ -9413,7 +9413,7 @@ _ZN4llvm15SmallVectorImplIN5clang9CharUnitsEE7reserveEm.exit: ; preds = %3, %12
   br i1 %.not7.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9CharUnitsELb1EE18uninitialized_copyISt13move_iteratorIPS2_ES6_EEvT_S8_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplIN5clang9CharUnitsEE7reserveEm.exit
-  %16 = getelementptr %"class.clang::CharUnits", ptr %14, i64 %15
+  %16 = getelementptr inbounds %"class.clang::CharUnits", ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
@@ -11513,7 +11513,7 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
   br i1 %.not19.i.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN12_GLOBAL__N_112_GLOBAL__N_18BaseInfoES2_EC2ES3_l.exit.thread21.i.i.i, label %.lr.ph.i.i.preheader.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %158
-  %.01518.i.i.i.i.i.i = getelementptr i8, ptr %154, i64 24
+  %.01518.i.i.i.i.i.i = getelementptr inbounds i8, ptr %154, i64 24
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i

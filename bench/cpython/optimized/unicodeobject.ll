@@ -42746,7 +42746,7 @@ if.then1.i157:                                    ; preds = %if.end.i154
   br label %return
 
 if.end44:                                         ; preds = %if.then38
-  %ob_sval.i = getelementptr i8, ptr %call41, i64 32
+  %ob_sval.i = getelementptr inbounds i8, ptr %call41, i64 32
   %conv46 = sext i32 %numnondigits.1 to i64
   %cmp4790 = icmp sgt i32 %numnondigits.1, 0
   br i1 %cmp4790, label %for.body, label %for.cond50.preheader

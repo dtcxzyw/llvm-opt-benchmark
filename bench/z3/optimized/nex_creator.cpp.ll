@@ -928,7 +928,7 @@ call3.i.i.noexc:                                  ; preds = %_ZNK6vectorIN3nla7n
   store i32 %6, ptr %call3.i.i5, align 4
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call3.i.i5, i64 4
   store i32 %5, ptr %incdec.ptr.i.i, align 4
-  %incdec.ptr4.i.i = getelementptr i8, ptr %call3.i.i5, i64 8
+  %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %call3.i.i5, i64 8
   store ptr %incdec.ptr4.i.i, ptr %m_children, align 8
   %7 = load ptr, ptr %m_children3, align 8
   %cmp.i.i.i.i = icmp eq ptr %7, null
@@ -10165,7 +10165,7 @@ call3.i.i.noexc:                                  ; preds = %_ZNK6vectorIN3nla7n
   store i32 %5, ptr %call3.i.i3, align 4
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call3.i.i3, i64 4
   store i32 %4, ptr %incdec.ptr.i.i, align 4
-  %incdec.ptr4.i.i = getelementptr i8, ptr %call3.i.i3, i64 8
+  %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %call3.i.i3, i64 8
   store ptr %incdec.ptr4.i.i, ptr %m_children, align 8
   %6 = load ptr, ptr %args, align 8
   %cmp.i.i.i.i = icmp eq ptr %6, null

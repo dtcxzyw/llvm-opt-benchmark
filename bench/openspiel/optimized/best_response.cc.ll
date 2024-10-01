@@ -2377,7 +2377,7 @@ _ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %15
 
 _ZNSt6vectorISt4pairIldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %156, %_ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %159, %.lr.ph.i.i.i.i.i.i ]
-  %160 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %160 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %142, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %161
 
@@ -3119,7 +3119,7 @@ _ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i.i.i79: ; preds = %
 
 _ZNSt6vectorISt4pairIldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i85: ; preds = %.lr.ph.i.i.i.i.i.i81, %_ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i.i.i79
   %.0.lcssa.i.i.i.i.i.i86 = phi ptr [ %236, %_ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i.i.i79 ], [ %239, %.lr.ph.i.i.i.i.i.i81 ]
-  %240 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i86, i64 16
+  %240 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i86, i64 16
   %.not.i23.i.i.i87 = icmp eq ptr %222, null
   br i1 %.not.i23.i.i.i87, label %_ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i88, label %241
 
@@ -4932,7 +4932,7 @@ _ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %14
 
 _ZNSt6vectorISt4pairIldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %147, %_ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %150, %.lr.ph.i.i.i.i.i.i ]
-  %151 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %151 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %133, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %152
 
@@ -10459,13 +10459,13 @@ _ZN4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi25
   %44 = getelementptr inbounds i8, ptr %43, i64 10
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr i8, ptr %43, i64 16
+  %47 = getelementptr inbounds i8, ptr %43, i64 16
   %48 = getelementptr inbounds i64, ptr %47, i64 %46
   %.not14.i = icmp eq i8 %45, 0
   br i1 %.not14.i, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE10transfer_nElllPS8_PS6_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZN4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE18new_leaf_root_nodeEi.exit
-  %49 = getelementptr i8, ptr %38, i64 16
+  %49 = getelementptr inbounds i8, ptr %38, i64 16
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -10799,7 +10799,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal10btree_nodeINS1_1
   store i64 %16, ptr %13, align 8
   %17 = add nsw i32 %1, -1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr i8, ptr %2, i64 16
+  %19 = getelementptr inbounds i8, ptr %2, i64 16
   %20 = getelementptr inbounds i64, ptr %19, i64 %18
   %.not14.i = icmp eq i32 %17, 0
   br i1 %.not14.i, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE10transfer_nElllPS8_PS6_.exit, label %.lr.ph.preheader.i
@@ -10808,7 +10808,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal10btree_nodeINS1_1
   %21 = shl nuw nsw i64 %7, 32
   %sext13.i = add nuw nsw i64 %21, 4294967296
   %22 = lshr exact i64 %sext13.i, 29
-  %23 = getelementptr i8, ptr %12, i64 %22
+  %23 = getelementptr inbounds i8, ptr %12, i64 %22
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -10844,7 +10844,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaI
   %37 = sext i32 %36 to i64
   %38 = sext i32 %1 to i64
   %39 = shl nsw i64 %38, 3
-  %40 = getelementptr i8, ptr %19, i64 %39
+  %40 = getelementptr inbounds i8, ptr %19, i64 %39
   %41 = getelementptr inbounds i64, ptr %40, i64 %37
   %.not14.i46 = icmp eq i32 %1, %35
   br i1 %.not14.i46, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE10transfer_nElllPS8_PS6_.exit53, label %.lr.ph.i49
@@ -10939,7 +10939,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal10btree_nodeINS1_1
   %5 = getelementptr inbounds i8, ptr %2, i64 10
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr i8, ptr %2, i64 16
+  %8 = getelementptr inbounds i8, ptr %2, i64 16
   %9 = shl nuw nsw i64 %7, 32
   %sext.i = add nsw i64 %9, -4294967296
   %10 = ashr exact i64 %sext.i, 29
@@ -10987,9 +10987,9 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaI
   %35 = zext i8 %34 to i32
   %36 = sub nsw i32 %35, %22
   %37 = sext i32 %36 to i64
-  %38 = getelementptr i8, ptr %0, i64 16
+  %38 = getelementptr inbounds i8, ptr %0, i64 16
   %39 = shl nsw i64 %37, 3
-  %40 = getelementptr i8, ptr %38, i64 %39
+  %40 = getelementptr inbounds i8, ptr %38, i64 %39
   %41 = getelementptr inbounds i64, ptr %40, i64 %23
   %.not14.i = icmp eq i32 %22, 0
   br i1 %.not14.i, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE10transfer_nElllPS8_PS6_.exit, label %.lr.ph.i48
@@ -11123,15 +11123,15 @@ define linkonce_odr void @_ZN4absl7debian218container_internal10btree_nodeINS1_1
   %19 = load i8, ptr %17, align 1
   %20 = zext i8 %19 to i64
   %21 = zext i8 %18 to i64
-  %22 = getelementptr i8, ptr %0, i64 16
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
   %sext.i = shl nuw nsw i64 %21, 3
-  %23 = getelementptr i8, ptr %22, i64 %sext.i
+  %23 = getelementptr inbounds i8, ptr %22, i64 %sext.i
   %24 = getelementptr inbounds i64, ptr %23, i64 %20
   %.not14.i = icmp eq i8 %19, 0
   br i1 %.not14.i, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE10transfer_nElllPS8_PS6_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %13
-  %25 = getelementptr i8, ptr %2, i64 16
+  %25 = getelementptr inbounds i8, ptr %2, i64 16
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

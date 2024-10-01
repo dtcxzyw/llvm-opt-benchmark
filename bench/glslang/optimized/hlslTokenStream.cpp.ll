@@ -132,7 +132,7 @@ _ZNSt12_Vector_baseIN7glslang9HlslTokenENS0_14pool_allocatorIS1_EEE11_M_allocate
 
 _ZNSt6vectorIN7glslang9HlslTokenENS0_14pool_allocatorIS1_EEE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S4_EEDpOT_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN7glslang9HlslTokenENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i = phi ptr [ %29, %_ZNSt12_Vector_baseIN7glslang9HlslTokenENS0_14pool_allocatorIS1_EEE11_M_allocateEm.exit.i.i ], [ %32, %.lr.ph.i.i.i.i ]
-  %33 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 40
+  %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 40
   store ptr %29, ptr %13, align 8
   store ptr %33, ptr %5, align 8
   %34 = getelementptr inbounds %"struct.glslang::HlslToken", ptr %29, i64 %24
@@ -203,7 +203,7 @@ _ZNSt12_Vector_baseIPKN7glslang7TVectorINS0_9HlslTokenEEENS0_14pool_allocatorIS5
 
 _ZNSt6vectorIPKN7glslang7TVectorINS0_9HlslTokenEEENS0_14pool_allocatorIS5_EEE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S8_EEDpOT_.exit.i: ; preds = %.lr.ph.i.i.i.i5, %_ZNSt12_Vector_baseIPKN7glslang7TVectorINS0_9HlslTokenEEENS0_14pool_allocatorIS5_EEE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i9 = phi ptr [ %60, %_ZNSt12_Vector_baseIPKN7glslang7TVectorINS0_9HlslTokenEEENS0_14pool_allocatorIS5_EEE11_M_allocateEm.exit.i.i ], [ %64, %.lr.ph.i.i.i.i5 ]
-  %65 = getelementptr i8, ptr %.0.lcssa.i.i.i.i9, i64 8
+  %65 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i9, i64 8
   store ptr %60, ptr %44, align 8
   store ptr %65, ptr %36, align 8
   %66 = getelementptr inbounds ptr, ptr %60, i64 %55
@@ -277,7 +277,7 @@ _ZNSt12_Vector_baseIiN7glslang14pool_allocatorIiEEE11_M_allocateEm.exit.i.i.i: ;
 
 _ZNSt6vectorIiN7glslang14pool_allocatorIiEEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS3_EEDpOT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIiN7glslang14pool_allocatorIiEEE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %94, %_ZNSt12_Vector_baseIiN7glslang14pool_allocatorIiEEE11_M_allocateEm.exit.i.i.i ], [ %98, %.lr.ph.i.i.i.i.i ]
-  %99 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 4
+  %99 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 4
   store ptr %94, ptr %78, align 8
   store ptr %99, ptr %70, align 8
   %100 = getelementptr inbounds i32, ptr %94, i64 %89

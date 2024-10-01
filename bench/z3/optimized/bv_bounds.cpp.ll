@@ -1371,7 +1371,7 @@ while.end.i:                                      ; preds = %_ZNK6vectorIN9bv_bo
   %idx.ext6.i = zext i32 %add448454 to i64
   %add.ptr7.i = getelementptr inbounds %"struct.bv_bounds::ninterval", ptr %102, i64 %idx.ext6.i
   %idx.ext.i = zext i32 %retval.0.i.i332455 to i64
-  %add.ptr.i = getelementptr %"struct.bv_bounds::ninterval", ptr %102, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds %"struct.bv_bounds::ninterval", ptr %102, i64 %idx.ext.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %while.end.i

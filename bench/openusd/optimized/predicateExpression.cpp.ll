@@ -1299,7 +1299,7 @@ _ZNKSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressio
 
 _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression2OpEiESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %.noexc17
   %.0.lcssa.i.i.i.i = phi ptr [ %63, %.noexc17 ], [ %69, %.lr.ph.i.i.i.i ]
-  %70 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %70 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i34.i = icmp eq ptr %49, null
   br i1 %.not.i34.i, label %.noexc13, label %71
 

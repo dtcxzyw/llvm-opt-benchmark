@@ -951,7 +951,7 @@ _ZN7Imf_3_212_GLOBAL__N_18applyLutEPKtPti.exit:   ; preds = %for.body.i93, %_ZN7
 
 if.then136:                                       ; preds = %_ZN7Imf_3_212_GLOBAL__N_18applyLutEPKtPti.exit
   %idx.ext141 = zext i16 %minNonZero.2 to i64
-  %add.ptr142 = getelementptr i8, ptr %call.i, i64 %idx.ext141
+  %add.ptr142 = getelementptr inbounds i8, ptr %call.i, i64 %idx.ext141
   %narrow = sub nuw i16 %maxNonZero.1, %minNonZero.2
   %sub = zext i16 %narrow to i32
   %add = add nuw nsw i32 %sub, 1

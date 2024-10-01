@@ -132690,7 +132690,7 @@ cond.false:                                       ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(262144) %call23, i8 0, i64 262144, i1 false)
   %arrayctor.end.i = getelementptr inbounds i8, ptr %call23, i64 262144
-  %mChildMask2.i = getelementptr i8, ptr %17, i64 262144
+  %mChildMask2.i = getelementptr inbounds i8, ptr %17, i64 262144
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %cond.false
@@ -132707,7 +132707,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %co
 
 _ZN7openvdb5v11_04util8NodeMaskILj5EEC2ERKS3_.exit.i: ; preds = %for.body.i.i.i
   %mValueMask.i = getelementptr inbounds i8, ptr %call23, i64 266240
-  %mValueMask3.i = getelementptr i8, ptr %17, i64 266240
+  %mValueMask3.i = getelementptr inbounds i8, ptr %17, i64 266240
   br label %for.body.i.i6.i
 
 for.body.i.i6.i:                                  ; preds = %for.body.i.i6.i, %_ZN7openvdb5v11_04util8NodeMaskILj5EEC2ERKS3_.exit.i
@@ -133558,7 +133558,7 @@ if.else:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %call13, i8 0, i64 32768, i1 false)
   %arrayctor.end.i = getelementptr inbounds i8, ptr %call13, i64 32768
-  %mChildMask2.i = getelementptr i8, ptr %6, i64 32768
+  %mChildMask2.i = getelementptr inbounds i8, ptr %6, i64 32768
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if.else
@@ -133575,7 +133575,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
 
 _ZN7openvdb5v11_04util8NodeMaskILj4EEC2ERKS3_.exit.i: ; preds = %for.body.i.i.i
   %mValueMask.i = getelementptr inbounds i8, ptr %call13, i64 33280
-  %mValueMask3.i = getelementptr i8, ptr %6, i64 33280
+  %mValueMask3.i = getelementptr inbounds i8, ptr %6, i64 33280
   br label %for.body.i.i6.i
 
 for.body.i.i6.i:                                  ; preds = %for.body.i.i6.i, %_ZN7openvdb5v11_04util8NodeMaskILj4EEC2ERKS3_.exit.i
@@ -134316,7 +134316,7 @@ if.else:                                          ; preds = %for.body
 
 .noexc:                                           ; preds = %if.else
   %mValueMask.i.i = getelementptr inbounds i8, ptr %call13, i64 16
-  %mValueMask.i.i.i = getelementptr i8, ptr %6, i64 16
+  %mValueMask.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %.noexc

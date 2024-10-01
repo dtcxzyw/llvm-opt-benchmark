@@ -6590,7 +6590,7 @@ define internal void @_ZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPK
   %90 = mul nsw i64 %89, %.0325
   %91 = getelementptr inbounds float, ptr %88, i64 %90
   %92 = load ptr, ptr %18, align 8
-  %93 = getelementptr i64, ptr %92, i64 %90
+  %93 = getelementptr inbounds i64, ptr %92, i64 %90
   %94 = load i8, ptr %5, align 1
   %95 = trunc i8 %94 to i1
   br i1 %95, label %96, label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_0clES5_S6_.exit"
@@ -6882,7 +6882,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %215 = mul i64 %214, %.0117314
   %216 = getelementptr inbounds float, ptr %213, i64 %215
   %217 = load ptr, ptr %18, align 8
-  %218 = getelementptr i64, ptr %217, i64 %215
+  %218 = getelementptr inbounds i64, ptr %217, i64 %215
   %219 = call i32 @__kmpc_single(ptr nonnull @2, i32 %.pre)
   %.not129 = icmp eq i32 %219, 0
   br i1 %.not129, label %235, label %220
@@ -7072,7 +7072,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit181:            ; preds = %_ZSt6fill_nIPfmfET_
   %281 = mul nsw i64 %280, %.0119296
   %282 = getelementptr inbounds float, ptr %279, i64 %281
   %283 = load ptr, ptr %18, align 8
-  %284 = getelementptr i64, ptr %283, i64 %281
+  %284 = getelementptr inbounds i64, ptr %283, i64 %281
   %285 = load i8, ptr %5, align 1
   %286 = trunc i8 %285 to i1
   br i1 %286, label %287, label %"_ZZNK5faiss8IndexIVF18search_preassignedElPKflPKlS2_PfPlbPKNS_19SearchParametersIVFEPNS_13IndexIVFStatsEENK3$_0clES5_S6_.exit189"

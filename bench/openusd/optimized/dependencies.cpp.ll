@@ -9597,7 +9597,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__19PcpC
   store i32 %39, ptr %37, align 4
   store i32 0, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
-  %41 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 64
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 64
   %44 = load i32, ptr %43, align 8
@@ -9743,7 +9743,7 @@ _ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0
   store i32 %108, ptr %106, align 4
   store i32 0, ptr %107, align 4
   %109 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %110 = getelementptr inbounds i8, ptr %.sroa.08.011.i.i.i.i, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i, i64 32
   %111 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 64
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i, i64 64
   %113 = load i32, ptr %112, align 8
@@ -9853,7 +9853,7 @@ _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN
   store i32 %162, ptr %160, align 4
   store i32 0, ptr %161, align 4
   %163 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i56, i64 32
-  %164 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i57, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i57, i64 32
   %165 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i56, i64 64
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i57, i64 64
   %167 = load i32, ptr %166, align 8
@@ -10060,7 +10060,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19PcpCulledDependencyEEvT_S3_.
   store i32 %251, ptr %249, align 4
   store i32 0, ptr %250, align 4
   %252 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i79, i64 32
-  %253 = getelementptr inbounds i8, ptr %.sroa.08.011.i.i.i.i80, i64 32
+  %253 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i80, i64 32
   %254 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i79, i64 64
   %255 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i.i.i.i80, i64 64
   %256 = load i32, ptr %255, align 8
@@ -10399,7 +10399,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit8: ; preds = %_ZN32pxrI
   store i32 0, ptr %74, align 4
   store i32 %75, ptr %73, align 4
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %77 = getelementptr inbounds i8, ptr %1, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSEOS0_.exit, label %78
 
@@ -13351,7 +13351,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(88) ptr @_ZNSt6vecto
   store i32 %23, ptr %21, align 4
   store i32 0, ptr %22, align 4
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %28 = load i32, ptr %27, align 8
@@ -13493,7 +13493,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__19PcpCulledDependencyESaI
   store i32 %40, ptr %38, align 4
   store i32 0, ptr %39, align 4
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %42 = getelementptr inbounds i8, ptr %2, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %45 = load i32, ptr %44, align 8

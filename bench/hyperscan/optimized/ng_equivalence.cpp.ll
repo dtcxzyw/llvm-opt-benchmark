@@ -4924,7 +4924,7 @@ for.body.i.i.i.i.i.i.i.i276:                      ; preds = %call5.i.i.i.i.i.i.n
 
 _ZNSt6vectorISt10unique_ptrIN3ue212_GLOBAL__N_110VertexInfoESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i276, %call5.i.i.i.i.i.i.noexc.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i51.i.i, %call5.i.i.i.i.i.i.noexc.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i276 ]
-  %incdec.ptr.i.i.i.i.i279 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i.i279 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i.i280 = icmp eq ptr %this.val.i.i.i.i.i267, null
   br i1 %tobool.not.i.i.i.i.i.i280, label %invoke.cont.i.i, label %if.then.i23.i.i.i.i.i
 
@@ -5687,7 +5687,7 @@ for.body.i.i.i.i.i.i103.i.i:                      ; preds = %call5.i.i.i.i.i.i.n
 
 _ZNSt6vectorISt10unique_ptrIN3ue212_GLOBAL__N_110VertexInfoESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i110.i.i: ; preds = %for.body.i.i.i.i.i.i103.i.i, %call5.i.i.i.i.i.i.noexc119.i.i
   %__cur.0.lcssa.i.i.i.i.i.i111.i.i = phi ptr [ %call5.i.i.i.i.i.i120.i.i, %call5.i.i.i.i.i.i.noexc119.i.i ], [ %incdec.ptr1.i.i.i.i.i.i108.i.i, %for.body.i.i.i.i.i.i103.i.i ]
-  %incdec.ptr.i.i.i112.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i111.i.i, i64 8
+  %incdec.ptr.i.i.i112.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i111.i.i, i64 8
   %tobool.not.i.i.i.i113.i.i = icmp eq ptr %this.val.i.i.i87.i.i, null
   br i1 %tobool.not.i.i.i.i113.i.i, label %invoke.cont18.i.i, label %if.then.i23.i.i.i114.i.i
 

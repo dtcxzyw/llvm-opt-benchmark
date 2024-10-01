@@ -2554,7 +2554,7 @@ _ZNSt12_Vector_baseIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE11_M_allocat
 
 _ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %115, %_ZNSt12_Vector_baseIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %118, %.lr.ph.i.i.i.i.i.i ]
-  %119 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %119 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %101, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %120
 
@@ -2841,7 +2841,7 @@ _ZNSt12_Vector_baseIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE11_M_allocat
 
 _ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i88: ; preds = %.lr.ph.i.i.i.i.i.i84, %_ZNSt12_Vector_baseIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE11_M_allocateEm.exit.i.i.i82
   %.0.lcssa.i.i.i.i.i.i89 = phi ptr [ %237, %_ZNSt12_Vector_baseIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE11_M_allocateEm.exit.i.i.i82 ], [ %240, %.lr.ph.i.i.i.i.i.i84 ]
-  %241 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i89, i64 24
+  %241 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i89, i64 24
   %.not.i23.i.i.i90 = icmp eq ptr %223, null
   br i1 %.not.i23.i.i.i90, label %_ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i91, label %242
 

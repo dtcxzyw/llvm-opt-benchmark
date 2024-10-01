@@ -27641,7 +27641,7 @@ if.then68:                                        ; preds = %do.end67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp76) #24
   %optionDates_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %46 = load ptr, ptr %optionDates_, align 8, !tbaa !33
-  %add.ptr.i82 = getelementptr %"class.QuantLib::Date", ptr %46, i64 %i
+  %add.ptr.i82 = getelementptr inbounds %"class.QuantLib::Date", ptr %46, i64 %i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp88) #24
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp88)
   %47 = load ptr, ptr %optionDates_, align 8, !tbaa !33
@@ -27691,7 +27691,7 @@ _ZNSt6vectorIN8QuantLib4DateESaIS1_EE13_M_insert_auxIS1_EEvN9__gnu_cxx17__normal
   br label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEOS1_.exit
 
 if.else21.i.i:                                    ; preds = %if.then68
-  %add.ptr.i7.i.i = getelementptr i8, ptr %47, i64 %sub.ptr.sub.i.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds i8, ptr %47, i64 %sub.ptr.sub.i.i.i
   %sub.ptr.lhs.cast.i.i.i175 = ptrtoint ptr %48 to i64
   %sub.ptr.sub.i.i.i177 = sub i64 %sub.ptr.lhs.cast.i.i.i175, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i178 = icmp eq i64 %sub.ptr.sub.i.i.i177, 9223372036854775800
@@ -27739,7 +27739,7 @@ for.body.i.i.i.i183:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %for.body.i.i.i.i183, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i183 ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %cmp.not5.i.i.i11.i = icmp eq ptr %add.ptr.i82, %48
   br i1 %cmp.not5.i.i.i11.i, label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i, label %for.body.i.i.i12.i
 
@@ -27787,7 +27787,7 @@ if.then95:                                        ; preds = %if.end93
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp105) #24
   %swapTenors_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %58 = load ptr, ptr %swapTenors_, align 8, !tbaa !33
-  %add.ptr.i87 = getelementptr %"class.QuantLib::Period", ptr %58, i64 %j
+  %add.ptr.i87 = getelementptr inbounds %"class.QuantLib::Period", ptr %58, i64 %j
   %sub.ptr.lhs.cast.i.i.i88 = ptrtoint ptr %add.ptr.i87 to i64
   %sub.ptr.rhs.cast.i.i.i89 = ptrtoint ptr %58 to i64
   %_M_finish.i.i91 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -27878,7 +27878,7 @@ for.body.i.i.i.i209:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %for.body.i.i.i.i209, %_ZNSt12_Vector_baseIN8QuantLib6PeriodESaIS1_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i215 = phi ptr [ %cond.i10.i206, %_ZNSt12_Vector_baseIN8QuantLib6PeriodESaIS1_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i213, %for.body.i.i.i.i209 ]
-  %incdec.ptr.i216 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i215, i64 8
+  %incdec.ptr.i216 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i215, i64 8
   %cmp.not5.i.i.i11.i217 = icmp eq ptr %add.ptr.i87, %59
   br i1 %cmp.not5.i.i.i11.i217, label %_ZNSt6vectorIN8QuantLib6PeriodESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i, label %for.body.i.i.i12.i218
 
@@ -34665,7 +34665,7 @@ if.then9:                                         ; preds = %if.then
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr %"class.QuantLib::Date", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"class.QuantLib::Date", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
@@ -34718,7 +34718,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6
 
 for.body.i.i.i.i.i34.preheader:                   ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  %add.ptr50 = getelementptr %"class.QuantLib::Date", ptr %1, i64 %sub
+  %add.ptr50 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %1, i64 %sub
   br label %for.body.i.i.i.i.i34
 
 for.body.i.i.i.i.i34:                             ; preds = %for.body.i.i.i.i.i34.preheader, %for.body.i.i.i.i.i34
@@ -35221,7 +35221,7 @@ if.then9:                                         ; preds = %if.then
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr %"class.QuantLib::Period", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"class.QuantLib::Period", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
@@ -35276,7 +35276,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN8QuantLib6PeriodES
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN8QuantLib6PeriodESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN8QuantLib6PeriodESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN8QuantLib6PeriodESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %4 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN8QuantLib6PeriodESt6vectorIS3_SaIS3_EEEES4_S3_ET0_T_SA_S9_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN8QuantLib6PeriodESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
-  %add.ptr50 = getelementptr %"class.QuantLib::Period", ptr %4, i64 %sub
+  %add.ptr50 = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %4, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8, !tbaa !41
   %cmp.i.i.not7.i.i.i.i.i33 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i33, label %_ZSt22__uninitialized_move_aIPN8QuantLib6PeriodES2_SaIS1_EET0_T_S5_S4_RT1_.exit41, label %for.body.i.i.i.i.i34

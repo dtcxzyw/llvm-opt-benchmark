@@ -275,7 +275,7 @@ if.end28:                                         ; preds = %if.then11, %if.then
 
 while.body.lr.ph.lr.ph:                           ; preds = %if.end28
   %cont = getelementptr inbounds i8, ptr %0, i64 24
-  %tmp.ptr = getelementptr i8, ptr %0, i64 1626
+  %tmp.ptr = getelementptr inbounds i8, ptr %0, i64 1626
   %tmp_len36 = getelementptr inbounds i8, ptr %0, i64 8
   %start = getelementptr inbounds i8, ptr %0, i64 20
   %tmp_nl = getelementptr inbounds i8, ptr %0, i64 12

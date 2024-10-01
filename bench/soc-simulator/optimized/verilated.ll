@@ -30728,7 +30728,7 @@ _ZNKSt6vectorI14VerilatedRangeSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %4
 
 _ZNSt6vectorI14VerilatedRangeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit33.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc36
   %.0.lcssa.i.i.i.i.i = phi ptr [ %63, %.noexc36 ], [ %68, %.lr.ph.i.i.i.i.i ]
-  %69 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %69 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i34.i.i = icmp eq ptr %49, null
   br i1 %.not.i34.i.i, label %_ZNSt6vectorI14VerilatedRangeSaIS0_EE17_M_realloc_insertIJRKiS5_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %70
 

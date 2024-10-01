@@ -1463,7 +1463,7 @@ tuple_alloc.exit:                                 ; preds = %if.then4.i, %if.end
 
 for.body.preheader:                               ; preds = %tuple_alloc.exit, %tuple_alloc.exit.thread11
   %retval.0.i14 = phi ptr [ %4, %tuple_alloc.exit.thread11 ], [ %retval.0.i, %tuple_alloc.exit ]
-  %ob_item = getelementptr i8, ptr %retval.0.i14, i64 24
+  %ob_item = getelementptr inbounds i8, ptr %retval.0.i14, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_Py_NewRef.exit
@@ -1598,7 +1598,7 @@ for.inc:                                          ; preds = %if.end.i, %if.then1
 
 for.body9.preheader:                              ; preds = %tuple_alloc.exit, %tuple_alloc.exit.thread
   %retval.0.i19 = phi ptr [ %4, %tuple_alloc.exit.thread ], [ %retval.0.i, %tuple_alloc.exit ]
-  %ob_item = getelementptr i8, ptr %retval.0.i19, i64 24
+  %ob_item = getelementptr inbounds i8, ptr %retval.0.i19, i64 24
   br label %for.body9
 
 for.body9:                                        ; preds = %for.body9.preheader, %for.body9
@@ -3099,7 +3099,7 @@ tuple_alloc.exit:                                 ; preds = %if.then4.i, %if.end
 
 if.end19:                                         ; preds = %tuple_alloc.exit.thread41, %tuple_alloc.exit
   %retval.0.i44 = phi ptr [ %7, %tuple_alloc.exit.thread41 ], [ %retval.0.i, %tuple_alloc.exit ]
-  %ob_item = getelementptr i8, ptr %retval.0.i44, i64 24
+  %ob_item = getelementptr inbounds i8, ptr %retval.0.i44, i64 24
   %cmp20 = icmp eq i64 %a.val, 1
   %ob_item22 = getelementptr inbounds i8, ptr %a, i64 24
   br i1 %cmp20, label %if.then21, label %if.else
@@ -3723,7 +3723,7 @@ for.cond.i.preheader:                             ; preds = %if.end.i
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
   %ob_item.i = getelementptr inbounds i8, ptr %retval.0.i1013, i64 24
-  %ob_item.i5 = getelementptr i8, ptr %call2.i, i64 24
+  %ob_item.i5 = getelementptr inbounds i8, ptr %call2.i, i64 24
   br label %for.body.i
 
 if.then4.i:                                       ; preds = %if.end.i

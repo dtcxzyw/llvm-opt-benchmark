@@ -1642,29 +1642,22 @@ _ZNK4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_1
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   br label %556
 
-_ZN4llvm15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateED2Ev.exit.i: ; preds = %_ZN4llvm11df_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateLb1ENS_11GraphTraitsIS2_EEEppEv.exit.i
-  %.not.i.i.i.i.i161.i = icmp eq ptr %.sroa.11.2.i, null
-  br i1 %.not.i.i.i.i.i161.i, label %553, label %_ZN4llvm15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateED2Ev.exit.thread537.i
-
-_ZN4llvm15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateED2Ev.exit.thread537.i: ; preds = %_ZN4llvm15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateED2Ev.exit.i
-  %551 = ptrtoint ptr %.sroa.21.2.i to i64
-  %552 = sub i64 %551, %759
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.3.2.i, i64 noundef %552) #21
-  br label %553
-
 _ZN4llvm15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateED2Ev.exit.i.i: ; preds = %529, %513
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25), !noalias !22
   br label %_ZN4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateEEED2Ev.exit.i
 
-553:                                              ; preds = %_ZN4llvm15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateED2Ev.exit.thread537.i, %_ZN4llvm15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateED2Ev.exit.i
+551:                                              ; preds = %_ZN4llvm11df_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateLb1ENS_11GraphTraitsIS2_EEEppEv.exit.i
+  %552 = ptrtoint ptr %.sroa.21.2.i to i64
+  %553 = sub i64 %552, %759
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.3.2.i, i64 noundef %553) #21
   call void @_ZdlPvm(ptr noundef nonnull %546, i64 noundef 32) #21
   %.val102.i.pre = load ptr, ptr %26, align 8
   %.val103.i.pre = load i32, ptr %538, align 8
   br label %_ZN4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateEEED2Ev.exit.i
 
-_ZN4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateEEED2Ev.exit.i: ; preds = %553, %_ZN4llvm15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateED2Ev.exit.i.i
-  %.val103.i = phi i32 [ %.pre521.i, %_ZN4llvm15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateED2Ev.exit.i.i ], [ %.val103.i.pre, %553 ]
-  %.val102.i = phi ptr [ %.pre519.i, %_ZN4llvm15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateED2Ev.exit.i.i ], [ %.val102.i.pre, %553 ]
+_ZN4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateEEED2Ev.exit.i: ; preds = %551, %_ZN4llvm15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateED2Ev.exit.i.i
+  %.val103.i = phi i32 [ %.pre521.i, %_ZN4llvm15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateED2Ev.exit.i.i ], [ %.val103.i.pre, %551 ]
+  %.val102.i = phi ptr [ %.pre519.i, %_ZN4llvm15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateED2Ev.exit.i.i ], [ %.val102.i.pre, %551 ]
   %554 = zext i32 %.val103.i to i64
   %555 = shl nuw nsw i64 %554, 4
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.val102.i, i64 noundef %555, i64 noundef 8) #18
@@ -2025,7 +2018,7 @@ _ZNSt12_Vector_baseISt4pairIPN4llvm10BasicBlockESt8optionalINS1_12SuccIteratorIN
 
 _ZNSt6vectorISt4pairIPN4llvm10BasicBlockESt8optionalINS1_12SuccIteratorINS1_11InstructionES2_EEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i183.i, %_ZNSt12_Vector_baseISt4pairIPN4llvm10BasicBlockESt8optionalINS1_12SuccIteratorINS1_11InstructionES2_EEEESaIS9_EE11_M_allocateEm.exit.i.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i185.i = phi ptr [ %718, %_ZNSt12_Vector_baseISt4pairIPN4llvm10BasicBlockESt8optionalINS1_12SuccIteratorINS1_11InstructionES2_EEEESaIS9_EE11_M_allocateEm.exit.i.i.i.i.i.i ], [ %721, %.lr.ph.i.i.i.i.i.i.i.i183.i ]
-  %722 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i185.i, i64 32
+  %722 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i185.i, i64 32
   %.not.i23.i.i.i.i.i.i = icmp eq ptr %.sroa.3.0438.i, null
   br i1 %.not.i23.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPN4llvm10BasicBlockESt8optionalINS1_12SuccIteratorINS1_11InstructionES2_EEEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i.i.i, label %723
 
@@ -2110,7 +2103,7 @@ _ZN4llvm11df_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimi
   %.sroa.3.2.i = phi ptr [ %718, %_ZNSt6vectorISt4pairIPN4llvm10BasicBlockESt8optionalINS1_12SuccIteratorINS1_11InstructionES2_EEEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i.i.i ], [ %.sroa.3.0438.i, %703 ], [ %.sroa.3.0438.i, %_ZZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvEN7DFState9completedEPN4llvm10BasicBlockE.exit.i.i.i ]
   %759 = ptrtoint ptr %.sroa.3.2.i to i64
   %760 = icmp eq ptr %.sroa.11.2.i, %.sroa.3.2.i
-  br i1 %760, label %_ZN4llvm15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateED2Ev.exit.i, label %556
+  br i1 %760, label %551, label %556
 
 761:                                              ; preds = %_ZN4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_10BasicBlockEZN12_GLOBAL__N_129AggressiveDeadCodeElimination10initializeEvE7DFStateEEED2Ev.exit.i, %476
   %762 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3112,8 +3105,8 @@ _ZSt4copyIPKSt5tupleIJPN4llvm10BasicBlockENS1_12PredIteratorIS2_NS1_5Value18user
 
 .lr.ph.i.i.i.i.preheader.i105.i.i:                ; preds = %_ZSt4copyIPKSt5tupleIJPN4llvm10BasicBlockENS1_12PredIteratorIS2_NS1_5Value18user_iterator_implINS1_4UserEEEEES9_EEPSA_ET0_T_SF_SE_.exit36.i102.i.i
   %1251 = load ptr, ptr %1113, align 8
-  %1252 = getelementptr %"class.std::tuple.233", ptr %1251, i64 %.022.i103.i.i
-  %1253 = getelementptr %"class.std::tuple.233", ptr %1248, i64 %.022.i103.i.i
+  %1252 = getelementptr inbounds %"class.std::tuple.233", ptr %1251, i64 %.022.i103.i.i
+  %1253 = getelementptr inbounds %"class.std::tuple.233", ptr %1248, i64 %.022.i103.i.i
   br label %.lr.ph.i.i.i.i.i106.i.i
 
 .lr.ph.i.i.i.i.i106.i.i:                          ; preds = %.lr.ph.i.i.i.i.i106.i.i, %.lr.ph.i.i.i.i.preheader.i105.i.i
@@ -3230,8 +3223,8 @@ _ZSt4copyIPKSt5tupleIJPN4llvm10BasicBlockENS1_12PredIteratorIS2_NS1_5Value18user
 
 .lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %_ZSt4copyIPKSt5tupleIJPN4llvm10BasicBlockENS1_12PredIteratorIS2_NS1_5Value18user_iterator_implINS1_4UserEEEEES9_EEPSA_ET0_T_SF_SE_.exit36.i.i.i
   %1301 = load ptr, ptr %1117, align 8
-  %1302 = getelementptr %"class.std::tuple.233", ptr %1301, i64 %.022.i.i.i
-  %1303 = getelementptr %"class.std::tuple.233", ptr %1298, i64 %.022.i.i.i
+  %1302 = getelementptr inbounds %"class.std::tuple.233", ptr %1301, i64 %.022.i.i.i
+  %1303 = getelementptr inbounds %"class.std::tuple.233", ptr %1298, i64 %.022.i.i.i
   br label %.lr.ph.i.i.i.i.i92.i.i
 
 .lr.ph.i.i.i.i.i92.i.i:                           ; preds = %.lr.ph.i.i.i.i.i92.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i
@@ -7254,7 +7247,7 @@ _ZNSt12_Vector_baseISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEESt8optio
 
 _ZNSt6vectorISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEESt8optionalIPKS5_EESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEESt8optionalIPKS5_EESaISA_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %61, %_ZNSt12_Vector_baseISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEESt8optionalIPKS5_EESaISA_EE11_M_allocateEm.exit.i.i.i ], [ %64, %.lr.ph.i.i.i.i.i.i ]
-  %65 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %65 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %47, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIPN4llvm15DomTreeNodeBaseINS1_10BasicBlockEEESt8optionalIPKS5_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %66
 
@@ -9334,7 +9327,7 @@ _ZN4llvm25SmallVectorTemplateCommonIPNS_10BasicBlockEvE20assertSafeToAddRangeEPK
 
 _ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonIPNS_10BasicBlockEvE20assertSafeToAddRangeEPKS2_S5_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   %.idx = shl nsw i64 %32, 3
   %33 = ptrtoint ptr %31 to i64
@@ -10392,8 +10385,8 @@ _ZSt4copyIPKSt5tupleIJPN4llvm10BasicBlockENS1_12PredIteratorIS2_NS1_5Value18user
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKSt5tupleIJPN4llvm10BasicBlockENS1_12PredIteratorIS2_NS1_5Value18user_iterator_implINS1_4UserEEEEES9_EEPSA_ET0_T_SF_SE_.exit36
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr %"class.std::tuple.233", ptr %48, i64 %.022
-  %50 = getelementptr %"class.std::tuple.233", ptr %45, i64 %.022
+  %49 = getelementptr inbounds %"class.std::tuple.233", ptr %48, i64 %.022
+  %50 = getelementptr inbounds %"class.std::tuple.233", ptr %45, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i

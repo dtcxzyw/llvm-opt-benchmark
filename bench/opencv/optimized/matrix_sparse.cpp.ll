@@ -1782,7 +1782,7 @@ _ZNK2cv9SparseMat4hashEPKi.exit.us:               ; preds = %.lr.ph.i38.us, %61,
 
 _ZN2cvL8copyElemEPKhPhm.exit.us:                  ; preds = %83, %.lr.ph17.i.us, %.preheader.i42.us, %.preheader.i.us
   %85 = add nuw nsw i32 %.053.us, 1
-  %86 = getelementptr i8, ptr %.13652.us, i64 %25
+  %86 = getelementptr inbounds i8, ptr %.13652.us, i64 %25
   %exitcond.not = icmp eq i32 %85, %16
   br i1 %exitcond.not, label %._crit_edge.us, label %.preheader.us.backedge
 
@@ -5526,7 +5526,7 @@ _ZNK2cv9SparseMat4hashEPKi.exit:                  ; preds = %.lr.ph.i, %24, %29
   %40 = call noundef ptr @_ZN2cv9SparseMat7newNodeEPKim(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %27, i64 noundef %.09.i)
   %41 = load i32, ptr %21, align 4
   %42 = sext i32 %41 to i64
-  %43 = getelementptr i8, ptr %.024, i64 %42
+  %43 = getelementptr inbounds i8, ptr %.024, i64 %42
   br i1 %.not14.i, label %.preheader.i, label %.lr.ph.i11
 
 .preheader.i:                                     ; preds = %.lr.ph.i11, %_ZNK2cv9SparseMat4hashEPKi.exit

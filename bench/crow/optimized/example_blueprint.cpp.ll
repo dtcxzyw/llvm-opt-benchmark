@@ -21837,7 +21837,7 @@ define linkonce_odr dso_local void @_ZN4crow6ServerINS_4CrowIJEEENS_13SocketAdap
 
 .loopexit.i:                                      ; preds = %.preheader4.i, %.noexc41
   %136 = phi ptr [ %125, %.noexc41 ], [ %134, %.preheader4.i ]
-  %137 = getelementptr i8, ptr %136, i64 16
+  %137 = getelementptr inbounds i8, ptr %136, i64 16
   %138 = icmp eq ptr %108, null
   br i1 %138, label %_ZNSt6vectorISt6futureIvESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %139
 

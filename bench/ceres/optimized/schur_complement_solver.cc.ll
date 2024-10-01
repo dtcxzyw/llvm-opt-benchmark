@@ -4763,7 +4763,7 @@ _ZNSt12_Vector_baseIN5ceres8internal27SchurEliminatorForOneFBlockILi2ELi3ELi6EE5
 
 _ZNSt6vectorIN5ceres8internal27SchurEliminatorForOneFBlockILi2ELi3ELi6EE5ChunkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN5ceres8internal27SchurEliminatorForOneFBlockILi2ELi3ELi6EE5ChunkESaIS4_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %102, %_ZNSt12_Vector_baseIN5ceres8internal27SchurEliminatorForOneFBlockILi2ELi3ELi6EE5ChunkESaIS4_EE11_M_allocateEm.exit.i.i.i ], [ %106, %.lr.ph.i.i.i.i.i.i ]
-  %107 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
+  %107 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
   %.not.i23.i.i.i = icmp eq ptr %88, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN5ceres8internal27SchurEliminatorForOneFBlockILi2ELi3ELi6EE5ChunkESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %108
 
@@ -15726,7 +15726,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit.thread: ; preds = %6, %_ZN6google12Ch
   %35 = sext i32 %1 to i64
   %36 = sub nsw i64 %.sroa.0.0.insert.ext, %.sroa.2.0.insert.ext
   %37 = load ptr, ptr %34, align 8, !noalias !362
-  %38 = getelementptr double, ptr %37, i64 %35
+  %38 = getelementptr inbounds double, ptr %37, i64 %35
   %39 = load ptr, ptr %4, align 8
   %sext.i.i.i = shl i64 %36, 32
   %40 = ashr exact i64 %sext.i.i.i, 32
@@ -16236,7 +16236,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1E
   %90 = sext i32 %82 to i64
   %91 = sub nsw i64 %.sroa.040.0.insert.ext, %.sroa.2.0.insert.ext
   %92 = load ptr, ptr %89, align 8, !noalias !373
-  %93 = getelementptr double, ptr %92, i64 %90
+  %93 = getelementptr inbounds double, ptr %92, i64 %90
   %94 = load ptr, ptr %87, align 8
   %sext.i.i.i = shl i64 %91, 32
   %95 = ashr exact i64 %sext.i.i.i, 32
@@ -16766,7 +16766,7 @@ _ZZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLin1E
   %133 = sext i32 %125 to i64
   %134 = sub nsw i64 %.sroa.041.0.insert.ext, %.sroa.2.0.insert.ext
   %135 = load ptr, ptr %132, align 8, !noalias !380
-  %136 = getelementptr double, ptr %135, i64 %133
+  %136 = getelementptr inbounds double, ptr %135, i64 %133
   %137 = load ptr, ptr %130, align 8
   %sext.i.i.i = shl i64 %134, 32
   %138 = ashr exact i64 %sext.i.i.i, 32

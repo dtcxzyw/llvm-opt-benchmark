@@ -8162,7 +8162,7 @@ for.body.i883:                                    ; preds = %"_ZZN5arrow7compute
   %arrayidx13.i887 = getelementptr inbounds i32, ptr %add.ptr.i880, i64 %idxprom12.i886
   %371 = load i32, ptr %arrayidx13.i887, align 4
   %idx.ext.i888 = zext i32 %371 to i64
-  %add.ptr14.i889 = getelementptr i8, ptr %cond.i.i873, i64 %idx.ext.i888
+  %add.ptr14.i889 = getelementptr inbounds i8, ptr %cond.i.i873, i64 %idx.ext.i888
   %arrayidx16.i890 = getelementptr inbounds i8, ptr %arrayidx13.i887, i64 4
   %372 = load i32, ptr %arrayidx16.i890, align 4
   %373 = load ptr, ptr %arrayidx.i.i.i891, align 8
@@ -8182,7 +8182,7 @@ for.body.i883:                                    ; preds = %"_ZZN5arrow7compute
   %arrayidx.i.i900 = getelementptr inbounds i32, ptr %cond.i.i691, i64 %idxprom.i.i899
   %379 = load i32, ptr %arrayidx.i.i900, align 4
   %idx.ext.i.i = zext i32 %379 to i64
-  %add.ptr.i25.i901 = getelementptr i8, ptr %cond.i.i.i.i897, i64 %idx.ext.i.i
+  %add.ptr.i25.i901 = getelementptr inbounds i8, ptr %cond.i.i.i.i897, i64 %idx.ext.i.i
   %cmp.i.i.i902 = icmp eq i32 %372, %371
   br i1 %cmp.i.i.i902, label %"_ZZN5arrow7compute16ExecBatchBuilder14AppendSelectedERKSt10shared_ptrINS_9ArrayDataEEPNS0_18ResizableArrayDataEiPKtPNS_10MemoryPoolEENK3$_7clEiPKhj.exit.i", label %for.body.preheader.i.i
 
@@ -8252,7 +8252,7 @@ for.body26.i912:                                  ; preds = %"_ZZN5arrow7compute
   %arrayidx.i40.i = getelementptr inbounds i32, ptr %cond.i.i691, i64 %idxprom.i39.i
   %396 = load i32, ptr %arrayidx.i40.i, align 4
   %idx.ext.i41.i = zext i32 %396 to i64
-  %add.ptr.i42.i = getelementptr i8, ptr %cond.i.i.i37.i931, i64 %idx.ext.i41.i
+  %add.ptr.i42.i = getelementptr inbounds i8, ptr %cond.i.i.i37.i931, i64 %idx.ext.i41.i
   br label %for.body.i48.i932
 
 for.body.i48.i932:                                ; preds = %for.body.i48.i932, %for.body26.i912

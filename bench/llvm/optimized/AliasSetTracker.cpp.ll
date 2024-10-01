@@ -795,7 +795,7 @@ _ZNSt12_Vector_baseIN4llvm11AssertingVHINS0_11InstructionEEESaIS3_EE11_M_allocat
 
 _ZNSt6vectorIN4llvm11AssertingVHINS0_11InstructionEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm11AssertingVHINS0_11InstructionEEESaIS3_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %36, %_ZNSt12_Vector_baseIN4llvm11AssertingVHINS0_11InstructionEEESaIS3_EE11_M_allocateEm.exit.i ], [ %40, %.lr.ph.i.i.i.i ]
-  %41 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %5, null
   br i1 %.not.i23.i, label %_ZNSt6vectorIN4llvm11AssertingVHINS0_11InstructionEEESaIS3_EE17_M_realloc_insertIJRPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit, label %42
 
@@ -4687,7 +4687,7 @@ _ZN4llvm25SmallVectorTemplateCommonINS_14MemoryLocationEvE20assertSafeToAddRange
 
 _ZN4llvm15SmallVectorImplINS_14MemoryLocationEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonINS_14MemoryLocationEvE20assertSafeToAddRangeEPKS1_S4_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   %.idx = mul nsw i64 %32, 48
   %33 = ptrtoint ptr %31 to i64
@@ -4840,7 +4840,7 @@ _ZN4llvm15SmallVectorImplINS_14MemoryLocationEE7reserveEm.exit: ; preds = %3, %1
   br i1 %.not7.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_14MemoryLocationELb1EE18uninitialized_copyISt13move_iteratorIPS1_ES5_EEvT_S7_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplINS_14MemoryLocationEE7reserveEm.exit
-  %16 = getelementptr %"class.llvm::MemoryLocation", ptr %14, i64 %15
+  %16 = getelementptr inbounds %"class.llvm::MemoryLocation", ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
@@ -4891,7 +4891,7 @@ define linkonce_odr void @_ZNSt6vectorIN4llvm11AssertingVHINS0_11InstructionEEES
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
   %22 = sub nsw i64 0, %9
-  %23 = getelementptr %"class.llvm::AssertingVH", ptr %13, i64 %22
+  %23 = getelementptr inbounds %"class.llvm::AssertingVH", ptr %13, i64 %22
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -4964,7 +4964,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm11AssertingVH
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm11AssertingVHINS2_11InstructionEEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm11AssertingVHINS2_11InstructionEEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm11AssertingVHINS2_11InstructionEEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit
   %47 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN4llvm11AssertingVHINS2_11InstructionEEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm11AssertingVHINS2_11InstructionEEESt6vectorIS5_SaIS5_EEEEmEvRT_T0_.exit ]
   %48 = sub nuw nsw i64 %9, %20
-  %49 = getelementptr %"class.llvm::AssertingVH", ptr %47, i64 %48
+  %49 = getelementptr inbounds %"class.llvm::AssertingVH", ptr %47, i64 %48
   store ptr %49, ptr %12, align 8
   %.not7.i.i.i.i.i45 = icmp eq ptr %1, %13
   br i1 %.not7.i.i.i.i.i45, label %_ZSt22__uninitialized_move_aIPN4llvm11AssertingVHINS0_11InstructionEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit51, label %.lr.ph.i.i.i.i.i46

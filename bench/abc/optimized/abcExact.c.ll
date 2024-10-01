@@ -4747,13 +4747,13 @@ Abc_Clock.exit142:                                ; preds = %292, %295
   br i1 %34, label %.lr.ph172.preheader, label %._crit_edge176
 
 .lr.ph172.preheader:                              ; preds = %358
-  %362 = getelementptr i8, ptr %357, i64 3
+  %362 = getelementptr inbounds i8, ptr %357, i64 3
   %363 = load i8, ptr %359, align 1
   %364 = sext i8 %363 to i32
   %365 = shl nsw i32 %364, 2
   %366 = sext i32 %365 to i64
-  %367 = getelementptr i8, ptr %362, i64 %366
-  %368 = getelementptr i8, ptr %367, i64 2
+  %367 = getelementptr inbounds i8, ptr %362, i64 %366
+  %368 = getelementptr inbounds i8, ptr %367, i64 2
   %wide.trip.count197 = zext nneg i32 %1 to i64
   br label %.lr.ph172
 

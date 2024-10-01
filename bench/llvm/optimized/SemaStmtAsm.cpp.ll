@@ -8357,7 +8357,7 @@ _ZNSt17_Temporary_bufferIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES6_EC2ES7_l.ex
   br label %_ZNSt17_Temporary_bufferIPSt4pairIN4llvm9StringRefEPN5clang4ExprEES6_EC2ES7_l.exit.thread23.sink.split
 
 .lr.ph.i.i.preheader.i:                           ; preds = %15
-  %.01518.i.i.i = getelementptr i8, ptr %11, i64 24
+  %.01518.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i

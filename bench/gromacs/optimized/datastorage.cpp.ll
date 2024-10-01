@@ -468,7 +468,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataE
 
 _ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i8, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i6
   %.0.lcssa.i.i.i.i = phi ptr [ %61, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i6 ], [ %65, %.lr.ph.i.i.i.i8 ]
-  %66 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %66 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %47, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal28AnalysisDataStorageFrameDataESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit, label %67
 
@@ -920,7 +920,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_d
 
 _ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %66, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %71, %.lr.ph.i.i.i.i ]
-  %72 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %72 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %52, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx24AnalysisDataStorageFrameESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit, label %73
 
@@ -1413,7 +1413,7 @@ _ZNKSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i: ; preds = %.lr.ph.i.i.i.i, %.noexc9
   %.0.lcssa.i.i.i.i = phi ptr [ %51, %.noexc9 ], [ %57, %.lr.ph.i.i.i.i ]
-  %58 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %58 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i36.i = icmp eq ptr %37, null
   br i1 %.not.i36.i, label %.noexc5, label %59
 
@@ -1731,7 +1731,7 @@ _ZNKSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 _ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i: ; preds = %.lr.ph.i.i.i.i, %81
   %.0.lcssa.i.i.i.i = phi ptr [ %82, %81 ], [ %89, %.lr.ph.i.i.i.i ]
-  %90 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %90 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not.i36.i = icmp eq ptr %67, null
   br i1 %.not.i36.i, label %_ZNSt6vectorIN3gmx24AnalysisDataPointSetInfoESaIS1_EE17_M_realloc_insertIJmRKiRiS7_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %91
 
@@ -1837,7 +1837,7 @@ _ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE11_M_allocateEm.exit.i.i.i:
 
 _ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %32, %_ZNSt12_Vector_baseIN3gmx17AnalysisDataValueESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %35, %.lr.ph.i.i.i.i.i.i ]
-  %36 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %36 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN3gmx17AnalysisDataValueESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %37
 

@@ -18446,7 +18446,7 @@ define dso_local void @_ZN4llvm5APInt9tcExtractEPmjPKmjj(ptr nocapture noundef %
   %7 = lshr i32 %6, 6
   %8 = lshr i32 %4, 6
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr i64, ptr %2, i64 %9
+  %10 = getelementptr inbounds i64, ptr %2, i64 %9
   %.not.i = icmp ult i32 %6, 64
   br i1 %.not.i, label %_ZN4llvm5APInt8tcAssignEPmPKmj.exit.thread, label %.lr.ph.preheader.i
 
@@ -24524,7 +24524,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
   br i1 %34, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %33
-  %35 = getelementptr i8, ptr %.053, i64 %.074
+  %35 = getelementptr inbounds i8, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90

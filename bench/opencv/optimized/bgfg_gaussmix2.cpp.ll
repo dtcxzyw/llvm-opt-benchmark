@@ -2987,7 +2987,7 @@ _ZN2cvL15detectShadowGMMEPKfiiPKNS_3GMMES1_fff.exit.thread: ; preds = %._crit_ed
   %312 = getelementptr inbounds i8, ptr %101, i64 %indvars.iv341
   store i8 %311, ptr %312, align 1
   %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
-  %313 = getelementptr float, ptr %.1287, i64 %55
+  %313 = getelementptr inbounds float, ptr %.1287, i64 %55
   %314 = load i32, ptr %41, align 8
   %315 = sext i32 %314 to i64
   %316 = getelementptr inbounds %"struct.cv::GMM", ptr %.0216283, i64 %315

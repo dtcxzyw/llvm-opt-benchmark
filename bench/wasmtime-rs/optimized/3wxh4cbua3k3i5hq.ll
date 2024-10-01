@@ -4424,7 +4424,7 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17h1b
 14:                                               ; preds = %4
   %15 = extractvalue { ptr, i64 } %10, 0
   %.idx45 = shl nsw i64 %12, 2
-  %16 = getelementptr i8, ptr %15, i64 %.idx45
+  %16 = getelementptr inbounds i8, ptr %15, i64 %.idx45
   %.not = icmp eq ptr %2, %1
   br i1 %.not, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h1ee6147ce3160fc2E.exit.thread", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h1ee6147ce3160fc2E.exit.lr.ph"
 
@@ -4469,7 +4469,7 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17h72
 14:                                               ; preds = %4
   %15 = extractvalue { ptr, i64 } %10, 0
   %.idx45 = shl nsw i64 %12, 2
-  %16 = getelementptr i8, ptr %15, i64 %.idx45
+  %16 = getelementptr inbounds i8, ptr %15, i64 %.idx45
   %.not = icmp eq ptr %2, %1
   br i1 %.not, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h88482bde6bf0c59bE.exit.thread", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h88482bde6bf0c59bE.exit.lr.ph"
 
@@ -25558,7 +25558,7 @@ common.resume:                                    ; preds = %71, %78, %274, %282
 417:                                              ; preds = %.noexc256
   %418 = extractvalue { ptr, i64 } %413, 0
   %.idx45.i.i = shl nsw i64 %415, 2
-  %419 = getelementptr i8, ptr %418, i64 %.idx45.i.i
+  %419 = getelementptr inbounds i8, ptr %418, i64 %.idx45.i.i
   %.not.i.i = icmp eq i64 %411, 0
   br i1 %.not.i.i, label %.loopexit, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h88482bde6bf0c59bE.exit.lr.ph.i.i"
 

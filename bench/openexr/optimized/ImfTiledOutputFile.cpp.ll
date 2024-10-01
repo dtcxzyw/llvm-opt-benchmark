@@ -2206,7 +2206,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.i.n
 
 _ZNSt6vectorIN7Imf_3_212_GLOBAL__N_113TOutSliceInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i25, %call5.i.i.i.i.i.i.noexc ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 48
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 48
   %tobool.not.i.i.i.i = icmp eq ptr %slices.sroa.0.1, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_113TOutSliceInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i22.i.i.i
 
@@ -2329,7 +2329,7 @@ for.body.i.i.i.i.i.i59:                           ; preds = %call5.i.i.i.i.i.i.n
 
 _ZNSt6vectorIN7Imf_3_212_GLOBAL__N_113TOutSliceInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i65: ; preds = %for.body.i.i.i.i.i.i59, %call5.i.i.i.i.i.i.noexc74
   %__cur.0.lcssa.i.i.i.i.i.i66 = phi ptr [ %call5.i.i.i.i.i.i75, %call5.i.i.i.i.i.i.noexc74 ], [ %incdec.ptr1.i.i.i.i.i.i63, %for.body.i.i.i.i.i.i59 ]
-  %incdec.ptr.i.i.i67 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i66, i64 48
+  %incdec.ptr.i.i.i67 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i66, i64 48
   %tobool.not.i.i.i.i68 = icmp eq ptr %slices.sroa.0.1, null
   br i1 %tobool.not.i.i.i.i68, label %_ZNSt6vectorIN7Imf_3_212_GLOBAL__N_113TOutSliceInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i70, label %if.then.i22.i.i.i69
 

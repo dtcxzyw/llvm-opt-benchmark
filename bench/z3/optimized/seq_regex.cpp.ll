@@ -11147,7 +11147,7 @@ _ZNK6vectorIN8seq_util3rex4infoELb1EjE8capacityEv.exit.i.i: ; preds = %entry
   store i32 %3, ptr %call3.i.i, align 4
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 4
   store i32 %2, ptr %incdec.ptr.i.i, align 4
-  %incdec.ptr4.i.i = getelementptr i8, ptr %call3.i.i, i64 8
+  %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 8
   store ptr %incdec.ptr4.i.i, ptr %m_infos, align 8
   %4 = load ptr, ptr %m_infos3, align 8
   %cmp.i.i.i.i = icmp eq ptr %4, null
@@ -13276,7 +13276,7 @@ _ZNK6vectorISt4pairIP4exprS2_ELb0EjE4sizeEv.exit: ; preds = %if.end
   %5 = load i32, ptr %arrayidx.i, align 4
   %arrayidx27 = getelementptr inbounds i8, ptr %call25, i64 4
   store i32 %5, ptr %arrayidx27, align 4
-  %add.ptr28 = getelementptr i8, ptr %call25, i64 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %call25, i64 8
   %conv.i.i.i = zext i32 %5 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %4, i64 %conv.i.i.i
   %cmp.i.i.not7.i.i.i.i.i.i = icmp eq i32 %5, 0

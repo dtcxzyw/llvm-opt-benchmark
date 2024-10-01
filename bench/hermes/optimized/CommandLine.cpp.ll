@@ -2373,7 +2373,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN4llvh9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvh9StringRefESaIS1_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN4llvh9StringRefESaIS1_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -4609,7 +4609,7 @@ _ZN4llvh15SmallVectorImplIPKcE7reserveEm.exit:    ; preds = %if.end, %if.then.i3
   %conv.i38.pre-phi = phi i64 [ %conv.i, %if.end ], [ %.pre85, %if.then.i35 ]
   %7 = phi i32 [ %1, %if.end ], [ %.pre81, %if.then.i35 ]
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i35 ]
-  %add.ptr7 = getelementptr i8, ptr %8, i64 %sub.ptr.sub
+  %add.ptr7 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub
   %add.ptr.i74.idx = shl nuw nsw i64 %conv.i38.pre-phi, 3
   %gepdiff = sub nsw i64 %add.ptr.i74.idx, %sub.ptr.sub
   %cmp13.not = icmp ult i64 %gepdiff, %sub.ptr.sub.i.i.i

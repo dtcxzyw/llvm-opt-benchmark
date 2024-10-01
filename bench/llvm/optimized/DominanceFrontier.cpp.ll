@@ -1690,7 +1690,7 @@ _ZNSt12_Vector_baseIN4llvm21DFCalculateWorkObjectINS0_10BasicBlockEEESaIS3_EE11_
 
 _ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_10BasicBlockEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i72: ; preds = %.lr.ph.i.i.i.i.i.i68, %_ZNSt12_Vector_baseIN4llvm21DFCalculateWorkObjectINS0_10BasicBlockEEESaIS3_EE11_M_allocateEm.exit.i.i.i66
   %.0.lcssa.i.i.i.i.i.i73 = phi ptr [ %258, %_ZNSt12_Vector_baseIN4llvm21DFCalculateWorkObjectINS0_10BasicBlockEEESaIS3_EE11_M_allocateEm.exit.i.i.i66 ], [ %261, %.lr.ph.i.i.i.i.i.i68 ]
-  %262 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i73, i64 32
+  %262 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i73, i64 32
   %.not.i23.i.i.i74 = icmp eq ptr %.sroa.0160.1218, null
   br i1 %.not.i23.i.i.i74, label %_ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_10BasicBlockEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i75, label %263
 

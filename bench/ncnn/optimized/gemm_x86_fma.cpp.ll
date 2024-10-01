@@ -1755,7 +1755,7 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nocap
   br i1 %35, label %49, label %.loopexit8.us
 
 49:                                               ; preds = %.lr.ph102.split.us
-  %50 = getelementptr float, ptr %.pre252, i64 %48
+  %50 = getelementptr inbounds float, ptr %.pre252, i64 %48
   br i1 %38, label %.lr.ph64.us.preheader, label %.loopexit8.us.thread
 
 .loopexit8.us.thread:                             ; preds = %49
@@ -1775,7 +1775,7 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nocap
   br label %.preheader7.us
 
 .lr.ph64.us.preheader:                            ; preds = %49
-  %64 = getelementptr float, ptr %50, i64 %37
+  %64 = getelementptr inbounds float, ptr %50, i64 %37
   br label %.lr.ph64.us
 
 .loopexit8.us.loopexit:                           ; preds = %.lr.ph64.us
@@ -1979,8 +1979,8 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nocap
   %166 = load ptr, ptr %0, align 8
   %167 = add nsw i64 %indvars.iv235, %163
   %168 = mul nsw i64 %167, %164
-  %169 = getelementptr float, ptr %166, i64 %168
-  %170 = getelementptr float, ptr %169, i64 %37
+  %169 = getelementptr inbounds float, ptr %166, i64 %168
+  %170 = getelementptr inbounds float, ptr %169, i64 %37
   br label %171
 
 171:                                              ; preds = %.lr.ph64.us114.us, %171
@@ -2013,8 +2013,8 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nocap
   %180 = load ptr, ptr %0, align 8
   %181 = add nsw i64 %indvars.iv, %30
   %182 = mul nsw i64 %181, %31
-  %183 = getelementptr float, ptr %180, i64 %182
-  %184 = getelementptr float, ptr %183, i64 %20
+  %183 = getelementptr inbounds float, ptr %180, i64 %182
+  %184 = getelementptr inbounds float, ptr %183, i64 %20
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2398,8 +2398,8 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nocap
   %387 = load ptr, ptr %0, align 8
   %388 = add nsw i64 %indvars.iv248, %337
   %389 = mul nsw i64 %388, %338
-  %390 = getelementptr float, ptr %387, i64 %389
-  %391 = getelementptr float, ptr %390, i64 %333
+  %390 = getelementptr inbounds float, ptr %387, i64 %389
+  %391 = getelementptr inbounds float, ptr %390, i64 %333
   br i1 %334, label %.lr.ph158, label %.preheader1
 
 .preheader1:                                      ; preds = %.lr.ph158, %386
@@ -3051,8 +3051,8 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nocap
   %366 = sdiv i32 %365, 8
   %367 = mul i32 %37, %366
   %368 = sext i32 %367 to i64
-  %369 = getelementptr float, ptr %363, i64 %368
-  %370 = getelementptr float, ptr %369, i64 %39
+  %369 = getelementptr inbounds float, ptr %363, i64 %368
+  %370 = getelementptr inbounds float, ptr %369, i64 %39
   %371 = trunc i64 %364 to i32
   %372 = add i32 %371, 8
   %373 = sdiv i32 %372, 8
@@ -3482,8 +3482,8 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nocap
   %601 = load ptr, ptr %0, align 8
   %602 = add nsw i64 %indvars.iv443, %359
   %603 = mul nsw i64 %602, %360
-  %604 = getelementptr float, ptr %601, i64 %603
-  %605 = getelementptr float, ptr %604, i64 %351
+  %604 = getelementptr inbounds float, ptr %601, i64 %603
+  %605 = getelementptr inbounds float, ptr %604, i64 %351
   br label %.lr.ph220
 
 .lr.ph220:                                        ; preds = %.lr.ph220.preheader, %.lr.ph220
@@ -3778,8 +3778,8 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nocap
   %752 = load ptr, ptr %0, align 8
   %753 = add nsw i64 %indvars.iv451, %702
   %754 = mul nsw i64 %753, %703
-  %755 = getelementptr float, ptr %752, i64 %754
-  %756 = getelementptr float, ptr %755, i64 %698
+  %755 = getelementptr inbounds float, ptr %752, i64 %754
+  %756 = getelementptr inbounds float, ptr %755, i64 %698
   br i1 %699, label %.lr.ph296, label %.preheader1
 
 .preheader1:                                      ; preds = %.lr.ph296, %751

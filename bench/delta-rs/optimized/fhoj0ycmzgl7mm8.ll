@@ -4593,7 +4593,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17he8e89ab18b256145E.exit.i: ;
 199:                                              ; preds = %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17he8e89ab18b256145E.exit.i
   %200 = shl i64 %.0.i.i.i20, 6
   %201 = sub nuw nsw i64 -64, %200
-  %202 = getelementptr i8, ptr %.val15.i, i64 %201
+  %202 = getelementptr inbounds i8, ptr %.val15.i, i64 %201
   %203 = getelementptr inbounds i8, ptr %.val15.i, i64 %.0.i.i.i20
   %204 = load i8, ptr %203, align 1, !noalias !849, !noundef !8
   %205 = lshr i64 %172, 57

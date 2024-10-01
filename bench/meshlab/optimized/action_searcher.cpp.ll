@@ -1939,7 +1939,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i.i:        ; preds = %1
 
 .noexc:                                           ; preds = %13
   %17 = load ptr, ptr %7, align 8, !alias.scope !32
-  %18 = getelementptr i8, ptr %17, i64 16
+  %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 12
@@ -1957,7 +1957,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i.i:        ; preds = %1
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds ptr, ptr %26, i64 %29
   %31 = sext i32 %20 to i64
-  %32 = getelementptr ptr, ptr %18, i64 %31
+  %32 = getelementptr inbounds ptr, ptr %18, i64 %31
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -2164,11 +2164,11 @@ _ZN7QStringC2ERKS_.exit16:                        ; preds = %94, %97
 
 .noexc92:                                         ; preds = %102
   %109 = load ptr, ptr %6, align 8
-  %110 = getelementptr i8, ptr %109, i64 16
+  %110 = getelementptr inbounds i8, ptr %109, i64 16
   %111 = getelementptr inbounds i8, ptr %109, i64 8
   %112 = load i32, ptr %111, align 8
   %113 = sext i32 %112 to i64
-  %114 = getelementptr ptr, ptr %110, i64 %113
+  %114 = getelementptr inbounds ptr, ptr %110, i64 %113
   %115 = load i32, ptr %3, align 4
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds ptr, ptr %114, i64 %116
@@ -2403,11 +2403,11 @@ _ZN5QListI7QStringE9push_backERKS0_.exit:         ; preds = %181, %172, %.noexc7
 
 .noexc133:                                        ; preds = %200
   %207 = load ptr, ptr %6, align 8
-  %208 = getelementptr i8, ptr %207, i64 16
+  %208 = getelementptr inbounds i8, ptr %207, i64 16
   %209 = getelementptr inbounds i8, ptr %207, i64 8
   %210 = load i32, ptr %209, align 8
   %211 = sext i32 %210 to i64
-  %212 = getelementptr ptr, ptr %208, i64 %211
+  %212 = getelementptr inbounds ptr, ptr %208, i64 %211
   %213 = load i32, ptr %2, align 4
   %214 = sext i32 %213 to i64
   %215 = getelementptr inbounds ptr, ptr %212, i64 %214
@@ -6146,7 +6146,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i:              ; preds = %6
   %12 = load i32, ptr %11, align 4
   %13 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %12)
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr i8, ptr %14, i64 16
+  %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = getelementptr inbounds i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %14, i64 12
@@ -6164,7 +6164,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i:              ; preds = %6
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds ptr, ptr %23, i64 %26
   %28 = sext i32 %17 to i64
-  %29 = getelementptr ptr, ptr %15, i64 %28
+  %29 = getelementptr inbounds ptr, ptr %15, i64 %28
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN7QStringC2ERKS_.exit.i.i, %.lr.ph.i.preheader.i

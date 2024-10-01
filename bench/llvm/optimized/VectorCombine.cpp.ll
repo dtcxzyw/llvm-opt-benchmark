@@ -18082,7 +18082,7 @@ _ZNSt17_Temporary_bufferIPSt4pairIiiES1_EC2ES2_l.exit.thread28.i.i: ; preds = %1
   br label %_ZNSt17_Temporary_bufferIPSt4pairIiiES1_EC2ES2_l.exit.thread23.sink.split.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %12
-  %.01518.i.i.i.i.i = getelementptr i8, ptr %11, i64 8
+  %.01518.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %load_initial = load i64, ptr %11, align 4
   br label %.lr.ph.i.i.i.i.i
 
@@ -18163,7 +18163,7 @@ _ZNSt17_Temporary_bufferIPSt4pairIiiES1_EC2ES2_l.exit.thread28.i.i: ; preds = %1
   br label %_ZNSt17_Temporary_bufferIPSt4pairIiiES1_EC2ES2_l.exit.thread23.sink.split.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %12
-  %.01518.i.i.i.i.i = getelementptr i8, ptr %11, i64 8
+  %.01518.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %load_initial = load i64, ptr %11, align 4
   br label %.lr.ph.i.i.i.i.i
 

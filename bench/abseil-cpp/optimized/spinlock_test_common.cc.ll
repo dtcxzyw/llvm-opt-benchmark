@@ -3581,7 +3581,7 @@ for.body.i.i.i.i48:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i: ; preds = %for.body.i.i.i.i48, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i45
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i45 ], [ %incdec.ptr1.i.i.i.i52, %for.body.i.i.i.i48 ]
-  %incdec.ptr.i55 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
+  %incdec.ptr.i55 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i56 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i56, label %invoke.cont3, label %if.then.i20.i
 
@@ -4550,7 +4550,7 @@ for.body.i.i.i.i76:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit19.i92: ; preds = %for.body.i.i.i.i76, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i72
   %__cur.0.lcssa.i.i.i.i83 = phi ptr [ %cond.i10.i73, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i72 ], [ %incdec.ptr1.i.i.i.i80, %for.body.i.i.i.i76 ]
-  %incdec.ptr.i84 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i83, i64 8
+  %incdec.ptr.i84 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i83, i64 8
   %tobool.not.i.i94 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i94, label %invoke.cont12, label %if.then.i20.i95
 

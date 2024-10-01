@@ -1049,7 +1049,7 @@ if.end7.i:                                        ; preds = %Py_DECREF.exit74.i
 
 hamt_node_array_new.exit:                         ; preds = %if.end7.i
   %add8.i = add i64 %4, 1
-  %a_array.i48 = getelementptr i8, ptr %call.i46, i64 16
+  %a_array.i48 = getelementptr inbounds i8, ptr %call.i46, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %a_array.i48, i8 0, i64 256, i1 false)
   %a_count.i49 = getelementptr inbounds i8, ptr %call.i46, i64 272
   store i64 %add8.i, ptr %a_count.i49, align 8
@@ -1153,7 +1153,7 @@ if.end30.i:                                       ; preds = %if.else26.i
   br i1 %cmp.i.i41, label %if.then33.i, label %hamt_node_array_new.exit.i
 
 hamt_node_array_new.exit.i:                       ; preds = %if.end30.i
-  %a_array.i.i = getelementptr i8, ptr %call.i.i, i64 16
+  %a_array.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %a_array.i.i, i8 0, i64 256, i1 false)
   %a_count.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 272
   store i64 %20, ptr %a_count.i.i, align 8
@@ -1984,7 +1984,7 @@ if.end.i67:                                       ; preds = %if.end3.i.i, %for.b
   br i1 %cmp329.not.i, label %for.end.i75, label %for.body.lr.ph.i70
 
 for.body.lr.ph.i70:                               ; preds = %if.end.i67
-  %b_array5.i = getelementptr i8, ptr %call.i.i56, i64 32
+  %b_array5.i = getelementptr inbounds i8, ptr %call.i.i56, i64 32
   %umax.i = tail call i32 @llvm.umax.i32(i32 %mul.i69, i32 1)
   %wide.trip.count.i = zext nneg i32 %umax.i to i64
   br label %for.body.i72
@@ -2105,7 +2105,7 @@ sw.bb2.i:                                         ; preds = %if.end.i22
   br i1 %cmp.i.i149, label %if.then5.i, label %hamt_node_array_new.exit.i
 
 hamt_node_array_new.exit.i:                       ; preds = %sw.bb2.i
-  %a_array.i.i = getelementptr i8, ptr %call.i.i148, i64 16
+  %a_array.i.i = getelementptr inbounds i8, ptr %call.i.i148, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %a_array.i.i, i8 0, i64 256, i1 false)
   %a_count.i.i = getelementptr inbounds i8, ptr %call.i.i148, i64 272
   store i64 %63, ptr %a_count.i.i, align 8
@@ -2546,7 +2546,7 @@ hamt_node_collision_new.exit.i:                   ; preds = %for.body.lr.ph.i58.
   br i1 %cmp4277.i, label %for.body.lr.ph.i, label %for.end.i47
 
 for.body.lr.ph.i:                                 ; preds = %hamt_node_collision_new.exit.i
-  %c_array46.i = getelementptr i8, ptr %call.i48.i, i64 32
+  %c_array46.i = getelementptr inbounds i8, ptr %call.i48.i, i64 32
   br label %for.body.i51
 
 for.body.i51:                                     ; preds = %_Py_NewRef.exit63.i, %for.body.lr.ph.i
@@ -4573,7 +4573,7 @@ if.else147:                                       ; preds = %if.else
 hamt_node_bitmap_new.exit:                        ; preds = %if.else147
   %ob_size.i.i = getelementptr inbounds i8, ptr %call.i256, i64 16
   store i64 %conv156, ptr %ob_size.i.i, align 8
-  %b_array.i269 = getelementptr i8, ptr %call.i256, i64 32
+  %b_array.i269 = getelementptr inbounds i8, ptr %call.i256, i64 32
   %107 = shl nuw nsw i64 %conv156, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %b_array.i269, i8 0, i64 %107, i1 false)
   %b_bitmap.i259 = getelementptr inbounds i8, ptr %call.i256, i64 24
@@ -4900,7 +4900,7 @@ entry:
   br i1 %cmp.i, label %return, label %hamt_node_array_new.exit
 
 hamt_node_array_new.exit:                         ; preds = %entry
-  %a_array.i = getelementptr i8, ptr %call.i, i64 16
+  %a_array.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %a_array.i, i8 0, i64 256, i1 false)
   %a_count.i = getelementptr inbounds i8, ptr %call.i, i64 272
   store i64 %0, ptr %a_count.i, align 8

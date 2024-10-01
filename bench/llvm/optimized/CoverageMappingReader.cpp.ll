@@ -2449,7 +2449,7 @@ _ZNSt12_Vector_baseIN4llvm8coverage20CounterMappingRegionESaIS2_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm8coverage20CounterMappingRegionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm8coverage20CounterMappingRegionESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %230, %_ZNSt12_Vector_baseIN4llvm8coverage20CounterMappingRegionESaIS2_EE11_M_allocateEm.exit.i.i ], [ %233, %.lr.ph.i.i.i.i.i ]
-  %234 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 56
+  %234 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 56
   %.not.i23.i.i = icmp eq ptr %216, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN4llvm8coverage20CounterMappingRegionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %235
 
@@ -2762,7 +2762,7 @@ _ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds
 
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %84, %_ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %87, %.lr.ph.i.i.i.i.i.i ]
-  %88 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %88 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %89
 
@@ -5344,7 +5344,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm8coverage20BinaryCoverageReaderESt14default_de
   %285 = phi ptr [ %259, %260 ], [ %284, %_ZNSt6vectorISt10unique_ptrIN4llvm8coverage20BinaryCoverageReaderESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit ]
   %.pn = phi ptr [ %257, %260 ], [ %.0.lcssa.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm8coverage20BinaryCoverageReaderESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit ]
   %286 = phi ptr [ %.pre314, %260 ], [ %277, %_ZNSt6vectorISt10unique_ptrIN4llvm8coverage20BinaryCoverageReaderESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit ]
-  %287 = getelementptr i8, ptr %.pn, i64 8
+  %287 = getelementptr inbounds i8, ptr %.pn, i64 8
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %289 = load i8, ptr %288, align 8
   %290 = and i8 %289, -2
@@ -5819,7 +5819,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm8coverage20BinaryCoverageReaderESt14def
 
 _ZNSt6vectorISt10unique_ptrIN4llvm8coverage20BinaryCoverageReaderESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i181: ; preds = %.lr.ph.i.i.i.i170, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm8coverage20BinaryCoverageReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i168
   %.0.lcssa.i.i.i.i175 = phi ptr [ %468, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm8coverage20BinaryCoverageReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i168 ], [ %473, %.lr.ph.i.i.i.i170 ]
-  %474 = getelementptr i8, ptr %.0.lcssa.i.i.i.i175, i64 8
+  %474 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i175, i64 8
   %.not.i23.i183 = icmp eq ptr %454, null
   br i1 %.not.i23.i183, label %_ZNSt6vectorISt10unique_ptrIN4llvm8coverage20BinaryCoverageReaderESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit184, label %475
 
@@ -8135,7 +8135,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_E
 
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
@@ -8682,7 +8682,7 @@ _ZNSt12_Vector_baseIN4llvm6object10SectionRefESaIS2_EE11_M_allocateEm.exit.i.i: 
 
 _ZNSt6vectorIN4llvm6object10SectionRefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm6object10SectionRefESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %92, %_ZNSt12_Vector_baseIN4llvm6object10SectionRefESaIS2_EE11_M_allocateEm.exit.i.i ], [ %95, %.lr.ph.i.i.i.i.i ]
-  %96 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %96 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %.sroa.048.083, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN4llvm6object10SectionRefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %97
 
@@ -9692,7 +9692,7 @@ define linkonce_odr void @_ZNSt6vectorIN4llvm8coverage17CounterExpressionESaIS2_
 
 19:                                               ; preds = %14
   %20 = sub i64 0, %2
-  %21 = getelementptr %"struct.llvm::coverage::CounterExpression", ptr %9, i64 %20
+  %21 = getelementptr inbounds %"struct.llvm::coverage::CounterExpression", ptr %9, i64 %20
   %.idx = mul i64 %2, -20
   %.not7.i.i.i.i.i = icmp eq i64 %.idx, 0
   br i1 %.not7.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN4llvm8coverage17CounterExpressionES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %.lr.ph.i.i.i.i.i
@@ -9847,7 +9847,7 @@ _ZSt24__uninitialized_fill_n_aIPN4llvm8coverage17CounterExpressionEmS2_S2_ET_S4_
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN4llvm8coverage17CounterExpressionES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i71, %_ZSt24__uninitialized_fill_n_aIPN4llvm8coverage17CounterExpressionEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit69
   %.0.lcssa.i.i.i.i.i75 = phi ptr [ %60, %_ZSt24__uninitialized_fill_n_aIPN4llvm8coverage17CounterExpressionEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit69 ], [ %65, %.lr.ph.i.i.i.i.i71 ]
-  %66 = getelementptr %"struct.llvm::coverage::CounterExpression", ptr %.0.lcssa.i.i.i.i.i75, i64 %2
+  %66 = getelementptr inbounds %"struct.llvm::coverage::CounterExpression", ptr %.0.lcssa.i.i.i.i.i75, i64 %2
   %.not7.i.i.i.i.i76 = icmp eq ptr %1, %9
   br i1 %.not7.i.i.i.i.i76, label %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm8coverage17CounterExpressionES3_SaIS2_EET0_T_S6_S5_RT1_.exit82, label %.lr.ph.i.i.i.i.i77
 
@@ -10859,7 +10859,7 @@ _ZNSt12_Vector_baseIN4llvm8coverage20BinaryCoverageReader20ProfileMappingRecordE
 
 _ZNSt6vectorIN4llvm8coverage20BinaryCoverageReader20ProfileMappingRecordESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN4llvm8coverage20BinaryCoverageReader20ProfileMappingRecordESaIS3_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %28, %_ZNSt12_Vector_baseIN4llvm8coverage20BinaryCoverageReader20ProfileMappingRecordESaIS3_EE11_M_allocateEm.exit ], [ %42, %.lr.ph.i.i.i ]
-  %43 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 64
+  %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 64
   %.not10.i.i.i21 = icmp eq ptr %1, %10
   br i1 %.not10.i.i.i21, label %_ZNSt6vectorIN4llvm8coverage20BinaryCoverageReader20ProfileMappingRecordESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27, label %.lr.ph.i.i.i22
 
@@ -33046,7 +33046,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm8coverage20BinaryCoverageReaderESt14def
 
 _ZNSt6vectorISt10unique_ptrIN4llvm8coverage20BinaryCoverageReaderESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm8coverage20BinaryCoverageReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm8coverage20BinaryCoverageReaderESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4llvm8coverage20BinaryCoverageReaderESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i17
 

@@ -413,7 +413,7 @@ define void @Dar_LibSetup_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
 ; Function Attrs: nofree nounwind uwtable
 define void @Dar_LibSetup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8048
-  %5 = getelementptr i8, ptr %0, i64 16
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(888) %5, i8 0, i64 888, i1 false)
   br label %11
 

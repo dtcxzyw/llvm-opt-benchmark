@@ -315,7 +315,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   store i8 0, ptr %count.i.i, align 1
   %27 = load ptr, ptr %snapmap.i, align 8
   %idxprom28.i.i = zext i32 %nmapofs.0.i.i to i64
-  %arrayidx29.i.i = getelementptr i32, ptr %27, i64 %idxprom28.i.i
+  %arrayidx29.i.i = getelementptr inbounds i32, ptr %27, i64 %idxprom28.i.i
   %cmp58.not.i.i = icmp eq i8 %20, 0
   br i1 %cmp58.not.i.i, label %while.cond66.preheader.i.i, label %while.body.i.i
 
@@ -407,7 +407,7 @@ while.end79.i.i:                                  ; preds = %while.body72.i.i, %
   %idx.ext.i.i = zext i8 %20 to i64
   %add.ptr.i.i = getelementptr inbounds i32, ptr %arrayidx.i.i, i64 %idx.ext.i.i
   %idx.ext82.i.i = zext i32 %nn.2.lcssa.i.i to i64
-  %add.ptr83.i.i = getelementptr i32, ptr %arrayidx29.i.i, i64 %idx.ext82.i.i
+  %add.ptr83.i.i = getelementptr inbounds i32, ptr %arrayidx29.i.i, i64 %idx.ext82.i.i
   %cmp8570.i.i = icmp ult ptr %add.ptr.i.i, %arrayidx5.i.i
   br i1 %cmp8570.i.i, label %while.body87.i.i, label %loop_subst_snap.exit.i
 

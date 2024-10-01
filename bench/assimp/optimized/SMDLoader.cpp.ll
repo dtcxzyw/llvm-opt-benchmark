@@ -1618,7 +1618,7 @@ invoke.cont65:                                    ; preds = %for.body64
 
 invoke.cont80:                                    ; preds = %invoke.cont65
   store i64 %sub.ptr.div.i162, ptr %call81, align 16
-  %.ptr411.ptr = getelementptr i8, ptr %call81, i64 8
+  %.ptr411.ptr = getelementptr inbounds i8, ptr %call81, i64 8
   %isempty82 = icmp eq ptr %57, %58
   br i1 %isempty82, label %for.end108, label %new.ctorloop83
 
@@ -2098,7 +2098,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
 
 _ZNSt6vectorISt4pairIjfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i236 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i236 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
   %tobool.not.i.i.i237 = icmp eq ptr %133, null
   br i1 %tobool.not.i.i.i237, label %_ZNSt6vectorISt4pairIjfESaIS1_EE17_M_realloc_insertIJRjRfEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -2264,7 +2264,7 @@ for.body.i.i.i.i.i285:                            ; preds = %invoke.cont.i.i280,
 
 _ZNSt6vectorISt4pairIjfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i291: ; preds = %for.body.i.i.i.i.i285, %invoke.cont.i.i280
   %__cur.0.lcssa.i.i.i.i.i292 = phi ptr [ %cond.i17.i.i281, %invoke.cont.i.i280 ], [ %incdec.ptr1.i.i.i.i.i289, %for.body.i.i.i.i.i285 ]
-  %incdec.ptr.i.i293 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i292, i64 8
+  %incdec.ptr.i.i293 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i292, i64 8
   %tobool.not.i.i.i294 = icmp eq ptr %153, null
   br i1 %tobool.not.i.i.i294, label %_ZNSt6vectorISt4pairIjfESaIS1_EE17_M_realloc_insertIJRjfEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i27.i.i295
 
@@ -10211,7 +10211,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6Assimp3SMD4Bone9Animation9MatrixKeyESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN6Assimp3SMD4Bone9Animation9MatrixKeyESaIS4_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6Assimp3SMD4Bone9Animation9MatrixKeyESaIS4_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 160
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 160
   %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6Assimp3SMD4Bone9Animation9MatrixKeyESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19, label %for.body.i.i.i12
 
@@ -10985,7 +10985,7 @@ if.then4:                                         ; preds = %if.then
 
 if.then11:                                        ; preds = %if.then4
   %idx.neg = sub i64 0, %__n
-  %add.ptr = getelementptr %"struct.std::pair", ptr %1, i64 %idx.neg
+  %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %1, i64 %idx.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then11, %for.body.i.i.i.i.i
@@ -11149,7 +11149,7 @@ for.body.i.i.i.i.i80:                             ; preds = %invoke.cont57, %for
 
 invoke.cont60:                                    ; preds = %for.body.i.i.i.i.i80, %invoke.cont57
   %__cur.0.lcssa.i.i.i.i.i86 = phi ptr [ %cond.i69, %invoke.cont57 ], [ %incdec.ptr.i.i.i.i.i84, %for.body.i.i.i.i.i80 ]
-  %add.ptr62 = getelementptr %"struct.std::pair", ptr %__cur.0.lcssa.i.i.i.i.i86, i64 %__n
+  %add.ptr62 = getelementptr inbounds %"struct.std::pair", ptr %__cur.0.lcssa.i.i.i.i.i86, i64 %__n
   %cmp.i.i.not7.i.i.i.i.i87 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i87, label %invoke.cont64, label %for.body.i.i.i.i.i88
 

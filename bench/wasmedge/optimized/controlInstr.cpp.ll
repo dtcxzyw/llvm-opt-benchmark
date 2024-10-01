@@ -30213,7 +30213,7 @@ _ZNKSt6vectorIN8WasmEdge7Runtime12StackManager7HandlerESaIS3_EE12_M_check_lenEmP
 
 _ZNSt6vectorIN8WasmEdge7Runtime12StackManager7HandlerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %25
   %.0.lcssa.i.i.i = phi ptr [ %26, %25 ], [ %37, %.lr.ph.i.i.i ]
-  %38 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 32
+  %38 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
   %.not10.i.i.i28 = icmp eq ptr %1, %7
   br i1 %.not10.i.i.i28, label %_ZNSt6vectorIN8WasmEdge7Runtime12StackManager7HandlerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34, label %.lr.ph.i.i.i29
 

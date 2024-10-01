@@ -18184,7 +18184,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_114InputFileEntryESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 _ZNSt6vectorIN12_GLOBAL__N_114InputFileEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i: ; preds = %.lr.ph.i.i.i.i.i163, %_ZNKSt6vectorIN12_GLOBAL__N_114InputFileEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %411, %_ZNKSt6vectorIN12_GLOBAL__N_114InputFileEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %414, %.lr.ph.i.i.i.i.i163 ]
-  %415 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
+  %415 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
   %.not.i27.i.i = icmp eq ptr %.sroa.0397.0569, null
   br i1 %.not.i27.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_114InputFileEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %416
 
@@ -18275,7 +18275,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_114InputFileEntryESaIS1_EE12_M_check_lenEmPKc.exit.i
 
 _ZNSt6vectorIN12_GLOBAL__N_114InputFileEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i174: ; preds = %.lr.ph.i.i.i.i.i170, %_ZNKSt6vectorIN12_GLOBAL__N_114InputFileEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i167
   %.0.lcssa.i.i.i.i.i175 = phi ptr [ %434, %_ZNKSt6vectorIN12_GLOBAL__N_114InputFileEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i167 ], [ %437, %.lr.ph.i.i.i.i.i170 ]
-  %438 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i175, i64 24
+  %438 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i175, i64 24
   %.not.i27.i.i176 = icmp eq ptr %.sroa.0406.0572, null
   br i1 %.not.i27.i.i176, label %_ZNSt6vectorIN12_GLOBAL__N_114InputFileEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i177, label %439
 
@@ -65865,7 +65865,7 @@ _ZNSt12_Vector_baseIN5clang6FileIDESaIS1_EE11_M_allocateEm.exit.i: ; preds = %44
 
 _ZNSt6vectorIN5clang6FileIDESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i: ; preds = %.lr.ph.i.i.i.i108, %_ZNSt12_Vector_baseIN5clang6FileIDESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %446, %_ZNSt12_Vector_baseIN5clang6FileIDESaIS1_EE11_M_allocateEm.exit.i ], [ %450, %.lr.ph.i.i.i.i108 ]
-  %451 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 4
+  %451 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 4
   %.not.i23.i = icmp eq ptr %402, null
   br i1 %.not.i23.i, label %_ZNSt6vectorIN5clang6FileIDESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %452
 
@@ -65990,7 +65990,7 @@ _ZNSt12_Vector_baseIN5clang11SourceRangeESaIS1_EE11_M_allocateEm.exit.i: ; preds
 
 _ZNSt6vectorIN5clang11SourceRangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23.i: ; preds = %.lr.ph.i.i.i.i116, %_ZNSt12_Vector_baseIN5clang11SourceRangeESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i120 = phi ptr [ %486, %_ZNSt12_Vector_baseIN5clang11SourceRangeESaIS1_EE11_M_allocateEm.exit.i ], [ %491, %.lr.ph.i.i.i.i116 ]
-  %492 = getelementptr i8, ptr %.0.lcssa.i.i.i.i120, i64 8
+  %492 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i120, i64 8
   %.not.i24.i = icmp eq ptr %472, null
   br i1 %.not.i24.i, label %_ZNSt6vectorIN5clang11SourceRangeESaIS1_EE17_M_realloc_insertIJNS0_14SourceLocationES5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %493
 
@@ -81092,7 +81092,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3, %11
   br i1 %15, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPKhPcEEvT_S6_T0_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
-  %16 = getelementptr i8, ptr %13, i64 %14
+  %16 = getelementptr inbounds i8, ptr %13, i64 %14
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i
@@ -82333,7 +82333,7 @@ define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaI
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
   %22 = sub nsw i64 0, %9
-  %23 = getelementptr %"class.std::shared_ptr", ptr %13, i64 %22
+  %23 = getelementptr inbounds %"class.std::shared_ptr", ptr %13, i64 %22
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -83260,7 +83260,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_E
 
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 
@@ -107226,7 +107226,7 @@ _ZNSt12_Vector_baseIN5clang13serialization15UnalignedUInt64ESaIS2_EE11_M_allocat
 
 _ZNSt6vectorIN5clang13serialization15UnalignedUInt64ESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN5clang13serialization15UnalignedUInt64ESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseIN5clang13serialization15UnalignedUInt64ESaIS2_EE11_M_allocateEm.exit ], [ %32, %.lr.ph.i.i.i ]
-  %33 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorIN5clang13serialization15UnalignedUInt64ESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i17
 
@@ -107991,7 +107991,7 @@ _ZNSt17_Temporary_bufferIPSt4pairIjN5clang11LocalDeclIDEES3_EC2ES4_l.exit.thread
   br label %_ZNSt17_Temporary_bufferIPSt4pairIjN5clang11LocalDeclIDEES3_EC2ES4_l.exit.thread20
 
 .lr.ph.i.i.preheader.i:                           ; preds = %12
-  %.01518.i.i.i = getelementptr i8, ptr %11, i64 16
+  %.01518.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
@@ -110070,7 +110070,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplIN5clang11Local
 
 _ZN4llvm15SmallVectorImplIN5clang11LocalDeclIDEE7reserveEm.exit: ; preds = %15, %25
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr i8, ptr %27, i64 %8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %8
   %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #31
   %.idx = shl nsw i64 %29, 3
   %30 = ptrtoint ptr %28 to i64
@@ -110079,7 +110079,7 @@ _ZN4llvm15SmallVectorImplIN5clang11LocalDeclIDEE7reserveEm.exit: ; preds = %15, 
   %.not = icmp ult i64 %31, %.0.lcssa.i.i
   %32 = load ptr, ptr %0, align 8
   %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #31
-  %34 = getelementptr %"class.clang::LocalDeclID", ptr %32, i64 %33
+  %34 = getelementptr inbounds %"class.clang::LocalDeclID", ptr %32, i64 %33
   br i1 %.not, label %53, label %35
 
 35:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang11LocalDeclIDEE7reserveEm.exit
@@ -110196,7 +110196,7 @@ _ZN4llvm15SmallVectorImplIN5clang11LocalDeclIDEE7reserveEm.exit: ; preds = %3, %
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang11LocalDeclIDELb1EE18uninitialized_copyINS1_14DeclIDIteratorINS1_12GlobalDeclIDES2_EEPS2_EEvT_S9_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplIN5clang11LocalDeclIDEE7reserveEm.exit
-  %17 = getelementptr %"class.clang::LocalDeclID", ptr %15, i64 %16
+  %17 = getelementptr inbounds %"class.clang::LocalDeclID", ptr %15, i64 %16
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
@@ -110240,7 +110240,7 @@ _ZN4llvm15SmallVectorImplIN5clang11LocalDeclIDEE7reserveEm.exit: ; preds = %3, %
   br i1 %.not7.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang11LocalDeclIDELb1EE18uninitialized_copyISt13move_iteratorIPS2_ES6_EEvT_S8_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplIN5clang11LocalDeclIDEE7reserveEm.exit
-  %16 = getelementptr %"class.clang::LocalDeclID", ptr %14, i64 %15
+  %16 = getelementptr inbounds %"class.clang::LocalDeclID", ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
@@ -111748,7 +111748,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5clang25ModuleFileExtensionWriterESt14defaul
 
 _ZNSt6vectorISt10unique_ptrIN5clang25ModuleFileExtensionWriterESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN5clang25ModuleFileExtensionWriterESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN5clang25ModuleFileExtensionWriterESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN5clang25ModuleFileExtensionWriterESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17
 

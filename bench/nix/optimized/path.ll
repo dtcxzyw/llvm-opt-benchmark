@@ -8009,7 +8009,7 @@ _ZNSt12_Vector_baseIN2rc10ShrinkableIcEESaIS2_EE11_M_allocateEm.exit.i39.us: ; p
 
 _ZNSt6vectorIN2rc10ShrinkableIcEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.us: ; preds = %.lr.ph.i.i.i.i41.us, %_ZNSt12_Vector_baseIN2rc10ShrinkableIcEESaIS2_EE11_M_allocateEm.exit.i39.us
   %.0.lcssa.i.i.i.i.us = phi ptr [ %43, %_ZNSt12_Vector_baseIN2rc10ShrinkableIcEESaIS2_EE11_M_allocateEm.exit.i39.us ], [ %48, %.lr.ph.i.i.i.i41.us ]
-  %49 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.us, i64 8
+  %49 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.us, i64 8
   %.not.i23.i.us = icmp eq ptr %23, null
   br i1 %.not.i23.i.us, label %.noexc35.us, label %50
 
@@ -10652,7 +10652,7 @@ define linkonce_odr void @_ZNSt6vectorIN2rc10ShrinkableIcEESaIS2_EE15_M_range_in
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %18
   %23 = sub nsw i64 0, %10
-  %24 = getelementptr %"class.rc::Shrinkable.37", ptr %14, i64 %23
+  %24 = getelementptr inbounds %"class.rc::Shrinkable.37", ptr %14, i64 %23
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -10787,7 +10787,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableIcE
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableIcEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableIcEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableIcEESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
   %78 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableIcEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit.loopexit ], [ %14, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableIcEESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
   %79 = sub nuw nsw i64 %10, %21
-  %80 = getelementptr %"class.rc::Shrinkable.37", ptr %78, i64 %79
+  %80 = getelementptr inbounds %"class.rc::Shrinkable.37", ptr %78, i64 %79
   store ptr %80, ptr %13, align 8
   %81 = icmp eq ptr %1, %14
   br i1 %81, label %_ZSt22__uninitialized_move_aIPN2rc10ShrinkableIcEES3_SaIS2_EET0_T_S6_S5_RT1_.exit58, label %.lr.ph.i.i.i.i.i54
@@ -10921,7 +10921,7 @@ _ZNSt12_Vector_baseIN2rc10ShrinkableIcEESaIS2_EE11_M_allocateEm.exit: ; preds = 
 
 _ZSt10_ConstructIN2rc10ShrinkableIcEEJRS2_EEvPT_DpOT0_.exit.i.i.i.i74: ; preds = %.lr.ph.i.i.i.i71
   %136 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i73, i64 8
-  %137 = getelementptr i8, ptr %.09.i.i.i.i72, i64 8
+  %137 = getelementptr inbounds i8, ptr %.09.i.i.i.i72, i64 8
   %138 = icmp eq ptr %136, %3
   br i1 %138, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableIcEESt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit76, label %.lr.ph.i.i.i.i71, !llvm.loop !373
 

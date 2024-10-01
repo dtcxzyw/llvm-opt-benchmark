@@ -571,7 +571,7 @@ entry:
   store i32 %5, ptr %2, align 8
   store i32 %4, ptr %3, align 4
   %legacy_closed_enum_ = getelementptr inbounds i8, ptr %this, i64 24
-  %legacy_closed_enum_5 = getelementptr i8, ptr %other, i64 24
+  %legacy_closed_enum_5 = getelementptr inbounds i8, ptr %other, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   br label %for.body.i.i

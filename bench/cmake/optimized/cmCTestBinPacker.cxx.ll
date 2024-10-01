@@ -2228,7 +2228,7 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPack
 59:                                               ; preds = %30
   %60 = icmp eq i64 %31, 1
   %61 = sub i64 0, %.079
-  %62 = getelementptr ptr, ptr %.sroa.041.0, i64 %61
+  %62 = getelementptr inbounds ptr, ptr %.sroa.041.0, i64 %61
   br i1 %60, label %63, label %71
 
 63:                                               ; preds = %59
@@ -2250,7 +2250,7 @@ _ZSt13move_backwardISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCT
   br label %.loopexit
 
 71:                                               ; preds = %59
-  %72 = getelementptr ptr, ptr %62, i64 %31
+  %72 = getelementptr inbounds ptr, ptr %62, i64 %31
   %73 = icmp sgt i64 %.080, 0
   br i1 %73, label %.lr.ph, label %._crit_edge
 

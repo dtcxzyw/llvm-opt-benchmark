@@ -5117,7 +5117,7 @@ _ZNSt12_Vector_baseISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE11_M_a
 
 _ZNSt6vectorISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE11_M_allocateEm.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %42, %_ZNSt12_Vector_baseISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE11_M_allocateEm.exit.i.i.i.i ], [ %45, %.lr.ph.i.i.i.i.i.i.i ]
-  %46 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %46 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i, label %47
 
@@ -8590,7 +8590,7 @@ _ZNSt12_Vector_baseIN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsI
 
 _ZNSt6vectorIN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i: ; preds = %.lr.ph.i.i.i.i42, %_ZNSt12_Vector_baseIN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_M_allocateEm.exit.i40
   %.0.lcssa.i.i.i.i = phi ptr [ %64, %_ZNSt12_Vector_baseIN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE11_M_allocateEm.exit.i40 ], [ %69, %.lr.ph.i.i.i.i42 ]
-  %70 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %70 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %50, null
   br i1 %.not.i23.i, label %.noexc36, label %71
 
@@ -11607,7 +11607,7 @@ define linkonce_odr void @_ZNSt6vectorIN2rc10ShrinkableINSt7__cxx1112basic_strin
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %18
   %23 = sub nsw i64 0, %10
-  %24 = getelementptr %"class.rc::Shrinkable.117", ptr %14, i64 %23
+  %24 = getelementptr inbounds %"class.rc::Shrinkable.117", ptr %14, i64 %23
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -11742,7 +11742,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableINS
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEESB_SA_ET0_T_SH_SG_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEESB_SA_ET0_T_SH_SG_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEEmEvRT_T0_.exit
   %78 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEESB_SA_ET0_T_SH_SG_RSaIT1_E.exit.loopexit ], [ %14, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEEmEvRT_T0_.exit ]
   %79 = sub nuw nsw i64 %10, %21
-  %80 = getelementptr %"class.rc::Shrinkable.117", ptr %78, i64 %79
+  %80 = getelementptr inbounds %"class.rc::Shrinkable.117", ptr %78, i64 %79
   store ptr %80, ptr %13, align 8
   %81 = icmp eq ptr %1, %14
   br i1 %81, label %_ZSt22__uninitialized_move_aIPN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit58, label %.lr.ph.i.i.i.i.i54
@@ -11876,7 +11876,7 @@ _ZNSt12_Vector_baseIN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsI
 
 _ZSt10_ConstructIN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRS8_EEvPT_DpOT0_.exit.i.i.i.i74: ; preds = %.lr.ph.i.i.i.i71
   %136 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i73, i64 8
-  %137 = getelementptr i8, ptr %.09.i.i.i.i72, i64 8
+  %137 = getelementptr inbounds i8, ptr %.09.i.i.i.i72, i64 8
   %138 = icmp eq ptr %136, %3
   br i1 %138, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt6vectorISA_SaISA_EEEESB_SA_ET0_T_SH_SG_RSaIT1_E.exit76, label %.lr.ph.i.i.i.i71, !llvm.loop !427
 

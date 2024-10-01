@@ -392,7 +392,7 @@ define internal fastcc range(i32 -14, 4) i32 @inflate(ptr noundef %0) unnamed_ad
   %20 = getelementptr inbounds i8, ptr %0, i64 432
   %21 = getelementptr inbounds i8, ptr %0, i64 2736
   %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %23 = getelementptr i8, ptr %0, i64 2992
+  %23 = getelementptr inbounds i8, ptr %0, i64 2992
   %24 = getelementptr inbounds i8, ptr %0, i64 32
   %25 = getelementptr inbounds i8, ptr %5, i64 1
   %26 = getelementptr inbounds i8, ptr %5, i64 2
@@ -2070,9 +2070,9 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
 
 .lr.ph709.preheader:                              ; preds = %.preheader451
   %788 = zext i32 %.1 to i64
-  %789 = getelementptr [32768 x i8], ptr %23, i64 0, i64 %788
+  %789 = getelementptr inbounds [32768 x i8], ptr %23, i64 0, i64 %788
   %790 = zext i32 %778 to i64
-  %791 = getelementptr [32768 x i8], ptr %23, i64 0, i64 %790
+  %791 = getelementptr inbounds [32768 x i8], ptr %23, i64 0, i64 %790
   br label %.lr.ph709
 
 .lr.ph709:                                        ; preds = %.lr.ph709.preheader, %.lr.ph709

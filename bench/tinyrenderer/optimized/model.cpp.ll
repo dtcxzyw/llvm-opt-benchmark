@@ -374,7 +374,7 @@ _ZNSt12_Vector_baseI3vecILi3EESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %121, 
 
 _ZNSt6vectorI3vecILi3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseI3vecILi3EESaIS1_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %124, %_ZNSt12_Vector_baseI3vecILi3EESaIS1_EE11_M_allocateEm.exit.i.i ], [ %127, %.lr.ph.i.i.i.i.i ]
-  %128 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
+  %128 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
   %.not.i23.i.i = icmp eq ptr %111, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorI3vecILi3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %129
 
@@ -526,7 +526,7 @@ _ZNSt12_Vector_baseI3vecILi3EESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %174
 
 _ZNSt6vectorI3vecILi3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseI3vecILi3EESaIS1_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %177, %_ZNSt12_Vector_baseI3vecILi3EESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %180, %.lr.ph.i.i.i.i.i.i ]
-  %181 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %181 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %164, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorI3vecILi3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %182
 
@@ -629,7 +629,7 @@ _ZNSt12_Vector_baseI3vecILi2EESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %212
 
 _ZNSt6vectorI3vecILi2EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i77, %_ZNSt12_Vector_baseI3vecILi2EESaIS1_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i81 = phi ptr [ %215, %_ZNSt12_Vector_baseI3vecILi2EESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %218, %.lr.ph.i.i.i.i.i.i77 ]
-  %219 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i81, i64 16
+  %219 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i81, i64 16
   %.not.i23.i.i.i82 = icmp eq ptr %202, null
   br i1 %.not.i23.i.i.i82, label %_ZNSt6vectorI3vecILi2EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %220
 

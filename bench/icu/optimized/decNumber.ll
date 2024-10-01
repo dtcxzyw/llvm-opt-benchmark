@@ -1691,7 +1691,7 @@ if.end76:                                         ; preds = %if.end76.sink.split
 
 if.else83:                                        ; preds = %if.end76
   store i32 %15, ptr %dn, align 4
-  %lsu87 = getelementptr i8, ptr %dn, i64 9
+  %lsu87 = getelementptr inbounds i8, ptr %dn, i64 9
   br label %for.body91
 
 for.body91:                                       ; preds = %if.else83, %for.body91
@@ -2686,7 +2686,7 @@ if.then253:                                       ; preds = %if.end246
   br i1 %cmp260, label %if.end.i260, label %if.end269
 
 if.end.i260:                                      ; preds = %if.then253
-  %lsu262.ptr = getelementptr i8, ptr %res, i64 9
+  %lsu262.ptr = getelementptr inbounds i8, ptr %res, i64 9
   %63 = load i32, ptr %res, align 4
   %add.i261 = add nsw i32 %63, %sub255
   %cmp1.i262 = icmp slt i32 %add.i261, 2
@@ -4178,7 +4178,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp7, label %if.then8, label %return
 
 if.then8:                                         ; preds = %if.end
-  %add.ptr = getelementptr i8, ptr %dest, i64 10
+  %add.ptr = getelementptr inbounds i8, ptr %dest, i64 10
   %cmp13 = icmp ult i32 %4, 50
   %idxprom = zext nneg i32 %4 to i64
   br i1 %cmp13, label %cond.end, label %for.body.preheader
@@ -4193,7 +4193,7 @@ for.body.preheader:                               ; preds = %if.then8, %cond.end
   %idxprom.pn = phi i64 [ %idx.ext, %cond.end ], [ %idxprom, %if.then8 ]
   %.pn = getelementptr inbounds i8, ptr %src, i64 %idxprom.pn
   %add.ptr17.ptr28 = getelementptr inbounds i8, ptr %.pn, i64 9
-  %add.ptr20 = getelementptr i8, ptr %src, i64 10
+  %add.ptr20 = getelementptr inbounds i8, ptr %src, i64 10
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -4790,7 +4790,7 @@ cond.end19.i:                                     ; preds = %cond.end.i, %if.end
 
 for.body.preheader.i:                             ; preds = %cond.end19.i
   %idx.ext.i = zext nneg i32 %cond20.i to i64
-  %add.ptr.i = getelementptr i8, ptr %var1.0, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %var1.0, i64 %idx.ext.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -5569,7 +5569,7 @@ if.end.i:                                         ; preds = %if.else
   br i1 %cmp7.i, label %if.then8.i, label %if.end295
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr i8, ptr %res, i64 10
+  %add.ptr.i = getelementptr inbounds i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %4, 50
   %idxprom.i = zext nneg i32 %4 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -5584,7 +5584,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr inbounds i8, ptr %rhs, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr inbounds i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr i8, ptr %rhs, i64 10
+  %add.ptr20.i = getelementptr inbounds i8, ptr %rhs, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -7306,7 +7306,7 @@ if.end.i:                                         ; preds = %if.else
   br i1 %cmp7.i, label %if.then8.i, label %if.end319
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr i8, ptr %res, i64 10
+  %add.ptr.i = getelementptr inbounds i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %5, 50
   %idxprom.i = zext nneg i32 %5 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -7321,7 +7321,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr inbounds i8, ptr %rhs, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr inbounds i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr i8, ptr %rhs, i64 10
+  %add.ptr20.i = getelementptr inbounds i8, ptr %rhs, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -8038,7 +8038,7 @@ if.end.i.i:                                       ; preds = %if.then5
   br i1 %cmp7.i.i, label %if.then8.i.i, label %uprv_decNumberCopyAbs_75.exit
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
-  %add.ptr.i.i = getelementptr i8, ptr %res, i64 10
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %res, i64 10
   %cmp13.i.i = icmp ult i32 %4, 50
   %idxprom.i.i = zext nneg i32 %4 to i64
   br i1 %cmp13.i.i, label %cond.end.i.i, label %for.body.preheader.i.i
@@ -8053,7 +8053,7 @@ for.body.preheader.i.i:                           ; preds = %cond.end.i.i, %if.t
   %idxprom.pn.i.i = phi i64 [ %idx.ext.i.i, %cond.end.i.i ], [ %idxprom.i.i, %if.then8.i.i ]
   %.pn.i.i = getelementptr inbounds i8, ptr %rhs, i64 %idxprom.pn.i.i
   %add.ptr17.ptr28.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 9
-  %add.ptr20.i.i = getelementptr i8, ptr %rhs, i64 10
+  %add.ptr20.i.i = getelementptr inbounds i8, ptr %rhs, i64 10
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -8268,7 +8268,7 @@ if.end.i:                                         ; preds = %if.then21
   br i1 %cmp7.i, label %if.then8.i, label %if.end60
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr i8, ptr %res, i64 10
+  %add.ptr.i = getelementptr inbounds i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %11, 50
   %idxprom.i = zext nneg i32 %11 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -8283,7 +8283,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr inbounds i8, ptr %lhs.addr.0, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr inbounds i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr i8, ptr %lhs.addr.0, i64 10
+  %add.ptr20.i = getelementptr inbounds i8, ptr %lhs.addr.0, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -8301,7 +8301,7 @@ if.else22:                                        ; preds = %if.end18
   %14 = load i8, ptr %bits23, align 4
   %bits24 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %14, ptr %bits24, align 4
-  %lsu.ptr = getelementptr i8, ptr %res, i64 9
+  %lsu.ptr = getelementptr inbounds i8, ptr %res, i64 9
   %15 = load i32, ptr %set, align 4
   %cmp26 = icmp slt i32 %15, 50
   br i1 %cmp26, label %cond.end, label %cond.end.thread
@@ -8322,7 +8322,7 @@ for.body.preheader:                               ; preds = %cond.end.thread, %c
   %idx.ext43.pn = phi i64 [ %idx.ext43, %cond.end.thread ], [ %idx.ext, %cond.end ]
   %.pn = getelementptr inbounds i8, ptr %res, i64 %idx.ext43.pn
   %add.ptr.ptr46 = getelementptr inbounds i8, ptr %.pn, i64 9
-  %lsu32 = getelementptr i8, ptr %lhs.addr.0, i64 9
+  %lsu32 = getelementptr inbounds i8, ptr %lhs.addr.0, i64 9
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -8465,7 +8465,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp7.i, label %if.then8.i, label %uprv_decNumberCopy_75.exit
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr i8, ptr %res, i64 10
+  %add.ptr.i = getelementptr inbounds i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %4, 50
   %idxprom.i = zext nneg i32 %4 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -8480,7 +8480,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr inbounds i8, ptr %rhs, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr inbounds i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr i8, ptr %rhs, i64 10
+  %add.ptr20.i = getelementptr inbounds i8, ptr %rhs, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -9335,7 +9335,7 @@ if.end.i.i:                                       ; preds = %if.then10
   br i1 %cmp7.i.i, label %if.then8.i.i, label %uprv_decNumberCopySign_75.exit
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
-  %add.ptr.i.i = getelementptr i8, ptr %res, i64 10
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %res, i64 10
   %cmp13.i.i = icmp ult i32 %9, 50
   %idxprom.i.i = zext nneg i32 %9 to i64
   br i1 %cmp13.i.i, label %cond.end.i.i, label %for.body.preheader.i.i
@@ -9350,7 +9350,7 @@ for.body.preheader.i.i:                           ; preds = %cond.end.i.i, %if.t
   %idxprom.pn.i.i = phi i64 [ %idx.ext.i.i, %cond.end.i.i ], [ %idxprom.i.i, %if.then8.i.i ]
   %.pn.i.i = getelementptr inbounds i8, ptr %lhs, i64 %idxprom.pn.i.i
   %add.ptr17.ptr28.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 9
-  %add.ptr20.i.i = getelementptr i8, ptr %lhs, i64 10
+  %add.ptr20.i.i = getelementptr inbounds i8, ptr %lhs, i64 10
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -9745,7 +9745,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp7.i, label %if.then8.i, label %uprv_decNumberCopy_75.exit
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr i8, ptr %res, i64 10
+  %add.ptr.i = getelementptr inbounds i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %5, 50
   %idxprom.i = zext nneg i32 %5 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -9760,7 +9760,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr inbounds i8, ptr %lhs, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr inbounds i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr i8, ptr %lhs, i64 10
+  %add.ptr20.i = getelementptr inbounds i8, ptr %lhs, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -11156,7 +11156,7 @@ if.end.i:                                         ; preds = %if.else21
   br i1 %cmp7.i, label %if.then8.i, label %do.end
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr i8, ptr %res, i64 10
+  %add.ptr.i = getelementptr inbounds i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %8, 50
   %idxprom.i = zext nneg i32 %8 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -11171,7 +11171,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr inbounds i8, ptr %lhs, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr inbounds i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr i8, ptr %lhs, i64 10
+  %add.ptr20.i = getelementptr inbounds i8, ptr %lhs, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -11703,7 +11703,7 @@ cond.end19.i:                                     ; preds = %cond.end.i, %if.end
 
 for.body.preheader.i:                             ; preds = %cond.end19.i
   %idx.ext.i = zext nneg i32 %cond20.i to i64
-  %add.ptr.i = getelementptr i8, ptr %lsu, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %lsu, i64 %idx.ext.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -12328,7 +12328,7 @@ cond.end19:                                       ; preds = %cond.end, %if.end3
 
 for.body.preheader:                               ; preds = %cond.end19
   %idx.ext = zext nneg i32 %cond20 to i64
-  %add.ptr = getelementptr i8, ptr %uar, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %uar, i64 %idx.ext
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -13050,7 +13050,7 @@ if.end.i:                                         ; preds = %if.else
   br i1 %cmp7.i, label %if.then8.i, label %if.end350
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr i8, ptr %res, i64 10
+  %add.ptr.i = getelementptr inbounds i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %4, 50
   %idxprom.i = zext nneg i32 %4 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -13065,7 +13065,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr inbounds i8, ptr %rhs, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr inbounds i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr i8, ptr %rhs, i64 10
+  %add.ptr20.i = getelementptr inbounds i8, ptr %rhs, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -13116,7 +13116,7 @@ if.end.i188:                                      ; preds = %if.then27
   br i1 %cmp7.i195, label %if.then8.i196, label %uprv_decNumberCopy_75.exit215
 
 if.then8.i196:                                    ; preds = %if.end.i188
-  %add.ptr.i197 = getelementptr i8, ptr %res, i64 10
+  %add.ptr.i197 = getelementptr inbounds i8, ptr %res, i64 10
   %cmp13.i198 = icmp ult i32 %13, 50
   %idxprom.i199 = zext nneg i32 %13 to i64
   br i1 %cmp13.i198, label %cond.end.i212, label %for.body.preheader.i201
@@ -13131,7 +13131,7 @@ for.body.preheader.i201:                          ; preds = %if.then8.i196, %con
   %idxprom.pn.i202 = phi i64 [ %idx.ext.i214, %cond.end.i212 ], [ %idxprom.i199, %if.then8.i196 ]
   %.pn.i203 = getelementptr inbounds i8, ptr %rhs, i64 %idxprom.pn.i202
   %add.ptr17.ptr28.i204 = getelementptr inbounds i8, ptr %.pn.i203, i64 9
-  %add.ptr20.i205 = getelementptr i8, ptr %rhs, i64 10
+  %add.ptr20.i205 = getelementptr inbounds i8, ptr %rhs, i64 10
   br label %for.body.i206
 
 for.body.i206:                                    ; preds = %for.body.i206, %for.body.preheader.i201
@@ -13921,7 +13921,7 @@ if.end.i:                                         ; preds = %if.then4
   br i1 %cmp7.i, label %if.then8.i, label %return
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr i8, ptr %res, i64 10
+  %add.ptr.i = getelementptr inbounds i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %4, 50
   %idxprom.i = zext nneg i32 %4 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -13936,7 +13936,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr inbounds i8, ptr %rhs, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr inbounds i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr i8, ptr %rhs, i64 10
+  %add.ptr20.i = getelementptr inbounds i8, ptr %rhs, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -13981,7 +13981,7 @@ if.end.i16:                                       ; preds = %if.then8
   br i1 %cmp7.i23, label %if.then8.i24, label %return
 
 if.then8.i24:                                     ; preds = %if.end.i16
-  %add.ptr.i25 = getelementptr i8, ptr %res, i64 10
+  %add.ptr.i25 = getelementptr inbounds i8, ptr %res, i64 10
   %cmp13.i26 = icmp ult i32 %11, 50
   %idxprom.i27 = zext nneg i32 %11 to i64
   br i1 %cmp13.i26, label %cond.end.i40, label %for.body.preheader.i29
@@ -13996,7 +13996,7 @@ for.body.preheader.i29:                           ; preds = %if.then8.i24, %cond
   %idxprom.pn.i30 = phi i64 [ %idx.ext.i42, %cond.end.i40 ], [ %idxprom.i27, %if.then8.i24 ]
   %.pn.i31 = getelementptr inbounds i8, ptr %rhs, i64 %idxprom.pn.i30
   %add.ptr17.ptr28.i32 = getelementptr inbounds i8, ptr %.pn.i31, i64 9
-  %add.ptr20.i33 = getelementptr i8, ptr %rhs, i64 10
+  %add.ptr20.i33 = getelementptr inbounds i8, ptr %rhs, i64 10
   br label %for.body.i34
 
 for.body.i34:                                     ; preds = %for.body.i34, %for.body.preheader.i29
@@ -14461,7 +14461,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp7.i, label %if.then8.i, label %uprv_decNumberCopy_75.exit
 
 if.then8.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr i8, ptr %res, i64 10
+  %add.ptr.i = getelementptr inbounds i8, ptr %res, i64 10
   %cmp13.i = icmp ult i32 %4, 50
   %idxprom.i = zext nneg i32 %4 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
@@ -14476,7 +14476,7 @@ for.body.preheader.i:                             ; preds = %if.then8.i, %cond.e
   %idxprom.pn.i = phi i64 [ %idx.ext.i, %cond.end.i ], [ %idxprom.i, %if.then8.i ]
   %.pn.i = getelementptr inbounds i8, ptr %rhs, i64 %idxprom.pn.i
   %add.ptr17.ptr28.i = getelementptr inbounds i8, ptr %.pn.i, i64 9
-  %add.ptr20.i = getelementptr i8, ptr %rhs, i64 10
+  %add.ptr20.i = getelementptr inbounds i8, ptr %rhs, i64 10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i

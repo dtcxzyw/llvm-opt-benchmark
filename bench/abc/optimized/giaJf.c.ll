@@ -3615,7 +3615,7 @@ define i32 @Jf_TtComputeForCut(ptr nocapture noundef readonly %0, i32 noundef %1
   %31 = and i32 %30, %19
   %32 = mul nsw i32 %31, %28
   %33 = sext i32 %32 to i64
-  %34 = getelementptr i64, ptr %27, i64 %33
+  %34 = getelementptr inbounds i64, ptr %27, i64 %33
   %35 = ashr i32 %2, 1
   %36 = ashr i32 %35, %23
   %37 = sext i32 %36 to i64
@@ -3624,7 +3624,7 @@ define i32 @Jf_TtComputeForCut(ptr nocapture noundef readonly %0, i32 noundef %1
   %40 = and i32 %30, %35
   %41 = mul nsw i32 %40, %28
   %42 = sext i32 %41 to i64
-  %43 = getelementptr i64, ptr %39, i64 %42
+  %43 = getelementptr inbounds i64, ptr %39, i64 %42
   %44 = and i32 %1, 1
   %.not.i = icmp eq i32 %44, 0
   %45 = icmp sgt i32 %16, 0
@@ -10137,7 +10137,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %177 = and i32 %176, %143
   %178 = mul nsw i32 %177, %174
   %179 = sext i32 %178 to i64
-  %180 = getelementptr i64, ptr %173, i64 %179
+  %180 = getelementptr inbounds i64, ptr %173, i64 %179
   br i1 %106, label %.lr.ph18.i, label %Abc_TtCopy.exit
 
 .lr.ph18.i:                                       ; preds = %164, %.lr.ph18.i

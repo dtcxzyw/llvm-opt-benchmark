@@ -5750,7 +5750,7 @@ entry:
   store i32 %n, ptr %m_num_bindings.i, align 4
   %m_num_literals.i = getelementptr inbounds i8, ptr %call3, i64 16
   store i32 2, ptr %m_num_literals.i, align 8
-  %m_bindings.i = getelementptr i8, ptr %call3, i64 32
+  %m_bindings.i = getelementptr inbounds i8, ptr %call3, i64 32
   %add.ptr.i = getelementptr inbounds ptr, ptr %m_bindings.i, i64 %conv.i
   %m_literals.i = getelementptr inbounds i8, ptr %call3, i64 24
   store ptr %add.ptr.i, ptr %m_literals.i, align 8

@@ -1867,7 +1867,7 @@ entry:
   %0 = ptrtoint ptr %call1 to i64
   %sub = sub i64 0, %0
   %and2 = and i64 %sub, 15
-  %add.ptr = getelementptr i8, ptr %call, i64 %and2
+  %add.ptr = getelementptr inbounds i8, ptr %call, i64 %and2
   %call3 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #9
   %conv = sext i32 %call3 to i64
   %tobool.not = icmp eq i32 %call3, 0

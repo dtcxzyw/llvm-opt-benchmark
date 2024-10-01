@@ -13815,7 +13815,7 @@ _ZNSt12_Vector_baseISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_M_allocateEm.exit
 
 _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %30, %_ZNSt12_Vector_baseISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ %33, %.lr.ph.i.i.i.i.i.i ]
-  %34 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
+  %34 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
   %.not.i23.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %35
 
@@ -14661,7 +14661,7 @@ _ZNSt12_Vector_baseISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_M_allocateEm.exit
 
 _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %29, %_ZNSt12_Vector_baseISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ %32, %.lr.ph.i.i.i.i.i.i ]
-  %33 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
+  %33 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
   %.not.i23.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %34
 
@@ -14809,7 +14809,7 @@ _ZNSt12_Vector_baseISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_M_allocateEm.exit
 
 _ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %27, %_ZNSt12_Vector_baseISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE11_M_allocateEm.exit.i.i ], [ %30, %.lr.ph.i.i.i.i.i ]
-  %31 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 12
+  %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 12
   %.not.i23.i.i = icmp eq ptr %13, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %32
 
@@ -44066,7 +44066,7 @@ _ZNKSt6vectorISt4pairIN8WasmEdge7ValTypeENS1_6ValMutEESaIS4_EE12_M_check_lenEmPK
 
 _ZNSt6vectorISt4pairIN8WasmEdge7ValTypeENS1_6ValMutEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %24
   %.0.lcssa.i.i.i = phi ptr [ %25, %24 ], [ %31, %.lr.ph.i.i.i ]
-  %32 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 12
+  %32 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 12
   %.not10.i.i.i27 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorISt4pairIN8WasmEdge7ValTypeENS1_6ValMutEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33, label %.lr.ph.i.i.i28
 
@@ -44453,7 +44453,7 @@ _ZNKSt6vectorIN8WasmEdge9Validator11FormChecker9LocalTypeESaIS3_EE12_M_check_len
 
 _ZNSt6vectorIN8WasmEdge9Validator11FormChecker9LocalTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %23
   %.0.lcssa.i.i.i = phi ptr [ %24, %23 ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 12
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 12
   %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN8WasmEdge9Validator11FormChecker9LocalTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, label %.lr.ph.i.i.i27
 

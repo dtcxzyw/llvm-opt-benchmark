@@ -871,7 +871,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14defa
 
 _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %54, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF15NoteGnuProperty8PropertyESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i ], [ %58, %.lr.ph.i.i.i.i ]
-  %59 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %59 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %40, null
   br i1 %.not.i23.i, label %.noexc12, label %60
 

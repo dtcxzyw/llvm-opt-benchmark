@@ -2348,7 +2348,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit187:       ; preds = %_ZNSt6vectorIfSaIfE
   %196 = load ptr, ptr %22, align 8
   %197 = load i64, ptr %196, align 8
   %198 = mul i64 %197, %indvars.iv473
-  %199 = getelementptr i8, ptr %195, i64 %198
+  %199 = getelementptr inbounds i8, ptr %195, i64 %198
   br label %200
 
 200:                                              ; preds = %_ZNSt6vectorIfSaIfEE9push_backERKf.exit187, %200

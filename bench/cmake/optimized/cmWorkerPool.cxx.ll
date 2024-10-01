@@ -3062,7 +3062,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI18cmWorkerPoolWorkerSt14default_deleteIS1_EES
 
 _ZNSt6vectorISt10unique_ptrI18cmWorkerPoolWorkerSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i: ; preds = %.lr.ph.i.i.i.i24, %_ZNSt12_Vector_baseISt10unique_ptrI18cmWorkerPoolWorkerSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i22
   %.0.lcssa.i.i.i.i = phi ptr [ %56, %_ZNSt12_Vector_baseISt10unique_ptrI18cmWorkerPoolWorkerSt14default_deleteIS1_EESaIS4_EE11_M_allocateEm.exit.i22 ], [ %61, %.lr.ph.i.i.i.i24 ]
-  %62 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %62 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %42, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrI18cmWorkerPoolWorkerSt14default_deleteIS1_EESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_.exit, label %63
 

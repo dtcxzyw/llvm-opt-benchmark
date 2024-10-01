@@ -4630,7 +4630,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18T
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE11_M_allocateEm.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %213, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE11_M_allocateEm.exit.i.i.i.i ], [ %216, %.lr.ph.i.i.i.i.i.i.i ]
-  %217 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
+  %217 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i.i = icmp eq ptr %199, null
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i, label %218
 
@@ -6788,7 +6788,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18T
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %59, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE11_M_allocateEm.exit.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i ]
-  %63 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %63 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14TfDenseHashMapIiNS0_18TraceAggregateNode13_CounterValueENS0_6TfHashESt8equal_toIiELj128EE18_InternalValueTypeESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, label %64
 

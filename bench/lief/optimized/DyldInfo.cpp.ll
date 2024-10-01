@@ -6737,7 +6737,7 @@ _ZNKSt6vectorIN4LIEF5MachO7details18rebase_instructionESaIS3_EE12_M_check_lenEmP
 
 _ZNSt6vectorIN4LIEF5MachO7details18rebase_instructionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i.i: ; preds = %.lr.ph.i.i.i.i.i107, %.noexc113
   %.0.lcssa.i.i.i.i.i111 = phi ptr [ %177, %.noexc113 ], [ %183, %.lr.ph.i.i.i.i.i107 ]
-  %184 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i111, i64 24
+  %184 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i111, i64 24
   %.not.i35.i.i = icmp eq ptr %.sroa.0399.2, null
   br i1 %.not.i35.i.i, label %_ZNSt6vectorIN4LIEF5MachO7details18rebase_instructionESaIS3_EE17_M_realloc_insertIJhRjmEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %185
 
@@ -6814,7 +6814,7 @@ _ZNKSt6vectorIN4LIEF5MachO7details18rebase_instructionESaIS3_EE12_M_check_lenEmP
 
 _ZNSt6vectorIN4LIEF5MachO7details18rebase_instructionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33.i.i123: ; preds = %.lr.ph.i.i.i.i.i119, %.noexc127
   %.0.lcssa.i.i.i.i.i124 = phi ptr [ %211, %.noexc127 ], [ %216, %.lr.ph.i.i.i.i.i119 ]
-  %217 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i124, i64 24
+  %217 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i124, i64 24
   %.not.i34.i.i125 = icmp eq ptr %.sroa.0399.2, null
   br i1 %.not.i34.i.i125, label %_ZNSt6vectorIN4LIEF5MachO7details18rebase_instructionESaIS3_EE17_M_realloc_insertIJhmEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %218
 
@@ -6994,7 +6994,7 @@ _ZNKSt6vectorIN4LIEF5MachO7details18rebase_instructionESaIS3_EE12_M_check_lenEmP
 
 _ZNSt6vectorIN4LIEF5MachO7details18rebase_instructionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33.i.i151: ; preds = %.lr.ph.i.i.i.i.i147, %.noexc156
   %.0.lcssa.i.i.i.i.i152 = phi ptr [ %271, %.noexc156 ], [ %275, %.lr.ph.i.i.i.i.i147 ]
-  %276 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i152, i64 24
+  %276 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i152, i64 24
   %.not.i34.i.i153 = icmp eq ptr %.sroa.0399.0.lcssa558, null
   br i1 %.not.i34.i.i153, label %_ZNSt6vectorIN4LIEF5MachO7details18rebase_instructionESaIS3_EE12emplace_backIJhiEEERS3_DpOT_.exit157, label %277
 
@@ -56262,7 +56262,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4LIEF5MachO10ExportInfoESt14default_deleteIS
 
 _ZNSt6vectorISt10unique_ptrIN4LIEF5MachO10ExportInfoESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF5MachO10ExportInfoESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF5MachO10ExportInfoESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO10ExportInfoESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i17
 

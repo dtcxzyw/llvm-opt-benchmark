@@ -32127,7 +32127,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %3, %11
   br i1 %15, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIPKhPcEEvT_S6_T0_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
-  %16 = getelementptr i8, ptr %13, i64 %14
+  %16 = getelementptr inbounds i8, ptr %13, i64 %14
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i
@@ -34746,7 +34746,7 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit:      ; preds = %3, %13
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_copyIN5clang14DeclIDIteratorINS3_12GlobalDeclIDEmEEPmEEvT_S8_T0_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN4llvm15SmallVectorImplImE7reserveEm.exit
-  %17 = getelementptr i64, ptr %15, i64 %16
+  %17 = getelementptr inbounds i64, ptr %15, i64 %16
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i.i.i
@@ -35479,7 +35479,7 @@ _ZNSt12_Vector_baseIN5clang13serialization10DeclOffsetESaIS2_EE11_M_allocateEm.e
 
 _ZNSt6vectorIN5clang13serialization10DeclOffsetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseIN5clang13serialization10DeclOffsetESaIS2_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %25, %_ZNSt12_Vector_baseIN5clang13serialization10DeclOffsetESaIS2_EE11_M_allocateEm.exit ], [ %41, %.lr.ph.i.i.i ]
-  %42 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 16
+  %42 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 16
   %.not10.i.i.i18 = icmp eq ptr %1, %7
   br i1 %.not10.i.i.i18, label %_ZNSt6vectorIN5clang13serialization10DeclOffsetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit24, label %.lr.ph.i.i.i19
 

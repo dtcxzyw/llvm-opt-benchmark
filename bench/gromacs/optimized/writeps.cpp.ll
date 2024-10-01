@@ -319,7 +319,7 @@ _ZNSt12_Vector_baseI5t_rgbSaIS0_EE11_M_allocateEm.exit.i.i: ; preds = %61, %_ZNK
 
 _ZNSt6vectorI5t_rgbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseI5t_rgbSaIS0_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %64, %_ZNSt12_Vector_baseI5t_rgbSaIS0_EE11_M_allocateEm.exit.i.i ], [ %67, %.lr.ph.i.i.i.i.i ]
-  %68 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
+  %68 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
   %.not.i23.i.i = icmp eq ptr %50, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorI5t_rgbSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %69
 

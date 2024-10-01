@@ -9160,7 +9160,7 @@ _ZNSt12_Vector_baseISt4pairIPN5clang10TokenLexerEmESaIS4_EE11_M_allocateEm.exit.
 
 _ZNSt6vectorISt4pairIPN5clang10TokenLexerEmESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPN5clang10TokenLexerEmESaIS4_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %49, %_ZNSt12_Vector_baseISt4pairIPN5clang10TokenLexerEmESaIS4_EE11_M_allocateEm.exit.i.i.i ], [ %52, %.lr.ph.i.i.i.i.i.i ]
-  %53 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %53 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIPN5clang10TokenLexerEmESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %54
 
@@ -11670,7 +11670,7 @@ _ZN4llvm25SmallVectorTemplateCommonIPN5clang11ModuleMacroEvE20assertSafeToAddRan
 
 _ZN4llvm15SmallVectorImplIPN5clang11ModuleMacroEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonIPN5clang11ModuleMacroEvE20assertSafeToAddRangeEPKS3_S6_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   %.idx = shl nsw i64 %32, 3
   %33 = ptrtoint ptr %31 to i64

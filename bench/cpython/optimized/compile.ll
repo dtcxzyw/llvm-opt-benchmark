@@ -26989,7 +26989,7 @@ for.cond.i131.preheader:                          ; preds = %if.end50.i
 
 for.body.i157.lr.ph:                              ; preds = %for.cond.i131.preheader
   %typed_elements.i158 = getelementptr inbounds i8, ptr %283, i64 16
-  %ob_item.i332 = getelementptr i8, ptr %call51.i, i64 24
+  %ob_item.i332 = getelementptr inbounds i8, ptr %call51.i, i64 24
   br label %for.body.i157
 
 for.body.i157:                                    ; preds = %for.body.i157.lr.ph, %_Py_NewRef.exit

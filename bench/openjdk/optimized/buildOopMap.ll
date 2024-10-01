@@ -908,7 +908,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i: ; preds = %56, %
   %58 = load i32, ptr %41, align 8
   %59 = mul i32 %58, %34
   %60 = zext i32 %59 to i64
-  %61 = getelementptr i32, ptr %.0.i.i.i, i64 %60
+  %61 = getelementptr inbounds i32, ptr %.0.i.i.i, i64 %60
   %62 = getelementptr inbounds i8, ptr %40, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 24
@@ -1017,7 +1017,7 @@ _ZN10Block_List4pushEP5Block.exit.i:              ; preds = %105, %92
   %127 = load i32, ptr %126, align 4
   %128 = mul nsw i32 %127, %34
   %129 = sext i32 %128 to i64
-  %130 = getelementptr i32, ptr %.0.i.i.i, i64 %129
+  %130 = getelementptr inbounds i32, ptr %.0.i.i.i, i64 %129
   br i1 %84, label %.lr.ph206.i, label %._crit_edge211.i
 
 .preheader199.i:                                  ; preds = %.lr.ph206.i
@@ -1319,7 +1319,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit182.i: ; preds = %29
   %299 = load i32, ptr %298, align 4
   %300 = mul i32 %299, %34
   %301 = zext i32 %300 to i64
-  %302 = getelementptr i32, ptr %.0.i.i.i, i64 %301
+  %302 = getelementptr inbounds i32, ptr %.0.i.i.i, i64 %301
   br i1 %84, label %.lr.ph225.i, label %.critedge.i
 
 303:                                              ; preds = %.lr.ph225.i

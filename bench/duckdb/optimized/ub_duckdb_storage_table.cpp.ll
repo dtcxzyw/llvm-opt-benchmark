@@ -67086,7 +67086,7 @@ for.body.i.i.i.i.i357:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i365: ; preds = %for.body.i.i.i.i.i357, %_ZNSt12_Vector_baseIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_M_allocateEm.exit.i351
   %__cur.0.lcssa.i.i.i.i.i366 = phi ptr [ %cond.i31.i352, %_ZNSt12_Vector_baseIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_M_allocateEm.exit.i351 ], [ %incdec.ptr1.i.i.i.i.i363, %for.body.i.i.i.i.i357 ]
-  %incdec.ptr.i367 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i366, i64 16
+  %incdec.ptr.i367 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i366, i64 16
   %cmp.not6.i.i.i.i32.i368 = icmp eq ptr %27, %.pre27.i219
   br i1 %cmp.not6.i.i.i.i32.i368, label %_ZNSt6vectorIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i377, label %for.body.i.i.i.i33.i369
 
@@ -67310,7 +67310,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i31.i, %_ZNSt12_Vector_baseIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %cmp.not6.i.i.i.i32.i = icmp eq ptr %48, %.pre27.i
   br i1 %cmp.not6.i.i.i.i32.i, label %_ZNSt6vectorIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i, label %for.body.i.i.i.i33.i
 
@@ -69735,7 +69735,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i31.i, %_ZNSt12_Vector_baseIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %cmp.not6.i.i.i.i32.i = icmp eq ptr %72, %.pre27.i
   br i1 %cmp.not6.i.i.i.i32.i, label %_ZNSt6vectorIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i, label %for.body.i.i.i.i33.i
 
@@ -78206,7 +78206,7 @@ for.body.i.i.i.i.i398:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i406: ; preds = %for.body.i.i.i.i.i398, %_ZNSt12_Vector_baseIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_M_allocateEm.exit.i392
   %__cur.0.lcssa.i.i.i.i.i407 = phi ptr [ %cond.i31.i393, %_ZNSt12_Vector_baseIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_M_allocateEm.exit.i392 ], [ %incdec.ptr1.i.i.i.i.i404, %for.body.i.i.i.i.i398 ]
-  %incdec.ptr.i408 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i407, i64 16
+  %incdec.ptr.i408 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i407, i64 16
   %cmp.not6.i.i.i.i32.i409 = icmp eq ptr %47, %.pre27.i301
   br i1 %cmp.not6.i.i.i.i32.i409, label %_ZNSt6vectorIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i418, label %for.body.i.i.i.i33.i410
 
@@ -78480,7 +78480,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i31.i, %_ZNSt12_Vector_baseIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i332 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
+  %incdec.ptr.i332 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %cmp.not6.i.i.i.i32.i = icmp eq ptr %73, %.pre27.i
   br i1 %cmp.not6.i.i.i.i32.i, label %_ZNSt6vectorIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i, label %for.body.i.i.i.i33.i
 
@@ -109241,7 +109241,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6duckdb11SegmentNodeINS0_13ColumnSegmentEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseIN6duckdb11SegmentNodeINS0_13ColumnSegmentEEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i31, %_ZNSt12_Vector_baseIN6duckdb11SegmentNodeINS0_13ColumnSegmentEEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
   %cmp.not6.i.i.i.i32 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i.i32, label %_ZNSt6vectorIN6duckdb11SegmentNodeINS0_13ColumnSegmentEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42, label %for.body.i.i.i.i33
 
@@ -112545,7 +112545,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10shared_ptrIN6duckdb10ColumnDataEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN6duckdb10ColumnDataEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i31, %_ZNSt12_Vector_baseISt10shared_ptrIN6duckdb10ColumnDataEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
   %cmp.not6.i.i.i.i32 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i.i32, label %_ZNSt6vectorISt10shared_ptrIN6duckdb10ColumnDataEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42, label %for.body.i.i.i.i33
 
@@ -112992,7 +112992,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt16allocator_tr
 
 _ZNSt6vectorISt10shared_ptrIN6duckdb10ColumnDataEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN6duckdb10ColumnDataEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i31, %_ZNSt16allocator_traitsISaISt10shared_ptrIN6duckdb10ColumnDataEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
   %cmp.not6.i.i.i.i32 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i.i32, label %_ZNSt6vectorISt10shared_ptrIN6duckdb10ColumnDataEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42, label %for.body.i.i.i.i33
 
@@ -114203,7 +114203,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i31, %_ZNSt12_Vector_baseIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
   %cmp.not6.i.i.i.i32 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i.i32, label %_ZNSt6vectorIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42, label %for.body.i.i.i.i33
 
@@ -119366,7 +119366,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10shared_ptrIN6duckdb16ColumnStatisticsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN6duckdb16ColumnStatisticsEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i31, %_ZNSt12_Vector_baseISt10shared_ptrIN6duckdb16ColumnStatisticsEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
   %cmp.not6.i.i.i.i32 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i.i32, label %_ZNSt6vectorISt10shared_ptrIN6duckdb16ColumnStatisticsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42, label %for.body.i.i.i.i33
 
@@ -119486,7 +119486,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt16allocator_tr
 
 _ZNSt6vectorISt10shared_ptrIN6duckdb16ColumnStatisticsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN6duckdb16ColumnStatisticsEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i31, %_ZNSt16allocator_traitsISaISt10shared_ptrIN6duckdb16ColumnStatisticsEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
   %cmp.not6.i.i.i.i32 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i.i32, label %_ZNSt6vectorISt10shared_ptrIN6duckdb16ColumnStatisticsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42, label %for.body.i.i.i.i33
 

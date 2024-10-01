@@ -5997,7 +5997,7 @@ _ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEv
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i274.i
   %.pre.i276.i = load ptr, ptr %2422, align 8
-  %2525 = getelementptr i8, ptr %.pre.i276.i, i64 %2518
+  %2525 = getelementptr inbounds i8, ptr %.pre.i276.i, i64 %2518
   store ptr %2525, ptr %2422, align 8
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEvNS7_IPS2_S4_EET_SD_St20forward_iterator_tag.exit.i
 
@@ -11989,7 +11989,7 @@ _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc60
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %683, %.noexc60 ], [ %688, %.lr.ph.i.i.i.i.i.i ]
-  %689 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
+  %689 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
   %.not.i35.i.i.i = icmp eq ptr %670, null
   br i1 %.not.i35.i.i.i, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_realloc_insertIJRfS6_S6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %690
 

@@ -226,7 +226,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %202
 
 96:                                               ; preds = %82
-  %97 = getelementptr i32, ptr %93, i64 %89
+  %97 = getelementptr inbounds i32, ptr %93, i64 %89
   %98 = shl nsw i32 %84, 1
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds i32, ptr %93, i64 %99

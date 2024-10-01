@@ -749,7 +749,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIiSt14default_deleteIiEESaIS3_EE11_M_allocateE
 
 _ZNSt6vectorISt10unique_ptrIiSt14default_deleteIiEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIiSt14default_deleteIiEESaIS3_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %160, %_ZNSt12_Vector_baseISt10unique_ptrIiSt14default_deleteIiEESaIS3_EE11_M_allocateEm.exit.i ], [ %165, %.lr.ph.i.i.i.i ]
-  %166 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %166 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %146, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIiSt14default_deleteIiEESaIS3_EE9push_backEOS3_.exit.i27.i, label %167
 
@@ -1759,7 +1759,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIiSt14default_deleteIiEESaIS3_EE11_M_allocateE
   br i1 %.not.i.i.i.i4, label %_ZNSt6vectorISt10unique_ptrIiSt14default_deleteIiEESaIS3_EE9push_backEOS3_.exit.i71.i, label %.lr.ph.i.i.i.i, !llvm.loop !34
 
 _ZNSt6vectorISt10unique_ptrIiSt14default_deleteIiEESaIS3_EE9push_backEOS3_.exit.i71.i: ; preds = %.lr.ph.i.i.i.i
-  %101 = getelementptr i8, ptr %.012.i.i.i.i, i64 16
+  %101 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
   %102 = load ptr, ptr %73, align 8
   %103 = ptrtoint ptr %102 to i64
   %104 = sub i64 %103, %95
@@ -4703,7 +4703,7 @@ _ZNSt12_Vector_baseISt4pairIPiiESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %5
 
 _ZNSt6vectorISt4pairIPiiESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPiiESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %57, %_ZNSt12_Vector_baseISt4pairIPiiESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %60, %.lr.ph.i.i.i.i.i.i ]
-  %61 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %61 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIPiiESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %62
 

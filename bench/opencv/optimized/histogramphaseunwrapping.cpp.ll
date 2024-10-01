@@ -481,7 +481,7 @@ _ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %27, %_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_M_allocateEm.exit.i.i ], [ %30, %.lr.ph.i.i.i.i.i.i ]
-  %31 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
+  %31 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
   %.not.i23.i.i = icmp eq ptr %13, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %32
 
@@ -993,7 +993,7 @@ _ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %31, %_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ %34, %.lr.ph.i.i.i.i.i.i.i ]
-  %35 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 12
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 12
   %.not.i23.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %36
 
@@ -1571,7 +1571,7 @@ _ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelE
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i160.us: ; preds = %.lr.ph.i.i.i.i.i.i156.us, %_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_M_allocateEm.exit.i.i154.us
   %.0.lcssa.i.i.i.i.i.i161.us = phi ptr [ %188, %_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_M_allocateEm.exit.i.i154.us ], [ %191, %.lr.ph.i.i.i.i.i.i156.us ]
-  %192 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i161.us, i64 32
+  %192 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i161.us, i64 32
   %.not.i23.i.i162.us = icmp eq ptr %175, null
   br i1 %.not.i23.i.i162.us, label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i163.us, label %193
 
@@ -1653,7 +1653,7 @@ _ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelE
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i130.us: ; preds = %.lr.ph.i.i.i.i.i.i126.us, %_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_M_allocateEm.exit.i.i124.us
   %.0.lcssa.i.i.i.i.i.i131.us = phi ptr [ %225, %_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_M_allocateEm.exit.i.i124.us ], [ %228, %.lr.ph.i.i.i.i.i.i126.us ]
-  %229 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i131.us, i64 32
+  %229 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i131.us, i64 32
   %.not.i23.i.i132.us = icmp eq ptr %212, null
   br i1 %.not.i23.i.i132.us, label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i133.us, label %230
 
@@ -1736,7 +1736,7 @@ _ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelE
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.us: ; preds = %.lr.ph.i.i.i.i.i.i.us, %_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_M_allocateEm.exit.i.i.us
   %.0.lcssa.i.i.i.i.i.i.us = phi ptr [ %261, %_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_M_allocateEm.exit.i.i.us ], [ %264, %.lr.ph.i.i.i.i.i.i.us ]
-  %265 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.us, i64 32
+  %265 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.us, i64 32
   %.not.i23.i.i.us = icmp eq ptr %248, null
   br i1 %.not.i23.i.i.us, label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.us, label %266
 
@@ -1815,7 +1815,7 @@ _ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelE
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i177.us: ; preds = %.lr.ph.i.i.i.i.i.i173.us, %_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_M_allocateEm.exit.i.i171.us
   %.0.lcssa.i.i.i.i.i.i178.us = phi ptr [ %297, %_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE11_M_allocateEm.exit.i.i171.us ], [ %300, %.lr.ph.i.i.i.i.i.i173.us ]
-  %301 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i178.us, i64 32
+  %301 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i178.us, i64 32
   %.not.i23.i.i179.us = icmp eq ptr %284, null
   br i1 %.not.i23.i.i179.us, label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i180.us, label %302
 
@@ -2617,7 +2617,7 @@ _ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_M_allocateEm.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %64, %_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_M_allocateEm.exit.i.i.i.i ], [ %67, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %68 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 12
+  %68 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 12
   %.not.i23.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, label %69
 
@@ -2714,7 +2714,7 @@ _ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeES
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i32: ; preds = %.lr.ph.i.i.i.i.i.i.i.i28, %_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_M_allocateEm.exit.i.i.i.i25
   %.0.lcssa.i.i.i.i.i.i.i.i33 = phi ptr [ %109, %_ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE11_M_allocateEm.exit.i.i.i.i25 ], [ %112, %.lr.ph.i.i.i.i.i.i.i.i28 ]
-  %113 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i33, i64 12
+  %113 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i33, i64 12
   %.not.i23.i.i.i.i34 = icmp eq ptr %95, null
   br i1 %.not.i23.i.i.i.i34, label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i35, label %114
 

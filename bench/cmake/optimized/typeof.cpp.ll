@@ -531,7 +531,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3dap8TypeInfoESt14default_deleteIS2_EESaIS5_
 
 _ZNSt6vectorISt10unique_ptrIN3dap8TypeInfoESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN3dap8TypeInfoESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %32, %_ZNSt12_Vector_baseISt10unique_ptrIN3dap8TypeInfoESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %37, %.lr.ph.i.i.i.i ]
-  %38 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %38 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %18, null
   br i1 %.not.i23.i, label %.noexc, label %39
 

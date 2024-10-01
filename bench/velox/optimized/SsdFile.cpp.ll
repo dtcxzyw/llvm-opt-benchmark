@@ -3215,7 +3215,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i1.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %0, i64 128
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN8facebook5velox5cache8CachePinESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_T0_(ptr %0, ptr nonnull %add.ptr.i.i.i.i)
   %cmp.i.not2.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %1
   br i1 %cmp.i.not2.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN8facebook5velox5cache8CachePinESt6vectorIS5_SaIS5_EEEEEvT_SB_.exit, label %for.body.i.i.i.i

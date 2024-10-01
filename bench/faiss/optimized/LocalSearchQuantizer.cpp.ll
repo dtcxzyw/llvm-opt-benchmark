@@ -5256,9 +5256,9 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %45 = load i64, ptr %20, align 8, !llvm.access.group !50
   %.fr91 = freeze i64 %45
   %46 = mul i64 %44, %.fr91
-  %47 = getelementptr float, ptr %42, i64 %46
+  %47 = getelementptr inbounds float, ptr %42, i64 %46
   %48 = mul i64 %.fr91, %.080
-  %49 = getelementptr float, ptr %47, i64 %48
+  %49 = getelementptr inbounds float, ptr %47, i64 %48
   %.not90 = icmp eq i64 %.fr91, 0
   br i1 %.not90, label %.preheader66.split.preheader, label %.lr.ph
 

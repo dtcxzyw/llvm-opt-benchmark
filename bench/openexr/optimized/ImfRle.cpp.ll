@@ -107,7 +107,7 @@ while.end45:                                      ; preds = %while.end.thread, %
   %sub.ptr.sub48 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast47.pre-phi
   %conv49 = trunc i64 %sub.ptr.sub48 to i8
   store i8 %conv49, ptr %outWrite.053, align 1
-  %outWrite.244 = getelementptr i8, ptr %outWrite.053, i64 1
+  %outWrite.244 = getelementptr inbounds i8, ptr %outWrite.053, i64 1
   %cmp5245 = icmp ult ptr %runStart.051, %runEnd.3.lcssa
   br i1 %cmp5245, label %while.body53.preheader, label %if.end
 

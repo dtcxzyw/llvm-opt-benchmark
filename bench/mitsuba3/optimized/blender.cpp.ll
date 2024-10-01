@@ -3468,10 +3468,10 @@ _ZNSt3__114__split_bufferINS_6vectorIfNS_9allocatorIfEEEERNS2_IS4_EEEC2EmmS6_.ex
   %17 = sub i64 %16, %7
   %18 = mul nuw i64 %1, 24
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #20
-  %20 = getelementptr i8, ptr %19, i64 %17
+  %20 = getelementptr inbounds i8, ptr %19, i64 %17
   %21 = getelementptr inbounds %"class.std::__1::vector.113", ptr %19, i64 %1
   %.neg.i = sdiv exact i64 %17, -24
-  %22 = getelementptr %"class.std::__1::vector.113", ptr %20, i64 %.neg.i
+  %22 = getelementptr inbounds %"class.std::__1::vector.113", ptr %20, i64 %.neg.i
   %.not13.i.i = icmp eq ptr %5, %15
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferINS_6vectorIfNS_9allocatorIfEEEERNS2_IS4_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
@@ -6302,7 +6302,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_6vectorIfNS1_IfEEEEEEE
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %.neg.i = sdiv exact i64 %40, -24
-  %41 = getelementptr %"class.std::__1::vector.113", ptr %26, i64 %.neg.i
+  %41 = getelementptr inbounds %"class.std::__1::vector.113", ptr %26, i64 %.neg.i
   %.not13.i.i = icmp eq ptr %37, %36
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferINS_6vectorIfNS_9allocatorIfEEEERNS2_IS4_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 

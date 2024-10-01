@@ -175,7 +175,7 @@ _ZNSt12_Vector_baseIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %36, %_ZNSt12_Vector_baseIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %39, %.lr.ph.i.i.i.i.i.i ]
-  %40 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 40
+  %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 40
   %.not.i23.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %41
 
@@ -357,7 +357,7 @@ _ZNSt12_Vector_baseIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %31, %_ZNSt12_Vector_baseIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %34, %.lr.ph.i.i.i.i.i.i ]
-  %35 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 40
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 40
   %.not.i23.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %36
 
@@ -995,7 +995,7 @@ _ZNSt12_Vector_baseIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEE
 
 _ZNSt6vectorIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEESaIS3_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %76, %_ZNSt12_Vector_baseIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEESaIS3_EE11_M_allocateEm.exit.i ], [ %81, %.lr.ph.i.i.i.i ]
-  %82 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %82 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %62, null
   br i1 %.not.i23.i, label %_ZNSt6vectorIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit, label %83
 
@@ -1593,7 +1593,7 @@ _ZNSt6vectorIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE13_M_insert_auxIS2_EE
   br label %54
 
 27:                                               ; preds = %3
-  %28 = getelementptr i8, ptr %4, i64 %7
+  %28 = getelementptr inbounds i8, ptr %4, i64 %7
   %29 = ptrtoint ptr %9 to i64
   %30 = sub i64 %29, %6
   %31 = icmp eq i64 %30, 9223372036854775800
@@ -1637,7 +1637,7 @@ _ZNSt12_Vector_baseIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %42, %_ZNSt12_Vector_baseIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE11_M_allocateEm.exit.i ], [ %45, %.lr.ph.i.i.i.i ]
-  %46 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 40
+  %46 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 40
   %.not10.i.i.i16.i = icmp eq ptr %1, %9
   br i1 %.not10.i.i.i16.i, label %_ZNSt6vectorIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, label %.lr.ph.i.i.i17.i
 

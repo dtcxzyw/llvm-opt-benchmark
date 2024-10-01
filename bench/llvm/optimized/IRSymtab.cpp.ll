@@ -2676,7 +2676,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_E
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i15, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %93, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %98, %.lr.ph.i.i.i.i15 ]
-  %99 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %99 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %.sroa.027.069, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit, label %100
 
@@ -4807,7 +4807,7 @@ _ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit: ; pre
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %_ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit, %27
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr i8, ptr %29, i64 %8
+  %30 = getelementptr inbounds i8, ptr %29, i64 %8
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   %32 = ptrtoint ptr %30 to i64
   %gepdiff = sub nsw i64 %31, %8

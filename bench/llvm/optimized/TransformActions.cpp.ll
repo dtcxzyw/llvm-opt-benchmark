@@ -1070,7 +1070,7 @@ _ZNKSt6vectorISt4pairIN12_GLOBAL__N_120TransformActionsImpl9CharRangeEN5clang14S
 
 _ZNSt6vectorISt4pairIN12_GLOBAL__N_120TransformActionsImpl9CharRangeEN5clang14SourceLocationEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit26.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNKSt6vectorISt4pairIN12_GLOBAL__N_120TransformActionsImpl9CharRangeEN5clang14SourceLocationEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %325, %_ZNKSt6vectorISt4pairIN12_GLOBAL__N_120TransformActionsImpl9CharRangeEN5clang14SourceLocationEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %328, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %329 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 40
+  %329 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 40
   %.not.i27.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
   br i1 %.not.i27.i.i.i.i.i, label %_ZNSt6vectorISt4pairIN12_GLOBAL__N_120TransformActionsImpl9CharRangeEN5clang14SourceLocationEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i, label %330
 

@@ -1709,7 +1709,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit21thread-pre-split.i: ; preds = %.lr.p
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit21.i:   ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit21thread-pre-split.i, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.i
   %300 = phi i64 [ %.pre103, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit21thread-pre-split.i ], [ %291, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.i ]
   %301 = phi ptr [ %.pr33.i, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit21thread-pre-split.i ], [ %292, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.i ]
-  %302 = getelementptr double, ptr %301, i64 %300
+  %302 = getelementptr inbounds double, ptr %301, i64 %300
   %303 = getelementptr inbounds i8, ptr %281, i64 8
   %304 = load i64, ptr %303, align 8
   %.not.i22.i = icmp eq ptr %280, null
@@ -1989,7 +1989,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit:       ; preds = %.lr.ph.i, %.prehead
   %20 = getelementptr inbounds i8, ptr %7, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = load i64, ptr %7, align 8
-  %23 = getelementptr double, ptr %.pr50, i64 %22
+  %23 = getelementptr inbounds double, ptr %.pr50, i64 %22
   %.not.i17 = icmp eq ptr %.pr50, null
   br i1 %.not.i17, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit27, label %24
 
@@ -2066,7 +2066,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit38:     ; preds = %.lr.ph.i31, %.prehe
   %.pr52 = load ptr, ptr %34, align 8
   %43 = load i64, ptr %32, align 8
   %44 = load i64, ptr %7, align 8
-  %45 = getelementptr double, ptr %.pr52, i64 %44
+  %45 = getelementptr inbounds double, ptr %.pr52, i64 %44
   %.not.i39 = icmp eq ptr %.pr52, null
   br i1 %.not.i39, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit49, label %46
 
@@ -2195,7 +2195,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit31:     ; preds = %.lr.ph.i24, %.prehe
   %.pr = load ptr, ptr %24, align 8
   %33 = load i64, ptr %18, align 8
   %34 = load i64, ptr %5, align 8
-  %35 = getelementptr double, ptr %.pr, i64 %34
+  %35 = getelementptr inbounds double, ptr %.pr, i64 %34
   %.not.i32 = icmp eq ptr %.pr, null
   br i1 %.not.i32, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit42, label %36
 

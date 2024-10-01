@@ -23067,7 +23067,7 @@ _ZNKSt6vectorISt4pairIP8AstScopeP13AstNodeModuleESaIS5_EE12_M_check_lenEmPKc.exi
 
 _ZNSt6vectorISt4pairIP8AstScopeP13AstNodeModuleESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i: ; preds = %.lr.ph.i.i.i.i.i, %41
   %.0.lcssa.i.i.i.i.i = phi ptr [ %42, %41 ], [ %47, %.lr.ph.i.i.i.i.i ]
-  %48 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %48 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i34.i.i = icmp eq ptr %27, null
   br i1 %.not.i34.i.i, label %_ZNSt6vectorISt4pairIP8AstScopeP13AstNodeModuleESaIS5_EE17_M_realloc_insertIJRS2_RS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %49
 
@@ -24194,7 +24194,7 @@ _ZNKSt6vectorISt4pairIP13AstNodeModuleP6AstVarESaIS5_EE12_M_check_lenEmPKc.exit.
 
 _ZNSt6vectorISt4pairIP13AstNodeModuleP6AstVarESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i: ; preds = %.lr.ph.i.i.i.i.i, %36
   %.0.lcssa.i.i.i.i.i = phi ptr [ %37, %36 ], [ %42, %.lr.ph.i.i.i.i.i ]
-  %43 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i34.i.i = icmp eq ptr %22, null
   br i1 %.not.i34.i.i, label %_ZNSt6vectorISt4pairIP13AstNodeModuleP6AstVarESaIS5_EE17_M_realloc_insertIJRS2_RS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %44
 
@@ -51509,7 +51509,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13As
   br label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.thread21.sink.split
 
 .lr.ph.i.i.preheader.i:                           ; preds = %12
-  %.01317.i.i.i = getelementptr i8, ptr %11, i64 16
+  %.01317.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
@@ -53600,7 +53600,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP8AstCFuncSt6vectorIS3_SaIS3_EEEES8_ET
   br i1 %36, label %.lr.ph92.preheader, label %._crit_edge93
 
 .lr.ph92.preheader:                               ; preds = %35
-  %37 = getelementptr ptr, ptr %.sroa.035.0, i64 %.078
+  %37 = getelementptr inbounds ptr, ptr %.sroa.035.0, i64 %.078
   br label %.lr.ph92
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.lr.ph92

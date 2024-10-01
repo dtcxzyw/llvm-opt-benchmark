@@ -2859,7 +2859,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.us: ; preds =
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.us: ; preds = %.lr.ph.i.i.i.i.i.i121.us, %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.us
   %.0.lcssa.i.i.i.i.i.i125.us = phi ptr [ %343, %_ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE11_M_allocateEm.exit.i.i.us ], [ %346, %.lr.ph.i.i.i.i.i.i121.us ]
-  %347 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i125.us, i64 28
+  %347 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i125.us, i64 28
   %.not.i23.i.i126.us = icmp eq ptr %330, null
   br i1 %.not.i23.i.i126.us, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.us, label %348
 

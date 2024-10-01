@@ -207,7 +207,7 @@ define noundef i32 @_Z8add_bindP5t_biniPKd(ptr nocapture noundef %0, i32 noundef
   %17 = phi i32 [ %4, %._crit_edge29 ], [ %.pre30, %9 ]
   %18 = phi ptr [ %.pre, %._crit_edge29 ], [ %15, %9 ]
   %19 = sext i32 %17 to i64
-  %20 = getelementptr double, ptr %18, i64 %19
+  %20 = getelementptr inbounds double, ptr %18, i64 %19
   %21 = icmp sgt i32 %1, 0
   br i1 %21, label %.lr.ph.preheader, label %._crit_edge
 
@@ -274,7 +274,7 @@ define noundef i32 @_Z8add_bindP5t_binN3gmx8ArrayRefIKdEE(ptr nocapture noundef 
   %22 = phi i32 [ %9, %._crit_edge29.i ], [ %.pre30.i, %14 ]
   %23 = phi ptr [ %.pre.i, %._crit_edge29.i ], [ %20, %14 ]
   %24 = sext i32 %22 to i64
-  %25 = getelementptr double, ptr %23, i64 %24
+  %25 = getelementptr inbounds double, ptr %23, i64 %24
   %26 = icmp sgt i32 %8, 0
   br i1 %26, label %.lr.ph.preheader.i, label %_Z8add_bindP5t_biniPKd.exit
 
@@ -407,7 +407,7 @@ define void @_Z12extract_bindP5t_biniiPd(ptr nocapture noundef readonly %0, i32 
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr double, ptr %6, i64 %7
+  %8 = getelementptr inbounds double, ptr %6, i64 %7
   %9 = icmp sgt i32 %2, 0
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
 
@@ -439,7 +439,7 @@ define void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr nocapture noundef re
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %1 to i64
-  %13 = getelementptr double, ptr %11, i64 %12
+  %13 = getelementptr inbounds double, ptr %11, i64 %12
   %14 = icmp sgt i32 %9, 0
   br i1 %14, label %.lr.ph.preheader.i, label %_Z12extract_bindP5t_biniiPd.exit
 

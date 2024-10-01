@@ -6661,7 +6661,7 @@ define linkonce_odr void @_ZNSt6vectorIS_I11colvarvalueSaIS0_EESaIS2_EE14_M_fill
 
 24:                                               ; preds = %16
   %25 = sub i64 0, %2
-  %26 = getelementptr %"class.std::vector.81", ptr %18, i64 %25
+  %26 = getelementptr inbounds %"class.std::vector.81", ptr %18, i64 %25
   %.idx = mul i64 %2, -24
   %.not11.i.i.i.i.i = icmp eq i64 %.idx, 0
   br i1 %.not11.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPSt6vectorI11colvarvalueSaIS1_EES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i

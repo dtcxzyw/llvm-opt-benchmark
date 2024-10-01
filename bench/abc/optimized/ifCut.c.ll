@@ -958,9 +958,9 @@ define range(i32 0, 2) i32 @If_CutMerge(ptr nocapture noundef writeonly %0, ptr 
   %11 = getelementptr inbounds i8, ptr %2, i64 28
   %12 = load i64, ptr %11, align 4
   %13 = trunc i64 %12 to i32
-  %14 = getelementptr i8, ptr %1, i64 36
+  %14 = getelementptr inbounds i8, ptr %1, i64 36
   %15 = getelementptr inbounds i8, ptr %2, i64 36
-  %16 = getelementptr i8, ptr %3, i64 36
+  %16 = getelementptr inbounds i8, ptr %3, i64 36
   %.not = icmp ult i32 %13, 16777216
   br i1 %.not, label %.preheader, label %.preheader47.lr.ph
 

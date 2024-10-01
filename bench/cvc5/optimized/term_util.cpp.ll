@@ -3906,7 +3906,7 @@ for.inc.i.i.i.i.i.i.i.i67:                        ; preds = %invoke.cont.i.i.i63
 
 invoke.cont14.i.i.i73:                            ; preds = %for.inc.i.i.i.i.i.i.i.i67, %invoke.cont.i.i.i63
   %__cur.0.lcssa.i.i.i.i.i.i.i.i74 = phi ptr [ %cond.i19.i.i.i64, %invoke.cont.i.i.i63 ], [ %incdec.ptr1.i.i.i.i.i.i.i.i71, %for.inc.i.i.i.i.i.i.i.i67 ]
-  %incdec.ptr.i.i.i75 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i74, i64 8
+  %incdec.ptr.i.i.i75 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i74, i64 8
   %tobool.not.i.i.i.i76 = icmp eq ptr %visit.sroa.0.1, null
   br i1 %tobool.not.i.i.i.i76, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i78, label %if.then.i29.i.i.i77
 

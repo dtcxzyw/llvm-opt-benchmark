@@ -6444,7 +6444,7 @@ define hidden void @ir_use_list_remove_one(ptr nocapture noundef readonly %0, i3
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %7, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr i32, ptr %11, i64 %13
+  %14 = getelementptr inbounds i32, ptr %11, i64 %13
   %15 = icmp sgt i32 %9, 0
   br i1 %15, label %.lr.ph, label %.loopexit
 

@@ -575,7 +575,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrImSt14default_deleteImEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrImSt14default_deleteImEESaIS3_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrImSt14default_deleteImEESaIS3_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrImSt14default_deleteImEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit, label %if.then.i20.i
 
@@ -676,7 +676,7 @@ for.body.i.i.i.i45:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrImSt14default_deleteImEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i61: ; preds = %for.body.i.i.i.i45, %_ZNSt12_Vector_baseISt10unique_ptrImSt14default_deleteImEESaIS3_EE11_M_allocateEm.exit.i41
   %__cur.0.lcssa.i.i.i.i52 = phi ptr [ %cond.i10.i42, %_ZNSt12_Vector_baseISt10unique_ptrImSt14default_deleteImEESaIS3_EE11_M_allocateEm.exit.i41 ], [ %incdec.ptr1.i.i.i.i49, %for.body.i.i.i.i45 ]
-  %incdec.ptr.i53 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i52, i64 8
+  %incdec.ptr.i53 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i52, i64 8
   %tobool.not.i.i63 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i63, label %_ZNSt6vectorISt10unique_ptrImSt14default_deleteImEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit68, label %if.then.i20.i64
 

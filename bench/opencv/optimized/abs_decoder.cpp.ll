@@ -166,7 +166,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN2cv6Point_IfEESt6vectorIS4_SaIS4_EEEE
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !11
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %74 = getelementptr i8, ptr %.012.i.i.i.i.i.i, i64 16
+  %74 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i, i64 16
   tail call void @_ZdlPv(ptr noundef nonnull %21) #16
   store ptr %67, ptr %4, align 8
   store ptr %74, ptr %22, align 8

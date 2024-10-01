@@ -850,7 +850,7 @@ _ZNSt12_Vector_baseIN8WasmEdge10RefVariantESaIS1_EE11_M_allocateEm.exit.i.i.i: ;
 
 _ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN8WasmEdge10RefVariantESaIS1_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %89, %_ZNSt12_Vector_baseIN8WasmEdge10RefVariantESaIS1_EE11_M_allocateEm.exit.i.i.i ], [ %92, %.lr.ph.i.i.i.i.i.i ]
-  %93 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %93 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %75, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %94
 
@@ -1335,9 +1335,9 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance13TableInstance7se
   br i1 %.not49, label %_ZSt4copyIPKN8WasmEdge10RefVariantEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS1_EEEEET0_T_SC_SB_.exit, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %62
-  %63 = getelementptr %"struct.WasmEdge::RefVariant", ptr %22, i64 %16
+  %63 = getelementptr inbounds %"struct.WasmEdge::RefVariant", ptr %22, i64 %16
   %64 = getelementptr inbounds %"struct.WasmEdge::RefVariant", ptr %63, i64 %17
-  %65 = getelementptr %"struct.WasmEdge::RefVariant", ptr %2, i64 %44
+  %65 = getelementptr inbounds %"struct.WasmEdge::RefVariant", ptr %2, i64 %44
   %66 = getelementptr inbounds %"struct.WasmEdge::RefVariant", ptr %65, i64 %17
   br label %.lr.ph.i.i.i.i.i
 
@@ -28983,7 +28983,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceE
 
 _ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22, label %.lr.ph.i.i.i17
 

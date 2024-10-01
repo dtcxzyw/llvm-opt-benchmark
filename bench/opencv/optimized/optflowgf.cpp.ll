@@ -1358,7 +1358,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit209.i:        ; preds = %.noexc.i, %_ZN2cv10
   %328 = getelementptr inbounds i8, ptr %327, i64 4
   %329 = mul i32 %287, 3
   %330 = sext i32 %329 to i64
-  %331 = getelementptr float, ptr %321, i64 %330
+  %331 = getelementptr inbounds float, ptr %321, i64 %330
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
@@ -2695,7 +2695,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit.i:           ; preds = %.noexc171, %948
   %967 = mul i32 %951, 5
   %968 = add i32 %967, 5
   %969 = sext i32 %968 to i64
-  %970 = getelementptr double, ptr %966, i64 %969
+  %970 = getelementptr inbounds double, ptr %966, i64 %969
   %971 = load ptr, ptr %225, align 8
   %972 = mul i32 %949, 5
   %973 = icmp sgt i32 %949, 0

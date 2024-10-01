@@ -788,7 +788,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt6vectorIh
 
 .noexc5.i.i:                                      ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i
   store ptr %266, ptr %13, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 %263
+  %267 = getelementptr i8, ptr %266, i64 %263
   %268 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %267, ptr %268, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %266, ptr align 1 %259, i64 %263, i1 false)

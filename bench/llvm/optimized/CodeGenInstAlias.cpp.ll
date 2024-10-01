@@ -1487,7 +1487,7 @@ _ZNSt12_Vector_baseISt4pairIjiESaIS1_EE11_M_allocateEm.exit.i: ; preds = %292, %
 
 _ZNSt6vectorISt4pairIjiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIjiESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %295, %_ZNSt12_Vector_baseISt4pairIjiESaIS1_EE11_M_allocateEm.exit.i ], [ %299, %.lr.ph.i.i.i.i ]
-  %300 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %300 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %281, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt4pairIjiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, label %301
 
@@ -1667,7 +1667,7 @@ _ZNSt12_Vector_baseISt4pairIjiESaIS1_EE11_M_allocateEm.exit.i169: ; preds = %375
 
 _ZNSt6vectorISt4pairIjiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i182: ; preds = %.lr.ph.i.i.i.i171, %_ZNSt12_Vector_baseISt4pairIjiESaIS1_EE11_M_allocateEm.exit.i169
   %.0.lcssa.i.i.i.i176 = phi ptr [ %378, %_ZNSt12_Vector_baseISt4pairIjiESaIS1_EE11_M_allocateEm.exit.i169 ], [ %382, %.lr.ph.i.i.i.i171 ]
-  %383 = getelementptr i8, ptr %.0.lcssa.i.i.i.i176, i64 8
+  %383 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i176, i64 8
   %.not.i23.i184 = icmp eq ptr %364, null
   br i1 %.not.i23.i184, label %_ZNSt6vectorISt4pairIjiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit185, label %384
 
@@ -1886,7 +1886,7 @@ _ZNSt12_Vector_baseISt4pairIjiESaIS1_EE11_M_allocateEm.exit.i204: ; preds = %465
 
 _ZNSt6vectorISt4pairIjiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i217: ; preds = %.lr.ph.i.i.i.i206, %_ZNSt12_Vector_baseISt4pairIjiESaIS1_EE11_M_allocateEm.exit.i204
   %.0.lcssa.i.i.i.i211 = phi ptr [ %468, %_ZNSt12_Vector_baseISt4pairIjiESaIS1_EE11_M_allocateEm.exit.i204 ], [ %472, %.lr.ph.i.i.i.i206 ]
-  %473 = getelementptr i8, ptr %.0.lcssa.i.i.i.i211, i64 8
+  %473 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i211, i64 8
   %.not.i23.i219 = icmp eq ptr %454, null
   br i1 %.not.i23.i219, label %_ZNSt6vectorISt4pairIjiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit220, label %474
 

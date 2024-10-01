@@ -688,7 +688,7 @@ _ZNSt12_Vector_baseI7QPointFSaIS0_EE11_M_allocateEm.exit.i.i189: ; preds = %249,
 
 _ZNSt6vectorI7QPointFSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i195: ; preds = %.lr.ph.i.i.i.i.i.i191, %_ZNSt12_Vector_baseI7QPointFSaIS0_EE11_M_allocateEm.exit.i.i189
   %.0.lcssa.i.i.i.i.i.i196 = phi ptr [ %252, %_ZNSt12_Vector_baseI7QPointFSaIS0_EE11_M_allocateEm.exit.i.i189 ], [ %255, %.lr.ph.i.i.i.i.i.i191 ]
-  %256 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i196, i64 16
+  %256 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i196, i64 16
   %.not.i23.i.i197 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i23.i.i197, label %_ZNSt6vectorI7QPointFSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i198, label %257
 
@@ -984,7 +984,7 @@ _ZNSt12_Vector_baseI7QPointFSaIS0_EE11_M_allocateEm.exit.i.i228: ; preds = %_ZNK
 
 _ZNSt6vectorI7QPointFSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i234: ; preds = %.lr.ph.i.i.i.i.i.i230, %_ZNSt12_Vector_baseI7QPointFSaIS0_EE11_M_allocateEm.exit.i.i228
   %.0.lcssa.i.i.i.i.i.i235 = phi ptr [ %345, %_ZNSt12_Vector_baseI7QPointFSaIS0_EE11_M_allocateEm.exit.i.i228 ], [ %348, %.lr.ph.i.i.i.i.i.i230 ]
-  %349 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i235, i64 16
+  %349 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i235, i64 16
   %.not.i23.i.i236 = icmp eq ptr %.sroa.0.5, null
   br i1 %.not.i23.i.i236, label %_ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit240, label %350
 
@@ -2964,14 +2964,14 @@ define linkonce_odr void @_ZN7QVectorI7QPointFE7reallocEi6QFlagsIN10QArrayData16
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr i8, ptr %19, i64 %21
+  %22 = getelementptr inbounds i8, ptr %19, i64 %21
   %23 = getelementptr inbounds i8, ptr %19, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds %class.QPointF, ptr %22, i64 %25
   %27 = getelementptr inbounds i8, ptr %8, i64 16
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr i8, ptr %8, i64 %28
+  %29 = getelementptr inbounds i8, ptr %8, i64 %28
   br i1 %6, label %.preheader, label %32
 
 .preheader:                                       ; preds = %14
@@ -3133,7 +3133,7 @@ _ZN9QtPrivate8RefCount3refEv.exit:                ; preds = %2
   %34 = load ptr, ptr %1, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr i8, ptr %34, i64 %36
+  %37 = getelementptr inbounds i8, ptr %34, i64 %36
   %38 = getelementptr inbounds i8, ptr %34, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
@@ -3144,7 +3144,7 @@ _ZN9QtPrivate8RefCount3refEv.exit:                ; preds = %2
 .lr.ph.i.preheader:                               ; preds = %33
   %42 = getelementptr inbounds i8, ptr %29, i64 16
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr i8, ptr %29, i64 %43
+  %44 = getelementptr inbounds i8, ptr %29, i64 %43
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i

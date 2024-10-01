@@ -3051,7 +3051,7 @@ for.body.i.i.i.i376.i:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i: ; preds = %for.body.i.i.i.i376.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i376.i ]
-  %incdec.ptr.i379.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
+  %incdec.ptr.i379.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
   %tobool.not.i.i380.i = icmp eq ptr %300, null
   br i1 %tobool.not.i.i380.i, label %if.end.i301.i, label %if.then.i20.i.i
 
@@ -5513,7 +5513,7 @@ for.body.i.i.i.i352.i:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i: ; preds = %for.body.i.i.i.i352.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i352.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %253, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i, label %if.then.i20.i.i
 
@@ -7395,7 +7395,7 @@ for.body.i.i.i.i351.i:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i150: ; preds = %for.body.i.i.i.i351.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i143
   %__cur.0.lcssa.i.i.i.i.i151 = phi ptr [ %cond.i10.i.i144, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i143 ], [ %incdec.ptr1.i.i.i.i.i149, %for.body.i.i.i.i351.i ]
-  %incdec.ptr.i.i152 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i151, i64 8
+  %incdec.ptr.i.i152 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i151, i64 8
   %tobool.not.i.i.i153 = icmp eq ptr %534, null
   br i1 %tobool.not.i.i.i153, label %if.end.i.i155, label %if.then.i20.i.i154
 
@@ -9277,7 +9277,7 @@ for.body.i.i.i.i351.i715:                         ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i721: ; preds = %for.body.i.i.i.i351.i715, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i711
   %__cur.0.lcssa.i.i.i.i.i722 = phi ptr [ %cond.i10.i.i712, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i711 ], [ %incdec.ptr1.i.i.i.i.i719, %for.body.i.i.i.i351.i715 ]
-  %incdec.ptr.i.i723 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i722, i64 8
+  %incdec.ptr.i.i723 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i722, i64 8
   %tobool.not.i.i.i724 = icmp eq ptr %815, null
   br i1 %tobool.not.i.i.i724, label %if.end.i.i726, label %if.then.i20.i.i725
 
@@ -11159,7 +11159,7 @@ for.body.i.i.i.i351.i1553:                        ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i1559: ; preds = %for.body.i.i.i.i351.i1553, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i1549
   %__cur.0.lcssa.i.i.i.i.i1560 = phi ptr [ %cond.i10.i.i1550, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i1549 ], [ %incdec.ptr1.i.i.i.i.i1557, %for.body.i.i.i.i351.i1553 ]
-  %incdec.ptr.i.i1561 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i1560, i64 8
+  %incdec.ptr.i.i1561 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i1560, i64 8
   %tobool.not.i.i.i1562 = icmp eq ptr %1096, null
   br i1 %tobool.not.i.i.i1562, label %if.end.i.i1564, label %if.then.i20.i.i1563
 
@@ -13041,7 +13041,7 @@ for.body.i.i.i.i351.i2391:                        ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i2397: ; preds = %for.body.i.i.i.i351.i2391, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i2387
   %__cur.0.lcssa.i.i.i.i.i2398 = phi ptr [ %cond.i10.i.i2388, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i2387 ], [ %incdec.ptr1.i.i.i.i.i2395, %for.body.i.i.i.i351.i2391 ]
-  %incdec.ptr.i.i2399 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i2398, i64 8
+  %incdec.ptr.i.i2399 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i2398, i64 8
   %tobool.not.i.i.i2400 = icmp eq ptr %1377, null
   br i1 %tobool.not.i.i.i2400, label %if.end.i.i2402, label %if.then.i20.i.i2401
 
@@ -14967,7 +14967,7 @@ for.body.i.i.i.i354.i:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i3133: ; preds = %for.body.i.i.i.i354.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i3127
   %__cur.0.lcssa.i.i.i.i.i3134 = phi ptr [ %cond.i10.i.i3128, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i3127 ], [ %incdec.ptr1.i.i.i.i.i3132, %for.body.i.i.i.i354.i ]
-  %incdec.ptr.i.i3135 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i3134, i64 8
+  %incdec.ptr.i.i3135 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i3134, i64 8
   %tobool.not.i.i.i3136 = icmp eq ptr %1652, null
   br i1 %tobool.not.i.i.i3136, label %if.end.i.i3138, label %if.then.i20.i.i3137
 
@@ -16849,7 +16849,7 @@ for.body.i.i.i.i351.i3845:                        ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i3851: ; preds = %for.body.i.i.i.i351.i3845, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i3841
   %__cur.0.lcssa.i.i.i.i.i3852 = phi ptr [ %cond.i10.i.i3842, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i3841 ], [ %incdec.ptr1.i.i.i.i.i3849, %for.body.i.i.i.i351.i3845 ]
-  %incdec.ptr.i.i3853 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i3852, i64 8
+  %incdec.ptr.i.i3853 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i3852, i64 8
   %tobool.not.i.i.i3854 = icmp eq ptr %1933, null
   br i1 %tobool.not.i.i.i3854, label %if.end.i.i3856, label %if.then.i20.i.i3855
 
@@ -18731,7 +18731,7 @@ for.body.i.i.i.i351.i4678:                        ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i4684: ; preds = %for.body.i.i.i.i351.i4678, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i4674
   %__cur.0.lcssa.i.i.i.i.i4685 = phi ptr [ %cond.i10.i.i4675, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i4674 ], [ %incdec.ptr1.i.i.i.i.i4682, %for.body.i.i.i.i351.i4678 ]
-  %incdec.ptr.i.i4686 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i4685, i64 8
+  %incdec.ptr.i.i4686 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i4685, i64 8
   %tobool.not.i.i.i4687 = icmp eq ptr %2214, null
   br i1 %tobool.not.i.i.i4687, label %if.end.i.i4689, label %if.then.i20.i.i4688
 
@@ -20627,7 +20627,7 @@ for.body.i.i.i.i353.i:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i5516: ; preds = %for.body.i.i.i.i353.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i5509
   %__cur.0.lcssa.i.i.i.i.i5517 = phi ptr [ %cond.i10.i.i5510, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i5509 ], [ %incdec.ptr1.i.i.i.i.i5515, %for.body.i.i.i.i353.i ]
-  %incdec.ptr.i.i5518 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i5517, i64 8
+  %incdec.ptr.i.i5518 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i5517, i64 8
   %tobool.not.i.i.i5519 = icmp eq ptr %2488, null
   br i1 %tobool.not.i.i.i5519, label %if.end.i.i5521, label %if.then.i20.i.i5520
 
@@ -22523,7 +22523,7 @@ for.body.i.i.i.i353.i6233:                        ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i6239: ; preds = %for.body.i.i.i.i353.i6233, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i6229
   %__cur.0.lcssa.i.i.i.i.i6240 = phi ptr [ %cond.i10.i.i6230, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i6229 ], [ %incdec.ptr1.i.i.i.i.i6237, %for.body.i.i.i.i353.i6233 ]
-  %incdec.ptr.i.i6241 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i6240, i64 8
+  %incdec.ptr.i.i6241 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i6240, i64 8
   %tobool.not.i.i.i6242 = icmp eq ptr %2762, null
   br i1 %tobool.not.i.i.i6242, label %if.end.i.i6244, label %if.then.i20.i.i6243
 
@@ -24419,7 +24419,7 @@ for.body.i.i.i.i353.i7090:                        ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i7096: ; preds = %for.body.i.i.i.i353.i7090, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i7086
   %__cur.0.lcssa.i.i.i.i.i7097 = phi ptr [ %cond.i10.i.i7087, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i7086 ], [ %incdec.ptr1.i.i.i.i.i7094, %for.body.i.i.i.i353.i7090 ]
-  %incdec.ptr.i.i7098 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i7097, i64 8
+  %incdec.ptr.i.i7098 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i7097, i64 8
   %tobool.not.i.i.i7099 = icmp eq ptr %3036, null
   br i1 %tobool.not.i.i.i7099, label %if.end.i.i7101, label %if.then.i20.i.i7100
 
@@ -28776,7 +28776,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 8
   %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19, label %for.body.i.i.i12
 
@@ -28869,7 +28869,7 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 8
   %cmp.not5.i.i.i11 = icmp eq ptr %__position.coerce, %0
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox17SelectivityVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19, label %for.body.i.i.i12
 

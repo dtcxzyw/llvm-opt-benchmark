@@ -8918,7 +8918,7 @@ if.end56.i.i:                                     ; preds = %while.end.i99.i.i
 if.end58.i116.i:                                  ; preds = %if.end56.i.i, %if.end49.i.i
   %zout.3.i.i = phi ptr [ %add.ptr.i106.i.i, %if.end56.i.i ], [ %zout.0.i.i, %if.end49.i.i ]
   %idx.neg.i.i = sub nsw i64 0, %conv45.i.i
-  %add.ptr60.i.i = getelementptr i8, ptr %zout.3.i.i, i64 %idx.neg.i.i
+  %add.ptr60.i.i = getelementptr inbounds i8, ptr %zout.3.i.i, i64 %idx.neg.i.i
   %cmp61.i.i = icmp eq i32 %dist.0.i.i, 1
   %tobool63.not.i.i = icmp eq i32 %len.0.i.i, 0
   br i1 %cmp61.i.i, label %if.then62.i.i, label %if.else68.i.i
@@ -15114,8 +15114,8 @@ for.body284:                                      ; preds = %for.cond282.prehead
 for.inc292:                                       ; preds = %for.body284, %for.cond282.preheader
   %arrayidx294 = getelementptr inbounds i8, ptr %cur.2627, i64 %idxprom293
   store i8 -1, ptr %arrayidx294, align 1
-  %add.ptr296 = getelementptr i8, ptr %raw.addr.3628, i64 %idxprom293
-  %add.ptr298 = getelementptr i8, ptr %cur.2627, i64 %idx.ext128
+  %add.ptr296 = getelementptr inbounds i8, ptr %raw.addr.3628, i64 %idxprom293
+  %add.ptr298 = getelementptr inbounds i8, ptr %cur.2627, i64 %idx.ext128
   %i.0 = add i32 %i.0629, -1
   %cmp280.not = icmp eq i32 %i.0, 0
   br i1 %cmp280.not, label %sw.epilog520, label %for.cond282.preheader, !llvm.loop !112

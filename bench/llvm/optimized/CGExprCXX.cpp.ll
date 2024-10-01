@@ -11234,7 +11234,7 @@ _ZN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen7CallArgEvE20assertSafeToAddR
 
 _ZN4llvm15SmallVectorImplIN5clang7CodeGen7CallArgEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen7CallArgEvE20assertSafeToAddRangeEPKS3_S6_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   %.idx = mul nsw i64 %32, 152
   %33 = ptrtoint ptr %31 to i64
@@ -11364,7 +11364,7 @@ _ZN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen11CallArgList9WritebackEvE20a
 
 _ZN4llvm15SmallVectorImplIN5clang7CodeGen11CallArgList9WritebackEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen11CallArgList9WritebackEvE20assertSafeToAddRangeEPKS4_S7_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   %.idx = mul nsw i64 %32, 208
   %33 = ptrtoint ptr %31 to i64
@@ -11494,7 +11494,7 @@ _ZN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen11CallArgList14CallArgCleanup
 
 _ZN4llvm15SmallVectorImplIN5clang7CodeGen11CallArgList14CallArgCleanupEE7reserveEm.exit: ; preds = %_ZN4llvm25SmallVectorTemplateCommonIN5clang7CodeGen11CallArgList14CallArgCleanupEvE20assertSafeToAddRangeEPKS4_S7_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   %.idx = shl nsw i64 %32, 4
   %33 = ptrtoint ptr %31 to i64
@@ -11648,7 +11648,7 @@ _ZN4llvm15SmallVectorImplIN5clang7CodeGen7CallArgEE7reserveEm.exit: ; preds = %3
   br i1 %.not7.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen7CallArgELb1EE18uninitialized_copyISt13move_iteratorIPS3_ES7_EEvT_S9_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplIN5clang7CodeGen7CallArgEE7reserveEm.exit
-  %16 = getelementptr %"struct.clang::CodeGen::CallArg", ptr %14, i64 %15
+  %16 = getelementptr inbounds %"struct.clang::CodeGen::CallArg", ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
@@ -11743,7 +11743,7 @@ _ZN4llvm15SmallVectorImplIN5clang7CodeGen11CallArgList9WritebackEE7reserveEm.exi
   br i1 %.not7.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen11CallArgList9WritebackELb1EE18uninitialized_copyISt13move_iteratorIPS4_ES8_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplIN5clang7CodeGen11CallArgList9WritebackEE7reserveEm.exit
-  %16 = getelementptr %"struct.clang::CodeGen::CallArgList::Writeback", ptr %14, i64 %15
+  %16 = getelementptr inbounds %"struct.clang::CodeGen::CallArgList::Writeback", ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
@@ -11829,7 +11829,7 @@ _ZN4llvm15SmallVectorImplIN5clang7CodeGen11CallArgList14CallArgCleanupEE7reserve
   br i1 %.not7.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen11CallArgList14CallArgCleanupELb1EE18uninitialized_copyISt13move_iteratorIPS4_ES8_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplIN5clang7CodeGen11CallArgList14CallArgCleanupEE7reserveEm.exit
-  %16 = getelementptr %"struct.clang::CodeGen::CallArgList::CallArgCleanup", ptr %14, i64 %15
+  %16 = getelementptr inbounds %"struct.clang::CodeGen::CallArgList::CallArgCleanup", ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i

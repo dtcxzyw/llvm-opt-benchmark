@@ -918,7 +918,7 @@ _ZN6casadi11cache_checkIdEEiPKT_PS1_PixxxPS4_.exit: ; preds = %.lr.ph56.split.i
   %47 = phi i64 [ %26, %_ZN6casadi11cache_checkIdEEiPKT_PS1_PixxxPS4_.exit.thread180 ], [ %45, %_ZN6casadi11cache_checkIdEEiPKT_PS1_PixxxPS4_.exit ]
   %48 = getelementptr inbounds double, ptr %spec.select.i, i64 %47
   %49 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
-  %50 = getelementptr double, ptr %48, i64 %49
+  %50 = getelementptr inbounds double, ptr %48, i64 %49
   %51 = getelementptr inbounds i8, ptr %0, i64 232
   %52 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %51)
   %53 = getelementptr inbounds i8, ptr %1, i64 64
@@ -946,7 +946,7 @@ _ZN6casadi11cache_checkIdEEiPKT_PS1_PixxxPS4_.exit: ; preds = %.lr.ph56.split.i
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit:       ; preds = %.lr.ph.i, %46
   %63 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %51)
-  %64 = getelementptr double, ptr %50, i64 %63
+  %64 = getelementptr inbounds double, ptr %50, i64 %63
   %65 = getelementptr inbounds i8, ptr %0, i64 240
   %66 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %65)
   %67 = getelementptr inbounds i8, ptr %1, i64 88
@@ -987,7 +987,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit48:     ; preds = %.lr.ph.i41, %_ZN6ca
   br i1 %or.cond161, label %.lr.ph.i53.preheader, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit60
 
 .lr.ph.i53.preheader:                             ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit48
-  %85 = getelementptr double, ptr %64, i64 %77
+  %85 = getelementptr inbounds double, ptr %64, i64 %77
   br label %.lr.ph.i53
 
 .lr.ph.i53:                                       ; preds = %.lr.ph.i53.preheader, %.lr.ph.i53
@@ -1189,7 +1189,7 @@ _ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread: ; preds = %9
 
 .loopexit163:                                     ; preds = %.lr.ph.i79, %.lr.ph23.preheader.i85, %.preheader.i84, %.preheader16.i78
   %191 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %18)
-  %192 = getelementptr double, ptr %.1142148, i64 %191
+  %192 = getelementptr inbounds double, ptr %.1142148, i64 %191
   %193 = load ptr, ptr %100, align 8
   %194 = load ptr, ptr %102, align 8
   %195 = icmp eq ptr %193, %194
@@ -1224,7 +1224,7 @@ _ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread: ; preds = %9
 
 .loopexit162:                                     ; preds = %.lr.ph.i91, %.lr.ph23.preheader.i97, %.preheader.i96, %.preheader16.i90
   %203 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %98)
-  %204 = getelementptr double, ptr %192, i64 %203
+  %204 = getelementptr inbounds double, ptr %192, i64 %203
   %205 = load ptr, ptr %107, align 8
   %206 = load ptr, ptr %109, align 8
   %207 = icmp eq ptr %205, %206
@@ -1259,7 +1259,7 @@ _ZN6casadi18casadi_qr_singularIdEExPT_PxPKS1_PKxS7_S1_.exit.thread: ; preds = %9
 
 .loopexit:                                        ; preds = %.lr.ph.i103, %.lr.ph23.preheader.i109, %.preheader.i108, %.preheader16.i102
   %215 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %105)
-  %216 = getelementptr double, ptr %204, i64 %215
+  %216 = getelementptr inbounds double, ptr %204, i64 %215
   %217 = load ptr, ptr %112, align 8
   %218 = load ptr, ptr %114, align 8
   %219 = icmp eq ptr %217, %218

@@ -20915,7 +20915,7 @@ _ZN5eastl8destructIPNS_10unique_ptrIjNS_14default_deleteIjEEEEEEvT_S6_.exit17: ;
   br label %if.end64
 
 if.else42:                                        ; preds = %if.else
-  %add.ptr.i = getelementptr i8, ptr %first.coerce, i64 %sub.ptr.sub30
+  %add.ptr.i = getelementptr inbounds i8, ptr %first.coerce, i64 %sub.ptr.sub30
   %sub.ptr.div.i.i.i.i21 = ashr exact i64 %sub.ptr.sub30, 3
   %cmp6.i.i.i.i22 = icmp sgt i64 %sub.ptr.div.i.i.i.i21, 0
   br i1 %cmp6.i.i.i.i22, label %for.body.i.i.i.i24, label %_ZN5eastl4copyINS_13move_iteratorIPNS_10unique_ptrIjNS_14default_deleteIjEEEEEES6_EET0_T_S9_S8_.exit37

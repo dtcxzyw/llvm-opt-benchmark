@@ -1141,7 +1141,7 @@ _ZNSt12_Vector_baseIN4llvm15TreePredicateFnESaIS1_EE11_M_allocateEm.exit.i.i.i.i
 
 _ZNSt6vectorIN4llvm15TreePredicateFnESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i4.i.i.i, %_ZNSt12_Vector_baseIN4llvm15TreePredicateFnESaIS1_EE11_M_allocateEm.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %410, %_ZNSt12_Vector_baseIN4llvm15TreePredicateFnESaIS1_EE11_M_allocateEm.exit.i.i.i.i ], [ %415, %.lr.ph.i.i.i.i4.i.i.i ]
-  %416 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 8
+  %416 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 8
   %.not.i23.i.i.i.i = icmp eq ptr %396, null
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN4llvm15TreePredicateFnESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, label %417
 

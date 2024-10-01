@@ -1538,7 +1538,7 @@ _ZNKSt6vectorIN3gmx6compat8not_nullIPNS0_17ISimulatorElementEEESaIS5_EE12_M_chec
 
 _ZNSt6vectorIN3gmx6compat8not_nullIPNS0_17ISimulatorElementEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc39
   %.0.lcssa.i.i.i.i.i = phi ptr [ %113, %.noexc39 ], [ %117, %.lr.ph.i.i.i.i.i ]
-  %118 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
+  %118 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   %.not.i33.i.i = icmp eq ptr %100, null
   br i1 %.not.i33.i.i, label %_ZNSt6vectorIN3gmx6compat8not_nullIPNS0_17ISimulatorElementEEESaIS5_EE17_M_realloc_insertIJNS2_IPNS0_18ConstraintsElementILNS0_18ConstraintVariableE1EEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %119
 
@@ -1618,7 +1618,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS
 
 _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i82: ; preds = %.lr.ph.i.i.i.i71, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i69
   %.0.lcssa.i.i.i.i76 = phi ptr [ %140, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i69 ], [ %144, %.lr.ph.i.i.i.i71 ]
-  %145 = getelementptr i8, ptr %.0.lcssa.i.i.i.i76, i64 8
+  %145 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i76, i64 8
   %.not.i23.i84 = icmp eq ptr %127, null
   br i1 %.not.i23.i84, label %.noexc42, label %146
 
@@ -1889,7 +1889,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS
 
 _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %30, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %34, %.lr.ph.i.i.i.i ]
-  %35 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %35 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %16, null
   br i1 %.not.i23.i, label %.noexc, label %36
 

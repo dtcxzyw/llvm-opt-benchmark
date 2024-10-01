@@ -117441,7 +117441,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv19connectedcomponents10Point2u
 
 19:                                               ; preds = %14
   %20 = sub i64 0, %2
-  %21 = getelementptr %"struct.cv::connectedcomponents::Point2ui64", ptr %9, i64 %20
+  %21 = getelementptr inbounds %"struct.cv::connectedcomponents::Point2ui64", ptr %9, i64 %20
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %19, %.lr.ph.i.i.i.i.i
@@ -117591,7 +117591,7 @@ _ZSt24__uninitialized_fill_n_aIPN2cv19connectedcomponents10Point2ui64EmS2_S2_ET_
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN2cv19connectedcomponents10Point2ui64ES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN2cv19connectedcomponents10Point2ui64EmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %61, %_ZSt24__uninitialized_fill_n_aIPN2cv19connectedcomponents10Point2ui64EmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit87 ], [ %66, %.lr.ph.i.i.i.i.i89 ]
-  %67 = getelementptr %"struct.cv::connectedcomponents::Point2ui64", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
+  %67 = getelementptr inbounds %"struct.cv::connectedcomponents::Point2ui64", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
   %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv19connectedcomponents10Point2ui64ES3_SaIS2_EET0_T_S6_S5_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 

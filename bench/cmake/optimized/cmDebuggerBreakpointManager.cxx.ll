@@ -6073,7 +6073,7 @@ _ZNSt16allocator_traitsISaIN10cmDebugger26cmDebuggerSourceBreakpointEEE9construc
 
 _ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN10cmDebugger26cmDebuggerSourceBreakpointEEE9constructIS1_JlRlEEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %24, %_ZNSt16allocator_traitsISaIN10cmDebugger26cmDebuggerSourceBreakpointEEE9constructIS1_JlRlEEEvRS2_PT_DpOT0_.exit ], [ %29, %.lr.ph.i.i.i ]
-  %30 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 24
+  %30 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i27 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i28
 
@@ -7358,7 +7358,7 @@ _ZNSt16allocator_traitsISaIN10cmDebugger26cmDebuggerSourceBreakpointEEE9construc
 
 _ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaIN10cmDebugger26cmDebuggerSourceBreakpointEEE9constructIS1_JlRKN3dap7integerEEEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %24, %_ZNSt16allocator_traitsISaIN10cmDebugger26cmDebuggerSourceBreakpointEEE9constructIS1_JlRKN3dap7integerEEEEvRS2_PT_DpOT0_.exit ], [ %29, %.lr.ph.i.i.i ]
-  %30 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 24
+  %30 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 24
   %.not10.i.i.i27 = icmp eq ptr %1, %6
   br i1 %.not10.i.i.i27, label %_ZNSt6vectorIN10cmDebugger26cmDebuggerSourceBreakpointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i28
 

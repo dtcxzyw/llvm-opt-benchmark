@@ -3886,7 +3886,7 @@ _ZN8lz4_flex14fastcpy_unsafe10slice_copy17h71fe2ea3c2919e3aE.exit.i.i.i.i: ; pre
 
 139:                                              ; preds = %134
   %140 = sub nsw i64 0, %118
-  %141 = getelementptr i8, ptr %.118.i.i.i.i, i64 %140
+  %141 = getelementptr inbounds i8, ptr %.118.i.i.i.i, i64 %140
   %142 = add nuw nsw i64 %.0144.i.i.i.i, 15
   %143 = icmp ugt i64 %142, %118
   %144 = icmp ult i64 %135, %142

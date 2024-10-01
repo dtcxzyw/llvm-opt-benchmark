@@ -3246,7 +3246,7 @@ _ZNSt17_Temporary_bufferIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_E
   br label %_ZNSt17_Temporary_bufferIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_EC2ES7_l.exit.thread23.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i:                     ; preds = %22
-  %.01518.i.i.i.i.i.i = getelementptr i8, ptr %18, i64 72
+  %.01518.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 72
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i.i

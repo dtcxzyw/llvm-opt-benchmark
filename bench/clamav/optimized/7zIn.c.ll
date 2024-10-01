@@ -494,7 +494,7 @@ define i64 @SzArEx_GetFileNameUtf16(ptr nocapture noundef readonly %0, i64 nound
   %12 = getelementptr inbounds i8, ptr %0, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = shl i64 %9, 1
-  %15 = getelementptr i8, ptr %13, i64 %14
+  %15 = getelementptr inbounds i8, ptr %13, i64 %14
   %.not17 = icmp eq i64 %8, %9
   br i1 %.not17, label %.loopexit, label %.lr.ph
 

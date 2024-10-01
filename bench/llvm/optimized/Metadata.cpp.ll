@@ -11392,7 +11392,7 @@ define dso_local void @_ZN4llvm6MDNode6HeaderC2EmNS_8Metadata11StorageTypeE(ptr 
 
 .lr.ph.preheader:                                 ; preds = %20
   %24 = sub nsw i64 0, %.sroa.speculated.i
-  %25 = getelementptr %"class.llvm::MDOperand", ptr %0, i64 %24
+  %25 = getelementptr inbounds %"class.llvm::MDOperand", ptr %0, i64 %24
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -28912,7 +28912,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit: ; preds = %3, %12
   br i1 %.not9.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE18uninitialized_copyIPKNS_9MDOperandEPS2_EEvT_S9_T0_.exit, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
@@ -36079,7 +36079,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
   br i1 %34, label %.lr.ph90.preheader, label %._crit_edge91
 
 .lr.ph90.preheader:                               ; preds = %33
-  %35 = getelementptr i8, ptr %.053, i64 %.074
+  %35 = getelementptr inbounds i8, ptr %.053, i64 %.074
   br label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
@@ -57481,7 +57481,7 @@ _ZNSt17_Temporary_bufferIPSt4pairIjPN4llvm6MDNodeEES4_EC2ES5_l.exit.thread28: ; 
   br label %_ZNSt17_Temporary_bufferIPSt4pairIjPN4llvm6MDNodeEES4_EC2ES5_l.exit.thread23.sink.split
 
 .lr.ph.i.i.preheader.i:                           ; preds = %12
-  %.01518.i.i.i = getelementptr i8, ptr %11, i64 16
+  %.01518.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i

@@ -7412,7 +7412,7 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
   br i1 %.not19.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIPN5clang6format16JsImportedSymbolES2_EC2ES3_l.exit.thread23.i.i, label %.lr.ph.i.i.preheader.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %13
-  %.01518.i.i.i.i.i = getelementptr i8, ptr %9, i64 40
+  %.01518.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 40
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i

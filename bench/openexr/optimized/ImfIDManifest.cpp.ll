@@ -583,7 +583,7 @@ while.body.i.i.i89:                               ; preds = %while.body.i.i.i89,
   %n.addr.03.i.i.i91 = phi i32 [ %dec.i.i.i93, %while.body.i.i.i89 ], [ 4, %if.end74 ]
   %c.addr.02.i.i.i92 = phi ptr [ %incdec.ptr1.i.i.i95, %while.body.i.i.i89 ], [ %b.i87, %if.end74 ]
   %dec.i.i.i93 = add nsw i32 %n.addr.03.i.i.i91, -1
-  %incdec.ptr.i.i.i94 = getelementptr i8, ptr %incdec.ptr.i.i1.i90, i64 1
+  %incdec.ptr.i.i.i94 = getelementptr inbounds i8, ptr %incdec.ptr.i.i1.i90, i64 1
   %25 = load i8, ptr %incdec.ptr.i.i1.i90, align 1
   %incdec.ptr1.i.i.i95 = getelementptr inbounds i8, ptr %c.addr.02.i.i.i92, i64 1
   store i8 %25, ptr %c.addr.02.i.i.i92, align 1
@@ -3155,7 +3155,7 @@ for.body.i.i.i.i.i327:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i: ; preds = %for.body.i.i.i.i.i327, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i333 = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i331, %for.body.i.i.i.i.i327 ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i333, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i333, i64 8
   %tobool.not.i.i.i = icmp eq ptr %RLEmapping.sroa.0.21160, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -3978,7 +3978,7 @@ while.body.i.i.i644:                              ; preds = %while.body.i.i.i644
   %dec.i.i.i647 = add nsw i32 %n.addr.03.i.i.i645, -1
   %incdec.ptr.i.i.i648 = getelementptr inbounds i8, ptr %c.addr.02.i.i.i646, i64 1
   %127 = load i8, ptr %c.addr.02.i.i.i646, align 1
-  %incdec.ptr1.i.i.i649 = getelementptr i8, ptr %incdec.ptr1.i.i.i6491194, i64 1
+  %incdec.ptr1.i.i.i649 = getelementptr inbounds i8, ptr %incdec.ptr1.i.i.i6491194, i64 1
   store i8 %127, ptr %incdec.ptr1.i.i.i6491194, align 1
   %tobool.not.i.i.i650 = icmp eq i32 %dec.i.i.i647, 0
   br i1 %tobool.not.i.i.i650, label %invoke.cont435, label %while.body.i.i.i644, !llvm.loop !61

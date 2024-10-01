@@ -43809,7 +43809,7 @@ _ZN2OT4post13accelerator_t8cmp_gidsEPKvS3_Pv.exit175: ; preds = %428, %431
   br i1 %434, label %_ZN2OT4post13accelerator_t8cmp_gidsEPKvS3_Pv.exit175.thread, label %443
 
 _ZN2OT4post13accelerator_t8cmp_gidsEPKvS3_Pv.exit175.thread: ; preds = %.lr.ph, %430, %_ZN2OT4post13accelerator_t8cmp_gidsEPKvS3_Pv.exit175
-  %435 = getelementptr i8, ptr %.133, i64 -2
+  %435 = getelementptr inbounds i8, ptr %.133, i64 -2
   %436 = icmp ult ptr %.113232, %.133
   br i1 %436, label %437, label %_ZL11sort_r_swapPcS_m.exit179
 
@@ -43897,7 +43897,7 @@ _ZL11sort_r_swapPcS_m.exit179:                    ; preds = %.lr.ph.i176, %443, 
   br i1 %466, label %.lr.ph.i.preheader.i, label %_ZL18sort_r_swap_blocksPcmm.exit
 
 .lr.ph.i.preheader.i:                             ; preds = %464
-  %467 = getelementptr i8, ptr %.tr42, i64 %457
+  %467 = getelementptr inbounds i8, ptr %.tr42, i64 %457
   br label %.lr.ph.i.i184
 
 .lr.ph.i.i184:                                    ; preds = %.lr.ph.i.i184, %.lr.ph.i.preheader.i
@@ -43919,7 +43919,7 @@ _ZL11sort_r_swapPcS_m.exit179:                    ; preds = %.lr.ph.i176, %443, 
   br i1 %474, label %.lr.ph.i13.preheader.i, label %_ZL18sort_r_swap_blocksPcmm.exit
 
 .lr.ph.i13.preheader.i:                           ; preds = %473
-  %475 = getelementptr i8, ptr %.tr42, i64 %459
+  %475 = getelementptr inbounds i8, ptr %.tr42, i64 %459
   br label %.lr.ph.i13.i
 
 .lr.ph.i13.i:                                     ; preds = %.lr.ph.i13.i, %.lr.ph.i13.preheader.i
@@ -43956,7 +43956,7 @@ _ZL18sort_r_swap_blocksPcmm.exit:                 ; preds = %.lr.ph.i13.i, %.lr.
   br i1 %491, label %.lr.ph.i.preheader.i191, label %_ZL18sort_r_swap_blocksPcmm.exit195
 
 .lr.ph.i.preheader.i191:                          ; preds = %489
-  %492 = getelementptr i8, ptr %.013126, i64 %482
+  %492 = getelementptr inbounds i8, ptr %.013126, i64 %482
   br label %.lr.ph.i.i192
 
 .lr.ph.i.i192:                                    ; preds = %.lr.ph.i.i192, %.lr.ph.i.preheader.i191
@@ -43979,7 +43979,7 @@ _ZL18sort_r_swap_blocksPcmm.exit:                 ; preds = %.lr.ph.i13.i, %.lr.
   br i1 %500, label %.lr.ph.i13.preheader.i187, label %_ZL18sort_r_swap_blocksPcmm.exit195
 
 .lr.ph.i13.preheader.i187:                        ; preds = %498
-  %501 = getelementptr i8, ptr %.013126, i64 %484
+  %501 = getelementptr inbounds i8, ptr %.013126, i64 %484
   br label %.lr.ph.i13.i188
 
 .lr.ph.i13.i188:                                  ; preds = %.lr.ph.i13.i188, %.lr.ph.i13.preheader.i187
@@ -44102,7 +44102,7 @@ _ZL14sort_r_cmpswapIJEEiPcS0_mPFiPKvS2_DpT_ES4_.exit.loopexit: ; preds = %.lr.ph
   %.tr216 = phi ptr [ %0, %.lr.ph219 ], [ %162, %_ZL18sort_r_swap_blocksPcmm.exit168 ]
   %24 = add i64 %.tr175218, -1
   %25 = mul i64 %24, %2
-  %26 = getelementptr i8, ptr %.tr216, i64 %25
+  %26 = getelementptr inbounds i8, ptr %.tr216, i64 %25
   %27 = getelementptr inbounds i8, ptr %.tr216, i64 %2
   %28 = lshr i64 %.tr175218, 1
   %29 = mul i64 %28, %2
@@ -44267,7 +44267,7 @@ _ZL11sort_r_swapPcS_m.exit147:                    ; preds = %.lr.ph.i144, %70
   br i1 %84, label %85, label %93
 
 85:                                               ; preds = %.lr.ph.split
-  %86 = getelementptr i8, ptr %.1203, i64 %8
+  %86 = getelementptr inbounds i8, ptr %.1203, i64 %8
   %87 = icmp ult ptr %.1124202, %.1203
   br i1 %87, label %.lr.ph.i148.preheader, label %_ZL11sort_r_swapPcS_m.exit151
 
@@ -44358,7 +44358,7 @@ _ZL11sort_r_swapPcS_m.exit151:                    ; preds = %.lr.ph.i148, %93, %
   br i1 %117, label %.lr.ph.i.preheader.i, label %_ZL18sort_r_swap_blocksPcmm.exit
 
 .lr.ph.i.preheader.i:                             ; preds = %115
-  %118 = getelementptr i8, ptr %.tr216, i64 %108
+  %118 = getelementptr inbounds i8, ptr %.tr216, i64 %108
   br label %.lr.ph.i.i156
 
 .lr.ph.i.i156:                                    ; preds = %.lr.ph.i.i156, %.lr.ph.i.preheader.i
@@ -44380,7 +44380,7 @@ _ZL11sort_r_swapPcS_m.exit151:                    ; preds = %.lr.ph.i148, %93, %
   br i1 %125, label %.lr.ph.i13.preheader.i, label %_ZL18sort_r_swap_blocksPcmm.exit
 
 .lr.ph.i13.preheader.i:                           ; preds = %124
-  %126 = getelementptr i8, ptr %.tr216, i64 %110
+  %126 = getelementptr inbounds i8, ptr %.tr216, i64 %110
   br label %.lr.ph.i13.i
 
 .lr.ph.i13.i:                                     ; preds = %.lr.ph.i13.i, %.lr.ph.i13.preheader.i
@@ -44417,7 +44417,7 @@ _ZL18sort_r_swap_blocksPcmm.exit:                 ; preds = %.lr.ph.i13.i, %.lr.
   br i1 %142, label %.lr.ph.i.preheader.i164, label %_ZL18sort_r_swap_blocksPcmm.exit168
 
 .lr.ph.i.preheader.i164:                          ; preds = %140
-  %143 = getelementptr i8, ptr %.0123192, i64 %133
+  %143 = getelementptr inbounds i8, ptr %.0123192, i64 %133
   br label %.lr.ph.i.i165
 
 .lr.ph.i.i165:                                    ; preds = %.lr.ph.i.i165, %.lr.ph.i.preheader.i164
@@ -44440,7 +44440,7 @@ _ZL18sort_r_swap_blocksPcmm.exit:                 ; preds = %.lr.ph.i13.i, %.lr.
   br i1 %151, label %.lr.ph.i13.preheader.i160, label %_ZL18sort_r_swap_blocksPcmm.exit168
 
 .lr.ph.i13.preheader.i160:                        ; preds = %149
-  %152 = getelementptr i8, ptr %.0123192, i64 %135
+  %152 = getelementptr inbounds i8, ptr %.0123192, i64 %135
   br label %.lr.ph.i13.i161
 
 .lr.ph.i13.i161:                                  ; preds = %.lr.ph.i13.i161, %.lr.ph.i13.preheader.i160

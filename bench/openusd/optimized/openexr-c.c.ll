@@ -27671,7 +27671,7 @@ define internal void @deflate_compress_lazy(ptr noalias noundef %0, ptr noundef 
   %. = tail call i32 @llvm.umin.i32(i32 %7, i32 258)
   %16 = ptrtoint ptr %15 to i64
   %.ptr1961 = getelementptr inbounds i8, ptr %0, i64 268224
-  %17 = getelementptr i8, ptr %0, i64 1312
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 71616
@@ -29257,7 +29257,7 @@ define internal void @deflate_compress_lazy2(ptr noalias noundef %0, ptr noundef
   %. = tail call i32 @llvm.umin.i32(i32 %7, i32 258)
   %16 = ptrtoint ptr %15 to i64
   %.ptr1991 = getelementptr inbounds i8, ptr %0, i64 268224
-  %17 = getelementptr i8, ptr %0, i64 1312
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 71616
@@ -31339,9 +31339,9 @@ define internal void @deflate_compress_near_optimal(ptr noalias noundef %0, ptr 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 399296
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1396
-  %28 = getelementptr i8, ptr %0, i64 1352
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 9010648
-  %30 = getelementptr i8, ptr %0, i64 9009568
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 9009568
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 9009608
   br label %32
 
@@ -50027,9 +50027,9 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   %640 = load i8, ptr %637, align 1
   %641 = getelementptr inbounds i8, ptr %.6, i64 1
   store i8 %640, ptr %.6, align 1
-  %642 = getelementptr i8, ptr %637, i64 2
+  %642 = getelementptr inbounds i8, ptr %637, i64 2
   %643 = load i8, ptr %639, align 1
-  %644 = getelementptr i8, ptr %.6, i64 2
+  %644 = getelementptr inbounds i8, ptr %.6, i64 2
   store i8 %643, ptr %641, align 1
   br label %645
 
@@ -51222,9 +51222,9 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   %640 = load i8, ptr %637, align 1
   %641 = getelementptr inbounds i8, ptr %.6, i64 1
   store i8 %640, ptr %.6, align 1
-  %642 = getelementptr i8, ptr %637, i64 2
+  %642 = getelementptr inbounds i8, ptr %637, i64 2
   %643 = load i8, ptr %639, align 1
-  %644 = getelementptr i8, ptr %.6, i64 2
+  %644 = getelementptr inbounds i8, ptr %.6, i64 2
   store i8 %643, ptr %641, align 1
   br label %645
 

@@ -418,7 +418,7 @@ _ZNKSt6vectorI18VsiteBondParameterSaIS0_EE12_M_check_lenEmPKc.exit.i.i.us.i: ; p
 
 _ZNSt6vectorI18VsiteBondParameterSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit33.i.i.us.i: ; preds = %.lr.ph.i.i.i.i.i.us.i, %.noexc45.us.i
   %.0.lcssa.i.i.i.i.i43.us.i = phi ptr [ %140, %.noexc45.us.i ], [ %144, %.lr.ph.i.i.i.i.i.us.i ]
-  %145 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i43.us.i, i64 16
+  %145 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i43.us.i, i64 16
   %.not.i34.i.i.us.i = icmp eq ptr %127, null
   br i1 %.not.i34.i.i.us.i, label %_ZNSt6vectorI18VsiteBondParameterSaIS0_EE17_M_realloc_insertIJRiR17InteractionOfTypeEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.us.i, label %146
 
@@ -934,7 +934,7 @@ _ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayR
 
 _ZNSt6vectorI22VsiteBondedInteractionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i.i: ; preds = %.lr.ph.i.i.i27.i.i, %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %324, %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i.i ], [ %330, %.lr.ph.i.i.i27.i.i ]
-  %331 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 20
+  %331 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 20
   %.not.i36.i.i = icmp eq ptr %271, null
   br i1 %.not.i36.i.i, label %.noexc21.i, label %332
 
@@ -1039,7 +1039,7 @@ _ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayR
 
 _ZNSt6vectorI22VsiteBondedInteractionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i83.i: ; preds = %.lr.ph.i.i.i27.i72.i, %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i70.i
   %.0.lcssa.i.i.i.i77.i = phi ptr [ %361, %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i70.i ], [ %367, %.lr.ph.i.i.i27.i72.i ]
-  %368 = getelementptr i8, ptr %.0.lcssa.i.i.i.i77.i, i64 20
+  %368 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i77.i, i64 20
   %.not.i36.i85.i = icmp eq ptr %274, null
   br i1 %.not.i36.i85.i, label %.noexc35.i, label %369
 
@@ -1144,7 +1144,7 @@ _ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayR
 
 _ZNSt6vectorI22VsiteBondedInteractionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i120.i: ; preds = %.lr.ph.i.i.i27.i109.i, %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i107.i
   %.0.lcssa.i.i.i.i114.i = phi ptr [ %398, %_ZNSt16allocator_traitsISaI22VsiteBondedInteractionEE9constructIS0_JN3gmx8ArrayRefIKiEERKfEEEvRS1_PT_DpOT0_.exit.i107.i ], [ %404, %.lr.ph.i.i.i27.i109.i ]
-  %405 = getelementptr i8, ptr %.0.lcssa.i.i.i.i114.i, i64 20
+  %405 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i114.i, i64 20
   %.not.i36.i122.i = icmp eq ptr %277, null
   br i1 %.not.i36.i122.i, label %.noexc50.i, label %406
 

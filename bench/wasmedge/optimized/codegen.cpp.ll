@@ -28579,7 +28579,7 @@ _ZSt4copyIPKhPcET0_T_S4_S3_.exit:                 ; preds = %_ZSt4copyIPKhPcET0_
   br label %_ZNSt6vectorIcSaIcEE15_M_erase_at_endEPc.exit
 
 _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %27
-  %.sink.i.i = getelementptr i8, ptr %1, i64 %31
+  %.sink.i.i = getelementptr inbounds i8, ptr %1, i64 %31
   %41 = ptrtoint ptr %.sink.i.i to i64
   %42 = icmp sgt i64 %31, 0
   br i1 %42, label %.lr.ph.i.i.i.i.i18, label %_ZSt4copyIPKhPcET0_T_S4_S3_.exit22

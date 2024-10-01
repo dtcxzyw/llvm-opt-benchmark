@@ -5526,7 +5526,7 @@ if.then.i.i.i.i83.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %while.body.i.i.i.i.
   br i1 %cmp1.not12.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i83.i.i.i.i.i.i.i.i.i.i.i
-  %__cur.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
+  %__cur.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   br label %for.body.i.i.i.i.i.i84.i.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i84.i.i.i.i.i.i.i.i.i.i.i:     ; preds = %for.body.i.i.i.i.i.i84.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i

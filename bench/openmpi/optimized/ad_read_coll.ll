@@ -335,9 +335,9 @@ define void @ADIOI_GEN_ReadStridedColl(ptr noundef %0, ptr noundef %1, i32 nound
   %187 = sext i32 %186 to i64
   %188 = call ptr @ADIOI_Calloc_fn(i64 noundef %187, i64 noundef 4, i32 noundef 559, ptr noundef nonnull @.str) #5
   %189 = sext i32 %139 to i64
-  %190 = getelementptr i32, ptr %188, i64 %189
-  %191 = getelementptr i32, ptr %190, i64 %189
-  %192 = getelementptr i32, ptr %191, i64 %189
+  %190 = getelementptr inbounds i32, ptr %188, i64 %189
+  %191 = getelementptr inbounds i32, ptr %190, i64 %189
+  %192 = getelementptr inbounds i32, ptr %191, i64 %189
   %193 = getelementptr inbounds i32, ptr %192, i64 %189
   %194 = getelementptr inbounds i32, ptr %193, i64 %189
   %195 = getelementptr inbounds i32, ptr %194, i64 %189
@@ -1093,8 +1093,8 @@ define void @ADIOI_Fill_user_buffer(ptr noundef %0, ptr nocapture noundef writeo
   %21 = shl nsw i64 %20, 2
   %22 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %21, i32 noundef 980, ptr noundef nonnull @.str) #5
   %23 = sext i32 %10 to i64
-  %24 = getelementptr i32, ptr %22, i64 %23
-  %25 = getelementptr i32, ptr %24, i64 %23
+  %24 = getelementptr inbounds i32, ptr %22, i64 %23
+  %25 = getelementptr inbounds i32, ptr %24, i64 %23
   %26 = icmp sgt i32 %10, 0
   br i1 %26, label %.lr.ph.preheader, label %._crit_edge
 

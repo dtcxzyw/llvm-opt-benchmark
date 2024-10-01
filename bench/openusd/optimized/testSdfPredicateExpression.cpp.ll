@@ -11767,7 +11767,7 @@ _ZNKSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLi
 
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit27.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.noexc8.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %135, %.noexc8.i.i ], [ %139, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %140 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 8
+  %140 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 8
   %.not.i28.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i, null
   br i1 %.not.i28.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i, label %141
 
@@ -12076,7 +12076,7 @@ _ZNKSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLi
 
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit27.i.i.i.i.i83: ; preds = %.lr.ph.i.i.i.i.i.i.i.i78, %.noexc7.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i84 = phi ptr [ %247, %.noexc7.i.i ], [ %251, %.lr.ph.i.i.i.i.i.i.i.i78 ]
-  %252 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i84, i64 8
+  %252 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i84, i64 8
   %.not.i28.i.i.i.i.i85 = icmp eq ptr %.val.i.i.i.i.i73, null
   br i1 %.not.i28.i.i.i.i.i85, label %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i86, label %253
 
@@ -12391,7 +12391,7 @@ _ZNKSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLi
 
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit27.i.i.i.i.i125: ; preds = %.lr.ph.i.i.i.i.i.i.i.i120, %.noexc8.i.i119
   %.0.lcssa.i.i.i.i.i.i.i.i126 = phi ptr [ %359, %.noexc8.i.i119 ], [ %363, %.lr.ph.i.i.i.i.i.i.i.i120 ]
-  %364 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i126, i64 8
+  %364 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i126, i64 8
   %.not.i28.i.i.i.i.i127 = icmp eq ptr %.val.i.i.i7.i.i, null
   br i1 %.not.i28.i.i.i.i.i127, label %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i128, label %365
 
@@ -12753,7 +12753,7 @@ _ZNKSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLi
 
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit27.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.noexc7.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %495, %.noexc7.i ], [ %499, %.lr.ph.i.i.i.i.i.i.i ]
-  %500 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 8
+  %500 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 8
   %.not.i28.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
   br i1 %.not.i28.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i, label %501
 
@@ -13052,7 +13052,7 @@ _ZNKSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLi
 
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit27.i.i.i.i173: ; preds = %.lr.ph.i.i.i.i.i.i.i168, %.noexc8.i
   %.0.lcssa.i.i.i.i.i.i.i174 = phi ptr [ %605, %.noexc8.i ], [ %609, %.lr.ph.i.i.i.i.i.i.i168 ]
-  %610 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i174, i64 8
+  %610 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i174, i64 8
   %.not.i28.i.i.i.i175 = icmp eq ptr %.val.i.i.i7.i, null
   br i1 %.not.i28.i.i.i.i175, label %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i176, label %611
 
@@ -13341,7 +13341,7 @@ _ZNKSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLi
 
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit27.i.i.i.i214: ; preds = %.lr.ph.i.i.i.i.i.i.i209, %.noexc8.i208
   %.0.lcssa.i.i.i.i.i.i.i215 = phi ptr [ %712, %.noexc8.i208 ], [ %716, %.lr.ph.i.i.i.i.i.i.i209 ]
-  %717 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i215, i64 8
+  %717 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i215, i64 8
   %.not.i28.i.i.i.i216 = icmp eq ptr %.val.i.i.i7.i203, null
   br i1 %.not.i28.i.i.i.i216, label %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i217, label %718
 
@@ -13641,7 +13641,7 @@ _ZNKSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLi
 
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit27.i.i.i.i255: ; preds = %.lr.ph.i.i.i.i.i.i.i250, %.noexc8.i249
   %.0.lcssa.i.i.i.i.i.i.i256 = phi ptr [ %822, %.noexc8.i249 ], [ %826, %.lr.ph.i.i.i.i.i.i.i250 ]
-  %827 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i256, i64 8
+  %827 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i256, i64 8
   %.not.i28.i.i.i.i257 = icmp eq ptr %.val.i.i.i7.i244, null
   br i1 %.not.i28.i.i.i.i257, label %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i258, label %828
 
@@ -13835,7 +13835,7 @@ _ZNKSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLi
 
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit27.i.i.i.i278: ; preds = %.lr.ph.i.i.i.i.i.i.i273, %.noexc24.i
   %.0.lcssa.i.i.i.i.i.i.i279 = phi ptr [ %889, %.noexc24.i ], [ %892, %.lr.ph.i.i.i.i.i.i.i273 ]
-  %893 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i279, i64 8
+  %893 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i279, i64 8
   %.not.i28.i.i.i.i280 = icmp eq ptr %.val.i.i.i23.i, null
   br i1 %.not.i28.i.i.i.i280, label %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIZL14TestLinkErrorsvE4NoneE19_OverloadBinderBaseESt14default_deleteIS5_EESaIS8_EE9push_backEOS8_.exit.i, label %894
 
@@ -15469,7 +15469,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredi
 
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE19_OverloadBinderBaseESt14default_deleteISC_EESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE19_OverloadBinderBaseESt14default_deleteISC_EESaISF_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %64, %_ZNSt12_Vector_baseISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE19_OverloadBinderBaseESt14default_deleteISC_EESaISF_EE11_M_allocateEm.exit.i ], [ %69, %.lr.ph.i.i.i.i ]
-  %70 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %70 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %50, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE19_OverloadBinderBaseESt14default_deleteISC_EESaISF_EE9push_backEOSF_.exit, label %71
 
@@ -18508,7 +18508,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredi
 
 _ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE19_OverloadBinderBaseESt14default_deleteISC_EESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE19_OverloadBinderBaseESt14default_deleteISC_EESaISF_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE19_OverloadBinderBaseESt14default_deleteISC_EESaISF_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE19_OverloadBinderBaseESt14default_deleteISC_EESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit22, label %.lr.ph.i.i.i17
 

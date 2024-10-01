@@ -10457,7 +10457,7 @@ define linkonce_odr dso_local void @_ZN12TspGraphTmplINSt7__cxx1112basic_stringI
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr i8, ptr %1, i64 24
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   br label %15
@@ -12689,7 +12689,7 @@ define linkonce_odr dso_local void @_ZN12TspGraphTmplIPKN5V3TSP12TspStateBaseEE2
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr i8, ptr %1, i64 24
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   br label %15

@@ -11343,7 +11343,7 @@ select.unfold.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i
   br label %.lr.ph.i.i.i9.preheader.i.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i.i.i:                   ; preds = %35
-  %.01317.i.i.i.i.i.i.i = getelementptr i8, ptr %34, i64 8
+  %.01317.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
   %load_initial = load i64, ptr %34, align 8
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -13363,7 +13363,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_delet
 
 _ZNSt6vectorISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %212, %_ZNSt12_Vector_baseISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %217, %.lr.ph.i.i.i.i ]
-  %218 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %218 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %198, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit, label %219
 
@@ -13479,7 +13479,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_delet
 
 _ZNSt6vectorISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i364: ; preds = %.lr.ph.i.i.i.i353, %_ZNSt12_Vector_baseISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i351
   %.0.lcssa.i.i.i.i358 = phi ptr [ %259, %_ZNSt12_Vector_baseISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i351 ], [ %264, %.lr.ph.i.i.i.i353 ]
-  %265 = getelementptr i8, ptr %.0.lcssa.i.i.i.i358, i64 8
+  %265 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i358, i64 8
   %.not.i23.i366 = icmp eq ptr %245, null
   br i1 %.not.i23.i366, label %_ZNSt6vectorISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit367, label %266
 
@@ -13617,7 +13617,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_delet
 
 _ZNSt6vectorISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i388: ; preds = %.lr.ph.i.i.i.i377, %_ZNSt12_Vector_baseISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i375
   %.0.lcssa.i.i.i.i382 = phi ptr [ %314, %_ZNSt12_Vector_baseISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i375 ], [ %319, %.lr.ph.i.i.i.i377 ]
-  %320 = getelementptr i8, ptr %.0.lcssa.i.i.i.i382, i64 8
+  %320 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i382, i64 8
   %.not.i23.i390 = icmp eq ptr %300, null
   br i1 %.not.i23.i390, label %_ZNSt6vectorISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit391, label %321
 
@@ -13733,7 +13733,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_delet
 
 _ZNSt6vectorISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i412: ; preds = %.lr.ph.i.i.i.i401, %_ZNSt12_Vector_baseISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i399
   %.0.lcssa.i.i.i.i406 = phi ptr [ %361, %_ZNSt12_Vector_baseISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i399 ], [ %366, %.lr.ph.i.i.i.i401 ]
-  %367 = getelementptr i8, ptr %.0.lcssa.i.i.i.i406, i64 8
+  %367 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i406, i64 8
   %.not.i23.i414 = icmp eq ptr %347, null
   br i1 %.not.i23.i414, label %_ZNSt6vectorISt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit415, label %368
 
@@ -15364,7 +15364,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5clang5RISCV12RVVIn
   br i1 %74, label %.lr.ph60.preheader.i.i, label %._crit_edge61.i.i
 
 .lr.ph60.preheader.i.i:                           ; preds = %73
-  %75 = getelementptr %"class.std::unique_ptr.110", ptr %.sroa.020.0.i.i, i64 %.049.i.i
+  %75 = getelementptr inbounds %"class.std::unique_ptr.110", ptr %.sroa.020.0.i.i, i64 %.049.i.i
   br label %.lr.ph60.i.i
 
 .lr.ph60.i.i:                                     ; preds = %.lr.ph60.i.i, %.lr.ph60.preheader.i.i
@@ -16845,7 +16845,7 @@ _ZSt13move_backwardIPSt10unique_ptrIN5clang5RISCV12RVVIntrinsicESt14default_dele
   br i1 %107, label %.lr.ph60.preheader.i.i, label %._crit_edge61.i.i
 
 .lr.ph60.preheader.i.i:                           ; preds = %106
-  %108 = getelementptr %"class.std::unique_ptr.110", ptr %.sroa.020.0.i.i, i64 %.049.i.i
+  %108 = getelementptr inbounds %"class.std::unique_ptr.110", ptr %.sroa.020.0.i.i, i64 %.049.i.i
   br label %.lr.ph60.i.i
 
 .lr.ph60.i.i:                                     ; preds = %.lr.ph60.i.i, %.lr.ph60.preheader.i.i
@@ -17114,7 +17114,7 @@ define linkonce_odr void @_ZNSt6vectorIN5clang5RISCV19PrototypeDescriptorESaIS2_
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %17
   %22 = sub nsw i64 0, %9
-  %23 = getelementptr %"struct.clang::RISCV::PrototypeDescriptor", ptr %13, i64 %22
+  %23 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %13, i64 %22
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -17166,7 +17166,7 @@ _ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S
 _ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPKN5clang5RISCV19PrototypeDescriptorEmEvRT_T0_.exit
   %34 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPKN5clang5RISCV19PrototypeDescriptorEmEvRT_T0_.exit ]
   %35 = sub nuw nsw i64 %9, %20
-  %36 = getelementptr %"struct.clang::RISCV::PrototypeDescriptor", ptr %34, i64 %35
+  %36 = getelementptr inbounds %"struct.clang::RISCV::PrototypeDescriptor", ptr %34, i64 %35
   store ptr %36, ptr %12, align 8
   %.not7.i.i.i.i.i49 = icmp eq ptr %1, %13
   br i1 %.not7.i.i.i.i.i49, label %_ZSt22__uninitialized_move_aIPN5clang5RISCV19PrototypeDescriptorES3_SaIS2_EET0_T_S6_S5_RT1_.exit55, label %.lr.ph.i.i.i.i.i50
@@ -17245,7 +17245,7 @@ _ZNSt12_Vector_baseIN5clang5RISCV19PrototypeDescriptorESaIS2_EE11_M_allocateEm.e
   %.0810.i.i.i.i67 = phi ptr [ %60, %.lr.ph.i.i.i.i65 ], [ %2, %.lr.ph.i.i.i.i65.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.011.i.i.i.i66, ptr noundef nonnull align 1 dereferenceable(3) %.0810.i.i.i.i67, i64 3, i1 false)
   %60 = getelementptr inbounds i8, ptr %.0810.i.i.i.i67, i64 3
-  %61 = getelementptr i8, ptr %.011.i.i.i.i66, i64 3
+  %61 = getelementptr inbounds i8, ptr %.011.i.i.i.i66, i64 3
   %.not.i.i.i.i68 = icmp eq ptr %60, %3
   br i1 %.not.i.i.i.i68, label %_ZSt22__uninitialized_copy_aIPKN5clang5RISCV19PrototypeDescriptorEPS2_S2_ET0_T_S7_S6_RSaIT1_E.exit70, label %.lr.ph.i.i.i.i65, !llvm.loop !95
 

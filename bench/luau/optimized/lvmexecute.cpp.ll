@@ -5612,7 +5612,7 @@ _Z10luai_veceqPKfS0_.exit3314:                    ; preds = %1513
   %3385 = lshr i32 %3353, 8
   %3386 = and i32 %3385, 255
   %3387 = zext nneg i32 %3386 to i64
-  %3388 = getelementptr %struct.lua_TValue, ptr %3384, i64 %3387
+  %3388 = getelementptr inbounds %struct.lua_TValue, ptr %3384, i64 %3387
   %3389 = icmp sgt i32 %.fr, 0
   br i1 %3389, label %.lr.ph3426, label %._crit_edge3427
 
@@ -5641,7 +5641,7 @@ _Z10luai_veceqPKfS0_.exit3314:                    ; preds = %1513
   %3399 = lshr i32 %3353, 8
   %3400 = and i32 %3399, 255
   %3401 = zext nneg i32 %3400 to i64
-  %3402 = getelementptr %struct.lua_TValue, ptr %.1, i64 %3401
+  %3402 = getelementptr inbounds %struct.lua_TValue, ptr %.1, i64 %3401
   %invariant.smin = call i32 @llvm.smin.i32(i32 %3356, i32 %.fr)
   %3403 = icmp sgt i32 %invariant.smin, 0
   br i1 %3403, label %.lr.ph3421, label %.preheader3369
@@ -12495,7 +12495,7 @@ _Z10luai_veceqPKfS0_.exit3498:                    ; preds = %1703
   %3862 = lshr i32 %3830, 8
   %3863 = and i32 %3862, 255
   %3864 = zext nneg i32 %3863 to i64
-  %3865 = getelementptr %struct.lua_TValue, ptr %3861, i64 %3864
+  %3865 = getelementptr inbounds %struct.lua_TValue, ptr %3861, i64 %3864
   %3866 = icmp sgt i32 %.fr, 0
   br i1 %3866, label %.lr.ph3615, label %._crit_edge3616
 
@@ -12527,7 +12527,7 @@ _Z10luai_veceqPKfS0_.exit3498:                    ; preds = %1703
   %3879 = lshr i32 %3830, 8
   %3880 = and i32 %3879, 255
   %3881 = zext nneg i32 %3880 to i64
-  %3882 = getelementptr %struct.lua_TValue, ptr %.1, i64 %3881
+  %3882 = getelementptr inbounds %struct.lua_TValue, ptr %.1, i64 %3881
   %invariant.smin = call i32 @llvm.smin.i32(i32 %3833, i32 %.fr)
   %3883 = icmp sgt i32 %invariant.smin, 0
   br i1 %3883, label %.lr.ph3609, label %.preheader3553

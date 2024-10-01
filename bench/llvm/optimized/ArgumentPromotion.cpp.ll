@@ -1447,9 +1447,9 @@ _ZN4llvm15SmallVectorImplISt4pairIlN12_GLOBAL__N_17ArgPartEEE7reserveEm.exit.i.i
 529:                                              ; preds = %_ZN4llvm15SmallVectorImplISt4pairIlN12_GLOBAL__N_17ArgPartEEE7reserveEm.exit.i.i.i.i
   %.val.i56.i.i.i.i = load ptr, ptr %29, align 8
   %530 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #17
-  %531 = getelementptr %"struct.std::pair", ptr %.val.i56.i.i.i.i, i64 %530
+  %531 = getelementptr inbounds %"struct.std::pair", ptr %.val.i56.i.i.i.i, i64 %530
   %532 = sub i64 0, %.0.lcssa.i.i.i.i.i.i
-  %533 = getelementptr %"struct.std::pair", ptr %531, i64 %532
+  %533 = getelementptr inbounds %"struct.std::pair", ptr %531, i64 %532
   %.val.i57.i.i.i.i = load ptr, ptr %29, align 8
   %534 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #17
   %535 = getelementptr inbounds %"struct.std::pair", ptr %.val.i57.i.i.i.i, i64 %534
@@ -1474,7 +1474,7 @@ _ZN4llvm15SmallVectorImplISt4pairIlN12_GLOBAL__N_17ArgPartEEE7reserveEm.exit.i58
   br i1 %.not7.i.i.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplISt4pairIlN12_GLOBAL__N_17ArgPartEEE6appendISt13move_iteratorIPS4_EvEEvT_SA_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.preheader.i60.i.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i60.i.i.i.i:             ; preds = %_ZN4llvm15SmallVectorImplISt4pairIlN12_GLOBAL__N_17ArgPartEEE7reserveEm.exit.i58.i.i.i.i
-  %546 = getelementptr %"struct.std::pair", ptr %.val.i.i59.i.i.i.i, i64 %545
+  %546 = getelementptr inbounds %"struct.std::pair", ptr %.val.i.i59.i.i.i.i, i64 %545
   br label %.lr.ph.i.i.i.i.i61.i.i.i.i
 
 .lr.ph.i.i.i.i.i61.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i61.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i60.i.i.i.i
@@ -8323,7 +8323,7 @@ _ZNSt12_Vector_baseISt4pairIPN4llvm10BasicBlockESt8optionalINS1_12PredIteratorIS
 
 _ZNSt6vectorISt4pairIPN4llvm10BasicBlockESt8optionalINS1_12PredIteratorIS2_NS1_5Value18user_iterator_implINS1_4UserEEEEEEESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPN4llvm10BasicBlockESt8optionalINS1_12PredIteratorIS2_NS1_5Value18user_iterator_implINS1_4UserEEEEEEESaISC_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %91, %_ZNSt12_Vector_baseISt4pairIPN4llvm10BasicBlockESt8optionalINS1_12PredIteratorIS2_NS1_5Value18user_iterator_implINS1_4UserEEEEEEESaISC_EE11_M_allocateEm.exit.i.i.i ], [ %94, %.lr.ph.i.i.i.i.i.i ]
-  %95 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %95 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i23.i.i.i = icmp eq ptr %77, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIPN4llvm10BasicBlockESt8optionalINS1_12PredIteratorIS2_NS1_5Value18user_iterator_implINS1_4UserEEEEEEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i, label %96
 

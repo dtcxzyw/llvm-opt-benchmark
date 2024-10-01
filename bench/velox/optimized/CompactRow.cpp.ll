@@ -4379,7 +4379,7 @@ for.body.i.i.i.i127:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i: ; preds = %for.body.i.i.i.i127, %_ZNSt12_Vector_baseIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EE11_M_allocateEm.exit.i124
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EE11_M_allocateEm.exit.i124 ], [ %incdec.ptr1.i.i.i.i131, %for.body.i.i.i.i127 ]
-  %incdec.ptr.i134 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
+  %incdec.ptr.i134 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i135 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i135, label %invoke.cont12, label %if.then.i20.i
 

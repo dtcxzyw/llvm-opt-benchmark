@@ -1206,7 +1206,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3
 
 _ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i27, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i25
   %.0.lcssa.i.i.i.i = phi ptr [ %75, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i25 ], [ %80, %.lr.ph.i.i.i.i27 ]
-  %81 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %81 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %61, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit, label %82
 
@@ -1568,7 +1568,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3
 
 _ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i21, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i19
   %.0.lcssa.i.i.i.i = phi ptr [ %109, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i19 ], [ %114, %.lr.ph.i.i.i.i21 ]
-  %115 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %115 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %95, null
   br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit, label %116
 
@@ -1894,7 +1894,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3
 
 _ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %65, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %70, %.lr.ph.i.i.i.i ]
-  %71 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %71 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %51, null
   br i1 %.not.i23.i, label %.noexc, label %72
 
@@ -2285,7 +2285,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3
 
 _ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %65, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %70, %.lr.ph.i.i.i.i ]
-  %71 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %71 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %51, null
   br i1 %.not.i23.i, label %.noexc, label %72
 
@@ -35687,7 +35687,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3
 
 _ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit
   %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ], [ %28, %.lr.ph.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not10.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i17
 

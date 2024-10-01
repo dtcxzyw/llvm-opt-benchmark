@@ -5106,7 +5106,7 @@ define internal void @_ZNK5faiss15IndexBinaryHash6searchElPKhlPiPlPKNS_16SearchP
   %142 = mul nsw i64 %141, %.059
   %143 = getelementptr inbounds i32, ptr %140, i64 %142
   %144 = load ptr, ptr %5, align 8
-  %145 = getelementptr i64, ptr %144, i64 %142
+  %145 = getelementptr inbounds i64, ptr %144, i64 %142
   %.not29 = icmp eq i64 %141, 0
   br i1 %.not29, label %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
 
@@ -10358,7 +10358,7 @@ define internal void @_ZNK5faiss20IndexBinaryMultiHash6searchElPKhlPiPlPKNS_16Se
   %103 = mul nsw i64 %102, %.086
   %104 = getelementptr inbounds i32, ptr %101, i64 %103
   %105 = load ptr, ptr %5, align 8
-  %106 = getelementptr i64, ptr %105, i64 %103
+  %106 = getelementptr inbounds i64, ptr %105, i64 %103
   %.not40 = icmp eq i64 %102, 0
   br i1 %.not40, label %_ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
 

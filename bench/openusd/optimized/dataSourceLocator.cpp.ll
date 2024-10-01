@@ -1742,7 +1742,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_GrowSto
 .lr.ph.i.i.i.preheader:                           ; preds = %47
   %51 = icmp ult i32 %50, 7
   %spec.select.i.i46 = select i1 %51, ptr %0, ptr %49
-  %52 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %spec.select.i.i46, i64 %.pre-phi
+  %52 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %spec.select.i.i46, i64 %.pre-phi
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i
@@ -1789,8 +1789,8 @@ _ZSt18uninitialized_copyIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEPS1_ET0_T
   %71 = sub i64 %69, %70
   %72 = shl i64 %.sroa.speculated100, 3
   %73 = tail call noalias noundef ptr @malloc(i64 noundef %72) #20
-  %74 = getelementptr i8, ptr %73, i64 %71
-  %75 = getelementptr i8, ptr %74, i64 %16
+  %74 = getelementptr inbounds i8, ptr %73, i64 %71
+  %75 = getelementptr inbounds i8, ptr %74, i64 %16
   %.not11.i.i.i.i = icmp eq ptr %spec.select.i.i, %1
   br i1 %.not11.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_7TfTokenEEET_S4_S4_S4_.exit, label %.lr.ph.i.i.i.i
 
@@ -1924,7 +1924,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_FreeSto
   %121 = sub nsw i64 %120, %.sroa.speculated
   %122 = sub nsw i64 %17, %.sroa.speculated
   %123 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %1, i64 %121
-  %124 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %12, i64 %122
+  %124 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %12, i64 %122
   %.not11.i.i.i.i74 = icmp eq ptr %123, %12
   br i1 %.not11.i.i.i.i74, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_7TfTokenEEET_S4_S4_S4_.exit80, label %.lr.ph.i.i.i.i75
 
@@ -2069,7 +2069,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit: ; preds = %.lr.ph, %
   %spec.select.i.i85 = select i1 %182, ptr %0, ptr %183
   %184 = load i32, ptr %9, align 8
   %185 = zext i32 %184 to i64
-  %186 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %spec.select.i.i85, i64 %185
+  %186 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %spec.select.i.i85, i64 %185
   br label %.lr.ph.i.i.i87
 
 .lr.ph.i.i.i87:                                   ; preds = %.lr.ph.i.i.i87.preheader, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i92

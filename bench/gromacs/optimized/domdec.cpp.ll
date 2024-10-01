@@ -11018,7 +11018,7 @@ _ZNSt12_Vector_baseI23DDPairInteractionRangesSaIS0_EE11_M_allocateEm.exit.i.i.i:
 
 _ZNSt6vectorI23DDPairInteractionRangesSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseI23DDPairInteractionRangesSaIS0_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %1178, %_ZNSt12_Vector_baseI23DDPairInteractionRangesSaIS0_EE11_M_allocateEm.exit.i.i.i ], [ %1181, %.lr.ph.i.i.i.i.i.i ]
-  %1182 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 52
+  %1182 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 52
   %.not.i23.i.i.i = icmp eq ptr %1165, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorI23DDPairInteractionRangesSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %1183
 
@@ -14904,7 +14904,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx15GpuHaloExchangeESt14default_deleteIS2_
 
 _ZNSt6vectorISt10unique_ptrIN3gmx15GpuHaloExchangeESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx15GpuHaloExchangeESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %75, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx15GpuHaloExchangeESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %79, %.lr.ph.i.i.i.i ]
-  %80 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %80 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i23.i = icmp eq ptr %61, null
   br i1 %.not.i23.i, label %.noexc, label %81
 

@@ -2989,7 +2989,7 @@ for.body.i.i.i.i.i.i276:                          ; preds = %call5.i.i.i.i.i.noe
 
 _ZNSt6vectorIN5arrow12_GLOBAL__N_15RangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i: ; preds = %for.body.i.i.i.i.i.i276, %call5.i.i.i.i.i.noexc.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i42.i, %call5.i.i.i.i.i.noexc.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i276 ]
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i278 = icmp eq ptr %this.val.i.i.i, null
   br i1 %tobool.not.i.i.i.i278, label %_ZNSt6vectorIN5arrow12_GLOBAL__N_15RangeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i22.i.i.i
 
@@ -4125,7 +4125,7 @@ for.body.i.i.i.i.i.i672:                          ; preds = %call5.i.i.i.i.i.noe
 
 _ZNSt6vectorIN5arrow12_GLOBAL__N_15RangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i678: ; preds = %for.body.i.i.i.i.i.i672, %call5.i.i.i.i.i.noexc.i668
   %__cur.0.lcssa.i.i.i.i.i.i679 = phi ptr [ %call5.i.i.i.i.i42.i667, %call5.i.i.i.i.i.noexc.i668 ], [ %incdec.ptr1.i.i.i.i.i.i676, %for.body.i.i.i.i.i.i672 ]
-  %incdec.ptr.i.i.i680 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i679, i64 16
+  %incdec.ptr.i.i.i680 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i679, i64 16
   %tobool.not.i.i.i.i681 = icmp eq ptr %this.val.i.i.i654, null
   br i1 %tobool.not.i.i.i.i681, label %_ZNSt6vectorIN5arrow12_GLOBAL__N_15RangeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i683, label %if.then.i22.i.i.i682
 

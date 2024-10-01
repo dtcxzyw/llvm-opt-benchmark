@@ -2234,7 +2234,7 @@ _ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_all
 
 _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i32, %_ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_allocateEm.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %104, %_ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_allocateEm.exit.i.i.i.i ], [ %107, %.lr.ph.i.i.i.i.i.i.i32 ]
-  %108 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %108 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i.i = icmp eq ptr %90, null
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %109
 
@@ -2313,7 +2313,7 @@ _ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_all
 
 _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i46: ; preds = %.lr.ph.i.i.i.i.i.i.i42, %_ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_allocateEm.exit.i.i.i.i39
   %.0.lcssa.i.i.i.i.i.i.i47 = phi ptr [ %133, %_ZNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_M_allocateEm.exit.i.i.i.i39 ], [ %136, %.lr.ph.i.i.i.i.i.i.i42 ]
-  %137 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i47, i64 16
+  %137 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i47, i64 16
   %.not.i23.i.i.i.i48 = icmp eq ptr %119, null
   br i1 %.not.i23.i.i.i.i48, label %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i49, label %138
 
@@ -4318,7 +4318,7 @@ _ZN4llvm25SmallVectorTemplateCommonItvE20assertSafeToAddRangeEPKtS3_.exit: ; pre
 
 _ZN4llvm15SmallVectorImplItE7reserveEm.exit:      ; preds = %_ZN4llvm25SmallVectorTemplateCommonItvE20assertSafeToAddRangeEPKtS3_.exit, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %8
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #19
   %.idx = shl nsw i64 %32, 1
   %33 = ptrtoint ptr %31 to i64

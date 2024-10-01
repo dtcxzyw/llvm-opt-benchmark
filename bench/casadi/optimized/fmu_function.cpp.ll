@@ -13068,7 +13068,7 @@ _ZNK6casadi16FunctionInternal12sparsity_outEx.exit: ; preds = %_ZN6casadi14casad
   %397 = getelementptr inbounds i8, ptr %396, i64 8
   %398 = getelementptr inbounds i8, ptr %389, i64 8
   %399 = load i64, ptr %398, align 8
-  %400 = getelementptr i8, ptr %389, i64 16
+  %400 = getelementptr inbounds i8, ptr %389, i64 16
   %401 = icmp sgt i64 %399, 0
   br i1 %401, label %.lr.ph.i206, label %.preheader.i
 

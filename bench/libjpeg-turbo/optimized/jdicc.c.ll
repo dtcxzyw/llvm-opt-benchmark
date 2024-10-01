@@ -384,11 +384,11 @@ marker_is_icc.exit99:                             ; preds = %201
   br i1 %.not93119, label %marker_is_icc.exit99.thread, label %.lr.ph124.preheader
 
 .lr.ph124.preheader:                              ; preds = %207
-  %213 = getelementptr i8, ptr %162, i64 14
+  %213 = getelementptr inbounds i8, ptr %162, i64 14
   %214 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %210
   %215 = load i32, ptr %214, align 4
   %216 = zext i32 %215 to i64
-  %217 = getelementptr i8, ptr %143, i64 %216
+  %217 = getelementptr inbounds i8, ptr %143, i64 %216
   br label %.lr.ph124
 
 .lr.ph124:                                        ; preds = %.lr.ph124.preheader, %.lr.ph124

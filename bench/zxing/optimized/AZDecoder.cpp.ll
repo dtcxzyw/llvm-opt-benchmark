@@ -2505,7 +2505,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i.i50.i: ; preds = %_ZNSt6ve
           to label %.noexc5.i.i.i.i unwind label %.body.i.i.i, !noalias !34
 
 .noexc5.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i.i50.i
-  %747 = getelementptr inbounds i8, ptr %746, i64 %743
+  %747 = getelementptr i8, ptr %746, i64 %743
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %746, ptr align 1 %739, i64 %743, i1 false), !noalias !34
   br label %_ZN5ZXing9ByteArrayC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i
 

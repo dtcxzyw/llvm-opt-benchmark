@@ -5129,7 +5129,7 @@ lzx_read_pre_tree.exit313.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   br i1 %or.cond363.i.i.i, label %1218, label %.lr.ph806.preheader.i.i.i
 
 1218:                                             ; preds = %1212
-  %1219 = getelementptr i8, ptr %913, i64 %1217
+  %1219 = getelementptr inbounds i8, ptr %913, i64 %1217
   %1220 = zext nneg i32 %.1.i26.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1219, ptr align 1 %1210, i64 %1220, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.8.i.i.i, ptr align 1 %1210, i64 %1220, i1 false)
@@ -5143,7 +5143,7 @@ lzx_read_pre_tree.exit313.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
 .lr.ph806.preheader.i.i.i:                        ; preds = %1221, %1212
   %1224 = phi i64 [ %1222, %1221 ], [ %1217, %1212 ]
   %wide.trip.count.i.i.i = zext nneg i32 %.1.i26.i.i to i64
-  %1225 = getelementptr i8, ptr %913, i64 %1224
+  %1225 = getelementptr inbounds i8, ptr %913, i64 %1224
   br label %.lr.ph806.i.i.i
 
 .lr.ph806.i.i.i:                                  ; preds = %.lr.ph806.i.i.i, %.lr.ph806.preheader.i.i.i

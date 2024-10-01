@@ -1971,7 +1971,7 @@ for.body.i.i.i.i.i216:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i222: ; preds = %for.body.i.i.i.i.i216, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i212
   %__cur.0.lcssa.i.i.i.i.i223 = phi ptr [ %cond.i10.i.i213, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i212 ], [ %incdec.ptr1.i.i.i.i.i220, %for.body.i.i.i.i.i216 ]
-  %incdec.ptr.i.i224 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i223, i64 8
+  %incdec.ptr.i.i224 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i223, i64 8
   %tobool.not.i.i.i225 = icmp eq ptr %98, null
   br i1 %tobool.not.i.i.i225, label %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_15GetProofCommandEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %if.then.i20.i.i226
 
@@ -2178,7 +2178,7 @@ for.body.i.i.i.i.i271:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i277: ; preds = %for.body.i.i.i.i.i271, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i267
   %__cur.0.lcssa.i.i.i.i.i278 = phi ptr [ %cond.i10.i.i268, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i267 ], [ %incdec.ptr1.i.i.i.i.i275, %for.body.i.i.i.i.i271 ]
-  %incdec.ptr.i.i279 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i278, i64 8
+  %incdec.ptr.i.i279 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i278, i64 8
   %tobool.not.i.i.i280 = icmp eq ptr %110, null
   br i1 %tobool.not.i.i.i280, label %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_24GetInstantiationsCommandEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %if.then.i20.i.i281
 
@@ -2363,7 +2363,7 @@ for.body.i.i.i.i.i318:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i324: ; preds = %for.body.i.i.i.i.i318, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i314
   %__cur.0.lcssa.i.i.i.i.i325 = phi ptr [ %cond.i10.i.i315, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i314 ], [ %incdec.ptr1.i.i.i.i.i322, %for.body.i.i.i.i.i318 ]
-  %incdec.ptr.i.i326 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i325, i64 8
+  %incdec.ptr.i.i326 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i325, i64 8
   %tobool.not.i.i.i327 = icmp eq ptr %142, null
   br i1 %tobool.not.i.i.i327, label %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_19GetUnsatCoreCommandEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %if.then.i20.i.i328
 
@@ -2530,7 +2530,7 @@ for.body.i.i.i.i.i365:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i371: ; preds = %for.body.i.i.i.i.i365, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i361
   %__cur.0.lcssa.i.i.i.i.i372 = phi ptr [ %cond.i10.i.i362, %_ZNSt12_Vector_baseISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i.i361 ], [ %incdec.ptr1.i.i.i.i.i369, %for.body.i.i.i.i.i365 ]
-  %incdec.ptr.i.i373 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i372, i64 8
+  %incdec.ptr.i.i373 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i372, i64 8
   %tobool.not.i.i.i374 = icmp eq ptr %155, null
   br i1 %tobool.not.i.i.i374, label %_ZNSt6vectorISt10unique_ptrIN4cvc56parser3CmdESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_20GetDifficultyCommandEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %if.then.i20.i.i375
 

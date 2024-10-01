@@ -12394,7 +12394,7 @@ _ZSt4copyIPKN2cv4MatxIdLi3ELi3EEEPS2_ET0_T_S7_S6_.exit18.i: ; preds = %288
   br i1 %.not9.i.i.i.i.i, label %_ZNSt6vectorIN2cv4MatxIdLi3ELi3EEESaIS2_EEaSESt16initializer_listIS2_E.exit, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZSt4copyIPKN2cv4MatxIdLi3ELi3EEEPS2_ET0_T_S7_S6_.exit18.i
-  %.sink.i.i25.i.ptr = getelementptr i8, ptr %29, i64 %292
+  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %29, i64 %292
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -12466,7 +12466,7 @@ _ZNSt12_Vector_baseIN2cv4MatxIdLi3ELi3EEESaIS2_EE11_M_allocateEm.exit.i.i: ; pre
 
 _ZNSt6vectorIN2cv4MatxIdLi3ELi3EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv4MatxIdLi3ELi3EEESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %314, %_ZNSt12_Vector_baseIN2cv4MatxIdLi3ELi3EEESaIS2_EE11_M_allocateEm.exit.i.i ], [ %317, %.lr.ph.i.i.i.i.i.i ]
-  %318 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 72
+  %318 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 72
   %.not.i23.i.i = icmp eq ptr %.sroa.0172.0225, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN2cv4MatxIdLi3ELi3EEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %319
 

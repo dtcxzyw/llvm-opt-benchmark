@@ -2211,8 +2211,8 @@ If_CluChangePhase.exit:                           ; preds = %._crit_edge.us.i, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %scevgep124, i64 %94, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep125, ptr noundef nonnull align 8 dereferenceable(1) %scevgep126, i64 %94, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep127, ptr noundef nonnull align 8 dereferenceable(1) %scevgep128, i64 %94, i1 false)
-  %103 = getelementptr i64, ptr %.07797.us.i.us, i64 %88
-  %104 = getelementptr i64, ptr %.098.us.i.us, i64 %88
+  %103 = getelementptr inbounds i64, ptr %.07797.us.i.us, i64 %88
+  %104 = getelementptr inbounds i64, ptr %.098.us.i.us, i64 %88
   %105 = add nsw i32 %.07996.us.i.us, %87
   %106 = icmp slt i32 %105, %58
   %indvar.next = add nuw nsw i64 %indvar, 1
@@ -2400,8 +2400,8 @@ define internal fastcc void @If_CluSwapAdjacent(ptr nocapture noundef writeonly 
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph95.us
-  %46 = getelementptr i64, ptr %.07797.us, i64 %40
-  %47 = getelementptr i64, ptr %.098.us, i64 %40
+  %46 = getelementptr inbounds i64, ptr %.07797.us, i64 %40
+  %47 = getelementptr inbounds i64, ptr %.098.us, i64 %40
   %48 = add nsw i32 %.07996.us, %39
   %49 = icmp slt i32 %48, %8
   br i1 %49, label %.lr.ph.us.preheader, label %.loopexit, !llvm.loop !49
@@ -2576,8 +2576,8 @@ If_CluCopy.exit:                                  ; preds = %5, %.lr.ph.preheade
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %scevgep114, i64 %37, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep115, ptr noundef nonnull align 8 dereferenceable(1) %scevgep116, i64 %37, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep117, ptr noundef nonnull align 8 dereferenceable(1) %scevgep118, i64 %37, i1 false)
-  %46 = getelementptr i64, ptr %.07797.us.i.us, i64 %31
-  %47 = getelementptr i64, ptr %.098.us.i.us, i64 %31
+  %46 = getelementptr inbounds i64, ptr %.07797.us.i.us, i64 %31
+  %47 = getelementptr inbounds i64, ptr %.098.us.i.us, i64 %31
   %48 = add nsw i32 %.07996.us.i.us, %30
   %49 = icmp slt i32 %48, %11
   %indvar.next = add nuw nsw i64 %indvar, 1
@@ -4739,7 +4739,7 @@ define i32 @If_CluCountCofs(ptr nocapture noundef readonly %0, i32 noundef %1, i
   %96 = load i64, ptr %6, align 16
   %97 = sext i32 %51 to i64
   %98 = mul i64 %96, %97
-  %99 = getelementptr i64, ptr %0, i64 %98
+  %99 = getelementptr inbounds i64, ptr %0, i64 %98
   %.not134 = icmp eq i32 %50, 31
   br i1 %.not134, label %.thread.sink.split, label %.lr.ph.preheader.i
 
@@ -7352,8 +7352,8 @@ If_CluHasVar.exit.thread.us:                      ; preds = %._crit_edge.us.i.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 8 dereferenceable(1) %scevgep65.i, i64 %103, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep66.i, ptr noundef nonnull align 8 dereferenceable(1) %scevgep67.i, i64 %103, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep68.i, ptr noundef nonnull align 8 dereferenceable(1) %scevgep69.i, i64 %103, i1 false)
-  %112 = getelementptr i64, ptr %.07797.us.i.i, i64 %97
-  %113 = getelementptr i64, ptr %.098.us.i.i, i64 %97
+  %112 = getelementptr inbounds i64, ptr %.07797.us.i.i, i64 %97
+  %113 = getelementptr inbounds i64, ptr %.098.us.i.i, i64 %97
   %114 = add nsw i32 %.07996.us.i.i, %96
   %115 = icmp slt i32 %114, %61
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
@@ -8076,7 +8076,7 @@ If_CluCopy.exit196:                               ; preds = %.lr.ph.preheader.i1
   %312 = shl nuw i32 1, %311
   %313 = select i1 %310, i32 1, i32 %312
   %314 = sext i32 %313 to i64
-  %315 = getelementptr i64, ptr %11, i64 %314
+  %315 = getelementptr inbounds i64, ptr %11, i64 %314
   %316 = icmp sgt i32 %313, 0
   br i1 %316, label %.lr.ph.preheader.i.i200, label %If_CluCopy.exit.i
 

@@ -408,7 +408,7 @@ _ZNKSt6vectorIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIc
 
 _ZNSt6vectorIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEfE6SymbolSaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc86
   %.0.lcssa.i.i.i.i.i = phi ptr [ %75, %.noexc86 ], [ %78, %.lr.ph.i.i.i.i.i ]
-  %79 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
+  %79 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
   %.not.i27.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i27.i.i, label %_ZNSt6vectorIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEfE6SymbolSaIS7_EE17_M_realloc_insertIJRS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, label %80
 
@@ -2996,7 +2996,7 @@ _ZNKSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE12_M_c
 
 _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %53
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %54, %53 ], [ %58, %.lr.ph.i.i.i.i.i.i.i ]
-  %59 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
+  %59 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 24
   %.not.i34.i.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i34.i.i.i.i, label %_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE17_M_realloc_insertIJRS4_RKiEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i, label %60
 
@@ -3082,7 +3082,7 @@ _ZNKSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE12_M_c
 
 _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i30.i.i.i: ; preds = %.lr.ph.i.i.i.i19.i.i.i, %91
   %.0.lcssa.i.i.i.i24.i.i.i = phi ptr [ %92, %91 ], [ %96, %.lr.ph.i.i.i.i19.i.i.i ]
-  %97 = getelementptr i8, ptr %.0.lcssa.i.i.i.i24.i.i.i, i64 24
+  %97 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i24.i.i.i, i64 24
   %.not.i34.i32.i.i.i = icmp eq ptr %77, null
   br i1 %.not.i34.i32.i.i.i, label %_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE17_M_realloc_insertIJRS4_RKiEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit33.i.i.i, label %98
 

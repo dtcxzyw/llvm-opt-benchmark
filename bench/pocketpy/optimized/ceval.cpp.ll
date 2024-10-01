@@ -13013,7 +13013,7 @@ _ZNSt12_Vector_baseIN4pkpy7StrNameESaIS1_EE11_M_allocateEm.exit.i: ; preds = %48
 
 _ZNSt6vectorIN4pkpy7StrNameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN4pkpy7StrNameESaIS1_EE11_M_allocateEm.exit.i
   %.0.lcssa.i.i.i.i = phi ptr [ %4851, %_ZNSt12_Vector_baseIN4pkpy7StrNameESaIS1_EE11_M_allocateEm.exit.i ], [ %4855, %.lr.ph.i.i.i.i ]
-  %4856 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 2
+  %4856 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 2
   %.not.i23.i = icmp eq ptr %4837, null
   br i1 %.not.i23.i, label %.noexc4609, label %4857
 

@@ -4494,7 +4494,7 @@ _ZN4Node4growEj.exit:                             ; preds = %44, %_ZN5Arena7Amal
   %80 = zext i32 %79 to i64
   %81 = add i32 %66, %2
   %82 = zext i32 %81 to i64
-  %83 = getelementptr ptr, ptr %65, i64 %82
+  %83 = getelementptr inbounds ptr, ptr %65, i64 %82
   %84 = add nsw i64 %80, -1
   %85 = getelementptr inbounds ptr, ptr %83, i64 %84
   %86 = getelementptr inbounds ptr, ptr %68, i64 %84
@@ -4780,10 +4780,10 @@ _ZN4Node7del_outEPS_.exit:                        ; preds = %20, %8, %2
 .lr.ph.preheader.i:                               ; preds = %_ZN4Node7del_outEPS_.exit
   %29 = sub nuw i32 %27, %1
   %30 = zext i32 %29 to i64
-  %31 = getelementptr ptr, ptr %.pre21, i64 %5
+  %31 = getelementptr inbounds ptr, ptr %.pre21, i64 %5
   %32 = add nuw i32 %1, 1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr ptr, ptr %.pre21, i64 %33
+  %34 = getelementptr inbounds ptr, ptr %.pre21, i64 %33
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -4869,10 +4869,10 @@ define hidden void @_ZN4Node7ins_reqEjPS_(ptr noundef nonnull align 8 dereferenc
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
   %12 = add i32 %1, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr ptr, ptr %9, i64 %13
+  %14 = getelementptr inbounds ptr, ptr %9, i64 %13
   %15 = zext i32 %7 to i64
   %16 = add nsw i64 %15, -1
   %17 = getelementptr inbounds ptr, ptr %14, i64 %16
@@ -6589,7 +6589,7 @@ _ZN4Node18find_exact_controlEPS_.exit:            ; preds = %40, %_ZNK10RegionNo
 
 100:                                              ; preds = %97
   %101 = and i64 %indvars.iv.next, 2147483647
-  %102 = getelementptr ptr, ptr %95, i64 %101
+  %102 = getelementptr inbounds ptr, ptr %95, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = ptrtoint ptr %103 to i64
   %105 = and i64 %104, -2
@@ -6598,7 +6598,7 @@ _ZN4Node18find_exact_controlEPS_.exit:            ; preds = %40, %_ZNK10RegionNo
   br i1 %107, label %108, label %97, !llvm.loop !34
 
 108:                                              ; preds = %100
-  %109 = getelementptr ptr, ptr %95, i64 %101
+  %109 = getelementptr inbounds ptr, ptr %95, i64 %101
   %110 = trunc nuw i64 %indvars.iv to i32
   %111 = and i64 %104, 1
   %.not77 = icmp eq i64 %111, 0
@@ -6613,7 +6613,7 @@ _ZN4Node18find_exact_controlEPS_.exit:            ; preds = %40, %_ZNK10RegionNo
   %114 = sub i32 %113, %110
   %115 = zext i32 %114 to i64
   %116 = and i64 %indvars.iv, 4294967295
-  %117 = getelementptr ptr, ptr %95, i64 %116
+  %117 = getelementptr inbounds ptr, ptr %95, i64 %116
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
@@ -8025,8 +8025,8 @@ define hidden void @_ZN10Node_Array6insertEjP4Node(ptr nocapture noundef nonnull
   %35 = zext i32 %33 to i64
   %36 = add i32 %1, 1
   %37 = zext i32 %36 to i64
-  %38 = getelementptr ptr, ptr %.pre6, i64 %37
-  %39 = getelementptr ptr, ptr %.pre6, i64 %31
+  %38 = getelementptr inbounds ptr, ptr %.pre6, i64 %37
+  %39 = getelementptr inbounds ptr, ptr %.pre6, i64 %31
   %40 = add nsw i64 %35, -1
   %41 = getelementptr inbounds ptr, ptr %38, i64 %40
   %42 = getelementptr inbounds ptr, ptr %39, i64 %40
@@ -8069,10 +8069,10 @@ define hidden void @_ZN10Node_Array6removeEj(ptr nocapture noundef nonnull reado
   %8 = zext i32 %7 to i64
   %9 = load ptr, ptr %3, align 8
   %10 = zext i32 %1 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
   %12 = add i32 %1, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr ptr, ptr %9, i64 %13
+  %14 = getelementptr inbounds ptr, ptr %9, i64 %13
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

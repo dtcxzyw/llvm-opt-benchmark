@@ -728,10 +728,10 @@ for.body.i.i:                                     ; preds = %_ZZN5arrow7compute1
   %8 = load i32, ptr %add.ptr.i.i.i.i, align 4
   %add16.i.i = add i32 %6, %4
   %idx.ext18.i.i = zext i32 %add16.i.i to i64
-  %add.ptr19.i.i = getelementptr i8, ptr %5, i64 %idx.ext18.i.i
+  %add.ptr19.i.i = getelementptr inbounds i8, ptr %5, i64 %idx.ext18.i.i
   %9 = load ptr, ptr %arrayidx.i13.i.i, align 8
   %idx.ext21.i.i = zext i32 %col_offset_next.018.i.i to i64
-  %add.ptr22.i.i = getelementptr i8, ptr %9, i64 %idx.ext21.i.i
+  %add.ptr22.i.i = getelementptr inbounds i8, ptr %9, i64 %idx.ext21.i.i
   %cmp4.i.not.i.i = icmp eq i32 %8, %6
   br i1 %cmp4.i.not.i.i, label %_ZZN5arrow7compute16EncoderVarBinary14DecodeImp_avx2ILb1EEEvjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEENKUlPhPKhlE_clES8_SA_l.exit.i.i, label %for.body.i.preheader.i.i
 
@@ -795,10 +795,10 @@ for.body.i.i15:                                   ; preds = %_ZZN5arrow7compute1
   %20 = load i32, ptr %17, align 4
   %add16.i.i23 = add i32 %add.i.i.i22, %14
   %idx.ext18.i.i24 = zext i32 %add16.i.i23 to i64
-  %add.ptr19.i.i25 = getelementptr i8, ptr %15, i64 %idx.ext18.i.i24
+  %add.ptr19.i.i25 = getelementptr inbounds i8, ptr %15, i64 %idx.ext18.i.i24
   %21 = load ptr, ptr %arrayidx.i14.i.i, align 8
   %idx.ext21.i.i26 = zext i32 %col_offset_next.020.i.i to i64
-  %add.ptr22.i.i27 = getelementptr i8, ptr %21, i64 %idx.ext21.i.i26
+  %add.ptr22.i.i27 = getelementptr inbounds i8, ptr %21, i64 %idx.ext21.i.i26
   %cmp4.i.not.i.i28 = icmp eq i32 %20, %add.i.i.i22
   br i1 %cmp4.i.not.i.i28, label %_ZZN5arrow7compute16EncoderVarBinary14DecodeImp_avx2ILb0EEEvjjjRKNS0_12RowTableImplEPNS0_14KeyColumnArrayEENKUlPhPKhlE_clES8_SA_l.exit.i.i, label %for.body.i.preheader.i.i29
 

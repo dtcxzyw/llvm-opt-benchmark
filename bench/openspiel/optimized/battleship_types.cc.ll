@@ -324,7 +324,7 @@ _ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_alloca
 
 _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %116, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %119, %.lr.ph.i.i.i.i.i.i ]
-  %120 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
+  %120 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
   %.not.i23.i.i.i = icmp eq ptr %102, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %121
 
@@ -440,7 +440,7 @@ _ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_alloca
 
 _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i73: ; preds = %.lr.ph.i.i.i.i.i.i69, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i67
   %.0.lcssa.i.i.i.i.i.i74 = phi ptr [ %162, %_ZNSt12_Vector_baseIN10open_spiel10battleship13ShipPlacementESaIS2_EE11_M_allocateEm.exit.i.i.i67 ], [ %165, %.lr.ph.i.i.i.i.i.i69 ]
-  %166 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i74, i64 32
+  %166 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i74, i64 32
   %.not.i23.i.i.i75 = icmp eq ptr %148, null
   br i1 %.not.i23.i.i.i75, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i76, label %167
 

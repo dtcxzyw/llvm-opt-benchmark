@@ -4351,7 +4351,7 @@ define linkonce_odr void @_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE14begi
   %15 = mul i64 %12, %.06
   %16 = getelementptr inbounds float, ptr %14, i64 %15
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr i64, ptr %17, i64 %15
+  %18 = getelementptr inbounds i64, ptr %17, i64 %15
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
 
@@ -4816,7 +4816,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14Vecto
   %30 = mul i64 %28, %.054
   %31 = getelementptr inbounds float, ptr %29, i64 %30
   %32 = load ptr, ptr %25, align 8
-  %33 = getelementptr i64, ptr %32, i64 %30
+  %33 = getelementptr inbounds i64, ptr %32, i64 %30
   %.not.i = icmp eq i64 %28, 0
   br i1 %.not.i, label %.loopexit46, label %.lr.ph46.i.i
 
@@ -5074,7 +5074,7 @@ define linkonce_odr void @_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE14begi
   %15 = mul i64 %12, %.06
   %16 = getelementptr inbounds float, ptr %14, i64 %15
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr i64, ptr %17, i64 %15
+  %18 = getelementptr inbounds i64, ptr %17, i64 %15
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit, label %.lr.ph46.i
 
@@ -5527,7 +5527,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14Vecto
   %30 = mul i64 %28, %.054
   %31 = getelementptr inbounds float, ptr %29, i64 %30
   %32 = load ptr, ptr %25, align 8
-  %33 = getelementptr i64, ptr %32, i64 %30
+  %33 = getelementptr inbounds i64, ptr %32, i64 %30
   %.not.i = icmp eq i64 %28, 0
   br i1 %.not.i, label %.loopexit46, label %.lr.ph46.i.i
 
@@ -5791,7 +5791,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb1ELNS_17Additiv
   %31 = mul i64 %.fr55, %.050
   %32 = getelementptr inbounds float, ptr %30, i64 %31
   %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr i64, ptr %33, i64 %31
+  %34 = getelementptr inbounds i64, ptr %33, i64 %31
   %.not.i = icmp eq i64 %.fr55, 0
   br i1 %.not.i, label %.loopexit42, label %.lr.ph46.i.i
 
@@ -6077,7 +6077,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17Additiv
   %31 = mul i64 %.fr58, %.053
   %32 = getelementptr inbounds float, ptr %30, i64 %31
   %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr i64, ptr %33, i64 %31
+  %34 = getelementptr inbounds i64, ptr %33, i64 %31
   %.not.i = icmp eq i64 %.fr58, 0
   br i1 %.not.i, label %.loopexit45, label %.lr.ph46.i.i
 
@@ -6368,7 +6368,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17Additiv
   %31 = mul i64 %.fr58, %.053
   %32 = getelementptr inbounds float, ptr %30, i64 %31
   %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr i64, ptr %33, i64 %31
+  %34 = getelementptr inbounds i64, ptr %33, i64 %31
   %.not.i = icmp eq i64 %.fr58, 0
   br i1 %.not.i, label %.loopexit45, label %.lr.ph46.i.i
 
@@ -6659,7 +6659,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17Additiv
   %31 = mul i64 %.fr58, %.053
   %32 = getelementptr inbounds float, ptr %30, i64 %31
   %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr i64, ptr %33, i64 %31
+  %34 = getelementptr inbounds i64, ptr %33, i64 %31
   %.not.i = icmp eq i64 %.fr58, 0
   br i1 %.not.i, label %.loopexit45, label %.lr.ph46.i.i
 
@@ -6950,7 +6950,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17Additiv
   %31 = mul i64 %.fr58, %.053
   %32 = getelementptr inbounds float, ptr %30, i64 %31
   %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr i64, ptr %33, i64 %31
+  %34 = getelementptr inbounds i64, ptr %33, i64 %31
   %.not.i = icmp eq i64 %.fr58, 0
   br i1 %.not.i, label %.loopexit45, label %.lr.ph46.i.i
 
@@ -7241,7 +7241,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17Additiv
   %31 = mul i64 %.fr58, %.053
   %32 = getelementptr inbounds float, ptr %30, i64 %31
   %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr i64, ptr %33, i64 %31
+  %34 = getelementptr inbounds i64, ptr %33, i64 %31
   %.not.i = icmp eq i64 %.fr58, 0
   br i1 %.not.i, label %.loopexit45, label %.lr.ph46.i.i
 
@@ -7532,7 +7532,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17Additiv
   %31 = mul i64 %.fr58, %.053
   %32 = getelementptr inbounds float, ptr %30, i64 %31
   %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr i64, ptr %33, i64 %31
+  %34 = getelementptr inbounds i64, ptr %33, i64 %31
   %.not.i = icmp eq i64 %.fr58, 0
   br i1 %.not.i, label %.loopexit45, label %.lr.ph46.i.i
 

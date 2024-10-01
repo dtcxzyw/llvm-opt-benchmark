@@ -12852,8 +12852,8 @@ for.end28:                                        ; preds = %for.body23, %if.end
 
 if.then31:                                        ; preds = %for.end28
   %idx.ext.i.i56 = zext i32 %28 to i64
-  %add.ptr.i.i57 = getelementptr i8, ptr %lhs, i64 %idx.ext.i.i56
-  %add.ptr.i.i60 = getelementptr i8, ptr %rhs, i64 %idx.ext.i.i56
+  %add.ptr.i.i57 = getelementptr inbounds i8, ptr %lhs, i64 %idx.ext.i.i56
+  %add.ptr.i.i60 = getelementptr inbounds i8, ptr %rhs, i64 %idx.ext.i.i56
   %29 = load ptr, ptr %this, align 8
   %field_count_.i = getelementptr inbounds i8, ptr %29, i64 4
   %30 = load i32, ptr %field_count_.i, align 4
@@ -12945,8 +12945,8 @@ if.end61:                                         ; preds = %for.body55, %if.the
 
 if.then64:                                        ; preds = %if.end61
   %idx.ext.i.i84 = zext i32 %40 to i64
-  %add.ptr.i.i85 = getelementptr i8, ptr %lhs, i64 %idx.ext.i.i84
-  %add.ptr.i.i88 = getelementptr i8, ptr %rhs, i64 %idx.ext.i.i84
+  %add.ptr.i.i85 = getelementptr inbounds i8, ptr %lhs, i64 %idx.ext.i.i84
+  %add.ptr.i.i88 = getelementptr inbounds i8, ptr %rhs, i64 %idx.ext.i.i84
   %41 = load ptr, ptr %this, align 8
   %field_count_.i89144 = getelementptr inbounds i8, ptr %41, i64 4
   %42 = load i32, ptr %field_count_.i89144, align 4
@@ -40484,7 +40484,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE11_M_allocateEm.exit.i.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE11_M_allocateEm.exit.i.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i.i = icmp eq ptr %44, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i, label %if.then.i20.i.i.i.i
 

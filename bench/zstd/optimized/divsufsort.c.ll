@@ -1671,7 +1671,7 @@ if.then88.i74.i:                                  ; preds = %for.end86.i69.i
 do.body104.preheader.i117.i:                      ; preds = %if.then88.i74.i
   %idx.ext.i118.i = zext nneg i32 %spec.select.i85.i to i64
   %idx.neg.i119.i = sub nsw i64 0, %idx.ext.i118.i
-  %add.ptr99.i120.i = getelementptr i32, ptr %b.3.lcssa.i71.i, i64 %idx.neg.i119.i
+  %add.ptr99.i120.i = getelementptr inbounds i32, ptr %b.3.lcssa.i71.i, i64 %idx.neg.i119.i
   br label %do.body104.i121.i
 
 do.body104.i121.i:                                ; preds = %do.body104.i121.i, %do.body104.preheader.i117.i
@@ -1705,7 +1705,7 @@ for.end108.i87.i:                                 ; preds = %do.body104.i121.i, 
 do.body130.preheader.i105.i:                      ; preds = %for.end108.i87.i
   %idx.ext123.i106.i = zext nneg i32 %spec.select119.i97.i to i64
   %idx.neg124.i107.i = sub nsw i64 0, %idx.ext123.i106.i
-  %add.ptr125.i108.i = getelementptr i32, ptr %last.addr.0.ph.i.i, i64 %idx.neg124.i107.i
+  %add.ptr125.i108.i = getelementptr inbounds i32, ptr %last.addr.0.ph.i.i, i64 %idx.neg124.i107.i
   br label %do.body130.i109.i
 
 do.body130.i109.i:                                ; preds = %do.body130.i109.i, %do.body130.preheader.i105.i
@@ -3425,7 +3425,7 @@ if.then88.i.i:                                    ; preds = %for.end86.i.i
 do.body104.preheader.i.i:                         ; preds = %if.then88.i.i
   %idx.ext.i.i = zext nneg i32 %spec.select.i.i to i64
   %idx.neg.i43.i = sub nsw i64 0, %idx.ext.i.i
-  %add.ptr99.i.i = getelementptr i32, ptr %b.3.lcssa.i.i, i64 %idx.neg.i43.i
+  %add.ptr99.i.i = getelementptr inbounds i32, ptr %b.3.lcssa.i.i, i64 %idx.neg.i43.i
   br label %do.body104.i.i
 
 do.body104.i.i:                                   ; preds = %do.body104.i.i, %do.body104.preheader.i.i
@@ -3459,7 +3459,7 @@ for.end108.i.i:                                   ; preds = %do.body104.i.i, %if
 do.body130.preheader.i.i:                         ; preds = %for.end108.i.i
   %idx.ext123.i.i = zext nneg i32 %spec.select119.i.i to i64
   %idx.neg124.i.i = sub nsw i64 0, %idx.ext123.i.i
-  %add.ptr125.i.i = getelementptr i32, ptr %last.addr.0.ph.i.i, i64 %idx.neg124.i.i
+  %add.ptr125.i.i = getelementptr inbounds i32, ptr %last.addr.0.ph.i.i, i64 %idx.neg124.i.i
   br label %do.body130.i.i
 
 do.body130.i.i:                                   ; preds = %do.body130.i.i, %do.body130.preheader.i.i
@@ -6258,7 +6258,7 @@ if.then303:                                       ; preds = %for.end300
 do.body325.preheader:                             ; preds = %if.then303
   %idx.ext319 = zext nneg i32 %spec.select to i64
   %idx.neg = sub nsw i64 0, %idx.ext319
-  %add.ptr320 = getelementptr i32, ptr %b.3.lcssa, i64 %idx.neg
+  %add.ptr320 = getelementptr inbounds i32, ptr %b.3.lcssa, i64 %idx.neg
   br label %do.body325
 
 do.body325:                                       ; preds = %do.body325.preheader, %do.body325
@@ -6292,7 +6292,7 @@ for.end331:                                       ; preds = %do.body325, %if.the
 do.body354.preheader:                             ; preds = %for.end331
   %idx.ext347 = zext nneg i32 %spec.select361 to i64
   %idx.neg348 = sub nsw i64 0, %idx.ext347
-  %add.ptr349 = getelementptr i32, ptr %last.addr.0, i64 %idx.neg348
+  %add.ptr349 = getelementptr inbounds i32, ptr %last.addr.0, i64 %idx.neg348
   br label %do.body354
 
 do.body354:                                       ; preds = %do.body354.preheader, %do.body354
@@ -7952,7 +7952,7 @@ for.end:                                          ; preds = %for.inc
 if.then227:                                       ; preds = %for.end
   %idx.ext228 = zext nneg i32 %m.1 to i64
   %idx.neg229 = sub nsw i64 0, %idx.ext228
-  %add.ptr230 = getelementptr i32, ptr %middle.addr.0, i64 %idx.neg229
+  %add.ptr230 = getelementptr inbounds i32, ptr %middle.addr.0, i64 %idx.neg229
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.then227, %for.body.i

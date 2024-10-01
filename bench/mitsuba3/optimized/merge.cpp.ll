@@ -1681,7 +1681,7 @@ _ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEE9constr
   %31 = phi ptr [ %.pre, %27 ], [ %5, %_ZNSt3__114__split_bufferIN7mitsuba3refINS1_6ObjectEEERNS_9allocatorIS4_EEEC2EmmS7_.exit ]
   %32 = getelementptr inbounds i8, ptr %24, i64 8
   %33 = sub nsw i64 0, %.pre-phi16
-  %34 = getelementptr %"class.mitsuba::ref.74", ptr %24, i64 %33
+  %34 = getelementptr inbounds %"class.mitsuba::ref.74", ptr %24, i64 %33
   %.not13.i.i = icmp eq ptr %30, %31
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferIN7mitsuba3refINS1_6ObjectEEERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
@@ -2512,7 +2512,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_6Object
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 3
   %35 = sub nsw i64 0, %34
-  %36 = getelementptr %"class.mitsuba::ref.74", ptr %25, i64 %35
+  %36 = getelementptr inbounds %"class.mitsuba::ref.74", ptr %25, i64 %35
   %.not13.i.i = icmp eq ptr %30, %29
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferIN7mitsuba3refINS1_6ObjectEEERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 

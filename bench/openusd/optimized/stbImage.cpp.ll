@@ -43919,7 +43919,7 @@ _ZL14stbi__zreceiveP10stbi__zbufi.exit85.i.i.i:   ; preds = %_ZL11stbi__zget8P10
 614:                                              ; preds = %610, %587
   %.3.i.i.i = phi ptr [ %612, %610 ], [ %.059.i.i.i, %587 ]
   %615 = sub nsw i64 0, %585
-  %616 = getelementptr i8, ptr %.3.i.i.i, i64 %615
+  %616 = getelementptr inbounds i8, ptr %.3.i.i.i, i64 %615
   %617 = icmp eq i32 %.056.i.i.i, 1
   %.not72.i.i.i = icmp eq i32 %.057.i.i.i, 0
   br i1 %617, label %618, label %623

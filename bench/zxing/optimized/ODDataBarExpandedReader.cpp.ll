@@ -945,7 +945,7 @@ _ZNSt12_Vector_baseIN5ZXing4OneD7DataBar4PairESaIS3_EE11_M_allocateEm.exit.i.i.i
 
 _ZNSt6vectorIN5ZXing4OneD7DataBar4PairESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i39: ; preds = %.lr.ph.i.i.i.i.i.i35, %_ZNSt12_Vector_baseIN5ZXing4OneD7DataBar4PairESaIS3_EE11_M_allocateEm.exit.i.i.i33
   %.0.lcssa.i.i.i.i.i.i40 = phi ptr [ %291, %_ZNSt12_Vector_baseIN5ZXing4OneD7DataBar4PairESaIS3_EE11_M_allocateEm.exit.i.i.i33 ], [ %294, %.lr.ph.i.i.i.i.i.i35 ]
-  %295 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i40, i64 36
+  %295 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i40, i64 36
   %.not.i23.i.i.i41 = icmp eq ptr %277, null
   br i1 %.not.i23.i.i.i41, label %_ZNSt6vectorIN5ZXing4OneD7DataBar4PairESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i42, label %296
 
@@ -1190,7 +1190,7 @@ _ZNSt12_Vector_baseIN5ZXing4OneD7DataBar4PairESaIS3_EE11_M_allocateEm.exit.i.i.i
 
 _ZNSt6vectorIN5ZXing4OneD7DataBar4PairESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i76: ; preds = %.lr.ph.i.i.i.i.i.i72, %_ZNSt12_Vector_baseIN5ZXing4OneD7DataBar4PairESaIS3_EE11_M_allocateEm.exit.i.i.i70
   %.0.lcssa.i.i.i.i.i.i77 = phi ptr [ %373, %_ZNSt12_Vector_baseIN5ZXing4OneD7DataBar4PairESaIS3_EE11_M_allocateEm.exit.i.i.i70 ], [ %376, %.lr.ph.i.i.i.i.i.i72 ]
-  %377 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i77, i64 36
+  %377 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i77, i64 36
   %.not.i23.i.i.i78 = icmp eq ptr %359, null
   br i1 %.not.i23.i.i.i78, label %_ZNSt6vectorIN5ZXing4OneD7DataBar4PairESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i79, label %378
 
@@ -1890,7 +1890,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNSt6vectorIh
 
 .noexc5.i.i:                                      ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i
   store ptr %622, ptr %25, align 8
-  %623 = getelementptr inbounds i8, ptr %622, i64 %619
+  %623 = getelementptr i8, ptr %622, i64 %619
   %624 = getelementptr inbounds i8, ptr %25, i64 16
   store ptr %623, ptr %624, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %622, ptr align 1 %615, i64 %619, i1 false)
@@ -3117,7 +3117,7 @@ _ZNSt12_Vector_baseIN5ZXing4OneD7DataBar4PairESaIS3_EE11_M_allocateEm.exit.i.i: 
 
 _ZNSt6vectorIN5ZXing4OneD7DataBar4PairESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN5ZXing4OneD7DataBar4PairESaIS3_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %73, %_ZNSt12_Vector_baseIN5ZXing4OneD7DataBar4PairESaIS3_EE11_M_allocateEm.exit.i.i ], [ %76, %.lr.ph.i.i.i.i.i ]
-  %77 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 36
+  %77 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 36
   %.not.i23.i.i = icmp eq ptr %59, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5ZXing4OneD7DataBar4PairESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %78
 

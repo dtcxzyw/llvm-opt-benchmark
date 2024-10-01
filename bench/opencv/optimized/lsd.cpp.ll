@@ -1839,7 +1839,7 @@ _ZNSt12_Vector_baseIN2cv23LineSegmentDetectorImpl9normPointESaIS2_EE11_M_allocat
 
 _ZNSt6vectorIN2cv23LineSegmentDetectorImpl9normPointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN2cv23LineSegmentDetectorImpl9normPointESaIS2_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %186, %_ZNSt12_Vector_baseIN2cv23LineSegmentDetectorImpl9normPointESaIS2_EE11_M_allocateEm.exit.i.i ], [ %189, %.lr.ph.i.i.i.i.i.i ]
-  %190 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
+  %190 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 12
   %.not.i23.i.i = icmp eq ptr %172, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN2cv23LineSegmentDetectorImpl9normPointESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %191
 
@@ -5689,7 +5689,7 @@ select.unfold.i.i:                                ; preds = %.lr.ph.i.i
   br i1 %.not18.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN2cv23LineSegmentDetectorImpl9normPointESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.thread20, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %16
-  %.01317.i.i.i = getelementptr i8, ptr %12, i64 12
+  %.01317.i.i.i = getelementptr inbounds i8, ptr %12, i64 12
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i

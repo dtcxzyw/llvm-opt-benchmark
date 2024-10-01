@@ -2453,7 +2453,7 @@ define hidden noundef i32 @_ZNK4ncnn18Reshape_x86_avx5127forwardERKNS_3MatERS1_R
   %indvars.iv2664 = phi i64 [ 0, %.lr.ph2559 ], [ %indvars.iv.next2665, %._crit_edge2556 ]
   %1454 = load ptr, ptr %10, align 8
   %1455 = mul nsw i64 %indvars.iv2664, %1452
-  %1456 = getelementptr float, ptr %1454, i64 %1455
+  %1456 = getelementptr inbounds float, ptr %1454, i64 %1455
   %1457 = load ptr, ptr %2, align 8
   %1458 = load i64, ptr %1007, align 8
   %1459 = mul i64 %1458, %indvars.iv2664

@@ -1156,7 +1156,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %185, %164, %168, %_
   br i1 %188, label %.lr.ph.i.i.i.i.i.preheader.i.i, label %_ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEET0_T_SA_S9_.exit.i.i
 
 .lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit
-  %189 = getelementptr i8, ptr %.sroa.0427.1, i64 %.033.i.i
+  %189 = getelementptr inbounds i8, ptr %.sroa.0427.1, i64 %.033.i.i
   %190 = getelementptr inbounds nuw i8, ptr %.02632.i.ptr.i, i64 8
   %191 = load ptr, ptr %190, align 8, !noalias !38
   br label %.lr.ph.i.i.i.i.i.i.i
@@ -1830,7 +1830,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit258:            ; preds = %377, %356, %360, %_
 
 .lr.ph.i.i.i.i.i.preheader.i.i97:                 ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit258
   %381 = extractvalue { i64, ptr } %341, 1
-  %382 = getelementptr i8, ptr %.sroa.0345.2, i64 %345
+  %382 = getelementptr inbounds i8, ptr %.sroa.0345.2, i64 %345
   br label %.lr.ph.i.i.i.i.i.i.i98
 
 .lr.ph.i.i.i.i.i.i.i98:                           ; preds = %.lr.ph.i.i.i.i.i.i.i98, %.lr.ph.i.i.i.i.i.preheader.i.i97
@@ -3716,7 +3716,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit54:             ; preds = %79, %58, %62, %_ZNS
   br i1 %83, label %.lr.ph.i.i.i.i.i.preheader.i, label %_ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEET0_T_SA_S9_.exit.i
 
 .lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit54
-  %84 = getelementptr i8, ptr %.sroa.091.5, i64 %.033.i
+  %84 = getelementptr inbounds i8, ptr %.sroa.091.5, i64 %.033.i
   %85 = getelementptr inbounds nuw i8, ptr %.02632.i.ptr, i64 8
   %86 = load ptr, ptr %85, align 8
   br label %.lr.ph.i.i.i.i.i.i

@@ -2156,7 +2156,7 @@ define dso_local void @LLVMGetParamTypes(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not13, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %.01012 = getelementptr i8, ptr %4, i64 8
+  %.01012 = getelementptr inbounds i8, ptr %4, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

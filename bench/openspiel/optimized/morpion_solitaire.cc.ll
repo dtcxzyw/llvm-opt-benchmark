@@ -650,7 +650,7 @@ _ZNKSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EE12_M_check_lenEmPKc
 
 _ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i: ; preds = %.lr.ph.i.i.i.i, %54
   %.0.lcssa.i.i.i.i = phi ptr [ %55, %54 ], [ %60, %.lr.ph.i.i.i.i ]
-  %61 = getelementptr i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %61 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %.not.i34.i = icmp eq ptr %40, null
   br i1 %.not.i34.i, label %_ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EE17_M_realloc_insertIJiiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %62
 
@@ -684,8 +684,8 @@ _ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EE12emplace_backIJiiEE
   %73 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %72, i1 true)
   %74 = shl nuw nsw i64 %73, 1
   %75 = xor i64 %74, 126
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN10open_spiel17morpion_solitaire5PointESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr %67, ptr %64, i64 noundef %75)
-  tail call void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN10open_spiel17morpion_solitaire5PointESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_(ptr %67, ptr %64)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN10open_spiel17morpion_solitaire5PointESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_less_iterEEvT_SC_T0_T1_(ptr %67, ptr nonnull %64, i64 noundef %75)
+  tail call void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN10open_spiel17morpion_solitaire5PointESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_(ptr %67, ptr nonnull %64)
   br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN10open_spiel17morpion_solitaire5PointESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN10open_spiel17morpion_solitaire5PointESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit: ; preds = %66, %68

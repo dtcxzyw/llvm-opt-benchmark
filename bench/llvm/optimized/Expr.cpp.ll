@@ -27768,7 +27768,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   br i1 %44, label %.lr.ph.i.i.i.i.i.preheader, label %_ZSt4copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
-  %45 = getelementptr i8, ptr %0, i64 40
+  %45 = getelementptr inbounds i8, ptr %0, i64 40
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -27954,7 +27954,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   br i1 %32, label %.lr.ph.i.i.i.i.i.preheader, label %_ZSt4copyIPKPN5clang4ExprEPPNS0_4StmtEET0_T_S9_S8_.exit
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit
-  %33 = getelementptr i8, ptr %0, i64 40
+  %33 = getelementptr inbounds i8, ptr %0, i64 40
   %34 = load ptr, ptr %6, align 8
   br label %.lr.ph.i.i.i.i.i
 

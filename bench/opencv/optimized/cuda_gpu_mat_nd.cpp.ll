@@ -1222,7 +1222,7 @@ _ZNKSt6vectorIN2cv5RangeESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %41
 
 _ZNSt6vectorIN2cv5RangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc11
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %55, %.noexc11 ], [ %60, %.lr.ph.i.i.i.i.i.i ]
-  %61 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
+  %61 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
   %.not.i34.i.i = icmp eq ptr %35, null
   br i1 %.not.i34.i.i, label %_ZNSt6vectorIN2cv5RangeESaIS1_EE17_M_realloc_insertIJRiiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %62
 
@@ -1317,7 +1317,7 @@ _ZNSt12_Vector_baseIN2cv5RangeESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %85, 
 
 _ZNSt6vectorIN2cv5RangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i.i17, %_ZNSt12_Vector_baseIN2cv5RangeESaIS1_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i.i21 = phi ptr [ %88, %_ZNSt12_Vector_baseIN2cv5RangeESaIS1_EE11_M_allocateEm.exit.i.i ], [ %92, %.lr.ph.i.i.i.i.i.i17 ]
-  %93 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i21, i64 8
+  %93 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i21, i64 8
   %.not.i23.i.i = icmp eq ptr %74, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN2cv5RangeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %94
 
@@ -1390,7 +1390,7 @@ _ZNSt12_Vector_baseIN2cv5RangeESaIS1_EE11_M_allocateEm.exit.i.i28: ; preds = %11
 
 _ZNSt6vectorIN2cv5RangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i34: ; preds = %.lr.ph.i.i.i.i.i.i30, %_ZNSt12_Vector_baseIN2cv5RangeESaIS1_EE11_M_allocateEm.exit.i.i28
   %.0.lcssa.i.i.i.i.i.i35 = phi ptr [ %116, %_ZNSt12_Vector_baseIN2cv5RangeESaIS1_EE11_M_allocateEm.exit.i.i28 ], [ %120, %.lr.ph.i.i.i.i.i.i30 ]
-  %121 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i35, i64 8
+  %121 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i35, i64 8
   %.not.i23.i.i36 = icmp eq ptr %103, null
   br i1 %.not.i23.i.i36, label %_ZNSt6vectorIN2cv5RangeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i37, label %122
 

@@ -494,7 +494,7 @@ entry:
   %4 = ptrtoint ptr %L to i64
   %or.i.i.i = or i64 %4, -985162418487296
   store i64 %or.i.i.i, ptr %call.i, align 8
-  %incdec.ptr5.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %incdec.ptr5.ptr.i = getelementptr i8, ptr %call.i, i64 16
   store i64 -1, ptr %incdec.ptr.i, align 8
   %top.i = getelementptr inbounds i8, ptr %L, i64 40
   store ptr %incdec.ptr5.ptr.i, ptr %top.i, align 8
@@ -752,7 +752,7 @@ entry:
   %4 = ptrtoint ptr %call to i64
   %or.i.i.i = or i64 %4, -985162418487296
   store i64 %or.i.i.i, ptr %call.i, align 8
-  %incdec.ptr5.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %incdec.ptr5.ptr.i = getelementptr i8, ptr %call.i, i64 16
   store i64 -1, ptr %incdec.ptr.i, align 8
   %top.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %incdec.ptr5.ptr.i, ptr %top.i, align 8

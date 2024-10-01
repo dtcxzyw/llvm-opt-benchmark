@@ -1156,7 +1156,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorISt10unique_ptrIKN6google8protobuf19FileDescriptorProtoESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIKN6google8protobuf19FileDescriptorProtoESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIKN6google8protobuf19FileDescriptorProtoESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIKN6google8protobuf19FileDescriptorProtoESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJRPS4_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -6454,13 +6454,13 @@ call5.i.i2.i.i.i.i.i.noexc55:                     ; preds = %if.then12.i
   store ptr %call5.i.i2.i.i.i.i.i56, ptr %iter.i, align 8
   %27 = load i8, ptr %arrayidx.i.i3.i, align 1
   %conv.i3.i.i = zext i8 %27 to i64
-  %add.ptr.i.i.i.i.i4.i.i = getelementptr i8, ptr %23, i64 12
+  %add.ptr.i.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %23, i64 12
   %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i4.i.i, i64 %conv.i3.i.i
   %cmp.not7.i.i.i.i = icmp eq i8 %27, 0
   br i1 %cmp.not7.i.i.i.i, label %_ZZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE16internal_emplaceIJRKiEEENS1_14btree_iteratorINS1_10btree_nodeIS7_EERiPiEESH_DpOT_ENKUlhE_clEh.exit.i, label %for.body.preheader.i.i.i.i
 
 for.body.preheader.i.i.i.i:                       ; preds = %call5.i.i2.i.i.i.i.i.noexc55
-  %add.ptr.i.i.i5.i.i.i6.i = getelementptr i8, ptr %call5.i.i2.i.i.i.i.i56, i64 12
+  %add.ptr.i.i.i5.i.i.i6.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i.i.i.i56, i64 12
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.preheader.i.i.i.i
@@ -20483,7 +20483,7 @@ entry:
   %conv3 = zext i8 %1 to i64
   %2 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
-  %arrayidx.i.i = getelementptr i32, ptr %add.ptr.i.i.i.i, i64 %conv
+  %arrayidx.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i, i64 %conv
   %add.ptr.i.i.i1.i = getelementptr inbounds i8, ptr %2, i64 12
   %arrayidx.i2.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i1.i, i64 %conv3
   %3 = load i32, ptr %arrayidx.i2.i, align 4
@@ -20491,7 +20491,7 @@ entry:
   %conv5 = zext i8 %to_move to i32
   %sub = add nsw i32 %conv5, -1
   %conv6 = sext i32 %sub to i64
-  %add.ptr.i.i.i.i37 = getelementptr i8, ptr %right, i64 12
+  %add.ptr.i.i.i.i37 = getelementptr inbounds i8, ptr %right, i64 12
   %add.ptr.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i37, i64 %conv6
   %cmp.not7.i = icmp eq i32 %sub, 0
   br i1 %cmp.not7.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nEmmmPS8_PS6_.exit, label %for.body.i
@@ -20499,7 +20499,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %dest.09.i.pn = phi ptr [ %dest.09.i, %for.body.i ], [ %arrayidx.i.i, %entry ]
   %src.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %add.ptr.i.i.i.i37, %entry ]
-  %dest.09.i = getelementptr i8, ptr %dest.09.i.pn, i64 4
+  %dest.09.i = getelementptr inbounds i8, ptr %dest.09.i.pn, i64 4
   %4 = load i32, ptr %src.08.i, align 4
   store i32 %4, ptr %dest.09.i, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.08.i, i64 4
@@ -20525,7 +20525,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %sub24 = sub nsw i32 %conv22, %conv5
   %conv25 = sext i32 %sub24 to i64
   %conv32 = zext i8 %to_move to i64
-  %arrayidx.i.i46 = getelementptr i32, ptr %add.ptr.i.i.i.i37, i64 %conv32
+  %arrayidx.i.i46 = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i37, i64 %conv32
   %add.ptr.i47 = getelementptr inbounds i32, ptr %arrayidx.i.i46, i64 %conv25
   %cmp.not7.i48 = icmp eq i8 %7, %to_move
   br i1 %cmp.not7.i48, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nEmmmPS8_PS6_.exit58, label %for.body.i52
@@ -20617,7 +20617,7 @@ entry:
   %arrayidx.i.i = getelementptr i8, ptr %right, i64 10
   %0 = load i8, ptr %arrayidx.i.i, align 1
   %conv4 = zext i8 %to_move to i32
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %right, i64 12
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 12
   %cmp.not9.i = icmp eq i8 %0, 0
   br i1 %cmp.not9.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE19transfer_n_backwardEmmmPS8_PS6_.exit, label %for.body.preheader.i
 
@@ -20656,8 +20656,8 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %conv22 = zext i8 %6 to i32
   %sub25 = sub nsw i32 %conv22, %sub
   %conv26 = sext i32 %sub25 to i64
-  %add.ptr.i.i.i.i41 = getelementptr i8, ptr %this, i64 12
-  %arrayidx.i.i42 = getelementptr i32, ptr %add.ptr.i.i.i.i41, i64 %conv26
+  %add.ptr.i.i.i.i41 = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx.i.i42 = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i41, i64 %conv26
   %add.ptr.i = getelementptr inbounds i32, ptr %arrayidx.i.i42, i64 %conv12
   %cmp.not7.i = icmp eq i32 %sub, 0
   br i1 %cmp.not7.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nEmmmPS8_PS6_.exit, label %for.body.i44
@@ -20797,14 +20797,14 @@ if.end18:                                         ; preds = %entry, %if.else11, 
   %4 = load i8, ptr %arrayidx.i.i25, align 1
   %conv26 = zext i8 %4 to i64
   %conv30 = zext i8 %sub23 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %this, i64 12
-  %arrayidx.i.i29 = getelementptr i32, ptr %add.ptr.i.i.i.i, i64 %conv30
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx.i.i29 = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i, i64 %conv30
   %add.ptr.i = getelementptr inbounds i32, ptr %arrayidx.i.i29, i64 %conv26
   %cmp.not7.i = icmp eq i8 %4, 0
   br i1 %cmp.not7.i, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nEmmmPS8_PS6_.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end18
-  %add.ptr.i.i.i5.i = getelementptr i8, ptr %dest, i64 12
+  %add.ptr.i.i.i5.i = getelementptr inbounds i8, ptr %dest, i64 12
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i

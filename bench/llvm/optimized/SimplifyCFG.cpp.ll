@@ -7911,7 +7911,7 @@ _ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i106.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i102.i.i.i, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i100.i.i.i
   %.0.lcssa.i.i.i.i.i.i107.i.i.i = phi ptr [ %2198, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i100.i.i.i ], [ %2201, %.lr.ph.i.i.i.i.i.i102.i.i.i ]
-  %2202 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i107.i.i.i, i64 16
+  %2202 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i107.i.i.i, i64 16
   %.not.i23.i.i.i108.i.i.i = icmp eq ptr %.sroa.0158.4.i.i.i, null
   br i1 %.not.i23.i.i.i108.i.i.i, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i109.i.i.i, label %2203
 
@@ -9866,7 +9866,7 @@ _ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i161.i.i: ; preds = %.lr.ph.i.i.i.i.i.i157.i.i, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i155.i.i
   %.0.lcssa.i.i.i.i.i.i162.i.i = phi ptr [ %3145, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i155.i.i ], [ %3148, %.lr.ph.i.i.i.i.i.i157.i.i ]
-  %3149 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i162.i.i, i64 16
+  %3149 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i162.i.i, i64 16
   %.not.i23.i.i.i163.i.i = icmp eq ptr %.sroa.0175.2.i.i, null
   br i1 %.not.i23.i.i.i163.i.i, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i164.i.i, label %3150
 
@@ -10437,7 +10437,7 @@ _ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i35: ; preds = %.lr.ph.i.i.i.i.i.i.i31, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i.i29
   %.0.lcssa.i.i.i.i.i.i.i36 = phi ptr [ %3376, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i.i29 ], [ %3379, %.lr.ph.i.i.i.i.i.i.i31 ]
-  %3380 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i36, i64 16
+  %3380 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i36, i64 16
   %.not.i23.i.i.i.i37 = icmp eq ptr %.sroa.0374.0534.i, null
   br i1 %.not.i23.i.i.i.i37, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i38, label %3381
 
@@ -10580,7 +10580,7 @@ _ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i228.i: ; preds = %.lr.ph.i.i.i.i.i.i224.i, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i222.i
   %.0.lcssa.i.i.i.i.i.i229.i = phi ptr [ %3439, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i222.i ], [ %3442, %.lr.ph.i.i.i.i.i.i224.i ]
-  %3443 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i229.i, i64 16
+  %3443 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i229.i, i64 16
   %.not.i23.i.i.i230.i = icmp eq ptr %.sroa.0374.0534.i, null
   br i1 %.not.i23.i.i.i230.i, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i231.i, label %3444
 
@@ -10801,7 +10801,7 @@ _ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i253.i: ; preds = %.lr.ph.i.i.i.i.i.i249.i, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i247.i
   %.0.lcssa.i.i.i.i.i.i254.i = phi ptr [ %3533, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i247.i ], [ %3536, %.lr.ph.i.i.i.i.i.i249.i ]
-  %3537 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i254.i, i64 16
+  %3537 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i254.i, i64 16
   %.not.i23.i.i.i255.i = icmp eq ptr %.sroa.0374.0534.i, null
   br i1 %.not.i23.i.i.i255.i, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i256.i, label %3538
 
@@ -11004,7 +11004,7 @@ _ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i292.i: ; preds = %.lr.ph.i.i.i.i.i.i288.i, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i286.i
   %.0.lcssa.i.i.i.i.i.i293.i = phi ptr [ %3609, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i286.i ], [ %3612, %.lr.ph.i.i.i.i.i.i288.i ]
-  %3613 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i293.i, i64 16
+  %3613 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i293.i, i64 16
   %.not.i23.i.i.i294.i = icmp eq ptr %.sroa.0374.11.i, null
   br i1 %.not.i23.i.i.i294.i, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i295.i, label %3614
 
@@ -11201,7 +11201,7 @@ _ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i325.i: ; preds = %.lr.ph.i.i.i.i.i.i321.i, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i319.i
   %.0.lcssa.i.i.i.i.i.i326.i = phi ptr [ %3688, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i319.i ], [ %3691, %.lr.ph.i.i.i.i.i.i321.i ]
-  %3692 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i326.i, i64 16
+  %3692 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i326.i, i64 16
   %.not.i23.i.i.i327.i = icmp eq ptr %.sroa.0374.0534.i, null
   br i1 %.not.i23.i.i.i327.i, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i328.i, label %3693
 
@@ -21792,7 +21792,7 @@ _ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %965, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i.i ], [ %968, %.lr.ph.i.i.i.i.i.i.i ]
-  %969 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %969 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i.i = icmp eq ptr %.sroa.0141.0207.i, null
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i, label %970
 
@@ -23703,7 +23703,7 @@ _ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i41.i.i: ; preds = %.lr.ph.i.i.i.i.i.i37.i.i, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i35.i.i
   %.0.lcssa.i.i.i.i.i.i42.i.i = phi ptr [ %1819, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i35.i.i ], [ %1822, %.lr.ph.i.i.i.i.i.i37.i.i ]
-  %1823 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i42.i.i, i64 16
+  %1823 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i42.i.i, i64 16
   %.not.i23.i.i.i43.i.i = icmp eq ptr %.sroa.053.181.i.i, null
   br i1 %.not.i23.i.i.i43.i.i, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i44.i.i, label %1824
 
@@ -34697,7 +34697,7 @@ _ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %25, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i ], [ %28, %.lr.ph.i.i.i.i.i ]
-  %29 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not.i23.i.i = icmp eq ptr %11, null
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, label %30
 
@@ -36093,7 +36093,7 @@ _ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i192, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %422, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i ], [ %425, %.lr.ph.i.i.i.i.i.i192 ]
-  %426 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %426 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %.sroa.0271.0372, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %427
 
@@ -37238,7 +37238,7 @@ _ZNSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE17_M_realloc_i
 _ZNSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %308
   %328 = phi ptr [ %.ph58, %308 ], [ %322, %_ZNSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ]
   %.pn498.i = phi ptr [ %.ph57, %308 ], [ %.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ]
-  %329 = getelementptr i8, ptr %.pn498.i, i64 16
+  %329 = getelementptr inbounds i8, ptr %.pn498.i, i64 16
   %330 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm9MapVectorIPNS_10BasicBlockEiNS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_iELj8EEEEixERKS2_(ptr noundef nonnull align 8 dereferenceable(280) %12, ptr noundef nonnull align 8 dereferenceable(8) %306)
   %331 = load i32, ptr %330, align 4
   %332 = add nsw i32 %331, 1
@@ -37562,7 +37562,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE12_M_check_le
 
 _ZNSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i299.i: ; preds = %.lr.ph.i.i.i.i.i295.i, %_ZNKSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE12_M_check_lenEmPKc.exit.i.i292.i
   %.0.lcssa.i.i.i.i.i300.i = phi ptr [ %455, %_ZNKSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE12_M_check_lenEmPKc.exit.i.i292.i ], [ %458, %.lr.ph.i.i.i.i.i295.i ]
-  %459 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i300.i, i64 16
+  %459 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i300.i, i64 16
   %.not.i27.i.i301.i = icmp eq ptr %.val.i.i291.i, null
   br i1 %.not.i27.i.i301.i, label %_ZNSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i302.i, label %460
 
@@ -37811,7 +37811,7 @@ _ZNSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE17_M_realloc_i
 _ZNSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, %519
   %539 = phi ptr [ %500, %519 ], [ %533, %_ZNSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i ]
   %.pn.i = phi ptr [ %499, %519 ], [ %.0.lcssa.i.i.i.i.i.i.i, %_ZNSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i ]
-  %540 = getelementptr i8, ptr %.pn.i, i64 16
+  %540 = getelementptr inbounds i8, ptr %.pn.i, i64 16
   %541 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm9MapVectorIPNS_10BasicBlockEiNS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_iELj8EEEEixERKS2_(ptr noundef nonnull align 8 dereferenceable(280) %12, ptr noundef nonnull align 8 dereferenceable(8) %10)
   %542 = load i32, ptr %541, align 4
   %543 = add nsw i32 %542, 1
@@ -44766,7 +44766,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE12_M_check_le
 
 _ZNSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %59, %_ZNKSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %62, %.lr.ph.i.i.i.i.i.i ]
-  %63 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %63 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i27.i.i.i = icmp eq ptr %.val.i.i.i, null
   br i1 %.not.i27.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %64
 
@@ -44864,7 +44864,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE12_M_check_le
 
 _ZNSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i37: ; preds = %.lr.ph.i.i.i.i.i.i33, %_ZNKSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i30
   %.0.lcssa.i.i.i.i.i.i38 = phi ptr [ %104, %_ZNKSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i30 ], [ %107, %.lr.ph.i.i.i.i.i.i33 ]
-  %108 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i38, i64 16
+  %108 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i38, i64 16
   %.not.i27.i.i.i39 = icmp eq ptr %.val.i.i.i29, null
   br i1 %.not.i27.i.i.i39, label %_ZNSt6vectorIN12_GLOBAL__N_127ValueEqualityComparisonCaseESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i40, label %109
 
@@ -55531,7 +55531,7 @@ _ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateE
 
 _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i413, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %1592, %_ZNSt12_Vector_baseIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE11_M_allocateEm.exit.i.i.i ], [ %1595, %.lr.ph.i.i.i.i.i.i413 ]
-  %1596 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %1596 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %1578, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %1597
 
