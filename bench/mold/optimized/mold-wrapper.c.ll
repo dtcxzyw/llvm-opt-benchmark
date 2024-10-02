@@ -297,7 +297,7 @@ copy_args.exit:                                   ; preds = %vaarg.end.i7
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %13 = load ptr, ptr @environ, align 8
   call void (ptr, ...) @debug_print(ptr noundef nonnull @.str.3, ptr noundef nonnull %path)
-  %call.i = call fastcc zeroext i1 @is_ld(ptr noundef %path)
+  %call.i = call fastcc zeroext i1 @is_ld(ptr noundef nonnull %path)
   br i1 %call.i, label %if.then.i, label %execve.exit
 
 if.then.i:                                        ; preds = %copy_args.exit
@@ -534,7 +534,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   %15 = load ptr, ptr %vaarg.addr, align 8
   call void @llvm.va_end.p0(ptr nonnull %ap)
   call void (ptr, ...) @debug_print(ptr noundef nonnull @.str.3, ptr noundef nonnull %path)
-  %call.i = call fastcc zeroext i1 @is_ld(ptr noundef %path)
+  %call.i = call fastcc zeroext i1 @is_ld(ptr noundef nonnull %path)
   br i1 %call.i, label %if.then.i, label %execve.exit
 
 if.then.i:                                        ; preds = %vaarg.end
@@ -560,7 +560,7 @@ define i32 @execv(ptr noundef nonnull %path, ptr noundef nonnull %argv) local_un
 entry:
   %0 = load ptr, ptr @environ, align 8
   tail call void (ptr, ...) @debug_print(ptr noundef nonnull @.str.3, ptr noundef nonnull %path)
-  %call.i = tail call fastcc zeroext i1 @is_ld(ptr noundef %path)
+  %call.i = tail call fastcc zeroext i1 @is_ld(ptr noundef nonnull %path)
   br i1 %call.i, label %if.then.i, label %execve.exit
 
 if.then.i:                                        ; preds = %entry

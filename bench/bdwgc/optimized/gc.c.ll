@@ -2563,7 +2563,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %.0.i = select i1 %or.cond.i, i64 %0, i64 %52
   %53 = tail call i64 @llvm.uadd.sat.i64(i64 %.0.i, i64 15)
   %54 = and i64 %53, -16
-  %55 = tail call fastcc ptr @GC_alloc_large(i64 noundef %54, i32 noundef %42, i32 noundef %2, i64 noundef 0)
+  %55 = tail call fastcc ptr @GC_alloc_large(i64 noundef range(i64 0, -15) %54, i32 noundef %42, i32 noundef range(i32 0, 2) %2, i64 noundef 0)
   %.not.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i, label %GC_generic_malloc_inner.exit, label %56
 
@@ -2725,7 +2725,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %32 = tail call i64 @llvm.uadd.sat.i64(i64 %23, i64 %27)
   %33 = tail call i64 @llvm.uadd.sat.i64(i64 %32, i64 15)
   %34 = and i64 %33, -16
-  %35 = tail call fastcc ptr @GC_alloc_large(i64 noundef %34, i32 noundef %28, i32 noundef 0, i64 noundef 0)
+  %35 = tail call fastcc ptr @GC_alloc_large(i64 noundef range(i64 0, -15) %34, i32 noundef %28, i32 noundef range(i32 0, 2) 0, i64 noundef 0)
   %.not.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i, label %GC_generic_malloc_inner.exit.thread27, label %36
 
@@ -8528,7 +8528,7 @@ GC_base.exit.thread:                              ; preds = %52, %GC_find_starti
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %74
-  call fastcc void @GC_register_finalizer_inner(ptr noundef %61, ptr noundef null, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @GC_normal_finalize_mark_proc)
+  call fastcc void @GC_register_finalizer_inner(ptr noundef nonnull %61, ptr noundef null, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @GC_normal_finalize_mark_proc)
   br label %81
 
 77:                                               ; preds = %74
@@ -8540,7 +8540,7 @@ GC_base.exit.thread:                              ; preds = %52, %GC_find_starti
   store ptr %1, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %78, i64 8
   store ptr %2, ptr %80, align 8
-  call fastcc void @GC_register_finalizer_inner(ptr noundef %61, ptr noundef nonnull @GC_debug_invoke_finalizer, ptr noundef nonnull %78, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @GC_normal_finalize_mark_proc)
+  call fastcc void @GC_register_finalizer_inner(ptr noundef nonnull %61, ptr noundef nonnull @GC_debug_invoke_finalizer, ptr noundef nonnull %78, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @GC_normal_finalize_mark_proc)
   br label %81
 
 81:                                               ; preds = %79, %76
@@ -8750,7 +8750,7 @@ GC_base.exit.thread:                              ; preds = %52, %GC_find_starti
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %74
-  call fastcc void @GC_register_finalizer_inner(ptr noundef %61, ptr noundef null, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @GC_null_finalize_mark_proc)
+  call fastcc void @GC_register_finalizer_inner(ptr noundef nonnull %61, ptr noundef null, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @GC_null_finalize_mark_proc)
   br label %81
 
 77:                                               ; preds = %74
@@ -8762,7 +8762,7 @@ GC_base.exit.thread:                              ; preds = %52, %GC_find_starti
   store ptr %1, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %78, i64 8
   store ptr %2, ptr %80, align 8
-  call fastcc void @GC_register_finalizer_inner(ptr noundef %61, ptr noundef nonnull @GC_debug_invoke_finalizer, ptr noundef nonnull %78, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @GC_null_finalize_mark_proc)
+  call fastcc void @GC_register_finalizer_inner(ptr noundef nonnull %61, ptr noundef nonnull @GC_debug_invoke_finalizer, ptr noundef nonnull %78, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @GC_null_finalize_mark_proc)
   br label %81
 
 81:                                               ; preds = %79, %76
@@ -8962,7 +8962,7 @@ GC_base.exit.thread:                              ; preds = %52, %GC_find_starti
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %74
-  call fastcc void @GC_register_finalizer_inner(ptr noundef %61, ptr noundef null, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @GC_unreachable_finalize_mark_proc)
+  call fastcc void @GC_register_finalizer_inner(ptr noundef nonnull %61, ptr noundef null, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @GC_unreachable_finalize_mark_proc)
   br label %81
 
 77:                                               ; preds = %74
@@ -8974,7 +8974,7 @@ GC_base.exit.thread:                              ; preds = %52, %GC_find_starti
   store ptr %1, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %78, i64 8
   store ptr %2, ptr %80, align 8
-  call fastcc void @GC_register_finalizer_inner(ptr noundef %61, ptr noundef nonnull @GC_debug_invoke_finalizer, ptr noundef nonnull %78, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @GC_unreachable_finalize_mark_proc)
+  call fastcc void @GC_register_finalizer_inner(ptr noundef nonnull %61, ptr noundef nonnull @GC_debug_invoke_finalizer, ptr noundef nonnull %78, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @GC_unreachable_finalize_mark_proc)
   br label %81
 
 81:                                               ; preds = %79, %76
@@ -9174,7 +9174,7 @@ GC_base.exit.thread:                              ; preds = %52, %GC_find_starti
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %74
-  call fastcc void @GC_register_finalizer_inner(ptr noundef %61, ptr noundef null, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @GC_ignore_self_finalize_mark_proc)
+  call fastcc void @GC_register_finalizer_inner(ptr noundef nonnull %61, ptr noundef null, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @GC_ignore_self_finalize_mark_proc)
   br label %81
 
 77:                                               ; preds = %74
@@ -9186,7 +9186,7 @@ GC_base.exit.thread:                              ; preds = %52, %GC_find_starti
   store ptr %1, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %78, i64 8
   store ptr %2, ptr %80, align 8
-  call fastcc void @GC_register_finalizer_inner(ptr noundef %61, ptr noundef nonnull @GC_debug_invoke_finalizer, ptr noundef nonnull %78, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @GC_ignore_self_finalize_mark_proc)
+  call fastcc void @GC_register_finalizer_inner(ptr noundef nonnull %61, ptr noundef nonnull @GC_debug_invoke_finalizer, ptr noundef nonnull %78, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @GC_ignore_self_finalize_mark_proc)
   br label %81
 
 81:                                               ; preds = %79, %76
@@ -9469,7 +9469,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %.0.i.i = select i1 %44, i64 %37, i64 %45
   %46 = tail call i64 @llvm.uadd.sat.i64(i64 %.0.i.i, i64 15)
   %47 = and i64 %46, -16
-  %48 = tail call fastcc ptr @GC_alloc_large(i64 noundef %47, i32 noundef 1, i32 noundef 1, i64 noundef 0)
+  %48 = tail call fastcc ptr @GC_alloc_large(i64 noundef range(i64 0, -15) %47, i32 noundef 1, i32 noundef range(i32 0, 2) 1, i64 noundef 0)
   %.not.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i, label %ensure_toggleref_capacity.exit.thread, label %49
 
@@ -10253,7 +10253,7 @@ GC_base.exit.thread:                              ; preds = %46, %GC_find_starti
   unreachable
 
 GC_general_register_disappearing_link.exit:       ; preds = %62
-  %66 = tail call fastcc range(i32 0, 4) i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (i8, ptr @GC_arrays, i64 336), ptr noundef %0, ptr noundef %55, ptr noundef nonnull @.str.41)
+  %66 = tail call fastcc range(i32 0, 4) i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (i8, ptr @GC_arrays, i64 336), ptr noundef nonnull %0, ptr noundef nonnull %55, ptr noundef nonnull @.str.41)
   ret i32 %66
 }
 
@@ -16030,7 +16030,7 @@ GC_build_fl4.exit.i163:                           ; preds = %433
   %455 = tail call i64 @llvm.uadd.sat.i64(i64 %450, i64 %451)
   %456 = tail call i64 @llvm.uadd.sat.i64(i64 %455, i64 15)
   %457 = and i64 %456, -16
-  %458 = tail call fastcc ptr @GC_alloc_large(i64 noundef %457, i32 noundef %1, i32 noundef 0, i64 noundef 0)
+  %458 = tail call fastcc ptr @GC_alloc_large(i64 noundef range(i64 0, -15) %457, i32 noundef %1, i32 noundef range(i32 0, 2) 0, i64 noundef 0)
   %.not.i.i = icmp eq ptr %458, null
   br i1 %.not.i.i, label %GC_build_fl.exit185, label %459
 
@@ -20759,7 +20759,7 @@ GC_lock.exit41:                                   ; preds = %.preheader.i.i39, %
   unreachable
 
 GC_general_register_disappearing_link.exit:       ; preds = %168
-  %176 = tail call fastcc range(i32 0, 4) i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (i8, ptr @GC_arrays, i64 336), ptr noundef %171, ptr noundef %66, ptr noundef nonnull @.str.41)
+  %176 = tail call fastcc range(i32 0, 4) i32 @GC_register_disappearing_link_inner(ptr noundef nonnull getelementptr inbounds (i8, ptr @GC_arrays, i64 336), ptr noundef nonnull %171, ptr noundef nonnull %66, ptr noundef nonnull @.str.41)
   %177 = icmp eq i32 %176, 2
   br i1 %177, label %178, label %GC_malloc_explicitly_typed.exit
 
@@ -21470,7 +21470,7 @@ define hidden ptr @GC_get_main_stack_base() local_unnamed_addr #1 {
   %.01316.i.i = phi i64 [ %36, %35 ], [ 0, %22 ]
   %29 = getelementptr inbounds i8, ptr %1, i64 %.01316.i.i
   %30 = sub nuw nsw i64 4096, %.01316.i.i
-  %31 = call i64 @read(i32 noundef %23, ptr noundef nonnull %29, i64 noundef %30) #41
+  %31 = call i64 @read(i32 noundef range(i32 0, -1) %23, ptr noundef nonnull %29, i64 noundef %30) #41
   %32 = icmp slt i64 %31, 0
   br i1 %32, label %GC_repeat_read.exit.i, label %33
 
@@ -26111,7 +26111,7 @@ define hidden void @GC_print_address_map() local_unnamed_addr #1 {
 
 7:                                                ; preds = %11, %6
   %.07.i.i.i = phi i64 [ 0, %6 ], [ %12, %11 ]
-  %8 = call i64 @read(i32 noundef %4, ptr noundef nonnull %3, i64 noundef 500) #41
+  %8 = call i64 @read(i32 noundef range(i32 0, -2147483648) %4, ptr noundef nonnull %3, i64 noundef 500) #41
   %9 = icmp eq i64 %8, -1
   br i1 %9, label %GC_get_maps_len.exit.thread54.i, label %11
 
@@ -26490,7 +26490,7 @@ GC_scratch_alloc.exit.i:                          ; preds = %40
 
 183:                                              ; preds = %187, %182
   %.07.i.i30.i = phi i64 [ 0, %182 ], [ %188, %187 ]
-  %184 = call i64 @read(i32 noundef %180, ptr noundef nonnull %2, i64 noundef 500) #41
+  %184 = call i64 @read(i32 noundef range(i32 0, -2147483648) %180, ptr noundef nonnull %2, i64 noundef 500) #41
   %185 = icmp eq i64 %184, -1
   br i1 %185, label %GC_get_maps_len.exit34.thread66.i, label %187
 
@@ -26550,7 +26550,7 @@ GC_get_maps_len.exit34.thread.i:                  ; preds = %GC_get_maps_len.exi
   %.01316.i.i = phi i64 [ %210, %209 ], [ 0, %.preheader72.i ]
   %203 = getelementptr inbounds i8, ptr %201, i64 %.01316.i.i
   %204 = sub nuw i64 %202, %.01316.i.i
-  %205 = tail call i64 @read(i32 noundef %194, ptr noundef %203, i64 noundef %204) #41
+  %205 = tail call i64 @read(i32 noundef range(i32 0, -1) %194, ptr noundef %203, i64 noundef %204) #41
   %206 = icmp slt i64 %205, 0
   br i1 %206, label %GC_repeat_read.exit.thread.i, label %207
 
@@ -33689,7 +33689,7 @@ GC_is_marked.exit.i:                              ; preds = %202
   %219 = inttoptr i64 %198 to ptr
   %220 = getelementptr inbounds i8, ptr %.0167.i, i64 40
   %221 = load ptr, ptr %220, align 8
-  call void %221(ptr noundef %219) #41
+  call void %221(ptr noundef nonnull %219) #41
   %222 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 168), align 8
   %223 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 152), align 8
   %.not2.i.i = icmp ult ptr %222, %223
@@ -40800,7 +40800,7 @@ define internal fastcc void @GC_grow_table(ptr nocapture noundef %0, ptr nocaptu
   %.0.i = select i1 %31, i64 %24, i64 %32
   %33 = call i64 @llvm.uadd.sat.i64(i64 %.0.i, i64 15)
   %34 = and i64 %33, -16
-  %35 = call fastcc ptr @GC_alloc_large(i64 noundef %34, i32 noundef 1, i32 noundef 1, i64 noundef 0)
+  %35 = call fastcc ptr @GC_alloc_large(i64 noundef range(i64 0, -15) %34, i32 noundef 1, i32 noundef range(i32 0, 2) 1, i64 noundef 0)
   %.not.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i, label %GC_generic_malloc_inner.exit.thread, label %36
 
@@ -44025,7 +44025,7 @@ define internal fastcc range(i32 0, 2) i32 @soft_dirty_open_files() unnamed_addr
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 40, ptr noundef nonnull @.str.247, i64 noundef %4, ptr noundef nonnull @.str.245) #41
   %6 = getelementptr inbounds i8, ptr %2, i64 39
   store i8 0, ptr %6, align 1
-  %7 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %2, i32 noundef 1) #41
+  %7 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %2, i32 noundef range(i32 0, 2) 1) #41
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %open_proc_fd.exit, label %9
 
@@ -44053,7 +44053,7 @@ open_proc_fd.exit:                                ; preds = %0
   %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 40, ptr noundef nonnull @.str.247, i64 noundef %4, ptr noundef nonnull @.str.246) #41
   %17 = getelementptr inbounds i8, ptr %1, i64 39
   store i8 0, ptr %17, align 1
-  %18 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1, i32 noundef 0) #41
+  %18 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1, i32 noundef range(i32 0, 2) 0) #41
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %25, label %20
 

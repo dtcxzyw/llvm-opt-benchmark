@@ -1142,11 +1142,11 @@ define internal fastcc void @create_patches(ptr noundef %0, ptr noundef %1, ptr 
 sort_object.exit112:                              ; preds = %16
   %65 = getelementptr inbounds i8, ptr %2, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = tail call fastcc ptr @sort_list(ptr noundef %66, i32 noundef %4)
+  %67 = tail call fastcc ptr @sort_list(ptr noundef %66, i32 noundef range(i32 0, 2) %4)
   store ptr %67, ptr %65, align 8
   %68 = getelementptr inbounds i8, ptr %3, i64 16
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call fastcc ptr @sort_list(ptr noundef %69, i32 noundef %4)
+  %70 = tail call fastcc ptr @sort_list(ptr noundef %69, i32 noundef range(i32 0, 2) %4)
   store ptr %70, ptr %68, align 8
   %71 = load ptr, ptr %65, align 8
   %72 = icmp ne ptr %71, null
@@ -1359,7 +1359,7 @@ define void @cJSONUtils_SortObject(ptr noundef %0) local_unnamed_addr #5 {
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call fastcc ptr @sort_list(ptr noundef %5, i32 noundef 0)
+  %6 = tail call fastcc ptr @sort_list(ptr noundef %5, i32 noundef range(i32 0, 2) 0)
   store ptr %6, ptr %4, align 8
   br label %sort_object.exit
 
@@ -1375,7 +1375,7 @@ define void @cJSONUtils_SortObjectCaseSensitive(ptr noundef %0) local_unnamed_ad
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call fastcc ptr @sort_list(ptr noundef %5, i32 noundef 1)
+  %6 = tail call fastcc ptr @sort_list(ptr noundef %5, i32 noundef range(i32 0, 2) 1)
   store ptr %6, ptr %4, align 8
   br label %sort_object.exit
 
@@ -1528,14 +1528,14 @@ define internal fastcc ptr @generate_merge_patch(ptr noundef %0, ptr noundef %1,
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call fastcc ptr @sort_list(ptr noundef %17, i32 noundef %2)
+  %18 = tail call fastcc ptr @sort_list(ptr noundef %17, i32 noundef range(i32 0, 2) %2)
   store ptr %18, ptr %16, align 8
   br label %sort_object.exit48
 
 sort_object.exit48:                               ; preds = %13, %15
   %19 = getelementptr inbounds i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call fastcc ptr @sort_list(ptr noundef %20, i32 noundef %2)
+  %21 = tail call fastcc ptr @sort_list(ptr noundef %20, i32 noundef range(i32 0, 2) %2)
   store ptr %21, ptr %19, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
@@ -1805,11 +1805,11 @@ define internal fastcc range(i32 0, 2) i32 @compare_json(ptr noundef %0, ptr nou
 sort_object.exit61:                               ; preds = %13
   %49 = getelementptr inbounds i8, ptr %0, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call fastcc ptr @sort_list(ptr noundef %50, i32 noundef %2)
+  %51 = tail call fastcc ptr @sort_list(ptr noundef %50, i32 noundef range(i32 0, 2) %2)
   store ptr %51, ptr %49, align 8
   %52 = getelementptr inbounds i8, ptr %1, i64 16
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call fastcc ptr @sort_list(ptr noundef %53, i32 noundef %2)
+  %54 = tail call fastcc ptr @sort_list(ptr noundef %53, i32 noundef range(i32 0, 2) %2)
   store ptr %54, ptr %52, align 8
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %sort_object.exit61.split.us, label %sort_object.exit61.split

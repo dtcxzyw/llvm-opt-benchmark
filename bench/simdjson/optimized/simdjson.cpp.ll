@@ -1730,7 +1730,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  invoke void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(76) @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, i64 11, ptr nonnull @.str.33, i64 47, ptr nonnull @.str.34, i32 noundef 0)
+  invoke void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, i64 11, ptr nonnull @.str.33, i64 47, ptr nonnull @.str.34, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -1977,7 +1977,7 @@ init.check.i:                                     ; preds = %for.end
   br i1 %tobool.not.i6, label %return, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(76) @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, i64 11, ptr nonnull @.str.33, i64 47, ptr nonnull @.str.34, i32 noundef 0)
+  invoke void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, i64 11, ptr nonnull @.str.33, i64 47, ptr nonnull @.str.34, i32 noundef 0)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
@@ -2090,7 +2090,7 @@ init.check.i9:                                    ; preds = %if.else
   br i1 %tobool.not.i10, label %invoke.cont12, label %init.i11
 
 init.i11:                                         ; preds = %init.check.i9
-  invoke void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(76) @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, i64 11, ptr nonnull @.str.33, i64 47, ptr nonnull @.str.34, i32 noundef 0)
+  invoke void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson8internal25get_unsupported_singletonEvE21unsupported_singleton, i64 11, ptr nonnull @.str.33, i64 47, ptr nonnull @.str.34, i32 noundef 0)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i11
@@ -3192,7 +3192,7 @@ sw.bb29.i.i:                                      ; preds = %sw.bb10.i.i
   br i1 %cmp32.i.i, label %document_end.sink.split.i.i, label %array_begin.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  %call42.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i.i) #53
+  %call42.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i.i.i) #53
   %tobool43.not.i.i = icmp eq i32 %call42.i.i, 0
   br i1 %tobool43.not.i.i, label %sw.default.i.document_end.i_crit_edge.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -3313,7 +3313,7 @@ sw.bb100.i.i:                                     ; preds = %if.end84.i.i
   br i1 %cmp103.i.i, label %sw.epilog118.sink.split.i.i, label %array_begin.i.i
 
 sw.default112.i.i:                                ; preds = %if.end84.i.i
-  %call114.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i162.i.i) #53
+  %call114.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i162.i.i) #53
   %tobool115.not.i.i = icmp eq i32 %call114.i.i, 0
   br i1 %tobool115.not.i.i, label %object_continue.i.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -3499,7 +3499,7 @@ sw.bb202.i.i:                                     ; preds = %array_value.i.i
   br i1 %cmp205.i.i, label %sw.epilog220.sink.split.i.i, label %array_begin.i.i
 
 sw.default214.i.i:                                ; preds = %array_value.i.i
-  %call216.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i267.i.i) #53
+  %call216.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i267.i.i) #53
   %tobool217.not.i.i = icmp eq i32 %call216.i.i, 0
   br i1 %tobool217.not.i.i, label %array_continue.i.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -3654,7 +3654,7 @@ sw.bb16.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp19.i.i, label %document_end.sink.split.i.i, label %array_begin.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  %call29.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i4.i) #53
+  %call29.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i.i4.i) #53
   %tobool30.not.i.i = icmp eq i32 %call29.i.i, 0
   br i1 %tobool30.not.i.i, label %sw.default.i.document_end.i_crit_edge.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -3775,7 +3775,7 @@ sw.bb85.i.i:                                      ; preds = %if.end69.i.i
   br i1 %cmp88.i.i, label %sw.epilog103.sink.split.i.i, label %array_begin.i.i
 
 sw.default97.i.i:                                 ; preds = %if.end69.i.i
-  %call99.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i146.i.i) #53
+  %call99.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i146.i.i) #53
   %tobool100.not.i.i = icmp eq i32 %call99.i.i, 0
   br i1 %tobool100.not.i.i, label %object_continue.i.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -3961,7 +3961,7 @@ sw.bb185.i.i:                                     ; preds = %array_value.i.i
   br i1 %cmp188.i.i, label %sw.epilog203.sink.split.i.i, label %array_begin.i.i
 
 sw.default197.i.i:                                ; preds = %array_value.i.i
-  %call199.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i251.i.i) #53
+  %call199.i.i = call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i251.i.i) #53
   %tobool200.not.i.i = icmp eq i32 %call199.i.i, 0
   br i1 %tobool200.not.i.i, label %array_continue.i.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -4580,7 +4580,7 @@ entry:
   %idx.i.i = getelementptr inbounds i8, ptr %reader.i, i64 24
   store i64 0, ptr %idx.i.i, align 8
   %dst.i.i = getelementptr inbounds i8, ptr %minifier.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %minifier.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %minifier.i, i8 0, i64 24, i1 false)
   store ptr %dst, ptr %dst.i.i, align 8
   %cmp.i18.not.i = icmp ult i64 %len, 129
   br i1 %cmp.i18.not.i, label %while.end.i, label %while.body.i
@@ -4733,7 +4733,7 @@ if.end11.i:                                       ; preds = %_ZN8simdjson7haswel
   %8 = load ptr, ptr %structural_indexes.i, align 8
   %checker.i.i = getelementptr inbounds i8, ptr %indexer.i, i64 32
   %indexer.i.i = getelementptr inbounds i8, ptr %indexer.i, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %indexer.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(152) %indexer.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %checker.i.i, i8 0, i64 96, i1 false)
   store ptr %8, ptr %indexer.i.i, align 32
   %prev_structurals.i.i = getelementptr inbounds i8, ptr %indexer.i, i64 136
@@ -5188,7 +5188,7 @@ sw.bb29.i.i:                                      ; preds = %sw.bb10.i.i
   br i1 %cmp32.i.i, label %document_end.sink.split.i.i, label %array_begin.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  %call42.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i.i) #53
+  %call42.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i.i.i) #53
   %tobool43.not.i.i = icmp eq i32 %call42.i.i, 0
   br i1 %tobool43.not.i.i, label %sw.default.i.document_end.i_crit_edge.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -5309,7 +5309,7 @@ sw.bb99.i.i:                                      ; preds = %if.end83.i.i
   br i1 %cmp102.i.i, label %sw.epilog117.sink.split.i.i, label %array_begin.i.i
 
 sw.default111.i.i:                                ; preds = %if.end83.i.i
-  %call113.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i162.i.i) #53
+  %call113.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i162.i.i) #53
   %tobool114.not.i.i = icmp eq i32 %call113.i.i, 0
   br i1 %tobool114.not.i.i, label %object_continue.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -5495,7 +5495,7 @@ sw.bb199.i.i:                                     ; preds = %array_value.i.i
   br i1 %cmp202.i.i, label %sw.epilog217.sink.split.i.i, label %array_begin.i.i
 
 sw.default211.i.i:                                ; preds = %array_value.i.i
-  %call213.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i267.i.i) #53
+  %call213.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i267.i.i) #53
   %tobool214.not.i.i = icmp eq i32 %call213.i.i, 0
   br i1 %tobool214.not.i.i, label %array_continue.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -5650,7 +5650,7 @@ sw.bb16.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp19.i.i, label %document_end.sink.split.i.i, label %array_begin.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  %call29.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i4.i) #53
+  %call29.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i.i4.i) #53
   %tobool30.not.i.i = icmp eq i32 %call29.i.i, 0
   br i1 %tobool30.not.i.i, label %sw.default.i.document_end.i_crit_edge.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -5771,7 +5771,7 @@ sw.bb85.i.i:                                      ; preds = %if.end69.i.i
   br i1 %cmp88.i.i, label %sw.epilog103.sink.split.i.i, label %array_begin.i.i
 
 sw.default97.i.i:                                 ; preds = %if.end69.i.i
-  %call99.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i146.i.i) #53
+  %call99.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i146.i.i) #53
   %tobool100.not.i.i = icmp eq i32 %call99.i.i, 0
   br i1 %tobool100.not.i.i, label %object_continue.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -5957,7 +5957,7 @@ sw.bb185.i.i:                                     ; preds = %array_value.i.i
   br i1 %cmp188.i.i, label %sw.epilog203.sink.split.i.i, label %array_begin.i.i
 
 sw.default197.i.i:                                ; preds = %array_value.i.i
-  %call199.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i251.i.i) #53
+  %call199.i.i = call fastcc noundef i32 @_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i251.i.i) #53
   %tobool200.not.i.i = icmp eq i32 %call199.i.i, 0
   br i1 %tobool200.not.i.i, label %array_continue.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -6951,7 +6951,7 @@ if.end11.i:                                       ; preds = %_ZN8simdjson7icelak
   %8 = load ptr, ptr %structural_indexes.i, align 8
   %checker.i.i = getelementptr inbounds i8, ptr %indexer.i, i64 64
   %indexer.i.i = getelementptr inbounds i8, ptr %indexer.i, i64 256
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %indexer.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(280) %indexer.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(192) %checker.i.i, i8 0, i64 192, i1 false)
   store ptr %8, ptr %indexer.i.i, align 64
   %prev_structurals.i.i = getelementptr inbounds i8, ptr %indexer.i, i64 264
@@ -7390,7 +7390,7 @@ sw.bb29.i.i:                                      ; preds = %sw.bb10.i.i
   br i1 %cmp32.i.i, label %document_end.sink.split.i.i, label %array_begin.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  %call42.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i.i) #53
+  %call42.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i.i.i) #53
   %tobool43.not.i.i = icmp eq i32 %call42.i.i, 0
   br i1 %tobool43.not.i.i, label %sw.default.i.document_end.i_crit_edge.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -7511,7 +7511,7 @@ sw.bb99.i.i:                                      ; preds = %if.end83.i.i
   br i1 %cmp102.i.i, label %sw.epilog117.sink.split.i.i, label %array_begin.i.i
 
 sw.default111.i.i:                                ; preds = %if.end83.i.i
-  %call113.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i162.i.i) #53
+  %call113.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i162.i.i) #53
   %tobool114.not.i.i = icmp eq i32 %call113.i.i, 0
   br i1 %tobool114.not.i.i, label %object_continue.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -7697,7 +7697,7 @@ sw.bb199.i.i:                                     ; preds = %array_value.i.i
   br i1 %cmp202.i.i, label %sw.epilog217.sink.split.i.i, label %array_begin.i.i
 
 sw.default211.i.i:                                ; preds = %array_value.i.i
-  %call213.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i267.i.i) #53
+  %call213.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i267.i.i) #53
   %tobool214.not.i.i = icmp eq i32 %call213.i.i, 0
   br i1 %tobool214.not.i.i, label %array_continue.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -7852,7 +7852,7 @@ sw.bb16.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp19.i.i, label %document_end.sink.split.i.i, label %array_begin.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  %call29.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i4.i) #53
+  %call29.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i.i4.i) #53
   %tobool30.not.i.i = icmp eq i32 %call29.i.i, 0
   br i1 %tobool30.not.i.i, label %sw.default.i.document_end.i_crit_edge.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -7973,7 +7973,7 @@ sw.bb85.i.i:                                      ; preds = %if.end69.i.i
   br i1 %cmp88.i.i, label %sw.epilog103.sink.split.i.i, label %array_begin.i.i
 
 sw.default97.i.i:                                 ; preds = %if.end69.i.i
-  %call99.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i146.i.i) #53
+  %call99.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i146.i.i) #53
   %tobool100.not.i.i = icmp eq i32 %call99.i.i, 0
   br i1 %tobool100.not.i.i, label %object_continue.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -8159,7 +8159,7 @@ sw.bb185.i.i:                                     ; preds = %array_value.i.i
   br i1 %cmp188.i.i, label %sw.epilog203.sink.split.i.i, label %array_begin.i.i
 
 sw.default197.i.i:                                ; preds = %array_value.i.i
-  %call199.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i251.i.i) #53
+  %call199.i.i = call fastcc noundef i32 @_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i251.i.i) #53
   %tobool200.not.i.i = icmp eq i32 %call199.i.i, 0
   br i1 %tobool200.not.i.i, label %array_continue.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -9365,7 +9365,7 @@ if.end11.i:                                       ; preds = %_ZN8simdjson8westme
   %8 = load ptr, ptr %structural_indexes.i, align 8
   %checker.i.i = getelementptr inbounds i8, ptr %indexer.i, i64 32
   %indexer.i.i = getelementptr inbounds i8, ptr %indexer.i, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %indexer.i, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %indexer.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %checker.i.i, i8 0, i64 48, i1 false)
   store ptr %8, ptr %indexer.i.i, align 16
   %prev_structurals.i.i = getelementptr inbounds i8, ptr %indexer.i, i64 88
@@ -9943,7 +9943,7 @@ sw.bb29.i.i:                                      ; preds = %sw.bb10.i.i
   br i1 %cmp32.i.i, label %document_end.sink.split.i.i, label %array_begin.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  %call42.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i.i) #53
+  %call42.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i.i.i) #53
   %tobool43.not.i.i = icmp eq i32 %call42.i.i, 0
   br i1 %tobool43.not.i.i, label %sw.default.i.document_end.i_crit_edge.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -10064,7 +10064,7 @@ sw.bb99.i.i:                                      ; preds = %if.end83.i.i
   br i1 %cmp102.i.i, label %sw.epilog117.sink.split.i.i, label %array_begin.i.i
 
 sw.default111.i.i:                                ; preds = %if.end83.i.i
-  %call113.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i162.i.i) #53
+  %call113.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i162.i.i) #53
   %tobool114.not.i.i = icmp eq i32 %call113.i.i, 0
   br i1 %tobool114.not.i.i, label %object_continue.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -10250,7 +10250,7 @@ sw.bb199.i.i:                                     ; preds = %array_value.i.i
   br i1 %cmp202.i.i, label %sw.epilog217.sink.split.i.i, label %array_begin.i.i
 
 sw.default211.i.i:                                ; preds = %array_value.i.i
-  %call213.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i267.i.i) #53
+  %call213.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i267.i.i) #53
   %tobool214.not.i.i = icmp eq i32 %call213.i.i, 0
   br i1 %tobool214.not.i.i, label %array_continue.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -10405,7 +10405,7 @@ sw.bb16.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp19.i.i, label %document_end.sink.split.i.i, label %array_begin.i.i
 
 sw.default.i.i:                                   ; preds = %if.end.i.i
-  %call29.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i.i4.i) #53
+  %call29.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder20visit_root_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %incdec.ptr.i.i.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i.i4.i) #53
   %tobool30.not.i.i = icmp eq i32 %call29.i.i, 0
   br i1 %tobool30.not.i.i, label %sw.default.i.document_end.i_crit_edge.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -10526,7 +10526,7 @@ sw.bb85.i.i:                                      ; preds = %if.end69.i.i
   br i1 %cmp88.i.i, label %sw.epilog103.sink.split.i.i, label %array_begin.i.i
 
 sw.default97.i.i:                                 ; preds = %if.end69.i.i
-  %call99.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i146.i.i) #53
+  %call99.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i146.i.i) #53
   %tobool100.not.i.i = icmp eq i32 %call99.i.i, 0
   br i1 %tobool100.not.i.i, label %object_continue.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -10712,7 +10712,7 @@ sw.bb185.i.i:                                     ; preds = %array_value.i.i
   br i1 %cmp188.i.i, label %sw.epilog203.sink.split.i.i, label %array_begin.i.i
 
 sw.default197.i.i:                                ; preds = %array_value.i.i
-  %call199.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull %this, ptr noundef nonnull %arrayidx.i251.i.i) #53
+  %call199.i.i = call fastcc noundef i32 @_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder15visit_primitiveERNS2_13json_iteratorEPKh(ptr noundef nonnull align 8 dereferenceable(16) %builder.i, ptr nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %arrayidx.i251.i.i) #53
   %tobool200.not.i.i = icmp eq i32 %call199.i.i, 0
   br i1 %tobool200.not.i.i, label %array_continue.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit
 
@@ -12290,7 +12290,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  invoke void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(76) @_ZZN8simdjson8internalL21get_icelake_singletonEvE17icelake_singleton, i64 7, ptr nonnull @.str.35, i64 16, ptr nonnull @.str.36, i32 noundef 123764)
+  invoke void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson8internalL21get_icelake_singletonEvE17icelake_singleton, i64 7, ptr nonnull @.str.35, i64 16, ptr nonnull @.str.36, i32 noundef 123764)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -12322,7 +12322,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  invoke void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(76) @_ZZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton, i64 7, ptr nonnull @.str.37, i64 14, ptr nonnull @.str.38, i32 noundef 116)
+  invoke void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson8internalL21get_haswell_singletonEvE17haswell_singleton, i64 7, ptr nonnull @.str.37, i64 14, ptr nonnull @.str.38, i32 noundef 116)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -12354,7 +12354,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  invoke void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(76) @_ZZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton, i64 8, ptr nonnull @.str.39, i64 16, ptr nonnull @.str.40, i32 noundef 24)
+  invoke void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson8internalL22get_westmere_singletonEvE18westmere_singleton, i64 8, ptr nonnull @.str.39, i64 16, ptr nonnull @.str.40, i32 noundef 24)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -12386,7 +12386,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  invoke void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(76) @_ZZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton, i64 8, ptr nonnull @.str.32, i64 31, ptr nonnull @.str.41, i32 noundef 0)
+  invoke void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(80) @_ZZN8simdjson8internalL22get_fallback_singletonEvE18fallback_singleton, i64 8, ptr nonnull @.str.32, i64 31, ptr nonnull @.str.41, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -13916,7 +13916,7 @@ if.then11.i.i.i:                                  ; preds = %if.end9.i.i.i
 if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %mul14.i.i.i = mul nsw i64 %exponent.1.i, 217706
   %shr.i.i47.i = ashr i64 %mul14.i.i.i, 16
-  %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %i.1.i, i1 true)
+  %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %i.1.i, i1 true)
   %shl.i.i.i = shl i64 %i.1.i, %26
   %27 = trunc nsw i64 %exponent.1.i to i32
   %conv17.i.i.i = shl nsw i32 %27, 1
@@ -15933,7 +15933,7 @@ if.then11.i.i.i:                                  ; preds = %if.end9.i.i.i
 if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %mul14.i.i.i = mul nsw i64 %exponent.1.i, 217706
   %shr.i.i48.i = ashr i64 %mul14.i.i.i, 16
-  %27 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %i.1.i, i1 true)
+  %27 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %i.1.i, i1 true)
   %shl.i.i.i = shl i64 %i.1.i, %27
   %28 = trunc nsw i64 %exponent.1.i to i32
   %conv17.i.i.i = shl nsw i32 %28, 1
@@ -17294,7 +17294,7 @@ if.then11.i.i.i:                                  ; preds = %if.end9.i.i.i
 if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %mul14.i.i.i = mul nsw i64 %exponent.1.i, 217706
   %shr.i.i48.i = ashr i64 %mul14.i.i.i, 16
-  %27 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %i.1.i, i1 true)
+  %27 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %i.1.i, i1 true)
   %shl.i.i.i = shl i64 %i.1.i, %27
   %28 = trunc nsw i64 %exponent.1.i to i32
   %conv17.i.i.i = shl nsw i32 %28, 1
@@ -18848,7 +18848,7 @@ if.then11.i.i.i:                                  ; preds = %if.end9.i.i.i
 if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %mul14.i.i.i = mul nsw i64 %exponent.1.i, 217706
   %shr.i.i48.i = ashr i64 %mul14.i.i.i, 16
-  %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %i.1.i, i1 true)
+  %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %i.1.i, i1 true)
   %shl.i.i.i = shl i64 %i.1.i, %27
   %28 = trunc nsw i64 %exponent.1.i to i32
   %conv17.i.i.i = shl nsw i32 %28, 1

@@ -93,11 +93,11 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call ptr %0(i64 noundef 272) #14
+  %call.i = tail call ptr %0(i64 noundef range(i64 -2147483576, 34359738361) 272) #14
   br label %ikcp_malloc.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noalias dereferenceable_or_null(272) ptr @malloc(i64 noundef 272) #15
+  %call1.i = tail call noalias dereferenceable_or_null(272) ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) 272) #15
   br label %ikcp_malloc.exit
 
 ikcp_malloc.exit:                                 ; preds = %if.then.i, %if.end.i
@@ -138,11 +138,11 @@ if.end:                                           ; preds = %ikcp_malloc.exit
   br i1 %tobool.not.i67, label %if.end.i71, label %if.then.i68
 
 if.then.i68:                                      ; preds = %if.end
-  %call.i69 = tail call ptr %1(i64 noundef 4272) #14
+  %call.i69 = tail call ptr %1(i64 noundef range(i64 -2147483576, 34359738361) 4272) #14
   br label %ikcp_malloc.exit73
 
 if.end.i71:                                       ; preds = %if.end
-  %call1.i72 = tail call noalias dereferenceable_or_null(4272) ptr @malloc(i64 noundef 4272) #15
+  %call1.i72 = tail call noalias dereferenceable_or_null(4272) ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) 4272) #15
   br label %ikcp_malloc.exit73
 
 ikcp_malloc.exit73:                               ; preds = %if.then.i68, %if.end.i71
@@ -872,11 +872,11 @@ if.then9:                                         ; preds = %if.then5
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then9
-  %call.i.i = tail call ptr %5(i64 noundef %add.i) #14
+  %call.i.i = tail call ptr %5(i64 noundef range(i64 -2147483576, 34359738361) %add.i) #14
   br label %ikcp_segment_new.exit
 
 if.end.i.i:                                       ; preds = %if.then9
-  %call1.i.i = tail call noalias ptr @malloc(i64 noundef %add.i) #15
+  %call1.i.i = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %add.i) #15
   br label %ikcp_segment_new.exit
 
 ikcp_segment_new.exit:                            ; preds = %if.then.i.i, %if.end.i.i
@@ -993,7 +993,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
   %.len.addr.2.us = tail call i32 @llvm.smin.i32(i32 %len.addr.2119.us, i32 %19)
   %conv.i104.us = sext i32 %.len.addr.2.us to i64
   %add.i105.us = add nsw i64 %conv.i104.us, 72
-  %call1.i.i111.us = tail call noalias ptr @malloc(i64 noundef %add.i105.us) #15
+  %call1.i.i111.us = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %add.i105.us) #15
   %cmp108.us = icmp eq ptr %call1.i.i111.us, null
   br i1 %cmp108.us, label %return, label %if.end111.us
 
@@ -1049,12 +1049,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %tobool.not.i.i106, label %if.end.i.i110, label %if.then.i.i107
 
 if.then.i.i107:                                   ; preds = %for.body
-  %call.i.i108 = tail call ptr %24(i64 noundef %add.i105) #14
+  %call.i.i108 = tail call ptr %24(i64 noundef range(i64 -2147483576, 34359738361) %add.i105) #14
   %.pre = load ptr, ptr @ikcp_malloc_hook, align 8
   br label %ikcp_segment_new.exit112
 
 if.end.i.i110:                                    ; preds = %for.body
-  %call1.i.i111 = tail call noalias ptr @malloc(i64 noundef %add.i105) #15
+  %call1.i.i111 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %add.i105) #15
   br label %ikcp_segment_new.exit112
 
 ikcp_segment_new.exit112:                         ; preds = %if.then.i.i107, %if.end.i.i110
@@ -1587,11 +1587,11 @@ for.end.i:                                        ; preds = %for.cond.i191
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end.i
-  %call.i.i = tail call ptr %43(i64 noundef %mul2.i) #14
+  %call.i.i = tail call ptr %43(i64 noundef range(i64 -2147483576, 34359738361) %mul2.i) #14
   br label %ikcp_malloc.exit.i
 
 if.end.i.i:                                       ; preds = %for.end.i
-  %call1.i.i = tail call noalias ptr @malloc(i64 noundef %mul2.i) #15
+  %call1.i.i = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %mul2.i) #15
   br label %ikcp_malloc.exit.i
 
 ikcp_malloc.exit.i:                               ; preds = %if.end.i.i, %if.then.i.i
@@ -1685,11 +1685,11 @@ if.then98:                                        ; preds = %ikcp_ack_push.exit
   br i1 %tobool.not.i.i196, label %if.end.i.i201, label %if.then.i.i197
 
 if.then.i.i197:                                   ; preds = %if.then98
-  %call.i.i198 = tail call ptr %59(i64 noundef %add.i195) #14
+  %call.i.i198 = tail call ptr %59(i64 noundef range(i64 -2147483576, 34359738361) %add.i195) #14
   br label %ikcp_segment_new.exit
 
 if.end.i.i201:                                    ; preds = %if.then98
-  %call1.i.i202 = tail call noalias ptr @malloc(i64 noundef %add.i195) #15
+  %call1.i.i202 = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %add.i195) #15
   br label %ikcp_segment_new.exit
 
 ikcp_segment_new.exit:                            ; preds = %if.then.i.i197, %if.end.i.i201
@@ -2742,11 +2742,11 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %call.i = tail call ptr %1(i64 noundef %conv) #14
+  %call.i = tail call ptr %1(i64 noundef range(i64 -2147483576, 34359738361) %conv) #14
   br label %ikcp_malloc.exit
 
 if.end.i:                                         ; preds = %if.end
-  %call1.i = tail call noalias ptr @malloc(i64 noundef %conv) #15
+  %call1.i = tail call noalias ptr @malloc(i64 noundef range(i64 -2147483576, 34359738361) %conv) #15
   br label %ikcp_malloc.exit
 
 ikcp_malloc.exit:                                 ; preds = %if.then.i, %if.end.i

@@ -2430,13 +2430,13 @@ _ZNK6icu_7513MessageFormat20nextTopLevelArgStartEi.exit: ; preds = %for.cond.i
   br i1 %cmp.i13, label %if.then.i15, label %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit
 
 if.then.i15:                                      ; preds = %_ZNK6icu_7513MessageFormat20nextTopLevelArgStartEi.exit
-  %call.i = call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashLong_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef null, ptr noundef nonnull %status)
+  %call.i = call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashLong_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr %call.i, ptr %customFormatArgStarts, align 8
   br label %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit
 
 _ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit: ; preds = %_ZNK6icu_7513MessageFormat20nextTopLevelArgStartEi.exit, %if.then.i15
   %9 = phi ptr [ %call.i, %if.then.i15 ], [ %8, %_ZNK6icu_7513MessageFormat20nextTopLevelArgStartEi.exit ]
-  %call4.i = call i32 @uhash_iputi_75(ptr noundef %9, i32 noundef %6, i32 noundef 1, ptr noundef nonnull %status)
+  %call4.i = call i32 @uhash_iputi_75(ptr noundef %9, i32 noundef %6, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp11 = icmp uge i64 %indvars.iv.next, %2
   %10 = load i32, ptr %status, align 4
@@ -2583,13 +2583,13 @@ if.end22:                                         ; preds = %if.then15, %if.then
   br i1 %cmp.i11, label %if.then.i13, label %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit
 
 if.then.i13:                                      ; preds = %if.end22
-  %call.i = call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashLong_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef null, ptr noundef nonnull %status)
+  %call.i = call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashLong_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr %call.i, ptr %customFormatArgStarts, align 8
   br label %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit
 
 _ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit: ; preds = %if.end22, %if.then.i13
   %11 = phi ptr [ %call.i, %if.then.i13 ], [ %10, %if.end22 ]
-  %call4.i = call i32 @uhash_iputi_75(ptr noundef %11, i32 noundef %7, i32 noundef 1, ptr noundef nonnull %status)
+  %call4.i = call i32 @uhash_iputi_75(ptr noundef %11, i32 noundef %7, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp11 = icmp uge i64 %indvars.iv.next, %2
   %12 = load i32, ptr %status, align 4
@@ -2676,13 +2676,13 @@ if.then4:                                         ; preds = %invoke.cont
   br i1 %cmp.i, label %if.then.i5, label %if.end.i4
 
 if.then.i5:                                       ; preds = %if.then4
-  %call.i6 = call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashLong_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef null, ptr noundef nonnull %status)
+  %call.i6 = call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashLong_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr %call.i6, ptr %customFormatArgStarts.i, align 8
   br label %if.end.i4
 
 if.end.i4:                                        ; preds = %if.then.i5, %if.then4
   %5 = phi ptr [ %call.i6, %if.then.i5 ], [ %4, %if.then4 ]
-  %call4.i7 = call i32 @uhash_iputi_75(ptr noundef %5, i32 noundef %3, i32 noundef 1, ptr noundef nonnull %status)
+  %call4.i7 = call i32 @uhash_iputi_75(ptr noundef %5, i32 noundef %3, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %_ZN6icu_7512LocalPointerINS_6FormatEED2Ev.exit12
 
 cleanup:                                          ; preds = %for.cond.i, %entry
@@ -2891,7 +2891,7 @@ if.end31:                                         ; preds = %if.then15, %invoke.
   br i1 %cmp.i18, label %if.then.i20, label %if.end.i19
 
 if.then.i20:                                      ; preds = %.noexc
-  %call.i21 = invoke ptr @uhash_open_75(ptr noundef nonnull @uhash_hashLong_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef null, ptr noundef nonnull %status)
+  %call.i21 = invoke ptr @uhash_open_75(ptr noundef nonnull @uhash_hashLong_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call.i.noexc unwind label %lpad.loopexit.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %if.then.i20
@@ -2900,7 +2900,7 @@ call.i.noexc:                                     ; preds = %if.then.i20
 
 if.end.i19:                                       ; preds = %call.i.noexc, %.noexc
   %21 = phi ptr [ %call.i21, %call.i.noexc ], [ %20, %.noexc ]
-  %call4.i22 = invoke i32 @uhash_iputi_75(ptr noundef %21, i32 noundef %5, i32 noundef 1, ptr noundef nonnull %status)
+  %call4.i22 = invoke i32 @uhash_iputi_75(ptr noundef %21, i32 noundef %5, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %for.cond.outer unwind label %lpad.loopexit.loopexit.split-lp, !llvm.loop !21
 
 cleanup:                                          ; preds = %invoke.cont6, %for.cond.i, %entry, %if.then4
@@ -2922,7 +2922,7 @@ _ZN6icu_7512LocalPointerINS_6FormatEED2Ev.exit27: ; preds = %cleanup.thread, %cl
 declare noundef i32 @_ZN6icu_7514MessagePattern20validateArgumentNameERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513MessageFormat9setFormatEiRKNS_6FormatE(ptr nocapture noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %n, ptr noundef nonnull align 8 dereferenceable(322) %newFormat) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7513MessageFormat9setFormatEiRKNS_6FormatE(ptr nocapture noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %n, ptr noundef nonnull align 8 dereferenceable(322) %newFormat) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   %cmp = icmp sgt i32 %n, -1
@@ -2973,24 +2973,53 @@ if.then4:                                         ; preds = %_ZNK6icu_7513Messag
   %4 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(322) %newFormat)
   %tobool.not = icmp eq ptr %call5, null
-  br i1 %tobool.not, label %if.end8, label %if.then6
+  br i1 %tobool.not, label %if.end8, label %if.end.i8
 
-if.then6:                                         ; preds = %if.then4
+if.end.i8:                                        ; preds = %if.then4
   store i32 0, ptr %status, align 4
-  call void @_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %3, ptr noundef nonnull %call5, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %cachedFormatters.i = getelementptr inbounds i8, ptr %this, i64 736
+  %5 = load ptr, ptr %cachedFormatters.i, align 8
+  %cmp.i9 = icmp eq ptr %5, null
+  br i1 %cmp.i9, label %if.then2.i, label %if.end20.i
+
+if.then2.i:                                       ; preds = %if.end.i8
+  %call3.i = call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashLong_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef nonnull @_ZL19equalFormatsForHash8UElementS_, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  store ptr %call3.i, ptr %cachedFormatters.i, align 8
+  %6 = load i32, ptr %status, align 4
+  %cmp.i7.i = icmp slt i32 %6, 1
+  br i1 %cmp.i7.i, label %if.end13.i, label %delete.notnull9.i
+
+delete.notnull9.i:                                ; preds = %if.then2.i
+  %vtable10.i = load ptr, ptr %call5, align 8
+  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 8
+  %7 = load ptr, ptr %vfn11.i, align 8
+  call void %7(ptr noundef nonnull align 8 dereferenceable(322) %call5) #20
+  br label %_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode.exit
+
+if.end13.i:                                       ; preds = %if.then2.i
+  %call15.i = call ptr @uhash_setValueDeleter_75(ptr noundef %call3.i, ptr noundef nonnull @uprv_deleteUObject_75)
+  %.pre = load ptr, ptr %cachedFormatters.i, align 8
+  br label %if.end20.i
+
+if.end20.i:                                       ; preds = %if.end.i8, %if.end13.i
+  %8 = phi ptr [ %5, %if.end.i8 ], [ %.pre, %if.end13.i ]
+  %call22.i = call ptr @uhash_iput_75(ptr noundef %8, i32 noundef %3, ptr noundef nonnull %call5, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  br label %_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode.exit
+
+_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode.exit: ; preds = %delete.notnull9.i, %if.end20.i
   %customFormatArgStarts.i = getelementptr inbounds i8, ptr %this, i64 744
-  %5 = load ptr, ptr %customFormatArgStarts.i, align 8
-  %cmp.i = icmp eq ptr %5, null
+  %9 = load ptr, ptr %customFormatArgStarts.i, align 8
+  %cmp.i = icmp eq ptr %9, null
   br i1 %cmp.i, label %if.then.i6, label %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit
 
-if.then.i6:                                       ; preds = %if.then6
-  %call.i = call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashLong_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef null, ptr noundef nonnull %status)
+if.then.i6:                                       ; preds = %_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode.exit
+  %call.i = call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashLong_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr %call.i, ptr %customFormatArgStarts.i, align 8
   br label %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit
 
-_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit: ; preds = %if.then6, %if.then.i6
-  %6 = phi ptr [ %call.i, %if.then.i6 ], [ %5, %if.then6 ]
-  %call4.i = call i32 @uhash_iputi_75(ptr noundef %6, i32 noundef %3, i32 noundef 1, ptr noundef nonnull %status)
+_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit: ; preds = %_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode.exit, %if.then.i6
+  %10 = phi ptr [ %call.i, %if.then.i6 ], [ %9, %_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode.exit ]
+  %call4.i = call i32 @uhash_iputi_75(ptr noundef %10, i32 noundef %3, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end8
 
 if.end8:                                          ; preds = %for.cond.i, %if.then4, %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit, %entry
@@ -3139,7 +3168,7 @@ return:                                           ; preds = %for.cond.i, %if.els
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513MessageFormat9setFormatERKNS_13UnicodeStringERKNS_6FormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(64) %formatName, ptr noundef nonnull align 8 dereferenceable(322) %newFormat, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7513MessageFormat9setFormatERKNS_13UnicodeStringERKNS_6FormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(64) %formatName, ptr noundef nonnull align 8 dereferenceable(322) %newFormat, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -3158,6 +3187,7 @@ for.cond.preheader:                               ; preds = %if.end
   %fLength.i.i.i.i = getelementptr inbounds i8, ptr %formatName, i64 12
   %fBuffer.i.i.i.i.i = getelementptr inbounds i8, ptr %formatName, i64 10
   %fArray.i.i.i.i.i = getelementptr inbounds i8, ptr %formatName, i64 24
+  %cachedFormatters.i = getelementptr inbounds i8, ptr %this, i64 736
   %customFormatArgStarts.i = getelementptr inbounds i8, ptr %this, i64 744
   br label %for.cond
 
@@ -3263,19 +3293,59 @@ if.then11:                                        ; preds = %_ZNK6icu_7514Messag
   br i1 %cmp13, label %for.end.sink.split, label %if.end15
 
 if.end15:                                         ; preds = %if.then11
-  tail call void @_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %4, ptr noundef nonnull %call12, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %19 = load ptr, ptr %customFormatArgStarts.i, align 8
-  %cmp.i13 = icmp eq ptr %19, null
+  %19 = load i32, ptr %status, align 4
+  %cmp.i.i16 = icmp slt i32 %19, 1
+  br i1 %cmp.i.i16, label %if.end.i18, label %delete.notnull.i
+
+delete.notnull.i:                                 ; preds = %if.end15
+  %vtable.i = load ptr, ptr %call12, align 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
+  %20 = load ptr, ptr %vfn.i, align 8
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(322) %call12) #20
+  br label %_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode.exit
+
+if.end.i18:                                       ; preds = %if.end15
+  %21 = load ptr, ptr %cachedFormatters.i, align 8
+  %cmp.i19 = icmp eq ptr %21, null
+  br i1 %cmp.i19, label %if.then2.i, label %if.end20.i
+
+if.then2.i:                                       ; preds = %if.end.i18
+  %call3.i = tail call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashLong_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef nonnull @_ZL19equalFormatsForHash8UElementS_, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  store ptr %call3.i, ptr %cachedFormatters.i, align 8
+  %22 = load i32, ptr %status, align 4
+  %cmp.i7.i = icmp slt i32 %22, 1
+  br i1 %cmp.i7.i, label %if.end13.i, label %delete.notnull9.i
+
+delete.notnull9.i:                                ; preds = %if.then2.i
+  %vtable10.i = load ptr, ptr %call12, align 8
+  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 8
+  %23 = load ptr, ptr %vfn11.i, align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(322) %call12) #20
+  br label %_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode.exit
+
+if.end13.i:                                       ; preds = %if.then2.i
+  %call15.i = tail call ptr @uhash_setValueDeleter_75(ptr noundef %call3.i, ptr noundef nonnull @uprv_deleteUObject_75)
+  %.pre = load ptr, ptr %cachedFormatters.i, align 8
+  br label %if.end20.i
+
+if.end20.i:                                       ; preds = %if.end.i18, %if.end13.i
+  %24 = phi ptr [ %21, %if.end.i18 ], [ %.pre, %if.end13.i ]
+  %call22.i = tail call ptr @uhash_iput_75(ptr noundef %24, i32 noundef %4, ptr noundef nonnull %call12, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  br label %_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode.exit
+
+_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode.exit: ; preds = %delete.notnull.i, %delete.notnull9.i, %if.end20.i
+  %25 = load ptr, ptr %customFormatArgStarts.i, align 8
+  %cmp.i13 = icmp eq ptr %25, null
   br i1 %cmp.i13, label %if.then.i15, label %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit
 
-if.then.i15:                                      ; preds = %if.end15
-  %call.i = tail call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashLong_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef null, ptr noundef nonnull %status)
+if.then.i15:                                      ; preds = %_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode.exit
+  %call.i = tail call ptr @uhash_open_75(ptr noundef nonnull @uhash_hashLong_75, ptr noundef nonnull @uhash_compareLong_75, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr %call.i, ptr %customFormatArgStarts.i, align 8
   br label %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit
 
-_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit: ; preds = %if.end15, %if.then.i15
-  %20 = phi ptr [ %call.i, %if.then.i15 ], [ %19, %if.end15 ]
-  %call4.i = tail call i32 @uhash_iputi_75(ptr noundef %20, i32 noundef %4, i32 noundef 1, ptr noundef nonnull %status)
+_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit: ; preds = %_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode.exit, %if.then.i15
+  %26 = phi ptr [ %call.i, %if.then.i15 ], [ %25, %_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode.exit ]
+  %call4.i = tail call i32 @uhash_iputi_75(ptr noundef %26, i32 noundef %4, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %for.cond.backedge
 
 for.end.sink.split:                               ; preds = %if.then11, %if.end
@@ -6829,7 +6899,7 @@ sw.bb72:                                          ; preds = %if.end
 
 new.notnull.i:                                    ; preds = %sw.bb72
   %fLocale73 = getelementptr inbounds i8, ptr %this, i64 328
-  invoke void @_ZN6icu_7521RuleBasedNumberFormatC1ENS_15URBNFRuleSetTagERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %call.i50, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(217) %fLocale73, ptr noundef nonnull align 4 dereferenceable(4) %ec)
+  invoke void @_ZN6icu_7521RuleBasedNumberFormatC1ENS_15URBNFRuleSetTagERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %call.i50, i32 noundef range(i32 0, 3) 0, ptr noundef nonnull align 8 dereferenceable(217) %fLocale73, ptr noundef nonnull align 4 dereferenceable(4) %ec)
           to label %if.else.i unwind label %lpad.i
 
 if.then.i:                                        ; preds = %sw.bb72
@@ -6884,7 +6954,7 @@ sw.bb75:                                          ; preds = %if.end
 
 new.notnull.i54:                                  ; preds = %sw.bb75
   %fLocale76 = getelementptr inbounds i8, ptr %this, i64 328
-  invoke void @_ZN6icu_7521RuleBasedNumberFormatC1ENS_15URBNFRuleSetTagERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %call.i52, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(217) %fLocale76, ptr noundef nonnull align 4 dereferenceable(4) %ec)
+  invoke void @_ZN6icu_7521RuleBasedNumberFormatC1ENS_15URBNFRuleSetTagERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %call.i52, i32 noundef range(i32 0, 3) 1, ptr noundef nonnull align 8 dereferenceable(217) %fLocale76, ptr noundef nonnull align 4 dereferenceable(4) %ec)
           to label %if.else.i56 unwind label %lpad.i55
 
 if.then.i68:                                      ; preds = %sw.bb75
@@ -6935,7 +7005,7 @@ sw.bb78:                                          ; preds = %if.end
 
 new.notnull.i73:                                  ; preds = %sw.bb78
   %fLocale79 = getelementptr inbounds i8, ptr %this, i64 328
-  invoke void @_ZN6icu_7521RuleBasedNumberFormatC1ENS_15URBNFRuleSetTagERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %call.i71, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(217) %fLocale79, ptr noundef nonnull align 4 dereferenceable(4) %ec)
+  invoke void @_ZN6icu_7521RuleBasedNumberFormatC1ENS_15URBNFRuleSetTagERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %call.i71, i32 noundef range(i32 0, 3) 2, ptr noundef nonnull align 8 dereferenceable(217) %fLocale79, ptr noundef nonnull align 4 dereferenceable(4) %ec)
           to label %if.else.i75 unwind label %lpad.i74
 
 if.then.i87:                                      ; preds = %sw.bb78
