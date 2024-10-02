@@ -1214,10 +1214,10 @@ invoke.cont150:                                   ; preds = %_ZN6BufferIhEC2Ej.e
   store i8 1, ptr %arrayidx.i596.1, align 1, !tbaa !12
   %sub11.i.i587.1870 = or disjoint i64 %mul.i.i582, %conv7.i.i584.1869
   %92 = mul nuw nsw i64 %sub11.i.i587.1870, 5
-  %93 = getelementptr i8, ptr %call.i519, i64 %92
-  %arrayidx.i596.1875 = getelementptr i8, ptr %93, i64 %add.i.i589
+  %93 = getelementptr inbounds i8, ptr %call.i519, i64 %92
+  %arrayidx.i596.1875 = getelementptr inbounds i8, ptr %93, i64 %add.i.i589
   store i8 1, ptr %arrayidx.i596.1875, align 1, !tbaa !12
-  %arrayidx.i596.1.1 = getelementptr i8, ptr %93, i64 %add.i.i589.1
+  %arrayidx.i596.1.1 = getelementptr inbounds i8, ptr %93, i64 %add.i.i589.1
   store i8 1, ptr %arrayidx.i596.1.1, align 1, !tbaa !12
   %add13.i.1 = add nsw i16 %89, -1
   %conv.i.i575.1 = sext i16 %add13.i.1 to i64
@@ -1225,17 +1225,17 @@ invoke.cont150:                                   ; preds = %_ZN6BufferIhEC2Ej.e
   %mul.i.i582.1 = add nsw i64 %sub.i.i578.1, 8
   %sub11.i.i587.1880 = add nsw i64 %mul.i.i582.1, %conv7.i.i584
   %94 = mul nuw nsw i64 %sub11.i.i587.1880, 5
-  %95 = getelementptr i8, ptr %call.i519, i64 %94
-  %arrayidx.i596.1885 = getelementptr i8, ptr %95, i64 %add.i.i589
+  %95 = getelementptr inbounds i8, ptr %call.i519, i64 %94
+  %arrayidx.i596.1885 = getelementptr inbounds i8, ptr %95, i64 %add.i.i589
   store i8 1, ptr %arrayidx.i596.1885, align 1, !tbaa !12
-  %arrayidx.i596.1.1893 = getelementptr i8, ptr %95, i64 %add.i.i589.1
+  %arrayidx.i596.1.1893 = getelementptr inbounds i8, ptr %95, i64 %add.i.i589.1
   store i8 1, ptr %arrayidx.i596.1.1893, align 1, !tbaa !12
   %sub11.i.i587.1870.1 = or disjoint i64 %mul.i.i582.1, %conv7.i.i584.1869
   %96 = mul nuw nsw i64 %sub11.i.i587.1870.1, 5
-  %97 = getelementptr i8, ptr %call.i519, i64 %96
-  %arrayidx.i596.1875.1 = getelementptr i8, ptr %97, i64 %add.i.i589
+  %97 = getelementptr inbounds i8, ptr %call.i519, i64 %96
+  %arrayidx.i596.1875.1 = getelementptr inbounds i8, ptr %97, i64 %add.i.i589
   store i8 1, ptr %arrayidx.i596.1875.1, align 1, !tbaa !12
-  %arrayidx.i596.1.1.1 = getelementptr i8, ptr %97, i64 %add.i.i589.1
+  %arrayidx.i596.1.1.1 = getelementptr inbounds i8, ptr %97, i64 %add.i.i589.1
   store i8 1, ptr %arrayidx.i596.1.1.1, align 1, !tbaa !12
   %inc201 = add nuw nsw i32 %iii.0844, 1
   %exitcond.not = icmp eq i32 %inc201, 7
@@ -5410,17 +5410,17 @@ invoke.cont233:                                   ; preds = %_ZN6BufferIhEC2Ej.e
   %mul.i.i824.1 = zext nneg i16 %narrow to i64
   %sub11.i.i829.11140 = add nsw i64 %mul.i.i824.1, %conv7.i.i826
   %121 = mul nuw nsw i64 %sub11.i.i829.11140, 7
-  %122 = getelementptr i8, ptr %call.i707, i64 %121
-  %arrayidx.i838.11145 = getelementptr i8, ptr %122, i64 %add.i.i831
+  %122 = getelementptr inbounds i8, ptr %call.i707, i64 %121
+  %arrayidx.i838.11145 = getelementptr inbounds i8, ptr %122, i64 %add.i.i831
   store i8 1, ptr %arrayidx.i838.11145, align 1, !tbaa !12
-  %arrayidx.i838.1.11153 = getelementptr i8, ptr %122, i64 %add.i.i831.1
+  %arrayidx.i838.1.11153 = getelementptr inbounds i8, ptr %122, i64 %add.i.i831.1
   store i8 1, ptr %arrayidx.i838.1.11153, align 1, !tbaa !12
   %sub11.i.i829.11131.1 = add nsw i64 %mul.i.i824.1, %conv7.i.i826.11130
   %123 = mul nuw nsw i64 %sub11.i.i829.11131.1, 7
-  %124 = getelementptr i8, ptr %call.i707, i64 %123
-  %arrayidx.i838.11136.1 = getelementptr i8, ptr %124, i64 %add.i.i831
+  %124 = getelementptr inbounds i8, ptr %call.i707, i64 %123
+  %arrayidx.i838.11136.1 = getelementptr inbounds i8, ptr %124, i64 %add.i.i831
   store i8 1, ptr %arrayidx.i838.11136.1, align 1, !tbaa !12
-  %arrayidx.i838.1.1.1 = getelementptr i8, ptr %124, i64 %add.i.i831.1
+  %arrayidx.i838.1.1.1 = getelementptr inbounds i8, ptr %124, i64 %add.i.i831.1
   store i8 1, ptr %arrayidx.i838.1.1.1, align 1, !tbaa !12
   %inc284 = add nuw nsw i32 %iii.01109, 1
   %exitcond1155.not = icmp eq i32 %inc284, 30

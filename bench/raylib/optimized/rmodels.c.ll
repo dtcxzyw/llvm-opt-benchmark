@@ -39929,7 +39929,7 @@ define noundef zeroext i1 @IsModelAnimationValid(ptr nocapture noundef readonly 
 define void @GenMeshPoly(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 %0, i32 noundef %1, float noundef %2) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %4 = icmp slt i32 %1, 3
-  br i1 %4, label %73, label %.lr.ph.preheader
+  br i1 %4, label %76, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
   %5 = mul nuw nsw i32 %1, 3
@@ -39976,127 +39976,113 @@ define void @GenMeshPoly(ptr dead_on_unwind noalias nocapture writable sret(%str
   store float %26, ptr %.sroa.340.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %27 = icmp ult i64 %indvars.iv.next, %12
-  br i1 %27, label %.lr.ph, label %.lr.ph95.preheader
+  br i1 %27, label %.lr.ph, label %._crit_edge
 
-.lr.ph95.preheader:                               ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %28 = tail call noalias ptr @malloc(i64 noundef %7) #55
-  %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
-  br label %.lr.ph95
+  %umax = tail call i32 @llvm.umax.i32(i32 %5, i32 1)
+  %wide.trip.count = zext nneg i32 %umax to i64
+  br label %29
 
-.lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
-  %indvars.iv110 = phi i64 [ 0, %.lr.ph95.preheader ], [ %indvars.iv.next111, %.lr.ph95 ]
-  %29 = getelementptr inbounds %struct.Vector3, ptr %28, i64 %indvars.iv110
-  store float 0.000000e+00, ptr %29, align 4
-  %.sroa.229.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 4
+29:                                               ; preds = %._crit_edge, %29
+  %indvars.iv99 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next100, %29 ]
+  %30 = getelementptr inbounds %struct.Vector3, ptr %28, i64 %indvars.iv99
+  store float 0.000000e+00, ptr %30, align 4
+  %.sroa.229.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 4
   store float 1.000000e+00, ptr %.sroa.229.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
   store float 0.000000e+00, ptr %.sroa.3.0..sroa_idx, align 4
-  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph103.preheader, label %.lr.ph95
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count
+  br i1 %exitcond.not, label %31, label %29
 
-.lr.ph103.preheader:                              ; preds = %.lr.ph95
-  %30 = shl nuw nsw i64 %6, 3
-  %31 = tail call noalias ptr @malloc(i64 noundef %30) #55
-  %smax113 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
-  %32 = zext nneg i32 %smax113 to i64
-  %33 = shl nuw nsw i64 %32, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %31, i8 0, i64 %33, i1 false)
+31:                                               ; preds = %29
+  %32 = shl nuw nsw i64 %6, 3
+  %33 = tail call noalias ptr @malloc(i64 noundef %32) #55
+  %34 = shl nuw nsw i64 %wide.trip.count, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %33, i8 0, i64 %34, i1 false)
   store i32 %5, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %1, ptr %34, align 4
-  %35 = mul i32 %1, 9
-  %36 = sext i32 %35 to i64
-  %37 = shl nsw i64 %36, 2
-  %38 = tail call noalias ptr @malloc(i64 noundef %37) #55
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %38, ptr %39, align 8
-  %40 = mul i32 %1, 6
-  %41 = sext i32 %40 to i64
-  %42 = shl nsw i64 %41, 2
-  %43 = tail call noalias ptr @malloc(i64 noundef %42) #55
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %43, ptr %44, align 8
-  %45 = tail call noalias ptr @malloc(i64 noundef %37) #55
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %45, ptr %46, align 8
-  %smax120 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
-  %wide.trip.count121 = zext nneg i32 %smax120 to i64
-  br label %.lr.ph103
+  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %1, ptr %35, align 4
+  %36 = mul i32 %1, 9
+  %37 = sext i32 %36 to i64
+  %38 = shl nsw i64 %37, 2
+  %39 = tail call noalias ptr @malloc(i64 noundef %38) #55
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %39, ptr %40, align 8
+  %41 = mul i32 %1, 6
+  %42 = sext i32 %41 to i64
+  %43 = shl nsw i64 %42, 2
+  %44 = tail call noalias ptr @malloc(i64 noundef %43) #55
+  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %44, ptr %45, align 8
+  %46 = tail call noalias ptr @malloc(i64 noundef %38) #55
+  %47 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %46, ptr %47, align 8
+  br label %48
 
-.lr.ph105.preheader:                              ; preds = %.lr.ph103
-  %smax126 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
-  %wide.trip.count127 = zext nneg i32 %smax126 to i64
-  br label %.lr.ph105
-
-.lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
-  %indvars.iv117 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next118, %.lr.ph103 ]
-  %47 = getelementptr inbounds %struct.Vector3, ptr %8, i64 %indvars.iv117
-  %48 = load float, ptr %47, align 4
-  %.idx = mul i64 %indvars.iv117, 12
-  %49 = getelementptr inbounds i8, ptr %38, i64 %.idx
-  store float %48, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %47, i64 4
-  %51 = load float, ptr %50, align 4
+48:                                               ; preds = %31, %48
+  %indvars.iv105 = phi i64 [ 0, %31 ], [ %indvars.iv.next106, %48 ]
+  %49 = getelementptr inbounds %struct.Vector3, ptr %8, i64 %indvars.iv105
+  %50 = load float, ptr %49, align 4
+  %.idx = mul i64 %indvars.iv105, 12
+  %51 = getelementptr inbounds i8, ptr %39, i64 %.idx
+  store float %50, ptr %51, align 4
   %52 = getelementptr inbounds i8, ptr %49, i64 4
-  store float %51, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %47, i64 8
-  %54 = load float, ptr %53, align 4
+  %53 = load float, ptr %52, align 4
+  %54 = getelementptr inbounds i8, ptr %51, i64 4
+  store float %53, ptr %54, align 4
   %55 = getelementptr inbounds i8, ptr %49, i64 8
-  store float %54, ptr %55, align 4
-  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
-  %exitcond122.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count121
-  br i1 %exitcond122.not, label %.lr.ph105.preheader, label %.lr.ph103
+  %56 = load float, ptr %55, align 4
+  %57 = getelementptr inbounds i8, ptr %51, i64 8
+  store float %56, ptr %57, align 4
+  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
+  %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count
+  br i1 %exitcond109.not, label %.preheader90, label %48
 
-.lr.ph107.preheader:                              ; preds = %.lr.ph105
-  %smax132 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
-  %wide.trip.count133 = zext nneg i32 %smax132 to i64
-  br label %.lr.ph107
+.preheader90:                                     ; preds = %48, %.preheader90
+  %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.preheader90 ], [ 0, %48 ]
+  %58 = getelementptr inbounds %struct.Vector2, ptr %33, i64 %indvars.iv110
+  %59 = load float, ptr %58, align 4
+  %60 = shl nuw nsw i64 %indvars.iv110, 1
+  %61 = getelementptr inbounds float, ptr %44, i64 %60
+  store float %59, ptr %61, align 4
+  %62 = getelementptr inbounds i8, ptr %58, i64 4
+  %63 = load float, ptr %62, align 4
+  %64 = or disjoint i64 %60, 1
+  %65 = getelementptr inbounds float, ptr %44, i64 %64
+  store float %63, ptr %65, align 4
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
+  %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
+  br i1 %exitcond114.not, label %.preheader, label %.preheader90
 
-.lr.ph105:                                        ; preds = %.lr.ph105.preheader, %.lr.ph105
-  %indvars.iv123 = phi i64 [ 0, %.lr.ph105.preheader ], [ %indvars.iv.next124, %.lr.ph105 ]
-  %56 = getelementptr inbounds %struct.Vector2, ptr %31, i64 %indvars.iv123
-  %57 = load float, ptr %56, align 4
-  %58 = shl nuw nsw i64 %indvars.iv123, 1
-  %59 = getelementptr inbounds float, ptr %43, i64 %58
-  store float %57, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %56, i64 4
-  %61 = load float, ptr %60, align 4
-  %62 = or disjoint i64 %58, 1
-  %63 = getelementptr inbounds float, ptr %43, i64 %62
-  store float %61, ptr %63, align 4
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %exitcond128.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count127
-  br i1 %exitcond128.not, label %.lr.ph107.preheader, label %.lr.ph105
-
-.lr.ph107:                                        ; preds = %.lr.ph107.preheader, %.lr.ph107
-  %indvars.iv129 = phi i64 [ 0, %.lr.ph107.preheader ], [ %indvars.iv.next130, %.lr.ph107 ]
-  %64 = getelementptr inbounds %struct.Vector3, ptr %28, i64 %indvars.iv129
-  %65 = load float, ptr %64, align 4
-  %.idx135 = mul i64 %indvars.iv129, 12
-  %66 = getelementptr inbounds i8, ptr %45, i64 %.idx135
-  store float %65, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %64, i64 4
-  %68 = load float, ptr %67, align 4
+.preheader:                                       ; preds = %.preheader90, %.preheader
+  %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.preheader ], [ 0, %.preheader90 ]
+  %66 = getelementptr inbounds %struct.Vector3, ptr %28, i64 %indvars.iv115
+  %67 = load float, ptr %66, align 4
+  %.idx120 = mul i64 %indvars.iv115, 12
+  %68 = getelementptr inbounds i8, ptr %46, i64 %.idx120
+  store float %67, ptr %68, align 4
   %69 = getelementptr inbounds i8, ptr %66, i64 4
-  store float %68, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %64, i64 8
-  %71 = load float, ptr %70, align 4
+  %70 = load float, ptr %69, align 4
+  %71 = getelementptr inbounds i8, ptr %68, i64 4
+  store float %70, ptr %71, align 4
   %72 = getelementptr inbounds i8, ptr %66, i64 8
-  store float %71, ptr %72, align 4
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %exitcond134.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count133
-  br i1 %exitcond134.not, label %._crit_edge108, label %.lr.ph107
+  %73 = load float, ptr %72, align 4
+  %74 = getelementptr inbounds i8, ptr %68, i64 8
+  store float %73, ptr %74, align 4
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count
+  br i1 %exitcond119.not, label %75, label %.preheader
 
-._crit_edge108:                                   ; preds = %.lr.ph107
+75:                                               ; preds = %.preheader
   tail call void @free(ptr noundef %8) #53
   tail call void @free(ptr noundef nonnull %28) #53
-  tail call void @free(ptr noundef %31) #53
+  tail call void @free(ptr noundef %33) #53
   tail call void @UploadMesh(ptr noundef nonnull %0, i1 noundef zeroext false)
-  br label %73
+  br label %76
 
-73:                                               ; preds = %3, %._crit_edge108
+76:                                               ; preds = %3, %75
   ret void
 }
 

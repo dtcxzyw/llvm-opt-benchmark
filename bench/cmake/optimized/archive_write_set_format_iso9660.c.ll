@@ -4751,7 +4751,7 @@ define internal fastcc range(i32 -30, 1) i32 @get_num_opt(ptr noundef %0, ptr no
   br label %27
 
 23:                                               ; preds = %16
-  %24 = icmp slt i32 %19, 49
+  %24 = icmp ult i32 %19, 49
   br i1 %24, label %25, label %10
 
 25:                                               ; preds = %23
