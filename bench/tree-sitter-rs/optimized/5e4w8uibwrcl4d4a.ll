@@ -160,8 +160,8 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN102_
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %18
-  %23 = sub i64 63, %16
-  %24 = and i64 %23, 63
+  %23 = and i64 %16, 63
+  %24 = xor i64 %23, 63
   %25 = lshr i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %24
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -232,8 +232,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17he5a2a81c9b9ed373E.exit.i.i.i.i
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %53
-  %58 = sub i64 63, %51
-  %59 = and i64 %58, 63
+  %58 = and i64 %51, 63
+  %59 = xor i64 %58, 63
   %60 = lshr i64 %.val.i.i.i.i.i.i.i3.i.i.i.i.i.i.i, %59
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.i"
 

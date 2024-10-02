@@ -1166,12 +1166,12 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint16elem_exp_vartime17h1030
   %21 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %21)
   %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
-  %23 = sub nsw i64 63, %22
-  %24 = and i64 %23, 63
-  %.not = icmp eq i64 %24, 0
+  %23 = and i64 %22, 63
+  %.not = icmp eq i64 %23, 63
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
+  %24 = xor i64 %23, 63
   %25 = shl nuw i64 1, %24
   %26 = getelementptr inbounds i8, ptr %6, i64 8
   %27 = load ptr, ptr %3, align 8, !noalias !4, !nonnull !4, !align !7, !noundef !4

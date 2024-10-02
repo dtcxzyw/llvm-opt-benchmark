@@ -292,8 +292,8 @@ define dso_local range(i32 0, 4) i32 @lzma_index_padding_size(ptr nocapture noun
   %6 = tail call i32 @lzma_vli_size(i64 noundef %3) #17
   %7 = trunc i64 %5 to i32
   %8 = add i32 %6, %7
-  %9 = sub i32 3, %8
-  %10 = and i32 %9, 3
+  %9 = and i32 %8, 3
+  %10 = xor i32 %9, 3
   ret i32 %10
 }
 

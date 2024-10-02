@@ -8971,8 +8971,8 @@ isabsolutepath.exit.i:                            ; preds = %814
 
 831:                                              ; preds = %825
   %832 = getelementptr inbounds i8, ptr %823, i64 1
-  %833 = sub i64 255, %828
-  %834 = and i64 %833, 255
+  %833 = and i64 %828, 255
+  %834 = xor i64 %833, 255
   %835 = call ptr @strncpy(ptr noundef nonnull %832, ptr noundef readonly %.val167, i64 noundef %834) #17
   br label %BuildAbsolutePath.exit
 

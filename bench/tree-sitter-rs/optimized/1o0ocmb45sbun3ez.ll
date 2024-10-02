@@ -22533,8 +22533,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %34
-  %39 = sub i64 63, %.sroa.9.1.i.i
-  %40 = and i64 %39, 63
+  %39 = and i64 %.sroa.9.1.i.i, 63
+  %40 = xor i64 %39, 63
   %41 = lshr i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %40
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -22577,8 +22577,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %.cont21.i.i
-  %60 = sub i64 63, %.sroa.15.1.i.i
-  %61 = and i64 %60, 63
+  %60 = and i64 %.sroa.15.1.i.i, 63
+  %61 = xor i64 %60, 63
   %62 = lshr i64 %.val.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i, %61
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont.i.i"
 
@@ -28047,8 +28047,8 @@ _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap12
 
 "_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.us.us.i": ; preds = %.split.us.us.i
   %752 = add nuw i64 %750, 1
-  %753 = sub i64 63, %750
-  %754 = and i64 %753, 63
+  %753 = and i64 %750, 63
+  %754 = xor i64 %753, 63
   %755 = lshr i64 %697, %754
   %.0.in.i.i.i.i.us.us.i = trunc i64 %755 to i1
   %756 = add i64 %749, 1
@@ -32721,8 +32721,8 @@ define hidden noundef zeroext i1 @"_ZN15tree_sitter_cli8generate12build_tables17
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.us"
 
 39:                                               ; preds = %23
-  %40 = sub i64 63, %.sroa.10.2.us
-  %41 = and i64 %40, 63
+  %40 = and i64 %.sroa.10.2.us, 63
+  %41 = xor i64 %40, 63
   %42 = lshr i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.us, %41
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.us"
 
@@ -32818,8 +32818,8 @@ _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap22
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %62
-  %67 = sub i64 63, %.sroa.10.2
-  %68 = and i64 %67, 63
+  %67 = and i64 %.sroa.10.2, 63
+  %68 = xor i64 %67, 63
   %69 = lshr i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i, %68
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -32863,8 +32863,8 @@ _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap22
   br i1 %86, label %87, label %91
 
 87:                                               ; preds = %.cont51
-  %88 = sub i64 63, %.sroa.16.2
-  %89 = and i64 %88, 63
+  %88 = and i64 %.sroa.16.2, 63
+  %89 = xor i64 %88, 63
   %90 = lshr i64 %.val.i.i.i.i.i.i.i3.i.i.i.i.i.i, %89
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont"
 

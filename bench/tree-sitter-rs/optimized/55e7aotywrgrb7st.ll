@@ -9120,8 +9120,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   br i1 %387, label %388, label %392
 
 388:                                              ; preds = %384
-  %389 = sub i64 63, %.sroa.10150.1
-  %390 = and i64 %389, 63
+  %389 = and i64 %.sroa.10150.1, 63
+  %390 = xor i64 %389, 63
   %391 = lshr i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i, %390
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -9165,8 +9165,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   br i1 %408, label %409, label %413
 
 409:                                              ; preds = %.cont174
-  %410 = sub i64 63, %.sroa.16154.1
-  %411 = and i64 %410, 63
+  %410 = and i64 %.sroa.16154.1, 63
+  %411 = xor i64 %410, 63
   %412 = lshr i64 %.val.i.i.i.i.i.i.i3.i.i.i.i.i.i, %411
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont"
 
@@ -15141,8 +15141,8 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
   br i1 %2428, label %2429, label %2433
 
 2429:                                             ; preds = %2425
-  %2430 = sub i64 63, %.sroa.9.1244
-  %2431 = and i64 %2430, 63
+  %2430 = and i64 %.sroa.9.1244, 63
+  %2431 = xor i64 %2430, 63
   %2432 = lshr i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i482, %2431
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i483"
 
@@ -15186,8 +15186,8 @@ _ZN15tree_sitter_cli8generate12build_tables4item9ParseItem13associativity17h1626
   br i1 %2449, label %2450, label %2454
 
 2450:                                             ; preds = %.cont43
-  %2451 = sub i64 63, %.sroa.15.1
-  %2452 = and i64 %2451, 63
+  %2451 = and i64 %.sroa.15.1, 63
+  %2452 = xor i64 %2451, 63
   %2453 = lshr i64 %.val.i.i.i.i.i.i.i3.i.i.i.i.i.i478, %2452
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i479.cont"
 
@@ -17916,8 +17916,8 @@ define noundef zeroext i1 @"_ZN101_$LT$tree_sitter_cli..generate..build_tables..
   br i1 %73, label %74, label %78
 
 74:                                               ; preds = %70
-  %75 = sub i64 63, %.sroa.9.4
-  %76 = and i64 %75, 63
+  %75 = and i64 %.sroa.9.4, 63
+  %76 = xor i64 %75, 63
   %77 = lshr i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %76
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -17961,8 +17961,8 @@ define noundef zeroext i1 @"_ZN101_$LT$tree_sitter_cli..generate..build_tables..
   br i1 %94, label %95, label %99
 
 95:                                               ; preds = %.cont83
-  %96 = sub i64 63, %.sroa.15.4
-  %97 = and i64 %96, 63
+  %96 = and i64 %.sroa.15.4, 63
+  %97 = xor i64 %96, 63
   %98 = lshr i64 %.val.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i, %97
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.i.i.cont"
 
@@ -26636,8 +26636,8 @@ select.unfold103.cont.i.i:                        ; preds = %select.unfold103.in
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.us.i.i"
 
 554:                                              ; preds = %538
-  %555 = sub i64 63, %.sroa.9.1.us.i.i
-  %556 = and i64 %555, 63
+  %555 = and i64 %.sroa.9.1.us.i.i, 63
+  %556 = xor i64 %555, 63
   %557 = lshr i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.us.i.i, %556
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.us.i.i"
 
@@ -26735,8 +26735,8 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread14.i.us.i.
   br i1 %572, label %573, label %577
 
 573:                                              ; preds = %569
-  %574 = sub i64 63, %.sroa.9.1.i.i
-  %575 = and i64 %574, 63
+  %574 = and i64 %.sroa.9.1.i.i, 63
+  %575 = xor i64 %574, 63
   %576 = lshr i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %575
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -26779,8 +26779,8 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread14.i.us.i.
   br i1 %593, label %594, label %598
 
 594:                                              ; preds = %.cont42.i.i
-  %595 = sub i64 63, %.sroa.15.1.i.i
-  %596 = and i64 %595, 63
+  %595 = and i64 %.sroa.15.1.i.i, 63
+  %596 = xor i64 %595, 63
   %597 = lshr i64 %.val.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i, %596
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont.i.i"
 
@@ -29415,8 +29415,8 @@ _ZN15tree_sitter_cli8generate12build_tables17identify_keywords17hccd3c60996754cb
   %1362 = phi i64 [ %1363, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h1279955c92476ea4E.exit.i.us.i.i.i.i.i.i.i.i.i.i.i.i.i" ], [ %.promoted.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.us.i.i.i.i.i.preheader.i.i.i.i.i.i.i.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5423)
   %1363 = add i64 %1362, 1
-  %1364 = sub i64 63, %1362
-  %1365 = and i64 %1364, 63
+  %1364 = and i64 %1362, 63
+  %1365 = xor i64 %1364, 63
   %1366 = lshr i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i71, %1365
   %.0.in.i.i.i.us.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %1366 to i1
   br i1 %.0.in.i.i.i.us.i.i.i.i.i.i.i.i.i.i.i.i.i, label %1367, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h1279955c92476ea4E.exit.i.us.i.i.i.i.i.i.i.i.i.i.i.i.i"
@@ -29585,8 +29585,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h7d874ab85e4ba1ebE.exit.i.i.i.i
   %1438 = phi i64 [ %1439, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h58136420fd1719fbE.exit.i.us.i.i.i.i.i.i.i.i.i.i.i.i.i" ], [ %.promoted.i.i.i.i.i.i4.i.i.i.i.i.i.i.i, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.us.i.i.i.i.i23.i.i.i.preheader.i.i.i.i.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5469)
   %1439 = add i64 %1438, 1
-  %1440 = sub i64 63, %1438
-  %1441 = and i64 %1440, 63
+  %1440 = and i64 %1438, 63
+  %1441 = xor i64 %1440, 63
   %1442 = lshr i64 %.val.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i, %1441
   %.0.in.i.i.i.us.i.i.i.i.i24.i.i.i.i.i.i.i.i = trunc i64 %1442 to i1
   br i1 %.0.in.i.i.i.us.i.i.i.i.i24.i.i.i.i.i.i.i.i, label %1443, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h58136420fd1719fbE.exit.i.us.i.i.i.i.i.i.i.i.i.i.i.i.i"

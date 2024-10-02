@@ -5873,18 +5873,18 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h0a6048139
 
 39:                                               ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = trunc i64 %indvars.iv to i16
-  %41 = sub i16 15, %40
-  %42 = lshr i16 %23, %41
-  %43 = zext i16 %42 to i32
-  %44 = getelementptr inbounds [16 x i32], ptr %24, i64 0, i64 %indvars.iv
-  %45 = load i32, ptr %44, align 4, !noundef !4
-  %.not20 = icmp slt i32 %45, %43
-  br i1 %.not20, label %33, label %46
+  %40 = trunc nuw nsw i64 %indvars.iv to i8
+  %41 = xor i8 %40, 15
+  %42 = zext nneg i8 %41 to i16
+  %43 = lshr i16 %23, %42
+  %44 = zext i16 %43 to i32
+  %45 = getelementptr inbounds [16 x i32], ptr %24, i64 0, i64 %indvars.iv
+  %46 = load i32, ptr %45, align 4, !noundef !4
+  %.not20 = icmp slt i32 %46, %44
+  br i1 %.not20, label %33, label %47
 
-46:                                               ; preds = %39
-  %47 = trunc nuw nsw i64 %indvars.iv to i8
-  %48 = add nuw nsw i8 %47, 1
+47:                                               ; preds = %39
+  %48 = add nuw nsw i8 %40, 1
   %49 = zext nneg i8 %48 to i64
   %50 = shl i64 %13, %49
   store i64 %50, ptr %1, align 8
@@ -5894,7 +5894,7 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h0a6048139
   %53 = getelementptr inbounds i8, ptr %3, i64 24
   %54 = getelementptr inbounds [16 x i32], ptr %53, i64 0, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !noundef !4
-  %56 = add i32 %55, %43
+  %56 = add i32 %55, %44
   %57 = sext i32 %56 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1398)
   %58 = getelementptr inbounds i8, ptr %3, i64 16
@@ -5902,11 +5902,11 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h0a6048139
   %60 = icmp ugt i64 %59, %57
   br i1 %60, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.17892916829254103521.exit", label %61, !prof !85
 
-61:                                               ; preds = %46
+61:                                               ; preds = %47
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %57, i64 noundef %59, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a41bcb3e661f14a8805e9b353793d812.20) #46, !noalias !1403
   unreachable
 
-"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.17892916829254103521.exit": ; preds = %46
+"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.17892916829254103521.exit": ; preds = %47
   %62 = getelementptr inbounds i8, ptr %3, i64 8
   %63 = load ptr, ptr %62, align 8, !alias.scope !1398, !noalias !1401, !nonnull !4, !noundef !4
   %64 = getelementptr inbounds [0 x i8], ptr %63, i64 0, i64 %57
@@ -6000,18 +6000,18 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h1d62562d7
 
 39:                                               ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = trunc i64 %indvars.iv to i16
-  %41 = sub i16 15, %40
-  %42 = lshr i16 %23, %41
-  %43 = zext i16 %42 to i32
-  %44 = getelementptr inbounds [16 x i32], ptr %24, i64 0, i64 %indvars.iv
-  %45 = load i32, ptr %44, align 4, !noundef !4
-  %.not20 = icmp slt i32 %45, %43
-  br i1 %.not20, label %33, label %46
+  %40 = trunc nuw nsw i64 %indvars.iv to i8
+  %41 = xor i8 %40, 15
+  %42 = zext nneg i8 %41 to i16
+  %43 = lshr i16 %23, %42
+  %44 = zext i16 %43 to i32
+  %45 = getelementptr inbounds [16 x i32], ptr %24, i64 0, i64 %indvars.iv
+  %46 = load i32, ptr %45, align 4, !noundef !4
+  %.not20 = icmp slt i32 %46, %44
+  br i1 %.not20, label %33, label %47
 
-46:                                               ; preds = %39
-  %47 = trunc nuw nsw i64 %indvars.iv to i8
-  %48 = add nuw nsw i8 %47, 1
+47:                                               ; preds = %39
+  %48 = add nuw nsw i8 %40, 1
   %49 = zext nneg i8 %48 to i64
   %50 = shl i64 %13, %49
   store i64 %50, ptr %1, align 8
@@ -6021,7 +6021,7 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h1d62562d7
   %53 = getelementptr inbounds i8, ptr %3, i64 24
   %54 = getelementptr inbounds [16 x i32], ptr %53, i64 0, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !noundef !4
-  %56 = add i32 %55, %43
+  %56 = add i32 %55, %44
   %57 = sext i32 %56 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1410)
   %58 = getelementptr inbounds i8, ptr %3, i64 16
@@ -6029,11 +6029,11 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h1d62562d7
   %60 = icmp ugt i64 %59, %57
   br i1 %60, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.17892916829254103521.exit", label %61, !prof !85
 
-61:                                               ; preds = %46
+61:                                               ; preds = %47
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %57, i64 noundef %59, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a41bcb3e661f14a8805e9b353793d812.20) #46, !noalias !1415
   unreachable
 
-"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.17892916829254103521.exit": ; preds = %46
+"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.17892916829254103521.exit": ; preds = %47
   %62 = getelementptr inbounds i8, ptr %3, i64 8
   %63 = load ptr, ptr %62, align 8, !alias.scope !1410, !noalias !1413, !nonnull !4, !noundef !4
   %64 = getelementptr inbounds [0 x i8], ptr %63, i64 0, i64 %57
@@ -6127,18 +6127,18 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h78c3b4fa3
 
 39:                                               ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = trunc i64 %indvars.iv to i16
-  %41 = sub i16 15, %40
-  %42 = lshr i16 %23, %41
-  %43 = zext i16 %42 to i32
-  %44 = getelementptr inbounds [16 x i32], ptr %24, i64 0, i64 %indvars.iv
-  %45 = load i32, ptr %44, align 4, !noundef !4
-  %.not20 = icmp slt i32 %45, %43
-  br i1 %.not20, label %33, label %46
+  %40 = trunc nuw nsw i64 %indvars.iv to i8
+  %41 = xor i8 %40, 15
+  %42 = zext nneg i8 %41 to i16
+  %43 = lshr i16 %23, %42
+  %44 = zext i16 %43 to i32
+  %45 = getelementptr inbounds [16 x i32], ptr %24, i64 0, i64 %indvars.iv
+  %46 = load i32, ptr %45, align 4, !noundef !4
+  %.not20 = icmp slt i32 %46, %44
+  br i1 %.not20, label %33, label %47
 
-46:                                               ; preds = %39
-  %47 = trunc nuw nsw i64 %indvars.iv to i8
-  %48 = add nuw nsw i8 %47, 1
+47:                                               ; preds = %39
+  %48 = add nuw nsw i8 %40, 1
   %49 = zext nneg i8 %48 to i64
   %50 = shl i64 %13, %49
   store i64 %50, ptr %1, align 8
@@ -6148,7 +6148,7 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h78c3b4fa3
   %53 = getelementptr inbounds i8, ptr %3, i64 24
   %54 = getelementptr inbounds [16 x i32], ptr %53, i64 0, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !noundef !4
-  %56 = add i32 %55, %43
+  %56 = add i32 %55, %44
   %57 = sext i32 %56 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1422)
   %58 = getelementptr inbounds i8, ptr %3, i64 16
@@ -6156,11 +6156,11 @@ define hidden void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h78c3b4fa3
   %60 = icmp ugt i64 %59, %57
   br i1 %60, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.17892916829254103521.exit", label %61, !prof !85
 
-61:                                               ; preds = %46
+61:                                               ; preds = %47
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %57, i64 noundef %59, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a41bcb3e661f14a8805e9b353793d812.20) #46, !noalias !1427
   unreachable
 
-"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.17892916829254103521.exit": ; preds = %46
+"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5fa8281ab2f1b015E.llvm.17892916829254103521.exit": ; preds = %47
   %62 = getelementptr inbounds i8, ptr %3, i64 8
   %63 = load ptr, ptr %62, align 8, !alias.scope !1422, !noalias !1425, !nonnull !4, !noundef !4
   %64 = getelementptr inbounds [0 x i8], ptr %63, i64 0, i64 %57

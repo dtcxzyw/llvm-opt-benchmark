@@ -2509,8 +2509,8 @@ define dso_local void @_ZN11VHashSha25612digestBinaryB5cxx11Ev(ptr dead_on_unwin
   %5 = load i32, ptr %4, align 4
   %.0.tr = trunc nuw i64 %.07 to i32
   %6 = shl nuw nsw i32 %.0.tr, 3
-  %7 = sub nsw i32 24, %6
-  %8 = and i32 %7, 24
+  %7 = and i32 %6, 24
+  %8 = xor i32 %7, 24
   %9 = lshr i32 %5, %8
   %10 = trunc i32 %9 to i8
   %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %10)
@@ -2555,8 +2555,8 @@ define dso_local noundef i64 @_ZN11VHashSha25612digestUInt64Ev(ptr noundef nonnu
   %5 = load i32, ptr %4, align 4, !noalias !20
   %.0.tr.i = trunc nuw i64 %.07.i to i32
   %6 = shl nuw nsw i32 %.0.tr.i, 3
-  %7 = sub nsw i32 24, %6
-  %8 = and i32 %7, 24
+  %7 = and i32 %6, 24
+  %8 = xor i32 %7, 24
   %9 = lshr i32 %5, %8
   %10 = trunc i32 %9 to i8
   %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext %10)
@@ -2617,8 +2617,8 @@ define dso_local void @_ZN11VHashSha2569digestHexB5cxx11Ev(ptr dead_on_unwind no
   %6 = load i32, ptr %5, align 4, !noalias !24
   %.0.tr.i = trunc nuw i64 %.07.i to i32
   %7 = shl nuw nsw i32 %.0.tr.i, 3
-  %8 = sub nsw i32 24, %7
-  %9 = and i32 %8, 24
+  %8 = and i32 %7, 24
+  %9 = xor i32 %8, 24
   %10 = lshr i32 %6, %9
   %11 = trunc i32 %10 to i8
   %12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext %11)
@@ -2710,8 +2710,8 @@ define dso_local void @_ZN11VHashSha25612digestSymbolB5cxx11Ev(ptr dead_on_unwin
   %6 = load i32, ptr %5, align 4, !noalias !28
   %.0.tr.i = trunc nuw i64 %.07.i to i32
   %7 = shl nuw nsw i32 %.0.tr.i, 3
-  %8 = sub nsw i32 24, %7
-  %9 = and i32 %8, 24
+  %8 = and i32 %7, 24
+  %9 = xor i32 %8, 24
   %10 = lshr i32 %6, %9
   %11 = trunc i32 %10 to i8
   %12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext %11)

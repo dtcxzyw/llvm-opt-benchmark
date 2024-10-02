@@ -917,8 +917,8 @@ define hidden { i64, i8 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %21
-  %28 = sub i64 63, %23
-  %29 = and i64 %28, 63
+  %28 = and i64 %23, 63
+  %29 = xor i64 %28, 63
   %30 = lshr i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i, %29
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -1003,8 +1003,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %58
-  %65 = sub i64 63, %60
-  %66 = and i64 %65, 63
+  %65 = and i64 %60, 63
+  %66 = xor i64 %65, 63
   %67 = lshr i64 %.val.i.i.i.i.i.i.i7.i.i.i.i.i.i, %66
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i8.i.i.i.i.i.i"
 
@@ -1193,8 +1193,8 @@ define hidden { i64, i8 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %21
-  %28 = sub i64 63, %23
-  %29 = and i64 %28, 63
+  %28 = and i64 %23, 63
+  %29 = xor i64 %28, 63
   %30 = lshr i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i, %29
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -1279,8 +1279,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %58
-  %65 = sub i64 63, %60
-  %66 = and i64 %65, 63
+  %65 = and i64 %60, 63
+  %66 = xor i64 %65, 63
   %67 = lshr i64 %.val.i.i.i.i.i.i.i7.i.i.i.i.i.i, %66
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i8.i.i.i.i.i.i"
 
@@ -1609,8 +1609,8 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   %20 = phi i64 [ %21, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h322b1a589238b0f6E.exit.i.us.i.i.i.i" ], [ %.promoted.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !555)
   %21 = add i64 %20, 1
-  %22 = sub i64 63, %20
-  %23 = and i64 %22, 63
+  %22 = and i64 %20, 63
+  %23 = xor i64 %22, 63
   %24 = lshr i64 %.val.i.i.i.i.i.i, %23
   %.0.in.i.i.i.us.i.i.i.i = trunc i64 %24 to i1
   br i1 %.0.in.i.i.i.us.i.i.i.i, label %.split.us.i.i.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h322b1a589238b0f6E.exit.i.us.i.i.i.i"
@@ -1705,8 +1705,8 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %55
-  %61 = sub i64 63, %56
-  %62 = and i64 %61, 63
+  %61 = and i64 %56, 63
+  %62 = xor i64 %61, 63
   %63 = lshr i64 %.val.i.i.i.i26.i.i, %62
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i27.i.i"
 
