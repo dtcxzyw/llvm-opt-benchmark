@@ -2554,8 +2554,8 @@ for.body.preheader.i.i:                           ; preds = %while.body.i
 
 for.body.i.i:                                     ; preds = %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i, %for.body.preheader.i.i
   %it.sroa.0.0.idx5.i.i = phi i64 [ %it.sroa.0.0.add.i.i, %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i ], [ %add.ptr.i.i.idx.i.i, %for.body.preheader.i.i ]
-  %it.sroa.0.0.add.i.i = add nsw i64 %it.sroa.0.0.idx5.i.i, -8
-  %incdec.ptr.i.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %it.sroa.0.0.add.i.i
+  %it.sroa.0.0.add.i.i = add i64 %it.sroa.0.0.idx5.i.i, -8
+  %incdec.ptr.i.ptr.i.i = getelementptr i8, ptr %add.ptr.i.i.i.i.i, i64 %it.sroa.0.0.add.i.i
   %6 = load atomic i64, ptr %incdec.ptr.i.ptr.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %6 to ptr
   %head_.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 48
@@ -2801,8 +2801,8 @@ for.body.lr.ph.i.i:                               ; preds = %while.body.i
 
 for.body.i.i:                                     ; preds = %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_8SizedPtrE.exit.i.i, %for.body.lr.ph.i.i
   %it.sroa.0.0.idx13.i.i = phi i64 [ %add.ptr.i.i.idx.i.i, %for.body.lr.ph.i.i ], [ %it.sroa.0.0.add.i.i, %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_8SizedPtrE.exit.i.i ]
-  %it.sroa.0.0.add.i.i = add nsw i64 %it.sroa.0.0.idx13.i.i, -8
-  %incdec.ptr.i.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %it.sroa.0.0.add.i.i
+  %it.sroa.0.0.add.i.i = add i64 %it.sroa.0.0.idx13.i.i, -8
+  %incdec.ptr.i.ptr.i.i = getelementptr i8, ptr %add.ptr.i.i.i.i.i, i64 %it.sroa.0.0.add.i.i
   %9 = load atomic i64, ptr %incdec.ptr.i.ptr.i.i monotonic, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %9 to ptr
   %string_block_unused_.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 40
@@ -3734,7 +3734,7 @@ for.body.i.i:                                     ; preds = %entry, %"_ZZNK6goog
   %.sroa.speculated.i.i.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %5, i32 %3)
   %conv6.i.i.i.i = zext i32 %.sroa.speculated.i.i.i.i.i to i64
   %add.ptr.i.idx.i.i.i = shl nuw nsw i64 %conv6.i.i.i.i, 3
-  %add.ptr.i.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i
+  %add.ptr.i.ptr.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i
   %cmp.not6.i.i.i = icmp eq i32 %5, 0
   br i1 %cmp.not6.i.i.i, label %"_ZZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_14SpaceAllocatedEvE3$_0EEvT_ENKUlPKNS2_16SerialArenaChunkEE_clES8_.exit.i.i", label %for.body.i.i.i
 
@@ -3837,7 +3837,7 @@ for.body.i.i:                                     ; preds = %_ZNK6google8protobu
   %.sroa.speculated.i.i.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %10, i32 %8)
   %conv6.i.i.i.i = zext i32 %.sroa.speculated.i.i.i.i.i to i64
   %add.ptr.i.idx.i.i.i = shl nuw nsw i64 %conv6.i.i.i.i, 3
-  %add.ptr.i.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i
+  %add.ptr.i.ptr.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i
   %cmp.not9.i.i.i = icmp eq i32 %10, 0
   br i1 %cmp.not9.i.i.i, label %"_ZZNK6google8protobuf8internal15ThreadSafeArena26PerConstSerialArenaInChunkIZNKS2_9SpaceUsedEvE3$_0EEvT_ENKUlPKNS2_16SerialArenaChunkEE_clES8_.exit.i.i", label %for.body.i.i.i
 

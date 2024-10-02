@@ -14550,7 +14550,7 @@ default.unreachable30:                            ; preds = %3
   %22 = getelementptr i8, ptr %21, i64 16
   %23 = load i64, ptr %21, align 8, !noalias !2406, !noundef !10
   %.idx = mul nsw i64 %23, 24
-  %.ptr = getelementptr inbounds i8, ptr %22, i64 %.idx
+  %.ptr = getelementptr i8, ptr %22, i64 %.idx
   %24 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %24)
   %25 = tail call noundef zeroext i1 @_RNvMs3_NtCs2al5CLA23zg_9rustc_ast3astNtB5_4Path9is_global(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20)

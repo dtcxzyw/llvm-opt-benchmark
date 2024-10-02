@@ -352,7 +352,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.ex
   %47 = icmp sgt i32 %45, 300
   %or.cond.i.i = or i1 %46, %47
   %.0.i.i = select i1 %or.cond.i.i, i64 3155760000, i64 3155673600
-  %48 = add nsw i64 %.0.i.i, %.150.i
+  %48 = add nuw nsw i64 %.0.i.i, %.150.i
   %49 = add i32 %.13649.i, 100
   %50 = sub nsw i32 %.fr47.i, %49
   %51 = icmp sgt i32 %50, 99
@@ -385,7 +385,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.ex
 
 _ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.i: ; preds = %60, %56
   %.0.i41.i = phi i64 [ 126230400, %60 ], [ 126144000, %56 ]
-  %61 = add nsw i64 %.0.i41.i, %.254.i
+  %61 = add nuw nsw i64 %.0.i41.i, %.254.i
   %62 = add i32 %.23752.i, 4
   %63 = sub nsw i32 %.fr47.i, %62
   %64 = icmp sgt i32 %63, 3
@@ -411,7 +411,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i.i: ; pred
 
 _ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.i: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i.i, %67
   %72 = phi i64 [ 31622400, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i.i ], [ 31536000, %67 ]
-  %73 = add nsw i64 %72, %.360.i
+  %73 = add nuw nsw i64 %72, %.360.i
   %74 = add nsw i32 %.33858.i, 1
   %exitcond.not.i = icmp eq i32 %74, %.fr47.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph61.i, !llvm.loop !11

@@ -1825,13 +1825,13 @@ _ZNSt3mapIPKN5ZXing11ResultPointEiSt4lessIS3_ESaISt4pairIKS3_iEEE4findERS7_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false), !noalias !21
   %769 = shl nuw nsw i32 %761, 2
   %770 = mul nuw nsw i32 %763, 7
-  %.not49.i = icmp slt i32 %769, %770
+  %.not49.i = icmp ult i32 %769, %770
   br i1 %.not49.i, label %771, label %774
 
 771:                                              ; preds = %768
   %772 = shl nuw nsw i32 %763, 2
   %773 = mul nuw nsw i32 %761, 7
-  %.not50.i = icmp slt i32 %772, %773
+  %.not50.i = icmp ult i32 %772, %773
   br i1 %.not50.i, label %872, label %774
 
 774:                                              ; preds = %771, %768

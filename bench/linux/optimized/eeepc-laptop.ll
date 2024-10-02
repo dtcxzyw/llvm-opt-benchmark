@@ -1689,7 +1689,7 @@ define internal noundef i64 @pwm1_store(ptr nocapture readnone %0, ptr nocapture
   %13 = trunc i32 %12 to i16
   %.lhs.trunc = mul nuw nsw i16 %13, 100
   %14 = udiv i16 %.lhs.trunc, 255
-  %15 = trunc i16 %14 to i8
+  %15 = trunc nuw i16 %14 to i8
   br label %16
 
 16:                                               ; preds = %11, %8

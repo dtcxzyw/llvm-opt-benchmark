@@ -469,7 +469,7 @@ entry:
   %add138 = add nsw i64 %add124, %mul151.neg
   %sub152 = add nsw i64 %add138, %mul109
   %add164 = add nsw i64 %sub152, %shr163
-  %mul165 = and i64 %add162, -2097152
+  %mul165 = and i64 %add162, 9223372036852678656
   %sub166 = sub nsw i64 %add150, %mul165
   %add167 = add nsw i64 %add154, 1048576
   %shr168 = ashr i64 %add167, 21
@@ -503,7 +503,7 @@ entry:
   %add187 = add nuw nsw i64 %add159, 1048576
   %shr188 = lshr i64 %add187, 21
   %add189 = add nsw i64 %sub166, %shr188
-  %mul190 = and i64 %add187, -2097152
+  %mul190 = and i64 %add187, 9223372036852678656
   %sub191 = sub nsw i64 %add159, %mul190
   %add192 = add nsw i64 %add164, 1048576
   %shr193 = ashr i64 %add192, 21

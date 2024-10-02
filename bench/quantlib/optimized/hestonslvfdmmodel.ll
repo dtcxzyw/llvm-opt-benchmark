@@ -6112,10 +6112,10 @@ for.body.i.i.i:                                   ; preds = %invoke.cont381, %fo
   br i1 %cmp.not.i.not.i.i.i, label %invoke.cont392, label %for.body.i.i.i, !llvm.loop !247
 
 invoke.cont392:                                   ; preds = %for.body.i.i.i
-  %add.ptr.i783.ptr = getelementptr inbounds i8, ptr %401, i64 8
+  %add.ptr.i783.ptr = getelementptr inbounds nuw i8, ptr %401, i64 8
   %add.ptr2.i796.idx = shl nuw nsw i64 %mul.i, 3
   %add.ptr.i783.add = add nuw nsw i64 %add.ptr2.i796.idx, 8
-  %add.ptr2.i796.ptr = getelementptr inbounds i8, ptr %401, i64 %add.ptr.i783.add
+  %add.ptr2.i796.ptr = getelementptr inbounds nuw i8, ptr %401, i64 %add.ptr.i783.add
   br label %for.body.i.i.i803
 
 for.body.i.i.i803:                                ; preds = %invoke.cont392, %for.body.i.i.i803

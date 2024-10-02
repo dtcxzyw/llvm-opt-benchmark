@@ -3775,7 +3775,7 @@ thread-pre-split.i:                               ; preds = %478, %0
   %139 = add nuw nsw i32 %138, %125
   %140 = mul nuw nsw i32 %139, 85
   %141 = add nuw nsw i32 %140, %120
-  %142 = mul nsw i32 %141, 85
+  %142 = mul nuw nsw i32 %141, 85
   %143 = add nuw nsw i32 %142, %115
   %144 = trunc i32 %143 to i8
   store i8 %144, ptr %14, align 4
@@ -4564,7 +4564,7 @@ define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr nocapture noundef nonnull %
   %68 = add nuw nsw i32 %67, %54
   %69 = mul nuw nsw i32 %68, 85
   %70 = add nuw nsw i32 %69, %49
-  %71 = mul nsw i32 %70, 85
+  %71 = mul nuw nsw i32 %70, 85
   %72 = add nuw nsw i32 %71, %44
   %73 = trunc i32 %72 to i8
   store i8 %73, ptr %7, align 4

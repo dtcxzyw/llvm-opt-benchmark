@@ -291,7 +291,7 @@ _ZN8QuantLib12close_enoughEdd.exit73:             ; preds = %if.end.i60
 
 for.body:                                         ; preds = %_ZN5boost12numeric_castIidEET_T0_.exit58, %while.end
   %__begin1.0.idx86 = phi i64 [ 0, %_ZN5boost12numeric_castIidEET_T0_.exit58 ], [ %__begin1.0.add, %while.end ]
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %ref.tmp19, i64 %__begin1.0.idx86
+  %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 %__begin1.0.idx86
   %14 = load i32, ptr %__begin1.0.ptr, align 4, !tbaa !14
   br label %while.cond
 

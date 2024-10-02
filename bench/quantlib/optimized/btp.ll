@@ -8551,7 +8551,7 @@ call5.i.i.i.i2.i.i.noexc81:                       ; preds = %if.end.i.i.i.i.i.i.
 
 for.body.i.i.i.i.i.i.i.i.i72:                     ; preds = %for.body.i.i.i.i.i.i.i.i.i72, %call5.i.i.i.i2.i.i.noexc81
   %__first.addr.04.i.i.i.i.i.i.i.i.i73.idx = phi i64 [ %__first.addr.04.i.i.i.i.i.i.i.i.i73.add, %for.body.i.i.i.i.i.i.i.i.i72 ], [ 0, %call5.i.i.i.i2.i.i.noexc81 ]
-  %__first.addr.04.i.i.i.i.i.i.i.i.i73.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i82, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i73.idx
+  %__first.addr.04.i.i.i.i.i.i.i.i.i73.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i82, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i73.idx
   store double 0x47EFFFFFE0000000, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i73.ptr, align 8, !tbaa !75
   %__first.addr.04.i.i.i.i.i.i.i.i.i73.add = add nuw nsw i64 %__first.addr.04.i.i.i.i.i.i.i.i.i73.idx, 8
   %cmp.not.i.i.i.i.i.i.i.i.i75 = icmp eq i64 %__first.addr.04.i.i.i.i.i.i.i.i.i73.add, 120
@@ -8574,7 +8574,7 @@ call5.i.i.i.i2.i.i.noexc100:                      ; preds = %if.end.i.i.i.i.i.i.
 
 for.body.i.i.i.i.i.i.i.i.i91:                     ; preds = %for.body.i.i.i.i.i.i.i.i.i91, %call5.i.i.i.i2.i.i.noexc100
   %__first.addr.04.i.i.i.i.i.i.i.i.i92.idx = phi i64 [ %__first.addr.04.i.i.i.i.i.i.i.i.i92.add, %for.body.i.i.i.i.i.i.i.i.i91 ], [ 0, %call5.i.i.i.i2.i.i.noexc100 ]
-  %__first.addr.04.i.i.i.i.i.i.i.i.i92.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i101, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i92.idx
+  %__first.addr.04.i.i.i.i.i.i.i.i.i92.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i101, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i92.idx
   store double 5.000000e-02, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i92.ptr, align 8, !tbaa !75
   %__first.addr.04.i.i.i.i.i.i.i.i.i92.add = add nuw nsw i64 %__first.addr.04.i.i.i.i.i.i.i.i.i92.idx, 8
   %cmp.not.i.i.i.i.i.i.i.i.i94 = icmp eq i64 %__first.addr.04.i.i.i.i.i.i.i.i.i92.add, 120
@@ -8597,7 +8597,7 @@ call5.i.i.i.i2.i.i.noexc119:                      ; preds = %if.end.i.i.i.i.i.i.
 
 for.body.i.i.i.i.i.i.i.i.i110:                    ; preds = %for.body.i.i.i.i.i.i.i.i.i110, %call5.i.i.i.i2.i.i.noexc119
   %__first.addr.04.i.i.i.i.i.i.i.i.i111.idx = phi i64 [ %__first.addr.04.i.i.i.i.i.i.i.i.i111.add, %for.body.i.i.i.i.i.i.i.i.i110 ], [ 0, %call5.i.i.i.i2.i.i.noexc119 ]
-  %__first.addr.04.i.i.i.i.i.i.i.i.i111.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i120, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i111.idx
+  %__first.addr.04.i.i.i.i.i.i.i.i.i111.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i120, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i111.idx
   store double 0x47EFFFFFE0000000, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i111.ptr, align 8, !tbaa !75
   %__first.addr.04.i.i.i.i.i.i.i.i.i111.add = add nuw nsw i64 %__first.addr.04.i.i.i.i.i.i.i.i.i111.idx, 8
   %cmp.not.i.i.i.i.i.i.i.i.i113 = icmp eq i64 %__first.addr.04.i.i.i.i.i.i.i.i.i111.add, 120
@@ -10223,7 +10223,7 @@ call5.i.i.i.i2.i.i.noexc86:                       ; preds = %if.end.i.i.i.i.i.i.
 
 for.body.i.i.i.i.i.i.i.i.i77:                     ; preds = %for.body.i.i.i.i.i.i.i.i.i77, %call5.i.i.i.i2.i.i.noexc86
   %__first.addr.04.i.i.i.i.i.i.i.i.i78.idx = phi i64 [ %__first.addr.04.i.i.i.i.i.i.i.i.i78.add, %for.body.i.i.i.i.i.i.i.i.i77 ], [ 0, %call5.i.i.i.i2.i.i.noexc86 ]
-  %__first.addr.04.i.i.i.i.i.i.i.i.i78.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i87, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i78.idx
+  %__first.addr.04.i.i.i.i.i.i.i.i.i78.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i87, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i78.idx
   store double 0x47EFFFFFE0000000, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i78.ptr, align 8, !tbaa !75
   %__first.addr.04.i.i.i.i.i.i.i.i.i78.add = add nuw nsw i64 %__first.addr.04.i.i.i.i.i.i.i.i.i78.idx, 8
   %cmp.not.i.i.i.i.i.i.i.i.i80 = icmp eq i64 %__first.addr.04.i.i.i.i.i.i.i.i.i78.add, 120
@@ -10246,7 +10246,7 @@ call5.i.i.i.i2.i.i.noexc105:                      ; preds = %if.end.i.i.i.i.i.i.
 
 for.body.i.i.i.i.i.i.i.i.i96:                     ; preds = %for.body.i.i.i.i.i.i.i.i.i96, %call5.i.i.i.i2.i.i.noexc105
   %__first.addr.04.i.i.i.i.i.i.i.i.i97.idx = phi i64 [ %__first.addr.04.i.i.i.i.i.i.i.i.i97.add, %for.body.i.i.i.i.i.i.i.i.i96 ], [ 0, %call5.i.i.i.i2.i.i.noexc105 ]
-  %__first.addr.04.i.i.i.i.i.i.i.i.i97.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i106, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i97.idx
+  %__first.addr.04.i.i.i.i.i.i.i.i.i97.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i106, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i97.idx
   store double 5.000000e-02, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i97.ptr, align 8, !tbaa !75
   %__first.addr.04.i.i.i.i.i.i.i.i.i97.add = add nuw nsw i64 %__first.addr.04.i.i.i.i.i.i.i.i.i97.idx, 8
   %cmp.not.i.i.i.i.i.i.i.i.i99 = icmp eq i64 %__first.addr.04.i.i.i.i.i.i.i.i.i97.add, 120
@@ -10269,7 +10269,7 @@ call5.i.i.i.i2.i.i.noexc124:                      ; preds = %if.end.i.i.i.i.i.i.
 
 for.body.i.i.i.i.i.i.i.i.i115:                    ; preds = %for.body.i.i.i.i.i.i.i.i.i115, %call5.i.i.i.i2.i.i.noexc124
   %__first.addr.04.i.i.i.i.i.i.i.i.i116.idx = phi i64 [ %__first.addr.04.i.i.i.i.i.i.i.i.i116.add, %for.body.i.i.i.i.i.i.i.i.i115 ], [ 0, %call5.i.i.i.i2.i.i.noexc124 ]
-  %__first.addr.04.i.i.i.i.i.i.i.i.i116.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i125, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i116.idx
+  %__first.addr.04.i.i.i.i.i.i.i.i.i116.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i125, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i116.idx
   store double 0x47EFFFFFE0000000, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i116.ptr, align 8, !tbaa !75
   %__first.addr.04.i.i.i.i.i.i.i.i.i116.add = add nuw nsw i64 %__first.addr.04.i.i.i.i.i.i.i.i.i116.idx, 8
   %cmp.not.i.i.i.i.i.i.i.i.i118 = icmp eq i64 %__first.addr.04.i.i.i.i.i.i.i.i.i116.add, 120

@@ -5737,7 +5737,7 @@ define dso_local ptr @zend_unfinished_execution_gc_ex(ptr noundef readonly %0, p
   %54 = sub i32 %51, %53
   %55 = zext i32 %54 to i64
   %.idx = shl nuw nsw i64 %55, 4
-  %.ptr = getelementptr inbounds i8, ptr %49, i64 %.idx
+  %.ptr = getelementptr i8, ptr %49, i64 %.idx
   %.not153165 = icmp eq i32 %51, %53
   br i1 %.not153165, label %.loopexit162, label %.lr.ph167
 

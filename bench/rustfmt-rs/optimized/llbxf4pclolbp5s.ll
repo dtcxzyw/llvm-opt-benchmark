@@ -15697,7 +15697,7 @@ define hidden i64 @"_ZN65_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..clone.
   store i64 %16, ptr %6, align 8
   %17 = getelementptr i8, ptr %7, i64 16
   %.idx = shl nsw i64 %.pre, 3
-  %.ptr = getelementptr inbounds i8, ptr %17, i64 %.idx
+  %.ptr = getelementptr i8, ptr %17, i64 %.idx
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i64 %.pre, 0
@@ -15849,7 +15849,7 @@ define hidden i64 @"_ZN65_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..clone.
   store i64 %17, ptr %5, align 8
   %18 = getelementptr i8, ptr %6, i64 16
   %.idx = mul nsw i64 %.pre, 24
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.idx
+  %.ptr = getelementptr i8, ptr %18, i64 %.idx
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   %20 = icmp eq i64 %.pre, 0
@@ -15990,7 +15990,7 @@ define hidden i64 @"_ZN65_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..clone.
   store i64 %23, ptr %12, align 8
   %24 = getelementptr i8, ptr %13, i64 16
   %.idx = mul nsw i64 %.pre, 56
-  %.ptr = getelementptr inbounds i8, ptr %24, i64 %.idx
+  %.ptr = getelementptr i8, ptr %24, i64 %.idx
   %25 = icmp ne ptr %24, null
   tail call void @llvm.assume(i1 %25)
   %26 = icmp eq i64 %.pre, 0
@@ -16430,7 +16430,7 @@ _ZN8thin_vec6layout17h290e634068202d38E.llvm.13158159170862922693.exit.i.i: ; pr
   store i64 %31, ptr %11, align 8
   %32 = getelementptr i8, ptr %12, i64 16
   %.idx = shl nsw i64 %.pre, 5
-  %.ptr = getelementptr inbounds i8, ptr %32, i64 %.idx
+  %.ptr = getelementptr i8, ptr %32, i64 %.idx
   %33 = icmp ne ptr %32, null
   tail call void @llvm.assume(i1 %33)
   %34 = icmp eq i64 %.pre, 0
@@ -16830,7 +16830,7 @@ define hidden i64 @"_ZN65_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..clone.
   store i64 %25, ptr %14, align 8
   %26 = getelementptr i8, ptr %15, i64 16
   %.idx = mul nsw i64 %.pre, 88
-  %.ptr = getelementptr inbounds i8, ptr %26, i64 %.idx
+  %.ptr = getelementptr i8, ptr %26, i64 %.idx
   %27 = icmp ne ptr %26, null
   tail call void @llvm.assume(i1 %27)
   %28 = icmp eq i64 %.pre, 0
@@ -17491,7 +17491,7 @@ _ZN8thin_vec6layout17h56ad3ab30bea000dE.llvm.13158159170862922693.exit.i.i: ; pr
   store i64 %29, ptr %8, align 8
   %30 = getelementptr i8, ptr %9, i64 16
   %.idx = mul nsw i64 %.pre, 48
-  %.ptr = getelementptr inbounds i8, ptr %30, i64 %.idx
+  %.ptr = getelementptr i8, ptr %30, i64 %.idx
   %31 = icmp ne ptr %30, null
   tail call void @llvm.assume(i1 %31)
   %32 = icmp eq i64 %.pre, 0
@@ -17741,7 +17741,7 @@ _ZN8thin_vec6layout17hcd1a248bd5338b92E.llvm.13158159170862922693.exit.i.i: ; pr
   store i64 %32, ptr %11, align 8
   %33 = getelementptr i8, ptr %12, i64 16
   %.idx = mul nsw i64 %.pre, 48
-  %.ptr = getelementptr inbounds i8, ptr %33, i64 %.idx
+  %.ptr = getelementptr i8, ptr %33, i64 %.idx
   %34 = icmp ne ptr %33, null
   tail call void @llvm.assume(i1 %34)
   %35 = icmp eq i64 %.pre, 0
@@ -18070,7 +18070,7 @@ _ZN8thin_vec6layout17h7a9e1acda4c050b7E.llvm.13158159170862922693.exit.i.i: ; pr
   store i64 %28, ptr %6, align 8
   %29 = getelementptr i8, ptr %7, i64 16
   %.idx = shl nsw i64 %.pre, 5
-  %.ptr = getelementptr inbounds i8, ptr %29, i64 %.idx
+  %.ptr = getelementptr i8, ptr %29, i64 %.idx
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
   %31 = icmp eq i64 %.pre, 0
@@ -18220,7 +18220,7 @@ define hidden i64 @"_ZN65_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..clone.
   store i64 %16, ptr %6, align 8
   %17 = getelementptr i8, ptr %7, i64 16
   %.idx = shl nsw i64 %.pre, 3
-  %.ptr = getelementptr inbounds i8, ptr %17, i64 %.idx
+  %.ptr = getelementptr i8, ptr %17, i64 %.idx
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i64 %.pre, 0
@@ -18377,7 +18377,7 @@ define hidden i64 @"_ZN65_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..clone.
   store i64 %16, ptr %6, align 8
   %17 = getelementptr i8, ptr %7, i64 16
   %.idx = shl nsw i64 %.pre, 3
-  %.ptr = getelementptr inbounds i8, ptr %17, i64 %.idx
+  %.ptr = getelementptr i8, ptr %17, i64 %.idx
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i64 %.pre, 0
@@ -18567,7 +18567,7 @@ _ZN8thin_vec6layout17ha6e152b92a31930fE.llvm.13158159170862922693.exit.i.i: ; pr
   store i64 %28, ptr %7, align 8
   %29 = getelementptr i8, ptr %8, i64 16
   %.idx = mul nsw i64 %.pre, 48
-  %.ptr = getelementptr inbounds i8, ptr %29, i64 %.idx
+  %.ptr = getelementptr i8, ptr %29, i64 %.idx
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
   %31 = icmp eq i64 %.pre, 0
@@ -18733,7 +18733,7 @@ define hidden i64 @"_ZN65_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..clone.
   store i64 %18, ptr %8, align 8
   %19 = getelementptr i8, ptr %9, i64 16
   %.idx = mul nsw i64 %.pre, 40
-  %.ptr = getelementptr inbounds i8, ptr %19, i64 %.idx
+  %.ptr = getelementptr i8, ptr %19, i64 %.idx
   %20 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i64 %.pre, 0
@@ -18990,7 +18990,7 @@ _ZN8thin_vec6layout17h86e3c3a8ce0e2bfaE.llvm.13158159170862922693.exit.i.i: ; pr
   store i64 %30, ptr %9, align 8
   %31 = getelementptr i8, ptr %10, i64 16
   %.idx = mul nsw i64 %.pre, 80
-  %.ptr = getelementptr inbounds i8, ptr %31, i64 %.idx
+  %.ptr = getelementptr i8, ptr %31, i64 %.idx
   %32 = icmp ne ptr %31, null
   tail call void @llvm.assume(i1 %32)
   %33 = icmp eq i64 %.pre, 0
@@ -19310,7 +19310,7 @@ _ZN8thin_vec6layout17hf5fc26d92553a87cE.llvm.13158159170862922693.exit.i.i: ; pr
   store i64 %33, ptr %12, align 8
   %34 = getelementptr i8, ptr %13, i64 16
   %.idx = mul nsw i64 %.pre, 96
-  %.ptr = getelementptr inbounds i8, ptr %34, i64 %.idx
+  %.ptr = getelementptr i8, ptr %34, i64 %.idx
   %35 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %35)
   %36 = icmp eq i64 %.pre, 0
@@ -19705,7 +19705,7 @@ define hidden i64 @"_ZN65_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..clone.
   store i64 %16, ptr %6, align 8
   %17 = getelementptr i8, ptr %7, i64 16
   %.idx = shl nsw i64 %.pre, 3
-  %.ptr = getelementptr inbounds i8, ptr %17, i64 %.idx
+  %.ptr = getelementptr i8, ptr %17, i64 %.idx
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i64 %.pre, 0
@@ -19863,7 +19863,7 @@ define hidden i64 @"_ZN65_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..clone.
   store i64 %16, ptr %6, align 8
   %17 = getelementptr i8, ptr %7, i64 16
   %.idx = mul nsw i64 %.pre, 56
-  %.ptr = getelementptr inbounds i8, ptr %17, i64 %.idx
+  %.ptr = getelementptr i8, ptr %17, i64 %.idx
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i64 %.pre, 0
@@ -20073,7 +20073,7 @@ define hidden i64 @"_ZN65_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..clone.
   store i64 %16, ptr %6, align 8
   %17 = getelementptr i8, ptr %7, i64 16
   %.idx = shl nsw i64 %.pre, 3
-  %.ptr = getelementptr inbounds i8, ptr %17, i64 %.idx
+  %.ptr = getelementptr i8, ptr %17, i64 %.idx
   %18 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i64 %.pre, 0
@@ -20233,7 +20233,7 @@ define hidden i64 @"_ZN65_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..clone.
   store i64 %19, ptr %9, align 8
   %20 = getelementptr i8, ptr %10, i64 16
   %.idx = mul nsw i64 %.pre, 104
-  %.ptr = getelementptr inbounds i8, ptr %20, i64 %.idx
+  %.ptr = getelementptr i8, ptr %20, i64 %.idx
   %21 = icmp ne ptr %20, null
   tail call void @llvm.assume(i1 %21)
   %22 = icmp eq i64 %.pre, 0
@@ -20596,7 +20596,7 @@ define hidden i64 @"_ZN65_$LT$thin_vec..ThinVec$LT$T$GT$$u20$as$u20$core..clone.
   store i64 %17, ptr %5, align 8
   %18 = getelementptr i8, ptr %6, i64 16
   %.idx = shl nsw i64 %.pre, 3
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.idx
+  %.ptr = getelementptr i8, ptr %18, i64 %.idx
   %19 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %19)
   %20 = icmp eq i64 %.pre, 0
@@ -31026,7 +31026,7 @@ define hidden void @_ZN9rustc_ast5visit10walk_block17h44a03d964a40068eE(ptr noal
   %4 = getelementptr i8, ptr %3, i64 16
   %5 = load i64, ptr %3, align 8, !noalias !4804, !noundef !5
   %.idx = shl nsw i64 %5, 5
-  %.ptr = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %.ptr = getelementptr i8, ptr %4, i64 %.idx
   %6 = icmp ne ptr %4, null
   tail call void @llvm.assume(i1 %6)
   %7 = icmp eq i64 %5, 0
@@ -31057,7 +31057,7 @@ define hidden void @_ZN9rustc_ast5visit10walk_local17he0105eb9ee07e4aeE(ptr noal
   %11 = getelementptr i8, ptr %10, i64 16
   %12 = load i64, ptr %10, align 8, !noalias !4805, !noundef !5
   %.idx = shl nsw i64 %12, 5
-  %.ptr = getelementptr inbounds i8, ptr %11, i64 %.idx
+  %.ptr = getelementptr i8, ptr %11, i64 %.idx
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
   %14 = icmp eq i64 %12, 0
@@ -31158,7 +31158,7 @@ default.unreachable:                              ; preds = %"_ZN91_$LT$core..sl
   %45 = getelementptr i8, ptr %44, i64 16
   %46 = load i64, ptr %44, align 8, !noalias !4841, !noundef !5
   %.idx43 = shl nsw i64 %46, 5
-  %.ptr44 = getelementptr inbounds i8, ptr %45, i64 %.idx43
+  %.ptr44 = getelementptr i8, ptr %45, i64 %.idx43
   %47 = icmp ne ptr %45, null
   tail call void @llvm.assume(i1 %47)
   %48 = icmp eq i64 %46, 0
@@ -31204,7 +31204,7 @@ _RNvMso_NtCs2al5CLA23zg_9rustc_ast3astNtB5_9LocalKind13init_else_opt.exit: ; pre
   %63 = getelementptr i8, ptr %62, i64 16
   %64 = load i64, ptr %62, align 8, !noalias !4852, !noundef !5
   %.idx45 = shl nsw i64 %64, 5
-  %.ptr46 = getelementptr inbounds i8, ptr %63, i64 %.idx45
+  %.ptr46 = getelementptr i8, ptr %63, i64 %.idx45
   %65 = icmp ne ptr %63, null
   tail call void @llvm.assume(i1 %65), !noalias !4829
   %66 = icmp eq i64 %64, 0
@@ -31283,7 +31283,7 @@ define hidden void @_ZN9rustc_ast5visit10walk_param17hde40f86c823d227cE(ptr noal
   %7 = getelementptr i8, ptr %6, i64 16
   %8 = load i64, ptr %6, align 8, !noalias !4871, !noundef !5
   %.idx = shl nsw i64 %8, 5
-  %.ptr = getelementptr inbounds i8, ptr %7, i64 %.idx
+  %.ptr = getelementptr i8, ptr %7, i64 %.idx
   %9 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %9)
   %10 = icmp eq i64 %8, 0
@@ -31361,7 +31361,7 @@ define hidden void @_ZN9rustc_ast5visit12walk_fn_decl17h4242a5521916fffcE.llvm.1
   %5 = getelementptr i8, ptr %4, i64 16
   %6 = load i64, ptr %4, align 8, !noalias !4903, !noundef !5
   %.idx = mul nsw i64 %6, 40
-  %.ptr = getelementptr inbounds i8, ptr %5, i64 %.idx
+  %.ptr = getelementptr i8, ptr %5, i64 %.idx
   %7 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %7)
   %8 = icmp eq i64 %6, 0
@@ -31411,7 +31411,7 @@ define hidden void @_ZN9rustc_ast5visit12walk_variant17h29f8ba465947a28fE(ptr no
   %12 = getelementptr i8, ptr %11, i64 16
   %13 = load i64, ptr %11, align 8, !noalias !4931, !noundef !5
   %.idx = mul nsw i64 %13, 24
-  %.ptr = getelementptr inbounds i8, ptr %12, i64 %.idx
+  %.ptr = getelementptr i8, ptr %12, i64 %.idx
   %14 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %14), !noalias !4914
   %15 = icmp eq i64 %13, 0
@@ -31473,7 +31473,7 @@ select.unfold.us:                                 ; preds = %_ZN9rustc_ast5visit
   %37 = getelementptr i8, ptr %36, i64 16
   %38 = load i64, ptr %36, align 8, !noalias !4957, !noundef !5
   %.idx25 = shl nsw i64 %38, 5
-  %.ptr26 = getelementptr inbounds i8, ptr %37, i64 %.idx25
+  %.ptr26 = getelementptr i8, ptr %37, i64 %.idx25
   %39 = icmp ne ptr %37, null
   tail call void @llvm.assume(i1 %39)
   %40 = icmp eq i64 %38, 0
@@ -31543,7 +31543,7 @@ define hidden void @_ZN9rustc_ast5visit13walk_enum_def17hb8d0e2acfc6a482fE(ptr n
   %4 = getelementptr i8, ptr %3, i64 16
   %5 = load i64, ptr %3, align 8, !noalias !4982, !noundef !5
   %.idx = mul nsw i64 %5, 104
-  %.ptr = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %.ptr = getelementptr i8, ptr %4, i64 %.idx
   %6 = icmp ne ptr %4, null
   tail call void @llvm.assume(i1 %6)
   %7 = icmp eq i64 %5, 0
@@ -31569,7 +31569,7 @@ define hidden void @_ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE(ptr n
   %5 = getelementptr i8, ptr %4, i64 16
   %6 = load i64, ptr %4, align 8, !noalias !4989, !noundef !5
   %.idx = mul nsw i64 %6, 96
-  %.ptr = getelementptr inbounds i8, ptr %5, i64 %.idx
+  %.ptr = getelementptr i8, ptr %5, i64 %.idx
   %7 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %7)
   %8 = icmp eq i64 %6, 0
@@ -31583,7 +31583,7 @@ define hidden void @_ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE(ptr n
   %11 = getelementptr i8, ptr %10, i64 16
   %12 = load i64, ptr %10, align 8, !noalias !4996, !noundef !5
   %.idx13 = mul nsw i64 %12, 56
-  %.ptr14 = getelementptr inbounds i8, ptr %11, i64 %.idx13
+  %.ptr14 = getelementptr i8, ptr %11, i64 %.idx13
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
   %14 = icmp eq i64 %12, 0
@@ -31617,7 +31617,7 @@ define hidden void @_ZN9rustc_ast5visit13walk_use_tree17hb492cdd2e456ef36E(ptr n
   %6 = getelementptr i8, ptr %5, i64 16
   %7 = load i64, ptr %5, align 8, !noalias !5009, !noundef !5
   %.idx.i = mul nsw i64 %7, 24
-  %.ptr.i = getelementptr inbounds i8, ptr %6, i64 %.idx.i
+  %.ptr.i = getelementptr i8, ptr %6, i64 %.idx.i
   %8 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %8)
   %9 = icmp eq i64 %7, 0
@@ -31653,7 +31653,7 @@ _ZN9rustc_ast5visit9walk_path17h4a91f8cbd502cb88E.exit: ; preds = %_ZN9rustc_ast
   %18 = getelementptr i8, ptr %17, i64 16
   %19 = load i64, ptr %17, align 8, !noalias !5027, !noundef !5
   %.idx = mul nsw i64 %19, 56
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.idx
+  %.ptr = getelementptr i8, ptr %18, i64 %.idx
   %20 = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i64 %19, 0
@@ -31790,7 +31790,7 @@ define hidden void @_ZN9rustc_ast5visit14walk_field_def17hedb63db3570d4c5bE(ptr 
   %12 = getelementptr i8, ptr %11, i64 16
   %13 = load i64, ptr %11, align 8, !noalias !5063, !noundef !5
   %.idx = mul nsw i64 %13, 24
-  %.ptr = getelementptr inbounds i8, ptr %12, i64 %.idx
+  %.ptr = getelementptr i8, ptr %12, i64 %.idx
   %14 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %14), !noalias !5046
   %15 = icmp eq i64 %13, 0
@@ -31824,7 +31824,7 @@ _ZN9rustc_ast5visit8walk_vis17hb5de26a0baf863d0E.exit: ; preds = %_ZN9rustc_ast5
   %24 = getelementptr i8, ptr %23, i64 16
   %25 = load i64, ptr %23, align 8, !noalias !5081, !noundef !5
   %.idx10 = shl nsw i64 %25, 5
-  %.ptr11 = getelementptr inbounds i8, ptr %24, i64 %.idx10
+  %.ptr11 = getelementptr i8, ptr %24, i64 %.idx10
   %26 = icmp ne ptr %24, null
   tail call void @llvm.assume(i1 %26)
   %27 = icmp eq i64 %25, 0
@@ -31916,7 +31916,7 @@ define hidden void @_ZN9rustc_ast5visit14walk_pat_field17h4ab9a2a2d20adf54E(ptr 
   %10 = getelementptr i8, ptr %9, i64 16
   %11 = load i64, ptr %9, align 8, !noalias !5100, !noundef !5
   %.idx = shl nsw i64 %11, 5
-  %.ptr = getelementptr inbounds i8, ptr %10, i64 %.idx
+  %.ptr = getelementptr i8, ptr %10, i64 %.idx
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
   %13 = icmp eq i64 %11, 0
@@ -32002,7 +32002,7 @@ define hidden void @_ZN9rustc_ast5visit15walk_assoc_item17h4897f8b665a1560aE(ptr
   %17 = getelementptr i8, ptr %16, i64 16
   %18 = load i64, ptr %16, align 8, !noalias !5138, !noundef !5
   %.idx = mul nsw i64 %18, 24
-  %.ptr = getelementptr inbounds i8, ptr %17, i64 %.idx
+  %.ptr = getelementptr i8, ptr %17, i64 %.idx
   %19 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %19), !noalias !5121
   %20 = icmp eq i64 %18, 0
@@ -32032,7 +32032,7 @@ _ZN9rustc_ast5visit8walk_vis17hb5de26a0baf863d0E.exit: ; preds = %_ZN9rustc_ast5
   %26 = getelementptr i8, ptr %25, i64 16
   %27 = load i64, ptr %25, align 8, !noalias !5156, !noundef !5
   %.idx94 = shl nsw i64 %27, 5
-  %.ptr95 = getelementptr inbounds i8, ptr %26, i64 %.idx94
+  %.ptr95 = getelementptr i8, ptr %26, i64 %.idx94
   %28 = icmp ne ptr %26, null
   tail call void @llvm.assume(i1 %28)
   %29 = icmp eq i64 %27, 0
@@ -32113,7 +32113,7 @@ _ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit: ; preds = %33, %42
   %56 = getelementptr i8, ptr %55, i64 16
   %57 = load i64, ptr %55, align 8, !noalias !5187, !noundef !5
   %.idx109 = mul nsw i64 %57, 96
-  %.ptr110 = getelementptr inbounds i8, ptr %56, i64 %.idx109
+  %.ptr110 = getelementptr i8, ptr %56, i64 %.idx109
   %58 = icmp ne ptr %56, null
   tail call void @llvm.assume(i1 %58)
   %59 = icmp eq i64 %57, 0
@@ -32127,7 +32127,7 @@ _ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit: ; preds = %33, %42
   %62 = getelementptr i8, ptr %61, i64 16
   %63 = load i64, ptr %61, align 8, !noalias !5194, !noundef !5
   %.idx111 = mul nsw i64 %63, 56
-  %.ptr112 = getelementptr inbounds i8, ptr %62, i64 %.idx111
+  %.ptr112 = getelementptr i8, ptr %62, i64 %.idx111
   %64 = icmp ne ptr %62, null
   tail call void @llvm.assume(i1 %64)
   %65 = icmp eq i64 %63, 0
@@ -32194,7 +32194,7 @@ select.unfold.us:                                 ; preds = %_ZN9rustc_ast5visit
   %93 = getelementptr i8, ptr %92, i64 16
   %94 = load i64, ptr %92, align 8, !noalias !5210, !noundef !5
   %.idx96 = mul nsw i64 %94, 96
-  %.ptr97 = getelementptr inbounds i8, ptr %93, i64 %.idx96
+  %.ptr97 = getelementptr i8, ptr %93, i64 %.idx96
   %95 = icmp ne ptr %93, null
   tail call void @llvm.assume(i1 %95)
   %96 = icmp eq i64 %94, 0
@@ -32208,7 +32208,7 @@ select.unfold.us:                                 ; preds = %_ZN9rustc_ast5visit
   %99 = getelementptr i8, ptr %98, i64 16
   %100 = load i64, ptr %98, align 8, !noalias !5217, !noundef !5
   %.idx98 = mul nsw i64 %100, 56
-  %.ptr99 = getelementptr inbounds i8, ptr %99, i64 %.idx98
+  %.ptr99 = getelementptr i8, ptr %99, i64 %.idx98
   %101 = icmp ne ptr %99, null
   tail call void @llvm.assume(i1 %101)
   %102 = icmp eq i64 %100, 0
@@ -32272,7 +32272,7 @@ select.unfold75.us:                               ; preds = %._crit_edge
   %125 = getelementptr i8, ptr %124, i64 16
   %126 = load i64, ptr %124, align 8, !noalias !5238, !noundef !5
   %.idx101 = mul nsw i64 %126, 96
-  %.ptr102 = getelementptr inbounds i8, ptr %125, i64 %.idx101
+  %.ptr102 = getelementptr i8, ptr %125, i64 %.idx101
   %127 = icmp ne ptr %125, null
   tail call void @llvm.assume(i1 %127)
   %128 = icmp eq i64 %126, 0
@@ -32286,7 +32286,7 @@ select.unfold75.us:                               ; preds = %._crit_edge
   %131 = getelementptr i8, ptr %130, i64 16
   %132 = load i64, ptr %130, align 8, !noalias !5251, !noundef !5
   %.idx103 = mul nsw i64 %132, 24
-  %.ptr104 = getelementptr inbounds i8, ptr %131, i64 %.idx103
+  %.ptr104 = getelementptr i8, ptr %131, i64 %.idx103
   %133 = icmp ne ptr %131, null
   tail call void @llvm.assume(i1 %133), !noalias !5245
   %134 = icmp eq i64 %132, 0
@@ -32315,7 +32315,7 @@ select.unfold75.us:                               ; preds = %._crit_edge
   %143 = getelementptr i8, ptr %142, i64 16
   %144 = load i64, ptr %142, align 8, !noalias !5278, !noundef !5
   %.idx107 = mul nsw i64 %144, 88
-  %.ptr108 = getelementptr inbounds i8, ptr %143, i64 %.idx107
+  %.ptr108 = getelementptr i8, ptr %143, i64 %.idx107
   %145 = icmp ne ptr %143, null
   tail call void @llvm.assume(i1 %145), !noalias !5273
   %146 = icmp eq i64 %144, 0
@@ -32329,7 +32329,7 @@ select.unfold75.us:                               ; preds = %._crit_edge
   %150 = getelementptr i8, ptr %149, i64 16
   %151 = load i64, ptr %149, align 8, !noalias !5286, !noundef !5
   %.idx105 = shl nsw i64 %151, 3
-  %.ptr106 = getelementptr inbounds i8, ptr %150, i64 %.idx105
+  %.ptr106 = getelementptr i8, ptr %150, i64 %.idx105
   %152 = icmp ne ptr %150, null
   tail call void @llvm.assume(i1 %152), !noalias !5273
   %153 = icmp eq i64 %151, 0
@@ -32422,7 +32422,7 @@ define hidden void @_ZN9rustc_ast5visit15walk_expr_field17h20722bc30151e8deE(ptr
   %10 = getelementptr i8, ptr %9, i64 16
   %11 = load i64, ptr %9, align 8, !noalias !5308, !noundef !5
   %.idx = shl nsw i64 %11, 5
-  %.ptr = getelementptr inbounds i8, ptr %10, i64 %.idx
+  %.ptr = getelementptr i8, ptr %10, i64 %.idx
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
   %13 = icmp eq i64 %11, 0
@@ -32559,7 +32559,7 @@ _ZN9rustc_ast5visit19walk_inline_asm_sym17h60130c47e165447bE.exit: ; preds = %26
   %32 = getelementptr i8, ptr %31, i64 16
   %33 = load i64, ptr %31, align 8, !noalias !5350, !noundef !5
   %.idx = mul nsw i64 %33, 24
-  %.ptr = getelementptr inbounds i8, ptr %32, i64 %.idx
+  %.ptr = getelementptr i8, ptr %32, i64 %.idx
   %34 = icmp ne ptr %32, null
   tail call void @llvm.assume(i1 %34)
   %35 = icmp eq i64 %33, 0
@@ -32588,7 +32588,7 @@ _ZN9rustc_ast5visit19walk_inline_asm_sym17h60130c47e165447bE.exit: ; preds = %26
   %44 = getelementptr i8, ptr %43, i64 16
   %45 = load i64, ptr %43, align 8, !noalias !5374, !noundef !5
   %.idx45 = mul nsw i64 %45, 88
-  %.ptr46 = getelementptr inbounds i8, ptr %44, i64 %.idx45
+  %.ptr46 = getelementptr i8, ptr %44, i64 %.idx45
   %46 = icmp ne ptr %44, null
   tail call void @llvm.assume(i1 %46), !noalias !5369
   %47 = icmp eq i64 %45, 0
@@ -32602,7 +32602,7 @@ _ZN9rustc_ast5visit19walk_inline_asm_sym17h60130c47e165447bE.exit: ; preds = %26
   %51 = getelementptr i8, ptr %50, i64 16
   %52 = load i64, ptr %50, align 8, !noalias !5382, !noundef !5
   %.idx43 = shl nsw i64 %52, 3
-  %.ptr44 = getelementptr inbounds i8, ptr %51, i64 %.idx43
+  %.ptr44 = getelementptr i8, ptr %51, i64 %.idx43
   %53 = icmp ne ptr %51, null
   tail call void @llvm.assume(i1 %53), !noalias !5369
   %54 = icmp eq i64 %52, 0
@@ -32696,7 +32696,7 @@ _ZN9rustc_ast5visit19walk_inline_asm_sym17h60130c47e165447bE.exit: ; preds = %26
   %95 = getelementptr i8, ptr %94, i64 16
   %96 = load i64, ptr %94, align 8, !noalias !5429, !noundef !5
   %.idx48 = mul nsw i64 %96, 96
-  %.ptr49 = getelementptr inbounds i8, ptr %95, i64 %.idx48
+  %.ptr49 = getelementptr i8, ptr %95, i64 %.idx48
   %97 = icmp ne ptr %95, null
   tail call void @llvm.assume(i1 %97), !noalias !5383
   %98 = icmp eq i64 %96, 0
@@ -32710,7 +32710,7 @@ _ZN9rustc_ast5visit19walk_inline_asm_sym17h60130c47e165447bE.exit: ; preds = %26
   %101 = getelementptr i8, ptr %100, i64 16
   %102 = load i64, ptr %100, align 8, !noalias !5442, !noundef !5
   %.idx50 = mul nsw i64 %102, 24
-  %.ptr51 = getelementptr inbounds i8, ptr %101, i64 %.idx50
+  %.ptr51 = getelementptr i8, ptr %101, i64 %.idx50
   %103 = icmp ne ptr %101, null
   tail call void @llvm.assume(i1 %103), !noalias !5436
   %104 = icmp eq i64 %102, 0
@@ -32877,7 +32877,7 @@ define hidden void @_ZN9rustc_ast5visit16walk_param_bound17h926b0e0021dc586dE(pt
   %8 = getelementptr i8, ptr %7, i64 16
   %9 = load i64, ptr %7, align 8, !noalias !5482, !noundef !5
   %.idx.i = mul nsw i64 %9, 96
-  %.ptr.i = getelementptr inbounds i8, ptr %8, i64 %.idx.i
+  %.ptr.i = getelementptr i8, ptr %8, i64 %.idx.i
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i64 %9, 0
@@ -32891,7 +32891,7 @@ define hidden void @_ZN9rustc_ast5visit16walk_param_bound17h926b0e0021dc586dE(pt
   %14 = getelementptr i8, ptr %13, i64 16
   %15 = load i64, ptr %13, align 8, !noalias !5496, !noundef !5
   %.idx11.i = mul nsw i64 %15, 24
-  %.ptr12.i = getelementptr inbounds i8, ptr %14, i64 %.idx11.i
+  %.ptr12.i = getelementptr i8, ptr %14, i64 %.idx11.i
   %16 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %16), !noalias !5489
   %17 = icmp eq i64 %15, 0
@@ -32948,7 +32948,7 @@ define hidden void @_ZN9rustc_ast5visit17walk_foreign_item17h325748aab7405d84E(p
   %15 = getelementptr i8, ptr %14, i64 16
   %16 = load i64, ptr %14, align 8, !noalias !5528, !noundef !5
   %.idx = mul nsw i64 %16, 24
-  %.ptr = getelementptr inbounds i8, ptr %15, i64 %.idx
+  %.ptr = getelementptr i8, ptr %15, i64 %.idx
   %17 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %17), !noalias !5511
   %18 = icmp eq i64 %16, 0
@@ -32978,7 +32978,7 @@ _ZN9rustc_ast5visit8walk_vis17hb5de26a0baf863d0E.exit: ; preds = %_ZN9rustc_ast5
   %24 = getelementptr i8, ptr %23, i64 16
   %25 = load i64, ptr %23, align 8, !noalias !5546, !noundef !5
   %.idx80 = shl nsw i64 %25, 5
-  %.ptr81 = getelementptr inbounds i8, ptr %24, i64 %.idx80
+  %.ptr81 = getelementptr i8, ptr %24, i64 %.idx80
   %26 = icmp ne ptr %24, null
   tail call void @llvm.assume(i1 %26)
   %27 = icmp eq i64 %25, 0
@@ -33095,7 +33095,7 @@ select.unfold.us:                                 ; preds = %50
   %73 = getelementptr i8, ptr %72, i64 16
   %74 = load i64, ptr %72, align 8, !noalias !5580, !noundef !5
   %.idx82 = mul nsw i64 %74, 96
-  %.ptr83 = getelementptr inbounds i8, ptr %73, i64 %.idx82
+  %.ptr83 = getelementptr i8, ptr %73, i64 %.idx82
   %75 = icmp ne ptr %73, null
   tail call void @llvm.assume(i1 %75)
   %76 = icmp eq i64 %74, 0
@@ -33109,7 +33109,7 @@ select.unfold.us:                                 ; preds = %50
   %79 = getelementptr i8, ptr %78, i64 16
   %80 = load i64, ptr %78, align 8, !noalias !5587, !noundef !5
   %.idx84 = mul nsw i64 %80, 56
-  %.ptr85 = getelementptr inbounds i8, ptr %79, i64 %.idx84
+  %.ptr85 = getelementptr i8, ptr %79, i64 %.idx84
   %81 = icmp ne ptr %79, null
   tail call void @llvm.assume(i1 %81)
   %82 = icmp eq i64 %80, 0
@@ -33173,7 +33173,7 @@ select.unfold62.us:                               ; preds = %._crit_edge
   %105 = getelementptr i8, ptr %104, i64 16
   %106 = load i64, ptr %104, align 8, !noalias !5608, !noundef !5
   %.idx87 = mul nsw i64 %106, 96
-  %.ptr88 = getelementptr inbounds i8, ptr %105, i64 %.idx87
+  %.ptr88 = getelementptr i8, ptr %105, i64 %.idx87
   %107 = icmp ne ptr %105, null
   tail call void @llvm.assume(i1 %107)
   %108 = icmp eq i64 %106, 0
@@ -33187,7 +33187,7 @@ select.unfold62.us:                               ; preds = %._crit_edge
   %111 = getelementptr i8, ptr %110, i64 16
   %112 = load i64, ptr %110, align 8, !noalias !5621, !noundef !5
   %.idx89 = mul nsw i64 %112, 24
-  %.ptr90 = getelementptr inbounds i8, ptr %111, i64 %.idx89
+  %.ptr90 = getelementptr i8, ptr %111, i64 %.idx89
   %113 = icmp ne ptr %111, null
   tail call void @llvm.assume(i1 %113), !noalias !5615
   %114 = icmp eq i64 %112, 0
@@ -33216,7 +33216,7 @@ select.unfold62.us:                               ; preds = %._crit_edge
   %123 = getelementptr i8, ptr %122, i64 16
   %124 = load i64, ptr %122, align 8, !noalias !5648, !noundef !5
   %.idx93 = mul nsw i64 %124, 88
-  %.ptr94 = getelementptr inbounds i8, ptr %123, i64 %.idx93
+  %.ptr94 = getelementptr i8, ptr %123, i64 %.idx93
   %125 = icmp ne ptr %123, null
   tail call void @llvm.assume(i1 %125), !noalias !5643
   %126 = icmp eq i64 %124, 0
@@ -33230,7 +33230,7 @@ select.unfold62.us:                               ; preds = %._crit_edge
   %130 = getelementptr i8, ptr %129, i64 16
   %131 = load i64, ptr %129, align 8, !noalias !5656, !noundef !5
   %.idx91 = shl nsw i64 %131, 3
-  %.ptr92 = getelementptr inbounds i8, ptr %130, i64 %.idx91
+  %.ptr92 = getelementptr i8, ptr %130, i64 %.idx91
   %132 = icmp ne ptr %130, null
   tail call void @llvm.assume(i1 %132), !noalias !5643
   %133 = icmp eq i64 %131, 0
@@ -33323,7 +33323,7 @@ define hidden void @_ZN9rustc_ast5visit17walk_generic_args17hb8ac7872fc9ea063E(p
   %8 = getelementptr i8, ptr %7, i64 16
   %9 = load i64, ptr %7, align 8, !noalias !5684, !noundef !5
   %.idx13 = mul nsw i64 %9, 88
-  %.ptr14 = getelementptr inbounds i8, ptr %8, i64 %.idx13
+  %.ptr14 = getelementptr i8, ptr %8, i64 %.idx13
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i64 %9, 0
@@ -33337,7 +33337,7 @@ define hidden void @_ZN9rustc_ast5visit17walk_generic_args17hb8ac7872fc9ea063E(p
   %15 = getelementptr i8, ptr %14, i64 16
   %16 = load i64, ptr %14, align 8, !noalias !5691, !noundef !5
   %.idx = shl nsw i64 %16, 3
-  %.ptr = getelementptr inbounds i8, ptr %15, i64 %.idx
+  %.ptr = getelementptr i8, ptr %15, i64 %.idx
   %17 = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %17)
   %18 = icmp eq i64 %16, 0
@@ -33432,7 +33432,7 @@ define hidden void @_ZN9rustc_ast5visit18walk_generic_param17h3eab316bbc8a0baaE(
   %8 = getelementptr i8, ptr %7, i64 16
   %9 = load i64, ptr %7, align 8, !noalias !5708, !noundef !5
   %.idx = shl nsw i64 %9, 5
-  %.ptr = getelementptr inbounds i8, ptr %8, i64 %.idx
+  %.ptr = getelementptr i8, ptr %8, i64 %.idx
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i64 %9, 0
@@ -33529,7 +33529,7 @@ _ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit: ; preds = %20, %29
   %47 = getelementptr i8, ptr %46, i64 16
   %48 = load i64, ptr %46, align 8, !noalias !5749, !noundef !5
   %.idx48 = mul nsw i64 %48, 96
-  %.ptr49 = getelementptr inbounds i8, ptr %47, i64 %.idx48
+  %.ptr49 = getelementptr i8, ptr %47, i64 %.idx48
   %49 = icmp ne ptr %47, null
   tail call void @llvm.assume(i1 %49)
   %50 = icmp eq i64 %48, 0
@@ -33543,7 +33543,7 @@ _ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit: ; preds = %20, %29
   %53 = getelementptr i8, ptr %52, i64 16
   %54 = load i64, ptr %52, align 8, !noalias !5762, !noundef !5
   %.idx50 = mul nsw i64 %54, 24
-  %.ptr51 = getelementptr inbounds i8, ptr %53, i64 %.idx50
+  %.ptr51 = getelementptr i8, ptr %53, i64 %.idx50
   %55 = icmp ne ptr %53, null
   tail call void @llvm.assume(i1 %55), !noalias !5756
   %56 = icmp eq i64 %54, 0
@@ -33572,7 +33572,7 @@ _ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit: ; preds = %20, %29
   %65 = getelementptr i8, ptr %64, i64 16
   %66 = load i64, ptr %64, align 8, !noalias !5789, !noundef !5
   %.idx54 = mul nsw i64 %66, 88
-  %.ptr55 = getelementptr inbounds i8, ptr %65, i64 %.idx54
+  %.ptr55 = getelementptr i8, ptr %65, i64 %.idx54
   %67 = icmp ne ptr %65, null
   tail call void @llvm.assume(i1 %67), !noalias !5784
   %68 = icmp eq i64 %66, 0
@@ -33586,7 +33586,7 @@ _ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit: ; preds = %20, %29
   %72 = getelementptr i8, ptr %71, i64 16
   %73 = load i64, ptr %71, align 8, !noalias !5797, !noundef !5
   %.idx52 = shl nsw i64 %73, 3
-  %.ptr53 = getelementptr inbounds i8, ptr %72, i64 %.idx52
+  %.ptr53 = getelementptr i8, ptr %72, i64 %.idx52
   %74 = icmp ne ptr %72, null
   tail call void @llvm.assume(i1 %74), !noalias !5784
   %75 = icmp eq i64 %73, 0
@@ -33705,7 +33705,7 @@ define hidden void @_ZN9rustc_ast5visit19walk_closure_binder17h29acd0d0c671723aE
   %6 = getelementptr i8, ptr %3, i64 16
   %7 = load i64, ptr %3, align 8, !noalias !5824, !noundef !5
   %.idx = mul nsw i64 %7, 96
-  %.ptr = getelementptr inbounds i8, ptr %6, i64 %.idx
+  %.ptr = getelementptr i8, ptr %6, i64 %.idx
   %8 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %8)
   %9 = icmp eq i64 %7, 0
@@ -33739,7 +33739,7 @@ define hidden void @_ZN9rustc_ast5visit19walk_inline_asm_sym17h60130c47e165447bE
   %9 = getelementptr i8, ptr %8, i64 16
   %10 = load i64, ptr %8, align 8, !noalias !5841, !noundef !5
   %.idx.i = mul nsw i64 %10, 24
-  %.ptr.i = getelementptr inbounds i8, ptr %9, i64 %.idx.i
+  %.ptr.i = getelementptr i8, ptr %9, i64 %.idx.i
   %11 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %11)
   %12 = icmp eq i64 %10, 0
@@ -33775,7 +33775,7 @@ define hidden void @_ZN9rustc_ast5visit19walk_poly_trait_ref17h8a1a0ac63c2392b8E
   %5 = getelementptr i8, ptr %4, i64 16
   %6 = load i64, ptr %4, align 8, !noalias !5859, !noundef !5
   %.idx = mul nsw i64 %6, 96
-  %.ptr = getelementptr inbounds i8, ptr %5, i64 %.idx
+  %.ptr = getelementptr i8, ptr %5, i64 %.idx
   %7 = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %7)
   %8 = icmp eq i64 %6, 0
@@ -33789,7 +33789,7 @@ define hidden void @_ZN9rustc_ast5visit19walk_poly_trait_ref17h8a1a0ac63c2392b8E
   %11 = getelementptr i8, ptr %10, i64 16
   %12 = load i64, ptr %10, align 8, !noalias !5872, !noundef !5
   %.idx11 = mul nsw i64 %12, 24
-  %.ptr12 = getelementptr inbounds i8, ptr %11, i64 %.idx11
+  %.ptr12 = getelementptr i8, ptr %11, i64 %.idx11
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13), !noalias !5866
   %14 = icmp eq i64 %12, 0
@@ -33873,7 +33873,7 @@ default.unreachable102:                           ; preds = %130, %69, %2
   %27 = getelementptr i8, ptr %26, i64 16
   %28 = load i64, ptr %26, align 8, !noalias !5899, !noundef !5
   %.idx99 = mul nsw i64 %28, 96
-  %.ptr100 = getelementptr inbounds i8, ptr %27, i64 %.idx99
+  %.ptr100 = getelementptr i8, ptr %27, i64 %.idx99
   %29 = icmp ne ptr %27, null
   tail call void @llvm.assume(i1 %29)
   %30 = icmp eq i64 %28, 0
@@ -33895,7 +33895,7 @@ default.unreachable102:                           ; preds = %130, %69, %2
   %37 = getelementptr i8, ptr %36, i64 16
   %38 = load i64, ptr %36, align 8, !noalias !5917, !noundef !5
   %.idx91 = mul nsw i64 %38, 96
-  %.ptr92 = getelementptr inbounds i8, ptr %37, i64 %.idx91
+  %.ptr92 = getelementptr i8, ptr %37, i64 %.idx91
   %39 = icmp ne ptr %37, null
   tail call void @llvm.assume(i1 %39)
   %40 = icmp eq i64 %38, 0
@@ -33909,7 +33909,7 @@ default.unreachable102:                           ; preds = %130, %69, %2
   %43 = getelementptr i8, ptr %42, i64 16
   %44 = load i64, ptr %42, align 8, !noalias !5930, !noundef !5
   %.idx93 = mul nsw i64 %44, 24
-  %.ptr94 = getelementptr inbounds i8, ptr %43, i64 %.idx93
+  %.ptr94 = getelementptr i8, ptr %43, i64 %.idx93
   %45 = icmp ne ptr %43, null
   tail call void @llvm.assume(i1 %45), !noalias !5924
   %46 = icmp eq i64 %44, 0
@@ -33938,7 +33938,7 @@ default.unreachable102:                           ; preds = %130, %69, %2
   %55 = getelementptr i8, ptr %54, i64 16
   %56 = load i64, ptr %54, align 8, !noalias !5957, !noundef !5
   %.idx97 = mul nsw i64 %56, 88
-  %.ptr98 = getelementptr inbounds i8, ptr %55, i64 %.idx97
+  %.ptr98 = getelementptr i8, ptr %55, i64 %.idx97
   %57 = icmp ne ptr %55, null
   tail call void @llvm.assume(i1 %57), !noalias !5952
   %58 = icmp eq i64 %56, 0
@@ -33952,7 +33952,7 @@ default.unreachable102:                           ; preds = %130, %69, %2
   %62 = getelementptr i8, ptr %61, i64 16
   %63 = load i64, ptr %61, align 8, !noalias !5965, !noundef !5
   %.idx95 = shl nsw i64 %63, 3
-  %.ptr96 = getelementptr inbounds i8, ptr %62, i64 %.idx95
+  %.ptr96 = getelementptr i8, ptr %62, i64 %.idx95
   %64 = icmp ne ptr %62, null
   tail call void @llvm.assume(i1 %64), !noalias !5952
   %65 = icmp eq i64 %63, 0
@@ -34056,7 +34056,7 @@ _ZN9rustc_ast5visit16walk_param_bound17h926b0e0021dc586dE.exit: ; preds = %_ZN9r
   %98 = getelementptr i8, ptr %97, i64 16
   %99 = load i64, ptr %97, align 8, !noalias !6004, !noundef !5
   %.idx = mul nsw i64 %99, 96
-  %.ptr = getelementptr inbounds i8, ptr %98, i64 %.idx
+  %.ptr = getelementptr i8, ptr %98, i64 %.idx
   %100 = icmp ne ptr %98, null
   tail call void @llvm.assume(i1 %100)
   %101 = icmp eq i64 %99, 0
@@ -34070,7 +34070,7 @@ _ZN9rustc_ast5visit16walk_param_bound17h926b0e0021dc586dE.exit: ; preds = %_ZN9r
   %104 = getelementptr i8, ptr %103, i64 16
   %105 = load i64, ptr %103, align 8, !noalias !6017, !noundef !5
   %.idx84 = mul nsw i64 %105, 24
-  %.ptr85 = getelementptr inbounds i8, ptr %104, i64 %.idx84
+  %.ptr85 = getelementptr i8, ptr %104, i64 %.idx84
   %106 = icmp ne ptr %104, null
   tail call void @llvm.assume(i1 %106), !noalias !6011
   %107 = icmp eq i64 %105, 0
@@ -34099,7 +34099,7 @@ _ZN9rustc_ast5visit16walk_param_bound17h926b0e0021dc586dE.exit: ; preds = %_ZN9r
   %116 = getelementptr i8, ptr %115, i64 16
   %117 = load i64, ptr %115, align 8, !noalias !6044, !noundef !5
   %.idx88 = mul nsw i64 %117, 88
-  %.ptr89 = getelementptr inbounds i8, ptr %116, i64 %.idx88
+  %.ptr89 = getelementptr i8, ptr %116, i64 %.idx88
   %118 = icmp ne ptr %116, null
   tail call void @llvm.assume(i1 %118), !noalias !6039
   %119 = icmp eq i64 %117, 0
@@ -34113,7 +34113,7 @@ _ZN9rustc_ast5visit16walk_param_bound17h926b0e0021dc586dE.exit: ; preds = %_ZN9r
   %123 = getelementptr i8, ptr %122, i64 16
   %124 = load i64, ptr %122, align 8, !noalias !6052, !noundef !5
   %.idx86 = shl nsw i64 %124, 3
-  %.ptr87 = getelementptr inbounds i8, ptr %123, i64 %.idx86
+  %.ptr87 = getelementptr i8, ptr %123, i64 %.idx86
   %125 = icmp ne ptr %123, null
   tail call void @llvm.assume(i1 %125), !noalias !6039
   %126 = icmp eq i64 %124, 0
@@ -34253,7 +34253,7 @@ define hidden void @_ZN9rustc_ast5visit21walk_assoc_constraint17haa62d2fc54e25fd
   %30 = getelementptr i8, ptr %29, i64 16
   %31 = load i64, ptr %29, align 8, !noalias !6099, !noundef !5
   %.idx = mul nsw i64 %31, 96
-  %.ptr = getelementptr inbounds i8, ptr %30, i64 %.idx
+  %.ptr = getelementptr i8, ptr %30, i64 %.idx
   %32 = icmp ne ptr %30, null
   tail call void @llvm.assume(i1 %32)
   %33 = icmp eq i64 %31, 0
@@ -34267,7 +34267,7 @@ define hidden void @_ZN9rustc_ast5visit21walk_assoc_constraint17haa62d2fc54e25fd
   %36 = getelementptr i8, ptr %35, i64 16
   %37 = load i64, ptr %35, align 8, !noalias !6112, !noundef !5
   %.idx28 = mul nsw i64 %37, 24
-  %.ptr29 = getelementptr inbounds i8, ptr %36, i64 %.idx28
+  %.ptr29 = getelementptr i8, ptr %36, i64 %.idx28
   %38 = icmp ne ptr %36, null
   tail call void @llvm.assume(i1 %38), !noalias !6106
   %39 = icmp eq i64 %37, 0
@@ -34296,7 +34296,7 @@ define hidden void @_ZN9rustc_ast5visit21walk_assoc_constraint17haa62d2fc54e25fd
   %48 = getelementptr i8, ptr %47, i64 16
   %49 = load i64, ptr %47, align 8, !noalias !6139, !noundef !5
   %.idx32 = mul nsw i64 %49, 88
-  %.ptr33 = getelementptr inbounds i8, ptr %48, i64 %.idx32
+  %.ptr33 = getelementptr i8, ptr %48, i64 %.idx32
   %50 = icmp ne ptr %48, null
   tail call void @llvm.assume(i1 %50), !noalias !6134
   %51 = icmp eq i64 %49, 0
@@ -34310,7 +34310,7 @@ define hidden void @_ZN9rustc_ast5visit21walk_assoc_constraint17haa62d2fc54e25fd
   %55 = getelementptr i8, ptr %54, i64 16
   %56 = load i64, ptr %54, align 8, !noalias !6147, !noundef !5
   %.idx30 = shl nsw i64 %56, 3
-  %.ptr31 = getelementptr inbounds i8, ptr %55, i64 %.idx30
+  %.ptr31 = getelementptr i8, ptr %55, i64 %.idx30
   %57 = icmp ne ptr %55, null
   tail call void @llvm.assume(i1 %57), !noalias !6134
   %58 = icmp eq i64 %56, 0
@@ -34432,7 +34432,7 @@ define hidden void @_ZN9rustc_ast5visit7walk_fn17h0df89293546cc6bfE(ptr noalias 
   %22 = getelementptr i8, ptr %21, i64 16
   %23 = load i64, ptr %21, align 8, !noalias !6181, !noundef !5
   %.idx = mul nsw i64 %23, 96
-  %.ptr = getelementptr inbounds i8, ptr %22, i64 %.idx
+  %.ptr = getelementptr i8, ptr %22, i64 %.idx
   %24 = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %24)
   %25 = icmp eq i64 %23, 0
@@ -34446,7 +34446,7 @@ define hidden void @_ZN9rustc_ast5visit7walk_fn17h0df89293546cc6bfE(ptr noalias 
   %28 = getelementptr i8, ptr %27, i64 16
   %29 = load i64, ptr %27, align 8, !noalias !6188, !noundef !5
   %.idx73 = mul nsw i64 %29, 56
-  %.ptr74 = getelementptr inbounds i8, ptr %28, i64 %.idx73
+  %.ptr74 = getelementptr i8, ptr %28, i64 %.idx73
   %30 = icmp ne ptr %28, null
   tail call void @llvm.assume(i1 %30)
   %31 = icmp eq i64 %29, 0
@@ -34475,7 +34475,7 @@ _ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE.exit: ; preds = %"_ZN91_$
   %39 = getelementptr i8, ptr %38, i64 16
   %40 = load i64, ptr %38, align 8, !noalias !6199, !noundef !5
   %.idx75 = mul nsw i64 %40, 40
-  %.ptr76 = getelementptr inbounds i8, ptr %39, i64 %.idx75
+  %.ptr76 = getelementptr i8, ptr %39, i64 %.idx75
   %41 = icmp ne ptr %39, null
   tail call void @llvm.assume(i1 %41), !noalias !6195
   %42 = icmp eq i64 %40, 0
@@ -34491,7 +34491,7 @@ _ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE.exit: ; preds = %"_ZN91_$
   %45 = getelementptr i8, ptr %44, i64 16
   %46 = load i64, ptr %44, align 8, !noalias !6214, !noundef !5
   %.idx77 = shl nsw i64 %46, 5
-  %.ptr78 = getelementptr inbounds i8, ptr %45, i64 %.idx77
+  %.ptr78 = getelementptr i8, ptr %45, i64 %.idx77
   %47 = icmp ne ptr %45, null
   tail call void @llvm.assume(i1 %47), !noalias !6206
   %48 = icmp eq i64 %46, 0
@@ -34585,7 +34585,7 @@ _ZN9rustc_ast5visit7Visitor15visit_fn_ret_ty17he0817034803bbc61E.exit: ; preds =
   %80 = getelementptr i8, ptr %79, i64 16
   %81 = load i64, ptr %79, align 8, !noalias !6262, !noundef !5
   %.idx79 = shl nsw i64 %81, 5
-  %.ptr80 = getelementptr inbounds i8, ptr %80, i64 %.idx79
+  %.ptr80 = getelementptr i8, ptr %80, i64 %.idx79
   %82 = icmp ne ptr %80, null
   tail call void @llvm.assume(i1 %82)
   %83 = icmp eq i64 %81, 0
@@ -34607,7 +34607,7 @@ _ZN9rustc_ast5visit7Visitor15visit_fn_ret_ty17he0817034803bbc61E.exit: ; preds =
   %94 = getelementptr i8, ptr %91, i64 16
   %95 = load i64, ptr %91, align 8, !noalias !6268, !noundef !5
   %.idx83 = mul nsw i64 %95, 96
-  %.ptr84 = getelementptr inbounds i8, ptr %94, i64 %.idx83
+  %.ptr84 = getelementptr i8, ptr %94, i64 %.idx83
   %96 = icmp ne ptr %94, null
   tail call void @llvm.assume(i1 %96)
   %97 = icmp eq i64 %95, 0
@@ -34628,7 +34628,7 @@ _ZN9rustc_ast5visit19walk_closure_binder17h29acd0d0c671723aE.exit: ; preds = %"_
   %102 = getelementptr i8, ptr %101, i64 16
   %103 = load i64, ptr %101, align 8, !noalias !6283, !noundef !5
   %.idx85 = mul nsw i64 %103, 40
-  %.ptr86 = getelementptr inbounds i8, ptr %102, i64 %.idx85
+  %.ptr86 = getelementptr i8, ptr %102, i64 %.idx85
   %104 = icmp ne ptr %102, null
   tail call void @llvm.assume(i1 %104), !noalias !6279
   %105 = icmp eq i64 %103, 0
@@ -34644,7 +34644,7 @@ _ZN9rustc_ast5visit19walk_closure_binder17h29acd0d0c671723aE.exit: ; preds = %"_
   %108 = getelementptr i8, ptr %107, i64 16
   %109 = load i64, ptr %107, align 8, !noalias !6298, !noundef !5
   %.idx87 = shl nsw i64 %109, 5
-  %.ptr88 = getelementptr inbounds i8, ptr %108, i64 %.idx87
+  %.ptr88 = getelementptr i8, ptr %108, i64 %.idx87
   %110 = icmp ne ptr %108, null
   tail call void @llvm.assume(i1 %110), !noalias !6290
   %111 = icmp eq i64 %109, 0
@@ -34770,7 +34770,7 @@ default.unreachable:                              ; preds = %"_ZN91_$LT$core..sl
   %155 = getelementptr i8, ptr %154, i64 16
   %156 = load i64, ptr %154, align 8, !noalias !6344, !noundef !5
   %.idx81 = shl nsw i64 %156, 5
-  %.ptr82 = getelementptr inbounds i8, ptr %155, i64 %.idx81
+  %.ptr82 = getelementptr i8, ptr %155, i64 %.idx81
   %157 = icmp ne ptr %155, null
   tail call void @llvm.assume(i1 %157), !noalias !6250
   %158 = icmp eq i64 %156, 0
@@ -34916,7 +34916,7 @@ select.unfold:                                    ; preds = %tailrecurse
   %23 = getelementptr i8, ptr %22, i64 16
   %24 = load i64, ptr %22, align 8, !noalias !6374, !noundef !5
   %.idx146 = mul nsw i64 %24, 96
-  %.ptr147 = getelementptr inbounds i8, ptr %23, i64 %.idx146
+  %.ptr147 = getelementptr i8, ptr %23, i64 %.idx146
   %25 = icmp ne ptr %23, null
   tail call void @llvm.assume(i1 %25)
   %26 = icmp eq i64 %24, 0
@@ -34930,7 +34930,7 @@ select.unfold:                                    ; preds = %tailrecurse
   %30 = getelementptr i8, ptr %29, i64 16
   %31 = load i64, ptr %29, align 8, !noalias !6381, !noundef !5
   %.idx144 = shl nsw i64 %31, 3
-  %.ptr145 = getelementptr inbounds i8, ptr %30, i64 %.idx144
+  %.ptr145 = getelementptr i8, ptr %30, i64 %.idx144
   %32 = icmp ne ptr %30, null
   tail call void @llvm.assume(i1 %32)
   %33 = icmp eq i64 %31, 0
@@ -34987,7 +34987,7 @@ select.unfold:                                    ; preds = %tailrecurse
   %62 = getelementptr i8, ptr %61, i64 16
   %63 = load i64, ptr %61, align 8, !noalias !6403, !noundef !5
   %.idx148 = mul nsw i64 %63, 40
-  %.ptr149 = getelementptr inbounds i8, ptr %62, i64 %.idx148
+  %.ptr149 = getelementptr i8, ptr %62, i64 %.idx148
   %64 = icmp ne ptr %62, null
   tail call void @llvm.assume(i1 %64), !noalias !6399
   %65 = icmp eq i64 %63, 0
@@ -35003,7 +35003,7 @@ select.unfold:                                    ; preds = %tailrecurse
   %68 = getelementptr i8, ptr %67, i64 16
   %69 = load i64, ptr %67, align 8, !noalias !6418, !noundef !5
   %.idx150 = shl nsw i64 %69, 5
-  %.ptr151 = getelementptr inbounds i8, ptr %68, i64 %.idx150
+  %.ptr151 = getelementptr i8, ptr %68, i64 %.idx150
   %70 = icmp ne ptr %68, null
   tail call void @llvm.assume(i1 %70), !noalias !6410
   %71 = icmp eq i64 %69, 0
@@ -35102,7 +35102,7 @@ _ZN9rustc_ast5visit12walk_fn_decl17h4242a5521916fffcE.llvm.13158159170862922693.
   %106 = getelementptr i8, ptr %.020.val, i64 16
   %107 = load i64, ptr %.020.val, align 8, !noalias !6455, !noundef !5
   %.idx138 = mul nsw i64 %107, 80
-  %.ptr139 = getelementptr inbounds i8, ptr %106, i64 %.idx138
+  %.ptr139 = getelementptr i8, ptr %106, i64 %.idx138
   %108 = icmp ne ptr %106, null
   tail call void @llvm.assume(i1 %108)
   %109 = icmp eq i64 %107, 0
@@ -35130,7 +35130,7 @@ _ZN9rustc_ast5visit14walk_field_def17hedb63db3570d4c5bE.exit.loopexit: ; preds =
   %118 = getelementptr i8, ptr %117, i64 16
   %119 = load i64, ptr %117, align 8, !noalias !6475, !noundef !5
   %.idx140 = mul nsw i64 %119, 24
-  %.ptr141 = getelementptr inbounds i8, ptr %118, i64 %.idx140
+  %.ptr141 = getelementptr i8, ptr %118, i64 %.idx140
   %120 = icmp ne ptr %118, null
   tail call void @llvm.assume(i1 %120)
   %121 = icmp eq i64 %119, 0
@@ -35164,7 +35164,7 @@ _ZN9rustc_ast5visit8walk_vis17hb5de26a0baf863d0E.exit: ; preds = %_ZN9rustc_ast5
   %130 = getelementptr i8, ptr %129, i64 16
   %131 = load i64, ptr %129, align 8, !noalias !6499, !noundef !5
   %.idx142 = shl nsw i64 %131, 5
-  %.ptr143 = getelementptr inbounds i8, ptr %130, i64 %.idx142
+  %.ptr143 = getelementptr i8, ptr %130, i64 %.idx142
   %132 = icmp ne ptr %130, null
   tail call void @llvm.assume(i1 %132)
   %133 = icmp eq i64 %131, 0
@@ -35236,7 +35236,7 @@ _ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit: ; preds = %136, %1
   %159 = getelementptr i8, ptr %158, i64 16
   %160 = load i64, ptr %158, align 8, !noalias !6530, !noundef !5
   %.idx136 = mul nsw i64 %160, 24
-  %.ptr137 = getelementptr inbounds i8, ptr %159, i64 %.idx136
+  %.ptr137 = getelementptr i8, ptr %159, i64 %.idx136
   %161 = icmp ne ptr %159, null
   tail call void @llvm.assume(i1 %161)
   %162 = icmp eq i64 %160, 0
@@ -35275,7 +35275,7 @@ _ZN9rustc_ast5visit7Visitor18visit_path_segment17hdaf554b30c90a323E.exit.i: ; pr
   %173 = getelementptr i8, ptr %172, i64 16
   %174 = load i64, ptr %172, align 8, !noalias !6559, !noundef !5
   %.idx132 = mul nsw i64 %174, 96
-  %.ptr133 = getelementptr inbounds i8, ptr %173, i64 %.idx132
+  %.ptr133 = getelementptr i8, ptr %173, i64 %.idx132
   %175 = icmp ne ptr %173, null
   tail call void @llvm.assume(i1 %175)
   %176 = icmp eq i64 %174, 0
@@ -35289,7 +35289,7 @@ _ZN9rustc_ast5visit7Visitor18visit_path_segment17hdaf554b30c90a323E.exit.i: ; pr
   %179 = getelementptr i8, ptr %178, i64 16
   %180 = load i64, ptr %178, align 8, !noalias !6572, !noundef !5
   %.idx134 = mul nsw i64 %180, 24
-  %.ptr135 = getelementptr inbounds i8, ptr %179, i64 %.idx134
+  %.ptr135 = getelementptr i8, ptr %179, i64 %.idx134
   %181 = icmp ne ptr %179, null
   tail call void @llvm.assume(i1 %181), !noalias !6566
   %182 = icmp eq i64 %180, 0
@@ -35339,7 +35339,7 @@ _ZN9rustc_ast5visit16walk_param_bound17h926b0e0021dc586dE.exit: ; preds = %_ZN9r
   %196 = getelementptr i8, ptr %195, i64 16
   %197 = load i64, ptr %195, align 8, !noalias !6604, !noundef !5
   %.idx = mul nsw i64 %197, 96
-  %.ptr = getelementptr inbounds i8, ptr %196, i64 %.idx
+  %.ptr = getelementptr i8, ptr %196, i64 %.idx
   %198 = icmp ne ptr %196, null
   tail call void @llvm.assume(i1 %198)
   %199 = icmp eq i64 %197, 0
@@ -35353,7 +35353,7 @@ _ZN9rustc_ast5visit16walk_param_bound17h926b0e0021dc586dE.exit: ; preds = %_ZN9r
   %202 = getelementptr i8, ptr %201, i64 16
   %203 = load i64, ptr %201, align 8, !noalias !6617, !noundef !5
   %.idx129 = mul nsw i64 %203, 24
-  %.ptr130 = getelementptr inbounds i8, ptr %202, i64 %.idx129
+  %.ptr130 = getelementptr i8, ptr %202, i64 %.idx129
   %204 = icmp ne ptr %202, null
   tail call void @llvm.assume(i1 %204), !noalias !6611
   %205 = icmp eq i64 %203, 0
@@ -35422,7 +35422,7 @@ select.unfold18.us:                               ; preds = %11
   %17 = getelementptr i8, ptr %16, i64 16
   %18 = load i64, ptr %16, align 8, !noalias !6638, !noundef !5
   %.idx = shl nsw i64 %18, 5
-  %.ptr = getelementptr inbounds i8, ptr %17, i64 %.idx
+  %.ptr = getelementptr i8, ptr %17, i64 %.idx
   %19 = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %19)
   %20 = icmp eq i64 %18, 0
@@ -35585,7 +35585,7 @@ select.unfold76.us:                               ; preds = %25
   %37 = getelementptr i8, ptr %36, i64 16
   %38 = load i64, ptr %36, align 8, !noalias !6669, !noundef !5
   %.idx116 = mul nsw i64 %38, 24
-  %.ptr117 = getelementptr inbounds i8, ptr %37, i64 %.idx116
+  %.ptr117 = getelementptr i8, ptr %37, i64 %.idx116
   %39 = icmp ne ptr %37, null
   tail call void @llvm.assume(i1 %39)
   %40 = icmp eq i64 %38, 0
@@ -35613,7 +35613,7 @@ _ZN9rustc_ast5visit9walk_path17h4a91f8cbd502cb88E.exit: ; preds = %_ZN9rustc_ast
   %45 = getelementptr i8, ptr %.val, i64 16
   %46 = load i64, ptr %.val, align 8, !noalias !6684, !noundef !5
   %.idx118 = mul nsw i64 %46, 48
-  %.ptr119 = getelementptr inbounds i8, ptr %45, i64 %.idx118
+  %.ptr119 = getelementptr i8, ptr %45, i64 %.idx118
   %47 = icmp ne ptr %45, null
   tail call void @llvm.assume(i1 %47)
   %48 = icmp eq i64 %46, 0
@@ -35636,7 +35636,7 @@ _ZN9rustc_ast5visit14walk_pat_field17h4ab9a2a2d20adf54E.exit.loopexit: ; preds =
   %55 = getelementptr i8, ptr %54, i64 16
   %56 = load i64, ptr %54, align 8, !noalias !6695, !noundef !5
   %.idx120 = shl nsw i64 %56, 5
-  %.ptr121 = getelementptr inbounds i8, ptr %55, i64 %.idx120
+  %.ptr121 = getelementptr i8, ptr %55, i64 %.idx120
   %57 = icmp ne ptr %55, null
   tail call void @llvm.assume(i1 %57)
   %58 = icmp eq i64 %56, 0
@@ -35708,7 +35708,7 @@ _ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit: ; preds = %61, %70
   %84 = getelementptr i8, ptr %83, i64 16
   %85 = load i64, ptr %83, align 8, !noalias !6726, !noundef !5
   %.idx112 = mul nsw i64 %85, 24
-  %.ptr113 = getelementptr inbounds i8, ptr %84, i64 %.idx112
+  %.ptr113 = getelementptr i8, ptr %84, i64 %.idx112
   %86 = icmp ne ptr %84, null
   tail call void @llvm.assume(i1 %86)
   %87 = icmp eq i64 %85, 0
@@ -35736,7 +35736,7 @@ _ZN9rustc_ast5visit9walk_path17h4a91f8cbd502cb88E.exit46: ; preds = %_ZN9rustc_a
   %92 = getelementptr i8, ptr %.val37, i64 16
   %93 = load i64, ptr %.val37, align 8, !noalias !6741, !noundef !5
   %.idx114 = shl nsw i64 %93, 3
-  %.ptr115 = getelementptr inbounds i8, ptr %92, i64 %.idx114
+  %.ptr115 = getelementptr i8, ptr %92, i64 %.idx114
   %94 = icmp ne ptr %92, null
   tail call void @llvm.assume(i1 %94)
   %95 = icmp eq i64 %93, 0
@@ -35756,7 +35756,7 @@ _ZN9rustc_ast5visit9walk_path17h4a91f8cbd502cb88E.exit46: ; preds = %_ZN9rustc_a
   %100 = getelementptr i8, ptr %.030.val, i64 16
   %101 = load i64, ptr %.030.val, align 8, !noalias !6744, !noundef !5
   %.idx110 = shl nsw i64 %101, 3
-  %.ptr111 = getelementptr inbounds i8, ptr %100, i64 %.idx110
+  %.ptr111 = getelementptr i8, ptr %100, i64 %.idx110
   %102 = icmp ne ptr %100, null
   tail call void @llvm.assume(i1 %102)
   %103 = icmp eq i64 %101, 0
@@ -35776,7 +35776,7 @@ _ZN9rustc_ast5visit9walk_path17h4a91f8cbd502cb88E.exit46: ; preds = %_ZN9rustc_a
   %109 = getelementptr i8, ptr %108, i64 16
   %110 = load i64, ptr %108, align 8, !noalias !6759, !noundef !5
   %.idx = mul nsw i64 %110, 24
-  %.ptr = getelementptr inbounds i8, ptr %109, i64 %.idx
+  %.ptr = getelementptr i8, ptr %109, i64 %.idx
   %111 = icmp ne ptr %109, null
   tail call void @llvm.assume(i1 %111)
   %112 = icmp eq i64 %110, 0
@@ -35839,7 +35839,7 @@ define hidden void @_ZN9rustc_ast5visit8walk_vis17hb5de26a0baf863d0E(ptr noalias
   %9 = getelementptr i8, ptr %8, i64 16
   %10 = load i64, ptr %8, align 8, !noalias !6783, !noundef !5
   %.idx = mul nsw i64 %10, 24
-  %.ptr = getelementptr inbounds i8, ptr %9, i64 %.idx
+  %.ptr = getelementptr i8, ptr %9, i64 %.idx
   %11 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %11)
   %12 = icmp eq i64 %10, 0
@@ -35889,7 +35889,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %12 = getelementptr i8, ptr %11, i64 16
   %13 = load i64, ptr %11, align 8, !noalias !6795, !noundef !5
   %.idx = shl nsw i64 %13, 5
-  %.ptr = getelementptr inbounds i8, ptr %12, i64 %.idx
+  %.ptr = getelementptr i8, ptr %12, i64 %.idx
   %14 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %14)
   %15 = icmp eq i64 %13, 0
@@ -36006,7 +36006,7 @@ _ZN9rustc_ast5visit14walk_attribute17h4421092290bb7a65E.exit: ; preds = %19, %28
   %39 = getelementptr i8, ptr %.val144, i64 16
   %40 = load i64, ptr %.val144, align 8, !noalias !6819, !noundef !5
   %.idx402 = shl nsw i64 %40, 3
-  %.ptr403 = getelementptr inbounds i8, ptr %39, i64 %.idx402
+  %.ptr403 = getelementptr i8, ptr %39, i64 %.idx402
   %41 = icmp ne ptr %39, null
   tail call void @llvm.assume(i1 %41)
   %42 = icmp eq i64 %40, 0
@@ -36030,7 +36030,7 @@ tailrecurse.backedge:                             ; preds = %43, %72, %76, %157,
   %49 = getelementptr i8, ptr %.val143, i64 16
   %50 = load i64, ptr %.val143, align 8, !noalias !6822, !noundef !5
   %.idx400 = shl nsw i64 %50, 3
-  %.ptr401 = getelementptr inbounds i8, ptr %49, i64 %.idx400
+  %.ptr401 = getelementptr i8, ptr %49, i64 %.idx400
   %51 = icmp ne ptr %49, null
   tail call void @llvm.assume(i1 %51)
   %52 = icmp eq i64 %50, 0
@@ -36058,7 +36058,7 @@ _ZN9rustc_ast5visit17walk_path_segment17h5c3252c69545b83fE.exit: ; preds = %53, 
   %62 = getelementptr i8, ptr %.val142, i64 16
   %63 = load i64, ptr %.val142, align 8, !noalias !6830, !noundef !5
   %.idx398 = shl nsw i64 %63, 3
-  %.ptr399 = getelementptr inbounds i8, ptr %62, i64 %.idx398
+  %.ptr399 = getelementptr i8, ptr %62, i64 %.idx398
   %64 = icmp ne ptr %62, null
   tail call void @llvm.assume(i1 %64)
   %65 = icmp eq i64 %63, 0
@@ -36070,7 +36070,7 @@ _ZN9rustc_ast5visit17walk_path_segment17h5c3252c69545b83fE.exit: ; preds = %53, 
   %68 = getelementptr i8, ptr %.val, i64 16
   %69 = load i64, ptr %.val, align 8, !noalias !6833, !noundef !5
   %.idx396 = shl nsw i64 %69, 3
-  %.ptr397 = getelementptr inbounds i8, ptr %68, i64 %.idx396
+  %.ptr397 = getelementptr i8, ptr %68, i64 %.idx396
   %70 = icmp ne ptr %68, null
   tail call void @llvm.assume(i1 %70)
   %71 = icmp eq i64 %69, 0
@@ -36106,7 +36106,7 @@ common.ret600:                                    ; preds = %202, %197, %130, %3
   %86 = getelementptr i8, ptr %85, i64 16
   %87 = load i64, ptr %85, align 8, !noalias !6848, !noundef !5
   %.idx394 = shl nsw i64 %87, 5
-  %.ptr395 = getelementptr inbounds i8, ptr %86, i64 %.idx394
+  %.ptr395 = getelementptr i8, ptr %86, i64 %.idx394
   %88 = icmp ne ptr %86, null
   tail call void @llvm.assume(i1 %88)
   %89 = icmp eq i64 %87, 0
@@ -36138,7 +36138,7 @@ select.unfold243:                                 ; preds = %"_ZN91_$LT$core..sl
   %100 = getelementptr i8, ptr %99, i64 16
   %101 = load i64, ptr %99, align 8, !noalias !6861, !noundef !5
   %.idx392 = shl nsw i64 %101, 5
-  %.ptr393 = getelementptr inbounds i8, ptr %100, i64 %.idx392
+  %.ptr393 = getelementptr i8, ptr %100, i64 %.idx392
   %102 = icmp ne ptr %100, null
   tail call void @llvm.assume(i1 %102)
   %103 = icmp eq i64 %101, 0
@@ -36160,7 +36160,7 @@ select.unfold246:                                 ; preds = %"_ZN91_$LT$core..sl
   %111 = getelementptr i8, ptr %110, i64 16
   %112 = load i64, ptr %110, align 8, !noalias !6874, !noundef !5
   %.idx390 = shl nsw i64 %112, 5
-  %.ptr391 = getelementptr inbounds i8, ptr %111, i64 %.idx390
+  %.ptr391 = getelementptr i8, ptr %111, i64 %.idx390
   %113 = icmp ne ptr %111, null
   tail call void @llvm.assume(i1 %113)
   %114 = icmp eq i64 %112, 0
@@ -36176,7 +36176,7 @@ select.unfold249:                                 ; preds = %"_ZN91_$LT$core..sl
   %118 = getelementptr i8, ptr %117, i64 16
   %119 = load i64, ptr %117, align 8, !noalias !6887, !noundef !5
   %.idx388 = shl nsw i64 %119, 5
-  %.ptr389 = getelementptr inbounds i8, ptr %118, i64 %.idx388
+  %.ptr389 = getelementptr i8, ptr %118, i64 %.idx388
   %120 = icmp ne ptr %118, null
   tail call void @llvm.assume(i1 %120)
   %121 = icmp eq i64 %119, 0
@@ -36191,7 +36191,7 @@ select.unfold249:                                 ; preds = %"_ZN91_$LT$core..sl
   %126 = getelementptr i8, ptr %.val145, i64 16
   %127 = load i64, ptr %.val145, align 8, !noalias !6891, !noundef !5
   %.idx386 = mul nsw i64 %127, 48
-  %.ptr387 = getelementptr inbounds i8, ptr %126, i64 %.idx386
+  %.ptr387 = getelementptr i8, ptr %126, i64 %.idx386
   %128 = icmp ne ptr %126, null
   tail call void @llvm.assume(i1 %128)
   %129 = icmp eq i64 %127, 0
@@ -36226,7 +36226,7 @@ select.unfold254:                                 ; preds = %"_ZN91_$LT$core..sl
   %143 = getelementptr i8, ptr %142, i64 16
   %144 = load i64, ptr %142, align 8, !noalias !6906, !noundef !5
   %.idx384 = shl nsw i64 %144, 5
-  %.ptr385 = getelementptr inbounds i8, ptr %143, i64 %.idx384
+  %.ptr385 = getelementptr i8, ptr %143, i64 %.idx384
   %145 = icmp ne ptr %143, null
   tail call void @llvm.assume(i1 %145)
   %146 = icmp eq i64 %144, 0
@@ -36242,7 +36242,7 @@ select.unfold254:                                 ; preds = %"_ZN91_$LT$core..sl
   %151 = getelementptr i8, ptr %150, i64 16
   %152 = load i64, ptr %150, align 8, !noalias !6919, !noundef !5
   %.idx382 = shl nsw i64 %152, 5
-  %.ptr383 = getelementptr inbounds i8, ptr %151, i64 %.idx382
+  %.ptr383 = getelementptr i8, ptr %151, i64 %.idx382
   %153 = icmp ne ptr %151, null
   tail call void @llvm.assume(i1 %153)
   %154 = icmp eq i64 %152, 0
@@ -36269,7 +36269,7 @@ select.unfold254:                                 ; preds = %"_ZN91_$LT$core..sl
   %163 = getelementptr i8, ptr %162, i64 16
   %164 = load i64, ptr %162, align 8, !noalias !6932, !noundef !5
   %.idx380 = shl nsw i64 %164, 5
-  %.ptr381 = getelementptr inbounds i8, ptr %163, i64 %.idx380
+  %.ptr381 = getelementptr i8, ptr %163, i64 %.idx380
   %165 = icmp ne ptr %163, null
   tail call void @llvm.assume(i1 %165)
   %166 = icmp eq i64 %164, 0
@@ -36514,7 +36514,7 @@ common.ret.loopexit415:                           ; preds = %"_ZN91_$LT$core..sl
   %277 = getelementptr i8, ptr %276, i64 16
   %278 = load i64, ptr %276, align 8, !noalias !6948, !noundef !5
   %.idx378 = mul nsw i64 %278, 24
-  %.ptr379 = getelementptr inbounds i8, ptr %277, i64 %.idx378
+  %.ptr379 = getelementptr i8, ptr %277, i64 %.idx378
   %279 = icmp ne ptr %277, null
   tail call void @llvm.assume(i1 %279)
   %280 = icmp eq i64 %278, 0
@@ -36551,7 +36551,7 @@ _ZN9rustc_ast5visit7Visitor18visit_path_segment17hdaf554b30c90a323E.exit.i: ; pr
   %290 = getelementptr i8, ptr %289, i64 16
   %291 = load i64, ptr %289, align 8, !noalias !6972, !noundef !5
   %.idx372 = mul nsw i64 %291, 24
-  %.ptr373 = getelementptr inbounds i8, ptr %290, i64 %.idx372
+  %.ptr373 = getelementptr i8, ptr %290, i64 %.idx372
   %292 = icmp ne ptr %290, null
   tail call void @llvm.assume(i1 %292)
   %293 = icmp eq i64 %291, 0
@@ -36580,7 +36580,7 @@ _ZN9rustc_ast5visit9walk_path17h4a91f8cbd502cb88E.exit181: ; preds = %_ZN9rustc_
   %299 = getelementptr i8, ptr %.val146, i64 16
   %300 = load i64, ptr %.val146, align 8, !noalias !6987, !noundef !5
   %.idx374 = mul nsw i64 %300, 48
-  %.ptr375 = getelementptr inbounds i8, ptr %299, i64 %.idx374
+  %.ptr375 = getelementptr i8, ptr %299, i64 %.idx374
   %301 = icmp ne ptr %299, null
   tail call void @llvm.assume(i1 %301)
   %302 = icmp eq i64 %300, 0
@@ -36603,7 +36603,7 @@ _ZN9rustc_ast5visit15walk_expr_field17h20722bc30151e8deE.exit.loopexit: ; preds 
   %309 = getelementptr i8, ptr %308, i64 16
   %310 = load i64, ptr %308, align 8, !noalias !6998, !noundef !5
   %.idx376 = shl nsw i64 %310, 5
-  %.ptr377 = getelementptr inbounds i8, ptr %309, i64 %.idx376
+  %.ptr377 = getelementptr i8, ptr %309, i64 %.idx376
   %311 = icmp ne ptr %309, null
   tail call void @llvm.assume(i1 %311)
   %312 = icmp eq i64 %310, 0
@@ -36693,7 +36693,7 @@ define hidden void @_ZN9rustc_ast5visit9walk_item17h2292d03652b54b85E(ptr noalia
   %14 = getelementptr i8, ptr %13, i64 16
   %15 = load i64, ptr %13, align 8, !noalias !7034, !noundef !5
   %.idx = mul nsw i64 %15, 24
-  %.ptr = getelementptr inbounds i8, ptr %14, i64 %.idx
+  %.ptr = getelementptr i8, ptr %14, i64 %.idx
   %16 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %16), !noalias !7017
   %17 = icmp eq i64 %15, 0
@@ -36752,7 +36752,7 @@ _ZN9rustc_ast5visit13walk_enum_def17hb8d0e2acfc6a482fE.exit: ; preds = %"_ZN91_$
   %29 = getelementptr i8, ptr %28, i64 16
   %30 = load i64, ptr %28, align 8, !noalias !7053, !noundef !5
   %.idx384 = shl nsw i64 %30, 5
-  %.ptr385 = getelementptr inbounds i8, ptr %29, i64 %.idx384
+  %.ptr385 = getelementptr i8, ptr %29, i64 %.idx384
   %31 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %31)
   %32 = icmp eq i64 %30, 0
@@ -36768,7 +36768,7 @@ _ZN9rustc_ast5visit13walk_enum_def17hb8d0e2acfc6a482fE.exit: ; preds = %"_ZN91_$
   %37 = getelementptr i8, ptr %36, i64 16
   %38 = load i64, ptr %36, align 8, !noalias !7066, !noundef !5
   %.idx380 = mul nsw i64 %38, 24
-  %.ptr381 = getelementptr inbounds i8, ptr %37, i64 %.idx380
+  %.ptr381 = getelementptr i8, ptr %37, i64 %.idx380
   %39 = icmp ne ptr %37, null
   tail call void @llvm.assume(i1 %39)
   %40 = icmp eq i64 %38, 0
@@ -36804,7 +36804,7 @@ _ZN9rustc_ast5visit9walk_path17h4a91f8cbd502cb88E.exit105: ; preds = %_ZN9rustc_
   %49 = getelementptr i8, ptr %48, i64 16
   %50 = load i64, ptr %48, align 8, !noalias !7090, !noundef !5
   %.idx382 = mul nsw i64 %50, 56
-  %.ptr383 = getelementptr inbounds i8, ptr %49, i64 %.idx382
+  %.ptr383 = getelementptr i8, ptr %49, i64 %.idx382
   %51 = icmp ne ptr %49, null
   tail call void @llvm.assume(i1 %51)
   %52 = icmp eq i64 %50, 0
@@ -36844,7 +36844,7 @@ select.unfold.us:                                 ; preds = %57
   %69 = getelementptr i8, ptr %68, i64 16
   %70 = load i64, ptr %68, align 8, !noalias !7103, !noundef !5
   %.idx376 = mul nsw i64 %70, 96
-  %.ptr377 = getelementptr inbounds i8, ptr %69, i64 %.idx376
+  %.ptr377 = getelementptr i8, ptr %69, i64 %.idx376
   %71 = icmp ne ptr %69, null
   tail call void @llvm.assume(i1 %71)
   %72 = icmp eq i64 %70, 0
@@ -36858,7 +36858,7 @@ select.unfold.us:                                 ; preds = %57
   %75 = getelementptr i8, ptr %74, i64 16
   %76 = load i64, ptr %74, align 8, !noalias !7110, !noundef !5
   %.idx378 = mul nsw i64 %76, 56
-  %.ptr379 = getelementptr inbounds i8, ptr %75, i64 %.idx378
+  %.ptr379 = getelementptr i8, ptr %75, i64 %.idx378
   %77 = icmp ne ptr %75, null
   tail call void @llvm.assume(i1 %77)
   %78 = icmp eq i64 %76, 0
@@ -36926,7 +36926,7 @@ select.unfold225.us:                              ; preds = %_ZN9rustc_ast5visit
   %106 = getelementptr i8, ptr %.val, i64 16
   %107 = load i64, ptr %.val, align 8, !noalias !7117, !noundef !5
   %.idx372 = shl nsw i64 %107, 3
-  %.ptr373 = getelementptr inbounds i8, ptr %106, i64 %.idx372
+  %.ptr373 = getelementptr i8, ptr %106, i64 %.idx372
   %108 = icmp ne ptr %106, null
   tail call void @llvm.assume(i1 %108)
   %109 = icmp eq i64 %107, 0
@@ -36949,7 +36949,7 @@ select.unfold225.us:                              ; preds = %_ZN9rustc_ast5visit
   %118 = getelementptr i8, ptr %117, i64 16
   %119 = load i64, ptr %117, align 8, !noalias !7132, !noundef !5
   %.idx363 = mul nsw i64 %119, 96
-  %.ptr364 = getelementptr inbounds i8, ptr %118, i64 %.idx363
+  %.ptr364 = getelementptr i8, ptr %118, i64 %.idx363
   %120 = icmp ne ptr %118, null
   tail call void @llvm.assume(i1 %120)
   %121 = icmp eq i64 %119, 0
@@ -36963,7 +36963,7 @@ select.unfold225.us:                              ; preds = %_ZN9rustc_ast5visit
   %124 = getelementptr i8, ptr %123, i64 16
   %125 = load i64, ptr %123, align 8, !noalias !7139, !noundef !5
   %.idx365 = mul nsw i64 %125, 56
-  %.ptr366 = getelementptr inbounds i8, ptr %124, i64 %.idx365
+  %.ptr366 = getelementptr i8, ptr %124, i64 %.idx365
   %126 = icmp ne ptr %124, null
   tail call void @llvm.assume(i1 %126)
   %127 = icmp eq i64 %125, 0
@@ -37001,7 +37001,7 @@ _ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE.exit70: ; preds = %"_ZN91
   %141 = getelementptr i8, ptr %140, i64 16
   %142 = load i64, ptr %140, align 8, !noalias !7155, !noundef !5
   %.idx357 = mul nsw i64 %142, 96
-  %.ptr358 = getelementptr inbounds i8, ptr %141, i64 %.idx357
+  %.ptr358 = getelementptr i8, ptr %141, i64 %.idx357
   %143 = icmp ne ptr %141, null
   tail call void @llvm.assume(i1 %143)
   %144 = icmp eq i64 %142, 0
@@ -37015,7 +37015,7 @@ _ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE.exit70: ; preds = %"_ZN91
   %147 = getelementptr i8, ptr %146, i64 16
   %148 = load i64, ptr %146, align 8, !noalias !7162, !noundef !5
   %.idx359 = mul nsw i64 %148, 56
-  %.ptr360 = getelementptr inbounds i8, ptr %147, i64 %.idx359
+  %.ptr360 = getelementptr i8, ptr %147, i64 %.idx359
   %149 = icmp ne ptr %147, null
   tail call void @llvm.assume(i1 %149)
   %150 = icmp eq i64 %148, 0
@@ -37044,7 +37044,7 @@ _ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE.exit75: ; preds = %"_ZN91
   %157 = getelementptr i8, ptr %156, i64 16
   %158 = load i64, ptr %156, align 8, !noalias !7175, !noundef !5
   %.idx361 = mul nsw i64 %158, 104
-  %.ptr362 = getelementptr inbounds i8, ptr %157, i64 %.idx361
+  %.ptr362 = getelementptr i8, ptr %157, i64 %.idx361
   %159 = icmp ne ptr %157, null
   tail call void @llvm.assume(i1 %159)
   %160 = icmp eq i64 %158, 0
@@ -37069,7 +37069,7 @@ _ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE.exit75: ; preds = %"_ZN91
   %169 = getelementptr i8, ptr %168, i64 16
   %170 = load i64, ptr %168, align 8, !noalias !7188, !noundef !5
   %.idx341 = mul nsw i64 %170, 96
-  %.ptr342 = getelementptr inbounds i8, ptr %169, i64 %.idx341
+  %.ptr342 = getelementptr i8, ptr %169, i64 %.idx341
   %171 = icmp ne ptr %169, null
   tail call void @llvm.assume(i1 %171)
   %172 = icmp eq i64 %170, 0
@@ -37083,7 +37083,7 @@ _ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE.exit75: ; preds = %"_ZN91
   %175 = getelementptr i8, ptr %174, i64 16
   %176 = load i64, ptr %174, align 8, !noalias !7195, !noundef !5
   %.idx343 = mul nsw i64 %176, 56
-  %.ptr344 = getelementptr inbounds i8, ptr %175, i64 %.idx343
+  %.ptr344 = getelementptr i8, ptr %175, i64 %.idx343
   %177 = icmp ne ptr %175, null
   tail call void @llvm.assume(i1 %177)
   %178 = icmp eq i64 %176, 0
@@ -37121,7 +37121,7 @@ _ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE.exit81: ; preds = %"_ZN91
   %192 = getelementptr i8, ptr %191, i64 16
   %193 = load i64, ptr %191, align 8, !noalias !7211, !noundef !5
   %.idx332 = mul nsw i64 %193, 96
-  %.ptr333 = getelementptr inbounds i8, ptr %192, i64 %.idx332
+  %.ptr333 = getelementptr i8, ptr %192, i64 %.idx332
   %194 = icmp ne ptr %192, null
   tail call void @llvm.assume(i1 %194)
   %195 = icmp eq i64 %193, 0
@@ -37135,7 +37135,7 @@ _ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE.exit81: ; preds = %"_ZN91
   %198 = getelementptr i8, ptr %197, i64 16
   %199 = load i64, ptr %197, align 8, !noalias !7218, !noundef !5
   %.idx334 = mul nsw i64 %199, 56
-  %.ptr335 = getelementptr inbounds i8, ptr %198, i64 %.idx334
+  %.ptr335 = getelementptr i8, ptr %198, i64 %.idx334
   %200 = icmp ne ptr %198, null
   tail call void @llvm.assume(i1 %200)
   %201 = icmp eq i64 %199, 0
@@ -37176,7 +37176,7 @@ _ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE.exit86: ; preds = %"_ZN91
   %218 = getelementptr i8, ptr %217, i64 16
   %219 = load i64, ptr %217, align 8, !noalias !7234, !noundef !5
   %.idx324 = mul nsw i64 %219, 96
-  %.ptr325 = getelementptr inbounds i8, ptr %218, i64 %.idx324
+  %.ptr325 = getelementptr i8, ptr %218, i64 %.idx324
   %220 = icmp ne ptr %218, null
   tail call void @llvm.assume(i1 %220)
   %221 = icmp eq i64 %219, 0
@@ -37190,7 +37190,7 @@ _ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE.exit86: ; preds = %"_ZN91
   %224 = getelementptr i8, ptr %223, i64 16
   %225 = load i64, ptr %223, align 8, !noalias !7241, !noundef !5
   %.idx326 = mul nsw i64 %225, 56
-  %.ptr327 = getelementptr inbounds i8, ptr %224, i64 %.idx326
+  %.ptr327 = getelementptr i8, ptr %224, i64 %.idx326
   %226 = icmp ne ptr %224, null
   tail call void @llvm.assume(i1 %226)
   %227 = icmp eq i64 %225, 0
@@ -37223,7 +37223,7 @@ _ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE.exit91: ; preds = %"_ZN91
   %236 = getelementptr i8, ptr %235, i64 16
   %237 = load i64, ptr %235, align 8, !noalias !7254, !noundef !5
   %.idx328 = mul nsw i64 %237, 24
-  %.ptr329 = getelementptr inbounds i8, ptr %236, i64 %.idx328
+  %.ptr329 = getelementptr i8, ptr %236, i64 %.idx328
   %238 = icmp ne ptr %236, null
   tail call void @llvm.assume(i1 %238), !noalias !7248
   %239 = icmp eq i64 %237, 0
@@ -37258,7 +37258,7 @@ _ZN9rustc_ast5visit7Visitor18visit_path_segment17hdaf554b30c90a323E.exit.us: ; p
   %249 = getelementptr i8, ptr %.val54, i64 16
   %250 = load i64, ptr %.val54, align 8, !noalias !7272, !noundef !5
   %.idx374 = shl nsw i64 %250, 3
-  %.ptr375 = getelementptr inbounds i8, ptr %249, i64 %.idx374
+  %.ptr375 = getelementptr i8, ptr %249, i64 %.idx374
   %251 = icmp ne ptr %249, null
   tail call void @llvm.assume(i1 %251)
   %252 = icmp eq i64 %250, 0
@@ -37306,7 +37306,7 @@ select.unfold236.us:                              ; preds = %._crit_edge308
   %268 = getelementptr i8, ptr %267, i64 16
   %269 = load i64, ptr %267, align 8, !noalias !7292, !noundef !5
   %.idx368 = mul nsw i64 %269, 96
-  %.ptr369 = getelementptr inbounds i8, ptr %268, i64 %.idx368
+  %.ptr369 = getelementptr i8, ptr %268, i64 %.idx368
   %270 = icmp ne ptr %268, null
   tail call void @llvm.assume(i1 %270)
   %271 = icmp eq i64 %269, 0
@@ -37320,7 +37320,7 @@ select.unfold236.us:                              ; preds = %._crit_edge308
   %274 = getelementptr i8, ptr %273, i64 16
   %275 = load i64, ptr %273, align 8, !noalias !7305, !noundef !5
   %.idx370 = mul nsw i64 %275, 24
-  %.ptr371 = getelementptr inbounds i8, ptr %274, i64 %.idx370
+  %.ptr371 = getelementptr i8, ptr %274, i64 %.idx370
   %276 = icmp ne ptr %274, null
   tail call void @llvm.assume(i1 %276), !noalias !7299
   %277 = icmp eq i64 %275, 0
@@ -37364,7 +37364,7 @@ _ZN9rustc_ast5visit16walk_param_bound17h926b0e0021dc586dE.exit: ; preds = %_ZN9r
   %288 = getelementptr i8, ptr %287, i64 16
   %289 = load i64, ptr %287, align 8, !noalias !7332, !noundef !5
   %.idx352 = mul nsw i64 %289, 96
-  %.ptr353 = getelementptr inbounds i8, ptr %288, i64 %.idx352
+  %.ptr353 = getelementptr i8, ptr %288, i64 %.idx352
   %290 = icmp ne ptr %288, null
   tail call void @llvm.assume(i1 %290)
   %291 = icmp eq i64 %289, 0
@@ -37378,7 +37378,7 @@ _ZN9rustc_ast5visit16walk_param_bound17h926b0e0021dc586dE.exit: ; preds = %_ZN9r
   %294 = getelementptr i8, ptr %293, i64 16
   %295 = load i64, ptr %293, align 8, !noalias !7339, !noundef !5
   %.idx354 = mul nsw i64 %295, 56
-  %.ptr355 = getelementptr inbounds i8, ptr %294, i64 %.idx354
+  %.ptr355 = getelementptr i8, ptr %294, i64 %.idx354
   %296 = icmp ne ptr %294, null
   tail call void @llvm.assume(i1 %296)
   %297 = icmp eq i64 %295, 0
@@ -37422,7 +37422,7 @@ _ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE.exit96: ; preds = %"_ZN91
   %311 = getelementptr i8, ptr %310, i64 16
   %312 = load i64, ptr %310, align 8, !noalias !7349, !noundef !5
   %.idx350 = shl nsw i64 %312, 3
-  %.ptr351 = getelementptr inbounds i8, ptr %311, i64 %.idx350
+  %.ptr351 = getelementptr i8, ptr %311, i64 %.idx350
   %313 = icmp ne ptr %311, null
   tail call void @llvm.assume(i1 %313)
   %314 = icmp eq i64 %312, 0
@@ -37444,7 +37444,7 @@ _ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE.exit96: ; preds = %"_ZN91
   %321 = getelementptr i8, ptr %320, i64 16
   %322 = load i64, ptr %320, align 8, !noalias !7367, !noundef !5
   %.idx346 = mul nsw i64 %322, 96
-  %.ptr347 = getelementptr inbounds i8, ptr %321, i64 %.idx346
+  %.ptr347 = getelementptr i8, ptr %321, i64 %.idx346
   %323 = icmp ne ptr %321, null
   tail call void @llvm.assume(i1 %323)
   %324 = icmp eq i64 %322, 0
@@ -37458,7 +37458,7 @@ _ZN9rustc_ast5visit13walk_generics17ha75b688977875bcbE.exit96: ; preds = %"_ZN91
   %327 = getelementptr i8, ptr %326, i64 16
   %328 = load i64, ptr %326, align 8, !noalias !7380, !noundef !5
   %.idx348 = mul nsw i64 %328, 24
-  %.ptr349 = getelementptr inbounds i8, ptr %327, i64 %.idx348
+  %.ptr349 = getelementptr i8, ptr %327, i64 %.idx348
   %329 = icmp ne ptr %327, null
   tail call void @llvm.assume(i1 %329), !noalias !7374
   %330 = icmp eq i64 %328, 0
@@ -37516,7 +37516,7 @@ _ZN9rustc_ast5visit16walk_param_bound17h926b0e0021dc586dE.exit98: ; preds = %_ZN
   %347 = getelementptr i8, ptr %346, i64 16
   %348 = load i64, ptr %346, align 8, !noalias !7412, !noundef !5
   %.idx337 = mul nsw i64 %348, 96
-  %.ptr338 = getelementptr inbounds i8, ptr %347, i64 %.idx337
+  %.ptr338 = getelementptr i8, ptr %347, i64 %.idx337
   %349 = icmp ne ptr %347, null
   tail call void @llvm.assume(i1 %349)
   %350 = icmp eq i64 %348, 0
@@ -37530,7 +37530,7 @@ _ZN9rustc_ast5visit16walk_param_bound17h926b0e0021dc586dE.exit98: ; preds = %_ZN
   %353 = getelementptr i8, ptr %352, i64 16
   %354 = load i64, ptr %352, align 8, !noalias !7425, !noundef !5
   %.idx339 = mul nsw i64 %354, 24
-  %.ptr340 = getelementptr inbounds i8, ptr %353, i64 %.idx339
+  %.ptr340 = getelementptr i8, ptr %353, i64 %.idx339
   %355 = icmp ne ptr %353, null
   tail call void @llvm.assume(i1 %355), !noalias !7419
   %356 = icmp eq i64 %354, 0
@@ -37574,7 +37574,7 @@ select.unfold257._crit_edge:                      ; preds = %_ZN9rustc_ast5visit
   %367 = getelementptr i8, ptr %366, i64 16
   %368 = load i64, ptr %366, align 8, !noalias !7446, !noundef !5
   %.idx330 = shl nsw i64 %368, 3
-  %.ptr331 = getelementptr inbounds i8, ptr %367, i64 %.idx330
+  %.ptr331 = getelementptr i8, ptr %367, i64 %.idx330
   %369 = icmp ne ptr %367, null
   tail call void @llvm.assume(i1 %369)
   %370 = icmp eq i64 %368, 0
@@ -37652,7 +37652,7 @@ define hidden void @_ZN9rustc_ast5visit9walk_path17h4a91f8cbd502cb88E(ptr noalia
   %4 = getelementptr i8, ptr %3, i64 16
   %5 = load i64, ptr %3, align 8, !noalias !7471, !noundef !5
   %.idx = mul nsw i64 %5, 24
-  %.ptr = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %.ptr = getelementptr i8, ptr %4, i64 %.idx
   %6 = icmp ne ptr %4, null
   tail call void @llvm.assume(i1 %6)
   %7 = icmp eq i64 %5, 0
@@ -37723,7 +37723,7 @@ default.unreachable7:                             ; preds = %2
   %19 = getelementptr i8, ptr %18, i64 16
   %20 = load i64, ptr %18, align 8, !noalias !7482, !noundef !5
   %.idx = shl nsw i64 %20, 5
-  %.ptr = getelementptr inbounds i8, ptr %19, i64 %.idx
+  %.ptr = getelementptr i8, ptr %19, i64 %.idx
   %21 = icmp ne ptr %19, null
   tail call void @llvm.assume(i1 %21)
   %22 = icmp eq i64 %20, 0

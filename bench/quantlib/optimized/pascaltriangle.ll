@@ -148,7 +148,7 @@ if.end.i.i.i.i.i.i.i.i.i.i9:                      ; preds = %_ZNSt6vectorIS_ImSa
 
 for.body.i.i.i.i.i.i.i.i.i.i.i.i14:               ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i14, %if.end.i.i.i.i.i.i.i.i.i.i9
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i15.idx = phi i64 [ %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i15.add, %for.body.i.i.i.i.i.i.i.i.i.i.i.i14 ], [ 0, %if.end.i.i.i.i.i.i.i.i.i.i9 ]
-  %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i15.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1.i.i.i11, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i15.idx
+  %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i15.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i.i.i11, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i15.idx
   store i64 1, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i15.ptr, align 8, !tbaa !18
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i15.add = add nuw nsw i64 %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i15.idx, 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i17 = icmp eq i64 %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i15.add, 16
@@ -190,7 +190,7 @@ if.end.i.i.i.i.i.i.i.i.i.i34:                     ; preds = %_ZNSt6vectorIS_ImSa
 
 for.body.i.i.i.i.i.i.i.i.i.i.i.i39:               ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i39, %if.end.i.i.i.i.i.i.i.i.i.i34
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i40.idx = phi i64 [ %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i40.add, %for.body.i.i.i.i.i.i.i.i.i.i.i.i39 ], [ 0, %if.end.i.i.i.i.i.i.i.i.i.i34 ]
-  %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i40.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1.i.i.i36, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i40.idx
+  %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i40.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i.i.i36, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i40.idx
   store i64 1, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i40.ptr, align 8, !tbaa !18
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i40.add = add nuw nsw i64 %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i40.idx, 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i42 = icmp eq i64 %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i40.add, 24
@@ -237,7 +237,7 @@ if.end.i.i.i.i.i.i.i.i.i.i60:                     ; preds = %_ZNSt6vectorIS_ImSa
 
 for.body.i.i.i.i.i.i.i.i.i.i.i.i65:               ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i65, %if.end.i.i.i.i.i.i.i.i.i.i60
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i66.idx = phi i64 [ %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i66.add, %for.body.i.i.i.i.i.i.i.i.i.i.i.i65 ], [ 0, %if.end.i.i.i.i.i.i.i.i.i.i60 ]
-  %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i66.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1.i.i.i62, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i66.idx
+  %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i66.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i.i.i62, i64 %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i66.idx
   store i64 1, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i66.ptr, align 8, !tbaa !18
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i66.add = add nuw nsw i64 %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i66.idx, 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i68 = icmp eq i64 %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i66.add, 32

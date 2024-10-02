@@ -5414,7 +5414,7 @@ arraydestroy.body.preheader.i.i245:               ; preds = %delete.notnull.i143
 
 arraydestroy.body.i.i246:                         ; preds = %_ZN7Imf_3_27Array2DIPfED2Ev.exit.i.i, %arraydestroy.body.preheader.i.i245
   %arraydestroy.elementPast.i.idx.i = phi i64 [ %arraydestroy.elementPast.i.add.i, %_ZN7Imf_3_27Array2DIPfED2Ev.exit.i.i ], [ %delete.end.i.idx.i, %arraydestroy.body.preheader.i.i245 ]
-  %arraydestroy.elementPast.i.add.i = add nsw i64 %arraydestroy.elementPast.i.idx.i, -24
+  %arraydestroy.elementPast.i.add.i = add i64 %arraydestroy.elementPast.i.idx.i, -24
   %gep.i = getelementptr i8, ptr %call.i89.i, i64 %arraydestroy.elementPast.i.idx.i
   %207 = load ptr, ptr %gep.i, align 8
   %isnull.i.i.i247 = icmp eq ptr %207, null
@@ -5461,7 +5461,7 @@ arraydestroy.body.preheader.i155.i:               ; preds = %delete.notnull.i153
 
 arraydestroy.body.i157.i:                         ; preds = %_ZN7Imf_3_27Array2DIPfED2Ev.exit.i163.i, %arraydestroy.body.preheader.i155.i
   %arraydestroy.elementPast.i158.idx.i = phi i64 [ %arraydestroy.elementPast.i158.add.i, %_ZN7Imf_3_27Array2DIPfED2Ev.exit.i163.i ], [ %delete.end.i156.idx.i, %arraydestroy.body.preheader.i155.i ]
-  %arraydestroy.elementPast.i158.add.i = add nsw i64 %arraydestroy.elementPast.i158.idx.i, -24
+  %arraydestroy.elementPast.i158.add.i = add i64 %arraydestroy.elementPast.i158.idx.i, -24
   %gep508.i = getelementptr i8, ptr %call.i89.i, i64 %arraydestroy.elementPast.i158.idx.i
   %212 = load ptr, ptr %gep508.i, align 8
   %isnull.i.i161.i = icmp eq ptr %212, null
@@ -7869,7 +7869,7 @@ arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i143
 
 arraydestroy.body.i:                              ; preds = %_ZN7Imf_3_27Array2DIPfED2Ev.exit.i, %arraydestroy.body.preheader.i
   %arraydestroy.elementPast.i.idx = phi i64 [ %arraydestroy.elementPast.i.add, %_ZN7Imf_3_27Array2DIPfED2Ev.exit.i ], [ %delete.end.i.idx, %arraydestroy.body.preheader.i ]
-  %arraydestroy.elementPast.i.add = add nsw i64 %arraydestroy.elementPast.i.idx, -24
+  %arraydestroy.elementPast.i.add = add i64 %arraydestroy.elementPast.i.idx, -24
   %gep = getelementptr i8, ptr %call.i89, i64 %arraydestroy.elementPast.i.idx
   %44 = load ptr, ptr %gep, align 8
   %isnull.i.i = icmp eq ptr %44, null
@@ -7920,7 +7920,7 @@ arraydestroy.body.preheader.i155:                 ; preds = %delete.notnull.i153
 
 arraydestroy.body.i157:                           ; preds = %_ZN7Imf_3_27Array2DIPfED2Ev.exit.i163, %arraydestroy.body.preheader.i155
   %arraydestroy.elementPast.i158.idx = phi i64 [ %arraydestroy.elementPast.i158.add, %_ZN7Imf_3_27Array2DIPfED2Ev.exit.i163 ], [ %delete.end.i156.idx, %arraydestroy.body.preheader.i155 ]
-  %arraydestroy.elementPast.i158.add = add nsw i64 %arraydestroy.elementPast.i158.idx, -24
+  %arraydestroy.elementPast.i158.add = add i64 %arraydestroy.elementPast.i158.idx, -24
   %gep508 = getelementptr i8, ptr %call.i89, i64 %arraydestroy.elementPast.i158.idx
   %49 = load ptr, ptr %gep508, align 8
   %isnull.i.i161 = icmp eq ptr %49, null

@@ -1715,7 +1715,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3f25ExtractRotation
   %12 = fadd float %4, %6
   %13 = fadd float %12, %9
   %14 = mul nuw nsw i32 %.0.fr, 3
-  %15 = sext i32 %14 to i64
+  %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds float, ptr %1, i64 %15
   %17 = zext nneg i32 %.0.fr to i64
   %18 = getelementptr inbounds float, ptr %16, i64 %17

@@ -1350,7 +1350,7 @@ invoke.cont.i.i:                                  ; preds = %for.body.i.i.i
 for.body.us.i.i.i.i:                              ; preds = %for.body.us.i.i.i.i, %invoke.cont.i.i
   %__result.addr.07.us.i.i.i.i = phi ptr [ %incdec.ptr1.us.i.i.i.i, %for.body.us.i.i.i.i ], [ %index_base_list_.i.i.i, %invoke.cont.i.i ]
   %__first.addr.06.us.i.idx.i.i.i = phi i64 [ %__first.addr.06.us.i.add.i.i.i, %for.body.us.i.i.i.i ], [ 0, %invoke.cont.i.i ]
-  %__first.addr.06.us.i.ptr.i.i.i = getelementptr inbounds i8, ptr %ranges, i64 %__first.addr.06.us.i.idx.i.i.i
+  %__first.addr.06.us.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ranges, i64 %__first.addr.06.us.i.idx.i.i.i
   %0 = load i64, ptr %__first.addr.06.us.i.ptr.i.i.i, align 8, !tbaa !27
   store i64 %0, ptr %__result.addr.07.us.i.i.i.i, align 8, !tbaa !7
   %__first.addr.06.us.i.add.i.i.i = add nuw nsw i64 %__first.addr.06.us.i.idx.i.i.i, 16
@@ -1365,7 +1365,7 @@ _ZSt9transformIPKN5boost6detail11multi_array12extent_rangeIlmEEPlNS0_19const_mem
 for.body.us.i17.i.i.i:                            ; preds = %for.body.us.i17.i.i.i, %_ZSt9transformIPKN5boost6detail11multi_array12extent_rangeIlmEEPlNS0_19const_mem_fun_ref_tIlS4_EEET0_T_SB_SA_T1_.exit.i.i.i
   %__result.addr.07.us.i18.i.i.i = phi ptr [ %incdec.ptr1.us.i22.i.i.i, %for.body.us.i17.i.i.i ], [ %extents.i.i.i, %_ZSt9transformIPKN5boost6detail11multi_array12extent_rangeIlmEEPlNS0_19const_mem_fun_ref_tIlS4_EEET0_T_SB_SA_T1_.exit.i.i.i ]
   %__first.addr.06.us.i19.idx.i.i.i = phi i64 [ %__first.addr.06.us.i19.add.i.i.i, %for.body.us.i17.i.i.i ], [ 0, %_ZSt9transformIPKN5boost6detail11multi_array12extent_rangeIlmEEPlNS0_19const_mem_fun_ref_tIlS4_EEET0_T_SB_SA_T1_.exit.i.i.i ]
-  %__first.addr.06.us.i19.ptr.i.i.i = getelementptr inbounds i8, ptr %ranges, i64 %__first.addr.06.us.i19.idx.i.i.i
+  %__first.addr.06.us.i19.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ranges, i64 %__first.addr.06.us.i19.idx.i.i.i
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.us.i19.ptr.i.i.i, i64 8
   %1 = load i64, ptr %second.i.i.i.i, align 8, !tbaa !32
   %2 = load i64, ptr %__first.addr.06.us.i19.ptr.i.i.i, align 8, !tbaa !27
@@ -1440,7 +1440,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost21const_multi_array_refIdLm3EPdE20init_multi_array_refIPlEEvT_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %extents_iter) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %extent_list_.ptr = getelementptr inbounds i8, ptr %this, i64 40
+  %extent_list_.ptr = getelementptr inbounds nuw i8, ptr %this, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -1458,7 +1458,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 for.body.i1:                                      ; preds = %for.body.i, %for.body.i1
   %__first.addr.06.i.idx = phi i64 [ %__first.addr.06.i.add, %for.body.i1 ], [ 40, %for.body.i ]
   %__init.addr.05.i = phi i64 [ %mul.i.i, %for.body.i1 ], [ 1, %for.body.i ]
-  %__first.addr.06.i.ptr = getelementptr inbounds i8, ptr %this, i64 %__first.addr.06.i.idx
+  %__first.addr.06.i.ptr = getelementptr inbounds nuw i8, ptr %this, i64 %__first.addr.06.i.idx
   %1 = load i64, ptr %__first.addr.06.i.ptr, align 8, !tbaa !7
   %mul.i.i = mul i64 %1, %__init.addr.05.i
   %__first.addr.06.i.add = add nuw nsw i64 %__first.addr.06.i.idx, 8
@@ -1496,7 +1496,7 @@ for.body.i4:                                      ; preds = %for.body.i4, %_ZSt1
 for.body.i.i.i.i:                                 ; preds = %for.body.i4, %for.body.i.i.i.i
   %__first.addr.06.i.idx.i.i.i = phi i64 [ %__first.addr.06.i.add.i.i.i, %for.body.i.i.i.i ], [ 24, %for.body.i4 ]
   %__init.addr.0.in5.i.i.i.i = phi i1 [ %8, %for.body.i.i.i.i ], [ true, %for.body.i4 ]
-  %__first.addr.06.i.ptr.i.i.i = getelementptr inbounds i8, ptr %storage_, i64 %__first.addr.06.i.idx.i.i.i
+  %__first.addr.06.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %storage_, i64 %__first.addr.06.i.idx.i.i.i
   %7 = load i8, ptr %__first.addr.06.i.ptr.i.i.i, align 1, !range !87
   %loadedv2.i.i.i.i.i = trunc nuw i8 %7 to i1
   %8 = select i1 %__init.addr.0.in5.i.i.i.i, i1 %loadedv2.i.i.i.i.i, i1 false
@@ -1558,7 +1558,7 @@ _ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE23calculate_origin_of
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE23calculate_origin_offsetINS_5arrayIlLm3EEENS5_ImLm3EEES6_EElRKT_RKT0_RKNS_21general_storage_orderILm3EEERKT1_.exit
   %__first.addr.06.i.idx.i.i = phi i64 [ %__first.addr.06.i.add.i.i, %for.body.i.i.i ], [ 24, %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE23calculate_origin_offsetINS_5arrayIlLm3EEENS5_ImLm3EEES6_EElRKT_RKT0_RKNS_21general_storage_orderILm3EEERKT1_.exit ]
   %__init.addr.0.in5.i.i.i = phi i1 [ %15, %for.body.i.i.i ], [ true, %_ZN5boost6detail11multi_array21multi_array_impl_baseIdLm3EE23calculate_origin_offsetINS_5arrayIlLm3EEENS5_ImLm3EEES6_EElRKT_RKT0_RKNS_21general_storage_orderILm3EEERKT1_.exit ]
-  %__first.addr.06.i.ptr.i.i = getelementptr inbounds i8, ptr %storage_, i64 %__first.addr.06.i.idx.i.i
+  %__first.addr.06.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %storage_, i64 %__first.addr.06.i.idx.i.i
   %14 = load i8, ptr %__first.addr.06.i.ptr.i.i, align 1, !range !87
   %loadedv2.i.i.i.i = trunc nuw i8 %14 to i1
   %15 = select i1 %__init.addr.0.in5.i.i.i, i1 %loadedv2.i.i.i.i, i1 false

@@ -70682,7 +70682,7 @@ if.then33.i:                                      ; preds = %if.end3.i
 if.end3:                                          ; preds = %if.end3.i, %if.end29.i.thread, %if.then33.i
   %2 = phi i64 [ %mul38.i, %if.then33.i ], [ %add28.i, %if.end29.i.thread ], [ 0, %if.end3.i ]
   %add43.i = add nuw nsw i64 %2, 7
-  %and.i = and i64 %add43.i, -8
+  %and.i = and i64 %add43.i, 9223372036854775800
   store i64 %and.i, ptr %pHeapSizeInBytes, align 8
   br label %return
 
@@ -70738,7 +70738,7 @@ if.end3:                                          ; preds = %if.end29.i.thread, 
   %heapLayout.sroa.10.055 = phi i64 [ 0, %if.then33.i ], [ %add14.i, %if.end29.i.thread ]
   %2 = phi i64 [ %mul38.i, %if.then33.i ], [ %add28.i, %if.end29.i.thread ]
   %add43.i = add nuw nsw i64 %2, 7
-  %and.i = and i64 %add43.i, -8
+  %and.i = and i64 %add43.i, 9223372036854775800
   %_pHeap = getelementptr inbounds i8, ptr %pNoise, i64 136
   store ptr %pHeap, ptr %_pHeap, align 8
   %cmp.i = icmp ne ptr %pHeap, null
@@ -70880,7 +70880,7 @@ if.then33.i.i:                                    ; preds = %if.end3.i.i
 if.end:                                           ; preds = %if.then33.i.i, %if.end29.i.thread.i
   %2 = phi i64 [ %mul38.i.i, %if.then33.i.i ], [ %add28.i.i, %if.end29.i.thread.i ]
   %add43.i.i = add nuw nsw i64 %2, 7
-  %and.i.i = and i64 %add43.i.i, -8
+  %and.i.i = and i64 %add43.i.i, 9223372036854775800
   %cmp1.not = icmp eq i64 %and.i.i, 0
   br i1 %cmp1.not, label %if.end7, label %if.then2
 

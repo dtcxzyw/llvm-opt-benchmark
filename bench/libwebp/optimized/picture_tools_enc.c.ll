@@ -1042,7 +1042,7 @@ define void @WebPBlendAlpha(ptr noundef readonly %0, i32 noundef %1) local_unnam
   %222 = add nuw nsw i32 %221, 256
   %223 = lshr i32 %222, 16
   %224 = lshr i32 %217, 8
-  %225 = and i32 %224, 16776960
+  %225 = and i32 %224, 8388352
   %226 = or disjoint i32 %212, %223
   %227 = or i32 %226, %225
   br label %.sink.split
