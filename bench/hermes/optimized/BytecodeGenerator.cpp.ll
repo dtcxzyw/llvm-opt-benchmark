@@ -4385,10 +4385,9 @@ _ZN6hermes3hbc25BytecodeFunctionGenerator25patchDebugSourceLocationsERKN4llvh8De
   %agg.tmp128.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp128.sroa.2.0.insert.shift, %agg.tmp128.sroa.0.0.insert.ext
   store i64 %agg.tmp128.sroa.0.0.insert.insert, ptr %debugOffsets_.i.i.i, align 8
   store i32 %call126, ptr %textifiedCallees.i.i.i.i, align 8
-  %205 = and i32 %call123, %call119
-  %.not = icmp eq i32 %205, -1
+  %.not.i = icmp eq i64 %agg.tmp128.sroa.0.0.insert.insert, -1
   %bf.load.i = load i8, ptr %header.sroa.10.0.header_.i.i.sroa_idx.i, align 2
-  %bf.shl.i248 = select i1 %.not, i8 0, i8 16
+  %bf.shl.i248 = select i1 %.not.i, i8 0, i8 16
   %bf.clear.i = and i8 %bf.load.i, -17
   %bf.set.i = or disjoint i8 %bf.clear.i, %bf.shl.i248
   store i8 %bf.set.i, ptr %header.sroa.10.0.header_.i.i.sroa_idx.i, align 2
@@ -4396,47 +4395,47 @@ _ZN6hermes3hbc25BytecodeFunctionGenerator25patchDebugSourceLocationsERKN4llvh8De
 
 if.end129:                                        ; preds = %if.end.if.end129_crit_edge, %_ZN6hermes3hbc25BytecodeFunctionGenerator25patchDebugSourceLocationsERKN4llvh8DenseMapIjjNS2_12DenseMapInfoIjEENS2_6detail12DenseMapPairIjjEEEE.exit
   %.pre-phi = phi i32 [ %.pre318, %if.end.if.end129_crit_edge ], [ %199, %_ZN6hermes3hbc25BytecodeFunctionGenerator25patchDebugSourceLocationsERKN4llvh8DenseMapIjjNS2_12DenseMapInfoIjEENS2_6detail12DenseMapPairIjjEEEE.exit ]
-  %206 = load ptr, ptr %agg.result, align 8
-  %207 = ptrtoint ptr %call.i.i to i64
-  store i64 %207, ptr %agg.tmp131, align 8
-  call void @_ZN6hermes3hbc14BytecodeModule11setFunctionEjSt10unique_ptrINS0_16BytecodeFunctionESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(513) %206, i32 noundef %.pre-phi, ptr noundef nonnull %agg.tmp131) #20
-  %208 = load ptr, ptr %agg.tmp131, align 8
-  %cmp.not.i249 = icmp eq ptr %208, null
+  %205 = load ptr, ptr %agg.result, align 8
+  %206 = ptrtoint ptr %call.i.i to i64
+  store i64 %206, ptr %agg.tmp131, align 8
+  call void @_ZN6hermes3hbc14BytecodeModule11setFunctionEjSt10unique_ptrINS0_16BytecodeFunctionESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(513) %205, i32 noundef %.pre-phi, ptr noundef nonnull %agg.tmp131) #20
+  %207 = load ptr, ptr %agg.tmp131, align 8
+  %cmp.not.i249 = icmp eq ptr %207, null
   br i1 %cmp.not.i249, label %_ZNSt10unique_ptrIN6hermes3hbc16BytecodeFunctionESt14default_deleteIS2_EED2Ev.exit269, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %if.end129
-  %lazyCompilationData_.i.i.i250 = getelementptr inbounds i8, ptr %208, i64 96
-  %209 = load ptr, ptr %lazyCompilationData_.i.i.i250, align 8
-  %cmp.not.i.i.i.i251 = icmp eq ptr %209, null
+  %lazyCompilationData_.i.i.i250 = getelementptr inbounds i8, ptr %207, i64 96
+  %208 = load ptr, ptr %lazyCompilationData_.i.i.i250, align 8
+  %cmp.not.i.i.i.i251 = icmp eq ptr %208, null
   br i1 %cmp.not.i.i.i.i251, label %_ZNSt10unique_ptrIN6hermes3hbc19LazyCompilationDataESt14default_deleteIS2_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN6hermes3hbc19LazyCompilationDataEEclEPS2_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN6hermes3hbc19LazyCompilationDataEEclEPS2_.exit.i.i.i.i: ; preds = %delete.notnull.i.i
-  call void @_ZN6hermes3hbc19LazyCompilationDataD2Ev(ptr noundef nonnull align 8 dereferenceable(79) %209) #20
-  call void @_ZdlPv(ptr noundef nonnull %209) #19
+  call void @_ZN6hermes3hbc19LazyCompilationDataD2Ev(ptr noundef nonnull align 8 dereferenceable(79) %208) #20
+  call void @_ZdlPv(ptr noundef nonnull %208) #19
   br label %_ZNSt10unique_ptrIN6hermes3hbc19LazyCompilationDataESt14default_deleteIS2_EED2Ev.exit.i.i.i
 
 _ZNSt10unique_ptrIN6hermes3hbc19LazyCompilationDataESt14default_deleteIS2_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN6hermes3hbc19LazyCompilationDataEEclEPS2_.exit.i.i.i.i, %delete.notnull.i.i
   store ptr null, ptr %lazyCompilationData_.i.i.i250, align 8
-  %exceptions_.i.i.i252 = getelementptr inbounds i8, ptr %208, i64 72
-  %210 = load ptr, ptr %exceptions_.i.i.i252, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %210, null
+  %exceptions_.i.i.i252 = getelementptr inbounds i8, ptr %207, i64 72
+  %209 = load ptr, ptr %exceptions_.i.i.i252, align 8
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %209, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorIN6hermes3hbc23HBCExceptionHandlerInfoESaIS2_EED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i.i253
 
 if.then.i.i.i.i.i.i253:                           ; preds = %_ZNSt10unique_ptrIN6hermes3hbc19LazyCompilationDataESt14default_deleteIS2_EED2Ev.exit.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %210) #19
+  call void @_ZdlPv(ptr noundef nonnull %209) #19
   br label %_ZNSt6vectorIN6hermes3hbc23HBCExceptionHandlerInfoESaIS2_EED2Ev.exit.i.i.i
 
 _ZNSt6vectorIN6hermes3hbc23HBCExceptionHandlerInfoESaIS2_EED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i253, %_ZNSt10unique_ptrIN6hermes3hbc19LazyCompilationDataESt14default_deleteIS2_EED2Ev.exit.i.i.i
-  %211 = load ptr, ptr %208, align 8
-  %tobool.not.i.i.i1.i.i.i = icmp eq ptr %211, null
+  %210 = load ptr, ptr %207, align 8
+  %tobool.not.i.i.i1.i.i.i = icmp eq ptr %210, null
   br i1 %tobool.not.i.i.i1.i.i.i, label %_ZNKSt14default_deleteIN6hermes3hbc16BytecodeFunctionEEclEPS2_.exit.i, label %if.then.i.i.i2.i.i.i
 
 if.then.i.i.i2.i.i.i:                             ; preds = %_ZNSt6vectorIN6hermes3hbc23HBCExceptionHandlerInfoESaIS2_EED2Ev.exit.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %211) #19
+  call void @_ZdlPv(ptr noundef nonnull %210) #19
   br label %_ZNKSt14default_deleteIN6hermes3hbc16BytecodeFunctionEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN6hermes3hbc16BytecodeFunctionEEclEPS2_.exit.i: ; preds = %if.then.i.i.i2.i.i.i, %_ZNSt6vectorIN6hermes3hbc23HBCExceptionHandlerInfoESaIS2_EED2Ev.exit.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %208) #19
+  call void @_ZdlPv(ptr noundef nonnull %207) #19
   br label %_ZNSt10unique_ptrIN6hermes3hbc16BytecodeFunctionESt14default_deleteIS2_EED2Ev.exit269
 
 _ZNSt10unique_ptrIN6hermes3hbc16BytecodeFunctionESt14default_deleteIS2_EED2Ev.exit269: ; preds = %_ZNKSt14default_deleteIN6hermes3hbc16BytecodeFunctionEEclEPS2_.exit.i, %if.end129
@@ -4446,66 +4445,66 @@ _ZNSt10unique_ptrIN6hermes3hbc16BytecodeFunctionESt14default_deleteIS2_EED2Ev.ex
   br i1 %exitcond315.not, label %for.end134, label %for.body, !llvm.loop !212
 
 for.end134:                                       ; preds = %_ZNSt10unique_ptrIN6hermes3hbc16BytecodeFunctionESt14default_deleteIS2_EED2Ev.exit269, %cond.end
-  %212 = phi ptr [ %call11, %cond.end ], [ %206, %_ZNSt10unique_ptrIN6hermes3hbc16BytecodeFunctionESt14default_deleteIS2_EED2Ev.exit269 ]
+  %211 = phi ptr [ %call11, %cond.end ], [ %205, %_ZNSt10unique_ptrIN6hermes3hbc16BytecodeFunctionESt14default_deleteIS2_EED2Ev.exit269 ]
   call void @_ZN6hermes3hbc18DebugInfoGenerator17serializeWithMoveEv(ptr nonnull sret(%"class.hermes::hbc::DebugInfo") align 8 %agg.tmp136, ptr noundef nonnull align 8 dereferenceable(216) %debugInfoGen) #20
-  %debugInfo_.i270 = getelementptr inbounds i8, ptr %212, i64 224
+  %debugInfo_.i270 = getelementptr inbounds i8, ptr %211, i64 224
   %call.i271 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN6hermes3hbc9DebugInfoaSEOS1_(ptr noundef nonnull align 8 dereferenceable(136) %debugInfo_.i270, ptr noundef nonnull align 8 dereferenceable(136) %agg.tmp136)
   %data_.i = getelementptr inbounds i8, ptr %agg.tmp136, i64 96
-  %213 = load ptr, ptr %data_.i, align 8
-  %tobool.not.i.i.i.i.i272 = icmp eq ptr %213, null
+  %212 = load ptr, ptr %data_.i, align 8
+  %tobool.not.i.i.i.i.i272 = icmp eq ptr %212, null
   br i1 %tobool.not.i.i.i.i.i272, label %_ZN6hermes3hbc12StreamVectorIhED2Ev.exit.i, label %if.then.i.i.i.i.i273
 
 if.then.i.i.i.i.i273:                             ; preds = %for.end134
-  call void @_ZdlPv(ptr noundef nonnull %213) #19
+  call void @_ZdlPv(ptr noundef nonnull %212) #19
   br label %_ZN6hermes3hbc12StreamVectorIhED2Ev.exit.i
 
 _ZN6hermes3hbc12StreamVectorIhED2Ev.exit.i:       ; preds = %if.then.i.i.i.i.i273, %for.end134
   %files_.i = getelementptr inbounds i8, ptr %agg.tmp136, i64 48
-  %214 = load ptr, ptr %files_.i, align 8
+  %213 = load ptr, ptr %files_.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp136, i64 64
-  %cmp.i.i.i.i274 = icmp eq ptr %214, %add.ptr.i.i.i.i.i
+  %cmp.i.i.i.i274 = icmp eq ptr %213, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i.i274, label %_ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit.i, label %if.then.i.i.i275
 
 if.then.i.i.i275:                                 ; preds = %_ZN6hermes3hbc12StreamVectorIhED2Ev.exit.i
-  call void @free(ptr noundef %214) #20
+  call void @free(ptr noundef %213) #20
   br label %_ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit.i
 
 _ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit.i: ; preds = %if.then.i.i.i275, %_ZN6hermes3hbc12StreamVectorIhED2Ev.exit.i
   %filenameStorage_.i = getelementptr inbounds i8, ptr %agg.tmp136, i64 24
-  %215 = load ptr, ptr %filenameStorage_.i, align 8
-  %tobool.not.i.i.i.i276 = icmp eq ptr %215, null
+  %214 = load ptr, ptr %filenameStorage_.i, align 8
+  %tobool.not.i.i.i.i276 = icmp eq ptr %214, null
   br i1 %tobool.not.i.i.i.i276, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %if.then.i.i.i.i277
 
 if.then.i.i.i.i277:                               ; preds = %_ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %215) #19
+  call void @_ZdlPv(ptr noundef nonnull %214) #19
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %if.then.i.i.i.i277, %_ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit.i
-  %216 = load ptr, ptr %agg.tmp136, align 8
-  %tobool.not.i.i.i1.i = icmp eq ptr %216, null
+  %215 = load ptr, ptr %agg.tmp136, align 8
+  %tobool.not.i.i.i1.i = icmp eq ptr %215, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN6hermes3hbc9DebugInfoD2Ev.exit, label %if.then.i.i.i2.i
 
 if.then.i.i.i2.i:                                 ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %216) #19
+  call void @_ZdlPv(ptr noundef nonnull %215) #19
   br label %_ZN6hermes3hbc9DebugInfoD2Ev.exit
 
 _ZN6hermes3hbc9DebugInfoD2Ev.exit:                ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit.i, %if.then.i.i.i2.i
   call void @_ZN6hermes3hbc18DebugInfoGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %debugInfoGen) #20
-  %217 = load ptr, ptr %hashes, align 8
-  %tobool.not.i.i.i278 = icmp eq ptr %217, null
+  %216 = load ptr, ptr %hashes, align 8
+  %tobool.not.i.i.i278 = icmp eq ptr %216, null
   br i1 %tobool.not.i.i.i278, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i279
 
 if.then.i.i.i279:                                 ; preds = %_ZN6hermes3hbc9DebugInfoD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %217) #19
+  call void @_ZdlPv(ptr noundef nonnull %216) #19
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN6hermes3hbc9DebugInfoD2Ev.exit, %if.then.i.i.i279
-  %218 = load ptr, ptr %kinds, align 8
-  %tobool.not.i.i.i280 = icmp eq ptr %218, null
+  %217 = load ptr, ptr %kinds, align 8
+  %tobool.not.i.i.i280 = icmp eq ptr %217, null
   br i1 %tobool.not.i.i.i280, label %_ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EED2Ev.exit, label %if.then.i.i.i281
 
 if.then.i.i.i281:                                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %218) #19
+  call void @_ZdlPv(ptr noundef nonnull %217) #19
   br label %_ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %if.then.i.i.i281

@@ -1117,12 +1117,11 @@ avifValidateImageBasicProperties.exit.thread:     ; preds = %312, %289, %27, %18
 define hidden i32 @avifEncoderAddImageGrid(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @avifDiagnosticsClearError(ptr noundef nonnull %6) #13
-  %7 = add i32 %1, -257
-  %or.cond = icmp ult i32 %7, -256
-  %8 = add i32 %2, -257
-  %9 = icmp ult i32 %8, -256
-  %or.cond5 = or i1 %or.cond, %9
-  br i1 %or.cond5, label %16, label %10
+  %7 = sub i32 256, %1
+  %8 = sub i32 256, %2
+  %9 = or i32 %8, %7
+  %or.cond5.not = icmp ult i32 %9, 256
+  br i1 %or.cond5.not, label %10, label %16
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28

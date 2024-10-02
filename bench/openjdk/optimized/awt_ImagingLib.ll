@@ -6077,11 +6077,11 @@ define i32 @Java_sun_awt_image_ImagingLib_lookupByteRaster(ptr noundef %0, ptr n
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %0, i32 noundef 64) #14
   %17 = icmp slt i32 %16, 0
-  br i1 %17, label %186, label %18
+  br i1 %17, label %184, label %18
 
 18:                                               ; preds = %5
   %.b = load i1, ptr @s_nomlib, align 4
-  br i1 %.b, label %186, label %19
+  br i1 %.b, label %184, label %19
 
 19:                                               ; preds = %18
   %.b152 = load i1, ptr @s_timeIt, align 4
@@ -6099,7 +6099,7 @@ define i32 @Java_sun_awt_image_ImagingLib_lookupByteRaster(ptr noundef %0, ptr n
 
 25:                                               ; preds = %22
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #14
-  br label %186
+  br label %184
 
 26:                                               ; preds = %22
   %27 = tail call noalias dereferenceable_or_null(496) ptr @calloc(i64 noundef 1, i64 noundef 496) #15
@@ -6109,7 +6109,7 @@ define i32 @Java_sun_awt_image_ImagingLib_lookupByteRaster(ptr noundef %0, ptr n
 29:                                               ; preds = %26
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #14
   tail call void @free(ptr noundef nonnull %23) #14
-  br label %186
+  br label %184
 
 30:                                               ; preds = %26
   %31 = tail call i32 @awt_parseRaster(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %23) #14
@@ -6119,7 +6119,7 @@ define i32 @Java_sun_awt_image_ImagingLib_lookupByteRaster(ptr noundef %0, ptr n
 33:                                               ; preds = %30
   tail call void @free(ptr noundef nonnull %23) #14
   tail call void @free(ptr noundef nonnull %27) #14
-  br label %186
+  br label %184
 
 34:                                               ; preds = %30
   %35 = tail call i32 @awt_parseRaster(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %27) #14
@@ -6129,7 +6129,7 @@ define i32 @Java_sun_awt_image_ImagingLib_lookupByteRaster(ptr noundef %0, ptr n
 37:                                               ; preds = %34
   tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #14
   tail call void @free(ptr noundef nonnull %27) #14
-  br label %186
+  br label %184
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %0, align 8
@@ -6143,8 +6143,8 @@ define i32 @Java_sun_awt_image_ImagingLib_lookupByteRaster(ptr noundef %0, ptr n
   %spec.select = tail call i32 @llvm.smin.i32(i32 %42, i32 %44)
   %47 = add i32 %44, -1
   %or.cond = icmp ult i32 %47, 4
-  %48 = add i32 %46, -1
-  %49 = add i32 %spec.select, -1
+  %48 = sub i32 4, %46
+  %49 = sub i32 4, %spec.select
   %50 = or i32 %48, %49
   %51 = icmp ult i32 %50, 4
   %or.cond9.not162 = select i1 %or.cond, i1 %51, i1 false
@@ -6161,7 +6161,7 @@ define i32 @Java_sun_awt_image_ImagingLib_lookupByteRaster(ptr noundef %0, ptr n
 53:                                               ; preds = %52, %38
   tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #14
   tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #14
-  br label %186
+  br label %184
 
 54:                                               ; preds = %52
   %55 = call fastcc i32 @allocateRasterArray(ptr noundef nonnull %0, ptr noundef %23, ptr noundef %6, ptr noundef %8, i32 noundef 1)
@@ -6171,7 +6171,7 @@ define i32 @Java_sun_awt_image_ImagingLib_lookupByteRaster(ptr noundef %0, ptr n
 57:                                               ; preds = %54
   tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #14
   tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #14
-  br label %186
+  br label %184
 
 58:                                               ; preds = %54
   %59 = call fastcc i32 @allocateRasterArray(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %7, ptr noundef %9, i32 noundef 0)
@@ -6205,7 +6205,7 @@ define i32 @Java_sun_awt_image_ImagingLib_lookupByteRaster(ptr noundef %0, ptr n
 freeDataArray.exit:                               ; preds = %68, %69
   tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #14
   tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #14
-  br label %186
+  br label %184
 
 73:                                               ; preds = %58
   %74 = load ptr, ptr %6, align 8
@@ -6227,46 +6227,46 @@ freeDataArray.exit:                               ; preds = %68, %69
   tail call fastcc void @freeDataArray(ptr noundef nonnull %0, ptr noundef %82, ptr noundef nonnull %74, ptr noundef %83, ptr noundef %85, ptr noundef nonnull %77, ptr noundef %86)
   tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #14
   tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #14
-  br label %186
+  br label %184
 
 87:                                               ; preds = %73
   %88 = icmp slt i32 %44, %76
-  br i1 %88, label %.preheader168, label %.loopexit
+  br i1 %88, label %.preheader166, label %.loopexit
 
-.preheader168:                                    ; preds = %87, %.preheader168
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader168 ], [ 0, %87 ]
+.preheader166:                                    ; preds = %87, %.preheader166
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader166 ], [ 0, %87 ]
   %89 = trunc i64 %indvars.iv to i8
   %90 = getelementptr inbounds [256 x i8], ptr %12, i64 0, i64 %indvars.iv
   store i8 %89, ptr %90, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.loopexit, label %.preheader168, !llvm.loop !95
+  br i1 %exitcond.not, label %.loopexit, label %.preheader166, !llvm.loop !95
 
-.loopexit:                                        ; preds = %.preheader168, %87
+.loopexit:                                        ; preds = %.preheader166, %87
   %91 = icmp sgt i32 %spec.select, 0
-  br i1 %91, label %.lr.ph.preheader, label %.preheader166
+  br i1 %91, label %.lr.ph.preheader, label %.preheader164
 
 .lr.ph.preheader:                                 ; preds = %.loopexit
   %wide.trip.count = zext nneg i32 %spec.select to i64
   br label %.lr.ph
 
 92:                                               ; preds = %100
-  %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
-  %exitcond195.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count
-  br i1 %exitcond195.not, label %.lr.ph174.preheader, label %.lr.ph, !llvm.loop !96
+  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
+  %exitcond193.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count
+  br i1 %exitcond193.not, label %.lr.ph172.preheader, label %.lr.ph, !llvm.loop !96
 
-.lr.ph174.preheader:                              ; preds = %92
-  %wide.trip.count199 = zext nneg i32 %spec.select to i64
-  br label %.lr.ph174
+.lr.ph172.preheader:                              ; preds = %92
+  %wide.trip.count197 = zext nneg i32 %spec.select to i64
+  br label %.lr.ph172
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %92
-  %indvars.iv192 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next193, %92 ]
+  %indvars.iv190 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next191, %92 ]
   %93 = load ptr, ptr %0, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 1384
   %95 = load ptr, ptr %94, align 8
-  %96 = trunc nuw nsw i64 %indvars.iv192 to i32
+  %96 = trunc nuw nsw i64 %indvars.iv190 to i32
   %97 = tail call ptr %95(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %96) #14
-  %98 = getelementptr inbounds [4 x %struct.LookupArrayInfo], ptr %10, i64 0, i64 %indvars.iv192
+  %98 = getelementptr inbounds [4 x %struct.LookupArrayInfo], ptr %10, i64 0, i64 %indvars.iv190
   store ptr %97, ptr %98, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 16
   store ptr null, ptr %99, align 8
@@ -6297,25 +6297,25 @@ freeDataArray.exit:                               ; preds = %68, %69
   tail call fastcc void @freeDataArray(ptr noundef nonnull %0, ptr noundef %109, ptr noundef %74, ptr noundef %110, ptr noundef %112, ptr noundef %77, ptr noundef %113)
   tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #14
   tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #14
-  br label %186
+  br label %184
 
-.preheader166:                                    ; preds = %139, %.loopexit
+.preheader164:                                    ; preds = %139, %.loopexit
   %114 = icmp slt i32 %42, %44
-  br i1 %114, label %.lr.ph176, label %.preheader165
+  br i1 %114, label %.lr.ph174, label %.preheader163
 
-.lr.ph176:                                        ; preds = %.preheader166
+.lr.ph174:                                        ; preds = %.preheader164
   %115 = getelementptr inbounds i8, ptr %10, i64 16
   %116 = load ptr, ptr %115, align 16
-  %117 = zext i32 %spec.select to i64
+  %117 = sext i32 %42 to i64
   br label %144
 
-.lr.ph174:                                        ; preds = %.lr.ph174.preheader, %139
-  %indvars.iv215 = phi i32 [ 0, %.lr.ph174.preheader ], [ %indvars.iv.next216, %139 ]
-  %indvars.iv196 = phi i64 [ 0, %.lr.ph174.preheader ], [ %indvars.iv.next197, %139 ]
+.lr.ph172:                                        ; preds = %.lr.ph172.preheader, %139
+  %indvars.iv213 = phi i32 [ 0, %.lr.ph172.preheader ], [ %indvars.iv.next214, %139 ]
+  %indvars.iv194 = phi i64 [ 0, %.lr.ph172.preheader ], [ %indvars.iv.next195, %139 ]
   %118 = load ptr, ptr %0, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 1776
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds [4 x %struct.LookupArrayInfo], ptr %10, i64 0, i64 %indvars.iv196
+  %121 = getelementptr inbounds [4 x %struct.LookupArrayInfo], ptr %10, i64 0, i64 %indvars.iv194
   %122 = load ptr, ptr %121, align 8
   %123 = tail call ptr %120(ptr noundef nonnull %0, ptr noundef %122, ptr noundef null) #14
   %124 = getelementptr inbounds i8, ptr %121, i64 16
@@ -6323,29 +6323,29 @@ freeDataArray.exit:                               ; preds = %68, %69
   %125 = icmp eq ptr %123, null
   br i1 %125, label %.preheader, label %139
 
-.preheader:                                       ; preds = %.lr.ph174
-  %.not186 = icmp eq i64 %indvars.iv196, 0
-  br i1 %.not186, label %._crit_edge185, label %.lr.ph184.preheader
+.preheader:                                       ; preds = %.lr.ph172
+  %.not184 = icmp eq i64 %indvars.iv194, 0
+  br i1 %.not184, label %._crit_edge183, label %.lr.ph182.preheader
 
-.lr.ph184.preheader:                              ; preds = %.preheader
-  %wide.trip.count218 = zext nneg i32 %indvars.iv215 to i64
-  br label %.lr.ph184
+.lr.ph182.preheader:                              ; preds = %.preheader
+  %wide.trip.count216 = zext nneg i32 %indvars.iv213 to i64
+  br label %.lr.ph182
 
-.lr.ph184:                                        ; preds = %.lr.ph184.preheader, %.lr.ph184
-  %indvars.iv212 = phi i64 [ 0, %.lr.ph184.preheader ], [ %indvars.iv.next213, %.lr.ph184 ]
+.lr.ph182:                                        ; preds = %.lr.ph182.preheader, %.lr.ph182
+  %indvars.iv210 = phi i64 [ 0, %.lr.ph182.preheader ], [ %indvars.iv.next211, %.lr.ph182 ]
   %126 = load ptr, ptr %0, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 1784
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds [4 x %struct.LookupArrayInfo], ptr %10, i64 0, i64 %indvars.iv212
+  %129 = getelementptr inbounds [4 x %struct.LookupArrayInfo], ptr %10, i64 0, i64 %indvars.iv210
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds i8, ptr %129, i64 16
   %132 = load ptr, ptr %131, align 8
   tail call void %128(ptr noundef nonnull %0, ptr noundef %130, ptr noundef %132, i32 noundef 2) #14
-  %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
-  %exitcond219.not = icmp eq i64 %indvars.iv.next213, %wide.trip.count218
-  br i1 %exitcond219.not, label %._crit_edge185, label %.lr.ph184, !llvm.loop !97
+  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
+  %exitcond217.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count216
+  br i1 %exitcond217.not, label %._crit_edge183, label %.lr.ph182, !llvm.loop !97
 
-._crit_edge185:                                   ; preds = %.lr.ph184, %.preheader
+._crit_edge183:                                   ; preds = %.lr.ph182, %.preheader
   %133 = getelementptr inbounds i8, ptr %23, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %8, align 8
@@ -6355,127 +6355,127 @@ freeDataArray.exit:                               ; preds = %68, %69
   tail call fastcc void @freeDataArray(ptr noundef nonnull %0, ptr noundef %134, ptr noundef %74, ptr noundef %135, ptr noundef %137, ptr noundef %77, ptr noundef %138)
   tail call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #14
   tail call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #14
-  br label %186
+  br label %184
 
-139:                                              ; preds = %.lr.ph174
-  %140 = getelementptr inbounds [4 x ptr], ptr %11, i64 0, i64 %indvars.iv196
+139:                                              ; preds = %.lr.ph172
+  %140 = getelementptr inbounds [4 x ptr], ptr %11, i64 0, i64 %indvars.iv194
   store ptr %123, ptr %140, align 8
-  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
-  %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
-  %indvars.iv.next216 = add nuw nsw i32 %indvars.iv215, 1
-  br i1 %exitcond200.not, label %.preheader166, label %.lr.ph174, !llvm.loop !98
+  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
+  %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
+  %indvars.iv.next214 = add nuw nsw i32 %indvars.iv213, 1
+  br i1 %exitcond198.not, label %.preheader164, label %.lr.ph172, !llvm.loop !98
 
-.preheader165:                                    ; preds = %144, %.preheader166
-  %.3.lcssa = phi i32 [ %spec.select, %.preheader166 ], [ %146, %144 ]
+.preheader163:                                    ; preds = %144, %.preheader164
+  %.3.lcssa = phi i32 [ %spec.select, %.preheader164 ], [ %44, %144 ]
   %141 = load i32, ptr %75, align 4
   %142 = icmp slt i32 %.3.lcssa, %141
-  br i1 %142, label %.lr.ph178.preheader, label %._crit_edge
+  br i1 %142, label %.lr.ph176.preheader, label %._crit_edge
 
-.lr.ph178.preheader:                              ; preds = %.preheader165
+.lr.ph176.preheader:                              ; preds = %.preheader163
   %143 = zext i32 %.3.lcssa to i64
-  br label %.lr.ph178
+  br label %.lr.ph176
 
-144:                                              ; preds = %.lr.ph176, %144
-  %indvars.iv201 = phi i64 [ %117, %.lr.ph176 ], [ %indvars.iv.next202, %144 ]
-  %145 = getelementptr inbounds [4 x ptr], ptr %11, i64 0, i64 %indvars.iv201
+144:                                              ; preds = %.lr.ph174, %144
+  %indvars.iv199 = phi i64 [ %117, %.lr.ph174 ], [ %indvars.iv.next200, %144 ]
+  %145 = getelementptr inbounds [4 x ptr], ptr %11, i64 0, i64 %indvars.iv199
   store ptr %116, ptr %145, align 8
-  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
-  %146 = trunc nuw i64 %indvars.iv.next202 to i32
-  %147 = icmp sgt i32 %44, %146
-  br i1 %147, label %144, label %.preheader165, !llvm.loop !99
+  %indvars.iv.next200 = add nsw i64 %indvars.iv199, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next200 to i32
+  %exitcond201.not = icmp eq i32 %44, %lftr.wideiv
+  br i1 %exitcond201.not, label %.preheader163, label %144, !llvm.loop !99
 
-.lr.ph178:                                        ; preds = %.lr.ph178.preheader, %.lr.ph178
-  %indvars.iv204 = phi i64 [ %143, %.lr.ph178.preheader ], [ %indvars.iv.next205, %.lr.ph178 ]
-  %148 = getelementptr inbounds [4 x ptr], ptr %11, i64 0, i64 %indvars.iv204
-  store ptr %12, ptr %148, align 8
-  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
-  %149 = trunc nuw i64 %indvars.iv.next205 to i32
-  %150 = icmp sgt i32 %141, %149
-  br i1 %150, label %.lr.ph178, label %._crit_edge, !llvm.loop !100
+.lr.ph176:                                        ; preds = %.lr.ph176.preheader, %.lr.ph176
+  %indvars.iv202 = phi i64 [ %143, %.lr.ph176.preheader ], [ %indvars.iv.next203, %.lr.ph176 ]
+  %146 = getelementptr inbounds [4 x ptr], ptr %11, i64 0, i64 %indvars.iv202
+  store ptr %12, ptr %146, align 8
+  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
+  %147 = trunc nuw i64 %indvars.iv.next203 to i32
+  %148 = icmp sgt i32 %141, %147
+  br i1 %148, label %.lr.ph176, label %._crit_edge, !llvm.loop !100
 
-._crit_edge:                                      ; preds = %.lr.ph178, %.preheader165
-  %151 = load i32, ptr %74, align 8
-  %152 = icmp eq i32 %151, 2
-  br i1 %152, label %153, label %160
+._crit_edge:                                      ; preds = %.lr.ph176, %.preheader163
+  %149 = load i32, ptr %74, align 8
+  %150 = icmp eq i32 %149, 2
+  br i1 %150, label %151, label %158
 
-153:                                              ; preds = %._crit_edge
-  %154 = load i32, ptr %77, align 8
-  %155 = icmp eq i32 %154, 1
-  br i1 %155, label %156, label %163
+151:                                              ; preds = %._crit_edge
+  %152 = load i32, ptr %77, align 8
+  %153 = icmp eq i32 %152, 1
+  br i1 %153, label %154, label %161
 
-156:                                              ; preds = %153
-  %157 = icmp sgt i32 %spec.select, 1
-  br i1 %157, label %.lr.ph181.preheader, label %158
+154:                                              ; preds = %151
+  %155 = icmp sgt i32 %spec.select, 1
+  br i1 %155, label %.lr.ph179.preheader, label %156
 
-158:                                              ; preds = %156
-  %159 = call fastcc i32 @lookupShortData(ptr noundef nonnull %74, ptr noundef nonnull %77, ptr noundef %10)
-  br label %163
+156:                                              ; preds = %154
+  %157 = call fastcc i32 @lookupShortData(ptr noundef nonnull %74, ptr noundef nonnull %77, ptr noundef %10)
+  br label %161
 
-160:                                              ; preds = %._crit_edge
-  %161 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibFns, i64 32), align 16
-  %162 = call i32 (ptr, ptr, ptr, ...) %161(ptr noundef %77, ptr noundef nonnull %74, ptr noundef nonnull %11) #14
-  %.not156 = icmp eq i32 %162, 0
+158:                                              ; preds = %._crit_edge
+  %159 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibFns, i64 32), align 16
+  %160 = call i32 (ptr, ptr, ptr, ...) %159(ptr noundef %77, ptr noundef nonnull %74, ptr noundef nonnull %11) #14
+  %.not156 = icmp eq i32 %160, 0
   %spec.select160 = zext i1 %.not156 to i32
-  br label %163
+  br label %161
 
-163:                                              ; preds = %160, %153, %158
-  %.0140 = phi i32 [ %159, %158 ], [ 1, %153 ], [ %spec.select160, %160 ]
-  br i1 %91, label %.lr.ph181.preheader, label %._crit_edge182
+161:                                              ; preds = %158, %151, %156
+  %.0140 = phi i32 [ %157, %156 ], [ 1, %151 ], [ %spec.select160, %158 ]
+  br i1 %91, label %.lr.ph179.preheader, label %._crit_edge180
 
-.lr.ph181.preheader:                              ; preds = %156, %163
-  %.0140223 = phi i32 [ %.0140, %163 ], [ 0, %156 ]
-  %wide.trip.count210 = zext nneg i32 %spec.select to i64
-  br label %.lr.ph181
+.lr.ph179.preheader:                              ; preds = %154, %161
+  %.0140221 = phi i32 [ %.0140, %161 ], [ 0, %154 ]
+  %wide.trip.count208 = zext nneg i32 %spec.select to i64
+  br label %.lr.ph179
 
-.lr.ph181:                                        ; preds = %.lr.ph181.preheader, %.lr.ph181
-  %indvars.iv207 = phi i64 [ 0, %.lr.ph181.preheader ], [ %indvars.iv.next208, %.lr.ph181 ]
-  %164 = load ptr, ptr %0, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 1784
+.lr.ph179:                                        ; preds = %.lr.ph179.preheader, %.lr.ph179
+  %indvars.iv205 = phi i64 [ 0, %.lr.ph179.preheader ], [ %indvars.iv.next206, %.lr.ph179 ]
+  %162 = load ptr, ptr %0, align 8
+  %163 = getelementptr inbounds i8, ptr %162, i64 1784
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds [4 x %struct.LookupArrayInfo], ptr %10, i64 0, i64 %indvars.iv205
   %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds [4 x %struct.LookupArrayInfo], ptr %10, i64 0, i64 %indvars.iv207
+  %167 = getelementptr inbounds i8, ptr %165, i64 16
   %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %167, i64 16
-  %170 = load ptr, ptr %169, align 8
-  call void %166(ptr noundef nonnull %0, ptr noundef %168, ptr noundef %170, i32 noundef 2) #14
-  %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
-  %exitcond211.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count210
-  br i1 %exitcond211.not, label %._crit_edge182, label %.lr.ph181, !llvm.loop !101
+  call void %164(ptr noundef nonnull %0, ptr noundef %166, ptr noundef %168, i32 noundef 2) #14
+  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
+  %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
+  br i1 %exitcond209.not, label %._crit_edge180, label %.lr.ph179, !llvm.loop !101
 
-._crit_edge182:                                   ; preds = %.lr.ph181, %163
-  %.0140222 = phi i32 [ %.0140, %163 ], [ %.0140223, %.lr.ph181 ]
-  %171 = load ptr, ptr %9, align 8
-  %172 = icmp eq ptr %171, null
-  br i1 %172, label %173, label %178
+._crit_edge180:                                   ; preds = %.lr.ph179, %161
+  %.0140220 = phi i32 [ %.0140, %161 ], [ %.0140221, %.lr.ph179 ]
+  %169 = load ptr, ptr %9, align 8
+  %170 = icmp eq ptr %169, null
+  br i1 %170, label %171, label %176
 
-173:                                              ; preds = %._crit_edge182
-  %174 = call fastcc i32 @storeRasterArray(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %77)
-  %175 = icmp slt i32 %174, 0
-  br i1 %175, label %176, label %178
+171:                                              ; preds = %._crit_edge180
+  %172 = call fastcc i32 @storeRasterArray(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %77)
+  %173 = icmp slt i32 %172, 0
+  br i1 %173, label %174, label %176
 
-176:                                              ; preds = %173
-  %177 = call fastcc i32 @setPixelsFormMlibImage(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef %77)
-  br label %178
+174:                                              ; preds = %171
+  %175 = call fastcc i32 @setPixelsFormMlibImage(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef %77)
+  br label %176
 
-178:                                              ; preds = %173, %176, %._crit_edge182
-  %.1141 = phi i32 [ %177, %176 ], [ %.0140222, %173 ], [ %.0140222, %._crit_edge182 ]
-  %179 = getelementptr inbounds i8, ptr %23, i64 8
-  %180 = load ptr, ptr %179, align 8
-  %181 = load ptr, ptr %8, align 8
-  %182 = getelementptr inbounds i8, ptr %27, i64 8
-  %183 = load ptr, ptr %182, align 8
-  call fastcc void @freeDataArray(ptr noundef nonnull %0, ptr noundef %180, ptr noundef nonnull %74, ptr noundef %181, ptr noundef %183, ptr noundef %77, ptr noundef %171)
+176:                                              ; preds = %171, %174, %._crit_edge180
+  %.1141 = phi i32 [ %175, %174 ], [ %.0140220, %171 ], [ %.0140220, %._crit_edge180 ]
+  %177 = getelementptr inbounds i8, ptr %23, i64 8
+  %178 = load ptr, ptr %177, align 8
+  %179 = load ptr, ptr %8, align 8
+  %180 = getelementptr inbounds i8, ptr %27, i64 8
+  %181 = load ptr, ptr %180, align 8
+  call fastcc void @freeDataArray(ptr noundef nonnull %0, ptr noundef %178, ptr noundef nonnull %74, ptr noundef %179, ptr noundef %181, ptr noundef %77, ptr noundef %169)
   call void @awt_freeParsedRaster(ptr noundef nonnull %23, i32 noundef 1) #14
   call void @awt_freeParsedRaster(ptr noundef nonnull %27, i32 noundef 1) #14
   %.b151 = load i1, ptr @s_timeIt, align 4
-  br i1 %.b151, label %184, label %186
+  br i1 %.b151, label %182, label %184
 
-184:                                              ; preds = %178
-  %185 = load ptr, ptr @stop_timer, align 8
-  call void %185(i32 noundef 3600, i32 noundef 1) #14
-  br label %186
+182:                                              ; preds = %176
+  %183 = load ptr, ptr @stop_timer, align 8
+  call void %183(i32 noundef 3600, i32 noundef 1) #14
+  br label %184
 
-186:                                              ; preds = %178, %184, %18, %5, %._crit_edge185, %.thread, %80, %freeDataArray.exit, %57, %53, %37, %33, %29, %25
-  %.0137 = phi i32 [ -1, %25 ], [ -1, %29 ], [ 0, %33 ], [ 0, %37 ], [ 0, %53 ], [ 0, %57 ], [ 0, %freeDataArray.exit ], [ 0, %80 ], [ 0, %.thread ], [ 0, %._crit_edge185 ], [ 0, %5 ], [ 0, %18 ], [ %.1141, %184 ], [ %.1141, %178 ]
+184:                                              ; preds = %176, %182, %18, %5, %._crit_edge183, %.thread, %80, %freeDataArray.exit, %57, %53, %37, %33, %29, %25
+  %.0137 = phi i32 [ -1, %25 ], [ -1, %29 ], [ 0, %33 ], [ 0, %37 ], [ 0, %53 ], [ 0, %57 ], [ 0, %freeDataArray.exit ], [ 0, %80 ], [ 0, %.thread ], [ 0, %._crit_edge183 ], [ 0, %5 ], [ 0, %18 ], [ %.1141, %182 ], [ %.1141, %176 ]
   ret i32 %.0137
 }
 
