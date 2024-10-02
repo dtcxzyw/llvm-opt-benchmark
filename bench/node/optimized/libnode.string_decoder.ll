@@ -434,8 +434,7 @@ if.then5:                                         ; preds = %if.then
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %message.i, i64 noundef 128, ptr noundef nonnull @.str.13, i32 noundef 536870888) #16
   %call2.i = call ptr @_ZN4node19ERR_STRING_TOO_LONGIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull %message.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %message.i)
-  %call13 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %isolate, ptr %call2.i) #16
-  br label %return
+  br label %return.sink.split
 
 if.else17:                                        ; preds = %entry
   %call18 = call ptr @_ZN4node11StringBytes6EncodeEPN2v87IsolateEPKcmNS_8encodingEPNS1_5LocalINS1_5ValueEEE(ptr noundef %isolate, ptr noundef %data, i64 noundef %length, i32 noundef %encoding, ptr noundef nonnull %error) #16
@@ -445,19 +444,20 @@ if.else17:                                        ; preds = %entry
 do.body:                                          ; preds = %if.else17
   %0 = load ptr, ptr %error, align 8
   %cmp.i = icmp eq ptr %0, null
-  br i1 %cmp.i, label %do.body31, label %do.end33
+  br i1 %cmp.i, label %do.body31, label %return.sink.split
 
 do.body31:                                        ; preds = %do.body
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node12_GLOBAL__N_110MakeStringEPN2v87IsolateEPKcmNS_8encodingEE4args) #16
   call void @abort() #17
   unreachable
 
-do.end33:                                         ; preds = %do.body
-  %call38 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %isolate, ptr nonnull %0) #16
+return.sink.split:                                ; preds = %do.body, %if.then5
+  %.sink = phi ptr [ %call2.i, %if.then5 ], [ %0, %do.body ]
+  %call38 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %isolate, ptr %.sink) #16
   br label %return
 
-return:                                           ; preds = %if.else17, %do.end33, %if.then, %if.then5
-  %retval.sroa.0.0 = phi ptr [ null, %if.then5 ], [ %call, %if.then ], [ null, %do.end33 ], [ %call18, %if.else17 ]
+return:                                           ; preds = %return.sink.split, %if.else17, %if.then
+  %retval.sroa.0.0 = phi ptr [ %call, %if.then ], [ %call18, %if.else17 ], [ null, %return.sink.split ]
   ret ptr %retval.sroa.0.0
 }
 

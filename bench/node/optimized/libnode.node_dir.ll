@@ -2763,41 +2763,31 @@ if.then21:                                        ; preds = %if.end16
   %add1.i = add i64 %19, 624
   %20 = inttoptr i64 %add1.i to ptr
   call void @_ZN4node2fs15FSReqAfterScope5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %after) #20
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
-  %21 = load ptr, ptr %vfn, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(648) %1, ptr %20) #20
   br label %cleanup.thread
 
 if.end33:                                         ; preds = %if.end16
   %ptr = getelementptr inbounds i8, ptr %req, i64 96
-  %22 = load ptr, ptr %ptr, align 8
+  %21 = load ptr, ptr %ptr, align 8
   store ptr null, ptr %error, align 8
-  %23 = load ptr, ptr %22, align 8
+  %22 = load ptr, ptr %21, align 8
   %conv36 = trunc i64 %17 to i32
   %encoding_.i = getelementptr inbounds i8, ptr %1, i64 536
-  %24 = load i32, ptr %encoding_.i, align 8
-  %call39 = call fastcc ptr @_ZN4node6fs_dirL17DirentListToArrayEPNS_11EnvironmentEP11uv_dirent_siNS_8encodingEPN2v85LocalINS6_5ValueEEE(ptr noundef nonnull %16, ptr noundef %23, i32 noundef %conv36, i32 noundef %24, ptr noundef %error)
+  %23 = load i32, ptr %encoding_.i, align 8
+  %call39 = call fastcc ptr @_ZN4node6fs_dirL17DirentListToArrayEPNS_11EnvironmentEP11uv_dirent_siNS_8encodingEPN2v85LocalINS6_5ValueEEE(ptr noundef nonnull %16, ptr noundef %22, i32 noundef %conv36, i32 noundef %23, ptr noundef %error)
   %cmp.i.i = icmp eq ptr %call39, null
   call void @_ZN4node2fs15FSReqAfterScope5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %after) #20
-  br i1 %cmp.i.i, label %if.then45, label %if.end53
-
-if.then45:                                        ; preds = %if.end33
   %agg.tmp47.sroa.0.0.copyload = load ptr, ptr %error, align 8
-  %vtable51 = load ptr, ptr %1, align 8
-  %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 160
-  %25 = load ptr, ptr %vfn52, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(648) %1, ptr %agg.tmp47.sroa.0.0.copyload) #20
+  %spec.select = select i1 %cmp.i.i, i64 160, i64 168
+  %spec.select30 = select i1 %cmp.i.i, ptr %agg.tmp47.sroa.0.0.copyload, ptr %call39
   br label %cleanup.thread
 
-if.end53:                                         ; preds = %if.end33
+cleanup.thread:                                   ; preds = %if.end33, %if.then21
+  %.sink = phi i64 [ 168, %if.then21 ], [ %spec.select, %if.end33 ]
+  %call39.sink = phi ptr [ %20, %if.then21 ], [ %spec.select30, %if.end33 ]
   %vtable63 = load ptr, ptr %1, align 8
-  %vfn64 = getelementptr inbounds i8, ptr %vtable63, i64 168
-  %26 = load ptr, ptr %vfn64, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(648) %1, ptr nonnull %call39) #20
-  br label %cleanup.thread
-
-cleanup.thread:                                   ; preds = %if.end53, %if.then45, %if.then21
+  %vfn64 = getelementptr inbounds i8, ptr %vtable63, i64 %.sink
+  %24 = load ptr, ptr %vfn64, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(648) %1, ptr %call39.sink) #20
   call void @_ZN4node2fs15FSReqAfterScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %after) #20
   br label %if.then.i
 

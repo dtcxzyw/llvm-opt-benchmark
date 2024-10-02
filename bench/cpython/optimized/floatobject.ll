@@ -4025,10 +4025,10 @@ if.end28:                                         ; preds = %if.end21.thread, %i
   %iw.0103105107 = phi double [ %iw.0, %if.end24 ], [ -1.000000e+00, %if.end21.thread ]
   %23 = tail call double @llvm.fabs.f64(double %iw.0103105107) #19
   %isinf = fcmp oeq double %23, 0x7FF0000000000000
+  %24 = tail call double @llvm.fabs.f64(double %iv.0)
   br i1 %isinf, label %if.then30, label %if.end44
 
 if.then30:                                        ; preds = %if.end28
-  %24 = tail call double @llvm.fabs.f64(double %iv.0)
   %cmp31 = fcmp oeq double %24, 1.000000e+00
   br i1 %cmp31, label %if.then32, label %if.else34
 
@@ -4101,8 +4101,7 @@ if.else42:                                        ; preds = %if.else34
   br label %return
 
 if.end44:                                         ; preds = %if.end28
-  %35 = tail call double @llvm.fabs.f64(double %iv.0) #19
-  %isinf45 = fcmp oeq double %35, 0x7FF0000000000000
+  %isinf45 = fcmp oeq double %24, 0x7FF0000000000000
   br i1 %isinf45, label %if.then47, label %if.end67
 
 if.then47:                                        ; preds = %if.end44
@@ -4117,8 +4116,8 @@ if.then53:                                        ; preds = %if.then47
   br label %return
 
 if.else60:                                        ; preds = %if.then47
-  %36 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %iv.0)
-  %cond65 = select i1 %cmp49, double %36, double 0.000000e+00
+  %35 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %iv.0)
+  %cond65 = select i1 %cmp49, double %35, double 0.000000e+00
   %call66 = tail call ptr @PyFloat_FromDouble(double noundef %cond65)
   br label %return
 
@@ -4131,8 +4130,8 @@ if.then70:                                        ; preds = %if.end67
   br i1 %cmp75, label %if.then77, label %if.end78
 
 if.then77:                                        ; preds = %if.then70
-  %37 = load ptr, ptr @PyExc_ZeroDivisionError, align 8
-  tail call void @PyErr_SetString(ptr noundef %37, ptr noundef nonnull @.str.17) #17
+  %36 = load ptr, ptr @PyExc_ZeroDivisionError, align 8
+  tail call void @PyErr_SetString(ptr noundef %36, ptr noundef nonnull @.str.17) #17
   br label %return
 
 if.end78:                                         ; preds = %if.then70
@@ -4147,15 +4146,15 @@ if.end85:                                         ; preds = %if.end67
   br i1 %cmp86, label %if.then88, label %if.end97
 
 if.then88:                                        ; preds = %if.end85
-  %38 = tail call double @llvm.floor.f64(double %iw.0103105107)
-  %cmp89 = fcmp une double %iw.0103105107, %38
+  %37 = tail call double @llvm.floor.f64(double %iw.0103105107)
+  %cmp89 = fcmp une double %iw.0103105107, %37
   br i1 %cmp89, label %if.then91, label %if.end93
 
 if.then91:                                        ; preds = %if.then88
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 96), align 8
-  %nb_power = getelementptr inbounds i8, ptr %39, i64 40
-  %40 = load ptr, ptr %nb_power, align 8
-  %call92 = tail call ptr %40(ptr noundef nonnull %v, ptr noundef nonnull %w, ptr noundef nonnull @_Py_NoneStruct) #17
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @PyComplex_Type, i64 96), align 8
+  %nb_power = getelementptr inbounds i8, ptr %38, i64 40
+  %39 = load ptr, ptr %nb_power, align 8
+  %call92 = tail call ptr %39(ptr noundef nonnull %v, ptr noundef nonnull %w, ptr noundef nonnull @_Py_NoneStruct) #17
   br label %return
 
 if.end93:                                         ; preds = %if.then88
@@ -4180,15 +4179,15 @@ if.end104:                                        ; preds = %if.end97
   store i32 0, ptr %call105, align 4
   %call106 = tail call double @pow(double noundef %iv.1, double noundef %iw.0103105107) #17
   tail call fastcc void @_Py_ADJUST_ERANGE1(double noundef %call106)
-  %41 = load i32, ptr %call105, align 4
-  %cmp112.not = icmp eq i32 %41, 0
+  %40 = load i32, ptr %call105, align 4
+  %cmp112.not = icmp eq i32 %40, 0
   br i1 %cmp112.not, label %if.end123, label %if.then114
 
 if.then114:                                       ; preds = %if.end104
-  %cmp116 = icmp eq i32 %41, 34
-  %42 = load ptr, ptr @PyExc_OverflowError, align 8
-  %43 = load ptr, ptr @PyExc_ValueError, align 8
-  %cond121 = select i1 %cmp116, ptr %42, ptr %43
+  %cmp116 = icmp eq i32 %40, 34
+  %41 = load ptr, ptr @PyExc_OverflowError, align 8
+  %42 = load ptr, ptr @PyExc_ValueError, align 8
+  %cond121 = select i1 %cmp116, ptr %41, ptr %42
   %call122 = tail call ptr @PyErr_SetFromErrno(ptr noundef %cond121) #17
   br label %return
 

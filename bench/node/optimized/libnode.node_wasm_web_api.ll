@@ -182,27 +182,23 @@ if.end:                                           ; preds = %entry
   %call2.i17 = tail call ptr %4(ptr noundef nonnull align 8 dereferenceable(872) %3) #16
   %call48 = tail call ptr @_ZN2v816FunctionTemplate11GetFunctionENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %call8, ptr %call2.i17) #16
   %cmp.i.i = icmp eq ptr %call48, null
-  br i1 %cmp.i.i, label %if.then.i, label %if.end.split
-
-if.end.split:                                     ; preds = %if.end
-  %5 = load ptr, ptr %principal_realm_.i, align 8
-  %vtable.i19 = load ptr, ptr %5, align 8
-  %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 1024
-  %6 = load ptr, ptr %vfn.i20, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(872) %5, ptr nonnull %call48) #16
-  br label %return
+  br i1 %cmp.i.i, label %if.then.i, label %return.sink.split
 
 if.then.i:                                        ; preds = %if.end
   tail call void @_ZN2v812api_internal12ToLocalEmptyEv() #16
-  %7 = load ptr, ptr %principal_realm_.i, align 8
-  %vtable.i22 = load ptr, ptr %7, align 8
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.end, %if.then.i
+  %.sink24 = phi ptr [ null, %if.then.i ], [ %call48, %if.end ]
+  %5 = load ptr, ptr %principal_realm_.i, align 8
+  %vtable.i22 = load ptr, ptr %5, align 8
   %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 1024
-  %8 = load ptr, ptr %vfn.i23, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(872) %7, ptr null) #16
+  %6 = load ptr, ptr %vfn.i23, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(872) %5, ptr %.sink24) #16
   br label %return
 
-return:                                           ; preds = %if.then.i, %if.end.split, %entry
-  %retval.sroa.0.0 = phi ptr [ %call2.i, %entry ], [ %call48, %if.end.split ], [ null, %if.then.i ]
+return:                                           ; preds = %return.sink.split, %entry
+  %retval.sroa.0.0 = phi ptr [ %call2.i, %entry ], [ %.sink24, %return.sink.split ]
   ret ptr %retval.sroa.0.0
 }
 

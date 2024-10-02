@@ -2007,7 +2007,7 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls4APSSI6CMeshOE3fitERKN3vcg6Point
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %0, i64 84
   store i8 0, ptr %14, align 4
-  br label %206
+  br label %205
 
 15:                                               ; preds = %2
   %16 = icmp eq i32 %11, 1
@@ -2079,7 +2079,7 @@ _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit:       ; preds = %29
   store double 0.000000e+00, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 328
   store i32 1, ptr %64, align 8
-  br label %206
+  br label %205
 
 65:                                               ; preds = %.preheader, %_ZNSt6vectorIfSaIfEE2atEm.exit
   %.043137 = phi double [ 0.000000e+00, %.preheader ], [ %111, %_ZNSt6vectorIfSaIfEE2atEm.exit ]
@@ -2229,19 +2229,19 @@ _ZNSt6vectorIfSaIfEE2atEm.exit:                   ; preds = %_ZNK7GaelMls12Neigh
   %168 = tail call double @sqrt(double noundef %167) #22
   %169 = getelementptr inbounds i8, ptr %0, i64 320
   store double %168, ptr %169, align 8
-  br label %198
+  br label %197
 
 170:                                              ; preds = %118
   %171 = fcmp oeq double %134, 0.000000e+00
   %172 = getelementptr inbounds i8, ptr %0, i64 328
   %173 = fmul double %143, %143
   %174 = tail call double @llvm.fmuladd.f64(double %142, double %142, double %173)
-  br i1 %171, label %175, label %182
+  %175 = tail call double @llvm.fmuladd.f64(double %144, double %144, double %174)
+  br i1 %171, label %176, label %182
 
-175:                                              ; preds = %170
+176:                                              ; preds = %170
   store i32 1, ptr %172, align 8
-  %176 = tail call double @llvm.fmuladd.f64(double %144, double %144, double %174)
-  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %176)
+  %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %175)
   %177 = fdiv double 1.000000e+00, %sqrt.i.i
   %178 = fmul double %142, %177
   store double %178, ptr %145, align 8
@@ -2251,58 +2251,57 @@ _ZNSt6vectorIfSaIfEE2atEm.exit:                   ; preds = %_ZNK7GaelMls12Neigh
   store double %180, ptr %.sroa.357.0..sroa_idx, align 8
   %181 = fmul double %150, %177
   store double %181, ptr %151, align 8
-  br label %198
+  br label %197
 
 182:                                              ; preds = %170
   store i32 2, ptr %172, align 8
-  %183 = tail call noundef double @llvm.fmuladd.f64(double %144, double %144, double %174)
-  %184 = fmul double %150, -4.000000e+00
-  %185 = tail call double @llvm.fmuladd.f64(double %184, double %134, double %183)
-  %186 = tail call double @sqrt(double noundef %185) #22
-  %187 = fdiv double 1.000000e+00, %186
-  %188 = load double, ptr %151, align 8
-  %189 = fmul double %188, %187
-  store double %189, ptr %151, align 8
-  %190 = load double, ptr %145, align 8
-  %191 = fmul double %187, %190
-  store double %191, ptr %145, align 8
-  %192 = load double, ptr %.sroa.256.0..sroa_idx, align 8
-  %193 = fmul double %187, %192
-  store double %193, ptr %.sroa.256.0..sroa_idx, align 8
-  %194 = load double, ptr %.sroa.357.0..sroa_idx, align 8
-  %195 = fmul double %187, %194
-  store double %195, ptr %.sroa.357.0..sroa_idx, align 8
-  %196 = load double, ptr %152, align 8
-  %197 = fmul double %187, %196
-  store double %197, ptr %152, align 8
-  br label %198
+  %183 = fmul double %150, -4.000000e+00
+  %184 = tail call double @llvm.fmuladd.f64(double %183, double %134, double %175)
+  %185 = tail call double @sqrt(double noundef %184) #22
+  %186 = fdiv double 1.000000e+00, %185
+  %187 = load double, ptr %151, align 8
+  %188 = fmul double %187, %186
+  store double %188, ptr %151, align 8
+  %189 = load double, ptr %145, align 8
+  %190 = fmul double %186, %189
+  store double %190, ptr %145, align 8
+  %191 = load double, ptr %.sroa.256.0..sroa_idx, align 8
+  %192 = fmul double %186, %191
+  store double %192, ptr %.sroa.256.0..sroa_idx, align 8
+  %193 = load double, ptr %.sroa.357.0..sroa_idx, align 8
+  %194 = fmul double %186, %193
+  store double %194, ptr %.sroa.357.0..sroa_idx, align 8
+  %195 = load double, ptr %152, align 8
+  %196 = fmul double %186, %195
+  store double %196, ptr %152, align 8
+  br label %197
 
-198:                                              ; preds = %175, %182, %155
-  %199 = getelementptr inbounds i8, ptr %0, i64 336
-  store double %99, ptr %199, align 8
+197:                                              ; preds = %176, %182, %155
+  %198 = getelementptr inbounds i8, ptr %0, i64 336
+  store double %99, ptr %198, align 8
   %.sroa.890.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 344
   store double %100, ptr %.sroa.890.0..sroa_idx, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 352
   store double %101, ptr %.sroa.14.0..sroa_idx, align 8
-  %200 = getelementptr inbounds i8, ptr %0, i64 360
-  store double %105, ptr %200, align 8
+  %199 = getelementptr inbounds i8, ptr %0, i64 360
+  store double %105, ptr %199, align 8
   %.sroa.680.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 368
   store double %106, ptr %.sroa.680.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 376
   store double %107, ptr %.sroa.10.0..sroa_idx, align 8
-  %201 = getelementptr inbounds i8, ptr %0, i64 400
-  store double %116, ptr %201, align 8
-  %202 = getelementptr inbounds i8, ptr %0, i64 384
-  store double %115, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %0, i64 392
-  store double %111, ptr %203, align 8
-  %204 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %204, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  %205 = getelementptr inbounds i8, ptr %0, i64 84
-  store i8 1, ptr %205, align 4
-  br label %206
+  %200 = getelementptr inbounds i8, ptr %0, i64 400
+  store double %116, ptr %200, align 8
+  %201 = getelementptr inbounds i8, ptr %0, i64 384
+  store double %115, ptr %201, align 8
+  %202 = getelementptr inbounds i8, ptr %0, i64 392
+  store double %111, ptr %202, align 8
+  %203 = getelementptr inbounds i8, ptr %0, i64 88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %203, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
+  %204 = getelementptr inbounds i8, ptr %0, i64 84
+  store i8 1, ptr %204, align 4
+  br label %205
 
-206:                                              ; preds = %198, %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit, %13
+205:                                              ; preds = %197, %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit, %13
   ret i1 %12
 }
 

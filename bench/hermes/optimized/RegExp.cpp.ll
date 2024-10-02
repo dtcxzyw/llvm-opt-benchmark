@@ -4266,11 +4266,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %hasValue_.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %59 = load i8, ptr %hasValue_.i, align 4
   %tobool.i = trunc i8 %59 to i1
-  br i1 %tobool.i, label %if.else246, label %if.then236
-
-if.then236:                                       ; preds = %for.body
-  %call.i150 = call i32 @_ZN6hermes2vm9ArrayImpl18_setOwnIndexedImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeEjNS2_INS0_11HermesValueEEE(ptr %call78, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %lengthA.5234, ptr nonnull @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E) #13
-  br label %if.end276
+  br i1 %tobool.i, label %if.else246, label %if.end276
 
 if.else246:                                       ; preds = %for.body
   %60 = load i32, ptr %arrayidx.i, align 4
@@ -4286,10 +4282,11 @@ if.else246:                                       ; preds = %for.body
 if.end262:                                        ; preds = %if.else246
   %63 = extractvalue { i32, i64 } %call257, 1
   %call269 = call ptr @_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(16) %runtime, i64 %63)
-  %call.i154 = call i32 @_ZN6hermes2vm9ArrayImpl18_setOwnIndexedImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeEjNS2_INS0_11HermesValueEEE(ptr %call78, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %lengthA.5234, ptr %call269) #13
   br label %if.end276
 
-if.end276:                                        ; preds = %if.end262, %if.then236
+if.end276:                                        ; preds = %for.body, %if.end262
+  %call269.sink = phi ptr [ %call269, %if.end262 ], [ @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, %for.body ]
+  %call.i154 = call i32 @_ZN6hermes2vm9ArrayImpl18_setOwnIndexedImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeEjNS2_INS0_11HermesValueEEE(ptr %call78, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %lengthA.5234, ptr %call269.sink) #13
   %inc277 = add i32 %lengthA.5234, 1
   %cmp278 = icmp eq i32 %inc277, %lim.0205
   br i1 %cmp278, label %if.then279, label %for.inc

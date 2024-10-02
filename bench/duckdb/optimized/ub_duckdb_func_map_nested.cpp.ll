@@ -901,12 +901,7 @@ for.body.us138.i:                                 ; preds = %for.body.lr.ph.spli
 if.then.i205:                                     ; preds = %invoke.cont6.i
   %48 = load i8, ptr %call6, align 8, !tbaa !49
   %cmp15.i = icmp eq i8 %48, 2
-  br i1 %cmp15.i, label %if.then16.i, label %if.end.i
-
-if.then16.i:                                      ; preds = %if.then.i205
-  %bcmp81.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %28, ptr noundef nonnull dereferenceable(16) %29, i64 16)
-  %cmp18.i = icmp eq i32 %bcmp81.i, 0
-  br label %cleanup44.i
+  br i1 %cmp15.i, label %cleanup44.i.sink.split, label %if.end.i
 
 common.resume:                                    ; preds = %cleanup.action84, %ehcleanup79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i208, %lpad4.i, %ehcleanup66, %ehcleanup47, %cleanup.action, %ehcleanup, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   %common.resume.op = phi { ptr, i32 } [ %49, %lpad4.i ], [ %.pn177, %ehcleanup47 ], [ %.pn175, %ehcleanup66 ], [ %.pn238, %cleanup.action84 ], [ %85, %ehcleanup79 ], [ %.pn179235, %cleanup.action ], [ %16, %ehcleanup ], [ %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i208 ]
@@ -927,9 +922,7 @@ if.end.i:                                         ; preds = %if.then.i205
 
 if.end21.i:                                       ; preds = %if.end.i
   %mul.i = shl i64 %0, 4
-  %bcmp.i = call i32 @bcmp(ptr %28, ptr %29, i64 %mul.i)
-  %cmp23.i = icmp eq i32 %bcmp.i, 0
-  br label %cleanup44.i
+  br label %cleanup44.i.sink.split
 
 for.body.i:                                       ; preds = %for.body.lr.ph.split.i, %for.body.i
   %i.0135.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.lr.ph.split.i ]
@@ -955,8 +948,14 @@ for.body.i:                                       ; preds = %for.body.lr.ph.spli
   %or.cond271.not = select i1 %.not.i.i.not, i1 %exitcond.i, i1 false
   br i1 %or.cond271.not, label %for.body.i, label %cleanup44.i, !llvm.loop !73
 
-cleanup44.i:                                      ; preds = %for.body.i, %for.body.us138.i, %for.body.us.i, %for.body.us.us.i, %if.end21.i, %if.end.i, %if.then16.i, %for.cond.preheader.i
-  %retval.4.i = phi i1 [ %cmp18.i, %if.then16.i ], [ %cmp23.i, %if.end21.i ], [ false, %if.end.i ], [ true, %for.cond.preheader.i ], [ %.not.i.us.us.i.not, %for.body.us.us.i ], [ %.not.i.us.i.not, %for.body.us.i ], [ %.not.i.us150.i.not, %for.body.us138.i ], [ %.not.i.i.not, %for.body.i ]
+cleanup44.i.sink.split:                           ; preds = %if.then.i205, %if.end21.i
+  %mul.i.sink = phi i64 [ %mul.i, %if.end21.i ], [ 16, %if.then.i205 ]
+  %bcmp.i = call i32 @bcmp(ptr %28, ptr %29, i64 %mul.i.sink)
+  %cmp23.i = icmp eq i32 %bcmp.i, 0
+  br label %cleanup44.i
+
+cleanup44.i:                                      ; preds = %for.body.i, %for.body.us138.i, %for.body.us.i, %for.body.us.us.i, %cleanup44.i.sink.split, %if.end.i, %for.cond.preheader.i
+  %retval.4.i = phi i1 [ false, %if.end.i ], [ true, %for.cond.preheader.i ], [ %cmp23.i, %cleanup44.i.sink.split ], [ %.not.i.us.us.i.not, %for.body.us.us.i ], [ %.not.i.us.i.not, %for.body.us.i ], [ %.not.i.us150.i.not, %for.body.us138.i ], [ %.not.i.i.not, %for.body.i ]
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %values_data.i, i64 64
   %56 = load ptr, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !76
   %cmp.not.i.i.i.i.i = icmp eq ptr %56, null

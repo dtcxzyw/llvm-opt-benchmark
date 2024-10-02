@@ -2571,11 +2571,11 @@ declare void @llvm.trap() #11
 define dso_local noundef zeroext i1 @_ZN5clang28PrintingCodeCompleteConsumer19isResultFilteredOutEN4llvm9StringRefENS_20CodeCompletionResultE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readonly %1, i64 %2, ptr nocapture noundef readonly %3) unnamed_addr #12 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load i32, ptr %5, align 8
-  switch i32 %6, label %72 [
+  switch i32 %6, label %64 [
     i32 0, label %7
-    i32 1, label %25
-    i32 2, label %35
-    i32 3, label %47
+    i32 1, label %23
+    i32 2, label %31
+    i32 3, label %41
   ]
 
 7:                                                ; preds = %4
@@ -2593,138 +2593,124 @@ define dso_local noundef zeroext i1 @_ZN5clang28PrintingCodeCompleteConsumer19is
   %15 = inttoptr i64 %13 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
-  %19 = load i64, ptr %17, align 8
-  %20 = and i64 %19, 4294967295
-  %.not.i = icmp ult i64 %20, %2
-  br i1 %.not.i, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %21
+  %18 = load i64, ptr %17, align 8
+  %19 = and i64 %18, 4294967295
+  %.not.i = icmp ult i64 %19, %2
+  br i1 %.not.i, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %20
 
-21:                                               ; preds = %14
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds i8, ptr %17, i64 16
   %22 = icmp eq i64 %2, 0
-  br i1 %22, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %23
+  br i1 %22, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread.sink.split
 
-23:                                               ; preds = %21
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %18, ptr %1, i64 %2)
-  %24 = icmp ne i32 %bcmp.i, 0
-  br label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread
+23:                                               ; preds = %4
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %.not.i13 = icmp eq ptr %25, null
+  br i1 %.not.i13, label %_ZN4llvm9StringRefC2EPKc.exit, label %26
 
-25:                                               ; preds = %4
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %.not.i13 = icmp eq ptr %27, null
-  br i1 %.not.i13, label %_ZN4llvm9StringRefC2EPKc.exit, label %28
-
-28:                                               ; preds = %25
-  %29 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #23
+26:                                               ; preds = %23
+  %27 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #23
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-_ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %25, %28
-  %30 = phi i64 [ %29, %28 ], [ 0, %25 ]
-  %.not.i14 = icmp ult i64 %30, %2
-  br i1 %.not.i14, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %31
+_ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %23, %26
+  %28 = phi i64 [ %27, %26 ], [ 0, %23 ]
+  %.not.i14 = icmp ult i64 %28, %2
+  br i1 %.not.i14, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %29
 
-31:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit
-  %32 = icmp eq i64 %2, 0
-  br i1 %32, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %33
+29:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit
+  %30 = icmp eq i64 %2, 0
+  br i1 %30, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread.sink.split
 
-33:                                               ; preds = %31
-  %bcmp.i15 = tail call i32 @bcmp(ptr %27, ptr %1, i64 %2)
-  %34 = icmp ne i32 %bcmp.i15, 0
-  br label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread
+31:                                               ; preds = %4
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %36 = load i64, ptr %35, align 8
+  %37 = and i64 %36, 4294967295
+  %.not.i19 = icmp ult i64 %37, %2
+  br i1 %.not.i19, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %38
 
-35:                                               ; preds = %4
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
-  %41 = load i64, ptr %39, align 8
-  %42 = and i64 %41, 4294967295
-  %.not.i19 = icmp ult i64 %42, %2
-  br i1 %.not.i19, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %43
+38:                                               ; preds = %31
+  %39 = getelementptr inbounds i8, ptr %35, i64 16
+  %40 = icmp eq i64 %2, 0
+  br i1 %40, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread.sink.split
 
-43:                                               ; preds = %35
-  %44 = icmp eq i64 %2, 0
-  br i1 %44, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %45
-
-45:                                               ; preds = %43
-  %bcmp.i20 = tail call i32 @bcmp(ptr nonnull %40, ptr %1, i64 %2)
-  %46 = icmp ne i32 %bcmp.i20, 0
-  br label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread
-
-47:                                               ; preds = %4
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = load i64, ptr %49, align 8
-  %51 = and i64 %50, 65535
-  %.idx.i = shl nuw nsw i64 %51, 4
-  %52 = getelementptr inbounds i8, ptr %49, i64 %.idx.i
-  %.ptr14.i = getelementptr inbounds i8, ptr %52, i64 32
-  %.not12.i = icmp eq i64 %51, 0
+41:                                               ; preds = %4
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = load i64, ptr %43, align 8
+  %45 = and i64 %44, 65535
+  %.idx.i = shl nuw nsw i64 %45, 4
+  %46 = getelementptr inbounds i8, ptr %43, i64 %.idx.i
+  %.ptr14.i = getelementptr inbounds i8, ptr %46, i64 32
+  %.not12.i = icmp eq i64 %45, 0
   br i1 %.not12.i, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %47
-  %.ptr.i = getelementptr inbounds i8, ptr %49, i64 32
+.lr.ph.preheader.i:                               ; preds = %41
+  %.ptr.i = getelementptr inbounds i8, ptr %43, i64 32
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %55, %.lr.ph.preheader.i
-  %.01013.i = phi ptr [ %56, %55 ], [ %.ptr.i, %.lr.ph.preheader.i ]
-  %53 = load i32, ptr %.01013.i, align 8
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit, label %55
+.lr.ph.i:                                         ; preds = %49, %.lr.ph.preheader.i
+  %.01013.i = phi ptr [ %50, %49 ], [ %.ptr.i, %.lr.ph.preheader.i ]
+  %47 = load i32, ptr %.01013.i, align 8
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit, label %49
 
-55:                                               ; preds = %.lr.ph.i
-  %56 = getelementptr inbounds i8, ptr %.01013.i, i64 16
-  %.not.i22 = icmp eq ptr %56, %.ptr14.i
+49:                                               ; preds = %.lr.ph.i
+  %50 = getelementptr inbounds i8, ptr %.01013.i, i64 16
+  %.not.i22 = icmp eq ptr %50, %.ptr14.i
   br i1 %.not.i22, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %.lr.ph.i
 
 _ZNK5clang20CodeCompletionString12getTypedTextEv.exit: ; preds = %.lr.ph.i
-  %57 = getelementptr inbounds nuw i8, ptr %.01013.i, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %.not = icmp eq ptr %58, null
+  %51 = getelementptr inbounds nuw i8, ptr %.01013.i, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %.not = icmp eq ptr %52, null
   br i1 %.not, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %.lr.ph.i28
 
-.lr.ph.i28:                                       ; preds = %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit, %61
-  %.01013.i29 = phi ptr [ %62, %61 ], [ %.ptr.i, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit ]
-  %59 = load i32, ptr %.01013.i29, align 8
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit32, label %61
+.lr.ph.i28:                                       ; preds = %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit, %55
+  %.01013.i29 = phi ptr [ %56, %55 ], [ %.ptr.i, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit ]
+  %53 = load i32, ptr %.01013.i29, align 8
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit32, label %55
 
-61:                                               ; preds = %.lr.ph.i28
-  %62 = getelementptr inbounds i8, ptr %.01013.i29, i64 16
-  %.not.i30 = icmp eq ptr %62, %.ptr14.i
+55:                                               ; preds = %.lr.ph.i28
+  %56 = getelementptr inbounds i8, ptr %.01013.i29, i64 16
+  %.not.i30 = icmp eq ptr %56, %.ptr14.i
   br i1 %.not.i30, label %_ZN4llvm9StringRefC2EPKc.exit34, label %.lr.ph.i28
 
 _ZNK5clang20CodeCompletionString12getTypedTextEv.exit32: ; preds = %.lr.ph.i28
-  %63 = getelementptr inbounds nuw i8, ptr %.01013.i29, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %.not.i33 = icmp eq ptr %64, null
-  br i1 %.not.i33, label %_ZN4llvm9StringRefC2EPKc.exit34, label %65
+  %57 = getelementptr inbounds nuw i8, ptr %.01013.i29, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %.not.i33 = icmp eq ptr %58, null
+  br i1 %.not.i33, label %_ZN4llvm9StringRefC2EPKc.exit34, label %59
 
-65:                                               ; preds = %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit32
-  %66 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #23
+59:                                               ; preds = %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit32
+  %60 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #23
   br label %_ZN4llvm9StringRefC2EPKc.exit34
 
-_ZN4llvm9StringRefC2EPKc.exit34:                  ; preds = %61, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit32, %65
-  %.0.i3148 = phi ptr [ %64, %65 ], [ null, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit32 ], [ null, %61 ]
-  %67 = phi i64 [ %66, %65 ], [ 0, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit32 ], [ 0, %61 ]
-  %.not.i35 = icmp ult i64 %67, %2
-  br i1 %.not.i35, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %68
+_ZN4llvm9StringRefC2EPKc.exit34:                  ; preds = %55, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit32, %59
+  %.0.i3148 = phi ptr [ %58, %59 ], [ null, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit32 ], [ null, %55 ]
+  %61 = phi i64 [ %60, %59 ], [ 0, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit32 ], [ 0, %55 ]
+  %.not.i35 = icmp ult i64 %61, %2
+  br i1 %.not.i35, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %62
 
-68:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit34
-  %69 = icmp eq i64 %2, 0
-  br i1 %69, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %70
+62:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit34
+  %63 = icmp eq i64 %2, 0
+  br i1 %63, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread, label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread.sink.split
 
-70:                                               ; preds = %68
-  %bcmp.i36 = tail call i32 @bcmp(ptr %.0.i3148, ptr %1, i64 %2)
-  %71 = icmp ne i32 %bcmp.i36, 0
-  br label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread
-
-72:                                               ; preds = %4
+64:                                               ; preds = %4
   unreachable
 
-_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread: ; preds = %55, %70, %68, %_ZN4llvm9StringRefC2EPKc.exit34, %45, %43, %35, %33, %31, %_ZN4llvm9StringRefC2EPKc.exit, %23, %21, %14, %47, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit ], [ true, %47 ], [ true, %14 ], [ %24, %23 ], [ false, %21 ], [ true, %_ZN4llvm9StringRefC2EPKc.exit ], [ %34, %33 ], [ false, %31 ], [ true, %35 ], [ %46, %45 ], [ false, %43 ], [ true, %_ZN4llvm9StringRefC2EPKc.exit34 ], [ %71, %70 ], [ false, %68 ], [ true, %55 ]
+_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread.sink.split: ; preds = %62, %38, %29, %20
+  %.0.i3148.sink = phi ptr [ %21, %20 ], [ %25, %29 ], [ %39, %38 ], [ %.0.i3148, %62 ]
+  %bcmp.i36 = tail call i32 @bcmp(ptr %.0.i3148.sink, ptr %1, i64 %2)
+  %65 = icmp ne i32 %bcmp.i36, 0
+  br label %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread
+
+_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread: ; preds = %49, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread.sink.split, %62, %_ZN4llvm9StringRefC2EPKc.exit34, %38, %31, %29, %_ZN4llvm9StringRefC2EPKc.exit, %20, %14, %41, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit, %7
+  %.0 = phi i1 [ true, %7 ], [ true, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit ], [ true, %41 ], [ true, %14 ], [ false, %20 ], [ true, %_ZN4llvm9StringRefC2EPKc.exit ], [ false, %29 ], [ true, %31 ], [ false, %38 ], [ true, %_ZN4llvm9StringRefC2EPKc.exit34 ], [ false, %62 ], [ %65, %_ZNK5clang20CodeCompletionString12getTypedTextEv.exit.thread.sink.split ], [ true, %49 ]
   ret i1 %.0
 }
 

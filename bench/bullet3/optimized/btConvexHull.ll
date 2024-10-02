@@ -3454,15 +3454,11 @@ if.end216:                                        ; preds = %invoke.cont212
   %135 = call float @llvm.fmuladd.f32(float %130, float %130, float %mul8.i.i.i.i.i368)
   %136 = call noundef float @llvm.fmuladd.f32(float %134, float %134, float %135)
   %cmp.i.i369 = fcmp oeq float %136, 0.000000e+00
-  br i1 %cmp.i.i369, label %if.end216.invoke.cont221_crit_edge, label %if.end.i.i370
-
-if.end216.invoke.cont221_crit_edge:               ; preds = %if.end216
   %.pre605 = call float @llvm.sqrt.f32(float %136)
-  br label %invoke.cont221
+  br i1 %cmp.i.i369, label %invoke.cont221, label %if.end.i.i370
 
 if.end.i.i370:                                    ; preds = %if.end216
-  %sqrt.i.i.i371 = call noundef float @llvm.sqrt.f32(float %136)
-  %div.i.i372 = fdiv float 1.000000e+00, %sqrt.i.i.i371
+  %div.i.i372 = fdiv float 1.000000e+00, %.pre605
   %mul.i.i.i373 = fmul float %130, %div.i.i372
   %mul4.i.i.i374 = fmul float %132, %div.i.i372
   %mul8.i.i.i375 = fmul float %134, %div.i.i372
@@ -3471,10 +3467,9 @@ if.end.i.i370:                                    ; preds = %if.end216
   %retval.sroa.3.12.vec.insert.i21.i.i378 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i.i.i375, i64 0
   br label %invoke.cont221
 
-invoke.cont221:                                   ; preds = %if.end216.invoke.cont221_crit_edge, %if.end.i.i370
-  %sqrt.i433.pre-phi = phi float [ %.pre605, %if.end216.invoke.cont221_crit_edge ], [ %sqrt.i.i.i371, %if.end.i.i370 ]
-  %retval.sroa.0.0.i.i379 = phi <2 x float> [ <float 1.000000e+00, float 0.000000e+00>, %if.end216.invoke.cont221_crit_edge ], [ %retval.sroa.0.4.vec.insert.i20.i.i377, %if.end.i.i370 ]
-  %retval.sroa.4.0.i.i380 = phi <2 x float> [ zeroinitializer, %if.end216.invoke.cont221_crit_edge ], [ %retval.sroa.3.12.vec.insert.i21.i.i378, %if.end.i.i370 ]
+invoke.cont221:                                   ; preds = %if.end216, %if.end.i.i370
+  %retval.sroa.0.0.i.i379 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i20.i.i377, %if.end.i.i370 ], [ <float 1.000000e+00, float 0.000000e+00>, %if.end216 ]
+  %retval.sroa.4.0.i.i380 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i21.i.i378, %if.end.i.i370 ], [ zeroinitializer, %if.end216 ]
   %sub.i.i381 = fsub float %mul.i.i236, %121
   %sub8.i.i383 = fsub float %mul4.i.i, %123
   %sub14.i.i385 = fsub float %mul8.i.i, %125
@@ -3485,7 +3480,7 @@ invoke.cont221:                                   ; preds = %if.end216.invoke.co
   %n.sroa.3.8.vec.extract.i389 = extractelement <2 x float> %retval.sroa.4.0.i.i380, i64 0
   %138 = call noundef float @llvm.fmuladd.f32(float %n.sroa.3.8.vec.extract.i389, float %sub14.i.i385, float %137)
   %cmp.i390 = fcmp ogt float %138, %mul186
-  %cmp256 = fcmp olt float %sqrt.i433.pre-phi, %mul255
+  %cmp256 = fcmp olt float %.pre605, %mul255
   %or.cond = or i1 %cmp.i390, %cmp256
   br i1 %or.cond, label %if.then257, label %while.cond199.backedge
 

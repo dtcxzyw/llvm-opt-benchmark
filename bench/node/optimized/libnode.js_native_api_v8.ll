@@ -6855,11 +6855,7 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   %isolate8 = getelementptr inbounds i8, ptr %env, i64 8
   %2 = load ptr, ptr %isolate8, align 8
   %cmp9 = icmp eq ptr %description, null
-  br i1 %cmp9, label %if.then10, label %if.else
-
-if.then10:                                        ; preds = %do.end7
-  %call15 = tail call ptr @_ZN2v86Symbol3NewEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef %2, ptr null) #24
-  br label %if.end58
+  br i1 %cmp9, label %if.end58, label %if.else
 
 if.else:                                          ; preds = %do.end7
   %3 = load i64, ptr %description, align 8
@@ -6875,7 +6871,7 @@ if.end.i:                                         ; preds = %if.else
   %6 = inttoptr i64 %sub.i to ptr
   %7 = load i16, ptr %6, align 2
   %cmp.i = icmp ult i16 %7, 128
-  br i1 %cmp.i, label %do.end36, label %if.then33
+  br i1 %cmp.i, label %if.end58, label %if.then33
 
 if.then33:                                        ; preds = %if.else, %if.end.i
   %error_code1.i13 = getelementptr inbounds i8, ptr %env, i64 156
@@ -6886,13 +6882,10 @@ if.then33:                                        ; preds = %if.else, %if.end.i
   store ptr null, ptr %engine_reserved5.i15, align 8
   br label %return
 
-do.end36:                                         ; preds = %if.end.i
-  %call47 = tail call ptr @_ZN2v86Symbol3NewEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef %2, ptr nonnull %description) #24
-  br label %if.end58
-
-if.end58:                                         ; preds = %do.end36, %if.then10
-  %storemerge = phi ptr [ %call47, %do.end36 ], [ %call15, %if.then10 ]
-  store ptr %storemerge, ptr %result, align 8
+if.end58:                                         ; preds = %if.end.i, %do.end7
+  %description.sink = phi ptr [ null, %do.end7 ], [ %description, %if.end.i ]
+  %call47 = tail call ptr @_ZN2v86Symbol3NewEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef %2, ptr %description.sink) #24
+  store ptr %call47, ptr %result, align 8
   %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return

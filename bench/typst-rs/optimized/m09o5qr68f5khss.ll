@@ -34455,7 +34455,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hdc8c06966b85b72bE
   %33 = extractvalue { ptr, i64 } %32, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !8774
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %38, label %49
+  br i1 %34, label %38, label %47
 
 35:                                               ; preds = %"_ZN96_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$u5b$T$u3b$$u20$N$u5d$$GT$$GT$4from17haeeccbaf5905b57bE.exit.i.i", %4
   %.sroa.4.0.ph.in.i = phi ptr [ %22, %"_ZN96_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$u5b$T$u3b$$u20$N$u5d$$GT$$GT$4from17haeeccbaf5905b57bE.exit.i.i" ], [ %11, %4 ]
@@ -34471,8 +34471,8 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hdc8c06966b85b72bE
   %39 = ptrtoint ptr %11 to i64
   switch i64 %39, label %default.unreachable1.i.i [
     i64 0, label %40
-    i64 1, label %43
-    i64 2, label %46
+    i64 1, label %42
+    i64 2, label %44
   ]
 
 default.unreachable1.i.i:                         ; preds = %38
@@ -34480,36 +34480,34 @@ default.unreachable1.i.i:                         ; preds = %38
 
 40:                                               ; preds = %38
   %41 = sitofp i64 %13 to double
-  %42 = tail call double @llvm.sin.f64(double %41)
   br label %_ZN5typst11foundations4calc3sin17he29954a4e91b9571E.exit.i
 
-43:                                               ; preds = %38
-  %44 = bitcast i64 %13 to double
-  %45 = tail call double @llvm.sin.f64(double %44)
+42:                                               ; preds = %38
+  %43 = bitcast i64 %13 to double
   br label %_ZN5typst11foundations4calc3sin17he29954a4e91b9571E.exit.i
 
-46:                                               ; preds = %38
-  %47 = bitcast i64 %13 to double
-  %48 = tail call noundef double @llvm.sin.f64(double %47)
+44:                                               ; preds = %38
+  %45 = bitcast i64 %13 to double
   br label %_ZN5typst11foundations4calc3sin17he29954a4e91b9571E.exit.i
 
-_ZN5typst11foundations4calc3sin17he29954a4e91b9571E.exit.i: ; preds = %46, %43, %40
-  %.0.i.i = phi double [ %48, %46 ], [ %45, %43 ], [ %42, %40 ]
+_ZN5typst11foundations4calc3sin17he29954a4e91b9571E.exit.i: ; preds = %44, %42, %40
+  %.sink.i18.i = phi double [ %45, %44 ], [ %43, %42 ], [ %41, %40 ]
+  %46 = tail call noundef double @llvm.sin.f64(double %.sink.i18.i)
   store i8 4, ptr %0, align 8, !alias.scope !8758, !noalias !8761
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  store double %.0.i.i, ptr %.sroa.46.0..sroa_idx.i, align 8, !alias.scope !8758, !noalias !8761
+  store double %46, ptr %.sroa.46.0..sroa_idx.i, align 8, !alias.scope !8758, !noalias !8761
   br label %"_ZN86_$LT$typst..foundations..calc..sin$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17ha1e32c3784c8749fE.exit"
 
-49:                                               ; preds = %24
-  %50 = extractvalue { ptr, i64 } %32, 1
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %33, ptr %51, align 8, !alias.scope !8758, !noalias !8761
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %50, ptr %52, align 8, !alias.scope !8758, !noalias !8761
+47:                                               ; preds = %24
+  %48 = extractvalue { ptr, i64 } %32, 1
+  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %33, ptr %49, align 8, !alias.scope !8758, !noalias !8761
+  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %48, ptr %50, align 8, !alias.scope !8758, !noalias !8761
   store i8 30, ptr %0, align 8, !alias.scope !8758, !noalias !8761
   br label %"_ZN86_$LT$typst..foundations..calc..sin$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17ha1e32c3784c8749fE.exit"
 
-"_ZN86_$LT$typst..foundations..calc..sin$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17ha1e32c3784c8749fE.exit": ; preds = %35, %_ZN5typst11foundations4calc3sin17he29954a4e91b9571E.exit.i, %49
+"_ZN86_$LT$typst..foundations..calc..sin$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17ha1e32c3784c8749fE.exit": ; preds = %35, %_ZN5typst11foundations4calc3sin17he29954a4e91b9571E.exit.i, %47
   ret void
 }
 
@@ -35727,7 +35725,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hf379f22f7000fad0E
   %33 = extractvalue { ptr, i64 } %32, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !9087
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %38, label %49
+  br i1 %34, label %38, label %47
 
 35:                                               ; preds = %"_ZN96_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$u5b$T$u3b$$u20$N$u5d$$GT$$GT$4from17haeeccbaf5905b57bE.exit.i.i", %4
   %.sroa.4.0.ph.in.i = phi ptr [ %22, %"_ZN96_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$u5b$T$u3b$$u20$N$u5d$$GT$$GT$4from17haeeccbaf5905b57bE.exit.i.i" ], [ %11, %4 ]
@@ -35743,8 +35741,8 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hf379f22f7000fad0E
   %39 = ptrtoint ptr %11 to i64
   switch i64 %39, label %default.unreachable1.i.i [
     i64 0, label %40
-    i64 1, label %43
-    i64 2, label %46
+    i64 1, label %42
+    i64 2, label %44
   ]
 
 default.unreachable1.i.i:                         ; preds = %38
@@ -35752,36 +35750,34 @@ default.unreachable1.i.i:                         ; preds = %38
 
 40:                                               ; preds = %38
   %41 = sitofp i64 %13 to double
-  %42 = tail call double @llvm.cos.f64(double %41)
   br label %_ZN5typst11foundations4calc3cos17h58c711cbaa790e1fE.exit.i
 
-43:                                               ; preds = %38
-  %44 = bitcast i64 %13 to double
-  %45 = tail call double @llvm.cos.f64(double %44)
+42:                                               ; preds = %38
+  %43 = bitcast i64 %13 to double
   br label %_ZN5typst11foundations4calc3cos17h58c711cbaa790e1fE.exit.i
 
-46:                                               ; preds = %38
-  %47 = bitcast i64 %13 to double
-  %48 = tail call noundef double @llvm.cos.f64(double %47)
+44:                                               ; preds = %38
+  %45 = bitcast i64 %13 to double
   br label %_ZN5typst11foundations4calc3cos17h58c711cbaa790e1fE.exit.i
 
-_ZN5typst11foundations4calc3cos17h58c711cbaa790e1fE.exit.i: ; preds = %46, %43, %40
-  %.0.i.i = phi double [ %48, %46 ], [ %45, %43 ], [ %42, %40 ]
+_ZN5typst11foundations4calc3cos17h58c711cbaa790e1fE.exit.i: ; preds = %44, %42, %40
+  %.sink.i18.i = phi double [ %45, %44 ], [ %43, %42 ], [ %41, %40 ]
+  %46 = tail call noundef double @llvm.cos.f64(double %.sink.i18.i)
   store i8 4, ptr %0, align 8, !alias.scope !9071, !noalias !9074
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  store double %.0.i.i, ptr %.sroa.46.0..sroa_idx.i, align 8, !alias.scope !9071, !noalias !9074
+  store double %46, ptr %.sroa.46.0..sroa_idx.i, align 8, !alias.scope !9071, !noalias !9074
   br label %"_ZN86_$LT$typst..foundations..calc..cos$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h6c9d9852b560f054E.exit"
 
-49:                                               ; preds = %24
-  %50 = extractvalue { ptr, i64 } %32, 1
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %33, ptr %51, align 8, !alias.scope !9071, !noalias !9074
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %50, ptr %52, align 8, !alias.scope !9071, !noalias !9074
+47:                                               ; preds = %24
+  %48 = extractvalue { ptr, i64 } %32, 1
+  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %33, ptr %49, align 8, !alias.scope !9071, !noalias !9074
+  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %48, ptr %50, align 8, !alias.scope !9071, !noalias !9074
   store i8 30, ptr %0, align 8, !alias.scope !9071, !noalias !9074
   br label %"_ZN86_$LT$typst..foundations..calc..cos$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h6c9d9852b560f054E.exit"
 
-"_ZN86_$LT$typst..foundations..calc..cos$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h6c9d9852b560f054E.exit": ; preds = %35, %_ZN5typst11foundations4calc3cos17h58c711cbaa790e1fE.exit.i, %49
+"_ZN86_$LT$typst..foundations..calc..cos$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h6c9d9852b560f054E.exit": ; preds = %35, %_ZN5typst11foundations4calc3cos17h58c711cbaa790e1fE.exit.i, %47
   ret void
 }
 
@@ -105601,8 +105597,8 @@ define noundef double @_ZN5typst11foundations4calc3sin17he29954a4e91b9571E(ptr n
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   switch i64 %2, label %default.unreachable1 [
     i64 0, label %4
-    i64 1, label %8
-    i64 2, label %11
+    i64 1, label %7
+    i64 2, label %9
   ]
 
 default.unreachable1:                             ; preds = %1
@@ -105611,22 +105607,20 @@ default.unreachable1:                             ; preds = %1
 4:                                                ; preds = %1
   %5 = load i64, ptr %3, align 8, !noundef !4
   %6 = sitofp i64 %5 to double
-  %7 = tail call double @llvm.sin.f64(double %6)
-  br label %14
+  br label %11
 
-8:                                                ; preds = %1
-  %9 = load double, ptr %3, align 8, !noundef !4
-  %10 = tail call double @llvm.sin.f64(double %9)
-  br label %14
+7:                                                ; preds = %1
+  %8 = load double, ptr %3, align 8, !noundef !4
+  br label %11
 
-11:                                               ; preds = %1
-  %12 = load double, ptr %3, align 8, !noundef !4
-  %13 = tail call noundef double @llvm.sin.f64(double %12)
-  br label %14
+9:                                                ; preds = %1
+  %10 = load double, ptr %3, align 8, !noundef !4
+  br label %11
 
-14:                                               ; preds = %11, %8, %4
-  %.0 = phi double [ %13, %11 ], [ %10, %8 ], [ %7, %4 ]
-  ret double %.0
+11:                                               ; preds = %9, %7, %4
+  %.sink = phi double [ %10, %9 ], [ %8, %7 ], [ %6, %4 ]
+  %12 = tail call double @llvm.sin.f64(double %.sink)
+  ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -105640,8 +105634,8 @@ define noundef double @_ZN5typst11foundations4calc3cos17h58c711cbaa790e1fE(ptr n
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   switch i64 %2, label %default.unreachable1 [
     i64 0, label %4
-    i64 1, label %8
-    i64 2, label %11
+    i64 1, label %7
+    i64 2, label %9
   ]
 
 default.unreachable1:                             ; preds = %1
@@ -105650,22 +105644,20 @@ default.unreachable1:                             ; preds = %1
 4:                                                ; preds = %1
   %5 = load i64, ptr %3, align 8, !noundef !4
   %6 = sitofp i64 %5 to double
-  %7 = tail call double @llvm.cos.f64(double %6)
-  br label %14
+  br label %11
 
-8:                                                ; preds = %1
-  %9 = load double, ptr %3, align 8, !noundef !4
-  %10 = tail call double @llvm.cos.f64(double %9)
-  br label %14
+7:                                                ; preds = %1
+  %8 = load double, ptr %3, align 8, !noundef !4
+  br label %11
 
-11:                                               ; preds = %1
-  %12 = load double, ptr %3, align 8, !noundef !4
-  %13 = tail call noundef double @llvm.cos.f64(double %12)
-  br label %14
+9:                                                ; preds = %1
+  %10 = load double, ptr %3, align 8, !noundef !4
+  br label %11
 
-14:                                               ; preds = %11, %8, %4
-  %.0 = phi double [ %13, %11 ], [ %10, %8 ], [ %7, %4 ]
-  ret double %.0
+11:                                               ; preds = %9, %7, %4
+  %.sink = phi double [ %10, %9 ], [ %8, %7 ], [ %6, %4 ]
+  %12 = tail call double @llvm.cos.f64(double %.sink)
+  ret double %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
