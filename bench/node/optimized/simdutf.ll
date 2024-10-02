@@ -3064,10 +3064,9 @@ if.then17.i:                                      ; preds = %while.end.i
 if.end21.i:                                       ; preds = %if.then17.i
   %arrayidx23.i = getelementptr i8, ptr %byte.0.in.i.le, i64 1
   %0 = load i8, ptr %arrayidx23.i, align 1
-  %1 = and i8 %0, -64
-  %cmp26.not.i = icmp ne i8 %1, -128
-  %2 = and i32 %conv.le.i, 30
-  %cmp36.i = icmp eq i32 %2, 0
+  %cmp26.not.i = icmp sgt i8 %0, -65
+  %1 = and i32 %conv.le.i, 30
+  %cmp36.i = icmp eq i32 %1, 0
   %or.cond.i = or i1 %cmp36.i, %cmp26.not.i
   br i1 %or.cond.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf88validateEPKcm.exit, label %while.cond.backedge.i
 
@@ -3083,17 +3082,16 @@ if.then43.i:                                      ; preds = %if.else.i
 
 if.end47.i:                                       ; preds = %if.then43.i
   %arrayidx49.i = getelementptr i8, ptr %byte.0.in.i.le, i64 1
-  %3 = load i8, ptr %arrayidx49.i, align 1
-  %conv50.i = zext i8 %3 to i32
+  %2 = load i8, ptr %arrayidx49.i, align 1
+  %conv50.i = zext i8 %2 to i32
   %and51.i = and i32 %conv50.i, 192
   %cmp52.not.i = icmp eq i32 %and51.i, 128
   br i1 %cmp52.not.i, label %if.end54.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf88validateEPKcm.exit
 
 if.end54.i:                                       ; preds = %if.end47.i
   %arrayidx56.i = getelementptr i8, ptr %byte.0.in.i.le, i64 2
-  %4 = load i8, ptr %arrayidx56.i, align 1
-  %5 = and i8 %4, -64
-  %cmp59.not.i = icmp eq i8 %5, -128
+  %3 = load i8, ptr %arrayidx56.i, align 1
+  %cmp59.not.i = icmp slt i8 %3, -64
   br i1 %cmp59.not.i, label %if.end61.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf88validateEPKcm.exit
 
 if.end61.i:                                       ; preds = %if.end54.i
@@ -3123,24 +3121,22 @@ if.then88.i:                                      ; preds = %if.else84.i
 
 if.end92.i:                                       ; preds = %if.then88.i
   %arrayidx94.i = getelementptr i8, ptr %byte.0.in.i.le, i64 1
-  %6 = load i8, ptr %arrayidx94.i, align 1
-  %conv95.i = zext i8 %6 to i32
+  %4 = load i8, ptr %arrayidx94.i, align 1
+  %conv95.i = zext i8 %4 to i32
   %and96.i = and i32 %conv95.i, 192
   %cmp97.not.i = icmp eq i32 %and96.i, 128
   br i1 %cmp97.not.i, label %if.end99.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf88validateEPKcm.exit
 
 if.end99.i:                                       ; preds = %if.end92.i
   %arrayidx101.i = getelementptr i8, ptr %byte.0.in.i.le, i64 2
-  %7 = load i8, ptr %arrayidx101.i, align 1
-  %8 = and i8 %7, -64
-  %cmp104.not.i = icmp eq i8 %8, -128
+  %5 = load i8, ptr %arrayidx101.i, align 1
+  %cmp104.not.i = icmp slt i8 %5, -64
   br i1 %cmp104.not.i, label %if.end106.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf88validateEPKcm.exit
 
 if.end106.i:                                      ; preds = %if.end99.i
   %arrayidx108.i = getelementptr i8, ptr %byte.0.in.i.le, i64 3
-  %9 = load i8, ptr %arrayidx108.i, align 1
-  %10 = and i8 %9, -64
-  %cmp111.not.i = icmp eq i8 %10, -128
+  %6 = load i8, ptr %arrayidx108.i, align 1
+  %cmp111.not.i = icmp slt i8 %6, -64
   br i1 %cmp111.not.i, label %if.end113.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf88validateEPKcm.exit
 
 if.end113.i:                                      ; preds = %if.end106.i
@@ -3149,8 +3145,8 @@ if.end113.i:                                      ; preds = %if.end106.i
   %and120.i = shl nuw nsw i32 %conv95.i, 12
   %shl121.i = and i32 %and120.i, 196608
   %or122.i = add nsw i32 %shl116.i, -1114112
-  %11 = add nsw i32 %or122.i, %shl121.i
-  %or.cond3.i = icmp ult i32 %11, -1048576
+  %7 = add nsw i32 %or122.i, %shl121.i
+  %or.cond3.i = icmp ult i32 %7, -1048576
   br i1 %or.cond3.i, label %_ZN7simdutf6scalar12_GLOBAL__N_14utf88validateEPKcm.exit, label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %if.end113.i, %lor.lhs.false79.i, %if.end21.i, %if.then.i
@@ -3289,13 +3285,12 @@ if.then17:                                        ; preds = %while.end
 if.end21:                                         ; preds = %if.then17
   %arrayidx23 = getelementptr i8, ptr %byte.0.in.le, i64 1
   %0 = load i8, ptr %arrayidx23, align 1
-  %1 = and i8 %0, -64
-  %cmp26.not = icmp eq i8 %1, -128
+  %cmp26.not = icmp slt i8 %0, -64
   br i1 %cmp26.not, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.end21
-  %2 = and i32 %conv.le, 30
-  %cmp36 = icmp eq i32 %2, 0
+  %1 = and i32 %conv.le, 30
+  %cmp36 = icmp eq i32 %1, 0
   br i1 %cmp36, label %return, label %while.cond.backedge
 
 if.else:                                          ; preds = %while.end
@@ -3310,17 +3305,16 @@ if.then43:                                        ; preds = %if.else
 
 if.end47:                                         ; preds = %if.then43
   %arrayidx49 = getelementptr i8, ptr %byte.0.in.le, i64 1
-  %3 = load i8, ptr %arrayidx49, align 1
-  %conv50 = zext i8 %3 to i32
+  %2 = load i8, ptr %arrayidx49, align 1
+  %conv50 = zext i8 %2 to i32
   %and51 = and i32 %conv50, 192
   %cmp52.not = icmp eq i32 %and51, 128
   br i1 %cmp52.not, label %if.end54, label %return
 
 if.end54:                                         ; preds = %if.end47
   %arrayidx56 = getelementptr i8, ptr %byte.0.in.le, i64 2
-  %4 = load i8, ptr %arrayidx56, align 1
-  %5 = and i8 %4, -64
-  %cmp59.not = icmp eq i8 %5, -128
+  %3 = load i8, ptr %arrayidx56, align 1
+  %cmp59.not = icmp slt i8 %3, -64
   br i1 %cmp59.not, label %if.end61, label %return
 
 if.end61:                                         ; preds = %if.end54
@@ -3350,24 +3344,22 @@ if.then89:                                        ; preds = %if.else85
 
 if.end93:                                         ; preds = %if.then89
   %arrayidx95 = getelementptr i8, ptr %byte.0.in.le, i64 1
-  %6 = load i8, ptr %arrayidx95, align 1
-  %conv96 = zext i8 %6 to i32
+  %4 = load i8, ptr %arrayidx95, align 1
+  %conv96 = zext i8 %4 to i32
   %and97 = and i32 %conv96, 192
   %cmp98.not = icmp eq i32 %and97, 128
   br i1 %cmp98.not, label %if.end100, label %return
 
 if.end100:                                        ; preds = %if.end93
   %arrayidx102 = getelementptr i8, ptr %byte.0.in.le, i64 2
-  %7 = load i8, ptr %arrayidx102, align 1
-  %8 = and i8 %7, -64
-  %cmp105.not = icmp eq i8 %8, -128
+  %5 = load i8, ptr %arrayidx102, align 1
+  %cmp105.not = icmp slt i8 %5, -64
   br i1 %cmp105.not, label %if.end107, label %return
 
 if.end107:                                        ; preds = %if.end100
   %arrayidx109 = getelementptr i8, ptr %byte.0.in.le, i64 3
-  %9 = load i8, ptr %arrayidx109, align 1
-  %10 = and i8 %9, -64
-  %cmp112.not = icmp eq i8 %10, -128
+  %6 = load i8, ptr %arrayidx109, align 1
+  %cmp112.not = icmp slt i8 %6, -64
   br i1 %cmp112.not, label %if.end114, label %return
 
 if.end114:                                        ; preds = %if.end107
@@ -3899,10 +3891,9 @@ if.then19.i:                                      ; preds = %if.else.i
 if.end23.i:                                       ; preds = %if.then19.i
   %arrayidx25.i = getelementptr inbounds i8, ptr %buf, i64 %add20.i
   %3 = load i8, ptr %arrayidx25.i, align 1
-  %4 = and i8 %3, -64
-  %cmp28.not.i = icmp eq i8 %4, -128
-  %5 = and i32 %conv.i, 30
-  %or.cond.not.i = icmp eq i32 %5, 2
+  %cmp28.not.i = icmp slt i8 %3, -64
+  %4 = and i32 %conv.i, 30
+  %or.cond.not.i = icmp eq i32 %4, 2
   %or.cond.i = and i1 %or.cond.not.i, %cmp28.not.i
   br i1 %or.cond.i, label %if.end41.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin17convertEPKcmPc.exit
 
@@ -4125,8 +4116,7 @@ if.then19.i:                                      ; preds = %if.else.i
 if.end23.i:                                       ; preds = %if.then19.i
   %arrayidx25.i = getelementptr inbounds i8, ptr %buf, i64 %add20.i
   %4 = load i8, ptr %arrayidx25.i, align 1
-  %5 = and i8 %4, -64
-  %cmp28.not.i = icmp eq i8 %5, -128
+  %cmp28.not.i = icmp slt i8 %4, -64
   br i1 %cmp28.not.i, label %if.end30.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin113convert_validEPKcmPc.exit
 
 if.end30.i:                                       ; preds = %if.end23.i
@@ -10187,8 +10177,7 @@ return:                                           ; preds = %return.sink.split, 
 define internal fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr nocapture noundef readonly %start, ptr nocapture noundef readonly %buf, i64 noundef %len) unnamed_addr #1 {
 entry:
   %0 = load i8, ptr %start, align 1
-  %1 = and i8 %0, -64
-  %cmp = icmp eq i8 %1, -128
+  %cmp = icmp slt i8 %0, -64
   br i1 %cmp, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
@@ -10198,9 +10187,8 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %if.else
   %buf.addr.09 = phi ptr [ %incdec.ptr, %if.else ], [ %buf, %for.body.preheader ]
   %extra_len.07 = phi i64 [ %inc, %if.else ], [ 0, %for.body.preheader ]
-  %2 = load i8, ptr %buf.addr.09, align 1
-  %3 = and i8 %2, -64
-  %cmp4.not = icmp eq i8 %3, -128
+  %1 = load i8, ptr %buf.addr.09, align 1
+  %cmp4.not = icmp slt i8 %1, -64
   br i1 %cmp4.not, label %if.else, label %for.end
 
 if.else:                                          ; preds = %for.body
@@ -10214,14 +10202,14 @@ for.end:                                          ; preds = %for.body, %if.else
   %buf.addr.0.lcssa = phi ptr [ %buf.addr.09, %for.body ], [ %scevgep, %if.else ]
   %add = add i64 %extra_len.0.lcssa, %len
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf820validate_with_errorsEPKcm(ptr noundef nonnull %buf.addr.0.lcssa, i64 noundef %add) #51
-  %4 = extractvalue { i32, i64 } %call, 0
-  %5 = extractvalue { i32, i64 } %call, 1
-  %sub = sub i64 %5, %extra_len.0.lcssa
+  %2 = extractvalue { i32, i64 } %call, 0
+  %3 = extractvalue { i32, i64 } %call, 1
+  %sub = sub i64 %3, %extra_len.0.lcssa
   br label %return
 
 return:                                           ; preds = %entry, %for.end
   %retval.sroa.3.0 = phi i64 [ %sub, %for.end ], [ 0, %entry ]
-  %retval.sroa.0.0 = phi i32 [ %4, %for.end ], [ 3, %entry ]
+  %retval.sroa.0.0 = phi i32 [ %2, %for.end ], [ 3, %entry ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -14729,8 +14717,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE0
 land.rhs:                                         ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE0EDsEESt4pairIPKcPT0_ES6_mS8_.exit, %while.body
   %ret.sroa.0.019 = phi ptr [ %add.ptr7, %while.body ], [ %ptr.1.i, %_ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE0EDsEESt4pairIPKcPT0_ES6_mS8_.exit ]
   %380 = load i8, ptr %ret.sroa.0.019, align 1
-  %381 = and i8 %380, -64
-  %cmp5 = icmp eq i8 %381, -128
+  %cmp5 = icmp slt i8 %380, -64
   br i1 %cmp5, label %while.body, label %if.then10
 
 while.body:                                       ; preds = %land.rhs
@@ -15550,8 +15537,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE1
 land.rhs:                                         ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE1EDsEESt4pairIPKcPT0_ES6_mS8_.exit, %while.body
   %ret.sroa.0.019 = phi ptr [ %add.ptr7, %while.body ], [ %ptr.1.i, %_ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE1EDsEESt4pairIPKcPT0_ES6_mS8_.exit ]
   %442 = load i8, ptr %ret.sroa.0.019, align 1
-  %443 = and i8 %442, -64
-  %cmp5 = icmp eq i8 %443, -128
+  %cmp5 = icmp slt i8 %442, -64
   br i1 %cmp5, label %while.body, label %if.then10
 
 while.body:                                       ; preds = %land.rhs
@@ -16149,8 +16135,7 @@ if.end:                                           ; preds = %_ZN7simdutf7icelake
 land.rhs:                                         ; preds = %if.end, %while.body
   %ret.sroa.0.035 = phi ptr [ %add.ptr11, %while.body ], [ %ptr.1.i, %if.end ]
   %319 = load i8, ptr %ret.sroa.0.035, align 1
-  %320 = and i8 %319, -64
-  %cmp9 = icmp eq i8 %320, -128
+  %cmp9 = icmp slt i8 %319, -64
   br i1 %cmp9, label %while.body, label %if.then14
 
 while.body:                                       ; preds = %land.rhs
@@ -16775,8 +16760,7 @@ if.end:                                           ; preds = %_ZN7simdutf7icelake
 land.rhs:                                         ; preds = %if.end, %while.body
   %ret.sroa.12.074 = phi ptr [ %add.ptr24, %while.body ], [ %ptr.1.i, %if.end ]
   %327 = load i8, ptr %ret.sroa.12.074, align 1
-  %328 = and i8 %327, -64
-  %cmp22 = icmp eq i8 %328, -128
+  %cmp22 = icmp slt i8 %327, -64
   br i1 %cmp22, label %while.body, label %if.then27
 
 while.body:                                       ; preds = %land.rhs
@@ -16791,23 +16775,23 @@ if.then27:                                        ; preds = %land.rhs
   %sub33 = sub i64 %sub.ptr.sub32.neg, %sub.ptr.lhs.cast30
   %add.ptr34 = getelementptr inbounds i8, ptr %utf32, i64 %sub.ptr.sub15
   %call35 = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3219convert_with_errorsEPKcmPDi(ptr noundef nonnull %ret.sroa.12.074, i64 noundef %sub33, ptr noundef %add.ptr34)
-  %329 = extractvalue { i32, i64 } %call35, 0
-  %330 = extractvalue { i32, i64 } %call35, 1
-  %cmp36.not = icmp eq i32 %329, 0
+  %328 = extractvalue { i32, i64 } %call35, 0
+  %329 = extractvalue { i32, i64 } %call35, 1
+  %cmp36.not = icmp eq i32 %328, 0
   br i1 %cmp36.not, label %if.else, label %if.then37
 
 if.then37:                                        ; preds = %if.then27
   %sub.ptr.sub41 = sub i64 %sub.ptr.lhs.cast30, %sub.ptr.rhs.cast31
-  %add43 = add i64 %sub.ptr.sub41, %330
+  %add43 = add i64 %sub.ptr.sub41, %329
   br label %return
 
 if.else:                                          ; preds = %if.then27
-  %add45 = add i64 %330, %sub.ptr.div
+  %add45 = add i64 %329, %sub.ptr.div
   br label %return
 
 return:                                           ; preds = %while.body, %if.end, %if.then37, %if.else, %if.then
   %retval.sroa.6.0 = phi i64 [ %add43, %if.then37 ], [ %add45, %if.else ], [ %add, %if.then ], [ %sub.ptr.div, %if.end ], [ %sub.ptr.div, %while.body ]
-  %retval.sroa.0.0 = phi i32 [ %329, %if.then37 ], [ 0, %if.else ], [ %325, %if.then ], [ 0, %if.end ], [ 0, %while.body ]
+  %retval.sroa.0.0 = phi i32 [ %328, %if.then37 ], [ 0, %if.else ], [ %325, %if.then ], [ 0, %if.end ], [ 0, %while.body ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -16824,9 +16808,8 @@ for.body:                                         ; preds = %entry, %for.inc
   %sub = sub nsw i64 0, %i.022
   %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %sub
   %0 = load i8, ptr %arrayidx, align 1
-  %1 = and i8 %0, -64
-  %cmp2.not = icmp eq i8 %1, -128
-  br i1 %cmp2.not, label %for.inc, label %if.end8
+  %cmp2 = icmp sgt i8 %0, -65
+  br i1 %cmp2, label %if.end8, label %for.inc
 
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i64 %i.022, 1
@@ -16841,16 +16824,16 @@ if.end8:                                          ; preds = %for.body
   %arrayidx.le = getelementptr inbounds i8, ptr %buf, i64 %sub
   %add = add i64 %i.022, %len
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf3219convert_with_errorsEPKcmPDi(ptr noundef nonnull %arrayidx.le, i64 noundef %add, ptr noundef %utf32_output)
-  %2 = extractvalue { i32, i64 } %call, 0
-  %3 = extractvalue { i32, i64 } %call, 1
-  %tobool9.not = icmp eq i32 %2, 0
+  %1 = extractvalue { i32, i64 } %call, 0
+  %2 = extractvalue { i32, i64 } %call, 1
+  %tobool9.not = icmp eq i32 %1, 0
   %sub11 = select i1 %tobool9.not, i64 0, i64 %i.022
-  %spec.select14 = sub i64 %3, %sub11
+  %spec.select14 = sub i64 %2, %sub11
   br label %return
 
 return:                                           ; preds = %if.end8, %if.then6
   %retval.sroa.4.0 = phi i64 [ %sub7, %if.then6 ], [ %spec.select14, %if.end8 ]
-  %retval.sroa.0.0 = phi i32 [ 3, %if.then6 ], [ %2, %if.end8 ]
+  %retval.sroa.0.0 = phi i32 [ 3, %if.then6 ], [ %1, %if.end8 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -17268,8 +17251,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE0
 land.rhs:                                         ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE0EjEESt4pairIPKcPT0_ES6_mS8_.exit, %while.body
   %ret.sroa.0.020 = phi ptr [ %add.ptr7, %while.body ], [ %ptr.1.i, %_ZN7simdutf7icelake12_GLOBAL__N_126valid_utf8_to_fixed_lengthILNS_10endiannessE0EjEESt4pairIPKcPT0_ES6_mS8_.exit ]
   %232 = load i8, ptr %ret.sroa.0.020, align 1
-  %233 = and i8 %232, -64
-  %cmp5 = icmp eq i8 %233, -128
+  %cmp5 = icmp slt i8 %232, -64
   br i1 %cmp5, label %while.body, label %if.then10
 
 while.body:                                       ; preds = %land.rhs
@@ -26648,10 +26630,9 @@ if.then19.i:                                      ; preds = %if.else.i414
 if.end23.i:                                       ; preds = %if.then19.i
   %arrayidx25.i = getelementptr inbounds i8, ptr %add.ptr36.i, i64 %add20.i
   %56 = load i8, ptr %arrayidx25.i, align 1
-  %57 = and i8 %56, -64
-  %cmp28.not.i = icmp eq i8 %57, -128
-  %58 = and i32 %conv.i413, 30
-  %or.cond.not.i = icmp eq i32 %58, 2
+  %cmp28.not.i = icmp slt i8 %56, -64
+  %57 = and i32 %conv.i413, 30
+  %or.cond.not.i = icmp eq i32 %57, 2
   %or.cond.i = and i1 %or.cond.not.i, %cmp28.not.i
   br i1 %or.cond.i, label %if.end41.i416, label %_ZN7simdutf7haswell12_GLOBAL__N_114utf8_to_latin121validating_transcoder7convertEPKcmPc.exit
 
@@ -27144,10 +27125,9 @@ if.then19.i:                                      ; preds = %if.else.i74
 if.end23.i:                                       ; preds = %if.then19.i
   %arrayidx25.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 %add20.i
   %27 = load i8, ptr %arrayidx25.i, align 1
-  %28 = and i8 %27, -64
-  %cmp28.not.i = icmp eq i8 %28, -128
-  %29 = and i32 %conv.i73, 30
-  %or.cond.not.i = icmp eq i32 %29, 2
+  %cmp28.not.i = icmp slt i8 %27, -64
+  %28 = and i32 %conv.i73, 30
+  %or.cond.not.i = icmp eq i32 %28, 2
   %or.cond.i = and i1 %or.cond.not.i, %cmp28.not.i
   br i1 %or.cond.i, label %if.end41.i, label %_ZN7simdutf7haswell12_GLOBAL__N_114utf8_to_latin113convert_validEPKcmPc.exit
 
@@ -39975,10 +39955,9 @@ if.then19.i:                                      ; preds = %if.else.i289
 if.end23.i:                                       ; preds = %if.then19.i
   %arrayidx25.i = getelementptr inbounds i8, ptr %add.ptr114.i, i64 %add20.i
   %87 = load i8, ptr %arrayidx25.i, align 1
-  %88 = and i8 %87, -64
-  %cmp28.not.i = icmp eq i8 %88, -128
-  %89 = and i32 %conv.i288, 30
-  %or.cond.not.i = icmp eq i32 %89, 2
+  %cmp28.not.i = icmp slt i8 %87, -64
+  %88 = and i32 %conv.i288, 30
+  %or.cond.not.i = icmp eq i32 %88, 2
   %or.cond.i = and i1 %or.cond.not.i, %cmp28.not.i
   br i1 %or.cond.i, label %if.end41.i, label %_ZN7simdutf8westmere12_GLOBAL__N_114utf8_to_latin121validating_transcoder7convertEPKcmPc.exit
 
@@ -40543,10 +40522,9 @@ if.then19.i:                                      ; preds = %if.else.i67
 if.end23.i:                                       ; preds = %if.then19.i
   %arrayidx25.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 %add20.i
   %34 = load i8, ptr %arrayidx25.i, align 1
-  %35 = and i8 %34, -64
-  %cmp28.not.i = icmp eq i8 %35, -128
-  %36 = and i32 %conv.i66, 30
-  %or.cond.not.i = icmp eq i32 %36, 2
+  %cmp28.not.i = icmp slt i8 %34, -64
+  %35 = and i32 %conv.i66, 30
+  %or.cond.not.i = icmp eq i32 %35, 2
   %or.cond.i = and i1 %or.cond.not.i, %cmp28.not.i
   br i1 %or.cond.i, label %if.end41.i, label %_ZN7simdutf8westmere12_GLOBAL__N_114utf8_to_latin113convert_validEPKcmPc.exit
 
@@ -53060,9 +53038,8 @@ for.body:                                         ; preds = %entry, %for.inc
   %sub = sub i64 0, %i.031
   %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %sub
   %0 = load i8, ptr %arrayidx, align 1
-  %1 = and i8 %0, -64
-  %cmp1.not = icmp eq i8 %1, -128
-  br i1 %cmp1.not, label %for.inc, label %if.end5
+  %cmp1 = icmp sgt i8 %0, -65
+  br i1 %cmp1, label %if.end5, label %for.inc
 
 for.inc:                                          ; preds = %for.body
   %inc = add i64 %i.031, 1
@@ -53098,7 +53075,7 @@ if.then.i:                                        ; preds = %while.body.i
   %or.i = or i64 %v2.0.copyload.i, %v1.0.copyload.i
   %and.i = and i64 %or.i, -9187201950435737472
   %cmp4.i = icmp eq i64 %and.i, 0
-  %2 = trunc i64 %v1.0.copyload.i to i8
+  %1 = trunc i64 %v1.0.copyload.i to i8
   br i1 %cmp4.i, label %while.cond7.preheader.i, label %if.end10.i
 
 while.cond7.preheader.i:                          ; preds = %if.then.i
@@ -53109,17 +53086,17 @@ while.body9.i:                                    ; preds = %while.cond7.prehead
   %latin_output.addr.148.i = phi ptr [ %incdec.ptr.i, %while.body9.i ], [ %latin_output.addr.053.i, %while.cond7.preheader.i ]
   %pos.147.i = phi i64 [ %inc.i, %while.body9.i ], [ %pos.052.i, %while.cond7.preheader.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %arrayidx.le, i64 %pos.147.i
-  %3 = load i8, ptr %arrayidx.i, align 1
+  %2 = load i8, ptr %arrayidx.i, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %latin_output.addr.148.i, i64 1
-  store i8 %3, ptr %latin_output.addr.148.i, align 1
+  store i8 %2, ptr %latin_output.addr.148.i, align 1
   %inc.i = add nuw i64 %pos.147.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i
   br i1 %exitcond.not.i, label %while.cond.backedge.i, label %while.body9.i, !llvm.loop !32
 
 if.end10.i:                                       ; preds = %if.then.i, %while.body.if.end10_crit_edge.i
-  %4 = phi i8 [ %.pre.i, %while.body.if.end10_crit_edge.i ], [ %2, %if.then.i ]
-  %conv.i = zext i8 %4 to i32
-  %cmp12.i = icmp sgt i8 %4, -1
+  %3 = phi i8 [ %.pre.i, %while.body.if.end10_crit_edge.i ], [ %1, %if.then.i ]
+  %conv.i = zext i8 %3 to i32
+  %cmp12.i = icmp sgt i8 %3, -1
   br i1 %cmp12.i, label %if.end64.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end10.i
@@ -53134,8 +53111,8 @@ if.then19.i:                                      ; preds = %if.else.i
 
 if.end23.i:                                       ; preds = %if.then19.i
   %arrayidx25.i = getelementptr inbounds i8, ptr %arrayidx.le, i64 %add20.i
-  %5 = load i8, ptr %arrayidx25.i, align 1
-  %conv26.i = zext i8 %5 to i32
+  %4 = load i8, ptr %arrayidx25.i, align 1
+  %conv26.i = zext i8 %4 to i32
   %and27.i = and i32 %conv26.i, 192
   %cmp28.not.i = icmp eq i32 %and27.i, 128
   br i1 %cmp28.not.i, label %if.end30.i, label %_ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin119convert_with_errorsEPKcmPc.exit.thread
@@ -53171,7 +53148,7 @@ if.else57.i:                                      ; preds = %if.else47.i
   br label %_ZN7simdutf6scalar12_GLOBAL__N_114utf8_to_latin119convert_with_errorsEPKcmPc.exit.thread
 
 if.end64.i:                                       ; preds = %if.end43.i, %if.end10.i
-  %conv44.sink.i = phi i8 [ %conv44.i, %if.end43.i ], [ %4, %if.end10.i ]
+  %conv44.sink.i = phi i8 [ %conv44.i, %if.end43.i ], [ %3, %if.end10.i ]
   %.sink.i = phi i64 [ 2, %if.end43.i ], [ 1, %if.end10.i ]
   store i8 %conv44.sink.i, ptr %latin_output.addr.053.i, align 1
   %add46.i = add i64 %.sink.i, %pos.052.i
@@ -53321,9 +53298,8 @@ for.body:                                         ; preds = %entry, %for.inc
   %sub = sub i64 0, %i.019
   %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %sub
   %0 = load i8, ptr %arrayidx, align 1
-  %1 = and i8 %0, -64
-  %cmp1.not = icmp eq i8 %1, -128
-  br i1 %cmp1.not, label %for.inc, label %if.end5
+  %cmp1 = icmp sgt i8 %0, -65
+  br i1 %cmp1, label %if.end5, label %for.inc
 
 for.inc:                                          ; preds = %for.body
   %inc = add i64 %i.019, 1
@@ -53338,16 +53314,16 @@ if.end5:                                          ; preds = %for.body
   %arrayidx.le = getelementptr inbounds i8, ptr %buf, i64 %sub
   %add = add i64 %i.019, %len
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1619convert_with_errorsILNS_10endiannessE0EEENS_6resultEPKcmPDs(ptr noundef nonnull %arrayidx.le, i64 noundef %add, ptr noundef %utf16_output)
-  %2 = extractvalue { i32, i64 } %call, 0
-  %3 = extractvalue { i32, i64 } %call, 1
-  %tobool6.not = icmp eq i32 %2, 0
+  %1 = extractvalue { i32, i64 } %call, 0
+  %2 = extractvalue { i32, i64 } %call, 1
+  %tobool6.not = icmp eq i32 %1, 0
   %sub8 = select i1 %tobool6.not, i64 0, i64 %i.019
-  %spec.select = sub i64 %3, %sub8
+  %spec.select = sub i64 %2, %sub8
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then3
   %retval.sroa.4.0 = phi i64 [ %sub4, %if.then3 ], [ %spec.select, %if.end5 ]
-  %retval.sroa.0.0 = phi i32 [ 3, %if.then3 ], [ %2, %if.end5 ]
+  %retval.sroa.0.0 = phi i32 [ 3, %if.then3 ], [ %1, %if.end5 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -53363,9 +53339,8 @@ for.body:                                         ; preds = %entry, %for.inc
   %sub = sub i64 0, %i.019
   %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %sub
   %0 = load i8, ptr %arrayidx, align 1
-  %1 = and i8 %0, -64
-  %cmp1.not = icmp eq i8 %1, -128
-  br i1 %cmp1.not, label %for.inc, label %if.end5
+  %cmp1 = icmp sgt i8 %0, -65
+  br i1 %cmp1, label %if.end5, label %for.inc
 
 for.inc:                                          ; preds = %for.body
   %inc = add i64 %i.019, 1
@@ -53380,16 +53355,16 @@ if.end5:                                          ; preds = %for.body
   %arrayidx.le = getelementptr inbounds i8, ptr %buf, i64 %sub
   %add = add i64 %i.019, %len
   %call = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_113utf8_to_utf1619convert_with_errorsILNS_10endiannessE1EEENS_6resultEPKcmPDs(ptr noundef nonnull %arrayidx.le, i64 noundef %add, ptr noundef %utf16_output)
-  %2 = extractvalue { i32, i64 } %call, 0
-  %3 = extractvalue { i32, i64 } %call, 1
-  %tobool6.not = icmp eq i32 %2, 0
+  %1 = extractvalue { i32, i64 } %call, 0
+  %2 = extractvalue { i32, i64 } %call, 1
+  %tobool6.not = icmp eq i32 %1, 0
   %sub8 = select i1 %tobool6.not, i64 0, i64 %i.019
-  %spec.select = sub i64 %3, %sub8
+  %spec.select = sub i64 %2, %sub8
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then3
   %retval.sroa.4.0 = phi i64 [ %sub4, %if.then3 ], [ %spec.select, %if.end5 ]
-  %retval.sroa.0.0 = phi i32 [ 3, %if.then3 ], [ %2, %if.end5 ]
+  %retval.sroa.0.0 = phi i32 [ 3, %if.then3 ], [ %1, %if.end5 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert

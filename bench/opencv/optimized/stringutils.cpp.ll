@@ -1158,8 +1158,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN5zxing6common11StringUtils13is_as
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils20is_utf8_special_byteEh(i8 noundef zeroext %0) local_unnamed_addr #7 align 2 {
-  %.mask = and i8 %0, -64
-  %2 = icmp eq i8 %.mask, -128
+  %2 = icmp slt i8 %0, -64
   %. = zext i1 %2 to i32
   ret i32 %.
 }
@@ -1167,22 +1166,22 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils20is_utf
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils12is_utf8_codeEPci(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = icmp sgt i32 %1, 0
-  br i1 %3, label %.lr.ph.lr.ph.preheader, label %.outer151._crit_edge
+  br i1 %3, label %.lr.ph.lr.ph.preheader, label %.outer122._crit_edge
 
 .lr.ph.lr.ph.preheader:                           ; preds = %2
   %4 = zext nneg i32 %1 to i64
   br label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.preheader, %.outer.backedge
-  %.080.ph179 = phi i32 [ %20, %.outer.backedge ], [ 0, %.lr.ph.lr.ph.preheader ]
-  %.081.ph178 = phi i32 [ %.081.ph152171, %.outer.backedge ], [ 0, %.lr.ph.lr.ph.preheader ]
-  %.082.ph177 = phi i32 [ %.082.ph.be, %.outer.backedge ], [ 0, %.lr.ph.lr.ph.preheader ]
+  %.080.ph150 = phi i32 [ %21, %.outer.backedge ], [ 0, %.lr.ph.lr.ph.preheader ]
+  %.081.ph149 = phi i32 [ %.081.ph123142, %.outer.backedge ], [ 0, %.lr.ph.lr.ph.preheader ]
+  %.082.ph148 = phi i32 [ %.082.ph.be, %.outer.backedge ], [ 0, %.lr.ph.lr.ph.preheader ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer151
-  %.080.ph153172 = phi i32 [ %.080.ph179, %.lr.ph.lr.ph ], [ %67, %.outer151 ]
-  %.081.ph152171 = phi i32 [ %.081.ph178, %.lr.ph.lr.ph ], [ %66, %.outer151 ]
-  %5 = sext i32 %.080.ph153172 to i64
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer122
+  %.080.ph124143 = phi i32 [ %.080.ph150, %.lr.ph.lr.ph ], [ %82, %.outer122 ]
+  %.081.ph123142 = phi i32 [ %.081.ph149, %.lr.ph.lr.ph ], [ %81, %.outer122 ]
+  %5 = sext i32 %.080.ph124143 to i64
   br label %6
 
 6:                                                ; preds = %.lr.ph, %10
@@ -1195,7 +1194,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils12is_utf
 10:                                               ; preds = %6
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %11 = icmp slt i64 %indvars.iv.next, %4
-  br i1 %11, label %6, label %.outer151._crit_edge, !llvm.loop !10
+  br i1 %11, label %6, label %.outer122._crit_edge, !llvm.loop !10
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
@@ -1203,150 +1202,135 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils12is_utf
   %15 = zext i8 %8 to i32
   %.mask = and i32 %15, 224
   %16 = icmp eq i32 %.mask, 192
-  br i1 %16, label %17, label %22
+  br i1 %16, label %17, label %23
 
 17:                                               ; preds = %12
   %18 = getelementptr i8, ptr %13, i64 1
   %19 = load i8, ptr %18, align 1
-  %.mask.i = and i8 %19, -64
-  %.not145 = icmp eq i8 %.mask.i, -128
-  br i1 %.not145, label %.outer.backedge, label %.outer151
+  %20 = icmp sgt i8 %19, -65
+  br i1 %20, label %.outer122, label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %17, %57, %45, %35, %27
-  %.sink = phi i32 [ 3, %27 ], [ 4, %35 ], [ 5, %45 ], [ 6, %57 ], [ 2, %17 ]
-  %20 = add nsw i32 %.sink, %14
-  %.082.ph.be = add nuw nsw i32 %.082.ph177, 1
-  %21 = icmp slt i32 %20, %1
-  br i1 %21, label %.lr.ph.lr.ph, label %.outer151._crit_edge, !llvm.loop !10
+.outer.backedge:                                  ; preds = %17, %68, %52, %39, %29
+  %.sink = phi i32 [ 3, %29 ], [ 4, %39 ], [ 5, %52 ], [ 6, %68 ], [ 2, %17 ]
+  %21 = add nsw i32 %.sink, %14
+  %.082.ph.be = add nuw nsw i32 %.082.ph148, 1
+  %22 = icmp slt i32 %21, %1
+  br i1 %22, label %.lr.ph.lr.ph, label %.outer122._crit_edge, !llvm.loop !10
 
-22:                                               ; preds = %12
+23:                                               ; preds = %12
   %.mask84 = and i32 %15, 240
-  %23 = icmp eq i32 %.mask84, 224
-  br i1 %23, label %24, label %30
+  %24 = icmp eq i32 %.mask84, 224
+  br i1 %24, label %25, label %33
 
-24:                                               ; preds = %22
-  %25 = getelementptr i8, ptr %13, i64 1
-  %26 = load i8, ptr %25, align 1
-  %.mask.i103 = and i8 %26, -64
-  %.not143 = icmp eq i8 %.mask.i103, -128
-  br i1 %.not143, label %27, label %.outer151
+25:                                               ; preds = %23
+  %26 = getelementptr i8, ptr %13, i64 1
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp sgt i8 %27, -65
+  br i1 %28, label %.outer122, label %29
 
-27:                                               ; preds = %24
-  %28 = getelementptr i8, ptr %13, i64 2
-  %29 = load i8, ptr %28, align 1
-  %.mask.i105 = and i8 %29, -64
-  %.not144 = icmp eq i8 %.mask.i105, -128
-  br i1 %.not144, label %.outer.backedge, label %.outer151
+29:                                               ; preds = %25
+  %30 = getelementptr i8, ptr %13, i64 2
+  %31 = load i8, ptr %30, align 1
+  %32 = icmp sgt i8 %31, -65
+  br i1 %32, label %.outer122, label %.outer.backedge
 
-30:                                               ; preds = %22
+33:                                               ; preds = %23
   %.mask85 = and i32 %15, 248
-  %31 = icmp eq i32 %.mask85, 240
-  br i1 %31, label %32, label %40
+  %34 = icmp eq i32 %.mask85, 240
+  br i1 %34, label %35, label %46
 
-32:                                               ; preds = %30
-  %33 = getelementptr i8, ptr %13, i64 1
-  %34 = load i8, ptr %33, align 1
-  %.mask.i107 = and i8 %34, -64
-  %.not140 = icmp eq i8 %.mask.i107, -128
-  br i1 %.not140, label %35, label %.outer151
-
-35:                                               ; preds = %32
-  %36 = getelementptr i8, ptr %13, i64 3
+35:                                               ; preds = %33
+  %36 = getelementptr i8, ptr %13, i64 1
   %37 = load i8, ptr %36, align 1
-  %38 = getelementptr i8, ptr %13, i64 2
-  %39 = load i8, ptr %38, align 1
-  %.mask.i109 = and i8 %39, -64
-  %.not141 = icmp eq i8 %.mask.i109, -128
-  %.mask.i111 = and i8 %37, -64
-  %.not142 = icmp eq i8 %.mask.i111, -128
-  %or.cond = select i1 %.not141, i1 %.not142, i1 false
-  br i1 %or.cond, label %.outer.backedge, label %.outer151
+  %38 = icmp sgt i8 %37, -65
+  br i1 %38, label %.outer122, label %39
 
-40:                                               ; preds = %30
+39:                                               ; preds = %35
+  %40 = getelementptr i8, ptr %13, i64 3
+  %41 = load i8, ptr %40, align 1
+  %42 = getelementptr i8, ptr %13, i64 2
+  %43 = load i8, ptr %42, align 1
+  %44 = icmp sgt i8 %43, -65
+  %45 = icmp sgt i8 %41, -65
+  %or.cond = select i1 %44, i1 true, i1 %45
+  br i1 %or.cond, label %.outer122, label %.outer.backedge
+
+46:                                               ; preds = %33
   %.mask86 = and i32 %15, 252
-  %41 = icmp eq i32 %.mask86, 248
-  br i1 %41, label %42, label %52
+  %47 = icmp eq i32 %.mask86, 248
+  br i1 %47, label %48, label %62
 
-42:                                               ; preds = %40
-  %43 = getelementptr i8, ptr %13, i64 1
-  %44 = load i8, ptr %43, align 1
-  %.mask.i113 = and i8 %44, -64
-  %.not136 = icmp eq i8 %.mask.i113, -128
-  br i1 %.not136, label %45, label %.outer151
+48:                                               ; preds = %46
+  %49 = getelementptr i8, ptr %13, i64 1
+  %50 = load i8, ptr %49, align 1
+  %51 = icmp sgt i8 %50, -65
+  br i1 %51, label %.outer122, label %52
 
-45:                                               ; preds = %42
-  %46 = getelementptr i8, ptr %13, i64 4
-  %47 = load i8, ptr %46, align 1
-  %48 = getelementptr i8, ptr %13, i64 3
-  %49 = load i8, ptr %48, align 1
-  %50 = getelementptr i8, ptr %13, i64 2
-  %51 = load i8, ptr %50, align 1
-  %.mask.i115 = and i8 %51, -64
-  %.not137 = icmp eq i8 %.mask.i115, -128
-  %.mask.i117 = and i8 %49, -64
-  %.not138 = icmp eq i8 %.mask.i117, -128
-  %or.cond146 = select i1 %.not137, i1 %.not138, i1 false
-  %.mask.i119 = and i8 %47, -64
-  %.not139 = icmp eq i8 %.mask.i119, -128
-  %or.cond147 = select i1 %or.cond146, i1 %.not139, i1 false
-  br i1 %or.cond147, label %.outer.backedge, label %.outer151
-
-52:                                               ; preds = %40
-  %.mask87 = and i32 %15, 254
-  %53 = icmp eq i32 %.mask87, 252
-  br i1 %53, label %54, label %.outer151
-
-54:                                               ; preds = %52
-  %55 = getelementptr i8, ptr %13, i64 1
+52:                                               ; preds = %48
+  %53 = getelementptr i8, ptr %13, i64 4
+  %54 = load i8, ptr %53, align 1
+  %55 = getelementptr i8, ptr %13, i64 3
   %56 = load i8, ptr %55, align 1
-  %.mask.i121 = and i8 %56, -64
-  %.not131 = icmp eq i8 %.mask.i121, -128
-  br i1 %.not131, label %57, label %.outer151
+  %57 = getelementptr i8, ptr %13, i64 2
+  %58 = load i8, ptr %57, align 1
+  %59 = icmp sgt i8 %58, -65
+  %60 = icmp sgt i8 %56, -65
+  %or.cond117 = select i1 %59, i1 true, i1 %60
+  %61 = icmp sgt i8 %54, -65
+  %or.cond118 = select i1 %or.cond117, i1 true, i1 %61
+  br i1 %or.cond118, label %.outer122, label %.outer.backedge
 
-57:                                               ; preds = %54
-  %58 = getelementptr i8, ptr %13, i64 5
-  %59 = load i8, ptr %58, align 1
-  %60 = getelementptr i8, ptr %13, i64 4
-  %61 = load i8, ptr %60, align 1
-  %62 = getelementptr i8, ptr %13, i64 3
-  %63 = load i8, ptr %62, align 1
-  %64 = getelementptr i8, ptr %13, i64 2
-  %65 = load i8, ptr %64, align 1
-  %.mask.i123 = and i8 %65, -64
-  %.not132 = icmp eq i8 %.mask.i123, -128
-  %.mask.i125 = and i8 %63, -64
-  %.not133 = icmp eq i8 %.mask.i125, -128
-  %or.cond148 = select i1 %.not132, i1 %.not133, i1 false
-  %.mask.i127 = and i8 %61, -64
-  %.not134 = icmp eq i8 %.mask.i127, -128
-  %or.cond149 = select i1 %or.cond148, i1 %.not134, i1 false
-  %.mask.i129 = and i8 %59, -64
-  %.not135 = icmp eq i8 %.mask.i129, -128
-  %or.cond150 = select i1 %or.cond149, i1 %.not135, i1 false
-  br i1 %or.cond150, label %.outer.backedge, label %.outer151
+62:                                               ; preds = %46
+  %.mask87 = and i32 %15, 254
+  %63 = icmp eq i32 %.mask87, 252
+  br i1 %63, label %64, label %.outer122
 
-.outer151:                                        ; preds = %17, %35, %32, %52, %57, %54, %42, %45, %24, %27
-  %66 = add nsw i32 %.081.ph152171, 1
-  %67 = add nsw i32 %14, 1
-  %68 = icmp slt i32 %67, %1
-  br i1 %68, label %.lr.ph, label %.outer151._crit_edge, !llvm.loop !10
+64:                                               ; preds = %62
+  %65 = getelementptr i8, ptr %13, i64 1
+  %66 = load i8, ptr %65, align 1
+  %67 = icmp sgt i8 %66, -65
+  br i1 %67, label %.outer122, label %68
 
-.outer151._crit_edge:                             ; preds = %.outer.backedge, %.outer151, %10, %2
-  %.082.ph.lcssa = phi i32 [ 0, %2 ], [ %.082.ph177, %10 ], [ %.082.ph177, %.outer151 ], [ %.082.ph.be, %.outer.backedge ]
-  %.081.ph152.lcssa164 = phi i32 [ 0, %2 ], [ %.081.ph152171, %10 ], [ %66, %.outer151 ], [ %.081.ph152171, %.outer.backedge ]
-  %69 = add nsw i32 %.081.ph152.lcssa164, %.082.ph.lcssa
-  %.not = icmp eq i32 %69, 0
-  br i1 %.not, label %74, label %70
+68:                                               ; preds = %64
+  %69 = getelementptr i8, ptr %13, i64 5
+  %70 = load i8, ptr %69, align 1
+  %71 = getelementptr i8, ptr %13, i64 4
+  %72 = load i8, ptr %71, align 1
+  %73 = getelementptr i8, ptr %13, i64 3
+  %74 = load i8, ptr %73, align 1
+  %75 = getelementptr i8, ptr %13, i64 2
+  %76 = load i8, ptr %75, align 1
+  %77 = icmp sgt i8 %76, -65
+  %78 = icmp sgt i8 %74, -65
+  %or.cond119 = select i1 %77, i1 true, i1 %78
+  %79 = icmp sgt i8 %72, -65
+  %or.cond120 = select i1 %or.cond119, i1 true, i1 %79
+  %80 = icmp sgt i8 %70, -65
+  %or.cond121 = select i1 %or.cond120, i1 true, i1 %80
+  br i1 %or.cond121, label %.outer122, label %.outer.backedge
 
-70:                                               ; preds = %.outer151._crit_edge
-  %71 = mul nsw i32 %.082.ph.lcssa, 100
-  %72 = sdiv i32 %71, %69
-  %73 = icmp sgt i32 %72, 90
-  %. = zext i1 %73 to i32
-  br label %74
+.outer122:                                        ; preds = %17, %39, %35, %62, %68, %64, %48, %52, %25, %29
+  %81 = add nsw i32 %.081.ph123142, 1
+  %82 = add nsw i32 %14, 1
+  %83 = icmp slt i32 %82, %1
+  br i1 %83, label %.lr.ph, label %.outer122._crit_edge, !llvm.loop !10
 
-74:                                               ; preds = %.outer151._crit_edge, %70
-  %.0 = phi i32 [ %., %70 ], [ 0, %.outer151._crit_edge ]
+.outer122._crit_edge:                             ; preds = %.outer.backedge, %.outer122, %10, %2
+  %.082.ph.lcssa = phi i32 [ 0, %2 ], [ %.082.ph148, %10 ], [ %.082.ph148, %.outer122 ], [ %.082.ph.be, %.outer.backedge ]
+  %.081.ph123.lcssa135 = phi i32 [ 0, %2 ], [ %.081.ph123142, %10 ], [ %81, %.outer122 ], [ %.081.ph123142, %.outer.backedge ]
+  %84 = add nsw i32 %.081.ph123.lcssa135, %.082.ph.lcssa
+  %.not = icmp eq i32 %84, 0
+  br i1 %.not, label %89, label %85
+
+85:                                               ; preds = %.outer122._crit_edge
+  %86 = mul nsw i32 %.082.ph.lcssa, 100
+  %87 = sdiv i32 %86, %84
+  %88 = icmp sgt i32 %87, 90
+  %. = zext i1 %88 to i32
+  br label %89
+
+89:                                               ; preds = %.outer122._crit_edge, %85
+  %.0 = phi i32 [ %., %85 ], [ 0, %.outer122._crit_edge ]
   ret i32 %.0
 }
 

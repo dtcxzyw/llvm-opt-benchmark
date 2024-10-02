@@ -114,30 +114,27 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %49 = load i32, ptr %48, align 8
   %50 = select i1 %12, ptr @.str.8, ptr @.str.9
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %15, i32 noundef %16, i32 noundef %18, i32 noundef %20, ptr noundef nonnull %24, i32 noundef %28, i32 noundef %29, i32 noundef %31, i32 noundef %33, i32 noundef %35, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %43, i32 noundef %45, i32 noundef %47, i32 noundef %49, ptr noundef nonnull %50) #3
-  br label %83
+  br label %86
 
 51:                                               ; preds = %2
   %.0.copyload20 = load i32, ptr %6, align 1
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %.0.copyload20) #3
-  br label %83
+  br label %86
 
 52:                                               ; preds = %2
   %53 = getelementptr inbounds i8, ptr %6, i64 8
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %53) #3
-  br label %83
+  br label %86
 
 54:                                               ; preds = %2
   %55 = and i8 %8, -32
   %or.cond5 = icmp eq i8 %55, -96
-  br i1 %or.cond5, label %83, label %56
+  br i1 %or.cond5, label %86, label %56
 
 56:                                               ; preds = %54
-  switch i8 %9, label %83 [
+  switch i8 %9, label %73 [
     i8 80, label %57
     i8 96, label %61
-    i8 -128, label %73
-    i8 -112, label %76
-    i8 -48, label %78
   ]
 
 57:                                               ; preds = %56
@@ -146,7 +143,7 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %59 = trunc nuw i64 %58 to i32
   %60 = trunc i64 %.0.copyload16 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %59, i32 noundef %60) #3
-  br label %83
+  br label %86
 
 61:                                               ; preds = %56
   %.sroa.013.0.copyload = load i32, ptr %6, align 1
@@ -187,37 +184,47 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %71 = trunc i8 %.sroa.8.0.copyload to i1
   %72 = select i1 %71, ptr @.str.14, ptr @.str.15
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %.sroa.013.0.copyload, i32 noundef %.sroa.214.0.copyload, i32 noundef %.sroa.315.0.copyload, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.5.0.copyload, ptr noundef nonnull %.0, ptr noundef nonnull %70, ptr noundef nonnull %72) #3
-  br label %83
+  br label %86
 
 73:                                               ; preds = %56
-  %.0.copyload = load i8, ptr %6, align 1
-  %74 = trunc i8 %.0.copyload to i1
-  %75 = select i1 %74, ptr @.str.6, ptr @.str.7
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %75) #3
-  br label %83
+  %74 = icmp slt i8 %8, -112
+  br i1 %74, label %75, label %78
 
-76:                                               ; preds = %56
+75:                                               ; preds = %73
+  %.0.copyload = load i8, ptr %6, align 1
+  %76 = trunc i8 %.0.copyload to i1
+  %77 = select i1 %76, ptr @.str.6, ptr @.str.7
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %77) #3
+  br label %86
+
+78:                                               ; preds = %73
+  switch i8 %9, label %86 [
+    i8 -112, label %79
+    i8 -48, label %81
+  ]
+
+79:                                               ; preds = %78
   %.sroa.07.0.copyload = load i64, ptr %6, align 1
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 1
   %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 12
   %.sroa.38.0.copyload = load i32, ptr %.sroa.38.0..sroa_idx, align 1
-  %77 = tail call ptr @timestamptz_to_str(i64 noundef %.sroa.07.0.copyload) #3
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %.sroa.2.0.copyload, i32 noundef %.sroa.38.0.copyload, ptr noundef %77) #3
-  br label %83
+  %80 = tail call ptr @timestamptz_to_str(i64 noundef %.sroa.07.0.copyload) #3
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %.sroa.2.0.copyload, i32 noundef %.sroa.38.0.copyload, ptr noundef %80) #3
+  br label %86
 
-78:                                               ; preds = %56
+81:                                               ; preds = %78
   %.sroa.0.0.copyload = load i64, ptr %6, align 1
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 1
-  %79 = lshr i64 %.sroa.0.0.copyload, 32
-  %80 = trunc nuw i64 %79 to i32
-  %81 = trunc i64 %.sroa.0.0.copyload to i32
-  %82 = tail call ptr @timestamptz_to_str(i64 noundef %.sroa.3.0.copyload) #3
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %80, i32 noundef %81, ptr noundef %82) #3
-  br label %83
+  %82 = lshr i64 %.sroa.0.0.copyload, 32
+  %83 = trunc nuw i64 %82 to i32
+  %84 = trunc i64 %.sroa.0.0.copyload to i32
+  %85 = tail call ptr @timestamptz_to_str(i64 noundef %.sroa.3.0.copyload) #3
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %83, i32 noundef %84, ptr noundef %85) #3
+  br label %86
 
-83:                                               ; preds = %56, %51, %54, %._crit_edge, %76, %78, %73, %57, %52, %11
+86:                                               ; preds = %78, %51, %54, %._crit_edge, %79, %81, %75, %57, %52, %11
   ret void
 }
 

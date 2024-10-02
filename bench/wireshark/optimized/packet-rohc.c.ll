@@ -2264,48 +2264,47 @@ define internal fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr
   %10 = load i32, ptr @hf_rohc_var_len, align 4
   %11 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0) #7
   %12 = or disjoint i32 %6, 1
-  br label %32
+  br label %31
 
 13:                                               ; preds = %5
-  %14 = and i8 %7, -64
-  %15 = icmp eq i8 %14, -128
-  br i1 %15, label %16, label %21
+  %14 = icmp slt i8 %7, -64
+  br i1 %14, label %15, label %20
 
-16:                                               ; preds = %13
+15:                                               ; preds = %13
   store i8 2, ptr %4, align 1
-  %17 = load i32, ptr @hf_rohc_var_len, align 4
-  %18 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %17, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef 0) #7
-  %19 = or disjoint i32 %6, 2
-  %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %2) #7
-  br label %32
+  %16 = load i32, ptr @hf_rohc_var_len, align 4
+  %17 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %16, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef 0) #7
+  %18 = or disjoint i32 %6, 2
+  %19 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %2) #7
+  br label %31
 
-21:                                               ; preds = %13
+20:                                               ; preds = %13
   %trunc = and i8 %7, -32
-  switch i8 %trunc, label %32 [
-    i8 -64, label %22
-    i8 -32, label %27
+  switch i8 %trunc, label %31 [
+    i8 -64, label %21
+    i8 -32, label %26
   ]
 
-22:                                               ; preds = %21
+21:                                               ; preds = %20
   store i8 3, ptr %4, align 1
-  %23 = load i32, ptr @hf_rohc_var_len, align 4
-  %24 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %23, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0) #7
-  %25 = or disjoint i32 %6, 3
-  %26 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %2) #7
-  br label %32
+  %22 = load i32, ptr @hf_rohc_var_len, align 4
+  %23 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0) #7
+  %24 = or disjoint i32 %6, 3
+  %25 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %2) #7
+  br label %31
 
-27:                                               ; preds = %21
+26:                                               ; preds = %20
   store i8 4, ptr %4, align 1
-  %28 = load i32, ptr @hf_rohc_var_len, align 4
-  %29 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %28, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0) #7
-  %30 = or disjoint i32 %6, 3
-  %31 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2) #7
-  br label %32
+  %27 = load i32, ptr @hf_rohc_var_len, align 4
+  %28 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %27, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0) #7
+  %29 = or disjoint i32 %6, 3
+  %30 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2) #7
+  br label %31
 
-32:                                               ; preds = %21, %16, %27, %22, %9
-  %.039 = phi i32 [ 7, %9 ], [ 14, %16 ], [ 21, %22 ], [ 29, %27 ], [ 0, %21 ]
-  %.0 = phi i32 [ %12, %9 ], [ %19, %16 ], [ %25, %22 ], [ %30, %27 ], [ %6, %21 ]
-  %33 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef %.0, i32 noundef %.039, i32 noundef 0) #7
+31:                                               ; preds = %20, %15, %26, %21, %9
+  %.039 = phi i32 [ 7, %9 ], [ 14, %15 ], [ 21, %21 ], [ 29, %26 ], [ 0, %20 ]
+  %.0 = phi i32 [ %12, %9 ], [ %18, %15 ], [ %24, %21 ], [ %29, %26 ], [ %6, %20 ]
+  %32 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef %.0, i32 noundef %.039, i32 noundef 0) #7
   ret void
 }
 

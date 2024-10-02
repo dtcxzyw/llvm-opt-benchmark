@@ -684,19 +684,16 @@ lor.lhs.false2:                                   ; preds = %lor.lhs.false
 land.lhs.true:                                    ; preds = %lor.lhs.false2
   %arrayidx7 = getelementptr inbounds i8, ptr %in, i64 1
   %2 = load i8, ptr %arrayidx7, align 1
-  %3 = and i8 %2, -64
-  %cmp10 = icmp eq i8 %3, -128
-  %cmp21 = icmp ugt i8 %2, -65
-  %or.cond = or i1 %cmp10, %cmp21
+  %or.cond = icmp slt i8 %2, 0
   br i1 %or.cond, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.lhs.true, %lor.lhs.false2
   %cmp25 = icmp eq i8 %0, -1
-  %4 = zext i1 %cmp25 to i32
+  %3 = zext i1 %cmp25 to i32
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.lhs.true, %lor.lhs.false, %entry
-  %lor.ext = phi i32 [ 1, %land.lhs.true ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ %4, %lor.rhs ]
+  %lor.ext = phi i32 [ 1, %land.lhs.true ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ %3, %lor.rhs ]
   ret i32 %lor.ext
 }
 
@@ -3714,15 +3711,12 @@ lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
 land.lhs.true.i:                                  ; preds = %lor.lhs.false2.i
   %arrayidx7.i = getelementptr inbounds i8, ptr %sa, i64 9
   %6 = load i8, ptr %arrayidx7.i, align 1
-  %7 = and i8 %6, -64
-  %cmp10.i = icmp eq i8 %7, -128
-  %cmp21.i = icmp ugt i8 %6, -65
-  %or.cond.i6 = or i1 %cmp21.i, %cmp10.i
+  %or.cond.i6 = icmp slt i8 %6, 0
   br i1 %or.cond.i6, label %if.end21, label %do.body14
 
 do.body14:                                        ; preds = %lor.lhs.false2.i, %land.lhs.true.i
-  %8 = load i32, ptr @event_debug_logging_mask_, align 4
-  %tobool15.not = icmp eq i32 %8, 0
+  %7 = load i32, ptr @event_debug_logging_mask_, align 4
+  %tobool15.not = icmp eq i32 %7, 0
   br i1 %tobool15.not, label %if.end21.sink.split, label %if.end21.sink.split.sink.split
 
 if.end21.sink.split.sink.split:                   ; preds = %do.body14, %do.body

@@ -13614,8 +13614,7 @@ unreachable.i:                                    ; preds = %invoke.cont3.i
   unreachable
 
 _ZN6duckdb14NegateOperator9OperationIiiEET0_T_.exit: ; preds = %entry
-  %input.sroa.2.0.extract.shift.mask = and i64 %input.coerce0, -4294967296
-  %cmp.i.not.i8 = icmp eq i64 %input.sroa.2.0.extract.shift.mask, -9223372036854775808
+  %cmp.i.not.i8 = icmp slt i64 %input.coerce0, -9223372032559808512
   br i1 %cmp.i.not.i8, label %if.then.i10, label %_ZN6duckdb14NegateOperator9OperationIiiEET0_T_.exit27
 
 if.then.i10:                                      ; preds = %_ZN6duckdb14NegateOperator9OperationIiiEET0_T_.exit
@@ -13721,6 +13720,7 @@ unreachable.i48:                                  ; preds = %invoke.cont3.i47
   unreachable
 
 _ZN6duckdb14NegateOperator9OperationIllEET0_T_.exit: ; preds = %_ZN6duckdb14NegateOperator9OperationIiiEET0_T_.exit27
+  %input.sroa.2.0.extract.shift.mask = and i64 %input.coerce0, -4294967296
   %sub.i = sub nsw i64 0, %input.coerce0
   %sub.i31 = sub nsw i64 0, %input.coerce1
   %retval.sroa.0.0.insert.ext = and i64 %sub.i, 4294967295

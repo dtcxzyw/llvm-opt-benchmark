@@ -2928,138 +2928,137 @@ thread-pre-split.i:                               ; preds = %_ZN9hb_utf8_t4prevE
   %scevgep.i.i = getelementptr i8, ptr %.05867.i4, i64 %44
   br label %45
 
-45:                                               ; preds = %52, %.lr.ph.i.i
-  %.01620.i.i = phi ptr [ %41, %.lr.ph.i.i ], [ %53, %52 ]
+45:                                               ; preds = %51, %.lr.ph.i.i
+  %.01620.i.i = phi ptr [ %41, %.lr.ph.i.i ], [ %52, %51 ]
   %46 = load i8, ptr %.01620.i.i, align 1
-  %47 = and i8 %46, -64
-  %48 = icmp eq i8 %47, -128
-  %49 = ptrtoint ptr %.01620.i.i to i64
-  %50 = sub i64 %43, %49
-  %51 = icmp slt i64 %50, 4
-  %or.cond.i66.i = and i1 %51, %48
-  br i1 %or.cond.i66.i, label %52, label %.critedge.i.i
+  %47 = icmp slt i8 %46, -64
+  %48 = ptrtoint ptr %.01620.i.i to i64
+  %49 = sub i64 %43, %48
+  %50 = icmp slt i64 %49, 4
+  %or.cond.i66.i = and i1 %47, %50
+  br i1 %or.cond.i66.i, label %51, label %.critedge.i.i
 
-52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %.01620.i.i, i64 -1
-  %54 = icmp ult ptr %1, %53
-  br i1 %54, label %45, label %.critedge.i.i, !llvm.loop !38
+51:                                               ; preds = %45
+  %52 = getelementptr inbounds i8, ptr %.01620.i.i, i64 -1
+  %53 = icmp ult ptr %1, %52
+  br i1 %53, label %45, label %.critedge.i.i, !llvm.loop !38
 
-.critedge.i.i:                                    ; preds = %52, %45, %40
-  %.016.lcssa.i.i = phi ptr [ %41, %40 ], [ %.01620.i.i, %45 ], [ %scevgep.i.i, %52 ]
-  %55 = call noundef ptr @_ZN9hb_utf8_t4nextEPKhS1_Pjj(ptr noundef nonnull %.016.lcssa.i.i, ptr noundef nonnull %.05867.i4, ptr noundef nonnull %6, i32 noundef %10)
-  %56 = icmp eq ptr %55, %.05867.i4
-  br i1 %56, label %.critedge.i._ZN9hb_utf8_t4prevEPKhS1_Pjj.exit_crit_edge.i, label %57
+.critedge.i.i:                                    ; preds = %51, %45, %40
+  %.016.lcssa.i.i = phi ptr [ %41, %40 ], [ %.01620.i.i, %45 ], [ %scevgep.i.i, %51 ]
+  %54 = call noundef ptr @_ZN9hb_utf8_t4nextEPKhS1_Pjj(ptr noundef nonnull %.016.lcssa.i.i, ptr noundef nonnull %.05867.i4, ptr noundef nonnull %6, i32 noundef %10)
+  %55 = icmp eq ptr %54, %.05867.i4
+  br i1 %55, label %.critedge.i._ZN9hb_utf8_t4prevEPKhS1_Pjj.exit_crit_edge.i, label %56
 
 .critedge.i._ZN9hb_utf8_t4prevEPKhS1_Pjj.exit_crit_edge.i: ; preds = %.critedge.i.i
   %.pre75.i = load i32, ptr %6, align 4
   br label %_ZN9hb_utf8_t4prevEPKhS1_Pjj.exit.i
 
-57:                                               ; preds = %.critedge.i.i
+56:                                               ; preds = %.critedge.i.i
   store i32 %10, ptr %6, align 4
   br label %_ZN9hb_utf8_t4prevEPKhS1_Pjj.exit.i
 
-_ZN9hb_utf8_t4prevEPKhS1_Pjj.exit.i:              ; preds = %57, %.critedge.i._ZN9hb_utf8_t4prevEPKhS1_Pjj.exit_crit_edge.i
-  %58 = phi i32 [ %10, %57 ], [ %.pre75.i, %.critedge.i._ZN9hb_utf8_t4prevEPKhS1_Pjj.exit_crit_edge.i ]
-  %.0.i.i = phi ptr [ %41, %57 ], [ %.016.lcssa.i.i, %.critedge.i._ZN9hb_utf8_t4prevEPKhS1_Pjj.exit_crit_edge.i ]
-  %59 = load i32, ptr %34, align 8
-  %60 = add i32 %59, 1
-  store i32 %60, ptr %34, align 8
-  %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds [5 x i32], ptr %38, i64 0, i64 %61
-  store i32 %58, ptr %62, align 4
-  %63 = icmp ult ptr %1, %.0.i.i
-  br i1 %63, label %thread-pre-split.i, label %.critedge.i, !llvm.loop !39
+_ZN9hb_utf8_t4prevEPKhS1_Pjj.exit.i:              ; preds = %56, %.critedge.i._ZN9hb_utf8_t4prevEPKhS1_Pjj.exit_crit_edge.i
+  %57 = phi i32 [ %10, %56 ], [ %.pre75.i, %.critedge.i._ZN9hb_utf8_t4prevEPKhS1_Pjj.exit_crit_edge.i ]
+  %.0.i.i = phi ptr [ %41, %56 ], [ %.016.lcssa.i.i, %.critedge.i._ZN9hb_utf8_t4prevEPKhS1_Pjj.exit_crit_edge.i ]
+  %58 = load i32, ptr %34, align 8
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %34, align 8
+  %60 = zext i32 %58 to i64
+  %61 = getelementptr inbounds [5 x i32], ptr %38, i64 0, i64 %60
+  store i32 %57, ptr %61, align 4
+  %62 = icmp ult ptr %1, %.0.i.i
+  br i1 %62, label %thread-pre-split.i, label %.critedge.i, !llvm.loop !39
 
 .critedge.i:                                      ; preds = %_ZN9hb_utf8_t4prevEPKhS1_Pjj.exit.i, %thread-pre-split.i, %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge
   %.pre-phi = phi i64 [ %.pre, %_ZN11hb_buffer_t6ensureEj.exit.thread.i..critedge.i_crit_edge ], [ %35, %thread-pre-split.i ], [ %35, %_ZN9hb_utf8_t4prevEPKhS1_Pjj.exit.i ]
-  %64 = getelementptr inbounds i8, ptr %1, i64 %.pre-phi
-  %65 = getelementptr inbounds i8, ptr %64, i64 %24
+  %63 = getelementptr inbounds i8, ptr %1, i64 %.pre-phi
+  %64 = getelementptr inbounds i8, ptr %63, i64 %24
   %.not.i = icmp eq i32 %spec.select.i, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph70.i
 
 .lr.ph70.i:                                       ; preds = %.critedge.i
-  %66 = ptrtoint ptr %1 to i64
-  %67 = getelementptr inbounds i8, ptr %0, i64 104
-  br label %68
+  %65 = ptrtoint ptr %1 to i64
+  %66 = getelementptr inbounds i8, ptr %0, i64 104
+  br label %67
 
-68:                                               ; preds = %_ZN11hb_buffer_t3addEjj.exit.i, %.lr.ph70.i
-  %.05669.i = phi ptr [ %64, %.lr.ph70.i ], [ %69, %_ZN11hb_buffer_t3addEjj.exit.i ]
-  %69 = call noundef ptr @_ZN9hb_utf8_t4nextEPKhS1_Pjj(ptr noundef %.05669.i, ptr noundef nonnull %65, ptr noundef nonnull %7, i32 noundef %10)
-  %70 = load i32, ptr %7, align 4
-  %71 = ptrtoint ptr %.05669.i to i64
-  %72 = sub i64 %71, %66
-  %73 = trunc i64 %72 to i32
-  %74 = load i32, ptr %22, align 8
-  %75 = add i32 %74, 1
-  %.not.i.i.i = icmp eq i32 %75, 0
-  %76 = load i32, ptr %27, align 8
-  %77 = icmp ult i32 %75, %76
-  %or.cond.i.i.i = select i1 %.not.i.i.i, i1 true, i1 %77
+67:                                               ; preds = %_ZN11hb_buffer_t3addEjj.exit.i, %.lr.ph70.i
+  %.05669.i = phi ptr [ %63, %.lr.ph70.i ], [ %68, %_ZN11hb_buffer_t3addEjj.exit.i ]
+  %68 = call noundef ptr @_ZN9hb_utf8_t4nextEPKhS1_Pjj(ptr noundef %.05669.i, ptr noundef nonnull %64, ptr noundef nonnull %7, i32 noundef %10)
+  %69 = load i32, ptr %7, align 4
+  %70 = ptrtoint ptr %.05669.i to i64
+  %71 = sub i64 %70, %65
+  %72 = trunc i64 %71 to i32
+  %73 = load i32, ptr %22, align 8
+  %74 = add i32 %73, 1
+  %.not.i.i.i = icmp eq i32 %74, 0
+  %75 = load i32, ptr %27, align 8
+  %76 = icmp ult i32 %74, %75
+  %or.cond.i.i.i = select i1 %.not.i.i.i, i1 true, i1 %76
   br i1 %or.cond.i.i.i, label %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i, label %_ZN11hb_buffer_t6ensureEj.exit.i.i
 
-_ZN11hb_buffer_t6ensureEj.exit.i.i:               ; preds = %68
-  %78 = call noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %75)
-  br i1 %78, label %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i.i, label %_ZN11hb_buffer_t3addEjj.exit.i
+_ZN11hb_buffer_t6ensureEj.exit.i.i:               ; preds = %67
+  %77 = call noundef zeroext i1 @_ZN11hb_buffer_t7enlargeEj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %74)
+  br i1 %77, label %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i.i, label %_ZN11hb_buffer_t3addEjj.exit.i
 
 _ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i.i: ; preds = %_ZN11hb_buffer_t6ensureEj.exit.i.i
   %.pre.i.i = load i32, ptr %22, align 8
   br label %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i
 
-_ZN11hb_buffer_t6ensureEj.exit.thread.i.i:        ; preds = %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i.i, %68
-  %79 = phi i32 [ %.pre.i.i, %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i.i ], [ %74, %68 ]
-  %80 = load ptr, ptr %67, align 8
-  %81 = zext i32 %79 to i64
-  %82 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %80, i64 %81
-  %83 = getelementptr inbounds i8, ptr %82, i64 12
-  store i64 0, ptr %83, align 1
-  store i32 %70, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %82, i64 4
-  store i32 0, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %82, i64 8
-  store i32 %73, ptr %85, align 4
-  %86 = load i32, ptr %22, align 8
-  %87 = add i32 %86, 1
-  store i32 %87, ptr %22, align 8
+_ZN11hb_buffer_t6ensureEj.exit.thread.i.i:        ; preds = %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i.i, %67
+  %78 = phi i32 [ %.pre.i.i, %_ZN11hb_buffer_t6ensureEj.exit._ZN11hb_buffer_t6ensureEj.exit.thread_crit_edge.i.i ], [ %73, %67 ]
+  %79 = load ptr, ptr %66, align 8
+  %80 = zext i32 %78 to i64
+  %81 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %79, i64 %80
+  %82 = getelementptr inbounds i8, ptr %81, i64 12
+  store i64 0, ptr %82, align 1
+  store i32 %69, ptr %81, align 4
+  %83 = getelementptr inbounds i8, ptr %81, i64 4
+  store i32 0, ptr %83, align 4
+  %84 = getelementptr inbounds i8, ptr %81, i64 8
+  store i32 %72, ptr %84, align 4
+  %85 = load i32, ptr %22, align 8
+  %86 = add i32 %85, 1
+  store i32 %86, ptr %22, align 8
   br label %_ZN11hb_buffer_t3addEjj.exit.i
 
 _ZN11hb_buffer_t3addEjj.exit.i:                   ; preds = %_ZN11hb_buffer_t6ensureEj.exit.thread.i.i, %_ZN11hb_buffer_t6ensureEj.exit.i.i
-  %88 = icmp ult ptr %69, %65
-  br i1 %88, label %68, label %._crit_edge.i, !llvm.loop !40
+  %87 = icmp ult ptr %68, %64
+  br i1 %87, label %67, label %._crit_edge.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %_ZN11hb_buffer_t3addEjj.exit.i, %.critedge.i
-  %.056.lcssa.i = phi ptr [ %64, %.critedge.i ], [ %69, %_ZN11hb_buffer_t3addEjj.exit.i ]
-  %89 = getelementptr inbounds i8, ptr %0, i64 172
-  store i32 0, ptr %89, align 4
-  %90 = sext i32 %.0.i to i64
-  %91 = getelementptr inbounds i8, ptr %1, i64 %90
-  %92 = icmp ult ptr %.056.lcssa.i, %91
-  br i1 %92, label %.lr.ph73.i, label %.critedge5.i
+  %.056.lcssa.i = phi ptr [ %63, %.critedge.i ], [ %68, %_ZN11hb_buffer_t3addEjj.exit.i ]
+  %88 = getelementptr inbounds i8, ptr %0, i64 172
+  store i32 0, ptr %88, align 4
+  %89 = sext i32 %.0.i to i64
+  %90 = getelementptr inbounds i8, ptr %1, i64 %89
+  %91 = icmp ult ptr %.056.lcssa.i, %90
+  br i1 %91, label %.lr.ph73.i, label %.critedge5.i
 
 .lr.ph73.i:                                       ; preds = %._crit_edge.i
-  %93 = getelementptr inbounds i8, ptr %0, i64 148
-  br label %94
+  %92 = getelementptr inbounds i8, ptr %0, i64 148
+  br label %93
 
-94:                                               ; preds = %97, %.lr.ph73.i
-  %.171.i = phi ptr [ %.056.lcssa.i, %.lr.ph73.i ], [ %98, %97 ]
-  %95 = load i32, ptr %89, align 4
-  %96 = icmp ult i32 %95, 5
-  br i1 %96, label %97, label %.critedge5.i
+93:                                               ; preds = %96, %.lr.ph73.i
+  %.171.i = phi ptr [ %.056.lcssa.i, %.lr.ph73.i ], [ %97, %96 ]
+  %94 = load i32, ptr %88, align 4
+  %95 = icmp ult i32 %94, 5
+  br i1 %95, label %96, label %.critedge5.i
 
-97:                                               ; preds = %94
-  %98 = call noundef ptr @_ZN9hb_utf8_t4nextEPKhS1_Pjj(ptr noundef %.171.i, ptr noundef nonnull %91, ptr noundef nonnull %8, i32 noundef %10)
-  %99 = load i32, ptr %8, align 4
-  %100 = load i32, ptr %89, align 4
-  %101 = add i32 %100, 1
-  store i32 %101, ptr %89, align 4
-  %102 = zext i32 %100 to i64
-  %103 = getelementptr inbounds [5 x i32], ptr %93, i64 0, i64 %102
-  store i32 %99, ptr %103, align 4
-  %104 = icmp ult ptr %98, %91
-  br i1 %104, label %94, label %.critedge5.i, !llvm.loop !41
+96:                                               ; preds = %93
+  %97 = call noundef ptr @_ZN9hb_utf8_t4nextEPKhS1_Pjj(ptr noundef %.171.i, ptr noundef nonnull %90, ptr noundef nonnull %8, i32 noundef %10)
+  %98 = load i32, ptr %8, align 4
+  %99 = load i32, ptr %88, align 4
+  %100 = add i32 %99, 1
+  store i32 %100, ptr %88, align 4
+  %101 = zext i32 %99 to i64
+  %102 = getelementptr inbounds [5 x i32], ptr %92, i64 0, i64 %101
+  store i32 %98, ptr %102, align 4
+  %103 = icmp ult ptr %97, %90
+  br i1 %103, label %93, label %.critedge5.i, !llvm.loop !41
 
-.critedge5.i:                                     ; preds = %97, %94, %._crit_edge.i
-  %105 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 1, ptr %105, align 4
+.critedge5.i:                                     ; preds = %96, %93, %._crit_edge.i
+  %104 = getelementptr inbounds i8, ptr %0, i64 44
+  store i32 1, ptr %104, align 4
   br label %_ZL17hb_buffer_add_utfI9hb_utf8_tEvP11hb_buffer_tPKNT_11codepoint_tEiji.exit
 
 _ZL17hb_buffer_add_utfI9hb_utf8_tEvP11hb_buffer_tPKNT_11codepoint_tEiji.exit: ; preds = %5, %18, %_ZN11hb_buffer_t6ensureEj.exit.i, %.critedge5.i

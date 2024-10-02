@@ -6004,50 +6004,49 @@ define internal fastcc void @__e100_shutdown(ptr noundef %0, ptr nocapture nound
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, -8
   %20 = icmp eq i16 %19, 4176
-  br i1 %20, label %21, label %32
+  br i1 %20, label %21, label %31
 
 21:                                               ; preds = %11
   %22 = getelementptr i8, ptr %4, i64 3224
   %23 = load i16, ptr %22, align 2
-  %24 = and i16 %23, -16384
-  %25 = icmp eq i16 %24, -32768
-  br i1 %25, label %26, label %32
+  %24 = icmp slt i16 %23, -16384
+  br i1 %24, label %25, label %31
 
-26:                                               ; preds = %21
-  %27 = getelementptr i8, ptr %4, i64 3486
-  %28 = load i16, ptr %27, align 2
-  %29 = and i16 %28, 255
-  %30 = icmp ne i16 %29, 254
-  %31 = zext i1 %30 to i32
-  br label %32
+25:                                               ; preds = %21
+  %26 = getelementptr i8, ptr %4, i64 3486
+  %27 = load i16, ptr %26, align 2
+  %28 = and i16 %27, 255
+  %29 = icmp ne i16 %28, 254
+  %30 = zext i1 %29 to i32
+  br label %31
 
-32:                                               ; preds = %26, %21, %11
-  %33 = phi i32 [ 0, %21 ], [ 0, %11 ], [ %31, %26 ]
-  %34 = or disjoint i32 %33, %14
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %50, label %36
+31:                                               ; preds = %25, %21, %11
+  %32 = phi i32 [ 0, %21 ], [ 0, %11 ], [ %30, %25 ]
+  %33 = or disjoint i32 %32, %14
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %49, label %35
 
-36:                                               ; preds = %32
-  %37 = getelementptr i8, ptr %4, i64 2952
-  %38 = load i32, ptr %37, align 8
-  %39 = icmp eq i32 %38, -798949299
-  br i1 %39, label %40, label %50
+35:                                               ; preds = %31
+  %36 = getelementptr i8, ptr %4, i64 2952
+  %37 = load i32, ptr %36, align 8
+  %38 = icmp eq i32 %37, -798949299
+  br i1 %38, label %39, label %49
 
-40:                                               ; preds = %36
-  %41 = getelementptr i8, ptr %4, i64 3024
-  %42 = load i32, ptr %41, align 16
-  %43 = getelementptr i8, ptr %4, i64 2328
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call zeroext i16 %44(ptr noundef %5, i32 noundef %42, i32 noundef 134217728, i32 noundef 20, i16 noundef zeroext 0) #19
-  %46 = load i32, ptr %41, align 16
-  %47 = or i16 %45, 1536
-  %48 = load ptr, ptr %43, align 8
-  %49 = tail call zeroext i16 %48(ptr noundef %5, i32 noundef %46, i32 noundef 67108864, i32 noundef 20, i16 noundef zeroext %47) #19
-  br label %50
+39:                                               ; preds = %35
+  %40 = getelementptr i8, ptr %4, i64 3024
+  %41 = load i32, ptr %40, align 16
+  %42 = getelementptr i8, ptr %4, i64 2328
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call zeroext i16 %43(ptr noundef %5, i32 noundef %41, i32 noundef 134217728, i32 noundef 20, i16 noundef zeroext 0) #19
+  %45 = load i32, ptr %40, align 16
+  %46 = or i16 %44, 1536
+  %47 = load ptr, ptr %42, align 8
+  %48 = tail call zeroext i16 %47(ptr noundef %5, i32 noundef %45, i32 noundef 67108864, i32 noundef 20, i16 noundef zeroext %46) #19
+  br label %49
 
-50:                                               ; preds = %40, %36, %32
-  %51 = phi i8 [ 1, %40 ], [ 1, %36 ], [ 0, %32 ]
-  store i8 %51, ptr %1, align 1
+49:                                               ; preds = %39, %35, %31
+  %50 = phi i8 [ 1, %39 ], [ 1, %35 ], [ 0, %31 ]
+  store i8 %50, ptr %1, align 1
   tail call void @pci_disable_device(ptr noundef %0) #19
   ret void
 }

@@ -1183,8 +1183,7 @@ do.body.i:                                        ; preds = %do.body.i.preheader
   %idxprom.i.i225 = zext nneg i32 %and.i.i224 to i64
   %arrayidx.i.i226 = getelementptr inbounds %struct.CType, ptr %11, i64 %idxprom.i.i225
   %13 = load i32, ptr %arrayidx.i.i226, align 8
-  %shr.i227.mask = and i32 %13, -268435456
-  %cmp.i228 = icmp eq i32 %shr.i227.mask, -2147483648
+  %cmp.i228 = icmp slt i32 %13, -1879048192
   br i1 %cmp.i228, label %do.body.i, label %ctype_rawchild.exit, !llvm.loop !8
 
 ctype_rawchild.exit:                              ; preds = %do.body.i
@@ -1235,8 +1234,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %idxprom.i.i.i = zext nneg i32 %and.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds %struct.CType, ptr %19, i64 %idxprom.i.i.i
   %21 = load i32, ptr %arrayidx.i.i.i, align 8
-  %shr.i.mask.i = and i32 %21, -268435456
-  %cmp.i.i = icmp eq i32 %shr.i.mask.i, -2147483648
+  %cmp.i.i = icmp slt i32 %21, -1879048192
   br i1 %cmp.i.i, label %do.body.i.i, label %ctype_rawchild.exit.i, !llvm.loop !8
 
 ctype_rawchild.exit.i:                            ; preds = %do.body.i.i
@@ -1714,8 +1712,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
   %idxprom.i.i.i = zext nneg i32 %and.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds %struct.CType, ptr %5, i64 %idxprom.i.i.i
   %7 = load i32, ptr %arrayidx.i.i.i, align 8
-  %shr.i.mask.i = and i32 %7, -268435456
-  %cmp.i.i = icmp eq i32 %shr.i.mask.i, -2147483648
+  %cmp.i.i = icmp slt i32 %7, -1879048192
   br i1 %cmp.i.i, label %do.body.i.i, label %ctype_rawchild.exit.i, !llvm.loop !8
 
 ctype_rawchild.exit.i:                            ; preds = %do.body.i.i
@@ -1948,8 +1945,7 @@ do.body.i74:                                      ; preds = %do.body.i74.prehead
   %idxprom.i.i77 = zext nneg i32 %and.i.i75 to i64
   %arrayidx.i.i78 = getelementptr inbounds %struct.CType, ptr %14, i64 %idxprom.i.i77
   %16 = load i32, ptr %arrayidx.i.i78, align 8
-  %shr.i79.mask = and i32 %16, -268435456
-  %cmp.i80 = icmp eq i32 %shr.i79.mask, -2147483648
+  %cmp.i80 = icmp slt i32 %16, -1879048192
   br i1 %cmp.i80, label %do.body.i74, label %ctype_rawchild.exit81, !llvm.loop !8
 
 ctype_rawchild.exit81:                            ; preds = %do.body.i74
@@ -1987,8 +1983,7 @@ do.body.i:                                        ; preds = %if.else55, %do.body
   %idxprom.i.i = zext nneg i32 %and.i.i to i64
   %arrayidx.i.i = getelementptr inbounds %struct.CType, ptr %1, i64 %idxprom.i.i
   %21 = load i32, ptr %arrayidx.i.i, align 8
-  %shr.i.mask = and i32 %21, -268435456
-  %cmp.i = icmp eq i32 %shr.i.mask, -2147483648
+  %cmp.i = icmp slt i32 %21, -1879048192
   br i1 %cmp.i, label %do.body.i, label %ctype_rawchild.exit, !llvm.loop !8
 
 ctype_rawchild.exit:                              ; preds = %do.body.i
@@ -2055,8 +2050,7 @@ do.body.i56:                                      ; preds = %do.body.i56.prehead
   %idxprom.i.i59 = zext nneg i32 %and.i.i57 to i64
   %arrayidx.i.i60 = getelementptr inbounds %struct.CType, ptr %7, i64 %idxprom.i.i59
   %9 = load i32, ptr %arrayidx.i.i60, align 8
-  %shr.i61.mask = and i32 %9, -268435456
-  %cmp.i62 = icmp eq i32 %shr.i61.mask, -2147483648
+  %cmp.i62 = icmp slt i32 %9, -1879048192
   br i1 %cmp.i62, label %do.body.i56, label %ctype_rawchild.exit63, !llvm.loop !8
 
 ctype_rawchild.exit63:                            ; preds = %do.body.i56
@@ -2098,8 +2092,7 @@ do.body.i:                                        ; preds = %if.else32, %do.body
   %idxprom.i.i = zext nneg i32 %and.i.i to i64
   %arrayidx.i.i = getelementptr inbounds %struct.CType, ptr %1, i64 %idxprom.i.i
   %14 = load i32, ptr %arrayidx.i.i, align 8
-  %shr.i.mask = and i32 %14, -268435456
-  %cmp.i = icmp eq i32 %shr.i.mask, -2147483648
+  %cmp.i = icmp slt i32 %14, -1879048192
   br i1 %cmp.i, label %do.body.i, label %ctype_rawchild.exit, !llvm.loop !8
 
 ctype_rawchild.exit:                              ; preds = %do.body.i

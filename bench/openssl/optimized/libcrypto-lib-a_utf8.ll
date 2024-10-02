@@ -68,8 +68,7 @@ if.end43:                                         ; preds = %if.then39
 lor.lhs.false:                                    ; preds = %if.end43
   %arrayidx49 = getelementptr inbounds i8, ptr %str, i64 2
   %3 = load i8, ptr %arrayidx49, align 1
-  %4 = and i8 %3, -64
-  %cmp52.not = icmp eq i8 %4, -128
+  %cmp52.not = icmp slt i8 %3, -64
   br i1 %cmp52.not, label %if.end55, label %return
 
 if.end55:                                         ; preds = %lor.lhs.false
@@ -82,12 +81,12 @@ if.end55:                                         ; preds = %lor.lhs.false
   br i1 %cmp72, label %return, label %if.end75
 
 if.end75:                                         ; preds = %if.end55
-  %5 = and i8 %3, 63
-  %6 = zext nneg i8 %5 to i32
-  %7 = or disjoint i32 %or6634, %6
-  %or71 = zext nneg i32 %7 to i64
-  %8 = and i64 %or71, 63488
-  %.not = icmp eq i64 %8, 55296
+  %4 = and i8 %3, 63
+  %5 = zext nneg i8 %4 to i32
+  %6 = or disjoint i32 %or6634, %5
+  %or71 = zext nneg i32 %6 to i64
+  %7 = and i64 %or71, 63488
+  %.not = icmp eq i64 %7, 55296
   br i1 %.not, label %return, label %if.end137
 
 if.else78:                                        ; preds = %if.else34
@@ -101,44 +100,42 @@ if.then83:                                        ; preds = %if.else78
 
 if.end87:                                         ; preds = %if.then83
   %arrayidx88 = getelementptr inbounds i8, ptr %str, i64 1
-  %9 = load i8, ptr %arrayidx88, align 1
-  %conv89 = zext i8 %9 to i32
+  %8 = load i8, ptr %arrayidx88, align 1
+  %conv89 = zext i8 %8 to i32
   %and90 = and i32 %conv89, 192
   %cmp91.not = icmp eq i32 %and90, 128
   br i1 %cmp91.not, label %lor.lhs.false93, label %return
 
 lor.lhs.false93:                                  ; preds = %if.end87
   %arrayidx94 = getelementptr inbounds i8, ptr %str, i64 2
-  %10 = load i8, ptr %arrayidx94, align 1
-  %11 = and i8 %10, -64
-  %cmp97.not = icmp eq i8 %11, -128
+  %9 = load i8, ptr %arrayidx94, align 1
+  %cmp97.not = icmp slt i8 %9, -64
   br i1 %cmp97.not, label %lor.lhs.false99, label %return
 
 lor.lhs.false99:                                  ; preds = %lor.lhs.false93
   %arrayidx100 = getelementptr inbounds i8, ptr %str, i64 3
-  %12 = load i8, ptr %arrayidx100, align 1
-  %13 = and i8 %12, -64
-  %cmp103.not = icmp eq i8 %13, -128
+  %10 = load i8, ptr %arrayidx100, align 1
+  %cmp103.not = icmp slt i8 %10, -64
   br i1 %cmp103.not, label %if.end106, label %return
 
 if.end106:                                        ; preds = %lor.lhs.false99
   %and109 = shl nuw nsw i32 %conv, 18
-  %14 = and i32 %and109, 1835008
+  %11 = and i32 %and109, 1835008
   %and114 = shl nuw nsw i32 %conv89, 12
   %shl115 = and i32 %and114, 258048
-  %or11733 = or disjoint i32 %shl115, %14
+  %or11733 = or disjoint i32 %shl115, %11
   %cmp129 = icmp ult i32 %or11733, 65536
   br i1 %cmp129, label %return, label %if.end132
 
 if.end132:                                        ; preds = %if.end106
   %or117 = zext nneg i32 %or11733 to i64
-  %15 = and i8 %10, 63
-  %and120 = zext nneg i8 %15 to i64
+  %12 = and i8 %9, 63
+  %and120 = zext nneg i8 %12 to i64
   %shl121 = shl nuw nsw i64 %and120, 6
-  %16 = and i8 %12, 63
-  %conv127 = zext nneg i8 %16 to i64
-  %17 = or disjoint i64 %shl121, %conv127
-  %or128 = or disjoint i64 %17, %or117
+  %13 = and i8 %10, 63
+  %conv127 = zext nneg i8 %13 to i64
+  %14 = or disjoint i64 %shl121, %conv127
+  %or128 = or disjoint i64 %14, %or117
   br label %if.end137
 
 if.end137:                                        ; preds = %if.end75, %if.end33, %if.end132, %if.then3

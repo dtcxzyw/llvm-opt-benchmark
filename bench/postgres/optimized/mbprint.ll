@@ -445,7 +445,7 @@ pg_get_utf8_id.exit:                              ; preds = %2, %5
   br i1 %.not30.i, label %mb_utf_validate.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %.loopexit.i
-  %11 = phi i8 [ %86, %.loopexit.i ], [ %10, %9 ]
+  %11 = phi i8 [ %84, %.loopexit.i ], [ %10, %9 ]
   %.01732.i = phi ptr [ %.2.i, %.loopexit.i ], [ %0, %9 ]
   %.01831.i = phi ptr [ %.220.i, %.loopexit.i ], [ %0, %9 ]
   %12 = zext i8 %11 to i32
@@ -455,142 +455,140 @@ pg_get_utf8_id.exit:                              ; preds = %2, %5
 14:                                               ; preds = %.lr.ph.i
   %15 = and i32 %12, 224
   %16 = icmp eq i32 %15, 192
-  br i1 %16, label %17, label %23
+  br i1 %16, label %17, label %22
 
 17:                                               ; preds = %14
   %18 = getelementptr i8, ptr %.01732.i, i64 1
   %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, -64
-  %21 = icmp ne i8 %20, -128
-  %22 = and i32 %12, 30
-  %.not39.i.i = icmp eq i32 %22, 0
-  %or.cond.i.i = or i1 %.not39.i.i, %21
+  %20 = icmp sgt i8 %19, -65
+  %21 = and i32 %12, 30
+  %.not39.i.i = icmp eq i32 %21, 0
+  %or.cond.i.i = or i1 %.not39.i.i, %20
   br i1 %or.cond.i.i, label %select.unfold.i, label %utf_charcheck.exit.i
 
-23:                                               ; preds = %14
-  %24 = and i32 %12, 240
-  %25 = icmp eq i32 %24, 224
-  br i1 %25, label %26, label %43
+22:                                               ; preds = %14
+  %23 = and i32 %12, 240
+  %24 = icmp eq i32 %23, 224
+  br i1 %24, label %25, label %41
 
-26:                                               ; preds = %23
-  %27 = getelementptr i8, ptr %.01732.i, i64 1
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i32
-  %30 = and i32 %29, 192
-  %31 = icmp eq i32 %30, 128
-  br i1 %31, label %32, label %select.unfold.i
+25:                                               ; preds = %22
+  %26 = getelementptr i8, ptr %.01732.i, i64 1
+  %27 = load i8, ptr %26, align 1
+  %28 = zext i8 %27 to i32
+  %29 = and i32 %28, 192
+  %30 = icmp eq i32 %29, 128
+  br i1 %30, label %31, label %select.unfold.i
 
-32:                                               ; preds = %26
-  %33 = and i32 %12, 15
-  %34 = and i32 %29, 32
-  %35 = or disjoint i32 %34, %33
-  %or.cond40.i.i = icmp eq i32 %35, 0
-  br i1 %or.cond40.i.i, label %select.unfold.i, label %36
+31:                                               ; preds = %25
+  %32 = and i32 %12, 15
+  %33 = and i32 %28, 32
+  %34 = or disjoint i32 %33, %32
+  %or.cond40.i.i = icmp eq i32 %34, 0
+  br i1 %or.cond40.i.i, label %select.unfold.i, label %35
 
-36:                                               ; preds = %32
-  %37 = getelementptr i8, ptr %.01732.i, i64 2
-  %38 = load i8, ptr %37, align 1
-  %39 = and i8 %38, -64
-  %40 = icmp eq i8 %39, -128
-  br i1 %40, label %41, label %select.unfold.i
+35:                                               ; preds = %31
+  %36 = getelementptr i8, ptr %.01732.i, i64 2
+  %37 = load i8, ptr %36, align 1
+  %38 = icmp slt i8 %37, -64
+  br i1 %38, label %39, label %select.unfold.i
 
-41:                                               ; preds = %36
-  %cond.i.i = icmp eq i32 %33, 13
-  %42 = and i8 %28, 44
-  %.old41.i.i = icmp eq i8 %42, 32
+39:                                               ; preds = %35
+  %cond.i.i = icmp eq i32 %32, 13
+  %40 = and i8 %27, 44
+  %.old41.i.i = icmp eq i8 %40, 32
   %or.cond50.i.i = and i1 %cond.i.i, %.old41.i.i
   br i1 %or.cond50.i.i, label %select.unfold.i, label %utf_charcheck.exit.i
 
-43:                                               ; preds = %23
-  %44 = and i32 %12, 248
-  %45 = icmp eq i32 %44, 240
-  br i1 %45, label %46, label %select.unfold.i
+41:                                               ; preds = %22
+  %42 = and i32 %12, 248
+  %43 = icmp eq i32 %42, 240
+  br i1 %43, label %44, label %select.unfold.i
 
-46:                                               ; preds = %43
-  %47 = shl nuw nsw i32 %12, 2
-  %48 = and i32 %47, 28
-  %49 = getelementptr i8, ptr %.01732.i, i64 1
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i32
-  %52 = lshr i32 %51, 4
-  %53 = and i32 %52, 3
-  %54 = and i32 %51, 192
-  %55 = icmp eq i32 %54, 128
-  %56 = add nsw i32 %48, -1
-  %57 = add nsw i32 %56, %53
-  %58 = icmp ult i32 %57, 16
-  %or.cond7.i.i = select i1 %55, i1 %58, i1 false
-  br i1 %or.cond7.i.i, label %59, label %select.unfold.i
+44:                                               ; preds = %41
+  %45 = shl nuw nsw i32 %12, 2
+  %46 = and i32 %45, 28
+  %47 = getelementptr i8, ptr %.01732.i, i64 1
+  %48 = load i8, ptr %47, align 1
+  %49 = zext i8 %48 to i32
+  %50 = lshr i32 %49, 4
+  %51 = and i32 %50, 3
+  %52 = and i32 %49, 192
+  %53 = icmp eq i32 %52, 128
+  %54 = add nsw i32 %46, -1
+  %55 = add nsw i32 %54, %51
+  %56 = icmp ult i32 %55, 16
+  %or.cond7.i.i = select i1 %53, i1 %56, i1 false
+  br i1 %or.cond7.i.i, label %57, label %select.unfold.i
 
-59:                                               ; preds = %46
-  %60 = getelementptr i8, ptr %.01732.i, i64 2
-  %61 = load i8, ptr %60, align 1
-  %62 = zext i8 %61 to i32
-  %63 = and i32 %62, 192
-  %64 = icmp eq i32 %63, 128
-  br i1 %64, label %65, label %select.unfold.i
+57:                                               ; preds = %44
+  %58 = getelementptr i8, ptr %.01732.i, i64 2
+  %59 = load i8, ptr %58, align 1
+  %60 = zext i8 %59 to i32
+  %61 = and i32 %60, 192
+  %62 = icmp eq i32 %61, 128
+  br i1 %62, label %63, label %select.unfold.i
 
-65:                                               ; preds = %59
-  %66 = getelementptr i8, ptr %.01732.i, i64 3
-  %67 = load i8, ptr %66, align 1
-  %68 = zext i8 %67 to i32
-  %69 = and i32 %68, 192
-  %70 = icmp eq i32 %69, 128
-  br i1 %70, label %71, label %select.unfold.i
+63:                                               ; preds = %57
+  %64 = getelementptr i8, ptr %.01732.i, i64 3
+  %65 = load i8, ptr %64, align 1
+  %66 = zext i8 %65 to i32
+  %67 = and i32 %66, 192
+  %68 = icmp eq i32 %67, 128
+  br i1 %68, label %69, label %select.unfold.i
 
-71:                                               ; preds = %65
-  %72 = and i32 %51, 15
-  %73 = icmp eq i32 %72, 15
-  %74 = and i32 %62, 63
-  %75 = icmp eq i32 %74, 63
-  %or.cond45.i.i = and i1 %73, %75
-  %76 = and i32 %68, 62
-  %77 = icmp eq i32 %76, 62
-  %or.cond48.i.i = and i1 %or.cond45.i.i, %77
+69:                                               ; preds = %63
+  %70 = and i32 %49, 15
+  %71 = icmp eq i32 %70, 15
+  %72 = and i32 %60, 63
+  %73 = icmp eq i32 %72, 63
+  %or.cond45.i.i = and i1 %71, %73
+  %74 = and i32 %66, 62
+  %75 = icmp eq i32 %74, 62
+  %or.cond48.i.i = and i1 %or.cond45.i.i, %75
   br i1 %or.cond48.i.i, label %select.unfold.i, label %utf_charcheck.exit.i
 
-utf_charcheck.exit.i:                             ; preds = %71, %41, %17, %.lr.ph.i
-  %.0.i.i = phi i32 [ 1, %.lr.ph.i ], [ 2, %17 ], [ 4, %71 ], [ 3, %41 ]
+utf_charcheck.exit.i:                             ; preds = %69, %39, %17, %.lr.ph.i
+  %.0.i.i = phi i32 [ 1, %.lr.ph.i ], [ 2, %17 ], [ 4, %69 ], [ 3, %39 ]
   %.not23.i = icmp eq ptr %.01831.i, %.01732.i
-  br i1 %.not23.i, label %82, label %.preheader.i
+  br i1 %.not23.i, label %80, label %.preheader.i
 
 .preheader.i:                                     ; preds = %utf_charcheck.exit.i, %.preheader.i
-  %.029.i = phi i32 [ %81, %.preheader.i ], [ 0, %utf_charcheck.exit.i ]
-  %.128.i = phi ptr [ %78, %.preheader.i ], [ %.01732.i, %utf_charcheck.exit.i ]
-  %.11927.i = phi ptr [ %80, %.preheader.i ], [ %.01831.i, %utf_charcheck.exit.i ]
-  %78 = getelementptr i8, ptr %.128.i, i64 1
-  %79 = load i8, ptr %.128.i, align 1
-  %80 = getelementptr i8, ptr %.11927.i, i64 1
-  store i8 %79, ptr %.11927.i, align 1
-  %81 = add nuw nsw i32 %.029.i, 1
-  %exitcond.not.i = icmp eq i32 %81, %.0.i.i
+  %.029.i = phi i32 [ %79, %.preheader.i ], [ 0, %utf_charcheck.exit.i ]
+  %.128.i = phi ptr [ %76, %.preheader.i ], [ %.01732.i, %utf_charcheck.exit.i ]
+  %.11927.i = phi ptr [ %78, %.preheader.i ], [ %.01831.i, %utf_charcheck.exit.i ]
+  %76 = getelementptr i8, ptr %.128.i, i64 1
+  %77 = load i8, ptr %.128.i, align 1
+  %78 = getelementptr i8, ptr %.11927.i, i64 1
+  store i8 %77, ptr %.11927.i, align 1
+  %79 = add nuw nsw i32 %.029.i, 1
+  %exitcond.not.i = icmp eq i32 %79, %.0.i.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !10
 
-82:                                               ; preds = %utf_charcheck.exit.i
-  %83 = zext nneg i32 %.0.i.i to i64
-  %84 = getelementptr i8, ptr %.01732.i, i64 %83
+80:                                               ; preds = %utf_charcheck.exit.i
+  %81 = zext nneg i32 %.0.i.i to i64
+  %82 = getelementptr i8, ptr %.01732.i, i64 %81
   br label %.loopexit.i
 
-select.unfold.i:                                  ; preds = %71, %65, %59, %46, %43, %41, %36, %32, %26, %17
-  %85 = getelementptr i8, ptr %.01732.i, i64 1
+select.unfold.i:                                  ; preds = %69, %63, %57, %44, %41, %39, %35, %31, %25, %17
+  %83 = getelementptr i8, ptr %.01732.i, i64 1
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.preheader.i, %select.unfold.i, %82
-  %.220.i = phi ptr [ %84, %82 ], [ %.01831.i, %select.unfold.i ], [ %80, %.preheader.i ]
-  %.2.i = phi ptr [ %84, %82 ], [ %85, %select.unfold.i ], [ %78, %.preheader.i ]
-  %86 = load i8, ptr %.2.i, align 1
-  %.not.i = icmp eq i8 %86, 0
+.loopexit.i:                                      ; preds = %.preheader.i, %select.unfold.i, %80
+  %.220.i = phi ptr [ %82, %80 ], [ %.01831.i, %select.unfold.i ], [ %78, %.preheader.i ]
+  %.2.i = phi ptr [ %82, %80 ], [ %83, %select.unfold.i ], [ %76, %.preheader.i ]
+  %84 = load i8, ptr %.2.i, align 1
+  %.not.i = icmp eq i8 %84, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
   %.not22.i = icmp eq ptr %.220.i, %.2.i
-  br i1 %.not22.i, label %mb_utf_validate.exit, label %87
+  br i1 %.not22.i, label %mb_utf_validate.exit, label %85
 
-87:                                               ; preds = %._crit_edge.i
+85:                                               ; preds = %._crit_edge.i
   store i8 0, ptr %.220.i, align 1
   br label %mb_utf_validate.exit
 
-mb_utf_validate.exit:                             ; preds = %87, %._crit_edge.i, %9, %pg_get_utf8_id.exit
+mb_utf_validate.exit:                             ; preds = %85, %._crit_edge.i, %9, %pg_get_utf8_id.exit
   ret ptr %0
 }
 
