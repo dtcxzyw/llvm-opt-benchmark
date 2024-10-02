@@ -21,12 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git submodule update --init llvm/llvm-project
-          git -C llvm/llvm-project checkout .
-          git -C llvm/llvm-project clean -fdx
+        run: ${{ github.workspace }}/scripts/setup_git.sh
 
       - name: Set up pre-commit info
         id: info

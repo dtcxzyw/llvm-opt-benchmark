@@ -33,11 +33,7 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git submodule update --init llvm/llvm-project
-          git -C llvm/llvm-project checkout .
-          git -C llvm/llvm-project clean -fdx
+          ${{ github.workspace }}/scripts/setup_git.sh
           git -C llvm/llvm-project apply ../llvm-cov.diff
 
       - name: Build LLVM with coverage instrumentation
