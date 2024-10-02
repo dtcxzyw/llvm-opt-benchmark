@@ -405,7 +405,10 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   store i64 %not.i.i.i, ptr %__begin0.0.ptr.i.i.i, align 8, !alias.scope !11
   %__begin0.0.add.i.i.i = add nuw nsw i64 %__begin0.0.idx5.i.i.i, 8
   %cmp.not.i.i.i = icmp eq i64 %__begin0.0.add.i.i.i, 32
-  br i1 %cmp.not.i.i.i, label %return, label %for.body.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNK3ue29CharReachcoEv.exit, label %for.body.i.i.i
+
+_ZNK3ue29CharReachcoEv.exit:                      ; preds = %for.body.i.i.i
+  br label %return
 
 if.else:                                          ; preds = %sw.bb2
   store i64 1024, ptr %agg.result, align 8
@@ -421,7 +424,10 @@ for.body.i.i.i46:                                 ; preds = %for.body.i.i.i46, %
   store i64 %not.i.i.i49, ptr %__begin0.0.ptr.i.i.i48, align 8, !alias.scope !14
   %__begin0.0.add.i.i.i50 = add nuw nsw i64 %__begin0.0.idx5.i.i.i47, 8
   %cmp.not.i.i.i51 = icmp eq i64 %__begin0.0.add.i.i.i50, 32
-  br i1 %cmp.not.i.i.i51, label %return, label %for.body.i.i.i46
+  br i1 %cmp.not.i.i.i51, label %_ZNK3ue29CharReachcoEv.exit52, label %for.body.i.i.i46
+
+_ZNK3ue29CharReachcoEv.exit52:                    ; preds = %for.body.i.i.i46
+  br label %return
 
 _ZN3ue29CharReachC2Ehh.exit:                      ; preds = %entry
   %3 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -1515,13 +1521,16 @@ for.body.i.i.i187:                                ; preds = %for.body.i.i.i187, 
   store i64 %not.i.i.i190, ptr %__begin0.0.ptr.i.i.i189, align 8, !alias.scope !35
   %__begin0.0.add.i.i.i191 = add nuw nsw i64 %__begin0.0.idx5.i.i.i188, 8
   %cmp.not.i.i.i192 = icmp eq i64 %__begin0.0.add.i.i.i191, 32
-  br i1 %cmp.not.i.i.i192, label %return, label %for.body.i.i.i187
+  br i1 %cmp.not.i.i.i192, label %_ZNK3ue29CharReachcoEv.exit193, label %for.body.i.i.i187
+
+_ZNK3ue29CharReachcoEv.exit193:                   ; preds = %for.body.i.i.i187
+  br label %return
 
 sw.epilog:                                        ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   br label %return
 
-return:                                           ; preds = %for.body.i.i.i187, %for.body.i.i.i46, %for.body.i.i.i, %sw.epilog, %sw.bb761, %sw.bb756, %sw.bb751, %sw.bb746, %sw.bb741, %sw.bb736, %sw.bb731, %sw.bb726, %sw.bb721, %sw.bb716, %sw.bb711, %sw.bb706, %sw.bb701, %sw.bb696, %sw.bb691, %sw.bb686, %sw.bb681, %sw.bb676, %sw.bb671, %sw.bb666, %sw.bb661, %sw.bb656, %sw.bb651, %sw.bb646, %sw.bb641, %sw.bb636, %sw.bb631, %sw.bb626, %sw.bb621, %sw.bb616, %sw.bb611, %sw.bb606, %sw.bb601, %sw.bb596, %sw.bb591, %sw.bb586, %sw.bb581, %sw.bb576, %sw.bb571, %sw.bb566, %sw.bb561, %sw.bb556, %sw.bb551, %sw.bb546, %sw.bb541, %sw.bb536, %sw.bb531, %sw.bb526, %sw.bb521, %sw.bb516, %sw.bb511, %sw.bb506, %sw.bb501, %sw.bb496, %sw.bb491, %sw.bb486, %sw.bb481, %sw.bb476, %sw.bb471, %sw.bb466, %sw.bb461, %sw.bb456, %sw.bb451, %sw.bb446, %sw.bb441, %sw.bb436, %sw.bb431, %sw.bb426, %sw.bb421, %sw.bb416, %sw.bb411, %sw.bb406, %sw.bb401, %sw.bb396, %sw.bb391, %sw.bb386, %sw.bb381, %sw.bb376, %sw.bb371, %sw.bb366, %sw.bb361, %sw.bb356, %sw.bb351, %sw.bb346, %sw.bb341, %sw.bb336, %sw.bb331, %sw.bb326, %sw.bb321, %sw.bb316, %sw.bb311, %sw.bb306, %sw.bb301, %sw.bb296, %sw.bb291, %sw.bb286, %sw.bb281, %sw.bb276, %sw.bb271, %sw.bb266, %sw.bb263, %sw.bb258, %sw.bb253, %sw.bb248, %sw.bb243, %sw.bb238, %sw.bb233, %sw.bb228, %sw.bb223, %sw.bb218, %sw.bb213, %sw.bb208, %sw.bb203, %sw.bb198, %sw.bb193, %sw.bb188, %sw.bb183, %sw.bb178, %sw.bb173, %sw.bb168, %sw.bb163, %sw.bb158, %sw.bb153, %sw.bb148, %sw.bb143, %sw.bb138, %sw.bb133, %sw.bb128, %sw.bb123, %sw.bb118, %sw.bb113, %sw.bb108, %sw.bb103, %sw.bb98, %sw.bb93, %sw.bb88, %invoke.cont85, %sw.bb75, %invoke.cont72, %if.else65, %if.then64, %invoke.cont58, %sw.bb47, %sw.bb40, %sw.bb35, %sw.bb34, %if.else33, %if.then32, %invoke.cont27, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb11, %invoke.cont10, %_ZN3ue29CharReachC2Ehh.exit, %sw.bb1, %sw.bb
+return:                                           ; preds = %sw.epilog, %_ZNK3ue29CharReachcoEv.exit193, %sw.bb761, %sw.bb756, %sw.bb751, %sw.bb746, %sw.bb741, %sw.bb736, %sw.bb731, %sw.bb726, %sw.bb721, %sw.bb716, %sw.bb711, %sw.bb706, %sw.bb701, %sw.bb696, %sw.bb691, %sw.bb686, %sw.bb681, %sw.bb676, %sw.bb671, %sw.bb666, %sw.bb661, %sw.bb656, %sw.bb651, %sw.bb646, %sw.bb641, %sw.bb636, %sw.bb631, %sw.bb626, %sw.bb621, %sw.bb616, %sw.bb611, %sw.bb606, %sw.bb601, %sw.bb596, %sw.bb591, %sw.bb586, %sw.bb581, %sw.bb576, %sw.bb571, %sw.bb566, %sw.bb561, %sw.bb556, %sw.bb551, %sw.bb546, %sw.bb541, %sw.bb536, %sw.bb531, %sw.bb526, %sw.bb521, %sw.bb516, %sw.bb511, %sw.bb506, %sw.bb501, %sw.bb496, %sw.bb491, %sw.bb486, %sw.bb481, %sw.bb476, %sw.bb471, %sw.bb466, %sw.bb461, %sw.bb456, %sw.bb451, %sw.bb446, %sw.bb441, %sw.bb436, %sw.bb431, %sw.bb426, %sw.bb421, %sw.bb416, %sw.bb411, %sw.bb406, %sw.bb401, %sw.bb396, %sw.bb391, %sw.bb386, %sw.bb381, %sw.bb376, %sw.bb371, %sw.bb366, %sw.bb361, %sw.bb356, %sw.bb351, %sw.bb346, %sw.bb341, %sw.bb336, %sw.bb331, %sw.bb326, %sw.bb321, %sw.bb316, %sw.bb311, %sw.bb306, %sw.bb301, %sw.bb296, %sw.bb291, %sw.bb286, %sw.bb281, %sw.bb276, %sw.bb271, %sw.bb266, %sw.bb263, %sw.bb258, %sw.bb253, %sw.bb248, %sw.bb243, %sw.bb238, %sw.bb233, %sw.bb228, %sw.bb223, %sw.bb218, %sw.bb213, %sw.bb208, %sw.bb203, %sw.bb198, %sw.bb193, %sw.bb188, %sw.bb183, %sw.bb178, %sw.bb173, %sw.bb168, %sw.bb163, %sw.bb158, %sw.bb153, %sw.bb148, %sw.bb143, %sw.bb138, %sw.bb133, %sw.bb128, %sw.bb123, %sw.bb118, %sw.bb113, %sw.bb108, %sw.bb103, %sw.bb98, %sw.bb93, %sw.bb88, %invoke.cont85, %sw.bb75, %invoke.cont72, %if.else65, %if.then64, %invoke.cont58, %sw.bb47, %sw.bb40, %sw.bb35, %sw.bb34, %if.else33, %if.then32, %invoke.cont27, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb11, %invoke.cont10, %_ZN3ue29CharReachC2Ehh.exit, %_ZNK3ue29CharReachcoEv.exit52, %_ZNK3ue29CharReachcoEv.exit, %sw.bb1, %sw.bb
   ret void
 
 eh.resume:                                        ; preds = %lpad82, %lpad84, %lpad69, %lpad71, %lpad55, %lpad57, %lpad24, %lpad26, %lpad, %lpad9

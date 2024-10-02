@@ -1772,8 +1772,8 @@ sw.epilog:                                        ; preds = %cond.end, %do.body,
   %cmp504 = icmp ult i32 %offset, 96
   br i1 %cmp504, label %cond.true506, label %cond.end510
 
-cond.true506:                                     ; preds = %sw.bb, %sw.bb1, %sw.bb2, %sw.bb3, %sw.bb4, %sw.bb5, %sw.bb6, %sw.bb8, %sw.bb9, %sw.bb10, %sw.bb11, %if.end, %sw.bb17, %sw.bb18, %sw.bb19, %sw.bb24, %sw.bb27, %sw.bb31, %sw.bb36, %sw.bb41, %sw.bb43, %sw.bb44, %sw.bb45, %sw.bb46, %sw.bb47, %sw.bb66, %sw.bb67, %sw.bb70, %sw.bb75, %sw.bb80, %sw.bb85, %sw.bb86, %sw.bb87, %sw.bb88, %sw.bb89, %sw.bb92, %sw.bb97, %sw.bb102, %sw.bb103, %sw.bb106, %sw.bb111, %sw.bb116, %sw.bb121, %sw.bb124, %sw.bb129, %sw.bb134, %sw.bb139, %sw.bb142, %sw.bb147, %sw.bb152, %sw.bb157, %sw.bb160, %sw.bb166, %sw.bb172, %sw.bb178, %sw.bb179, %sw.bb180, %sw.bb181, %sw.bb182, %sw.bb185, %sw.bb190, %sw.bb195, %sw.bb200, %sw.bb201, %sw.bb202, %sw.bb204, %sw.bb206, %sw.bb207, %sw.bb208, %sw.bb209, %sw.bb210, %sw.bb211, %sw.bb212, %sw.bb213, %sw.bb214, %sw.bb215, %sw.bb216, %sw.bb217, %sw.bb231, %if.then57, %sw.bb48, %entry, %sw.bb218, %sw.epilog
-  %ret.0154 = phi i8 [ %ret.0, %sw.epilog ], [ 0, %sw.bb218 ], [ 127, %entry ], [ %0, %sw.bb ], [ %1, %sw.bb1 ], [ %2, %sw.bb2 ], [ %3, %sw.bb3 ], [ %4, %sw.bb4 ], [ %5, %sw.bb5 ], [ %6, %sw.bb6 ], [ 0, %sw.bb8 ], [ %7, %sw.bb9 ], [ %8, %sw.bb10 ], [ %9, %sw.bb11 ], [ %11, %if.end ], [ %14, %sw.bb17 ], [ %15, %sw.bb18 ], [ %19, %sw.bb19 ], [ %conv26, %sw.bb24 ], [ %conv30, %sw.bb27 ], [ %conv35, %sw.bb31 ], [ %conv40, %sw.bb36 ], [ %24, %sw.bb41 ], [ %25, %sw.bb43 ], [ %26, %sw.bb44 ], [ %27, %sw.bb45 ], [ -1, %sw.bb46 ], [ 0, %sw.bb47 ], [ %29, %sw.bb48 ], [ %32, %if.then57 ], [ %33, %sw.bb66 ], [ %conv69, %sw.bb67 ], [ %conv74, %sw.bb70 ], [ %conv79, %sw.bb75 ], [ %conv84, %sw.bb80 ], [ %38, %sw.bb85 ], [ %39, %sw.bb86 ], [ %40, %sw.bb87 ], [ 0, %sw.bb88 ], [ %conv91, %sw.bb89 ], [ %conv96, %sw.bb92 ], [ %conv101, %sw.bb97 ], [ %44, %sw.bb102 ], [ %conv105, %sw.bb103 ], [ %conv110, %sw.bb106 ], [ %conv115, %sw.bb111 ], [ %conv120, %sw.bb116 ], [ %conv123, %sw.bb121 ], [ %conv128, %sw.bb124 ], [ %conv133, %sw.bb129 ], [ %conv138, %sw.bb134 ], [ %conv141, %sw.bb139 ], [ %conv146, %sw.bb142 ], [ %conv151, %sw.bb147 ], [ %conv156, %sw.bb152 ], [ %conv159, %sw.bb157 ], [ %conv165, %sw.bb160 ], [ %conv171, %sw.bb166 ], [ %conv177, %sw.bb172 ], [ %61, %sw.bb178 ], [ %62, %sw.bb179 ], [ %63, %sw.bb180 ], [ %64, %sw.bb181 ], [ %conv184, %sw.bb182 ], [ %conv189, %sw.bb185 ], [ %conv194, %sw.bb190 ], [ %conv199, %sw.bb195 ], [ %69, %sw.bb200 ], [ %70, %sw.bb201 ], [ %71, %sw.bb202 ], [ %72, %sw.bb204 ], [ 15, %sw.bb206 ], [ 15, %sw.bb207 ], [ %73, %sw.bb208 ], [ %74, %sw.bb209 ], [ %75, %sw.bb210 ], [ %76, %sw.bb211 ], [ %77, %sw.bb212 ], [ %78, %sw.bb213 ], [ %79, %sw.bb214 ], [ -32, %sw.bb215 ], [ %80, %sw.bb216 ], [ %81, %sw.bb217 ], [ 0, %sw.bb231 ]
+cond.true506:                                     ; preds = %sw.bb218, %sw.bb48, %if.then57, %entry, %sw.bb, %sw.bb1, %sw.bb2, %sw.bb3, %sw.bb4, %sw.bb5, %sw.bb6, %sw.bb8, %sw.bb9, %sw.bb10, %sw.bb11, %if.end, %sw.bb17, %sw.bb18, %sw.bb19, %sw.bb24, %sw.bb27, %sw.bb31, %sw.bb36, %sw.bb41, %sw.bb43, %sw.bb44, %sw.bb45, %sw.bb46, %sw.bb47, %sw.bb66, %sw.bb67, %sw.bb70, %sw.bb75, %sw.bb80, %sw.bb85, %sw.bb86, %sw.bb87, %sw.bb88, %sw.bb89, %sw.bb92, %sw.bb97, %sw.bb102, %sw.bb103, %sw.bb106, %sw.bb111, %sw.bb116, %sw.bb121, %sw.bb124, %sw.bb129, %sw.bb134, %sw.bb139, %sw.bb142, %sw.bb147, %sw.bb152, %sw.bb157, %sw.bb160, %sw.bb166, %sw.bb172, %sw.bb178, %sw.bb179, %sw.bb180, %sw.bb181, %sw.bb182, %sw.bb185, %sw.bb190, %sw.bb195, %sw.bb200, %sw.bb201, %sw.bb202, %sw.bb204, %sw.bb206, %sw.bb207, %sw.bb208, %sw.bb209, %sw.bb210, %sw.bb211, %sw.bb212, %sw.bb213, %sw.bb214, %sw.bb215, %sw.bb216, %sw.bb217, %sw.bb231, %sw.epilog
+  %ret.0154 = phi i8 [ %ret.0, %sw.epilog ], [ %0, %sw.bb ], [ %1, %sw.bb1 ], [ %2, %sw.bb2 ], [ %3, %sw.bb3 ], [ %4, %sw.bb4 ], [ %5, %sw.bb5 ], [ %6, %sw.bb6 ], [ 0, %sw.bb8 ], [ %7, %sw.bb9 ], [ %8, %sw.bb10 ], [ %9, %sw.bb11 ], [ %11, %if.end ], [ %14, %sw.bb17 ], [ %15, %sw.bb18 ], [ %19, %sw.bb19 ], [ %conv26, %sw.bb24 ], [ %conv30, %sw.bb27 ], [ %conv35, %sw.bb31 ], [ %conv40, %sw.bb36 ], [ %24, %sw.bb41 ], [ %25, %sw.bb43 ], [ %26, %sw.bb44 ], [ %27, %sw.bb45 ], [ -1, %sw.bb46 ], [ 0, %sw.bb47 ], [ %33, %sw.bb66 ], [ %conv69, %sw.bb67 ], [ %conv74, %sw.bb70 ], [ %conv79, %sw.bb75 ], [ %conv84, %sw.bb80 ], [ %38, %sw.bb85 ], [ %39, %sw.bb86 ], [ %40, %sw.bb87 ], [ 0, %sw.bb88 ], [ %conv91, %sw.bb89 ], [ %conv96, %sw.bb92 ], [ %conv101, %sw.bb97 ], [ %44, %sw.bb102 ], [ %conv105, %sw.bb103 ], [ %conv110, %sw.bb106 ], [ %conv115, %sw.bb111 ], [ %conv120, %sw.bb116 ], [ %conv123, %sw.bb121 ], [ %conv128, %sw.bb124 ], [ %conv133, %sw.bb129 ], [ %conv138, %sw.bb134 ], [ %conv141, %sw.bb139 ], [ %conv146, %sw.bb142 ], [ %conv151, %sw.bb147 ], [ %conv156, %sw.bb152 ], [ %conv159, %sw.bb157 ], [ %conv165, %sw.bb160 ], [ %conv171, %sw.bb166 ], [ %conv177, %sw.bb172 ], [ %61, %sw.bb178 ], [ %62, %sw.bb179 ], [ %63, %sw.bb180 ], [ %64, %sw.bb181 ], [ %conv184, %sw.bb182 ], [ %conv189, %sw.bb185 ], [ %conv194, %sw.bb190 ], [ %conv199, %sw.bb195 ], [ %69, %sw.bb200 ], [ %70, %sw.bb201 ], [ %71, %sw.bb202 ], [ %72, %sw.bb204 ], [ 15, %sw.bb206 ], [ 15, %sw.bb207 ], [ %73, %sw.bb208 ], [ %74, %sw.bb209 ], [ %75, %sw.bb210 ], [ %76, %sw.bb211 ], [ %77, %sw.bb212 ], [ %78, %sw.bb213 ], [ %79, %sw.bb214 ], [ -32, %sw.bb215 ], [ %80, %sw.bb216 ], [ %81, %sw.bb217 ], [ 0, %sw.bb231 ], [ 127, %entry ], [ %32, %if.then57 ], [ %29, %sw.bb48 ], [ 0, %sw.bb218 ]
   %conv503 = zext nneg i32 %offset to i64
   %arrayidx508 = getelementptr [96 x ptr], ptr @names, i64 0, i64 %conv503
   %146 = load ptr, ptr %arrayidx508, align 8
@@ -2479,7 +2479,7 @@ trace_lsi_reg_write.exit:                         ; preds = %cond.end, %land.lhs
     i32 20, label %sw.bb109
     i32 22, label %sw.bb146
     i32 23, label %sw.bb147
-    i32 24, label %sw.epilog
+    i32 24, label %sw.bb148
     i32 26, label %sw.bb149
     i32 27, label %sw.bb153
     i32 28, label %sw.bb157
@@ -2513,7 +2513,7 @@ trace_lsi_reg_write.exit:                         ; preds = %cond.end, %land.lhs
     i32 59, label %sw.bb366
     i32 64, label %sw.bb381
     i32 65, label %sw.bb382
-    i32 71, label %sw.epilog
+    i32 71, label %sw.bb383
     i32 72, label %sw.bb384
     i32 73, label %sw.bb385
     i32 74, label %sw.bb402
@@ -2803,6 +2803,9 @@ sw.bb147:                                         ; preds = %trace_lsi_reg_write
   store i8 %val, ptr %mbox1, align 2
   br label %sw.epilog
 
+sw.bb148:                                         ; preds = %trace_lsi_reg_write.exit
+  br label %sw.epilog
+
 sw.bb149:                                         ; preds = %trace_lsi_reg_write.exit
   %31 = and i8 %val, 8
   %ctest2 = getelementptr inbounds i8, ptr %s, i64 3772
@@ -3003,17 +3006,20 @@ sw.bb284:                                         ; preds = %trace_lsi_reg_write
   %50 = load i8, ptr %dmode, align 4
   %51 = and i8 %50, 1
   %cmp293 = icmp eq i8 %51, 0
-  br i1 %cmp293, label %land.lhs.true295, label %sw.epilog
+  br i1 %cmp293, label %land.lhs.true295, label %if.end301
 
 land.lhs.true295:                                 ; preds = %sw.bb284
   %istat1 = getelementptr inbounds i8, ptr %s, i64 3761
   %52 = load i8, ptr %istat1, align 1
   %53 = and i8 %52, 2
   %cmp298 = icmp eq i8 %53, 0
-  br i1 %cmp298, label %if.then300, label %sw.epilog
+  br i1 %cmp298, label %if.then300, label %if.end301
 
 if.then300:                                       ; preds = %land.lhs.true295
   tail call fastcc void @lsi_execute_script(ptr noundef nonnull %s)
+  br label %if.end301
+
+if.end301:                                        ; preds = %if.then300, %land.lhs.true295, %sw.bb284
   br label %sw.epilog
 
 sw.bb302:                                         ; preds = %trace_lsi_reg_write.exit
@@ -3116,17 +3122,20 @@ sw.bb366:                                         ; preds = %trace_lsi_reg_write
   store i8 %and368, ptr %dcntl, align 1
   %62 = and i8 %val, 4
   %tobool372.not = icmp eq i8 %62, 0
-  br i1 %tobool372.not, label %sw.epilog, label %land.lhs.true373
+  br i1 %tobool372.not, label %if.end380, label %land.lhs.true373
 
 land.lhs.true373:                                 ; preds = %sw.bb366
   %istat1374 = getelementptr inbounds i8, ptr %s, i64 3761
   %63 = load i8, ptr %istat1374, align 1
   %64 = and i8 %63, 2
   %cmp377 = icmp eq i8 %64, 0
-  br i1 %cmp377, label %if.then379, label %sw.epilog
+  br i1 %cmp377, label %if.then379, label %if.end380
 
 if.then379:                                       ; preds = %land.lhs.true373
   tail call fastcc void @lsi_execute_script(ptr noundef nonnull %s)
+  br label %if.end380
+
+if.end380:                                        ; preds = %if.then379, %land.lhs.true373, %sw.bb366
   br label %sw.epilog
 
 sw.bb381:                                         ; preds = %trace_lsi_reg_write.exit
@@ -3141,6 +3150,9 @@ sw.bb382:                                         ; preds = %trace_lsi_reg_write
   tail call fastcc void @lsi_update_irq(ptr noundef %s)
   br label %sw.epilog
 
+sw.bb383:                                         ; preds = %trace_lsi_reg_write.exit
+  br label %sw.epilog
+
 sw.bb384:                                         ; preds = %trace_lsi_reg_write.exit
   %stime0 = getelementptr inbounds i8, ptr %s, i64 3807
   store i8 %val, ptr %stime0, align 1
@@ -3149,7 +3161,7 @@ sw.bb384:                                         ; preds = %trace_lsi_reg_write
 sw.bb385:                                         ; preds = %trace_lsi_reg_write.exit
   %65 = and i8 %val, 15
   %tobool388.not = icmp eq i8 %65, 0
-  br i1 %tobool388.not, label %sw.epilog, label %do.body390
+  br i1 %tobool388.not, label %if.end401, label %do.body390
 
 do.body390:                                       ; preds = %sw.bb385
   %66 = load i32, ptr @qemu_loglevel, align 4
@@ -3163,6 +3175,9 @@ if.then398:                                       ; preds = %do.body390
 
 do.end400:                                        ; preds = %do.body390, %if.then398
   tail call fastcc void @lsi_script_scsi_interrupt(ptr noundef %s, i32 noundef 0, i32 noundef 2)
+  br label %if.end401
+
+if.end401:                                        ; preds = %do.end400, %sw.bb385
   br label %sw.epilog
 
 sw.bb402:                                         ; preds = %trace_lsi_reg_write.exit
@@ -3797,13 +3812,13 @@ if.then810:                                       ; preds = %sw.default
   %and6.i = shl nuw i32 %conv815, %mul
   %or.i = or i32 %and.i380, %and6.i
   store i32 %or.i, ptr %arrayidx814, align 4
-  br label %sw.epilog
+  br label %if.end842
 
 do.body821:                                       ; preds = %sw.default
   %129 = load i32, ptr @qemu_loglevel, align 4
   %and.i381 = and i32 %129, 2048
   %cmp.i382.not = icmp eq i32 %and.i381, 0
-  br i1 %cmp.i382.not, label %sw.epilog, label %if.then829
+  br i1 %cmp.i382.not, label %if.end842, label %if.then829
 
 if.then829:                                       ; preds = %do.body821
   br i1 %cmp, label %cond.true833, label %cond.end837
@@ -3817,9 +3832,12 @@ cond.end837:                                      ; preds = %if.then829, %cond.t
   %cond838 = phi ptr [ %130, %cond.true833 ], [ @.str.13, %if.then829 ]
   %conv839 = zext i8 %val to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, ptr noundef %cond838, i32 noundef %offset, i32 noundef %conv839) #12
+  br label %if.end842
+
+if.end842:                                        ; preds = %cond.end837, %do.body821, %if.then810
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then810, %do.body821, %cond.end837, %sw.bb385, %do.end400, %trace_lsi_reg_write.exit, %sw.bb366, %land.lhs.true373, %if.then379, %sw.bb284, %land.lhs.true295, %if.then300, %trace_lsi_reg_write.exit, %if.end139, %if.then143, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %if.else, %if.then35, %if.then31, %sw.bb, %do.body, %if.then6, %sw.bb798, %sw.bb791, %sw.bb784, %sw.bb779, %sw.bb772, %sw.bb765, %sw.bb758, %sw.bb753, %sw.bb746, %sw.bb739, %sw.bb732, %sw.bb727, %sw.bb720, %sw.bb713, %sw.bb706, %sw.bb701, %sw.bb694, %sw.bb687, %sw.bb680, %sw.bb675, %sw.bb668, %sw.bb661, %sw.bb654, %sw.bb649, %sw.bb642, %sw.bb635, %sw.bb628, %sw.bb623, %sw.bb616, %sw.bb609, %sw.bb602, %sw.bb597, %sw.bb590, %sw.bb583, %sw.bb576, %sw.bb571, %sw.bb564, %sw.bb557, %sw.bb550, %sw.bb545, %sw.bb538, %sw.bb531, %sw.bb524, %sw.bb519, %sw.bb512, %sw.bb505, %sw.bb498, %sw.bb493, %sw.bb486, %sw.bb479, %sw.bb472, %sw.bb467, %sw.bb460, %sw.bb453, %sw.bb446, %sw.bb441, %sw.bb440, %sw.bb439, %if.end438, %if.end421, %sw.bb404, %sw.bb403, %sw.bb402, %sw.bb384, %sw.bb382, %sw.bb381, %sw.bb365, %sw.bb364, %sw.bb362, %sw.bb353, %sw.bb344, %sw.bb335, %sw.bb328, %sw.bb321, %sw.bb314, %sw.bb307, %sw.bb302, %sw.bb277, %sw.bb270, %sw.bb264, %sw.bb257, %sw.bb250, %sw.bb243, %sw.bb237, %sw.bb230, %sw.bb223, %sw.bb218, %if.end217, %if.end200, %sw.bb176, %sw.bb169, %sw.bb162, %sw.bb157, %sw.bb153, %sw.bb149, %sw.bb147, %sw.bb146, %sw.bb102, %sw.bb95, %sw.bb89, %sw.bb84, %sw.bb81, %if.end76, %sw.bb52, %sw.bb51, %sw.bb50, %sw.bb46
+sw.epilog:                                        ; preds = %if.end139, %if.then143, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %if.else, %if.then35, %if.then31, %sw.bb, %do.body, %if.then6, %if.end842, %sw.bb798, %sw.bb791, %sw.bb784, %sw.bb779, %sw.bb772, %sw.bb765, %sw.bb758, %sw.bb753, %sw.bb746, %sw.bb739, %sw.bb732, %sw.bb727, %sw.bb720, %sw.bb713, %sw.bb706, %sw.bb701, %sw.bb694, %sw.bb687, %sw.bb680, %sw.bb675, %sw.bb668, %sw.bb661, %sw.bb654, %sw.bb649, %sw.bb642, %sw.bb635, %sw.bb628, %sw.bb623, %sw.bb616, %sw.bb609, %sw.bb602, %sw.bb597, %sw.bb590, %sw.bb583, %sw.bb576, %sw.bb571, %sw.bb564, %sw.bb557, %sw.bb550, %sw.bb545, %sw.bb538, %sw.bb531, %sw.bb524, %sw.bb519, %sw.bb512, %sw.bb505, %sw.bb498, %sw.bb493, %sw.bb486, %sw.bb479, %sw.bb472, %sw.bb467, %sw.bb460, %sw.bb453, %sw.bb446, %sw.bb441, %sw.bb440, %sw.bb439, %if.end438, %if.end421, %sw.bb404, %sw.bb403, %sw.bb402, %if.end401, %sw.bb384, %sw.bb383, %sw.bb382, %sw.bb381, %if.end380, %sw.bb365, %sw.bb364, %sw.bb362, %sw.bb353, %sw.bb344, %sw.bb335, %sw.bb328, %sw.bb321, %sw.bb314, %sw.bb307, %sw.bb302, %if.end301, %sw.bb277, %sw.bb270, %sw.bb264, %sw.bb257, %sw.bb250, %sw.bb243, %sw.bb237, %sw.bb230, %sw.bb223, %sw.bb218, %if.end217, %if.end200, %sw.bb176, %sw.bb169, %sw.bb162, %sw.bb157, %sw.bb153, %sw.bb149, %sw.bb148, %sw.bb147, %sw.bb146, %sw.bb102, %sw.bb95, %sw.bb89, %sw.bb84, %sw.bb81, %if.end76, %sw.bb52, %sw.bb51, %sw.bb50, %sw.bb46
   ret void
 }
 

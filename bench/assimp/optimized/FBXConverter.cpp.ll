@@ -21660,7 +21660,7 @@ lpad.i552:                                        ; preds = %.noexc555
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp325) #25
-  br label %eh.resume
+  br label %ehcleanup332
 
 invoke.cont328:                                   ; preds = %.noexc555
   invoke void @_ZN6Assimp3FBX12FBXConverter23TrySetTexturePropertiesEP10aiMaterialRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7TextureESt4lessISA_ESaISt4pairIKSA_SD_EEERSH_13aiTextureTypePKNS0_12MeshGeometryE(ptr noundef nonnull align 8 dereferenceable(489) %this, ptr noundef %out_mat, ptr noundef nonnull align 8 dereferenceable(48) %_textures, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp325, i32 noundef 2, ptr noundef %mesh)
@@ -21697,7 +21697,7 @@ lpad.i561:                                        ; preds = %.noexc564
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp335) #25
-  br label %eh.resume
+  br label %ehcleanup342
 
 invoke.cont338:                                   ; preds = %.noexc564
   invoke void @_ZN6Assimp3FBX12FBXConverter23TrySetTexturePropertiesEP10aiMaterialRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7TextureESt4lessISA_ESaISt4pairIKSA_SD_EEERSH_13aiTextureTypePKNS0_12MeshGeometryE(ptr noundef nonnull align 8 dereferenceable(489) %this, ptr noundef %out_mat, ptr noundef nonnull align 8 dereferenceable(48) %_textures, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp335, i32 noundef 7, ptr noundef %mesh)
@@ -21722,7 +21722,7 @@ lpad.i569:                                        ; preds = %.noexc572
   %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp343) #25
-  br label %eh.resume
+  br label %ehcleanup350
 
 invoke.cont346:                                   ; preds = %.noexc572
   invoke void @_ZN6Assimp3FBX12FBXConverter23TrySetTexturePropertiesEP10aiMaterialRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7TextureESt4lessISA_ESaISt4pairIKSA_SD_EEERSH_13aiTextureTypePKNS0_12MeshGeometryE(ptr noundef nonnull align 8 dereferenceable(489) %this, ptr noundef %out_mat, ptr noundef nonnull align 8 dereferenceable(48) %_textures, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp343, i32 noundef 7, ptr noundef %mesh)
@@ -22187,34 +22187,46 @@ lpad321:                                          ; preds = %invoke.cont320
 lpad327:                                          ; preds = %call.i.noexc553, %invoke.cont322
   %127 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup332
 
 lpad329:                                          ; preds = %invoke.cont328
   %128 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp325) #25
+  br label %ehcleanup332
+
+ehcleanup332:                                     ; preds = %lpad327, %lpad.i552, %lpad329
+  %.pn218 = phi { ptr, i32 } [ %128, %lpad329 ], [ %127, %lpad327 ], [ %41, %lpad.i552 ]
   br label %eh.resume
 
 lpad337:                                          ; preds = %call.i.noexc562, %if.then334
   %129 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup342
 
 lpad339:                                          ; preds = %invoke.cont338
   %130 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp335) #25
+  br label %ehcleanup342
+
+ehcleanup342:                                     ; preds = %lpad337, %lpad.i561, %lpad339
+  %.pn224 = phi { ptr, i32 } [ %130, %lpad339 ], [ %129, %lpad337 ], [ %43, %lpad.i561 ]
   br label %eh.resume
 
 lpad345:                                          ; preds = %call.i.noexc570, %invoke.cont340
   %131 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup350
 
 lpad347:                                          ; preds = %invoke.cont346
   %132 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp343) #25
+  br label %ehcleanup350
+
+ehcleanup350:                                     ; preds = %lpad345, %lpad.i569, %lpad347
+  %.pn226 = phi { ptr, i32 } [ %132, %lpad347 ], [ %131, %lpad345 ], [ %44, %lpad.i569 ]
   br label %eh.resume
 
 if.then352:                                       ; preds = %if.then
@@ -22234,7 +22246,7 @@ lpad.i577:                                        ; preds = %.noexc580
   %133 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp353) #25
-  br label %eh.resume
+  br label %ehcleanup360
 
 invoke.cont356:                                   ; preds = %.noexc580
   invoke void @_ZN6Assimp3FBX12FBXConverter23TrySetTexturePropertiesEP10aiMaterialRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7TextureESt4lessISA_ESaISt4pairIKSA_SD_EEERSH_13aiTextureTypePKNS0_12MeshGeometryE(ptr noundef nonnull align 8 dereferenceable(489) %this, ptr noundef %out_mat, ptr noundef nonnull align 8 dereferenceable(48) %_textures, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp353, i32 noundef 16, ptr noundef %mesh)
@@ -22259,7 +22271,7 @@ lpad.i585:                                        ; preds = %.noexc588
   %134 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp361) #25
-  br label %eh.resume
+  br label %ehcleanup368
 
 invoke.cont364:                                   ; preds = %.noexc588
   invoke void @_ZN6Assimp3FBX12FBXConverter23TrySetTexturePropertiesEP10aiMaterialRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7TextureESt4lessISA_ESaISt4pairIKSA_SD_EEERSH_13aiTextureTypePKNS0_12MeshGeometryE(ptr noundef nonnull align 8 dereferenceable(489) %this, ptr noundef %out_mat, ptr noundef nonnull align 8 dereferenceable(48) %_textures, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp361, i32 noundef 16, ptr noundef %mesh)
@@ -22273,23 +22285,31 @@ invoke.cont366:                                   ; preds = %invoke.cont364
 lpad355:                                          ; preds = %call.i.noexc578, %if.then352
   %135 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup360
 
 lpad357:                                          ; preds = %invoke.cont356
   %136 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp353) #25
+  br label %ehcleanup360
+
+ehcleanup360:                                     ; preds = %lpad355, %lpad.i577, %lpad357
+  %.pn220 = phi { ptr, i32 } [ %136, %lpad357 ], [ %135, %lpad355 ], [ %133, %lpad.i577 ]
   br label %eh.resume
 
 lpad363:                                          ; preds = %call.i.noexc586, %invoke.cont358
   %137 = landingpad { ptr, i32 }
           cleanup
-  br label %eh.resume
+  br label %ehcleanup368
 
 lpad365:                                          ; preds = %invoke.cont364
   %138 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp361) #25
+  br label %ehcleanup368
+
+ehcleanup368:                                     ; preds = %lpad363, %lpad.i585, %lpad365
+  %.pn222 = phi { ptr, i32 } [ %138, %lpad365 ], [ %137, %lpad363 ], [ %134, %lpad.i585 ]
   br label %eh.resume
 
 if.else369:                                       ; preds = %if.then
@@ -22311,9 +22331,9 @@ _ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA112_KcEEEvDpOT_.exit: ; p
 if.end371:                                        ; preds = %invoke.cont348, %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA112_KcEEEvDpOT_.exit, %invoke.cont366, %invoke.cont330
   ret void
 
-eh.resume:                                        ; preds = %lpad365, %lpad.i585, %lpad363, %lpad357, %lpad.i577, %lpad355, %lpad347, %lpad.i569, %lpad345, %lpad339, %lpad.i561, %lpad337, %lpad329, %lpad.i552, %lpad327, %lpad321, %lpad.i544, %lpad319, %lpad313, %lpad.i536, %lpad311, %lpad305, %lpad.i528, %lpad303, %lpad297, %lpad.i520, %lpad295, %lpad289, %lpad.i512, %lpad287, %lpad281, %lpad.i504, %lpad279, %lpad273, %lpad.i496, %lpad271, %lpad265, %lpad.i488, %lpad263, %lpad257, %lpad.i480, %lpad255, %lpad249, %lpad.i472, %lpad247, %lpad241, %lpad.i464, %lpad239, %lpad233, %lpad.i456, %lpad231, %lpad225, %lpad.i448, %lpad223, %lpad217, %lpad.i440, %lpad215, %lpad209, %lpad.i432, %lpad207, %lpad201, %lpad.i424, %lpad199, %lpad193, %lpad.i416, %lpad191, %lpad185, %lpad.i408, %lpad183, %lpad177, %lpad.i400, %lpad175, %lpad169, %lpad.i392, %lpad167, %lpad161, %lpad.i384, %lpad159, %lpad153, %lpad.i376, %lpad151, %lpad145, %lpad.i368, %lpad143, %lpad137, %lpad.i360, %lpad135, %lpad129, %lpad.i352, %lpad127, %lpad121, %lpad.i344, %lpad119, %lpad113, %lpad.i336, %lpad111, %lpad105, %lpad.i328, %lpad103, %lpad97, %lpad.i320, %lpad95, %lpad89, %lpad.i312, %lpad87, %lpad81, %lpad.i304, %lpad79, %lpad73, %lpad.i296, %lpad71, %lpad65, %lpad.i288, %lpad63, %lpad57, %lpad.i280, %lpad55, %lpad49, %lpad.i272, %lpad47, %lpad41, %lpad.i264, %lpad39, %lpad33, %lpad.i256, %lpad31, %lpad25, %lpad.i248, %lpad23, %lpad17, %lpad.i240, %lpad15, %lpad9, %lpad.i232, %lpad7, %lpad3, %lpad.i, %lpad
-  %ref.tmp362.sink = phi ptr [ %ref.tmp2, %lpad ], [ %ref.tmp2, %lpad.i ], [ %ref.tmp2, %lpad3 ], [ %ref.tmp6, %lpad7 ], [ %ref.tmp6, %lpad.i232 ], [ %ref.tmp6, %lpad9 ], [ %ref.tmp14, %lpad15 ], [ %ref.tmp14, %lpad.i240 ], [ %ref.tmp14, %lpad17 ], [ %ref.tmp22, %lpad23 ], [ %ref.tmp22, %lpad.i248 ], [ %ref.tmp22, %lpad25 ], [ %ref.tmp30, %lpad31 ], [ %ref.tmp30, %lpad.i256 ], [ %ref.tmp30, %lpad33 ], [ %ref.tmp38, %lpad39 ], [ %ref.tmp38, %lpad.i264 ], [ %ref.tmp38, %lpad41 ], [ %ref.tmp46, %lpad47 ], [ %ref.tmp46, %lpad.i272 ], [ %ref.tmp46, %lpad49 ], [ %ref.tmp54, %lpad55 ], [ %ref.tmp54, %lpad.i280 ], [ %ref.tmp54, %lpad57 ], [ %ref.tmp62, %lpad63 ], [ %ref.tmp62, %lpad.i288 ], [ %ref.tmp62, %lpad65 ], [ %ref.tmp70, %lpad71 ], [ %ref.tmp70, %lpad.i296 ], [ %ref.tmp70, %lpad73 ], [ %ref.tmp78, %lpad79 ], [ %ref.tmp78, %lpad.i304 ], [ %ref.tmp78, %lpad81 ], [ %ref.tmp86, %lpad87 ], [ %ref.tmp86, %lpad.i312 ], [ %ref.tmp86, %lpad89 ], [ %ref.tmp94, %lpad95 ], [ %ref.tmp94, %lpad.i320 ], [ %ref.tmp94, %lpad97 ], [ %ref.tmp102, %lpad103 ], [ %ref.tmp102, %lpad.i328 ], [ %ref.tmp102, %lpad105 ], [ %ref.tmp110, %lpad111 ], [ %ref.tmp110, %lpad.i336 ], [ %ref.tmp110, %lpad113 ], [ %ref.tmp118, %lpad119 ], [ %ref.tmp118, %lpad.i344 ], [ %ref.tmp118, %lpad121 ], [ %ref.tmp126, %lpad127 ], [ %ref.tmp126, %lpad.i352 ], [ %ref.tmp126, %lpad129 ], [ %ref.tmp134, %lpad135 ], [ %ref.tmp134, %lpad.i360 ], [ %ref.tmp134, %lpad137 ], [ %ref.tmp142, %lpad143 ], [ %ref.tmp142, %lpad.i368 ], [ %ref.tmp142, %lpad145 ], [ %ref.tmp150, %lpad151 ], [ %ref.tmp150, %lpad.i376 ], [ %ref.tmp150, %lpad153 ], [ %ref.tmp158, %lpad159 ], [ %ref.tmp158, %lpad.i384 ], [ %ref.tmp158, %lpad161 ], [ %ref.tmp166, %lpad167 ], [ %ref.tmp166, %lpad.i392 ], [ %ref.tmp166, %lpad169 ], [ %ref.tmp174, %lpad175 ], [ %ref.tmp174, %lpad.i400 ], [ %ref.tmp174, %lpad177 ], [ %ref.tmp182, %lpad183 ], [ %ref.tmp182, %lpad.i408 ], [ %ref.tmp182, %lpad185 ], [ %ref.tmp190, %lpad191 ], [ %ref.tmp190, %lpad.i416 ], [ %ref.tmp190, %lpad193 ], [ %ref.tmp198, %lpad199 ], [ %ref.tmp198, %lpad.i424 ], [ %ref.tmp198, %lpad201 ], [ %ref.tmp206, %lpad207 ], [ %ref.tmp206, %lpad.i432 ], [ %ref.tmp206, %lpad209 ], [ %ref.tmp214, %lpad215 ], [ %ref.tmp214, %lpad.i440 ], [ %ref.tmp214, %lpad217 ], [ %ref.tmp222, %lpad223 ], [ %ref.tmp222, %lpad.i448 ], [ %ref.tmp222, %lpad225 ], [ %ref.tmp230, %lpad231 ], [ %ref.tmp230, %lpad.i456 ], [ %ref.tmp230, %lpad233 ], [ %ref.tmp238, %lpad239 ], [ %ref.tmp238, %lpad.i464 ], [ %ref.tmp238, %lpad241 ], [ %ref.tmp246, %lpad247 ], [ %ref.tmp246, %lpad.i472 ], [ %ref.tmp246, %lpad249 ], [ %ref.tmp254, %lpad255 ], [ %ref.tmp254, %lpad.i480 ], [ %ref.tmp254, %lpad257 ], [ %ref.tmp262, %lpad263 ], [ %ref.tmp262, %lpad.i488 ], [ %ref.tmp262, %lpad265 ], [ %ref.tmp270, %lpad271 ], [ %ref.tmp270, %lpad.i496 ], [ %ref.tmp270, %lpad273 ], [ %ref.tmp278, %lpad279 ], [ %ref.tmp278, %lpad.i504 ], [ %ref.tmp278, %lpad281 ], [ %ref.tmp286, %lpad287 ], [ %ref.tmp286, %lpad.i512 ], [ %ref.tmp286, %lpad289 ], [ %ref.tmp294, %lpad295 ], [ %ref.tmp294, %lpad.i520 ], [ %ref.tmp294, %lpad297 ], [ %ref.tmp302, %lpad303 ], [ %ref.tmp302, %lpad.i528 ], [ %ref.tmp302, %lpad305 ], [ %ref.tmp310, %lpad311 ], [ %ref.tmp310, %lpad.i536 ], [ %ref.tmp310, %lpad313 ], [ %ref.tmp318, %lpad319 ], [ %ref.tmp318, %lpad.i544 ], [ %ref.tmp318, %lpad321 ], [ %ref.tmp326, %lpad327 ], [ %ref.tmp326, %lpad.i552 ], [ %ref.tmp326, %lpad329 ], [ %ref.tmp336, %lpad337 ], [ %ref.tmp336, %lpad.i561 ], [ %ref.tmp336, %lpad339 ], [ %ref.tmp344, %lpad345 ], [ %ref.tmp344, %lpad.i569 ], [ %ref.tmp344, %lpad347 ], [ %ref.tmp354, %lpad355 ], [ %ref.tmp354, %lpad.i577 ], [ %ref.tmp354, %lpad357 ], [ %ref.tmp362, %lpad363 ], [ %ref.tmp362, %lpad.i585 ], [ %ref.tmp362, %lpad365 ]
-  %.pn226.pn = phi { ptr, i32 } [ %45, %lpad ], [ %0, %lpad.i ], [ %46, %lpad3 ], [ %47, %lpad7 ], [ %1, %lpad.i232 ], [ %48, %lpad9 ], [ %49, %lpad15 ], [ %2, %lpad.i240 ], [ %50, %lpad17 ], [ %51, %lpad23 ], [ %3, %lpad.i248 ], [ %52, %lpad25 ], [ %53, %lpad31 ], [ %4, %lpad.i256 ], [ %54, %lpad33 ], [ %55, %lpad39 ], [ %5, %lpad.i264 ], [ %56, %lpad41 ], [ %57, %lpad47 ], [ %6, %lpad.i272 ], [ %58, %lpad49 ], [ %59, %lpad55 ], [ %7, %lpad.i280 ], [ %60, %lpad57 ], [ %61, %lpad63 ], [ %8, %lpad.i288 ], [ %62, %lpad65 ], [ %63, %lpad71 ], [ %9, %lpad.i296 ], [ %64, %lpad73 ], [ %65, %lpad79 ], [ %10, %lpad.i304 ], [ %66, %lpad81 ], [ %67, %lpad87 ], [ %11, %lpad.i312 ], [ %68, %lpad89 ], [ %69, %lpad95 ], [ %12, %lpad.i320 ], [ %70, %lpad97 ], [ %71, %lpad103 ], [ %13, %lpad.i328 ], [ %72, %lpad105 ], [ %73, %lpad111 ], [ %14, %lpad.i336 ], [ %74, %lpad113 ], [ %75, %lpad119 ], [ %15, %lpad.i344 ], [ %76, %lpad121 ], [ %77, %lpad127 ], [ %16, %lpad.i352 ], [ %78, %lpad129 ], [ %79, %lpad135 ], [ %17, %lpad.i360 ], [ %80, %lpad137 ], [ %81, %lpad143 ], [ %18, %lpad.i368 ], [ %82, %lpad145 ], [ %83, %lpad151 ], [ %19, %lpad.i376 ], [ %84, %lpad153 ], [ %85, %lpad159 ], [ %20, %lpad.i384 ], [ %86, %lpad161 ], [ %87, %lpad167 ], [ %21, %lpad.i392 ], [ %88, %lpad169 ], [ %89, %lpad175 ], [ %22, %lpad.i400 ], [ %90, %lpad177 ], [ %91, %lpad183 ], [ %23, %lpad.i408 ], [ %92, %lpad185 ], [ %93, %lpad191 ], [ %24, %lpad.i416 ], [ %94, %lpad193 ], [ %95, %lpad199 ], [ %25, %lpad.i424 ], [ %96, %lpad201 ], [ %97, %lpad207 ], [ %26, %lpad.i432 ], [ %98, %lpad209 ], [ %99, %lpad215 ], [ %27, %lpad.i440 ], [ %100, %lpad217 ], [ %101, %lpad223 ], [ %28, %lpad.i448 ], [ %102, %lpad225 ], [ %103, %lpad231 ], [ %29, %lpad.i456 ], [ %104, %lpad233 ], [ %105, %lpad239 ], [ %30, %lpad.i464 ], [ %106, %lpad241 ], [ %107, %lpad247 ], [ %31, %lpad.i472 ], [ %108, %lpad249 ], [ %109, %lpad255 ], [ %32, %lpad.i480 ], [ %110, %lpad257 ], [ %111, %lpad263 ], [ %33, %lpad.i488 ], [ %112, %lpad265 ], [ %113, %lpad271 ], [ %34, %lpad.i496 ], [ %114, %lpad273 ], [ %115, %lpad279 ], [ %35, %lpad.i504 ], [ %116, %lpad281 ], [ %117, %lpad287 ], [ %36, %lpad.i512 ], [ %118, %lpad289 ], [ %119, %lpad295 ], [ %37, %lpad.i520 ], [ %120, %lpad297 ], [ %121, %lpad303 ], [ %38, %lpad.i528 ], [ %122, %lpad305 ], [ %123, %lpad311 ], [ %39, %lpad.i536 ], [ %124, %lpad313 ], [ %125, %lpad319 ], [ %40, %lpad.i544 ], [ %126, %lpad321 ], [ %127, %lpad327 ], [ %41, %lpad.i552 ], [ %128, %lpad329 ], [ %129, %lpad337 ], [ %43, %lpad.i561 ], [ %130, %lpad339 ], [ %131, %lpad345 ], [ %44, %lpad.i569 ], [ %132, %lpad347 ], [ %135, %lpad355 ], [ %133, %lpad.i577 ], [ %136, %lpad357 ], [ %137, %lpad363 ], [ %134, %lpad.i585 ], [ %138, %lpad365 ]
+eh.resume:                                        ; preds = %lpad321, %lpad.i544, %lpad319, %lpad313, %lpad.i536, %lpad311, %lpad305, %lpad.i528, %lpad303, %lpad297, %lpad.i520, %lpad295, %lpad289, %lpad.i512, %lpad287, %lpad281, %lpad.i504, %lpad279, %lpad273, %lpad.i496, %lpad271, %lpad265, %lpad.i488, %lpad263, %lpad257, %lpad.i480, %lpad255, %lpad249, %lpad.i472, %lpad247, %lpad241, %lpad.i464, %lpad239, %lpad233, %lpad.i456, %lpad231, %lpad225, %lpad.i448, %lpad223, %lpad217, %lpad.i440, %lpad215, %lpad209, %lpad.i432, %lpad207, %lpad201, %lpad.i424, %lpad199, %lpad193, %lpad.i416, %lpad191, %lpad185, %lpad.i408, %lpad183, %lpad177, %lpad.i400, %lpad175, %lpad169, %lpad.i392, %lpad167, %lpad161, %lpad.i384, %lpad159, %lpad153, %lpad.i376, %lpad151, %lpad145, %lpad.i368, %lpad143, %lpad137, %lpad.i360, %lpad135, %lpad129, %lpad.i352, %lpad127, %lpad121, %lpad.i344, %lpad119, %lpad113, %lpad.i336, %lpad111, %lpad105, %lpad.i328, %lpad103, %lpad97, %lpad.i320, %lpad95, %lpad89, %lpad.i312, %lpad87, %lpad81, %lpad.i304, %lpad79, %lpad73, %lpad.i296, %lpad71, %lpad65, %lpad.i288, %lpad63, %lpad57, %lpad.i280, %lpad55, %lpad49, %lpad.i272, %lpad47, %lpad41, %lpad.i264, %lpad39, %lpad33, %lpad.i256, %lpad31, %lpad25, %lpad.i248, %lpad23, %lpad17, %lpad.i240, %lpad15, %lpad9, %lpad.i232, %lpad7, %lpad3, %lpad.i, %lpad, %ehcleanup368, %ehcleanup360, %ehcleanup350, %ehcleanup342, %ehcleanup332
+  %ref.tmp362.sink = phi ptr [ %ref.tmp362, %ehcleanup368 ], [ %ref.tmp354, %ehcleanup360 ], [ %ref.tmp344, %ehcleanup350 ], [ %ref.tmp336, %ehcleanup342 ], [ %ref.tmp326, %ehcleanup332 ], [ %ref.tmp2, %lpad ], [ %ref.tmp2, %lpad.i ], [ %ref.tmp2, %lpad3 ], [ %ref.tmp6, %lpad7 ], [ %ref.tmp6, %lpad.i232 ], [ %ref.tmp6, %lpad9 ], [ %ref.tmp14, %lpad15 ], [ %ref.tmp14, %lpad.i240 ], [ %ref.tmp14, %lpad17 ], [ %ref.tmp22, %lpad23 ], [ %ref.tmp22, %lpad.i248 ], [ %ref.tmp22, %lpad25 ], [ %ref.tmp30, %lpad31 ], [ %ref.tmp30, %lpad.i256 ], [ %ref.tmp30, %lpad33 ], [ %ref.tmp38, %lpad39 ], [ %ref.tmp38, %lpad.i264 ], [ %ref.tmp38, %lpad41 ], [ %ref.tmp46, %lpad47 ], [ %ref.tmp46, %lpad.i272 ], [ %ref.tmp46, %lpad49 ], [ %ref.tmp54, %lpad55 ], [ %ref.tmp54, %lpad.i280 ], [ %ref.tmp54, %lpad57 ], [ %ref.tmp62, %lpad63 ], [ %ref.tmp62, %lpad.i288 ], [ %ref.tmp62, %lpad65 ], [ %ref.tmp70, %lpad71 ], [ %ref.tmp70, %lpad.i296 ], [ %ref.tmp70, %lpad73 ], [ %ref.tmp78, %lpad79 ], [ %ref.tmp78, %lpad.i304 ], [ %ref.tmp78, %lpad81 ], [ %ref.tmp86, %lpad87 ], [ %ref.tmp86, %lpad.i312 ], [ %ref.tmp86, %lpad89 ], [ %ref.tmp94, %lpad95 ], [ %ref.tmp94, %lpad.i320 ], [ %ref.tmp94, %lpad97 ], [ %ref.tmp102, %lpad103 ], [ %ref.tmp102, %lpad.i328 ], [ %ref.tmp102, %lpad105 ], [ %ref.tmp110, %lpad111 ], [ %ref.tmp110, %lpad.i336 ], [ %ref.tmp110, %lpad113 ], [ %ref.tmp118, %lpad119 ], [ %ref.tmp118, %lpad.i344 ], [ %ref.tmp118, %lpad121 ], [ %ref.tmp126, %lpad127 ], [ %ref.tmp126, %lpad.i352 ], [ %ref.tmp126, %lpad129 ], [ %ref.tmp134, %lpad135 ], [ %ref.tmp134, %lpad.i360 ], [ %ref.tmp134, %lpad137 ], [ %ref.tmp142, %lpad143 ], [ %ref.tmp142, %lpad.i368 ], [ %ref.tmp142, %lpad145 ], [ %ref.tmp150, %lpad151 ], [ %ref.tmp150, %lpad.i376 ], [ %ref.tmp150, %lpad153 ], [ %ref.tmp158, %lpad159 ], [ %ref.tmp158, %lpad.i384 ], [ %ref.tmp158, %lpad161 ], [ %ref.tmp166, %lpad167 ], [ %ref.tmp166, %lpad.i392 ], [ %ref.tmp166, %lpad169 ], [ %ref.tmp174, %lpad175 ], [ %ref.tmp174, %lpad.i400 ], [ %ref.tmp174, %lpad177 ], [ %ref.tmp182, %lpad183 ], [ %ref.tmp182, %lpad.i408 ], [ %ref.tmp182, %lpad185 ], [ %ref.tmp190, %lpad191 ], [ %ref.tmp190, %lpad.i416 ], [ %ref.tmp190, %lpad193 ], [ %ref.tmp198, %lpad199 ], [ %ref.tmp198, %lpad.i424 ], [ %ref.tmp198, %lpad201 ], [ %ref.tmp206, %lpad207 ], [ %ref.tmp206, %lpad.i432 ], [ %ref.tmp206, %lpad209 ], [ %ref.tmp214, %lpad215 ], [ %ref.tmp214, %lpad.i440 ], [ %ref.tmp214, %lpad217 ], [ %ref.tmp222, %lpad223 ], [ %ref.tmp222, %lpad.i448 ], [ %ref.tmp222, %lpad225 ], [ %ref.tmp230, %lpad231 ], [ %ref.tmp230, %lpad.i456 ], [ %ref.tmp230, %lpad233 ], [ %ref.tmp238, %lpad239 ], [ %ref.tmp238, %lpad.i464 ], [ %ref.tmp238, %lpad241 ], [ %ref.tmp246, %lpad247 ], [ %ref.tmp246, %lpad.i472 ], [ %ref.tmp246, %lpad249 ], [ %ref.tmp254, %lpad255 ], [ %ref.tmp254, %lpad.i480 ], [ %ref.tmp254, %lpad257 ], [ %ref.tmp262, %lpad263 ], [ %ref.tmp262, %lpad.i488 ], [ %ref.tmp262, %lpad265 ], [ %ref.tmp270, %lpad271 ], [ %ref.tmp270, %lpad.i496 ], [ %ref.tmp270, %lpad273 ], [ %ref.tmp278, %lpad279 ], [ %ref.tmp278, %lpad.i504 ], [ %ref.tmp278, %lpad281 ], [ %ref.tmp286, %lpad287 ], [ %ref.tmp286, %lpad.i512 ], [ %ref.tmp286, %lpad289 ], [ %ref.tmp294, %lpad295 ], [ %ref.tmp294, %lpad.i520 ], [ %ref.tmp294, %lpad297 ], [ %ref.tmp302, %lpad303 ], [ %ref.tmp302, %lpad.i528 ], [ %ref.tmp302, %lpad305 ], [ %ref.tmp310, %lpad311 ], [ %ref.tmp310, %lpad.i536 ], [ %ref.tmp310, %lpad313 ], [ %ref.tmp318, %lpad319 ], [ %ref.tmp318, %lpad.i544 ], [ %ref.tmp318, %lpad321 ]
+  %.pn226.pn = phi { ptr, i32 } [ %.pn222, %ehcleanup368 ], [ %.pn220, %ehcleanup360 ], [ %.pn226, %ehcleanup350 ], [ %.pn224, %ehcleanup342 ], [ %.pn218, %ehcleanup332 ], [ %45, %lpad ], [ %0, %lpad.i ], [ %46, %lpad3 ], [ %47, %lpad7 ], [ %1, %lpad.i232 ], [ %48, %lpad9 ], [ %49, %lpad15 ], [ %2, %lpad.i240 ], [ %50, %lpad17 ], [ %51, %lpad23 ], [ %3, %lpad.i248 ], [ %52, %lpad25 ], [ %53, %lpad31 ], [ %4, %lpad.i256 ], [ %54, %lpad33 ], [ %55, %lpad39 ], [ %5, %lpad.i264 ], [ %56, %lpad41 ], [ %57, %lpad47 ], [ %6, %lpad.i272 ], [ %58, %lpad49 ], [ %59, %lpad55 ], [ %7, %lpad.i280 ], [ %60, %lpad57 ], [ %61, %lpad63 ], [ %8, %lpad.i288 ], [ %62, %lpad65 ], [ %63, %lpad71 ], [ %9, %lpad.i296 ], [ %64, %lpad73 ], [ %65, %lpad79 ], [ %10, %lpad.i304 ], [ %66, %lpad81 ], [ %67, %lpad87 ], [ %11, %lpad.i312 ], [ %68, %lpad89 ], [ %69, %lpad95 ], [ %12, %lpad.i320 ], [ %70, %lpad97 ], [ %71, %lpad103 ], [ %13, %lpad.i328 ], [ %72, %lpad105 ], [ %73, %lpad111 ], [ %14, %lpad.i336 ], [ %74, %lpad113 ], [ %75, %lpad119 ], [ %15, %lpad.i344 ], [ %76, %lpad121 ], [ %77, %lpad127 ], [ %16, %lpad.i352 ], [ %78, %lpad129 ], [ %79, %lpad135 ], [ %17, %lpad.i360 ], [ %80, %lpad137 ], [ %81, %lpad143 ], [ %18, %lpad.i368 ], [ %82, %lpad145 ], [ %83, %lpad151 ], [ %19, %lpad.i376 ], [ %84, %lpad153 ], [ %85, %lpad159 ], [ %20, %lpad.i384 ], [ %86, %lpad161 ], [ %87, %lpad167 ], [ %21, %lpad.i392 ], [ %88, %lpad169 ], [ %89, %lpad175 ], [ %22, %lpad.i400 ], [ %90, %lpad177 ], [ %91, %lpad183 ], [ %23, %lpad.i408 ], [ %92, %lpad185 ], [ %93, %lpad191 ], [ %24, %lpad.i416 ], [ %94, %lpad193 ], [ %95, %lpad199 ], [ %25, %lpad.i424 ], [ %96, %lpad201 ], [ %97, %lpad207 ], [ %26, %lpad.i432 ], [ %98, %lpad209 ], [ %99, %lpad215 ], [ %27, %lpad.i440 ], [ %100, %lpad217 ], [ %101, %lpad223 ], [ %28, %lpad.i448 ], [ %102, %lpad225 ], [ %103, %lpad231 ], [ %29, %lpad.i456 ], [ %104, %lpad233 ], [ %105, %lpad239 ], [ %30, %lpad.i464 ], [ %106, %lpad241 ], [ %107, %lpad247 ], [ %31, %lpad.i472 ], [ %108, %lpad249 ], [ %109, %lpad255 ], [ %32, %lpad.i480 ], [ %110, %lpad257 ], [ %111, %lpad263 ], [ %33, %lpad.i488 ], [ %112, %lpad265 ], [ %113, %lpad271 ], [ %34, %lpad.i496 ], [ %114, %lpad273 ], [ %115, %lpad279 ], [ %35, %lpad.i504 ], [ %116, %lpad281 ], [ %117, %lpad287 ], [ %36, %lpad.i512 ], [ %118, %lpad289 ], [ %119, %lpad295 ], [ %37, %lpad.i520 ], [ %120, %lpad297 ], [ %121, %lpad303 ], [ %38, %lpad.i528 ], [ %122, %lpad305 ], [ %123, %lpad311 ], [ %39, %lpad.i536 ], [ %124, %lpad313 ], [ %125, %lpad319 ], [ %40, %lpad.i544 ], [ %126, %lpad321 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp362.sink) #25
   resume { ptr, i32 } %.pn226.pn
 }

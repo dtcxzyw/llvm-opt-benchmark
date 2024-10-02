@@ -4451,11 +4451,14 @@ sw.bb959:                                         ; preds = %entry
   %308 = load i32, ptr %fModeFlags963, align 4
   %and964 = and i32 %308, 2
   %cmp965.not = icmp eq i32 %and964, 0
-  br i1 %cmp965.not, label %sw.epilog1134, label %if.then966
+  br i1 %cmp965.not, label %if.end970, label %if.then966
 
 if.then966:                                       ; preds = %sw.bb959
   %309 = load ptr, ptr %fStatus961, align 8
   tail call void @_ZN6icu_757UVector10addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fSetOpStack960, i32 noundef 131081, ptr noundef nonnull align 4 dereferenceable(4) %309)
+  br label %if.end970
+
+if.end970:                                        ; preds = %if.then966, %sw.bb959
   br label %sw.epilog1134
 
 sw.bb971:                                         ; preds = %entry
@@ -4468,11 +4471,14 @@ sw.bb971:                                         ; preds = %entry
   %311 = load i32, ptr %fModeFlags975, align 4
   %and976 = and i32 %311, 2
   %cmp977.not = icmp eq i32 %and976, 0
-  br i1 %cmp977.not, label %sw.epilog1134, label %if.then978
+  br i1 %cmp977.not, label %if.end982, label %if.then978
 
 if.then978:                                       ; preds = %sw.bb971
   %312 = load ptr, ptr %fStatus973, align 8
   tail call void @_ZN6icu_757UVector10addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fSetOpStack972, i32 noundef 131081, ptr noundef nonnull align 4 dereferenceable(4) %312)
+  br label %if.end982
+
+if.end982:                                        ; preds = %if.then978, %sw.bb971
   br label %sw.epilog1134
 
 sw.bb983:                                         ; preds = %entry
@@ -4485,11 +4491,14 @@ sw.bb983:                                         ; preds = %entry
   %314 = load i32, ptr %fModeFlags987, align 4
   %and988 = and i32 %314, 2
   %cmp989.not = icmp eq i32 %and988, 0
-  br i1 %cmp989.not, label %sw.epilog1134, label %if.then990
+  br i1 %cmp989.not, label %if.end994, label %if.then990
 
 if.then990:                                       ; preds = %sw.bb983
   %315 = load ptr, ptr %fStatus985, align 8
   tail call void @_ZN6icu_757UVector10addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fSetOpStack984, i32 noundef 131081, ptr noundef nonnull align 4 dereferenceable(4) %315)
+  br label %if.end994
+
+if.end994:                                        ; preds = %if.then990, %sw.bb983
   br label %sw.epilog1134
 
 sw.bb995:                                         ; preds = %entry
@@ -4622,12 +4631,15 @@ if.then1075:                                      ; preds = %sw.bb1071
   tail call void @_ZN6icu_757UVector10addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fSetOpStack1072, i32 noundef 131075, ptr noundef nonnull align 4 dereferenceable(4) %333)
   %334 = load ptr, ptr %fStatus1079, align 8
   tail call void @_ZN6icu_757UVector10addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fSetOpStack1072, i32 noundef 131081, ptr noundef nonnull align 4 dereferenceable(4) %334)
-  br label %sw.epilog1134
+  br label %if.end1088
 
 if.else1084:                                      ; preds = %sw.bb1071
   %fStatus1086 = getelementptr inbounds i8, ptr %this, i64 8
   %335 = load ptr, ptr %fStatus1086, align 8
   tail call void @_ZN6icu_757UVector10addElementEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fSetOpStack1072, i32 noundef 131075, ptr noundef nonnull align 4 dereferenceable(4) %335)
+  br label %if.end1088
+
+if.end1088:                                       ; preds = %if.else1084, %if.then1075
   br label %sw.epilog1134
 
 sw.bb1089:                                        ; preds = %entry
@@ -4641,7 +4653,7 @@ sw.bb1090:                                        ; preds = %entry
 sw.bb1091:                                        ; preds = %entry
   %call1093 = tail call noundef ptr @_ZN6icu_7512RegexCompile13scanPosixPropEv(ptr noundef nonnull align 8 dereferenceable(512) %this)
   %cmp1094.not = icmp eq ptr %call1093, null
-  br i1 %cmp1094.not, label %sw.epilog1134, label %if.then1095
+  br i1 %cmp1094.not, label %if.end1102, label %if.then1095
 
 if.then1095:                                      ; preds = %sw.bb1091
   %fSetStack1096 = getelementptr inbounds i8, ptr %this, i64 416
@@ -4652,12 +4664,15 @@ if.then1095:                                      ; preds = %sw.bb1091
   %call1098 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %call.i.i249, ptr noundef nonnull align 8 dereferenceable(200) %call1093)
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %call1093) #13
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1093) #13
+  br label %if.end1102
+
+if.end1102:                                       ; preds = %if.then1095, %sw.bb1091
   br label %sw.epilog1134
 
 sw.bb1103:                                        ; preds = %entry
   %call1105 = tail call noundef ptr @_ZN6icu_7512RegexCompile8scanPropEv(ptr noundef nonnull align 8 dereferenceable(512) %this)
   %cmp1106.not = icmp eq ptr %call1105, null
-  br i1 %cmp1106.not, label %sw.epilog1134, label %if.then1107
+  br i1 %cmp1106.not, label %if.end1115, label %if.then1107
 
 if.then1107:                                      ; preds = %sw.bb1103
   %fSetStack1109 = getelementptr inbounds i8, ptr %this, i64 416
@@ -4668,6 +4683,9 @@ if.then1107:                                      ; preds = %sw.bb1103
   %call1111 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %call.i.i252, ptr noundef nonnull align 8 dereferenceable(200) %call1105)
   tail call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %call1105) #13
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1105) #13
+  br label %if.end1115
+
+if.end1115:                                       ; preds = %if.then1107, %sw.bb1103
   br label %sw.epilog1134
 
 sw.bb1116:                                        ; preds = %entry
@@ -4705,8 +4723,8 @@ sw.bb525.unreachabledefault:                      ; preds = %sw.bb525
 sw.bb565.unreachabledefault:                      ; preds = %sw.bb565
   unreachable
 
-sw.epilog1134:                                    ; preds = %new.cont675, %new.cont, %sw.bb1103, %if.then1107, %sw.bb1091, %if.then1095, %if.then1075, %if.else1084, %sw.bb983, %if.then990, %sw.bb971, %if.then978, %sw.bb959, %if.then966, %if.then778, %if.else781, %if.then679, %if.then661, %if.else662, %if.then573, %if.then591, %if.then600, %if.then582, %if.then533, %if.then551, %if.then560, %if.then542, %if.then516, %if.else522, %if.then521, %sw.bb458, %if.then462, %if.then450, %if.else451, %if.then428, %if.else429, %if.then290, %if.else, %entry, %sw.bb237, %if.then241, %sw.bb37, %if.then85, %land.lhs.true, %if.end72, %if.then66, %if.then69, %if.then31, %if.end1125, %sw.bb1090, %sw.bb1089, %if.end1064, %sw.bb1043, %if.end1033, %sw.bb1004, %sw.bb1003, %sw.bb999, %sw.bb996, %sw.bb995, %if.end958, %invoke.cont925, %sw.bb906, %invoke.cont904, %sw.bb884, %invoke.cont882, %invoke.cont867, %invoke.cont855, %sw.bb840, %invoke.cont838, %sw.bb822, %sw.bb817, %sw.bb814, %sw.bb813, %sw.bb812, %sw.bb788, %sw.bb785, %sw.bb762, %sw.bb742, %sw.bb722, %sw.bb708, %delete.end, %sw.bb681, %sw.bb636, %sw.bb634, %sw.bb633, %sw.bb632, %sw.bb631, %sw.bb630, %sw.bb629, %sw.bb628, %sw.bb627, %sw.bb626, %sw.bb625, %sw.bb624, %sw.bb623, %sw.bb622, %sw.bb621, %sw.bb620, %sw.bb619, %sw.bb618, %sw.bb617, %sw.bb611, %sw.bb606, %sw.bb605, %if.end509, %sw.bb485, %sw.bb484, %sw.bb483, %_ZN6icu_759UVector644popiEv.exit, %sw.bb455, %sw.bb418, %sw.bb407, %if.end397, %if.then357, %if.then340, %sw.bb311, %sw.bb302, %sw.bb299, %if.then269, %if.then259, %sw.bb245, %sw.bb244, %sw.bb236, %sw.bb212, %sw.bb188, %sw.bb164, %sw.bb133, %sw.bb110, %sw.bb88, %sw.bb36, %sw.bb33, %_ZN6icu_759UVector324popiEv.exit, %if.end, %sw.bb
-  %returnVal.0 = phi i8 [ 1, %if.end1125 ], [ 1, %if.then1107 ], [ 1, %sw.bb1103 ], [ 1, %if.then1095 ], [ 1, %sw.bb1091 ], [ 1, %sw.bb1090 ], [ 1, %sw.bb1089 ], [ 1, %if.then1075 ], [ 1, %if.else1084 ], [ 1, %if.end1064 ], [ 1, %sw.bb1043 ], [ 1, %if.end1033 ], [ 1, %sw.bb1004 ], [ 1, %sw.bb1003 ], [ 1, %sw.bb999 ], [ 1, %sw.bb996 ], [ 1, %sw.bb995 ], [ 1, %if.then990 ], [ 1, %sw.bb983 ], [ 1, %if.then978 ], [ 1, %sw.bb971 ], [ 1, %if.then966 ], [ 1, %sw.bb959 ], [ 1, %if.end958 ], [ 1, %invoke.cont925 ], [ 1, %sw.bb906 ], [ 1, %invoke.cont904 ], [ 1, %sw.bb884 ], [ 1, %invoke.cont882 ], [ 1, %invoke.cont867 ], [ 1, %invoke.cont855 ], [ 1, %sw.bb840 ], [ 1, %invoke.cont838 ], [ 1, %sw.bb822 ], [ 1, %sw.bb817 ], [ 1, %sw.bb814 ], [ 1, %sw.bb813 ], [ 1, %sw.bb812 ], [ 1, %sw.bb788 ], [ 1, %sw.bb785 ], [ 1, %if.then778 ], [ 1, %if.else781 ], [ 1, %sw.bb762 ], [ 1, %sw.bb742 ], [ 1, %sw.bb722 ], [ 1, %sw.bb708 ], [ 1, %delete.end ], [ 1, %sw.bb681 ], [ 1, %if.then679 ], [ 1, %new.cont675 ], [ 1, %if.then661 ], [ 1, %if.else662 ], [ 1, %sw.bb636 ], [ 1, %sw.bb634 ], [ 0, %sw.bb633 ], [ 1, %sw.bb632 ], [ 1, %sw.bb631 ], [ 1, %sw.bb630 ], [ 1, %sw.bb629 ], [ 1, %sw.bb628 ], [ 1, %sw.bb627 ], [ 1, %sw.bb626 ], [ 1, %sw.bb625 ], [ 1, %sw.bb624 ], [ 1, %sw.bb623 ], [ 1, %sw.bb622 ], [ 1, %sw.bb621 ], [ 1, %sw.bb620 ], [ 1, %sw.bb619 ], [ 1, %sw.bb618 ], [ 1, %sw.bb617 ], [ 1, %sw.bb611 ], [ 1, %sw.bb606 ], [ 1, %sw.bb605 ], [ 1, %if.then573 ], [ 1, %if.then582 ], [ 1, %if.then591 ], [ 1, %if.then600 ], [ 1, %if.then533 ], [ 1, %if.then542 ], [ 1, %if.then551 ], [ 1, %if.then560 ], [ 1, %if.then516 ], [ 1, %if.then521 ], [ 1, %if.else522 ], [ 1, %if.end509 ], [ 1, %sw.bb485 ], [ 1, %sw.bb484 ], [ 1, %sw.bb483 ], [ 1, %_ZN6icu_759UVector644popiEv.exit ], [ 1, %if.then462 ], [ 1, %sw.bb458 ], [ 1, %sw.bb455 ], [ 1, %if.then450 ], [ 1, %if.else451 ], [ 1, %if.then428 ], [ 1, %if.else429 ], [ 1, %sw.bb418 ], [ 1, %sw.bb407 ], [ 1, %if.then340 ], [ 1, %if.then357 ], [ 1, %if.end397 ], [ 1, %sw.bb311 ], [ 1, %sw.bb302 ], [ 1, %sw.bb299 ], [ 1, %if.then259 ], [ 1, %if.then269 ], [ 1, %if.then290 ], [ 1, %if.else ], [ 1, %sw.bb245 ], [ 1, %sw.bb244 ], [ 1, %entry ], [ 1, %if.then241 ], [ 1, %sw.bb237 ], [ 1, %sw.bb236 ], [ 1, %sw.bb212 ], [ 1, %sw.bb188 ], [ 1, %sw.bb164 ], [ 1, %sw.bb133 ], [ 1, %sw.bb110 ], [ 1, %sw.bb88 ], [ 1, %if.then85 ], [ 1, %land.lhs.true ], [ 1, %if.end72 ], [ 1, %if.then69 ], [ 1, %if.then66 ], [ 1, %sw.bb37 ], [ 1, %sw.bb36 ], [ 1, %sw.bb33 ], [ 1, %if.then31 ], [ 1, %new.cont ], [ 1, %_ZN6icu_759UVector324popiEv.exit ], [ 0, %if.end ], [ 1, %sw.bb ]
+sw.epilog1134:                                    ; preds = %if.then778, %if.else781, %if.then679, %new.cont675, %new.cont, %if.then661, %if.else662, %if.then573, %if.then591, %if.then600, %if.then582, %if.then533, %if.then551, %if.then560, %if.then542, %if.then516, %if.else522, %if.then521, %sw.bb458, %if.then462, %if.then450, %if.else451, %if.then428, %if.else429, %if.then290, %if.else, %entry, %sw.bb237, %if.then241, %sw.bb37, %if.then85, %land.lhs.true, %if.end72, %if.then66, %if.then69, %if.then31, %if.end1125, %if.end1115, %if.end1102, %sw.bb1090, %sw.bb1089, %if.end1088, %if.end1064, %sw.bb1043, %if.end1033, %sw.bb1004, %sw.bb1003, %sw.bb999, %sw.bb996, %sw.bb995, %if.end994, %if.end982, %if.end970, %if.end958, %invoke.cont925, %sw.bb906, %invoke.cont904, %sw.bb884, %invoke.cont882, %invoke.cont867, %invoke.cont855, %sw.bb840, %invoke.cont838, %sw.bb822, %sw.bb817, %sw.bb814, %sw.bb813, %sw.bb812, %sw.bb788, %sw.bb785, %sw.bb762, %sw.bb742, %sw.bb722, %sw.bb708, %delete.end, %sw.bb681, %sw.bb636, %sw.bb634, %sw.bb633, %sw.bb632, %sw.bb631, %sw.bb630, %sw.bb629, %sw.bb628, %sw.bb627, %sw.bb626, %sw.bb625, %sw.bb624, %sw.bb623, %sw.bb622, %sw.bb621, %sw.bb620, %sw.bb619, %sw.bb618, %sw.bb617, %sw.bb611, %sw.bb606, %sw.bb605, %if.end509, %sw.bb485, %sw.bb484, %sw.bb483, %_ZN6icu_759UVector644popiEv.exit, %sw.bb455, %sw.bb418, %sw.bb407, %if.end397, %if.then357, %if.then340, %sw.bb311, %sw.bb302, %sw.bb299, %if.then269, %if.then259, %sw.bb245, %sw.bb244, %sw.bb236, %sw.bb212, %sw.bb188, %sw.bb164, %sw.bb133, %sw.bb110, %sw.bb88, %sw.bb36, %sw.bb33, %_ZN6icu_759UVector324popiEv.exit, %if.end, %sw.bb
+  %returnVal.0 = phi i8 [ 1, %if.end1125 ], [ 1, %if.end1115 ], [ 1, %if.end1102 ], [ 1, %sw.bb1090 ], [ 1, %sw.bb1089 ], [ 1, %if.end1088 ], [ 1, %if.end1064 ], [ 1, %sw.bb1043 ], [ 1, %if.end1033 ], [ 1, %sw.bb1004 ], [ 1, %sw.bb1003 ], [ 1, %sw.bb999 ], [ 1, %sw.bb996 ], [ 1, %sw.bb995 ], [ 1, %if.end994 ], [ 1, %if.end982 ], [ 1, %if.end970 ], [ 1, %if.end958 ], [ 1, %invoke.cont925 ], [ 1, %sw.bb906 ], [ 1, %invoke.cont904 ], [ 1, %sw.bb884 ], [ 1, %invoke.cont882 ], [ 1, %invoke.cont867 ], [ 1, %invoke.cont855 ], [ 1, %sw.bb840 ], [ 1, %invoke.cont838 ], [ 1, %sw.bb822 ], [ 1, %sw.bb817 ], [ 1, %sw.bb814 ], [ 1, %sw.bb813 ], [ 1, %sw.bb812 ], [ 1, %sw.bb788 ], [ 1, %sw.bb785 ], [ 1, %sw.bb762 ], [ 1, %sw.bb742 ], [ 1, %sw.bb722 ], [ 1, %sw.bb708 ], [ 1, %delete.end ], [ 1, %sw.bb681 ], [ 1, %sw.bb636 ], [ 1, %sw.bb634 ], [ 0, %sw.bb633 ], [ 1, %sw.bb632 ], [ 1, %sw.bb631 ], [ 1, %sw.bb630 ], [ 1, %sw.bb629 ], [ 1, %sw.bb628 ], [ 1, %sw.bb627 ], [ 1, %sw.bb626 ], [ 1, %sw.bb625 ], [ 1, %sw.bb624 ], [ 1, %sw.bb623 ], [ 1, %sw.bb622 ], [ 1, %sw.bb621 ], [ 1, %sw.bb620 ], [ 1, %sw.bb619 ], [ 1, %sw.bb618 ], [ 1, %sw.bb617 ], [ 1, %sw.bb611 ], [ 1, %sw.bb606 ], [ 1, %sw.bb605 ], [ 1, %if.then573 ], [ 1, %if.then582 ], [ 1, %if.then591 ], [ 1, %if.then600 ], [ 1, %if.then533 ], [ 1, %if.then542 ], [ 1, %if.then551 ], [ 1, %if.then560 ], [ 1, %if.then516 ], [ 1, %if.then521 ], [ 1, %if.else522 ], [ 1, %if.end509 ], [ 1, %sw.bb485 ], [ 1, %sw.bb484 ], [ 1, %sw.bb483 ], [ 1, %_ZN6icu_759UVector644popiEv.exit ], [ 1, %if.then462 ], [ 1, %sw.bb458 ], [ 1, %sw.bb455 ], [ 1, %if.then450 ], [ 1, %if.else451 ], [ 1, %if.then428 ], [ 1, %if.else429 ], [ 1, %sw.bb418 ], [ 1, %sw.bb407 ], [ 1, %if.then340 ], [ 1, %if.then357 ], [ 1, %if.end397 ], [ 1, %sw.bb311 ], [ 1, %sw.bb302 ], [ 1, %sw.bb299 ], [ 1, %if.then259 ], [ 1, %if.then269 ], [ 1, %if.then290 ], [ 1, %if.else ], [ 1, %sw.bb245 ], [ 1, %sw.bb244 ], [ 1, %entry ], [ 1, %if.then241 ], [ 1, %sw.bb237 ], [ 1, %sw.bb236 ], [ 1, %sw.bb212 ], [ 1, %sw.bb188 ], [ 1, %sw.bb164 ], [ 1, %sw.bb133 ], [ 1, %sw.bb110 ], [ 1, %sw.bb88 ], [ 1, %if.then85 ], [ 1, %land.lhs.true ], [ 1, %if.end72 ], [ 1, %if.then69 ], [ 1, %if.then66 ], [ 1, %sw.bb37 ], [ 1, %sw.bb36 ], [ 1, %sw.bb33 ], [ 1, %if.then31 ], [ 1, %new.cont ], [ 1, %_ZN6icu_759UVector324popiEv.exit ], [ 0, %if.end ], [ 1, %sw.bb ], [ 1, %if.else662 ], [ 1, %if.then661 ], [ 1, %new.cont675 ], [ 1, %if.then679 ], [ 1, %if.else781 ], [ 1, %if.then778 ]
   %fStatus1135 = getelementptr inbounds i8, ptr %this, i64 8
   %343 = load ptr, ptr %fStatus1135, align 8
   %344 = load i32, ptr %343, align 4

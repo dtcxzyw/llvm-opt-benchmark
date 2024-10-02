@@ -44586,9 +44586,9 @@ define internal void @_GLOBAL__sub_I_Conformance.test.cpp() #29 section ".text.s
   call void @_ZN7doctest6detail8TestCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %130) #37
   br label %common.resume
 
-common.resume:                                    ; preds = %847, %849, %836, %838, %825, %827, %814, %816, %803, %805, %792, %794, %781, %783, %770, %772, %759, %761, %748, %750, %737, %739, %726, %728, %715, %717, %704, %706, %693, %695, %682, %684, %671, %673, %660, %662, %649, %651, %638, %640, %627, %629, %616, %618, %605, %607, %594, %596, %583, %585, %572, %574, %561, %563, %550, %552, %539, %541, %528, %530, %517, %519, %506, %508, %495, %497, %484, %486, %473, %475, %462, %464, %451, %453, %440, %442, %429, %431, %418, %420, %407, %409, %396, %398, %385, %387, %374, %376, %363, %365, %352, %354, %341, %343, %330, %332, %319, %321, %308, %310, %297, %299, %286, %288, %275, %277, %264, %266, %253, %255, %242, %244, %231, %233, %220, %222, %209, %211, %198, %200, %187, %189, %176, %178, %165, %167, %154, %156, %143, %145
-  %.sink = phi ptr [ %131, %145 ], [ %131, %143 ], [ %129, %156 ], [ %129, %154 ], [ %127, %167 ], [ %127, %165 ], [ %125, %178 ], [ %125, %176 ], [ %123, %189 ], [ %123, %187 ], [ %121, %200 ], [ %121, %198 ], [ %119, %211 ], [ %119, %209 ], [ %117, %222 ], [ %117, %220 ], [ %115, %233 ], [ %115, %231 ], [ %113, %244 ], [ %113, %242 ], [ %111, %255 ], [ %111, %253 ], [ %109, %266 ], [ %109, %264 ], [ %107, %277 ], [ %107, %275 ], [ %105, %288 ], [ %105, %286 ], [ %103, %299 ], [ %103, %297 ], [ %101, %310 ], [ %101, %308 ], [ %99, %321 ], [ %99, %319 ], [ %97, %332 ], [ %97, %330 ], [ %95, %343 ], [ %95, %341 ], [ %93, %354 ], [ %93, %352 ], [ %91, %365 ], [ %91, %363 ], [ %89, %376 ], [ %89, %374 ], [ %87, %387 ], [ %87, %385 ], [ %85, %398 ], [ %85, %396 ], [ %83, %409 ], [ %83, %407 ], [ %81, %420 ], [ %81, %418 ], [ %79, %431 ], [ %79, %429 ], [ %77, %442 ], [ %77, %440 ], [ %75, %453 ], [ %75, %451 ], [ %73, %464 ], [ %73, %462 ], [ %71, %475 ], [ %71, %473 ], [ %69, %486 ], [ %69, %484 ], [ %67, %497 ], [ %67, %495 ], [ %65, %508 ], [ %65, %506 ], [ %63, %519 ], [ %63, %517 ], [ %61, %530 ], [ %61, %528 ], [ %59, %541 ], [ %59, %539 ], [ %57, %552 ], [ %57, %550 ], [ %55, %563 ], [ %55, %561 ], [ %53, %574 ], [ %53, %572 ], [ %51, %585 ], [ %51, %583 ], [ %49, %596 ], [ %49, %594 ], [ %47, %607 ], [ %47, %605 ], [ %45, %618 ], [ %45, %616 ], [ %43, %629 ], [ %43, %627 ], [ %41, %640 ], [ %41, %638 ], [ %39, %651 ], [ %39, %649 ], [ %37, %662 ], [ %37, %660 ], [ %35, %673 ], [ %35, %671 ], [ %33, %684 ], [ %33, %682 ], [ %31, %695 ], [ %31, %693 ], [ %29, %706 ], [ %29, %704 ], [ %27, %717 ], [ %27, %715 ], [ %25, %728 ], [ %25, %726 ], [ %23, %739 ], [ %23, %737 ], [ %21, %750 ], [ %21, %748 ], [ %19, %761 ], [ %19, %759 ], [ %17, %772 ], [ %17, %770 ], [ %15, %783 ], [ %15, %781 ], [ %13, %794 ], [ %13, %792 ], [ %11, %805 ], [ %11, %803 ], [ %9, %816 ], [ %9, %814 ], [ %7, %827 ], [ %7, %825 ], [ %5, %838 ], [ %5, %836 ], [ %3, %849 ], [ %3, %847 ]
-  %common.resume.op = phi { ptr, i32 } [ %146, %145 ], [ %144, %143 ], [ %157, %156 ], [ %155, %154 ], [ %168, %167 ], [ %166, %165 ], [ %179, %178 ], [ %177, %176 ], [ %190, %189 ], [ %188, %187 ], [ %201, %200 ], [ %199, %198 ], [ %212, %211 ], [ %210, %209 ], [ %223, %222 ], [ %221, %220 ], [ %234, %233 ], [ %232, %231 ], [ %245, %244 ], [ %243, %242 ], [ %256, %255 ], [ %254, %253 ], [ %267, %266 ], [ %265, %264 ], [ %278, %277 ], [ %276, %275 ], [ %289, %288 ], [ %287, %286 ], [ %300, %299 ], [ %298, %297 ], [ %311, %310 ], [ %309, %308 ], [ %322, %321 ], [ %320, %319 ], [ %333, %332 ], [ %331, %330 ], [ %344, %343 ], [ %342, %341 ], [ %355, %354 ], [ %353, %352 ], [ %366, %365 ], [ %364, %363 ], [ %377, %376 ], [ %375, %374 ], [ %388, %387 ], [ %386, %385 ], [ %399, %398 ], [ %397, %396 ], [ %410, %409 ], [ %408, %407 ], [ %421, %420 ], [ %419, %418 ], [ %432, %431 ], [ %430, %429 ], [ %443, %442 ], [ %441, %440 ], [ %454, %453 ], [ %452, %451 ], [ %465, %464 ], [ %463, %462 ], [ %476, %475 ], [ %474, %473 ], [ %487, %486 ], [ %485, %484 ], [ %498, %497 ], [ %496, %495 ], [ %509, %508 ], [ %507, %506 ], [ %520, %519 ], [ %518, %517 ], [ %531, %530 ], [ %529, %528 ], [ %542, %541 ], [ %540, %539 ], [ %553, %552 ], [ %551, %550 ], [ %564, %563 ], [ %562, %561 ], [ %575, %574 ], [ %573, %572 ], [ %586, %585 ], [ %584, %583 ], [ %597, %596 ], [ %595, %594 ], [ %608, %607 ], [ %606, %605 ], [ %619, %618 ], [ %617, %616 ], [ %630, %629 ], [ %628, %627 ], [ %641, %640 ], [ %639, %638 ], [ %652, %651 ], [ %650, %649 ], [ %663, %662 ], [ %661, %660 ], [ %674, %673 ], [ %672, %671 ], [ %685, %684 ], [ %683, %682 ], [ %696, %695 ], [ %694, %693 ], [ %707, %706 ], [ %705, %704 ], [ %718, %717 ], [ %716, %715 ], [ %729, %728 ], [ %727, %726 ], [ %740, %739 ], [ %738, %737 ], [ %751, %750 ], [ %749, %748 ], [ %762, %761 ], [ %760, %759 ], [ %773, %772 ], [ %771, %770 ], [ %784, %783 ], [ %782, %781 ], [ %795, %794 ], [ %793, %792 ], [ %806, %805 ], [ %804, %803 ], [ %817, %816 ], [ %815, %814 ], [ %828, %827 ], [ %826, %825 ], [ %839, %838 ], [ %837, %836 ], [ %850, %849 ], [ %848, %847 ]
+common.resume:                                    ; preds = %825, %827, %814, %816, %803, %805, %792, %794, %781, %783, %770, %772, %759, %761, %748, %750, %737, %739, %726, %728, %715, %717, %704, %706, %693, %695, %682, %684, %671, %673, %660, %662, %649, %651, %638, %640, %627, %629, %616, %618, %605, %607, %594, %596, %583, %585, %572, %574, %561, %563, %550, %552, %539, %541, %528, %530, %517, %519, %506, %508, %495, %497, %484, %486, %473, %475, %462, %464, %451, %453, %440, %442, %429, %431, %418, %420, %407, %409, %396, %398, %385, %387, %374, %376, %363, %365, %352, %354, %341, %343, %330, %332, %319, %321, %308, %310, %297, %299, %286, %288, %275, %277, %264, %266, %253, %255, %242, %244, %231, %233, %220, %222, %209, %211, %198, %200, %187, %189, %176, %178, %165, %167, %154, %156, %143, %145, %852, %840
+  %.sink = phi ptr [ %3, %852 ], [ %5, %840 ], [ %131, %145 ], [ %131, %143 ], [ %129, %156 ], [ %129, %154 ], [ %127, %167 ], [ %127, %165 ], [ %125, %178 ], [ %125, %176 ], [ %123, %189 ], [ %123, %187 ], [ %121, %200 ], [ %121, %198 ], [ %119, %211 ], [ %119, %209 ], [ %117, %222 ], [ %117, %220 ], [ %115, %233 ], [ %115, %231 ], [ %113, %244 ], [ %113, %242 ], [ %111, %255 ], [ %111, %253 ], [ %109, %266 ], [ %109, %264 ], [ %107, %277 ], [ %107, %275 ], [ %105, %288 ], [ %105, %286 ], [ %103, %299 ], [ %103, %297 ], [ %101, %310 ], [ %101, %308 ], [ %99, %321 ], [ %99, %319 ], [ %97, %332 ], [ %97, %330 ], [ %95, %343 ], [ %95, %341 ], [ %93, %354 ], [ %93, %352 ], [ %91, %365 ], [ %91, %363 ], [ %89, %376 ], [ %89, %374 ], [ %87, %387 ], [ %87, %385 ], [ %85, %398 ], [ %85, %396 ], [ %83, %409 ], [ %83, %407 ], [ %81, %420 ], [ %81, %418 ], [ %79, %431 ], [ %79, %429 ], [ %77, %442 ], [ %77, %440 ], [ %75, %453 ], [ %75, %451 ], [ %73, %464 ], [ %73, %462 ], [ %71, %475 ], [ %71, %473 ], [ %69, %486 ], [ %69, %484 ], [ %67, %497 ], [ %67, %495 ], [ %65, %508 ], [ %65, %506 ], [ %63, %519 ], [ %63, %517 ], [ %61, %530 ], [ %61, %528 ], [ %59, %541 ], [ %59, %539 ], [ %57, %552 ], [ %57, %550 ], [ %55, %563 ], [ %55, %561 ], [ %53, %574 ], [ %53, %572 ], [ %51, %585 ], [ %51, %583 ], [ %49, %596 ], [ %49, %594 ], [ %47, %607 ], [ %47, %605 ], [ %45, %618 ], [ %45, %616 ], [ %43, %629 ], [ %43, %627 ], [ %41, %640 ], [ %41, %638 ], [ %39, %651 ], [ %39, %649 ], [ %37, %662 ], [ %37, %660 ], [ %35, %673 ], [ %35, %671 ], [ %33, %684 ], [ %33, %682 ], [ %31, %695 ], [ %31, %693 ], [ %29, %706 ], [ %29, %704 ], [ %27, %717 ], [ %27, %715 ], [ %25, %728 ], [ %25, %726 ], [ %23, %739 ], [ %23, %737 ], [ %21, %750 ], [ %21, %748 ], [ %19, %761 ], [ %19, %759 ], [ %17, %772 ], [ %17, %770 ], [ %15, %783 ], [ %15, %781 ], [ %13, %794 ], [ %13, %792 ], [ %11, %805 ], [ %11, %803 ], [ %9, %816 ], [ %9, %814 ], [ %7, %827 ], [ %7, %825 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i64, %852 ], [ %.pn.i63, %840 ], [ %146, %145 ], [ %144, %143 ], [ %157, %156 ], [ %155, %154 ], [ %168, %167 ], [ %166, %165 ], [ %179, %178 ], [ %177, %176 ], [ %190, %189 ], [ %188, %187 ], [ %201, %200 ], [ %199, %198 ], [ %212, %211 ], [ %210, %209 ], [ %223, %222 ], [ %221, %220 ], [ %234, %233 ], [ %232, %231 ], [ %245, %244 ], [ %243, %242 ], [ %256, %255 ], [ %254, %253 ], [ %267, %266 ], [ %265, %264 ], [ %278, %277 ], [ %276, %275 ], [ %289, %288 ], [ %287, %286 ], [ %300, %299 ], [ %298, %297 ], [ %311, %310 ], [ %309, %308 ], [ %322, %321 ], [ %320, %319 ], [ %333, %332 ], [ %331, %330 ], [ %344, %343 ], [ %342, %341 ], [ %355, %354 ], [ %353, %352 ], [ %366, %365 ], [ %364, %363 ], [ %377, %376 ], [ %375, %374 ], [ %388, %387 ], [ %386, %385 ], [ %399, %398 ], [ %397, %396 ], [ %410, %409 ], [ %408, %407 ], [ %421, %420 ], [ %419, %418 ], [ %432, %431 ], [ %430, %429 ], [ %443, %442 ], [ %441, %440 ], [ %454, %453 ], [ %452, %451 ], [ %465, %464 ], [ %463, %462 ], [ %476, %475 ], [ %474, %473 ], [ %487, %486 ], [ %485, %484 ], [ %498, %497 ], [ %496, %495 ], [ %509, %508 ], [ %507, %506 ], [ %520, %519 ], [ %518, %517 ], [ %531, %530 ], [ %529, %528 ], [ %542, %541 ], [ %540, %539 ], [ %553, %552 ], [ %551, %550 ], [ %564, %563 ], [ %562, %561 ], [ %575, %574 ], [ %573, %572 ], [ %586, %585 ], [ %584, %583 ], [ %597, %596 ], [ %595, %594 ], [ %608, %607 ], [ %606, %605 ], [ %619, %618 ], [ %617, %616 ], [ %630, %629 ], [ %628, %627 ], [ %641, %640 ], [ %639, %638 ], [ %652, %651 ], [ %650, %649 ], [ %663, %662 ], [ %661, %660 ], [ %674, %673 ], [ %672, %671 ], [ %685, %684 ], [ %683, %682 ], [ %696, %695 ], [ %694, %693 ], [ %707, %706 ], [ %705, %704 ], [ %718, %717 ], [ %716, %715 ], [ %729, %728 ], [ %727, %726 ], [ %740, %739 ], [ %738, %737 ], [ %751, %750 ], [ %749, %748 ], [ %762, %761 ], [ %760, %759 ], [ %773, %772 ], [ %771, %770 ], [ %784, %783 ], [ %782, %781 ], [ %795, %794 ], [ %793, %792 ], [ %806, %805 ], [ %804, %803 ], [ %817, %816 ], [ %815, %814 ], [ %828, %827 ], [ %826, %825 ]
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink) #37
   resume { ptr, i32 } %common.resume.op
 
@@ -46789,62 +46789,70 @@ __cxx_global_var_init.189.exit:                   ; preds = %823
 836:                                              ; preds = %__cxx_global_var_init.189.exit
   %837 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %840
 
 838:                                              ; preds = %834, %832
   %839 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6detail8TestCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %4) #37
+  br label %840
+
+840:                                              ; preds = %838, %836
+  %.pn.i63 = phi { ptr, i32 } [ %839, %838 ], [ %837, %836 ]
   br label %common.resume
 
 __cxx_global_var_init.191.exit:                   ; preds = %834
-  %840 = getelementptr inbounds i8, ptr %4, i64 120
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %840) #37
-  %841 = getelementptr inbounds i8, ptr %4, i64 88
+  %841 = getelementptr inbounds i8, ptr %4, i64 120
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %841) #37
+  %842 = getelementptr inbounds i8, ptr %4, i64 88
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %842) #37
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #37
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #37
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %842 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN28doctest_detail_test_suite_ns19getCurrentTestSuiteEv()
+  %843 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN28doctest_detail_test_suite_ns19getCurrentTestSuiteEv()
   call void @_ZN7doctest6StringC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #37
-  invoke void @_ZN7doctest6detail8TestCaseC1EPFvvEPKcjRKNS0_9TestSuiteERKNS_6StringEi(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull @_ZL21DOCTEST_ANON_FUNC_156v, ptr noundef nonnull @.str.65, i32 noundef 2712, ptr noundef nonnull align 8 dereferenceable(40) %842, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef -1)
-          to label %843 unwind label %847
+  invoke void @_ZN7doctest6detail8TestCaseC1EPFvvEPKcjRKNS0_9TestSuiteERKNS_6StringEi(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull @_ZL21DOCTEST_ANON_FUNC_156v, ptr noundef nonnull @.str.65, i32 noundef 2712, ptr noundef nonnull align 8 dereferenceable(40) %843, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef -1)
+          to label %844 unwind label %848
 
-843:                                              ; preds = %__cxx_global_var_init.191.exit
-  %844 = invoke noundef nonnull align 8 dereferenceable(144) ptr @_ZN7doctest6detail8TestCasemlEPKc(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull @.str.194)
-          to label %845 unwind label %849
+844:                                              ; preds = %__cxx_global_var_init.191.exit
+  %845 = invoke noundef nonnull align 8 dereferenceable(144) ptr @_ZN7doctest6detail8TestCasemlEPKc(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull @.str.194)
+          to label %846 unwind label %850
 
-845:                                              ; preds = %843
-  %846 = invoke noundef i32 @_ZN7doctest6detail7regTestERKNS0_8TestCaseE(ptr noundef nonnull align 8 dereferenceable(144) %844)
-          to label %__cxx_global_var_init.193.exit unwind label %849
+846:                                              ; preds = %844
+  %847 = invoke noundef i32 @_ZN7doctest6detail7regTestERKNS0_8TestCaseE(ptr noundef nonnull align 8 dereferenceable(144) %845)
+          to label %__cxx_global_var_init.193.exit unwind label %850
 
-847:                                              ; preds = %__cxx_global_var_init.191.exit
-  %848 = landingpad { ptr, i32 }
+848:                                              ; preds = %__cxx_global_var_init.191.exit
+  %849 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume
+  br label %852
 
-849:                                              ; preds = %845, %843
-  %850 = landingpad { ptr, i32 }
+850:                                              ; preds = %846, %844
+  %851 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7doctest6detail8TestCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %2) #37
+  br label %852
+
+852:                                              ; preds = %850, %848
+  %.pn.i64 = phi { ptr, i32 } [ %851, %850 ], [ %849, %848 ]
   br label %common.resume
 
-__cxx_global_var_init.193.exit:                   ; preds = %845
-  %851 = getelementptr inbounds i8, ptr %2, i64 120
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %851) #37
-  %852 = getelementptr inbounds i8, ptr %2, i64 88
-  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %852) #37
+__cxx_global_var_init.193.exit:                   ; preds = %846
+  %853 = getelementptr inbounds i8, ptr %2, i64 120
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %853) #37
+  %854 = getelementptr inbounds i8, ptr %2, i64 88
+  call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %854) #37
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #37
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #37
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
-  %853 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN7doctest6detail9TestSuitemlEPKc(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull @.str)
-  %854 = call noundef i32 @_ZN7doctest6detail12setTestSuiteERKNS0_9TestSuiteE(ptr noundef nonnull align 8 dereferenceable(40) %853)
+  %855 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN7doctest6detail9TestSuitemlEPKc(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull @.str)
+  %856 = call noundef i32 @_ZN7doctest6detail12setTestSuiteERKNS0_9TestSuiteE(ptr noundef nonnull align 8 dereferenceable(40) %855)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1)
   ret void
 }
