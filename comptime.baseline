@@ -757,7 +757,7 @@ abc/mapperRefs.c.ll 170413862
 abc/mapperSuper.c.ll 144662946
 abc/mapperSwitch.c.ll 93605242
 abc/mapperTable.c.ll 154726810
-abc/mapperTime.c.ll 197530589
+abc/mapperTime.c.ll 197332849
 abc/mapperTree.c.ll 391570425
 abc/mapperTruth.c.ll 125670585
 abc/mapperUtils.c.ll 324028323
@@ -4380,7 +4380,7 @@ coreutils-rs/40iis989nbtqljmy.ll 83886341
 coreutils-rs/41036g19gzrox2gs.ll 152058257
 coreutils-rs/41adhm3dvhvh5rlb.ll 128994378
 coreutils-rs/41fncqbjna39q7zc.ll 86535876
-coreutils-rs/41kb8bho3z5ma4kx.ll 179973992
+coreutils-rs/41kb8bho3z5ma4kx.ll 179793849
 coreutils-rs/420s040g7rwxzzqz.ll 427296660
 coreutils-rs/424qq45zde9500rw.ll 212206150
 coreutils-rs/42lmwach5re7evzy.ll 362872602
@@ -17146,7 +17146,7 @@ llvm/WebAssemblyDisassemblerEmitter.cpp.ll 809305291
 llvm/WhitespaceManager.cpp.ll 3581331027
 llvm/WholeProgramDevirt.cpp.ll 16362538582
 llvm/WinCFGuard.cpp.ll 532664950
-llvm/WinCOFFObjectWriter.cpp.ll 3130852664
+llvm/WinCOFFObjectWriter.cpp.ll 3127720338
 llvm/WinEHPrepare.cpp.ll 7277973914
 llvm/WinException.cpp.ll 1710020343
 llvm/WindowScheduler.cpp.ll 5067183926
@@ -24064,7 +24064,7 @@ openjdk/g1MonotonicArenaFreePool.ll 141106640
 openjdk/g1NMethodClosure.ll 2528473668
 openjdk/g1NUMA.ll 139033989
 openjdk/g1NUMAStats.ll 209672054
-openjdk/g1OldGenAllocationTracker.ll 51189718
+openjdk/g1OldGenAllocationTracker.ll 51138473
 openjdk/g1OopClosures.ll 2522887473
 openjdk/g1OopStarChunkedList.ll 2538886344
 openjdk/g1PageBasedVirtualSpace.ll 225628524
@@ -31401,7 +31401,7 @@ postgres/pruneheap.ll 344382038
 postgres/ps_status.ll 136502467
 postgres/psprintf.ll 46384930
 postgres/psprintf_shlib.ll 46352180
-postgres/psprintf_srv.ll 47112050
+postgres/psprintf_srv.ll 47064854
 postgres/psqlscan.ll 1306597944
 postgres/psqlscanslash.ll 534251887
 postgres/publicationcmds.ll 593742229
