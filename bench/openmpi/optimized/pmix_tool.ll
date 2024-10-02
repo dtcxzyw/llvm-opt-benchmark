@@ -1393,7 +1393,7 @@ pmix_obj_run_constructors.exit414:                ; preds = %pmix_obj_run_constr
 575:                                              ; preds = %pmix_obj_run_constructors.exit414
   %576 = getelementptr inbounds i8, ptr %.091.i, i64 1
   %577 = getelementptr inbounds i8, ptr %.082.i, i64 1
-  %exitcond.not.i = icmp eq ptr %.091.i, getelementptr inbounds (i8, ptr @pmix_globals, i64 258)
+  %exitcond.not.i = icmp eq ptr %.091.i, getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 258)
   br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %pmix_obj_run_constructors.exit414, !llvm.loop !9
 
 pmix_strncpy.exit:                                ; preds = %pmix_obj_run_constructors.exit414, %575
@@ -1478,7 +1478,7 @@ pmix_obj_run_constructors.exit419:                ; preds = %pmix_obj_run_constr
 608:                                              ; preds = %pmix_obj_run_constructors.exit419
   %609 = getelementptr inbounds i8, ptr %.091.i421, i64 1
   %610 = getelementptr inbounds i8, ptr %.082.i420, i64 1
-  %exitcond.not.i422 = icmp eq ptr %.091.i421, getelementptr inbounds (i8, ptr @pmix_globals, i64 258)
+  %exitcond.not.i422 = icmp eq ptr %.091.i421, getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 258)
   br i1 %exitcond.not.i422, label %pmix_strncpy.exit424, label %pmix_obj_run_constructors.exit419, !llvm.loop !9
 
 pmix_strncpy.exit424:                             ; preds = %pmix_obj_run_constructors.exit419, %608

@@ -3590,8 +3590,8 @@ _ZNSt12_Vector_baseI16EllipticKeyPointSaIS0_EE11_M_allocateEm.exit.i: ; preds = 
   %.sroa.08.012.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i ], [ %1, %_ZNSt12_Vector_baseI16EllipticKeyPointSaIS0_EE11_M_allocateEm.exit.i ]
   %19 = mul nuw i64 %indvar.i, 56
   %20 = add nuw i64 %19, 8
-  %scevgep.i = getelementptr i8, ptr %18, i64 %20
-  %scevgep12.i = getelementptr i8, ptr %1, i64 %20
+  %scevgep.i = getelementptr nuw i8, ptr %18, i64 %20
+  %scevgep12.i = getelementptr nuw i8, ptr %1, i64 %20
   %21 = load i64, ptr %.sroa.08.012.i.i.i.i.i, align 8
   store i64 %21, ptr %.013.i.i.i.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep.i, ptr noundef nonnull align 8 dereferenceable(32) %scevgep12.i, i64 32, i1 false)

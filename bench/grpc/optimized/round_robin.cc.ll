@@ -569,7 +569,7 @@ _ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev.exit.i.i: ; preds = %if.end8.sink.sp
   %cond.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bit_gen_.i.i, i64 %and.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !10, !noalias !7
   %20 = or disjoint i64 %and.i.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %bit_gen_.i.i, i64 %20
+  %scevgep.i.i.i.i.i.i = getelementptr nuw i8, ptr %bit_gen_.i.i, i64 %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !10, !noalias !7
   invoke void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %bit_gen_.i.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i.i)
           to label %invoke.cont7.i.i unwind label %lpad6.i.i, !noalias !7
@@ -839,7 +839,7 @@ _ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev.exit.i.i36: ; preds = %if.end8.sink.
   %cond.i.i.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %bit_gen_.i.i39, i64 %and.i.i.i.i.i.i.i.i41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i.i42, i8 0, i64 16, i1 false), !alias.scope !17, !noalias !14
   %57 = or disjoint i64 %and.i.i.i.i.i.i.i.i41, 16
-  %scevgep.i.i.i.i.i.i43 = getelementptr i8, ptr %bit_gen_.i.i39, i64 %57
+  %scevgep.i.i.i.i.i.i43 = getelementptr nuw i8, ptr %bit_gen_.i.i39, i64 %57
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i.i43, i8 0, i64 240, i1 false), !alias.scope !17, !noalias !14
   invoke void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %bit_gen_.i.i39, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i.i3)
           to label %invoke.cont3.i.i unwind label %lpad2.i.i, !noalias !14

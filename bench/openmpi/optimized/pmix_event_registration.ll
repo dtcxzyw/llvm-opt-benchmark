@@ -5493,7 +5493,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %55, %5
 74:                                               ; preds = %71
   %75 = getelementptr inbounds i8, ptr %.091.i, i64 1
   %76 = getelementptr inbounds i8, ptr %.082.i, i64 1
-  %exitcond.not.i = icmp eq ptr %.091.i, getelementptr inbounds (i8, ptr @pmix_globals, i64 258)
+  %exitcond.not.i = icmp eq ptr %.091.i, getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 258)
   br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %71, !llvm.loop !29
 
 pmix_strncpy.exit:                                ; preds = %71, %74

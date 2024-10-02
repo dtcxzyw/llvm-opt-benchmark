@@ -1308,7 +1308,7 @@ define internal fastcc void @do_child(ptr nocapture noundef readonly %0, ptr nou
 .preheader:                                       ; preds = %92
   store i8 71, ptr %11, align 16
   %scevgep = getelementptr inbounds i8, ptr %11, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %scevgep, ptr noundef nonnull align 1 dereferenceable(13) getelementptr inbounds (i8, ptr @.str.10, i64 1), i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %scevgep, ptr noundef nonnull align 1 dereferenceable(13) getelementptr inbounds nuw (i8, ptr @.str.10, i64 1), i64 12, i1 false)
   %scevgep40 = getelementptr inbounds i8, ptr %11, i64 13
   store i8 0, ptr %scevgep40, align 1
   br label %100

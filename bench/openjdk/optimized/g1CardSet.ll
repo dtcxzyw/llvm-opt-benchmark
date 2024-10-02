@@ -3760,7 +3760,7 @@ _ZN21G1CardSetCoarsenStats13subtract_fromERS_.exit: ; preds = %2
   %36 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9G1CardSet14_coarsen_statsE, i64 104), align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.8, i64 noundef %25, i64 noundef %26, i64 noundef %27, i64 noundef %28, i64 noundef %29, i64 noundef %30, i64 noundef %31, i64 noundef %32, i64 noundef %33, i64 noundef %34, i64 noundef %35, i64 noundef %36) #19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @_ZN9G1CardSet19_last_coarsen_statsE, ptr noundef nonnull align 8 dereferenceable(56) @_ZN9G1CardSet14_coarsen_statsE, i64 56, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZN9G1CardSet19_last_coarsen_statsE, i64 56), ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZN9G1CardSet14_coarsen_statsE, i64 56), i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZN9G1CardSet19_last_coarsen_statsE, i64 56), ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZN9G1CardSet14_coarsen_statsE, i64 56), i64 56, i1 false)
   ret void
 }
 

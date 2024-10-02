@@ -1033,7 +1033,7 @@ invoke.cont41.i.i:                                ; preds = %.noexc.i.i
   %cond.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bit_gen_.i.i, i64 %and.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !14, !noalias !11
   %32 = or disjoint i64 %and.i.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %bit_gen_.i.i, i64 %32
+  %scevgep.i.i.i.i.i.i = getelementptr nuw i8, ptr %bit_gen_.i.i, i64 %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !14, !noalias !11
   invoke void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %bit_gen_.i.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i.i)
           to label %invoke.cont43.i.i unwind label %lpad42.i.i, !noalias !11

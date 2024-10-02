@@ -855,7 +855,7 @@ define void @_Z8rotate_xPA3_fiS0_(ptr nocapture noundef %0, i32 noundef %1, ptr 
 .preheader24:                                     ; preds = %.preheader24.preheader, %17
   %indvar = phi i64 [ 0, %.preheader24.preheader ], [ %indvar.next, %17 ]
   %6 = mul nuw nsw i64 %indvar, 12
-  %scevgep = getelementptr i8, ptr %0, i64 %6
+  %scevgep = getelementptr nuw i8, ptr %0, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %scevgep, i64 12, i1 false)
   br label %7
 

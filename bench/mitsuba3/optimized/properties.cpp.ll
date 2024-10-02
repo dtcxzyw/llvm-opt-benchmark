@@ -3792,7 +3792,7 @@ _ZN7mitsuba9TransformINS_5PointIdLm3EEEEC2Ev.exit.preheader: ; preds = %32
   %39 = shl nuw nsw i64 %.0126, 5
   %gep131 = getelementptr i8, ptr %invariant.gep130, i64 %39
   %gep133 = getelementptr i8, ptr %invariant.gep132, i64 %39
-  %scevgep = getelementptr i8, ptr %0, i64 %39
+  %scevgep = getelementptr nuw i8, ptr %0, i64 %39
   %gep135 = getelementptr i8, ptr %invariant.gep134, i64 %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %scevgep, ptr noundef nonnull align 8 dereferenceable(16) %gep135, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %gep131, ptr noundef nonnull align 8 dereferenceable(16) %gep133, i64 16, i1 false)

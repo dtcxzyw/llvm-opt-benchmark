@@ -3723,7 +3723,7 @@ define internal void @_GLOBAL__sub_I_lbuiltins.cpp() #17 section ".text.startup"
   store ptr @_ZL13luauF_missingP9lua_StateP10lua_TValueS2_iS2_i, ptr getelementptr inbounds (i8, ptr @luauF_table, i64 1112), align 8
   store ptr @_ZL13luauF_missingP9lua_StateP10lua_TValueS2_iS2_i, ptr getelementptr inbounds (i8, ptr @luauF_table, i64 1120), align 16
   store ptr @_ZL13luauF_missingP9lua_StateP10lua_TValueS2_iS2_i, ptr getelementptr inbounds (i8, ptr @luauF_table, i64 1128), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(912) getelementptr inbounds (i8, ptr @luauF_table, i64 1136), i8 0, i64 912, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(912) getelementptr inbounds nuw (i8, ptr @luauF_table, i64 1136), i8 0, i64 912, i1 false)
   ret void
 }
 

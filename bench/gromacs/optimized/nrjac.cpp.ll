@@ -596,7 +596,7 @@ define noundef i32 @_Z6jacobiN3gmx8ArrayRefINS_11BasicVectorIdEEEENS0_IdEES3_(pt
 .preheader207.i:                                  ; preds = %.preheader207.i, %25
   %indvar.i = phi i64 [ 0, %25 ], [ %indvar.next.i, %.preheader207.i ]
   %28 = mul nuw nsw i64 %indvar.i, 24
-  %scevgep.i = getelementptr i8, ptr %4, i64 %28
+  %scevgep.i = getelementptr nuw i8, ptr %4, i64 %28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i, i8 0, i64 24, i1 false)
   %29 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %indvar.i
   %30 = getelementptr inbounds [3 x double], ptr %29, i64 0, i64 %indvar.i

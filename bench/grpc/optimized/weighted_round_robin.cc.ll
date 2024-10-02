@@ -1454,7 +1454,7 @@ _ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev.exit.i.i: ; preds = %if.end8.sink.sp
   %cond.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bit_gen_.i.i, i64 %and.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !14, !noalias !11
   %21 = or disjoint i64 %and.i.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %bit_gen_.i.i, i64 %21
+  %scevgep.i.i.i.i.i.i = getelementptr nuw i8, ptr %bit_gen_.i.i, i64 %21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !14, !noalias !11
   invoke void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %bit_gen_.i.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i.i)
           to label %invoke.cont11.i.i unwind label %lpad10.i.i, !noalias !11
@@ -1775,7 +1775,7 @@ _ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev.exit.i.i37: ; preds = %if.end8.sink.
   %cond.i.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %bit_gen_.i.i44, i64 %and.i.i.i.i.i.i.i.i57
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i.i58, i8 0, i64 16, i1 false), !alias.scope !21, !noalias !18
   %61 = or disjoint i64 %and.i.i.i.i.i.i.i.i57, 16
-  %scevgep.i.i.i.i.i.i59 = getelementptr i8, ptr %bit_gen_.i.i44, i64 %61
+  %scevgep.i.i.i.i.i.i59 = getelementptr nuw i8, ptr %bit_gen_.i.i44, i64 %61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i.i59, i8 0, i64 240, i1 false), !alias.scope !21, !noalias !18
   invoke void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %bit_gen_.i.i44, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i.i4)
           to label %invoke.cont7.i.i unwind label %lpad6.i.i, !noalias !18

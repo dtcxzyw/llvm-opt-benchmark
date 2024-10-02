@@ -2491,8 +2491,8 @@ define hidden noundef zeroext i1 @_ZN2cv4ap3p5solveEPA3_dPddddddddddddddddddddd(
 .preheader:                                       ; preds = %23, %.preheader
   %indvar = phi i64 [ %indvar.next, %.preheader ], [ 0, %23 ]
   %88 = mul nuw nsw i64 %indvar, 24
-  %scevgep = getelementptr i8, ptr %1, i64 %88
-  %scevgep39 = getelementptr i8, ptr %26, i64 %88
+  %scevgep = getelementptr nuw i8, ptr %1, i64 %88
+  %scevgep39 = getelementptr nuw i8, ptr %26, i64 %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, ptr noundef nonnull align 8 dereferenceable(24) %scevgep39, i64 24, i1 false)
   %89 = getelementptr inbounds [3 x double], ptr %27, i64 0, i64 %indvar
   %90 = load double, ptr %89, align 8

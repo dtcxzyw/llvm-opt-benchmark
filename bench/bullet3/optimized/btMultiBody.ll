@@ -6658,7 +6658,7 @@ for.cond588.preheader:                            ; preds = %sw.bb575, %for.cond
   %505 = mul nuw nsw i64 %indvar, 12
   %scevgep = getelementptr i8, ptr %504, i64 %505
   %506 = shl nuw nsw i64 %indvar, 4
-  %scevgep2761 = getelementptr i8, ptr %invD3x3, i64 %506
+  %scevgep2761 = getelementptr nuw i8, ptr %invD3x3, i64 %506
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %scevgep2761, i64 12, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond2767.not = icmp eq i64 %indvar.next, 3

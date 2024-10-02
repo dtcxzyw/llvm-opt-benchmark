@@ -3704,7 +3704,7 @@ Vec_IntAlloc.exit:                                ; preds = %2, %11
   %indvar = phi i64 [ 0, %.preheader.lr.ph ], [ %indvar.next, %Vec_IntPush.exit30 ]
   %19 = mul nuw nsw i64 %indvar, 20
   %.val23 = load ptr, ptr %18, align 8
-  %scevgep34 = getelementptr i8, ptr %.val23, i64 %19
+  %scevgep34 = getelementptr nuw i8, ptr %.val23, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %scevgep34, i64 12, i1 false)
   %20 = mul nuw nsw i64 %indvar, 5
   %21 = getelementptr inbounds i32, ptr %.val23, i64 %20

@@ -1332,7 +1332,7 @@ _ZN4absl15random_internal15ExplicitSeedSeqC2IPKiEET_S5_.exit: ; preds = %for.inc
   %cond.i.i.i.i = getelementptr inbounds i8, ptr %engine, i64 %and.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i, i8 0, i64 16, i1 false)
   %9 = or disjoint i64 %and.i.i.i.i, 16
-  %scevgep.i.i = getelementptr i8, ptr %engine, i64 %9
+  %scevgep.i.i = getelementptr nuw i8, ptr %engine, i64 %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_15ExplicitSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %engine, ptr noundef nonnull align 8 dereferenceable(24) %seed_sequence)
           to label %for.cond.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp
@@ -2449,7 +2449,7 @@ _ZN4absl15random_internal15ExplicitSeedSeqC2IPKiEET_S5_.exit: ; preds = %for.inc
   %cond.i.i.i.i = getelementptr inbounds i8, ptr %engine, i64 %and.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i, i8 0, i64 16, i1 false)
   %9 = or disjoint i64 %and.i.i.i.i, 16
-  %scevgep.i.i = getelementptr i8, ptr %engine, i64 %9
+  %scevgep.i.i = getelementptr nuw i8, ptr %engine, i64 %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineIjE6reseedINS0_15ExplicitSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %engine, ptr noundef nonnull align 8 dereferenceable(24) %seed_sequence)
           to label %for.cond.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp
@@ -14948,7 +14948,7 @@ entry:
   %and.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i = getelementptr inbounds i8, ptr %engine, i64 %and.i.i.i.i
   %1 = or disjoint i64 %and.i.i.i.i, 16
-  %scevgep.i.i = getelementptr i8, ptr %engine, i64 %1
+  %scevgep.i.i = getelementptr nuw i8, ptr %engine, i64 %1
   %has_crypto_.i.i = getelementptr inbounds i8, ptr %engine, i64 280
   %add.ptr = getelementptr inbounds i8, ptr %stream, i64 16
   %impl_.i.i = getelementptr inbounds i8, ptr %new_engine, i64 272
@@ -15743,7 +15743,7 @@ entry:
   %and.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i = getelementptr inbounds i8, ptr %engine, i64 %and.i.i.i.i
   %1 = or disjoint i64 %and.i.i.i.i, 16
-  %scevgep.i.i = getelementptr i8, ptr %engine, i64 %1
+  %scevgep.i.i = getelementptr nuw i8, ptr %engine, i64 %1
   %has_crypto_.i.i = getelementptr inbounds i8, ptr %engine, i64 280
   %add.ptr = getelementptr inbounds i8, ptr %stream, i64 16
   %impl_.i.i = getelementptr inbounds i8, ptr %new_engine, i64 272
@@ -16403,7 +16403,7 @@ entry:
   %and.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i = getelementptr inbounds i8, ptr %engine, i64 %and.i.i.i.i
   %1 = or disjoint i64 %and.i.i.i.i, 16
-  %scevgep.i.i = getelementptr i8, ptr %engine, i64 %1
+  %scevgep.i.i = getelementptr nuw i8, ptr %engine, i64 %1
   %has_crypto_.i.i = getelementptr inbounds i8, ptr %engine, i64 280
   %add.ptr = getelementptr inbounds i8, ptr %stream, i64 16
   %impl_.i.i = getelementptr inbounds i8, ptr %new_engine, i64 272
@@ -17837,7 +17837,7 @@ invoke.cont10:                                    ; preds = %for.body.i.i.i4.i.i
   %cond.i.i.i.i42 = getelementptr inbounds i8, ptr %agg.tmp.ensured11, i64 %and.i.i.i.i41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i42, i8 0, i64 16, i1 false)
   %14 = or disjoint i64 %and.i.i.i.i41, 16
-  %scevgep.i.i = getelementptr i8, ptr %agg.tmp.ensured11, i64 %14
+  %scevgep.i.i = getelementptr nuw i8, ptr %agg.tmp.ensured11, i64 %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineItE6reseedISt8seed_seqEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %agg.tmp.ensured11, ptr noundef nonnull align 8 dereferenceable(24) %q)
           to label %invoke.cont12 unwind label %lpad5.loopexit.split-lp
@@ -17995,7 +17995,7 @@ invoke.cont32:                                    ; preds = %_ZN7testing15Assert
   %cond.i.i.i.i67 = getelementptr inbounds i8, ptr %tmp, i64 %and.i.i.i.i66
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i67, i8 0, i64 16, i1 false)
   %28 = or disjoint i64 %and.i.i.i.i66, 16
-  %scevgep.i.i68 = getelementptr i8, ptr %tmp, i64 %28
+  %scevgep.i.i68 = getelementptr nuw i8, ptr %tmp, i64 %28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i68, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineItE6reseedISt8seed_seqEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %tmp, ptr noundef nonnull align 8 dereferenceable(24) %q)
           to label %invoke.cont33 unwind label %lpad5.loopexit.split-lp
@@ -18151,7 +18151,7 @@ invoke.cont60:                                    ; preds = %_ZN7testing15Assert
   %cond.i.i.i.i110 = getelementptr inbounds i8, ptr %tmp62, i64 %and.i.i.i.i109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i110, i8 0, i64 16, i1 false)
   %44 = or disjoint i64 %and.i.i.i.i109, 16
-  %scevgep.i.i111 = getelementptr i8, ptr %tmp62, i64 %44
+  %scevgep.i.i111 = getelementptr nuw i8, ptr %tmp62, i64 %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i111, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineItE6reseedISt8seed_seqEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %tmp62, ptr noundef nonnull align 8 dereferenceable(24) %q)
           to label %invoke.cont63 unwind label %lpad5.loopexit.split-lp
@@ -18530,7 +18530,7 @@ invoke.cont10:                                    ; preds = %for.body.i.i.i4.i.i
   %cond.i.i.i.i42 = getelementptr inbounds i8, ptr %agg.tmp.ensured11, i64 %and.i.i.i.i41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i42, i8 0, i64 16, i1 false)
   %14 = or disjoint i64 %and.i.i.i.i41, 16
-  %scevgep.i.i = getelementptr i8, ptr %agg.tmp.ensured11, i64 %14
+  %scevgep.i.i = getelementptr nuw i8, ptr %agg.tmp.ensured11, i64 %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineIjE6reseedISt8seed_seqEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %agg.tmp.ensured11, ptr noundef nonnull align 8 dereferenceable(24) %q)
           to label %invoke.cont12 unwind label %lpad5.loopexit.split-lp
@@ -18688,7 +18688,7 @@ invoke.cont32:                                    ; preds = %_ZN7testing15Assert
   %cond.i.i.i.i67 = getelementptr inbounds i8, ptr %tmp, i64 %and.i.i.i.i66
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i67, i8 0, i64 16, i1 false)
   %28 = or disjoint i64 %and.i.i.i.i66, 16
-  %scevgep.i.i68 = getelementptr i8, ptr %tmp, i64 %28
+  %scevgep.i.i68 = getelementptr nuw i8, ptr %tmp, i64 %28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i68, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineIjE6reseedISt8seed_seqEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %tmp, ptr noundef nonnull align 8 dereferenceable(24) %q)
           to label %invoke.cont33 unwind label %lpad5.loopexit.split-lp
@@ -18844,7 +18844,7 @@ invoke.cont60:                                    ; preds = %_ZN7testing15Assert
   %cond.i.i.i.i110 = getelementptr inbounds i8, ptr %tmp62, i64 %and.i.i.i.i109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i110, i8 0, i64 16, i1 false)
   %44 = or disjoint i64 %and.i.i.i.i109, 16
-  %scevgep.i.i111 = getelementptr i8, ptr %tmp62, i64 %44
+  %scevgep.i.i111 = getelementptr nuw i8, ptr %tmp62, i64 %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i111, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineIjE6reseedISt8seed_seqEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %tmp62, ptr noundef nonnull align 8 dereferenceable(24) %q)
           to label %invoke.cont63 unwind label %lpad5.loopexit.split-lp
@@ -19223,7 +19223,7 @@ invoke.cont10:                                    ; preds = %for.body.i.i.i4.i.i
   %cond.i.i.i.i42 = getelementptr inbounds i8, ptr %agg.tmp.ensured11, i64 %and.i.i.i.i41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i42, i8 0, i64 16, i1 false)
   %14 = or disjoint i64 %and.i.i.i.i41, 16
-  %scevgep.i.i = getelementptr i8, ptr %agg.tmp.ensured11, i64 %14
+  %scevgep.i.i = getelementptr nuw i8, ptr %agg.tmp.ensured11, i64 %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedISt8seed_seqEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %agg.tmp.ensured11, ptr noundef nonnull align 8 dereferenceable(24) %q)
           to label %invoke.cont12 unwind label %lpad5.loopexit.split-lp
@@ -19381,7 +19381,7 @@ invoke.cont32:                                    ; preds = %_ZN7testing15Assert
   %cond.i.i.i.i67 = getelementptr inbounds i8, ptr %tmp, i64 %and.i.i.i.i66
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i67, i8 0, i64 16, i1 false)
   %28 = or disjoint i64 %and.i.i.i.i66, 16
-  %scevgep.i.i68 = getelementptr i8, ptr %tmp, i64 %28
+  %scevgep.i.i68 = getelementptr nuw i8, ptr %tmp, i64 %28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i68, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedISt8seed_seqEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %tmp, ptr noundef nonnull align 8 dereferenceable(24) %q)
           to label %invoke.cont33 unwind label %lpad5.loopexit.split-lp
@@ -19537,7 +19537,7 @@ invoke.cont60:                                    ; preds = %_ZN7testing15Assert
   %cond.i.i.i.i110 = getelementptr inbounds i8, ptr %tmp62, i64 %and.i.i.i.i109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i110, i8 0, i64 16, i1 false)
   %44 = or disjoint i64 %and.i.i.i.i109, 16
-  %scevgep.i.i111 = getelementptr i8, ptr %tmp62, i64 %44
+  %scevgep.i.i111 = getelementptr nuw i8, ptr %tmp62, i64 %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i111, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedISt8seed_seqEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %tmp62, ptr noundef nonnull align 8 dereferenceable(24) %q)
           to label %invoke.cont63 unwind label %lpad5.loopexit.split-lp
@@ -20121,7 +20121,7 @@ _ZN4absl15random_internal13randen_engineItE4seedEt.exit58: ; preds = %for.body.i
   %cond.i.i.i.i = getelementptr inbounds i8, ptr %engine6, i64 %and.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i, i8 0, i64 16, i1 false)
   %5 = or disjoint i64 %and.i.i.i.i, 16
-  %scevgep.i.i = getelementptr i8, ptr %engine6, i64 %5
+  %scevgep.i.i = getelementptr nuw i8, ptr %engine6, i64 %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineItE6reseedISt8seed_seqEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %engine6, ptr noundef nonnull align 8 dereferenceable(24) %seed_seq)
           to label %invoke.cont unwind label %lpad
@@ -20156,7 +20156,7 @@ _ZNSt8seed_seqD2Ev.exit:                          ; preds = %invoke.cont7, %if.t
   %cond.i.i.i.i68 = getelementptr inbounds i8, ptr %engine8, i64 %and.i.i.i.i67
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i68, i8 0, i64 16, i1 false)
   %8 = or disjoint i64 %and.i.i.i.i67, 16
-  %scevgep.i.i69 = getelementptr i8, ptr %engine8, i64 %8
+  %scevgep.i.i69 = getelementptr nuw i8, ptr %engine8, i64 %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i69, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineItE6reseedISt8seed_seqEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %engine8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp9)
           to label %invoke.cont11 unwind label %lpad10
@@ -20413,7 +20413,7 @@ _ZN4absl15random_internal13randen_engineIjE4seedEj.exit57: ; preds = %for.body.i
   %cond.i.i.i.i = getelementptr inbounds i8, ptr %engine6, i64 %and.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i, i8 0, i64 16, i1 false)
   %5 = or disjoint i64 %and.i.i.i.i, 16
-  %scevgep.i.i = getelementptr i8, ptr %engine6, i64 %5
+  %scevgep.i.i = getelementptr nuw i8, ptr %engine6, i64 %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineIjE6reseedISt8seed_seqEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %engine6, ptr noundef nonnull align 8 dereferenceable(24) %seed_seq)
           to label %invoke.cont unwind label %lpad
@@ -20448,7 +20448,7 @@ _ZNSt8seed_seqD2Ev.exit:                          ; preds = %invoke.cont7, %if.t
   %cond.i.i.i.i67 = getelementptr inbounds i8, ptr %engine8, i64 %and.i.i.i.i66
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i67, i8 0, i64 16, i1 false)
   %8 = or disjoint i64 %and.i.i.i.i66, 16
-  %scevgep.i.i68 = getelementptr i8, ptr %engine8, i64 %8
+  %scevgep.i.i68 = getelementptr nuw i8, ptr %engine8, i64 %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i68, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineIjE6reseedISt8seed_seqEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %engine8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp9)
           to label %invoke.cont11 unwind label %lpad10
@@ -20705,7 +20705,7 @@ _ZN4absl15random_internal13randen_engineImE4seedEm.exit58: ; preds = %for.body.i
   %cond.i.i.i.i = getelementptr inbounds i8, ptr %engine6, i64 %and.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i, i8 0, i64 16, i1 false)
   %5 = or disjoint i64 %and.i.i.i.i, 16
-  %scevgep.i.i = getelementptr i8, ptr %engine6, i64 %5
+  %scevgep.i.i = getelementptr nuw i8, ptr %engine6, i64 %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedISt8seed_seqEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %engine6, ptr noundef nonnull align 8 dereferenceable(24) %seed_seq)
           to label %invoke.cont unwind label %lpad
@@ -20740,7 +20740,7 @@ _ZNSt8seed_seqD2Ev.exit:                          ; preds = %invoke.cont7, %if.t
   %cond.i.i.i.i68 = getelementptr inbounds i8, ptr %engine8, i64 %and.i.i.i.i67
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i68, i8 0, i64 16, i1 false)
   %8 = or disjoint i64 %and.i.i.i.i67, 16
-  %scevgep.i.i69 = getelementptr i8, ptr %engine8, i64 %8
+  %scevgep.i.i69 = getelementptr nuw i8, ptr %engine8, i64 %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i69, i8 0, i64 240, i1 false)
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedISt8seed_seqEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %engine8, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp9)
           to label %invoke.cont11 unwind label %lpad10

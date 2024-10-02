@@ -79,9 +79,9 @@ define void @If_Dec10Verify(ptr noundef %0, i32 noundef %1, ptr nocapture nounde
 .preheader45.us:                                  ; preds = %.preheader45.us.preheader, %.preheader45.us
   %indvar = phi i64 [ 0, %.preheader45.us.preheader ], [ %indvar.next, %.preheader45.us ]
   %15 = shl nuw nsw i64 %indvar, 7
-  %scevgep = getelementptr i8, ptr %5, i64 %15
-  %scevgep62 = getelementptr i8, ptr @Truth10, i64 %15
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %scevgep, ptr align 16 %scevgep62, i64 %14, i1 false)
+  %scevgep = getelementptr nuw i8, ptr %5, i64 %15
+  %scevgep62 = getelementptr nuw i8, ptr @Truth10, i64 %15
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %scevgep, ptr nonnull align 16 %scevgep62, i64 %14, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader44, label %.preheader45.us, !llvm.loop !6

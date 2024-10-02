@@ -12456,10 +12456,10 @@ Vec_WrdStart.exit:                                ; preds = %1, %4
   br i1 %35, label %.lr.ph84, label %._crit_edge
 
 .lr.ph84:                                         ; preds = %.critedge2
-  %scevgep = getelementptr i8, ptr %8, i64 %26
+  %scevgep = getelementptr nuw i8, ptr %8, i64 %26
   %101 = zext nneg i32 %36 to i64
   %102 = shl nuw nsw i64 %101, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %102, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %scevgep, i8 0, i64 %102, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph84, %.critedge2

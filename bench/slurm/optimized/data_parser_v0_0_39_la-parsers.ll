@@ -1969,7 +1969,7 @@ find_parser_by_type.exit:
   %7 = tail call ptr @data_key_set(ptr noundef %4, ptr noundef nonnull @.str.31) #16
   %8 = tail call ptr @set_openapi_props(ptr noundef %7, i32 noundef 2, ptr noundef nonnull @.str.32) #16
   %9 = tail call ptr @data_key_set(ptr noundef %4, ptr noundef nonnull @.str.33) #16
-  tail call void @set_openapi_parse_ref(ptr noundef %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 3864), ptr noundef %2, ptr noundef %1) #16
+  tail call void @set_openapi_parse_ref(ptr noundef %9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 3864), ptr noundef %2, ptr noundef %1) #16
   ret void
 }
 
@@ -3534,7 +3534,7 @@ define internal i32 @_v39_dump_SLURM_STEP_ID(ptr nocapture readnone %0, ptr noun
 
 find_parser_by_type.exit:                         ; preds = %20
   %23 = tail call ptr @data_key_set(ptr noundef %2, ptr noundef nonnull @.str.33) #16
-  %24 = tail call i32 @dump(ptr noundef nonnull %21, i64 noundef 4, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 3864), ptr noundef %23, ptr noundef %3) #16
+  %24 = tail call i32 @dump(ptr noundef nonnull %21, i64 noundef 4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 3864), ptr noundef %23, ptr noundef %3) #16
   br label %25
 
 25:                                               ; preds = %find_parser_by_type.exit, %20
@@ -4229,7 +4229,7 @@ define internal i32 @_v39_dump_MEM_PER_CPUS(ptr nocapture readnone %0, ptr nocap
   br label %find_parser_by_type.exit
 
 find_parser_by_type.exit:                         ; preds = %4, %7
-  %9 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 672), ptr noundef %2, ptr noundef %3) #16
+  %9 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 672), ptr noundef %2, ptr noundef %3) #16
   ret i32 %9
 }
 
@@ -4260,7 +4260,7 @@ define internal i32 @_v39_parse_MEM_PER_CPUS(ptr nocapture noundef readonly %0, 
   br i1 %19, label %find_parser_by_type.exit, label %21
 
 find_parser_by_type.exit:                         ; preds = %14, %17
-  %20 = call i32 @parse(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 672), ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
+  %20 = call i32 @parse(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 672), ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
   %.not34 = icmp eq i32 %20, 0
   br i1 %.not34, label %find_parser_by_type.exit._crit_edge, label %54
 
@@ -4353,7 +4353,7 @@ find_parser_by_type.exit:
   %.not = icmp sgt i64 %5, -1
   %spec.store.select = select i1 %.not, i64 %5, i64 -2
   store i64 %spec.store.select, ptr %4, align 8
-  %6 = call i32 @dump(ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 672), ptr noundef %2, ptr noundef %3) #16
+  %6 = call i32 @dump(ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 672), ptr noundef %2, ptr noundef %3) #16
   ret i32 %6
 }
 
@@ -4384,7 +4384,7 @@ define internal i32 @_v39_parse_MEM_PER_NODE(ptr nocapture noundef readonly %0, 
   br i1 %19, label %find_parser_by_type.exit, label %21
 
 find_parser_by_type.exit:                         ; preds = %14, %17
-  %20 = call i32 @parse(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 672), ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
+  %20 = call i32 @parse(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 672), ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
   %.not34 = icmp eq i32 %20, 0
   br i1 %.not34, label %find_parser_by_type.exit._crit_edge, label %53
 
@@ -5352,7 +5352,7 @@ define internal i32 @_v39_dump_JOB_ASSOC_ID(ptr nocapture noundef readonly %0, p
   br label %23
 
 find_parser_by_type.exit:                         ; preds = %13
-  %22 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 16632), ptr noundef %2, ptr noundef %3) #16
+  %22 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 16632), ptr noundef %2, ptr noundef %3) #16
   br label %23
 
 23:                                               ; preds = %find_parser_by_type.exit, %17
@@ -5499,7 +5499,7 @@ define internal i32 @_v39_dump_QOS_PREEMPT_LIST(ptr nocapture noundef readonly %
 define internal i32 @_v39_parse_QOS_PREEMPT_LIST(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
 find_parser_by_type.exit:
   %5 = getelementptr inbounds i8, ptr %1, i64 272
-  %6 = tail call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 2856), ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
+  %6 = tail call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 2856), ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %12
 
@@ -5538,7 +5538,7 @@ define internal i32 @_v39_dump_STEP_NODES(ptr nocapture readnone %0, ptr nocaptu
   br label %16
 
 find_parser_by_type.exit:                         ; preds = %8
-  %13 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 6888), ptr noundef %2, ptr noundef %3) #16
+  %13 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 6888), ptr noundef %2, ptr noundef %3) #16
   %14 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %14, null
   br i1 %.not9, label %16, label %15
@@ -6835,7 +6835,7 @@ define internal i32 @_v39_dump_JOB_DESC_MSG_ARGV(ptr nocapture readnone %0, ptr 
   br i1 %.not7, label %9, label %find_parser_by_type.exit
 
 find_parser_by_type.exit:                         ; preds = %5
-  %8 = tail call i32 @dump(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 7728), ptr noundef %2, ptr noundef %3) #16
+  %8 = tail call i32 @dump(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 7728), ptr noundef %2, ptr noundef %3) #16
   br label %9
 
 9:                                                ; preds = %4, %5, %find_parser_by_type.exit
@@ -6851,7 +6851,7 @@ define internal i32 @_v39_parse_JOB_DESC_MSG_ARGV(ptr nocapture readnone %0, ptr
 
 find_parser_by_type.exit:                         ; preds = %5
   %8 = getelementptr inbounds i8, ptr %1, i64 48
-  %9 = tail call i32 @parse(ptr noundef nonnull %8, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 7728), ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
+  %9 = tail call i32 @parse(ptr noundef nonnull %8, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 7728), ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
   %10 = getelementptr inbounds i8, ptr %1, i64 40
   %11 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %11, null
@@ -6975,7 +6975,7 @@ define internal i32 @_v39_dump_JOB_DESC_MSG_ENV(ptr nocapture readnone %0, ptr n
   br i1 %.not7, label %9, label %find_parser_by_type.exit
 
 find_parser_by_type.exit:                         ; preds = %5
-  %8 = tail call i32 @dump(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 7728), ptr noundef %2, ptr noundef %3) #16
+  %8 = tail call i32 @dump(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 7728), ptr noundef %2, ptr noundef %3) #16
   br label %9
 
 9:                                                ; preds = %4, %5, %find_parser_by_type.exit
@@ -6991,7 +6991,7 @@ define internal i32 @_v39_parse_JOB_DESC_MSG_ENV(ptr nocapture readnone %0, ptr 
 
 find_parser_by_type.exit:                         ; preds = %5
   %8 = getelementptr inbounds i8, ptr %1, i64 232
-  %9 = tail call i32 @parse(ptr noundef nonnull %8, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 7728), ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
+  %9 = tail call i32 @parse(ptr noundef nonnull %8, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 7728), ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
   %10 = load ptr, ptr %8, align 8
   %11 = tail call i32 @envcount(ptr noundef %10) #16
   %12 = getelementptr inbounds i8, ptr %1, i64 276
@@ -7015,7 +7015,7 @@ define internal i32 @_v39_dump_JOB_DESC_MSG_SPANK_ENV(ptr nocapture readnone %0,
   br i1 %.not7, label %9, label %find_parser_by_type.exit
 
 find_parser_by_type.exit:                         ; preds = %5
-  %8 = tail call i32 @dump(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 7728), ptr noundef %2, ptr noundef %3) #16
+  %8 = tail call i32 @dump(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 7728), ptr noundef %2, ptr noundef %3) #16
   br label %9
 
 9:                                                ; preds = %4, %5, %find_parser_by_type.exit
@@ -7031,7 +7031,7 @@ define internal i32 @_v39_parse_JOB_DESC_MSG_SPANK_ENV(ptr nocapture readnone %0
 
 find_parser_by_type.exit:                         ; preds = %5
   %8 = getelementptr inbounds i8, ptr %1, i64 624
-  %9 = tail call i32 @parse(ptr noundef nonnull %8, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 7728), ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
+  %9 = tail call i32 @parse(ptr noundef nonnull %8, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 7728), ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
   %10 = load ptr, ptr %8, align 8
   %11 = tail call i32 @envcount(ptr noundef %10) #16
   %12 = getelementptr inbounds i8, ptr %1, i64 632

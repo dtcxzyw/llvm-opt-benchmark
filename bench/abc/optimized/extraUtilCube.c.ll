@@ -986,7 +986,7 @@ Abc_Clock.exit:                                   ; preds = %0, %11
   %gep208 = getelementptr i8, ptr %invariant.gep207, i64 %109
   %gep210 = getelementptr i8, ptr %invariant.gep209, i64 %110
   %gep212 = getelementptr i8, ptr %invariant.gep211, i64 %109
-  %scevgep179 = getelementptr i8, ptr %7, i64 %110
+  %scevgep179 = getelementptr nuw i8, ptr %7, i64 %110
   %111 = getelementptr inbounds [9 x [24 x i8]], ptr %7, i64 0, i64 %indvar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef nonnull align 16 dereferenceable(24) %6, i64 24, i1 false)
   br label %112

@@ -19506,7 +19506,7 @@ _ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EEC2EmRKS3_.exit: ; preds = %.lr.ph.preheader
 .lr.ph.i:                                         ; preds = %_ZN2cvpLIffLi3EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.i, %.lr.ph.preheader.i
   %indvar.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvar.next.i, %_ZN2cvpLIffLi3EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.i ]
   %46 = mul nuw nsw i64 %indvar.i, 12
-  %scevgep.i = getelementptr i8, ptr %34, i64 %46
+  %scevgep.i = getelementptr nuw i8, ptr %34, i64 %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %scevgep.i, i64 12, i1 false)
   br label %_ZN2cv3VecIfLi3EEC2ERKS1_.exit.i
 
@@ -19760,7 +19760,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU16FilterIC_horPass
   %indvar.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvar.next.i, %_ZN2cvpLIffLi3EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.i ]
   %69 = mul nuw nsw i64 %indvar.i, 12
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %69
-  %scevgep.i = getelementptr i8, ptr %48, i64 %69
+  %scevgep.i = getelementptr nuw i8, ptr %48, i64 %69
   %70 = getelementptr inbounds float, ptr %56, i64 %indvar.i
   %71 = load float, ptr %70, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %scevgep.i, i64 12, i1 false)
@@ -20891,7 +20891,7 @@ _ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EEC2EmRKS3_.exit: ; preds = %.lr.ph.preheader
 .lr.ph.i:                                         ; preds = %_ZN2cvpLIffLi4EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.i, %.lr.ph.preheader.i
   %indvar.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvar.next.i, %_ZN2cvpLIffLi4EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.i ]
   %46 = shl nuw nsw i64 %indvar.i, 4
-  %scevgep.i = getelementptr i8, ptr %34, i64 %46
+  %scevgep.i = getelementptr nuw i8, ptr %34, i64 %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %scevgep.i, i64 16, i1 false)
   br label %_ZN2cv3VecIfLi4EEC2ERKS1_.exit.i
 
@@ -21145,7 +21145,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU16FilterIC_horPass
   %indvar.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvar.next.i, %_ZN2cvpLIffLi4EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.i ]
   %69 = shl nuw nsw i64 %indvar.i, 4
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %69
-  %scevgep.i = getelementptr i8, ptr %48, i64 %69
+  %scevgep.i = getelementptr nuw i8, ptr %48, i64 %69
   %70 = getelementptr inbounds float, ptr %56, i64 %indvar.i
   %71 = load float, ptr %70, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %scevgep.i, i64 16, i1 false)

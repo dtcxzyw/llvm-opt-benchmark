@@ -5697,7 +5697,7 @@ entry:
   %0 = load ptr, ptr %grad, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ne, ptr noundef nonnull align 16 dereferenceable(32) @__const.ggml_sum_rows.ne, i64 16, i1 false)
   %scevgep = getelementptr inbounds i8, ptr %ne, i64 8
-  %scevgep13 = getelementptr i8, ptr %a, i64 24
+  %scevgep13 = getelementptr nuw i8, ptr %a, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, ptr noundef nonnull align 8 dereferenceable(24) %scevgep13, i64 24, i1 false)
   %tobool.not.not = icmp eq ptr %0, null
   %1 = load i32, ptr %a, align 8

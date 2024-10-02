@@ -105,7 +105,7 @@ for.body38:                                       ; preds = %for.end35, %for.bod
   br i1 %exitcond125.not, label %for.cond71.preheader, label %for.body38, !llvm.loop !8
 
 for.cond71.preheader:                             ; preds = %for.body38
-  %scevgep = getelementptr i8, ptr %call2, i64 144192
+  %scevgep = getelementptr nuw i8, ptr %call2, i64 144192
   store i64 0, ptr %scevgep, align 4
   %arrayidx59 = getelementptr inbounds i8, ptr %call2, i64 144200
   store i32 34845, ptr %arrayidx59, align 4
@@ -114,7 +114,7 @@ for.cond71.preheader:                             ; preds = %for.body38
   br label %for.body73
 
 for.cond80.preheader:                             ; preds = %for.body73
-  %scevgep137 = getelementptr i8, ptr %call2, i64 10496
+  %scevgep137 = getelementptr nuw i8, ptr %call2, i64 10496
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2304) %scevgep137, i8 -1, i64 2304, i1 false)
   br label %for.body92
 

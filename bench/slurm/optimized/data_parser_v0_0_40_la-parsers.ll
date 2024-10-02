@@ -5817,7 +5817,7 @@ find_parser_by_type.exit:
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 1344), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %7 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 1344), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   switch i32 %7, label %.critedge [
     i32 22, label %12
     i32 0, label %8
@@ -5872,7 +5872,7 @@ define internal i32 @_v40_dump_MEM_PER_CPUS(ptr nocapture readnone %0, ptr nocap
   br label %find_parser_by_type.exit
 
 find_parser_by_type.exit:                         ; preds = %4, %7
-  %9 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3) #18
+  %9 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3) #18
   ret i32 %9
 }
 
@@ -5906,7 +5906,7 @@ define internal i32 @_v40_parse_MEM_PER_CPUS(ptr nocapture noundef readonly %0, 
   br label %31
 
 find_parser_by_type.exit:                         ; preds = %10
-  %20 = call i32 @parse(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %20 = call i32 @parse(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %thread-pre-split, label %31
 
@@ -5955,7 +5955,7 @@ find_parser_by_type.exit:
   %.not = icmp sgt i64 %5, -1
   %spec.store.select = select i1 %.not, i64 %5, i64 -2
   store i64 %spec.store.select, ptr %4, align 8
-  %6 = call i32 @dump(ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3) #18
+  %6 = call i32 @dump(ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3) #18
   ret i32 %6
 }
 
@@ -5989,7 +5989,7 @@ define internal i32 @_v40_parse_MEM_PER_NODE(ptr nocapture noundef readonly %0, 
   br label %30
 
 find_parser_by_type.exit:                         ; preds = %10
-  %20 = call i32 @parse(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %20 = call i32 @parse(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %thread-pre-split, label %30
 
@@ -7157,7 +7157,7 @@ find_parser_by_type.exit:
   %4 = alloca i64, align 8
   %5 = load i64, ptr %1, align 8
   store i64 %5, ptr %4, align 8
-  %6 = call i32 @dump(ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 576), ptr noundef %2, ptr noundef %3) #18
+  %6 = call i32 @dump(ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 576), ptr noundef %2, ptr noundef %3) #18
   ret i32 %6
 }
 
@@ -7192,7 +7192,7 @@ find_parser_by_type.exit:
   %4 = alloca i64, align 8
   %5 = load i64, ptr %1, align 8
   store i64 %5, ptr %4, align 8
-  %6 = call i32 @dump(ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3) #18
+  %6 = call i32 @dump(ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3) #18
   ret i32 %6
 }
 
@@ -7285,7 +7285,7 @@ find_parser_by_type.exit:                         ; preds = %8
   %15 = tail call ptr @data_list_append(ptr noundef %14) #18
   %16 = load ptr, ptr %1, align 8
   %17 = tail call ptr @data_set_string(ptr noundef %15, ptr noundef %16) #18
-  %18 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 4608), ptr noundef %17, ptr noundef %3, ptr noundef %14) #18
+  %18 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 4608), ptr noundef %17, ptr noundef %3, ptr noundef %14) #18
   %.not18 = icmp eq ptr %14, null
   br i1 %.not18, label %20, label %19
 
@@ -7323,7 +7323,7 @@ find_parser_by_type.exit:                         ; preds = %8
 define internal i32 @_v40_parse_GROUP_ID_STRING(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
 find_parser_by_type.exit:
   %5 = alloca i32, align 4
-  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 4608), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 4608), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %10
 
@@ -7361,7 +7361,7 @@ find_parser_by_type.exit:                         ; preds = %8
   %15 = tail call ptr @data_list_append(ptr noundef %14) #18
   %16 = load ptr, ptr %1, align 8
   %17 = tail call ptr @data_set_string(ptr noundef %15, ptr noundef %16) #18
-  %18 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 5184), ptr noundef %17, ptr noundef %3, ptr noundef %14) #18
+  %18 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 5184), ptr noundef %17, ptr noundef %3, ptr noundef %14) #18
   %.not18 = icmp eq ptr %14, null
   br i1 %.not18, label %20, label %19
 
@@ -7399,7 +7399,7 @@ find_parser_by_type.exit:                         ; preds = %8
 define internal i32 @_v40_parse_USER_ID_STRING(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
 find_parser_by_type.exit:
   %5 = alloca i32, align 4
-  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 5184), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 5184), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %10
 
@@ -7521,7 +7521,7 @@ find_parser_by_type.exit:                         ; preds = %12, %.preheader
 ; Function Attrs: nounwind uwtable
 define internal i32 @_v40_dump_QOS_NAME_CSV_LIST(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #3 {
 find_parser_by_type.exit:
-  %4 = tail call i32 @dump(ptr noundef %1, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 5760), ptr noundef %2, ptr noundef %3) #18
+  %4 = tail call i32 @dump(ptr noundef %1, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 5760), ptr noundef %2, ptr noundef %3) #18
   ret i32 %4
 }
 
@@ -7535,7 +7535,7 @@ find_parser_by_type.exit:
   store ptr %8, ptr %5, align 8
   %9 = tail call ptr @data_new() #18
   store ptr null, ptr %6, align 8
-  %10 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 5760), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %10 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 5760), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %.loopexit
 
@@ -7561,7 +7561,7 @@ find_parser_by_type.exit:
 .lr.ph:                                           ; preds = %14, %20
   store ptr null, ptr %7, align 8
   %18 = call ptr @_data_set_string_own(ptr noundef %9, ptr noundef nonnull %6) #18
-  %19 = call i32 @parse(ptr noundef nonnull %7, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 3072), ptr noundef %9, ptr noundef %3, ptr noundef %4) #18
+  %19 = call i32 @parse(ptr noundef nonnull %7, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 3072), ptr noundef %9, ptr noundef %3, ptr noundef %4) #18
   %.not24 = icmp eq i32 %19, 0
   br i1 %.not24, label %20, label %.loopexit
 
@@ -7660,7 +7660,7 @@ define internal i32 @_v40_dump_QOS_ID_STRING_CSV_LIST(ptr nocapture readnone %0,
 find_parser_by_type.exit:
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8
-  %5 = call i32 @dump(ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 5760), ptr noundef %2, ptr noundef %3) #18
+  %5 = call i32 @dump(ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 5760), ptr noundef %2, ptr noundef %3) #18
   ret i32 %5
 }
 
@@ -7674,7 +7674,7 @@ find_parser_by_type.exit:
   store ptr %8, ptr %5, align 8
   %9 = tail call ptr @data_new() #18
   store ptr null, ptr %6, align 8
-  %10 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 5760), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %10 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 5760), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %.loopexit
 
@@ -7690,7 +7690,7 @@ find_parser_by_type.exit:
 .lr.ph:                                           ; preds = %11, %17
   store ptr null, ptr %7, align 8
   %15 = call ptr @_data_set_string_own(ptr noundef %9, ptr noundef nonnull %6) #18
-  %16 = call i32 @parse(ptr noundef nonnull %7, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 11520), ptr noundef %9, ptr noundef %3, ptr noundef %4) #18
+  %16 = call i32 @parse(ptr noundef nonnull %7, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 11520), ptr noundef %9, ptr noundef %3, ptr noundef %4) #18
   %.not19 = icmp eq i32 %16, 0
   br i1 %.not19, label %17, label %.loopexit
 
@@ -7756,7 +7756,7 @@ define internal i32 @_v40_dump_ASSOC_ID_STRING_CSV_LIST(ptr nocapture readnone %
 find_parser_by_type.exit:
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8
-  %5 = call i32 @dump(ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 5760), ptr noundef %2, ptr noundef %3) #18
+  %5 = call i32 @dump(ptr noundef nonnull %4, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 5760), ptr noundef %2, ptr noundef %3) #18
   ret i32 %5
 }
 
@@ -7770,7 +7770,7 @@ find_parser_by_type.exit:
   store ptr %8, ptr %5, align 8
   %9 = tail call ptr @data_new() #18
   store ptr null, ptr %6, align 8
-  %10 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 5760), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %10 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 5760), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %.loopexit
 
@@ -7786,7 +7786,7 @@ find_parser_by_type.exit:
 .lr.ph:                                           ; preds = %11, %17
   store ptr null, ptr %7, align 8
   %15 = call ptr @_data_set_string_own(ptr noundef %9, ptr noundef nonnull %6) #18
-  %16 = call i32 @parse(ptr noundef nonnull %7, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 11904), ptr noundef %9, ptr noundef %3, ptr noundef %4) #18
+  %16 = call i32 @parse(ptr noundef nonnull %7, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 11904), ptr noundef %9, ptr noundef %3, ptr noundef %4) #18
   %.not19 = icmp eq i32 %16, 0
   br i1 %.not19, label %17, label %.loopexit
 
@@ -7915,7 +7915,7 @@ define internal i32 @_v40_parse_PROCESS_EXIT_CODE(ptr nocapture readnone %0, ptr
   br i1 %8, label %find_parser_by_type.exit, label %.preheader18
 
 find_parser_by_type.exit:                         ; preds = %5
-  %9 = tail call i32 @parse(ptr noundef %1, i64 noundef 4, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 384), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %9 = tail call i32 @parse(ptr noundef %1, i64 noundef 4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 384), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   br label %19
 
 10:                                               ; preds = %.preheader18
@@ -7957,7 +7957,7 @@ find_parser_by_type.exit:
   store i32 -2, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  %7 = call i32 @dump(ptr noundef nonnull %4, i64 noundef 20, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 10560), ptr noundef %2, ptr noundef %3) #18
+  %7 = call i32 @dump(ptr noundef nonnull %4, i64 noundef 20, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 10560), ptr noundef %2, ptr noundef %3) #18
   ret i32 %7
 }
 
@@ -7971,7 +7971,7 @@ define internal i32 @_v40_parse_SLURM_STEP_ID_STRING(ptr nocapture readnone %0, 
 
 find_parser_by_type.exit:                         ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false)
-  %10 = call i32 @parse(ptr noundef nonnull %6, i64 noundef 20, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 10560), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %10 = call i32 @parse(ptr noundef nonnull %6, i64 noundef 20, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 10560), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %23
 
@@ -8223,7 +8223,7 @@ define internal i32 @_v40_parse_ASSOC_ID(ptr nocapture readnone %0, ptr noundef 
 
 find_parser_by_type.exit:                         ; preds = %5
   %10 = getelementptr inbounds i8, ptr %1, i64 132
-  %11 = call i32 @parse(ptr noundef nonnull %10, i64 noundef 4, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 192), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %11 = call i32 @parse(ptr noundef nonnull %10, i64 noundef 4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 192), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not22 = icmp eq i32 %11, 0
   br i1 %.not22, label %12, label %30
 
@@ -8480,7 +8480,7 @@ define internal i32 @_v40_dump_QOS_PREEMPT_LIST(ptr nocapture noundef readonly %
 define internal i32 @_v40_parse_QOS_PREEMPT_LIST(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
 find_parser_by_type.exit:
   %5 = getelementptr inbounds i8, ptr %1, i64 272
-  %6 = tail call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 3456), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %6 = tail call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 3456), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   ret i32 %6
 }
 
@@ -8504,7 +8504,7 @@ define internal i32 @_v40_dump_STEP_NODES(ptr nocapture readnone %0, ptr nocaptu
   br label %16
 
 find_parser_by_type.exit:                         ; preds = %8
-  %13 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 7872), ptr noundef %2, ptr noundef %3) #18
+  %13 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 7872), ptr noundef %2, ptr noundef %3) #18
   %14 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %14, null
   br i1 %.not9, label %16, label %15
@@ -10623,7 +10623,7 @@ define internal i32 @_v40_dump_JOB_DESC_MSG_ARGV(ptr nocapture readnone %0, ptr 
   br i1 %.not7, label %9, label %find_parser_by_type.exit
 
 find_parser_by_type.exit:                         ; preds = %5
-  %8 = tail call i32 @dump(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 8832), ptr noundef %2, ptr noundef %3) #18
+  %8 = tail call i32 @dump(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 8832), ptr noundef %2, ptr noundef %3) #18
   br label %9
 
 9:                                                ; preds = %4, %5, %find_parser_by_type.exit
@@ -10639,7 +10639,7 @@ define internal i32 @_v40_parse_JOB_DESC_MSG_ARGV(ptr nocapture readnone %0, ptr
 
 find_parser_by_type.exit:                         ; preds = %5
   %8 = getelementptr inbounds i8, ptr %1, i64 48
-  %9 = tail call i32 @parse(ptr noundef nonnull %8, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 8832), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %9 = tail call i32 @parse(ptr noundef nonnull %8, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 8832), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %10 = getelementptr inbounds i8, ptr %1, i64 40
   %11 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %11, null
@@ -10759,7 +10759,7 @@ define internal i32 @_v40_dump_JOB_DESC_MSG_ENV(ptr nocapture readnone %0, ptr n
   br i1 %.not7, label %9, label %find_parser_by_type.exit
 
 find_parser_by_type.exit:                         ; preds = %5
-  %8 = tail call i32 @dump(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 8832), ptr noundef %2, ptr noundef %3) #18
+  %8 = tail call i32 @dump(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 8832), ptr noundef %2, ptr noundef %3) #18
   br label %9
 
 9:                                                ; preds = %4, %5, %find_parser_by_type.exit
@@ -10775,7 +10775,7 @@ define internal i32 @_v40_parse_JOB_DESC_MSG_ENV(ptr nocapture readnone %0, ptr 
 
 find_parser_by_type.exit:                         ; preds = %5
   %8 = getelementptr inbounds i8, ptr %1, i64 232
-  %9 = tail call i32 @parse(ptr noundef nonnull %8, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 8832), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %9 = tail call i32 @parse(ptr noundef nonnull %8, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 8832), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %10 = load ptr, ptr %8, align 8
   %11 = tail call i32 @envcount(ptr noundef %10) #18
   %12 = getelementptr inbounds i8, ptr %1, i64 276
@@ -10799,7 +10799,7 @@ define internal i32 @_v40_dump_JOB_DESC_MSG_SPANK_ENV(ptr nocapture readnone %0,
   br i1 %.not7, label %9, label %find_parser_by_type.exit
 
 find_parser_by_type.exit:                         ; preds = %5
-  %8 = tail call i32 @dump(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 8832), ptr noundef %2, ptr noundef %3) #18
+  %8 = tail call i32 @dump(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 8832), ptr noundef %2, ptr noundef %3) #18
   br label %9
 
 9:                                                ; preds = %4, %5, %find_parser_by_type.exit
@@ -10815,7 +10815,7 @@ define internal i32 @_v40_parse_JOB_DESC_MSG_SPANK_ENV(ptr nocapture readnone %0
 
 find_parser_by_type.exit:                         ; preds = %5
   %8 = getelementptr inbounds i8, ptr %1, i64 624
-  %9 = tail call i32 @parse(ptr noundef nonnull %8, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 8832), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %9 = tail call i32 @parse(ptr noundef nonnull %8, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 8832), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %10 = load ptr, ptr %8, align 8
   %11 = tail call i32 @envcount(ptr noundef %10) #18
   %12 = getelementptr inbounds i8, ptr %1, i64 632
@@ -11200,7 +11200,7 @@ define internal i32 @_v40_dump_JOB_CONDITION_SUBMIT_TIME(ptr nocapture readnone 
   br label %find_parser_by_type.exit
 
 find_parser_by_type.exit:                         ; preds = %4, %9
-  %12 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 10368), ptr noundef %2, ptr noundef %3) #18
+  %12 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 10368), ptr noundef %2, ptr noundef %3) #18
   ret i32 %12
 }
 
@@ -11213,7 +11213,7 @@ define internal i32 @_v40_parse_JOB_CONDITION_SUBMIT_TIME(ptr nocapture readnone
   br i1 %8, label %18, label %find_parser_by_type.exit
 
 find_parser_by_type.exit:                         ; preds = %5
-  %9 = call i32 @parse(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 10368), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %9 = call i32 @parse(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 10368), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %10 = icmp eq i32 %9, 0
   %11 = load i64, ptr %6, align 8
   %12 = icmp ne i64 %11, -2
@@ -11248,7 +11248,7 @@ find_parser_by_type.exit.i:
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 -2, ptr %5, align 8
-  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %_parse_job_rlimit.exit
 
@@ -11290,7 +11290,7 @@ find_parser_by_type.exit.i:
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 -2, ptr %5, align 8
-  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %_parse_job_rlimit.exit
 
@@ -11332,7 +11332,7 @@ find_parser_by_type.exit.i:
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 -2, ptr %5, align 8
-  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %_parse_job_rlimit.exit
 
@@ -11374,7 +11374,7 @@ find_parser_by_type.exit.i:
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 -2, ptr %5, align 8
-  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %_parse_job_rlimit.exit
 
@@ -11416,7 +11416,7 @@ find_parser_by_type.exit.i:
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 -2, ptr %5, align 8
-  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %_parse_job_rlimit.exit
 
@@ -11458,7 +11458,7 @@ find_parser_by_type.exit.i:
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 -2, ptr %5, align 8
-  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %_parse_job_rlimit.exit
 
@@ -11500,7 +11500,7 @@ find_parser_by_type.exit.i:
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 -2, ptr %5, align 8
-  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %_parse_job_rlimit.exit
 
@@ -11542,7 +11542,7 @@ find_parser_by_type.exit.i:
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 -2, ptr %5, align 8
-  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %_parse_job_rlimit.exit
 
@@ -11584,7 +11584,7 @@ find_parser_by_type.exit.i:
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 -2, ptr %5, align 8
-  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %_parse_job_rlimit.exit
 
@@ -11626,7 +11626,7 @@ find_parser_by_type.exit.i:
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 -2, ptr %5, align 8
-  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
+  %6 = call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %2, ptr noundef %3, ptr noundef %4) #18
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %_parse_job_rlimit.exit
 
@@ -13000,7 +13000,7 @@ define internal fastcc i32 @_parse_timestamp(ptr nocapture noundef readonly %0, 
   br label %37
 
 find_parser_by_type.exit:                         ; preds = %8
-  %34 = call i32 @parse(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #18
+  %34 = call i32 @parse(ptr noundef nonnull %6, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #18
   %.not29 = icmp eq i32 %34, 0
   br i1 %.not29, label %35, label %37
 
@@ -13406,7 +13406,7 @@ find_parser_by_type.exit:                         ; preds = %2
   %6 = tail call ptr @data_set_list(ptr noundef %5) #18
   %7 = tail call ptr @data_new() #18
   %8 = tail call ptr @data_set_string(ptr noundef %7, ptr noundef nonnull %4) #18
-  %9 = call i32 @parse(ptr noundef nonnull %3, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %8, ptr noundef %1, ptr noundef %6) #18
+  %9 = call i32 @parse(ptr noundef nonnull %3, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %8, ptr noundef %1, ptr noundef %6) #18
   %.not19 = icmp eq ptr %8, null
   br i1 %.not19, label %11, label %10
 
@@ -13427,7 +13427,7 @@ find_parser_by_type.exit:                         ; preds = %2
   br i1 %.not21, label %find_parser_by_type.exit26, label %15
 
 find_parser_by_type.exit26:                       ; preds = %13, %2
-  %14 = call i32 @dump(ptr noundef nonnull %3, i64 noundef 8, ptr noundef nonnull getelementptr inbounds (i8, ptr @parsers, i64 768), ptr noundef %0, ptr noundef %1) #18
+  %14 = call i32 @dump(ptr noundef nonnull %3, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 768), ptr noundef %0, ptr noundef %1) #18
   br label %15
 
 15:                                               ; preds = %13, %find_parser_by_type.exit26

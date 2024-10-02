@@ -1852,7 +1852,7 @@ if.end236:                                        ; preds = %while.cond214, %if.
   %p.4 = phi ptr [ %incdec.ptr232, %if.then231 ], [ %p.3, %while.cond214 ]
   %incdec.ptr237 = getelementptr i8, ptr %prefix.02141, i64 1
   %73 = load i8, ptr %incdec.ptr237, align 1
-  %exitcond = icmp eq ptr %incdec.ptr237, getelementptr inbounds (i8, ptr @.str.28, i64 8)
+  %exitcond = icmp eq ptr %incdec.ptr237, getelementptr inbounds nuw (i8, ptr @.str.28, i64 8)
   br i1 %exitcond, label %if.then240, label %land.rhs204, !llvm.loop !13
 
 if.then240:                                       ; preds = %if.end236

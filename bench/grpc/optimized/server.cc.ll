@@ -1908,7 +1908,7 @@ invoke.cont42:                                    ; preds = %invoke.cont18
   %cond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bitgen_, i64 %and.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !52
   %15 = or disjoint i64 %and.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i = getelementptr i8, ptr %bitgen_, i64 %15
+  %scevgep.i.i.i.i = getelementptr nuw i8, ptr %bitgen_, i64 %15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !52
   invoke void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %bitgen_, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i)
           to label %invoke.cont45 unwind label %lpad17

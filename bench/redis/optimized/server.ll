@@ -6130,8 +6130,8 @@ entry:
   store i64 0, ptr getelementptr inbounds (i8, ptr @server, i64 5616), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @server, i64 5624), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @server, i64 5632), i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds (i8, ptr @server, i64 3808), ptr noundef nonnull align 16 dereferenceable(72) @clientBufferLimitsDefaults, i64 72, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds (i8, ptr @server, i64 4856), ptr noundef nonnull align 4 dereferenceable(12) @configOOMScoreAdjValuesDefaults, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds nuw (i8, ptr @server, i64 3808), ptr noundef nonnull align 16 dereferenceable(72) @clientBufferLimitsDefaults, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @server, i64 4856), ptr noundef nonnull align 4 dereferenceable(12) @configOOMScoreAdjValuesDefaults, i64 12, i1 false)
   store double 0.000000e+00, ptr @R_Zero, align 8
   store double 0x7FF0000000000000, ptr @R_PosInf, align 8
   store double 0xFFF0000000000000, ptr @R_NegInf, align 8

@@ -4365,7 +4365,7 @@ php_network_listen_socket.exit.i:                 ; preds = %146
   br label %php_cli_server_startup_workers.exit.i
 
 php_cli_server_startup_workers.exit.i:            ; preds = %193, %199, %188, %184, %177, %172
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) getelementptr inbounds (i8, ptr @server, i64 8), i8 0, i64 256, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) getelementptr inbounds nuw (i8, ptr @server, i64 8), i8 0, i64 256, i1 false)
   store i32 -1, ptr getelementptr inbounds (i8, ptr @server, i64 520), align 8
   %202 = icmp slt i32 %.317.i35.i, 1024
   br i1 %202, label %203, label %212

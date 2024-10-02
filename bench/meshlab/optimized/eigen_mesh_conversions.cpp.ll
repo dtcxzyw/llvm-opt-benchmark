@@ -19229,7 +19229,7 @@ define void @_ZN7meshlab29transformedVertexNormalMatrixERK6CMeshO(ptr dead_on_un
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %indvar = phi i64 [ 0, %2 ], [ %indvar.next, %.preheader.i ]
   %8 = mul nuw nsw i64 %indvar, 12
-  %scevgep = getelementptr i8, ptr %4, i64 %8
+  %scevgep = getelementptr nuw i8, ptr %4, i64 %8
   %9 = shl nuw nsw i64 %indvar, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %gep, i64 12, i1 false)
@@ -19452,7 +19452,7 @@ define void @_ZN7meshlab16faceNormalMatrixERK6CMeshO(ptr dead_on_unwind noalias 
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %indvar = phi i64 [ 0, %2 ], [ %indvar.next, %.preheader.i ]
   %8 = mul nuw nsw i64 %indvar, 12
-  %scevgep = getelementptr i8, ptr %4, i64 %8
+  %scevgep = getelementptr nuw i8, ptr %4, i64 %8
   %9 = shl nuw nsw i64 %indvar, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %gep, i64 12, i1 false)

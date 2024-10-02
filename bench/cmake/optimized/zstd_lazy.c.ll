@@ -227,7 +227,7 @@ define dso_local void @ZSTD_dedicatedDictSearch_lazy_loadDictionary(ptr nocaptur
   %115 = sub i32 %112, %114
   %116 = zext i32 %115 to i64
   %117 = shl nuw nsw i64 %116, 2
-  %scevgep = getelementptr i8, ptr %10, i64 %117
+  %scevgep = getelementptr nuw i8, ptr %10, i64 %117
   %118 = add i32 %.1154215, -1
   %119 = zext i32 %118 to i64
   %120 = getelementptr inbounds i32, ptr %10, i64 %119

@@ -521,7 +521,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK9Stockfish4Eval4NNUE18FeatureTran
   %41 = shl nuw nsw i64 %indvar.i.us.i, 8
   %42 = or disjoint i64 %41, 192
   %scevgep94.i.us.i = getelementptr i8, ptr %33, i64 %42
-  %scevgep.i.us.i = getelementptr i8, ptr %0, i64 %41
+  %scevgep.i.us.i = getelementptr nuw i8, ptr %0, i64 %41
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %scevgep94.i.us.i, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i.us.i, i64 256, i1 false)
   %indvar.next.i.us.i = add nuw nsw i64 %indvar.i.us.i, 1
   %exitcond99.not.i.us.i = icmp eq i64 %indvar.next.i.us.i, 20
@@ -531,7 +531,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK9Stockfish4Eval4NNUE18FeatureTran
   %indvar.i.i = phi i64 [ %indvar.next.i.i, %._crit_edge.i.loopexit.i ], [ 0, %.preheader.i.i ]
   %indvars98.i.i = trunc i64 %indvar.i.i to i32
   %43 = shl nuw nsw i64 %indvar.i.i, 8
-  %scevgep.i.i = getelementptr i8, ptr %0, i64 %43
+  %scevgep.i.i = getelementptr nuw i8, ptr %0, i64 %43
   %44 = shl nuw nsw i32 %indvars98.i.i, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %9, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i.i, i64 256, i1 false)
   br label %.lr.ph.i.i
@@ -677,7 +677,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %indvar.i.us.i123 = phi i64 [ %indvar.next.i.us.i125, %._crit_edge.i.us.i122 ], [ 0, %.preheader.i.i98 ]
   %105 = shl nuw nsw i64 %indvar.i.us.i123, 8
   %gep.i.us.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %105
-  %scevgep.i.us.i124 = getelementptr i8, ptr %0, i64 %105
+  %scevgep.i.us.i124 = getelementptr nuw i8, ptr %0, i64 %105
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %gep.i.us.i, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i.us.i124, i64 256, i1 false)
   %indvar.next.i.us.i125 = add nuw nsw i64 %indvar.i.us.i123, 1
   %exitcond99.not.i.us.i126 = icmp eq i64 %indvar.next.i.us.i125, 20
@@ -687,7 +687,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %indvar.i.i101 = phi i64 [ %indvar.next.i.i111, %._crit_edge.i.loopexit.i110 ], [ 0, %.preheader.i.i98 ]
   %indvars98.i.i102 = trunc i64 %indvar.i.i101 to i32
   %106 = shl nuw nsw i64 %indvar.i.i101, 8
-  %scevgep.i.i103 = getelementptr i8, ptr %0, i64 %106
+  %scevgep.i.i103 = getelementptr nuw i8, ptr %0, i64 %106
   %107 = shl nuw nsw i32 %indvars98.i.i102, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i.i103, i64 256, i1 false)
   br label %.lr.ph.i.i104
@@ -1651,7 +1651,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %56 = shl nuw nsw i64 %indvar.i.us.i31, 8
   %57 = or disjoint i64 %56, 192
   %scevgep94.i.us.i = getelementptr i8, ptr %50, i64 %57
-  %scevgep.i.us.i32 = getelementptr i8, ptr %17, i64 %56
+  %scevgep.i.us.i32 = getelementptr nuw i8, ptr %17, i64 %56
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %scevgep94.i.us.i, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i.us.i32, i64 256, i1 false)
   %indvar.next.i.us.i33 = add nuw nsw i64 %indvar.i.us.i31, 1
   %exitcond99.not.i.us.i34 = icmp eq i64 %indvar.next.i.us.i33, 20
@@ -1661,7 +1661,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %indvar.i.i9 = phi i64 [ %indvar.next.i.i19, %._crit_edge.i.loopexit.i18 ], [ 0, %.thread17.i5 ]
   %indvars98.i.i10 = trunc i64 %indvar.i.i9 to i32
   %58 = shl nuw nsw i64 %indvar.i.i9, 8
-  %scevgep.i.i11 = getelementptr i8, ptr %17, i64 %58
+  %scevgep.i.i11 = getelementptr nuw i8, ptr %17, i64 %58
   %59 = shl nuw nsw i32 %indvars98.i.i10, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %2, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i.i11, i64 256, i1 false)
   br label %.lr.ph.i.i12
@@ -1826,7 +1826,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %indvar.i.us.i = phi i64 [ %indvar.next.i.us.i, %._crit_edge.i.us.i ], [ 0, %.thread17.i ]
   %127 = shl nuw nsw i64 %indvar.i.us.i, 8
   %gep.i.us.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %127
-  %scevgep.i.us.i = getelementptr i8, ptr %17, i64 %127
+  %scevgep.i.us.i = getelementptr nuw i8, ptr %17, i64 %127
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %gep.i.us.i, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i.us.i, i64 256, i1 false)
   %indvar.next.i.us.i = add nuw nsw i64 %indvar.i.us.i, 1
   %exitcond99.not.i.us.i = icmp eq i64 %indvar.next.i.us.i, 20
@@ -1836,7 +1836,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %indvar.i.i = phi i64 [ %indvar.next.i.i, %._crit_edge.i.loopexit.i ], [ 0, %.thread17.i ]
   %indvars98.i.i = trunc i64 %indvar.i.i to i32
   %128 = shl nuw nsw i64 %indvar.i.i, 8
-  %scevgep.i.i = getelementptr i8, ptr %17, i64 %128
+  %scevgep.i.i = getelementptr nuw i8, ptr %17, i64 %128
   %129 = shl nuw nsw i32 %indvars98.i.i, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i.i, i64 256, i1 false)
   br label %.lr.ph.i.i

@@ -1454,7 +1454,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %.lr.ph147, %_ZNSt6v
   %.058145 = phi i64 [ 0, %.lr.ph147 ], [ %307, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit ]
   %196 = shl i64 %.058145, 5
   %197 = and i64 %196, 224
-  %scevgep = getelementptr i8, ptr @_ZZ13detectAndDrawRN2cv4UMatERNS_3MatERNS_17CascadeClassifierES5_dbE6colors, i64 %197
+  %scevgep = getelementptr nuw i8, ptr @_ZZ13detectAndDrawRN2cv4UMatERNS_3MatERNS_17CascadeClassifierES5_dbE6colors, i64 %197
   %198 = getelementptr inbounds %"class.cv::Rect_", ptr %195, i64 %.058145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(16) %198, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)

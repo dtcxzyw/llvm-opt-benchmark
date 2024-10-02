@@ -957,9 +957,9 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac32FundamentalMinimalSolver7p
 121:                                              ; preds = %112
   %122 = getelementptr inbounds i8, ptr %8, i64 16
   %123 = load ptr, ptr %122, align 8
-  %scevgep = getelementptr i8, ptr %123, i64 576
+  %scevgep = getelementptr nuw i8, ptr %123, i64 576
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %scevgep, i64 72, i1 false)
-  %scevgep173 = getelementptr i8, ptr %123, i64 504
+  %scevgep173 = getelementptr nuw i8, ptr %123, i64 504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %scevgep173, i64 72, i1 false)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #20

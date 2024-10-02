@@ -6188,7 +6188,7 @@ if.then.i.i.i.i:
   %cond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen, i64 %and.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !64
   %1 = or disjoint i64 %and.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i = getelementptr i8, ptr %gen, i64 %1
+  %scevgep.i.i.i.i = getelementptr nuw i8, ptr %gen, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !64
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i)
@@ -8048,7 +8048,7 @@ if.then.i.i.i.i:
   %cond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen, i64 %and.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !110
   %1 = or disjoint i64 %and.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i = getelementptr i8, ptr %gen, i64 %1
+  %scevgep.i.i.i.i = getelementptr nuw i8, ptr %gen, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !110
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i)

@@ -99,7 +99,7 @@ get_eol_offset.exit:                              ; preds = %32, %29
 .lr.ph.i60:                                       ; preds = %40, %.lr.ph.preheader.i
   %.017.i = phi ptr [ %41, %40 ], [ %24, %.lr.ph.preheader.i ]
   %.01316.i = phi ptr [ %42, %40 ], [ @.str, %.lr.ph.preheader.i ]
-  %exitcond = icmp eq ptr %.01316.i, getelementptr inbounds (i8, ptr @.str, i64 20)
+  %exitcond = icmp eq ptr %.01316.i, getelementptr inbounds nuw (i8, ptr @.str, i64 20)
   br i1 %exitcond, label %.critedge.i.thread, label %36
 
 36:                                               ; preds = %.lr.ph.i60
@@ -185,7 +185,7 @@ line_starts_with.exit:                            ; preds = %36, %.critedge.i
 .lr.ph.i69:                                       ; preds = %67, %.lr.ph.preheader.i66
   %.017.i70 = phi ptr [ %68, %67 ], [ %24, %.lr.ph.preheader.i66 ]
   %.01316.i71 = phi ptr [ %69, %67 ], [ @.str.4, %.lr.ph.preheader.i66 ]
-  %exitcond209 = icmp eq ptr %.01316.i71, getelementptr inbounds (i8, ptr @.str.4, i64 16)
+  %exitcond209 = icmp eq ptr %.01316.i71, getelementptr inbounds nuw (i8, ptr @.str.4, i64 16)
   br i1 %exitcond209, label %.critedge.i62.thread, label %63
 
 63:                                               ; preds = %.lr.ph.i69
@@ -262,7 +262,7 @@ line_starts_with.exit74:                          ; preds = %63, %.critedge.i62
 .lr.ph.i83:                                       ; preds = %88, %.lr.ph.preheader.i80
   %.017.i84 = phi ptr [ %89, %88 ], [ %24, %.lr.ph.preheader.i80 ]
   %.01316.i85 = phi ptr [ %90, %88 ], [ @.str.8, %.lr.ph.preheader.i80 ]
-  %exitcond212 = icmp eq ptr %.01316.i85, getelementptr inbounds (i8, ptr @.str.8, i64 22)
+  %exitcond212 = icmp eq ptr %.01316.i85, getelementptr inbounds nuw (i8, ptr @.str.8, i64 22)
   br i1 %exitcond212, label %.critedge.i76.thread, label %84
 
 84:                                               ; preds = %.lr.ph.i83
@@ -348,7 +348,7 @@ line_starts_with.exit88:                          ; preds = %84, %.critedge.i76
 .lr.ph.i97:                                       ; preds = %115, %.lr.ph.preheader.i94
   %.017.i98 = phi ptr [ %116, %115 ], [ %24, %.lr.ph.preheader.i94 ]
   %.01316.i99 = phi ptr [ %117, %115 ], [ @.str.10, %.lr.ph.preheader.i94 ]
-  %exitcond215 = icmp eq ptr %.01316.i99, getelementptr inbounds (i8, ptr @.str.10, i64 22)
+  %exitcond215 = icmp eq ptr %.01316.i99, getelementptr inbounds nuw (i8, ptr @.str.10, i64 22)
   br i1 %exitcond215, label %.critedge.i90.thread, label %111
 
 111:                                              ; preds = %.lr.ph.i97
@@ -532,7 +532,7 @@ get_eol_offset.exit:                              ; preds = %32, %29
 .lr.ph.i38:                                       ; preds = %40, %.lr.ph.preheader.i
   %.017.i = phi ptr [ %41, %40 ], [ %24, %.lr.ph.preheader.i ]
   %.01316.i = phi ptr [ %42, %40 ], [ @.str.8, %.lr.ph.preheader.i ]
-  %exitcond = icmp eq ptr %.01316.i, getelementptr inbounds (i8, ptr @.str.8, i64 22)
+  %exitcond = icmp eq ptr %.01316.i, getelementptr inbounds nuw (i8, ptr @.str.8, i64 22)
   br i1 %exitcond, label %line_starts_with.exit.thread, label %36
 
 36:                                               ; preds = %.lr.ph.i38
@@ -564,7 +564,7 @@ line_starts_with.exit.thread52:                   ; preds = %36, %line_starts_wi
 .lr.ph.i45:                                       ; preds = %48, %.lr.ph.preheader.i42
   %.017.i46 = phi ptr [ %49, %48 ], [ %24, %.lr.ph.preheader.i42 ]
   %.01316.i47 = phi ptr [ %50, %48 ], [ @.str.10, %.lr.ph.preheader.i42 ]
-  %exitcond68 = icmp eq ptr %.01316.i47, getelementptr inbounds (i8, ptr @.str.10, i64 22)
+  %exitcond68 = icmp eq ptr %.01316.i47, getelementptr inbounds nuw (i8, ptr @.str.10, i64 22)
   br i1 %exitcond68, label %line_starts_with.exit.thread, label %44
 
 44:                                               ; preds = %.lr.ph.i45

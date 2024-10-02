@@ -3612,7 +3612,7 @@ hwloc_find_linux_cgroup_mntpnt.exit:              ; preds = %.backedge.i, %.preh
 
 hwloc_open.exit.i.i22:                            ; preds = %82
   %85 = icmp sgt i32 %2, -1
-  %spec.select.i23 = select i1 %85, ptr getelementptr inbounds (i8, ptr @.str.32, i64 1), ptr @.str.32
+  %spec.select.i23 = select i1 %85, ptr getelementptr inbounds nuw (i8, ptr @.str.32, i64 1), ptr @.str.32
   %86 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %2, ptr noundef nonnull %spec.select.i23, i32 noundef 0) #26
   %87 = icmp slt i32 %86, 0
   br i1 %87, label %hwloc_read_path_by_length.exit.thread.thread.i, label %88
@@ -3666,7 +3666,7 @@ hwloc_read_path_by_length.exit.thread.i:          ; preds = %hwloc_read_path_by_
 
 hwloc_read_path_by_length.exit.thread.thread.i:   ; preds = %hwloc_read_path_by_length.exit.thread.i, %88, %hwloc_open.exit.i.i22
   %108 = icmp sgt i32 %2, -1
-  %spec.select70.i = select i1 %108, ptr getelementptr inbounds (i8, ptr @.str.35, i64 1), ptr @.str.35
+  %spec.select70.i = select i1 %108, ptr getelementptr inbounds nuw (i8, ptr @.str.35, i64 1), ptr @.str.35
   %109 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %2, ptr noundef nonnull %spec.select70.i, i32 noundef 0) #26
   %110 = icmp eq i32 %109, -1
   br i1 %110, label %hwloc_read_linux_cgroup_name.exit.thread, label %hwloc_fopen.exit.i
@@ -4112,7 +4112,7 @@ hwloc_openat.exit.i.i.i:                          ; preds = %100
   %103 = getelementptr inbounds i8, ptr %0, i64 88
   %104 = load i32, ptr %103, align 8
   %105 = icmp sgt i32 %104, -1
-  %spec.select.i = select i1 %105, ptr getelementptr inbounds (i8, ptr @.str.57, i64 1), ptr @.str.57
+  %spec.select.i = select i1 %105, ptr getelementptr inbounds nuw (i8, ptr @.str.57, i64 1), ptr @.str.57
   %106 = tail call i32 (i32, ptr, i32, ...) @openat(i32 noundef %104, ptr noundef nonnull %spec.select.i, i32 noundef 0) #26
   %107 = icmp eq i32 %106, -1
   br i1 %107, label %hwloc_fopen.exit.thread.i, label %hwloc_fopen.exit.i
@@ -4467,7 +4467,7 @@ hwloc_gather_system_info.exit:                    ; preds = %hwloc_gather_system
   %237 = getelementptr inbounds i8, ptr %0, i64 88
   %238 = load i32, ptr %237, align 8
   %239 = icmp sgt i32 %238, -1
-  %spec.select.i62 = select i1 %239, ptr getelementptr inbounds (i8, ptr @.str.84, i64 1), ptr @.str.84
+  %spec.select.i62 = select i1 %239, ptr getelementptr inbounds nuw (i8, ptr @.str.84, i64 1), ptr @.str.84
   %240 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %238, ptr noundef nonnull %spec.select.i62, i32 noundef 0) #26
   %241 = icmp eq i32 %240, -1
   br i1 %241, label %hwloc_linuxfs_check_kernel_cmdline.exit, label %hwloc_fopen.exit.i63
@@ -4628,7 +4628,7 @@ hwloc__get_soc_info.exit:                         ; preds = %hwloc_checkat.exit.
   %302 = getelementptr inbounds i8, ptr %0, i64 88
   %303 = load i32, ptr %302, align 8
   %304 = icmp sgt i32 %303, -1
-  %spec.select.i72 = select i1 %304, ptr getelementptr inbounds (i8, ptr @.str.400, i64 1), ptr @.str.400
+  %spec.select.i72 = select i1 %304, ptr getelementptr inbounds nuw (i8, ptr @.str.400, i64 1), ptr @.str.400
   %305 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %303, ptr noundef nonnull %spec.select.i72, i32 noundef 65536) #26
   %306 = icmp slt i32 %305, 0
   br i1 %306, label %hwloc_linuxfs_pci_look_pcidevices.exit, label %hwloc_opendir.exit.i73
@@ -5138,7 +5138,7 @@ thread-pre-split:                                 ; preds = %hwloc_linuxfs_pci_l
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %59)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %60)
   %538 = icmp sgt i32 %.val60, -1
-  %spec.select.i84 = select i1 %538, ptr getelementptr inbounds (i8, ptr @.str.412, i64 1), ptr @.str.412
+  %spec.select.i84 = select i1 %538, ptr getelementptr inbounds nuw (i8, ptr @.str.412, i64 1), ptr @.str.412
   %539 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %.val60, ptr noundef nonnull %spec.select.i84, i32 noundef 65536) #26
   %540 = icmp slt i32 %539, 0
   br i1 %540, label %hwloc_linuxfs_pci_look_pcislots.exit, label %hwloc_opendir.exit.i85
@@ -5292,7 +5292,7 @@ hwloc_linuxfs_pci_look_pcislots.exit:             ; preds = %536, %hwloc_opendir
   %605 = getelementptr inbounds i8, ptr %0, i64 88
   %606 = load i32, ptr %605, align 8
   %607 = icmp sgt i32 %606, -1
-  %spec.select.i98 = select i1 %607, ptr getelementptr inbounds (i8, ptr @.str.416, i64 1), ptr @.str.416
+  %spec.select.i98 = select i1 %607, ptr getelementptr inbounds nuw (i8, ptr @.str.416, i64 1), ptr @.str.416
   %608 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %606, ptr noundef nonnull %spec.select.i98, i32 noundef 65536) #26
   %609 = icmp slt i32 %608, 0
   br i1 %609, label %hwloc_linuxfs_lookup_block_class.exit, label %hwloc_opendir.exit.i99
@@ -5861,7 +5861,7 @@ hwloc_linuxfs_lookup_block_class.exit:            ; preds = %601, %hwloc_opendir
   call void @llvm.lifetime.start.p0(i64 300, ptr nonnull %44)
   %818 = load i32, ptr %605, align 8
   %819 = icmp sgt i32 %818, -1
-  %spec.select.i111 = select i1 %819, ptr getelementptr inbounds (i8, ptr @.str.472, i64 1), ptr @.str.472
+  %spec.select.i111 = select i1 %819, ptr getelementptr inbounds nuw (i8, ptr @.str.472, i64 1), ptr @.str.472
   %820 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %818, ptr noundef nonnull %spec.select.i111, i32 noundef 65536) #26
   %821 = icmp slt i32 %820, 0
   br i1 %821, label %hwloc_linuxfs_lookup_dax_class.exit, label %hwloc_opendir.exit.i112
@@ -6078,7 +6078,7 @@ hwloc_linuxfs_lookup_dax_class.exit:              ; preds = %hwloc_linuxfs_looku
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %37)
   %900 = load i32, ptr %605, align 8
   %901 = icmp sgt i32 %900, -1
-  %spec.select.i133 = select i1 %901, ptr getelementptr inbounds (i8, ptr @.str.473, i64 1), ptr @.str.473
+  %spec.select.i133 = select i1 %901, ptr getelementptr inbounds nuw (i8, ptr @.str.473, i64 1), ptr @.str.473
   %902 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %900, ptr noundef nonnull %spec.select.i133, i32 noundef 65536) #26
   %903 = icmp slt i32 %902, 0
   br i1 %903, label %hwloc_linuxfs_lookup_net_class.exit, label %hwloc_opendir.exit.i134
@@ -6337,7 +6337,7 @@ hwloc_linuxfs_lookup_net_class.exit:              ; preds = %hwloc_linuxfs_looku
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %30)
   %1000 = load i32, ptr %605, align 8
   %1001 = icmp sgt i32 %1000, -1
-  %spec.select.i156 = select i1 %1001, ptr getelementptr inbounds (i8, ptr @.str.484, i64 1), ptr @.str.484
+  %spec.select.i156 = select i1 %1001, ptr getelementptr inbounds nuw (i8, ptr @.str.484, i64 1), ptr @.str.484
   %1002 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %1000, ptr noundef nonnull %spec.select.i156, i32 noundef 65536) #26
   %1003 = icmp slt i32 %1002, 0
   br i1 %1003, label %hwloc_linuxfs_lookup_infiniband_class.exit, label %hwloc_opendir.exit.i157
@@ -6653,7 +6653,7 @@ hwloc_linuxfs_lookup_infiniband_class.exit:       ; preds = %hwloc_linuxfs_looku
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %20)
   %1131 = load i32, ptr %605, align 8
   %1132 = icmp sgt i32 %1131, -1
-  %spec.select.i177 = select i1 %1132, ptr getelementptr inbounds (i8, ptr @.str.503, i64 1), ptr @.str.503
+  %spec.select.i177 = select i1 %1132, ptr getelementptr inbounds nuw (i8, ptr @.str.503, i64 1), ptr @.str.503
   %1133 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %1131, ptr noundef nonnull %spec.select.i177, i32 noundef 65536) #26
   %1134 = icmp slt i32 %1133, 0
   br i1 %1134, label %hwloc_linuxfs_lookup_ve_class.exit, label %hwloc_opendir.exit.i178
@@ -7051,7 +7051,7 @@ hwloc_linuxfs_lookup_ve_class.exit:               ; preds = %hwloc_linuxfs_looku
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %16)
   %1309 = load i32, ptr %605, align 8
   %1310 = icmp sgt i32 %1309, -1
-  %spec.select.i203 = select i1 %1310, ptr getelementptr inbounds (i8, ptr @.str.524, i64 1), ptr @.str.524
+  %spec.select.i203 = select i1 %1310, ptr getelementptr inbounds nuw (i8, ptr @.str.524, i64 1), ptr @.str.524
   %1311 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %1309, ptr noundef nonnull %spec.select.i203, i32 noundef 65536) #26
   %1312 = icmp slt i32 %1311, 0
   br i1 %1312, label %hwloc_linuxfs_lookup_bxi_class.exit, label %hwloc_opendir.exit.i204
@@ -7170,7 +7170,7 @@ hwloc_linuxfs_lookup_bxi_class.exit:              ; preds = %hwloc_linuxfs_looku
   call void @llvm.lifetime.start.p0(i64 300, ptr nonnull %13)
   %1354 = load i32, ptr %605, align 8
   %1355 = icmp sgt i32 %1354, -1
-  %spec.select.i228 = select i1 %1355, ptr getelementptr inbounds (i8, ptr @.str.529, i64 1), ptr @.str.529
+  %spec.select.i228 = select i1 %1355, ptr getelementptr inbounds nuw (i8, ptr @.str.529, i64 1), ptr @.str.529
   %1356 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %1354, ptr noundef nonnull %spec.select.i228, i32 noundef 65536) #26
   %1357 = icmp slt i32 %1356, 0
   br i1 %1357, label %hwloc_linuxfs_lookup_cxlmem.exit, label %hwloc_opendir.exit.i229
@@ -7374,7 +7374,7 @@ hwloc_linuxfs_lookup_cxlmem.exit:                 ; preds = %hwloc_linuxfs_looku
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10)
   %1441 = load i32, ptr %605, align 8
   %1442 = icmp sgt i32 %1441, -1
-  %spec.select.i248 = select i1 %1442, ptr getelementptr inbounds (i8, ptr @.str.536, i64 1), ptr @.str.536
+  %spec.select.i248 = select i1 %1442, ptr getelementptr inbounds nuw (i8, ptr @.str.536, i64 1), ptr @.str.536
   %1443 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %1441, ptr noundef nonnull %spec.select.i248, i32 noundef 65536) #26
   %1444 = icmp slt i32 %1443, 0
   br i1 %1444, label %hwloc_linuxfs_lookup_drm_class.exit, label %hwloc_opendir.exit.i249
@@ -7469,7 +7469,7 @@ hwloc_linuxfs_lookup_drm_class.exit:              ; preds = %1440, %hwloc_opendi
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8)
   %1476 = load i32, ptr %605, align 8
   %1477 = icmp sgt i32 %1476, -1
-  %spec.select.i266 = select i1 %1477, ptr getelementptr inbounds (i8, ptr @.str.539, i64 1), ptr @.str.539
+  %spec.select.i266 = select i1 %1477, ptr getelementptr inbounds nuw (i8, ptr @.str.539, i64 1), ptr @.str.539
   %1478 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %1476, ptr noundef nonnull %spec.select.i266, i32 noundef 65536) #26
   %1479 = icmp slt i32 %1478, 0
   br i1 %1479, label %hwloc_linuxfs_lookup_dma_class.exit, label %hwloc_opendir.exit.i267
@@ -8167,7 +8167,7 @@ define internal fastcc void @hwloc_linuxfs_look_cpu(ptr noundef %0, ptr nocaptur
   br i1 %100, label %.preheader.i.i.i.preheader.i, label %hwloc_access.exit.thread.i
 
 .preheader.i.i.i.preheader.i:                     ; preds = %2
-  %101 = tail call i32 @faccessat(i32 noundef %99, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.113, i64 1), i32 noundef 5, i32 noundef 0) #26
+  %101 = tail call i32 @faccessat(i32 noundef %99, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.113, i64 1), i32 noundef 5, i32 noundef 0) #26
   %.not.i = icmp eq i32 %101, 0
   br i1 %.not.i, label %hwloc_access.exit29.i, label %hwloc_open.exit.i.i.i
 
@@ -8177,7 +8177,7 @@ hwloc_access.exit.thread.i:                       ; preds = %2
   br i1 %.not76.i, label %hwloc_access.exit29.thread.i, label %hwloc_open.exit.i.i.i
 
 hwloc_access.exit29.i:                            ; preds = %.preheader.i.i.i.preheader.i
-  %103 = tail call i32 @faccessat(i32 noundef %99, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.114, i64 1), i32 noundef 4, i32 noundef 0) #26
+  %103 = tail call i32 @faccessat(i32 noundef %99, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.114, i64 1), i32 noundef 4, i32 noundef 0) #26
   %.not15.i = icmp eq i32 %103, 0
   br i1 %.not15.i, label %153, label %.preheader.i.i.i32.preheader.i
 
@@ -8187,7 +8187,7 @@ hwloc_access.exit29.thread.i:                     ; preds = %hwloc_access.exit.t
   br i1 %.not1585.i, label %153, label %hwloc_access.exit34.thread.i
 
 .preheader.i.i.i32.preheader.i:                   ; preds = %hwloc_access.exit29.i
-  %105 = tail call i32 @faccessat(i32 noundef %99, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.115, i64 1), i32 noundef 4, i32 noundef 0) #26
+  %105 = tail call i32 @faccessat(i32 noundef %99, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.115, i64 1), i32 noundef 4, i32 noundef 0) #26
   %.not16.i = icmp eq i32 %105, 0
   br i1 %.not16.i, label %153, label %hwloc_access.exit39.i
 
@@ -8197,7 +8197,7 @@ hwloc_access.exit34.thread.i:                     ; preds = %hwloc_access.exit29
   br i1 %.not1678.i, label %153, label %hwloc_access.exit39.thread.i
 
 hwloc_access.exit39.i:                            ; preds = %.preheader.i.i.i32.preheader.i
-  %107 = tail call i32 @faccessat(i32 noundef %99, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.116, i64 1), i32 noundef 4, i32 noundef 0) #26
+  %107 = tail call i32 @faccessat(i32 noundef %99, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.116, i64 1), i32 noundef 4, i32 noundef 0) #26
   %.not17.i = icmp eq i32 %107, 0
   br i1 %.not17.i, label %153, label %109
 
@@ -8207,7 +8207,7 @@ hwloc_access.exit39.thread.i:                     ; preds = %hwloc_access.exit34
   br i1 %.not1787.i, label %153, label %hwloc_access.exit44.i
 
 109:                                              ; preds = %hwloc_access.exit39.i
-  %110 = tail call i32 @faccessat(i32 noundef %99, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.117, i64 1), i32 noundef 4, i32 noundef 0) #26
+  %110 = tail call i32 @faccessat(i32 noundef %99, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.117, i64 1), i32 noundef 4, i32 noundef 0) #26
   %.not1891.i = icmp eq i32 %110, 0
   br i1 %.not1891.i, label %153, label %hwloc_open.exit.i.i.i
 
@@ -8217,7 +8217,7 @@ hwloc_access.exit44.i:                            ; preds = %hwloc_access.exit39
   br i1 %.not18.i, label %153, label %hwloc_open.exit.i.i.i
 
 hwloc_open.exit.i.i.i:                            ; preds = %109, %.preheader.i.i.i.preheader.i, %hwloc_access.exit44.i, %hwloc_access.exit.thread.i
-  %.0.i8.i.i.i.i.i = phi ptr [ @.str.119, %hwloc_access.exit.thread.i ], [ @.str.119, %hwloc_access.exit44.i ], [ getelementptr inbounds (i8, ptr @.str.119, i64 1), %.preheader.i.i.i.preheader.i ], [ getelementptr inbounds (i8, ptr @.str.119, i64 1), %109 ]
+  %.0.i8.i.i.i.i.i = phi ptr [ @.str.119, %hwloc_access.exit.thread.i ], [ @.str.119, %hwloc_access.exit44.i ], [ getelementptr inbounds nuw (i8, ptr @.str.119, i64 1), %.preheader.i.i.i.preheader.i ], [ getelementptr inbounds nuw (i8, ptr @.str.119, i64 1), %109 ]
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %91)
   %112 = tail call i32 (i32, ptr, i32, ...) @openat(i32 noundef %99, ptr noundef nonnull %.0.i8.i.i.i.i.i, i32 noundef 0) #26
   %113 = icmp slt i32 %112, 0
@@ -8239,7 +8239,7 @@ hwloc_access.exit49.i:                            ; preds = %114
   %120 = call i64 @strtoul(ptr nocapture noundef nonnull %91, ptr noundef null, i32 noundef 10) #26
   %121 = trunc i64 %120 to i32
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %91)
-  %spec.select.i = select i1 %100, ptr getelementptr inbounds (i8, ptr @.str.113, i64 1), ptr @.str.113
+  %spec.select.i = select i1 %100, ptr getelementptr inbounds nuw (i8, ptr @.str.113, i64 1), ptr @.str.113
   %122 = tail call i32 @faccessat(i32 noundef %99, ptr noundef nonnull %spec.select.i, i32 noundef 5, i32 noundef 0) #26
   %.not20.i = icmp eq i32 %122, 0
   br i1 %.not20.i, label %123, label %147
@@ -8367,7 +8367,7 @@ hwloc_access.exit69.i:                            ; preds = %.preheader.i.i.i67.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90)
   %171 = load i32, ptr %98, align 8
   %172 = icmp sgt i32 %171, -1
-  %spec.select.i98 = select i1 %172, ptr getelementptr inbounds (i8, ptr @.str.101, i64 1), ptr @.str.101
+  %spec.select.i98 = select i1 %172, ptr getelementptr inbounds nuw (i8, ptr @.str.101, i64 1), ptr @.str.101
   %173 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %171, ptr noundef nonnull %spec.select.i98, i32 noundef 0) #26
   %174 = icmp eq i32 %173, -1
   br i1 %174, label %hwloc_linux_parse_cpuinfo.exit.thread, label %hwloc_fopen.exit.i
@@ -8736,7 +8736,7 @@ sub_1240:                                         ; preds = %.tail233, %sub_1235
 hwloc_open.exit.i.i:                              ; preds = %304
   %307 = load i32, ptr %98, align 8
   %308 = icmp sgt i32 %307, -1
-  %spec.select.i103 = select i1 %308, ptr getelementptr inbounds (i8, ptr @.str.101, i64 1), ptr @.str.101
+  %spec.select.i103 = select i1 %308, ptr getelementptr inbounds nuw (i8, ptr @.str.101, i64 1), ptr @.str.101
   %309 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %307, ptr noundef nonnull %spec.select.i103, i32 noundef 0) #26
   %310 = icmp slt i32 %309, 0
   br i1 %310, label %hwloc_linux_try_hardwired_cpuinfo.exit.thread, label %311
@@ -8821,7 +8821,7 @@ hwloc__alloc_read_path_as_cpulist.exit.i:         ; preds = %340, %337, %328
   %.0.i.i = phi ptr [ null, %340 ], [ null, %328 ], [ %336, %337 ]
   %341 = load i32, ptr %98, align 8
   %342 = icmp sgt i32 %341, -1
-  %spec.select.i105 = select i1 %342, ptr getelementptr inbounds (i8, ptr @.str.113, i64 1), ptr @.str.113
+  %spec.select.i105 = select i1 %342, ptr getelementptr inbounds nuw (i8, ptr @.str.113, i64 1), ptr @.str.113
   %343 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %341, ptr noundef nonnull %spec.select.i105, i32 noundef 65536) #26
   %344 = icmp slt i32 %343, 0
   br i1 %344, label %888, label %hwloc_opendir.exit.i
@@ -11139,7 +11139,7 @@ look_sysfscpukinds.exit:                          ; preds = %916, %hwloc_linux_c
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37)
   %1271 = load i32, ptr %98, align 8
   %1272 = icmp sgt i32 %1271, -1
-  %spec.select.i139 = select i1 %1272, ptr getelementptr inbounds (i8, ptr @.str.255, i64 1), ptr @.str.255
+  %spec.select.i139 = select i1 %1272, ptr getelementptr inbounds nuw (i8, ptr @.str.255, i64 1), ptr @.str.255
   %1273 = call i32 @fstatat(i32 noundef %1271, ptr noundef nonnull %spec.select.i139, ptr noundef nonnull %36, i32 noundef 0) #26
   %.not.not.i = icmp eq i32 %1273, 0
   br i1 %.not.not.i, label %1274, label %1279
@@ -11171,7 +11171,7 @@ hwloc_open.exit.i.i.i140:                         ; preds = %1279
   %.val.i = load i32, ptr %98, align 8
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %35)
   %1285 = icmp sgt i32 %.val.i, -1
-  %spec.select21.i = select i1 %1285, ptr getelementptr inbounds (i8, ptr @.str.256, i64 1), ptr @.str.256
+  %spec.select21.i = select i1 %1285, ptr getelementptr inbounds nuw (i8, ptr @.str.256, i64 1), ptr @.str.256
   %1286 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %.val.i, ptr noundef nonnull %spec.select21.i, i32 noundef 0) #26
   %1287 = icmp slt i32 %1286, 0
   br i1 %1287, label %hwloc_parse_meminfo_info.exit.i, label %1288
@@ -11226,7 +11226,7 @@ hwloc_get_machine_meminfo.exit:                   ; preds = %1284, %1301
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
   %1311 = load i32, ptr %98, align 8
   %1312 = icmp sgt i32 %1311, -1
-  %spec.select = select i1 %1312, ptr getelementptr inbounds (i8, ptr @.str.112, i64 1), ptr @.str.112
+  %spec.select = select i1 %1312, ptr getelementptr inbounds nuw (i8, ptr @.str.112, i64 1), ptr @.str.112
   %1313 = call i32 @faccessat(i32 noundef %1311, ptr noundef nonnull %spec.select, i32 noundef 5, i32 noundef 0) #26
   %.not91 = icmp eq i32 %1313, 0
   br i1 %.not91, label %1314, label %2284
@@ -11566,7 +11566,7 @@ hwloc__alloc_read_path_as_cpumask.exit.i160:      ; preds = %1429
   store i32 %.lcssa320.i, ptr %27, align 4
   %1458 = load i32, ptr %98, align 8
   %1459 = icmp sgt i32 %1458, -1
-  %spec.select471.i = select i1 %1459, ptr getelementptr inbounds (i8, ptr @.str.272, i64 1), ptr @.str.272
+  %spec.select471.i = select i1 %1459, ptr getelementptr inbounds nuw (i8, ptr @.str.272, i64 1), ptr @.str.272
   %1460 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %1458, ptr noundef nonnull %spec.select471.i, i32 noundef 65536) #26
   %1461 = icmp slt i32 %1460, 0
   br i1 %1461, label %hwloc_opendir.exit.thread.i170, label %hwloc_opendir.exit.i164
@@ -11729,7 +11729,7 @@ hwloc_opendir.exit.thread.i170:                   ; preds = %._crit_edge329.i, %
   %1526 = load i32, ptr %98, align 8
   call void @llvm.lifetime.start.p0(i64 300, ptr nonnull %24)
   %1527 = icmp sgt i32 %1526, -1
-  %spec.select.i.i171 = select i1 %1527, ptr getelementptr inbounds (i8, ptr @.str.282, i64 1), ptr @.str.282
+  %spec.select.i.i171 = select i1 %1527, ptr getelementptr inbounds nuw (i8, ptr @.str.282, i64 1), ptr @.str.282
   %1528 = call i32 (i32, ptr, i32, ...) @openat(i32 noundef %1526, ptr noundef nonnull %spec.select.i.i171, i32 noundef 65536) #26
   %1529 = icmp slt i32 %1528, 0
   br i1 %1529, label %annotate_dax_nodes.exit.i, label %hwloc_opendir.exit.i.i
@@ -14449,7 +14449,7 @@ hwloc__alloc_read_path_as_cpulist.exit:           ; preds = %10
 hwloc_checkat.exit.thread.i.i:                    ; preds = %13, %3
   %15 = load i32, ptr %7, align 8
   %16 = icmp sgt i32 %15, -1
-  %spec.select = select i1 %16, ptr getelementptr inbounds (i8, ptr @.str.112, i64 1), ptr @.str.112
+  %spec.select = select i1 %16, ptr getelementptr inbounds nuw (i8, ptr @.str.112, i64 1), ptr @.str.112
   %17 = tail call i32 (i32, ptr, i32, ...) @openat(i32 noundef %15, ptr noundef nonnull %spec.select, i32 noundef 65536) #26
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %hwloc_opendir.exit.thread, label %hwloc_opendir.exit

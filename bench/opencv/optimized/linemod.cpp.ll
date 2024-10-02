@@ -1707,7 +1707,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit.preheader.i:       ; preds = %_ZN2cv7Scalar_IdEC2
   %592 = phi ptr [ %.pre.i, %.lr.ph23.i ], [ %619, %_ZN2cv7Scalar_IdEC2ERKS1_.exit._crit_edge.i ]
   %indvar.i = phi i64 [ 0, %.lr.ph23.i ], [ %indvar.next.i, %_ZN2cv7Scalar_IdEC2ERKS1_.exit._crit_edge.i ]
   %593 = shl nuw nsw i64 %indvar.i, 5
-  %scevgep.i = getelementptr i8, ptr @_ZZ12drawResponseRKSt6vectorIN2cv7linemod8TemplateESaIS2_EEiRNS0_3MatENS0_6Point_IiEEiE6COLORS, i64 %593
+  %scevgep.i = getelementptr nuw i8, ptr @_ZZ12drawResponseRKSt6vectorIN2cv7linemod8TemplateESaIS2_EEiRNS0_3MatENS0_6Point_IiEEiE6COLORS, i64 %593
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 16 dereferenceable(32) %scevgep.i, i64 32, i1 false)
   %594 = getelementptr inbounds %"struct.cv::linemod::Template", ptr %592, i64 %indvar.i, i32 3
   %595 = getelementptr inbounds i8, ptr %594, i64 8
@@ -3900,7 +3900,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit.preheader:         ; preds = %.lr.ph23, %_ZN2cv7S
   %18 = phi ptr [ %.pre, %.lr.ph23 ], [ %45, %_ZN2cv7Scalar_IdEC2ERKS1_.exit._crit_edge ]
   %indvar = phi i64 [ 0, %.lr.ph23 ], [ %indvar.next, %_ZN2cv7Scalar_IdEC2ERKS1_.exit._crit_edge ]
   %19 = shl nuw nsw i64 %indvar, 5
-  %scevgep = getelementptr i8, ptr @_ZZ12drawResponseRKSt6vectorIN2cv7linemod8TemplateESaIS2_EEiRNS0_3MatENS0_6Point_IiEEiE6COLORS, i64 %19
+  %scevgep = getelementptr nuw i8, ptr @_ZZ12drawResponseRKSt6vectorIN2cv7linemod8TemplateESaIS2_EEiRNS0_3MatENS0_6Point_IiEEiE6COLORS, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(32) %scevgep, i64 32, i1 false)
   %20 = getelementptr inbounds %"struct.cv::linemod::Template", ptr %18, i64 %indvar, i32 3
   %21 = getelementptr inbounds i8, ptr %20, i64 8

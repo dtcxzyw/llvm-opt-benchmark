@@ -4131,7 +4131,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !5
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen_.i, i64 %1
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !5
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %_ZN4absl13MockingBitGenC2Ev.exit unwind label %lpad.i
@@ -52487,7 +52487,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !566
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen_.i, i64 %1
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !566
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %_ZN4absl13MockingBitGenC2Ev.exit unwind label %lpad.i
@@ -63266,7 +63266,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !590
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen_.i, i64 %1
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !590
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %_ZN4absl13MockingBitGenC2Ev.exit unwind label %lpad.i
@@ -63885,7 +63885,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !593
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen_.i, i64 %1
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !593
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %invoke.cont6 unwind label %lpad.i
@@ -64731,7 +64731,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !596
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen_.i, i64 %1
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !596
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %invoke.cont unwind label %lpad.i
@@ -65321,7 +65321,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !599
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen_.i, i64 %1
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !599
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %_ZN4absl13MockingBitGenC2Ev.exit unwind label %lpad.i
@@ -65355,7 +65355,7 @@ _ZN4absl13MockingBitGenC2Ev.exit:                 ; preds = %.noexc.i
   %cond.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %gen_.i36, i64 %and.i.i.i.i.i.i.i38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i39, i8 0, i64 16, i1 false), !alias.scope !602
   %4 = or disjoint i64 %and.i.i.i.i.i.i.i38, 16
-  %scevgep.i.i.i.i.i40 = getelementptr i8, ptr %gen_.i36, i64 %4
+  %scevgep.i.i.i.i.i40 = getelementptr nuw i8, ptr %gen_.i36, i64 %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i40, i8 0, i64 240, i1 false), !alias.scope !602
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i36, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i31)
           to label %invoke.cont unwind label %lpad.i34
@@ -65385,7 +65385,7 @@ invoke.cont:                                      ; preds = %.noexc.i35
   %cond.i.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %gen_.i47, i64 %and.i.i.i.i.i.i.i49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i50, i8 0, i64 16, i1 false), !alias.scope !605
   %7 = or disjoint i64 %and.i.i.i.i.i.i.i49, 16
-  %scevgep.i.i.i.i.i51 = getelementptr i8, ptr %gen_.i47, i64 %7
+  %scevgep.i.i.i.i.i51 = getelementptr nuw i8, ptr %gen_.i47, i64 %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i51, i8 0, i64 240, i1 false), !alias.scope !605
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i47, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i42)
           to label %invoke.cont10 unwind label %lpad.i45
@@ -68240,7 +68240,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !630
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen_.i, i64 %1
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !630
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %_ZN4absl13MockingBitGenC2Ev.exit unwind label %lpad.i
@@ -74113,7 +74113,7 @@ entry:
   %and.i.i.i.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i.i, i64 %and.i.i.i.i.i.i.i.i
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %gen_.i.i, i64 %1
+  %scevgep.i.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i.i, i64 %1
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
   %buffer_3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 16
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
@@ -75349,7 +75349,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !720
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen_.i, i64 %1
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !720
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %invoke.cont9 unwind label %lpad.i
@@ -82014,7 +82014,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !781
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen_.i, i64 %1
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !781
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %_ZN4absl13MockingBitGenC2Ev.exit unwind label %lpad.i
@@ -82358,7 +82358,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !784
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen_.i, i64 %1
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !784
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %invoke.cont unwind label %lpad.i
@@ -84880,7 +84880,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !823
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen_.i, i64 %1
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !823
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %invoke.cont6 unwind label %lpad.i
@@ -86326,7 +86326,7 @@ entry:
   %and.i.i.i.i.i.i.i.i = and i64 %0, 8
   %cond.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i.i, i64 %and.i.i.i.i.i.i.i.i
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %gen_.i.i, i64 %1
+  %scevgep.i.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i.i, i64 %1
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
   %buffer_3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 16
   %vtable_.i.i18.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 8
@@ -87436,7 +87436,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !830
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen_.i, i64 %1
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !830
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %invoke.cont unwind label %lpad.i
@@ -88054,7 +88054,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !833
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen_.i, i64 %1
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !833
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %invoke.cont9 unwind label %lpad.i
@@ -88772,7 +88772,7 @@ _ZN4absl13MockingBitGenD2Ev.exit:                 ; preds = %_ZN7testing15Assert
   %cond.i.i.i.i.i.i.i183 = getelementptr inbounds i8, ptr %gen_.i180, i64 %and.i.i.i.i.i.i.i182
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i183, i8 0, i64 16, i1 false), !alias.scope !836
   %107 = or disjoint i64 %and.i.i.i.i.i.i.i182, 16
-  %scevgep.i.i.i.i.i184 = getelementptr i8, ptr %gen_.i180, i64 %107
+  %scevgep.i.i.i.i.i184 = getelementptr nuw i8, ptr %gen_.i180, i64 %107
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i184, i8 0, i64 240, i1 false), !alias.scope !836
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i180, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i175)
           to label %invoke.cont120 unwind label %lpad.i178
@@ -89552,7 +89552,7 @@ _ZN4absl13MockingBitGenD2Ev.exit376:              ; preds = %_ZN7testing15Assert
   %cond.i.i.i.i.i.i.i385 = getelementptr inbounds i8, ptr %gen_.i382, i64 %and.i.i.i.i.i.i.i384
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i385, i8 0, i64 16, i1 false), !alias.scope !839
   %233 = or disjoint i64 %and.i.i.i.i.i.i.i384, 16
-  %scevgep.i.i.i.i.i386 = getelementptr i8, ptr %gen_.i382, i64 %233
+  %scevgep.i.i.i.i.i386 = getelementptr nuw i8, ptr %gen_.i382, i64 %233
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i386, i8 0, i64 240, i1 false), !alias.scope !839
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i382, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i377)
           to label %invoke.cont232 unwind label %lpad.i380
@@ -90349,7 +90349,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !842
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen_.i, i64 %1
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !842
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %_ZN4absl13MockingBitGenC2Ev.exit unwind label %lpad.i
@@ -95893,7 +95893,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !893
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen_.i, i64 %1
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !893
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %invoke.cont unwind label %lpad.i
@@ -96495,7 +96495,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %gen_.i, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !896
   %1 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %gen_.i, i64 %1
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %gen_.i, i64 %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !896
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %_ZN4absl13MockingBitGenC2Ev.exit unwind label %lpad.i
@@ -97232,7 +97232,7 @@ entry:
   %cond.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %and.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !899
   %3 = or disjoint i64 %and.i.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %1, i64 %3
+  %scevgep.i.i.i.i.i.i = getelementptr nuw i8, ptr %1, i64 %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !899
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i.i)
           to label %invoke.cont6 unwind label %lpad.i.i
@@ -99118,7 +99118,7 @@ entry:
   %cond.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %and.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !931
   %3 = or disjoint i64 %and.i.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %1, i64 %3
+  %scevgep.i.i.i.i.i.i = getelementptr nuw i8, ptr %1, i64 %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !931
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i.i)
           to label %invoke.cont6 unwind label %lpad.i.i
@@ -100746,7 +100746,7 @@ entry:
   %and.i.i.i.i.i.i.i.i.i = and i64 %2, 8
   %cond.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %and.i.i.i.i.i.i.i.i.i
   %3 = or disjoint i64 %and.i.i.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %1, i64 %3
+  %scevgep.i.i.i.i.i.i.i = getelementptr nuw i8, ptr %1, i64 %3
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
   %4 = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 16
   %vtable_.i.i5.i = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 8
@@ -101715,7 +101715,7 @@ entry:
   %cond.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %and.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !976
   %3 = or disjoint i64 %and.i.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %1, i64 %3
+  %scevgep.i.i.i.i.i.i = getelementptr nuw i8, ptr %1, i64 %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !976
   invoke void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i.i)
           to label %invoke.cont6 unwind label %lpad.i.i

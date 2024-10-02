@@ -724,7 +724,7 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %38, %20, %25
-  %.1 = phi ptr [ %.2, %25 ], [ %.2, %20 ], [ getelementptr inbounds (i8, ptr @adjustMode, i64 544), %38 ]
+  %.1 = phi ptr [ %.2, %25 ], [ %.2, %20 ], [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 544), %38 ]
   %42 = getelementptr inbounds i8, ptr %.1, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null

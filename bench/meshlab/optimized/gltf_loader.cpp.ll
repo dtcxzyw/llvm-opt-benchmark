@@ -16116,7 +16116,7 @@ _ZL13stbi__get16leP13stbi__context.exit353:       ; preds = %705, %708, %_ZL19st
   %spec.store.select = select i1 %.not213, i32 %725, i32 0
   %726 = zext nneg i32 %spec.store.select to i64
   %727 = mul nuw nsw i64 %631, %726
-  %scevgep = getelementptr i8, ptr %.0188, i64 %727
+  %scevgep = getelementptr nuw i8, ptr %.0188, i64 %727
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i64 %umax80, i1 false)
   br label %.loopexit27
 
@@ -119886,9 +119886,9 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
 .preheader.i:                                     ; preds = %392, %.preheader.i
   %indvar = phi i64 [ %indvar.next, %.preheader.i ], [ 0, %392 ]
   %395 = mul nuw nsw i64 %indvar, 12
-  %scevgep = getelementptr i8, ptr %27, i64 %395
+  %scevgep = getelementptr nuw i8, ptr %27, i64 %395
   %396 = shl nuw nsw i64 %indvar, 4
-  %scevgep299 = getelementptr i8, ptr %5, i64 %396
+  %scevgep299 = getelementptr nuw i8, ptr %5, i64 %396
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %scevgep299, i64 12, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %.not.i219 = icmp eq i64 %indvar.next, 3

@@ -8327,9 +8327,9 @@ _ZN7openvdb5v11_04math4Mat4IdE8identityEv.exit:   ; preds = %entry, %init.check.
 for.cond2.preheader.i:                            ; preds = %for.cond2.preheader.i, %_ZN7openvdb5v11_04math4Mat4IdE8identityEv.exit
   %indvars.iv12.i = phi i64 [ 0, %_ZN7openvdb5v11_04math4Mat4IdE8identityEv.exit ], [ %indvars.iv.next13.i, %for.cond2.preheader.i ]
   %2 = shl nuw nsw i64 %indvars.iv12.i, 5
-  %scevgep = getelementptr i8, ptr %mat4, i64 %2
+  %scevgep = getelementptr nuw i8, ptr %mat4, i64 %2
   %3 = mul nuw nsw i64 %indvars.iv12.i, 24
-  %scevgep1 = getelementptr i8, ptr %m, i64 %3
+  %scevgep1 = getelementptr nuw i8, ptr %m, i64 %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, ptr noundef nonnull align 8 dereferenceable(24) %scevgep1, i64 24, i1 false)
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
   %exitcond17.not.i = icmp eq i64 %indvars.iv.next13.i, 3
@@ -10274,9 +10274,9 @@ _ZN7openvdb5v11_04math4Mat4IdE8identityEv.exit:   ; preds = %entry, %init.check.
 for.cond2.preheader.i:                            ; preds = %for.cond2.preheader.i, %_ZN7openvdb5v11_04math4Mat4IdE8identityEv.exit
   %indvars.iv12.i = phi i64 [ 0, %_ZN7openvdb5v11_04math4Mat4IdE8identityEv.exit ], [ %indvars.iv.next13.i, %for.cond2.preheader.i ]
   %2 = shl nuw nsw i64 %indvars.iv12.i, 5
-  %scevgep = getelementptr i8, ptr %mat4, i64 %2
+  %scevgep = getelementptr nuw i8, ptr %mat4, i64 %2
   %3 = mul nuw nsw i64 %indvars.iv12.i, 24
-  %scevgep1 = getelementptr i8, ptr %m, i64 %3
+  %scevgep1 = getelementptr nuw i8, ptr %m, i64 %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, ptr noundef nonnull align 8 dereferenceable(24) %scevgep1, i64 24, i1 false)
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
   %exitcond17.not.i = icmp eq i64 %indvars.iv.next13.i, 3
@@ -18803,9 +18803,9 @@ entry:
 for.cond2.preheader.i:                            ; preds = %for.cond2.preheader.i, %entry
   %indvar.i = phi i64 [ 0, %entry ], [ %indvar.next.i, %for.cond2.preheader.i ]
   %0 = mul nuw nsw i64 %indvar.i, 24
-  %scevgep.i = getelementptr i8, ptr %mat3, i64 %0
+  %scevgep.i = getelementptr nuw i8, ptr %mat3, i64 %0
   %1 = shl nuw nsw i64 %indvar.i, 5
-  %scevgep9.i = getelementptr i8, ptr %mMatrix, i64 %1
+  %scevgep9.i = getelementptr nuw i8, ptr %mMatrix, i64 %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i, ptr noundef nonnull align 8 dereferenceable(24) %scevgep9.i, i64 24, i1 false)
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %exitcond.not.i = icmp eq i64 %indvar.next.i, 3
@@ -19191,9 +19191,9 @@ entry:
 for.cond2.preheader.i:                            ; preds = %for.cond2.preheader.i, %entry
   %indvar.i = phi i64 [ 0, %entry ], [ %indvar.next.i, %for.cond2.preheader.i ]
   %0 = mul nuw nsw i64 %indvar.i, 24
-  %scevgep.i = getelementptr i8, ptr %mat, i64 %0
+  %scevgep.i = getelementptr nuw i8, ptr %mat, i64 %0
   %1 = shl nuw nsw i64 %indvar.i, 5
-  %scevgep9.i = getelementptr i8, ptr %mMatrix, i64 %1
+  %scevgep9.i = getelementptr nuw i8, ptr %mMatrix, i64 %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i, ptr noundef nonnull align 8 dereferenceable(24) %scevgep9.i, i64 24, i1 false)
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %exitcond.not.i = icmp eq i64 %indvar.next.i, 3

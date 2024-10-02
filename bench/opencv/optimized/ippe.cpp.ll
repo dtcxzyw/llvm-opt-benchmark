@@ -2457,9 +2457,9 @@ _ZN2cv3Mat2atINS_3VecIdLi2EEEEERT_i.exit141:      ; preds = %479, %486, %492
 .preheader:                                       ; preds = %._crit_edge169, %.preheader
   %indvar = phi i64 [ 0, %._crit_edge169 ], [ %indvar.next, %.preheader ]
   %527 = shl nuw nsw i64 %indvar, 5
-  %scevgep = getelementptr i8, ptr %21, i64 %527
+  %scevgep = getelementptr nuw i8, ptr %21, i64 %527
   %528 = mul nuw nsw i64 %indvar, 24
-  %scevgep189 = getelementptr i8, ptr %14, i64 %528
+  %scevgep189 = getelementptr nuw i8, ptr %14, i64 %528
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, ptr noundef nonnull align 8 dereferenceable(24) %scevgep189, i64 24, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond194.not = icmp eq i64 %indvar.next, 3

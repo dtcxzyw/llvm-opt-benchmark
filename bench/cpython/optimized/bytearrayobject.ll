@@ -1606,7 +1606,7 @@ while.body25:                                     ; preds = %while.body25.prehea
   %incdec.ptr27 = getelementptr i8, ptr %p.176, i64 1
   store i8 %8, ptr %p.176, align 1
   %9 = load i8, ptr %incdec.ptr26, align 1
-  %exitcond84 = icmp eq ptr %incdec.ptr26, getelementptr inbounds (i8, ptr @.str.6, i64 2)
+  %exitcond84 = icmp eq ptr %incdec.ptr26, getelementptr inbounds nuw (i8, ptr @.str.6, i64 2)
   br i1 %exitcond84, label %while.end28, label %while.body25, !llvm.loop !8
 
 while.end28:                                      ; preds = %while.body25

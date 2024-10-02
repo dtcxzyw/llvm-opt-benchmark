@@ -41,7 +41,7 @@ define hidden void @_ZN7Compile17pd_compiler2_initEv() local_unnamed_addr #0 ali
   br i1 %exitcond.not, label %.preheader.preheader, label %.loopexit24, !llvm.loop !6
 
 .preheader.preheader:                             ; preds = %.loopexit24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1016) getelementptr inbounds (i8, ptr @_ZN7OptoReg7vm2optoE, i64 1344), i8 -1, i64 1016, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1016) getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 1344), i8 -1, i64 1016, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %5

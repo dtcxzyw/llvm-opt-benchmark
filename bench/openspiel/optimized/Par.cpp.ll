@@ -1900,7 +1900,7 @@ define i32 @DealerParBin(ptr noundef %0, ptr nocapture noundef writeonly %1, i32
 .preheader103:                                    ; preds = %.preheader103.preheader, %28
   %indvar = phi i64 [ 0, %.preheader103.preheader ], [ %indvar.next, %28 ]
   %19 = shl nuw nsw i64 %indvar, 4
-  %scevgep = getelementptr i8, ptr %6, i64 %19
+  %scevgep = getelementptr nuw i8, ptr %6, i64 %19
   %20 = mul nuw nsw i64 %indvar, 10
   %gep = getelementptr i8, ptr %invariant.gep, i64 %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %scevgep, ptr noundef nonnull align 2 dereferenceable(10) %gep, i64 10, i1 false)

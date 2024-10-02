@@ -2143,14 +2143,14 @@ _ZN2cvmlIfEENS_7Point3_IT_EERKNS_4MatxIS2_Li3ELi3EEERKS3_.exit.us: ; preds = %.c
   %indvar = phi i64 [ 0, %._crit_edge469 ], [ %indvar.next, %.preheader ]
   %.0176472 = phi i64 [ 0, %._crit_edge469 ], [ %340, %.preheader ]
   %335 = shl nuw nsw i64 %indvar, 5
-  %scevgep = getelementptr i8, ptr %8, i64 %335
+  %scevgep = getelementptr nuw i8, ptr %8, i64 %335
   %336 = shl i64 %indvar, 2
   %337 = sub i64 28, %336
   %sext = shl i64 %.0176472, 32
   %338 = ashr exact i64 %sext, 32
   %339 = ashr exact i64 %sext, 30
   %scevgep498 = getelementptr i8, ptr %5, i64 %339
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 4 %scevgep498, i64 %337, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %scevgep, ptr align 4 %scevgep498, i64 %337, i1 false)
   %340 = add i64 %indvars.iv503, %338
   %indvar.next = add nuw nsw i64 %indvar, 1
   %indvars.iv.next504 = add nsw i64 %indvars.iv503, -1

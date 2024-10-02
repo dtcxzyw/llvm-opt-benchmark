@@ -842,7 +842,7 @@ define dso_local i64 @pg_size_pretty(ptr nocapture noundef readonly %0) local_un
 14:                                               ; preds = %5, %22
   %.lcssa = phi ptr [ %8, %5 ], [ %6, %22 ]
   %.023.lcssa = phi i64 [ %.02327, %5 ], [ %38, %22 ]
-  %.01622.lcssa = phi ptr [ %.0162228, %5 ], [ getelementptr inbounds (i8, ptr @size_pretty_units, i64 80), %22 ]
+  %.01622.lcssa = phi ptr [ %.0162228, %5 ], [ getelementptr inbounds nuw (i8, ptr @size_pretty_units, i64 80), %22 ]
   %15 = getelementptr inbounds i8, ptr %.01622.lcssa, i64 12
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1

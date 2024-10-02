@@ -32048,9 +32048,9 @@ define linkonce_odr void @_ZN3vcg3tri12UpdateNormalI6CMeshOE15PerVertexMatrixERS
 .preheader.i:                                     ; preds = %3, %.preheader.i
   %indvar = phi i64 [ 0, %3 ], [ %indvar.next, %.preheader.i ]
   %8 = mul nuw nsw i64 %indvar, 12
-  %scevgep = getelementptr i8, ptr %5, i64 %8
+  %scevgep = getelementptr nuw i8, ptr %5, i64 %8
   %9 = shl nuw nsw i64 %indvar, 4
-  %scevgep40 = getelementptr i8, ptr %1, i64 %9
+  %scevgep40 = getelementptr nuw i8, ptr %1, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %scevgep40, i64 12, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %.not.i = icmp eq i64 %indvar.next, 3
@@ -32253,9 +32253,9 @@ define linkonce_odr void @_ZN3vcg3tri12UpdateNormalI6CMeshOE13PerFaceMatrixERS2_
 .preheader.i:                                     ; preds = %3, %.preheader.i
   %indvar = phi i64 [ 0, %3 ], [ %indvar.next, %.preheader.i ]
   %5 = mul nuw nsw i64 %indvar, 12
-  %scevgep = getelementptr i8, ptr %4, i64 %5
+  %scevgep = getelementptr nuw i8, ptr %4, i64 %5
   %6 = shl nuw nsw i64 %indvar, 4
-  %scevgep31 = getelementptr i8, ptr %1, i64 %6
+  %scevgep31 = getelementptr nuw i8, ptr %1, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %scevgep31, i64 12, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %.not.i = icmp eq i64 %indvar.next, 3
@@ -40030,9 +40030,9 @@ _ZN3vcg8Matrix33IfE15FromEigenMatrixIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEEvRK
 .preheader3560:                                   ; preds = %2712, %.preheader3560
   %indvar3815 = phi i64 [ %indvar.next3816, %.preheader3560 ], [ 0, %2712 ]
   %2718 = shl nuw nsw i64 %indvar3815, 4
-  %scevgep3817 = getelementptr i8, ptr %182, i64 %2718
+  %scevgep3817 = getelementptr nuw i8, ptr %182, i64 %2718
   %2719 = mul nuw nsw i64 %indvar3815, 12
-  %scevgep3818 = getelementptr i8, ptr %189, i64 %2719
+  %scevgep3818 = getelementptr nuw i8, ptr %189, i64 %2719
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep3817, ptr noundef nonnull align 4 dereferenceable(12) %scevgep3818, i64 12, i1 false)
   %indvar.next3816 = add nuw nsw i64 %indvar3815, 1
   %exitcond3823.not = icmp eq i64 %indvar.next3816, 3
@@ -40220,9 +40220,9 @@ _ZN3vcg3tri7InertiaI6CMeshOEC2ERKS2_.exit:        ; preds = %2746
 .preheader3575:                                   ; preds = %2805, %.preheader3575
   %indvar = phi i64 [ %indvar.next, %.preheader3575 ], [ 0, %2805 ]
   %2806 = shl nuw nsw i64 %indvar, 4
-  %scevgep = getelementptr i8, ptr %182, i64 %2806
+  %scevgep = getelementptr nuw i8, ptr %182, i64 %2806
   %2807 = mul nuw nsw i64 %indvar, 12
-  %scevgep3797 = getelementptr i8, ptr %197, i64 %2807
+  %scevgep3797 = getelementptr nuw i8, ptr %197, i64 %2807
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %scevgep3797, i64 12, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond3802.not = icmp eq i64 %indvar.next, 3

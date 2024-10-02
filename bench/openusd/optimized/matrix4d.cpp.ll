@@ -3583,8 +3583,8 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d6Fa
 .preheader:                                       ; preds = %7, %.preheader
   %indvar = phi i64 [ 0, %7 ], [ %indvar.next, %.preheader ]
   %21 = shl nuw nsw i64 %indvar, 5
-  %scevgep = getelementptr i8, ptr %8, i64 %21
-  %scevgep309 = getelementptr i8, ptr %0, i64 %21
+  %scevgep = getelementptr nuw i8, ptr %8, i64 %21
+  %scevgep309 = getelementptr nuw i8, ptr %0, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, ptr noundef nonnull align 8 dereferenceable(24) %scevgep309, i64 24, i1 false)
   %gep.idx = shl nsw i64 %indvar, 5
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %gep.idx

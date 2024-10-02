@@ -1801,12 +1801,12 @@ if.then:                                          ; preds = %_ZSt4fillIN9__gnu_c
   br i1 %cmp27.not27, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %scevgep = getelementptr i8, ptr %.pre34, i64 8
+  %scevgep = getelementptr nuw i8, ptr %.pre34, i64 8
   %21 = add i64 %20, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %21, i64 2)
   %22 = shl i64 %umax, 3
   %23 = add i64 %22, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %23, i1 false), !tbaa !53
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %scevgep, i8 0, i64 %23, i1 false), !tbaa !53
   br label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %if.then, %for.body.lr.ph
@@ -4677,12 +4677,12 @@ for.body.lr.ph:                                   ; preds = %if.then
   %25 = load ptr, ptr %add.ptr.i33, align 8, !tbaa !49
   %amount36 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %26 = load ptr, ptr %amount36, align 8, !tbaa !10
-  %scevgep = getelementptr i8, ptr %26, i64 8
+  %scevgep = getelementptr nuw i8, ptr %26, i64 8
   %27 = add i64 %24, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 2)
   %28 = shl i64 %umax, 3
   %29 = add i64 %28, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %29, i1 false), !tbaa !53
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %scevgep, i8 0, i64 %29, i1 false), !tbaa !53
   br label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.body.lr.ph, %if.then

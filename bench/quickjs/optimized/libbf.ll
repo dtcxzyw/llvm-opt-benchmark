@@ -8704,7 +8704,7 @@ define internal fastcc i32 @bf_atof_internal(ptr noundef %0, ptr nocapture nound
   %21 = getelementptr i8, ptr %.01016.i, i64 1
   %22 = getelementptr i8, ptr %.017.i, i64 1
   %23 = load i8, ptr %22, align 1
-  %exitcond = icmp eq ptr %22, getelementptr inbounds (i8, ptr @.str.12, i64 3)
+  %exitcond = icmp eq ptr %22, getelementptr inbounds nuw (i8, ptr @.str.12, i64 3)
   br i1 %exitcond, label %strcasestart.exit, label %.lr.ph.i, !llvm.loop !63
 
 strcasestart.exit:                                ; preds = %20
@@ -8884,7 +8884,7 @@ bf_set_nan.exit273:                               ; preds = %68, %70
   %83 = getelementptr i8, ptr %.01016.i276, i64 1
   %84 = getelementptr i8, ptr %.017.i275, i64 1
   %85 = load i8, ptr %84, align 1
-  %exitcond641 = icmp eq ptr %84, getelementptr inbounds (i8, ptr @.str.13, i64 3)
+  %exitcond641 = icmp eq ptr %84, getelementptr inbounds nuw (i8, ptr @.str.13, i64 3)
   br i1 %exitcond641, label %strcasestart.exit283, label %.lr.ph.i274, !llvm.loop !63
 
 strcasestart.exit283:                             ; preds = %82

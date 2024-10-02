@@ -16753,7 +16753,7 @@ for.body.i:                                       ; preds = %_ZN8QuantLib6detail
   store double %div19.i, ptr %add.ptr.i.i.i65.i, align 8, !tbaa !82
   store double 0.000000e+00, ptr %add.ptr.i.i56.i, align 8, !tbaa !82
   store double 0.000000e+00, ptr %46, align 8, !tbaa !82
-  %scevgep22 = getelementptr i8, ptr %46, i64 16
+  %scevgep22 = getelementptr nuw i8, ptr %46, i64 16
   %load_initial23 = load double, ptr %scevgep22, align 8
   br label %while.body.i
 

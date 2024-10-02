@@ -59231,7 +59231,7 @@ _ZL10stbi__get8P13stbi__context.exit280:          ; preds = %443, %446, %_ZL19st
   %spec.store.select = select i1 %.not215, i32 %470, i32 0
   %471 = zext nneg i32 %spec.store.select to i64
   %472 = mul nuw nsw i64 %398, %471
-  %scevgep = getelementptr i8, ptr %.0192, i64 %472
+  %scevgep = getelementptr nuw i8, ptr %.0192, i64 %472
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i64 %umax79, i1 false)
   br label %.loopexit27
 

@@ -407,7 +407,7 @@ define noundef i32 @PMIx_Fence_nb(ptr noundef %0, i64 noundef %1, ptr noundef %2
 41:                                               ; preds = %.preheader
   %42 = getelementptr inbounds i8, ptr %.091.i, i64 1
   %43 = getelementptr inbounds i8, ptr %.082.i, i64 1
-  %exitcond.not.i = icmp eq ptr %.091.i, getelementptr inbounds (i8, ptr @pmix_globals, i64 258)
+  %exitcond.not.i = icmp eq ptr %.091.i, getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 258)
   br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %.preheader, !llvm.loop !10
 
 pmix_strncpy.exit:                                ; preds = %.preheader, %41

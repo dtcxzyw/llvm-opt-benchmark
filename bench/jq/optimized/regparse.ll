@@ -9118,7 +9118,7 @@ node_new_str_crude_char.exit:                     ; preds = %node_new_str_with_o
   %859 = load i32, ptr %858, align 8
   %860 = or i32 %859, 1
   store i32 %860, ptr %858, align 8
-  %scevgep.i = getelementptr i8, ptr %.0.i.i.i.i, i64 37
+  %scevgep.i = getelementptr nuw i8, ptr %.0.i.i.i.i, i64 37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %scevgep.i, i8 0, i64 23, i1 false)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   store ptr %.0.i.i.i.i, ptr %0, align 8

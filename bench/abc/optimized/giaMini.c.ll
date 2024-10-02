@@ -2414,7 +2414,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %51 = zext nneg i32 %48 to i64
   %52 = shl nuw nsw i64 %51, 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %50, i8 0, i64 %52, i1 false)
-  %scevgep.i = getelementptr i8, ptr %50, i64 %52
+  %scevgep.i = getelementptr nuw i8, ptr %50, i64 %52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i, i8 -1, i64 %52, i1 false)
   br label %Mini_LutStart.exit
 

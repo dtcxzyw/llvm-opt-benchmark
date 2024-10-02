@@ -1061,7 +1061,7 @@ unpack_sql_state.exit.i:                          ; preds = %39
 
 121:                                              ; preds = %112, %111, %105
   %122 = load i8, ptr %91, align 1
-  %exitcond.i = icmp eq ptr %91, getelementptr inbounds (i8, ptr @.str.50, i64 18)
+  %exitcond.i = icmp eq ptr %91, getelementptr inbounds nuw (i8, ptr @.str.50, i64 18)
   br i1 %exitcond.i, label %append_with_tabs.exit.i, label %89, !llvm.loop !10
 
 append_with_tabs.exit.i:                          ; preds = %84, %121, %48

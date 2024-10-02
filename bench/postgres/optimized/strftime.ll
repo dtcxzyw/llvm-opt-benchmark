@@ -385,7 +385,7 @@ define internal fastcc ptr @_fmt(ptr nocapture noundef readonly %0, ptr noundef 
   %.067.i.i = phi ptr [ %121, %119 ], [ %.0207, %.lr.ph.preheader.i.i ]
   %118 = load i8, ptr %.08.i.i, align 1
   store i8 %118, ptr %.067.i.i, align 1
-  %exitcond.i = icmp eq ptr %.08.i.i, getelementptr inbounds (i8, ptr @.str.57, i64 2)
+  %exitcond.i = icmp eq ptr %.08.i.i, getelementptr inbounds nuw (i8, ptr @.str.57, i64 2)
   br i1 %exitcond.i, label %_add.exit, label %119
 
 119:                                              ; preds = %.lr.ph.i.i
@@ -766,7 +766,7 @@ _conv.exit352:                                    ; preds = %.lr.ph.i.i347, %236
   %.067.i358 = phi ptr [ %246, %244 ], [ %.0207, %.lr.ph.preheader.i354 ]
   %243 = load i8, ptr %.08.i357, align 1
   store i8 %243, ptr %.067.i358, align 1
-  %exitcond790 = icmp eq ptr %.08.i357, getelementptr inbounds (i8, ptr @.str.6, i64 1)
+  %exitcond790 = icmp eq ptr %.08.i357, getelementptr inbounds nuw (i8, ptr @.str.6, i64 1)
   br i1 %exitcond790, label %_add.exit, label %244
 
 244:                                              ; preds = %.lr.ph.i356
@@ -861,7 +861,7 @@ _conv.exit379:                                    ; preds = %.lr.ph.i.i374, %269
   %.067.i385 = phi ptr [ %281, %279 ], [ %.0207, %.lr.ph.preheader.i381 ]
   %278 = load i8, ptr %.08.i384, align 1
   store i8 %278, ptr %.067.i385, align 1
-  %exitcond789 = icmp eq ptr %.08.i384, getelementptr inbounds (i8, ptr @.str.10, i64 1)
+  %exitcond789 = icmp eq ptr %.08.i384, getelementptr inbounds nuw (i8, ptr @.str.10, i64 1)
   br i1 %exitcond789, label %_add.exit, label %279
 
 279:                                              ; preds = %.lr.ph.i383
@@ -1359,7 +1359,7 @@ _yconv.exit459:                                   ; preds = %.lr.ph.i.i42.i454, 
   %.067.i474 = phi ptr [ %486, %484 ], [ %.0207, %.lr.ph.preheader.i470 ]
   %483 = load i8, ptr %.08.i473, align 1
   store i8 %483, ptr %.067.i474, align 1
-  %exitcond788 = icmp eq ptr %.08.i473, getelementptr inbounds (i8, ptr @.str.13, i64 1)
+  %exitcond788 = icmp eq ptr %.08.i473, getelementptr inbounds nuw (i8, ptr @.str.13, i64 1)
   br i1 %exitcond788, label %_add.exit477, label %484
 
 484:                                              ; preds = %.lr.ph.i472
@@ -1383,7 +1383,7 @@ _yconv.exit459:                                   ; preds = %.lr.ph.i.i42.i454, 
   %.067.i483 = phi ptr [ %493, %491 ], [ %.0207, %.lr.ph.preheader.i479 ]
   %490 = load i8, ptr %.08.i482, align 1
   store i8 %490, ptr %.067.i483, align 1
-  %exitcond = icmp eq ptr %.08.i482, getelementptr inbounds (i8, ptr @.str.14, i64 1)
+  %exitcond = icmp eq ptr %.08.i482, getelementptr inbounds nuw (i8, ptr @.str.14, i64 1)
   br i1 %exitcond, label %_add.exit477, label %491
 
 491:                                              ; preds = %.lr.ph.i481
@@ -1523,7 +1523,7 @@ define internal fastcc ptr @_yconv(i32 noundef %0, i32 noundef %1, i1 noundef ze
   %.067.i = phi ptr [ %41, %39 ], [ %4, %.lr.ph.preheader.i ]
   %38 = load i8, ptr %.08.i, align 1
   store i8 %38, ptr %.067.i, align 1
-  %exitcond = icmp eq ptr %.08.i, getelementptr inbounds (i8, ptr @.str.57, i64 2)
+  %exitcond = icmp eq ptr %.08.i, getelementptr inbounds nuw (i8, ptr @.str.57, i64 2)
   br i1 %exitcond, label %_add.exit, label %39
 
 39:                                               ; preds = %.lr.ph.i

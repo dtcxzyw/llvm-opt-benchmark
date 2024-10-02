@@ -12,7 +12,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
 .preheader218:                                    ; preds = %4, %.preheader218
   %indvar = phi i64 [ 0, %4 ], [ %indvar.next, %.preheader218 ]
   %7 = shl nuw nsw i64 %indvar, 5
-  %scevgep = getelementptr i8, ptr %2, i64 %7
+  %scevgep = getelementptr nuw i8, ptr %2, i64 %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep, i8 0, i64 32, i1 false)
   %8 = getelementptr inbounds [4 x double], ptr %2, i64 %indvar, i64 %indvar
   store double 1.000000e+00, ptr %8, align 8

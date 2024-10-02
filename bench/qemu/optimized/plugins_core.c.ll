@@ -1103,7 +1103,7 @@ declare void @qemu_rec_mutex_init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @plugin_init() #0 {
 entry:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds (i8, ptr @plugin, i64 16), i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds nuw (i8, ptr @plugin, i64 16), i8 0, i64 72, i1 false)
   tail call void @qemu_rec_mutex_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112)) #10
   %call = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #10
   store ptr %call, ptr getelementptr inbounds (i8, ptr @plugin, i64 88), align 8

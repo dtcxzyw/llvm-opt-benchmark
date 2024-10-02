@@ -2533,7 +2533,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit122:       ; preds = %177, %180
 .thread.thread:                                   ; preds = %141, %94, %.thread169.thread173, %.thread.thread171, %.thread169.thread172, %.thread.thread170
   %.0 = phi i32 [ 24, %.thread169.thread172 ], [ 16, %.thread.thread170 ], [ 16, %.thread.thread171 ], [ 24, %.thread169.thread173 ], [ 16, %94 ], [ 24, %141 ]
   %192 = zext nneg i32 %.0 to i64
-  %scevgep = getelementptr i8, ptr %13, i64 %192
+  %scevgep = getelementptr nuw i8, ptr %13, i64 %192
   %193 = sub nuw nsw i32 96, %.0
   %194 = zext nneg i32 %193 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %194, i1 false)

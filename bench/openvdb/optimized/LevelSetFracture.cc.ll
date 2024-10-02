@@ -88288,9 +88288,9 @@ if.end:                                           ; preds = %entry
 for.cond2.preheader.i:                            ; preds = %for.cond2.preheader.i, %if.end
   %indvar.i = phi i64 [ 0, %if.end ], [ %indvar.next.i, %for.cond2.preheader.i ]
   %7 = mul nuw nsw i64 %indvar.i, 24
-  %scevgep.i = getelementptr i8, ptr %xform, i64 %7
+  %scevgep.i = getelementptr nuw i8, ptr %xform, i64 %7
   %8 = shl nuw nsw i64 %indvar.i, 5
-  %scevgep9.i = getelementptr i8, ptr %m, i64 %8
+  %scevgep9.i = getelementptr nuw i8, ptr %m, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep.i, ptr noundef nonnull align 8 dereferenceable(24) %scevgep9.i, i64 24, i1 false)
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
   %exitcond.not.i = icmp eq i64 %indvar.next.i, 3

@@ -3801,7 +3801,7 @@ call.i.noexc:                                     ; preds = %_ZNK9grpc_core12_GL
   %cond.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 %and.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !54, !noalias !51
   %12 = or disjoint i64 %and.i.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %ref.tmp.i.i, i64 %12
+  %scevgep.i.i.i.i.i.i = getelementptr nuw i8, ptr %ref.tmp.i.i, i64 %12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !54, !noalias !51
   invoke void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i.i)
           to label %invoke.cont4.i.i unwind label %lpad3.i.i, !noalias !51
@@ -19622,7 +19622,7 @@ sw.bb2.i.i.i:                                     ; preds = %if.end16
   %cond.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i6.i.i.i, i64 %and.i.i.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !286
   %17 = or disjoint i64 %and.i.i.i.i.i.i.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %ref.tmp.i.i.i.i6.i.i.i, i64 %17
+  %scevgep.i.i.i.i.i.i.i.i.i.i.i = getelementptr nuw i8, ptr %ref.tmp.i.i.i.i6.i.i.i, i64 %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i.i.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !286
   invoke void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i.i.i.i6.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i.i.i.i.i.i.i)
           to label %.noexc19 unwind label %ehcleanup102.thread
@@ -20259,7 +20259,7 @@ if.then62:                                        ; preds = %do.end35, %for.end
   %cond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp65, i64 %and.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !296
   %81 = or disjoint i64 %and.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i = getelementptr i8, ptr %ref.tmp65, i64 %81
+  %scevgep.i.i.i.i = getelementptr nuw i8, ptr %ref.tmp65, i64 %81
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !296
   invoke void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp65, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i)
           to label %invoke.cont66 unwind label %lpad32.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

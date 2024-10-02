@@ -15016,7 +15016,7 @@ while.body.i118:                                  ; preds = %while.body.i118, %i
   %incdec.ptr8.i123 = getelementptr i8, ptr %dest.addr.010.i121, i64 1
   store i8 %1, ptr %dest.addr.010.i121, align 1
   %2 = load i8, ptr %incdec.ptr.i122, align 1
-  %exitcond.not = icmp eq ptr %incdec.ptr.i122, getelementptr inbounds (i8, ptr @.str.84, i64 9)
+  %exitcond.not = icmp eq ptr %incdec.ptr.i122, getelementptr inbounds nuw (i8, ptr @.str.84, i64 9)
   br i1 %exitcond.not, label %_mi_strlcpy.exit128, label %while.body.i118, !llvm.loop !78
 
 _mi_strlcpy.exit128:                              ; preds = %while.body.i118
@@ -15212,7 +15212,7 @@ while.body.i12:                                   ; preds = %land.lhs.true.i, %w
   %incdec.ptr8.i = getelementptr i8, ptr %dest.addr.010.i, i64 1
   store i8 %30, ptr %dest.addr.010.i, align 1
   %31 = load i8, ptr %incdec.ptr.i14, align 1
-  %exitcond151.not = icmp eq ptr %incdec.ptr.i14, getelementptr inbounds (i8, ptr @.str.84, i64 9)
+  %exitcond151.not = icmp eq ptr %incdec.ptr.i14, getelementptr inbounds nuw (i8, ptr @.str.84, i64 9)
   br i1 %exitcond151.not, label %while.cond.preheader.i, label %while.body.i12, !llvm.loop !78
 
 while.cond.preheader.i:                           ; preds = %while.body.i12

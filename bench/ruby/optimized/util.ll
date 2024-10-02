@@ -4118,23 +4118,23 @@ define hidden noundef ptr @ruby_dtoa(double noundef %0, i32 noundef %1, i32 noun
 ._crit_edge.i:                                    ; preds = %13
   %16 = tail call noalias dereferenceable_or_null(9) ptr @malloc(i64 noundef 9) #21
   store i8 73, ptr %16, align 1
-  %scevgep1018 = getelementptr i8, ptr %16, i64 1
+  %scevgep1018 = getelementptr nuw i8, ptr %16, i64 1
   store i64 34186468354778734, ptr %scevgep1018, align 1
   br i1 %.not9.i, label %nrv_alloc.exit, label %17
 
 17:                                               ; preds = %._crit_edge.i
-  %scevgep1019 = getelementptr i8, ptr %16, i64 8
+  %scevgep1019 = getelementptr nuw i8, ptr %16, i64 8
   br label %nrv_alloc.exit.sink.split
 
 ._crit_edge.i637:                                 ; preds = %13
   %18 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #21
   store i8 78, ptr %18, align 1
-  %scevgep1016 = getelementptr i8, ptr %18, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %scevgep1016, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds (i8, ptr @NANSTR, i64 1), i64 3, i1 false)
+  %scevgep1016 = getelementptr nuw i8, ptr %18, i64 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %scevgep1016, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @NANSTR, i64 1), i64 3, i1 false)
   br i1 %.not9.i, label %nrv_alloc.exit, label %19
 
 19:                                               ; preds = %._crit_edge.i637
-  %scevgep1017 = getelementptr i8, ptr %18, i64 3
+  %scevgep1017 = getelementptr nuw i8, ptr %18, i64 3
   br label %nrv_alloc.exit.sink.split
 
 20:                                               ; preds = %6
@@ -6284,13 +6284,13 @@ define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr nocapture noundef r
   store i32 2147483647, ptr %3, align 4
   %10 = tail call noalias dereferenceable_or_null(9) ptr @malloc(i64 noundef 9) #21
   store i8 73, ptr %10, align 1
-  %scevgep = getelementptr i8, ptr %10, i64 1
+  %scevgep = getelementptr nuw i8, ptr %10, i64 1
   store i64 34186468354778734, ptr %scevgep, align 1
   %.not9.i = icmp eq ptr %5, null
   br i1 %.not9.i, label %nrv_alloc.exit, label %11
 
 11:                                               ; preds = %._crit_edge.i
-  %scevgep101 = getelementptr i8, ptr %10, i64 8
+  %scevgep101 = getelementptr nuw i8, ptr %10, i64 8
   store ptr %scevgep101, ptr %5, align 8
   br label %nrv_alloc.exit
 

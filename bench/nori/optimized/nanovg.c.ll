@@ -40147,7 +40147,7 @@ stbi__get16le.exit353:                            ; preds = %705, %708, %stbi__r
   %spec.store.select = select i1 %.not213, i32 %725, i32 0
   %726 = zext nneg i32 %spec.store.select to i64
   %727 = mul nuw nsw i64 %631, %726
-  %scevgep = getelementptr i8, ptr %.0188, i64 %727
+  %scevgep = getelementptr nuw i8, ptr %.0188, i64 %727
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i64 %umax80, i1 false)
   br label %.loopexit27
 

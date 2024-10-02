@@ -6410,10 +6410,10 @@ define internal fastcc i32 @disable_noname_group_capture(ptr nocapture noundef n
   br i1 %.not61, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %scevgep = getelementptr i8, ptr %10, i64 4
+  %scevgep = getelementptr nuw i8, ptr %10, i64 4
   %11 = zext nneg i32 %6 to i64
   %12 = shl nuw nsw i64 %11, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %12, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %scevgep, i8 0, i64 %12, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %3

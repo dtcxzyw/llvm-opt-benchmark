@@ -762,7 +762,7 @@ ImportBlock.exit117:                              ; preds = %.lr.ph36.i102, %.pr
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %180
   %181 = zext i32 %.0.lcssa26.i to i64
   %.pre.i = load i8, ptr %gep.i, align 1
-  %scevgep = getelementptr i8, ptr %175, i64 %181
+  %scevgep = getelementptr nuw i8, ptr %175, i64 %181
   %182 = sub nsw i64 16, %181
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 %.pre.i, i64 %182, i1 false)
   br label %ImportLine.exit
@@ -892,9 +892,9 @@ InitLeft.exit:                                    ; preds = %.lr.ph18.i137, %.pr
   %gep.i156 = getelementptr i8, ptr %invariant.gep.i155, i64 %225
   %226 = zext i32 %.0.lcssa26.i154 to i64
   %.pre.i157 = load i8, ptr %gep.i156, align 1
-  %scevgep223 = getelementptr i8, ptr %1, i64 %226
+  %scevgep223 = getelementptr nuw i8, ptr %1, i64 %226
   %227 = sub nsw i64 16, %226
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep223, i8 %.pre.i157, i64 %227, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %scevgep223, i8 %.pre.i157, i64 %227, i1 false)
   br label %ImportLine.exit168
 
 228:                                              ; preds = %228, %.lr.ph.i161

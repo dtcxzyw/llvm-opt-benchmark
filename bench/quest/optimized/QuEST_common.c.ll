@@ -2237,7 +2237,7 @@ define void @densmatr_mixKrausMap(ptr nocapture noundef readonly byval(%struct.Q
   %indvars.iv93.i = phi i64 [ 0, %4 ], [ %indvars.iv.next94.i, %.preheader84.i ]
   %6 = shl nuw nsw i64 %indvars.iv93.i, 5
   %gep = getelementptr i8, ptr %invariant.gep, i64 %6
-  %scevgep = getelementptr i8, ptr %5, i64 %6
+  %scevgep = getelementptr nuw i8, ptr %5, i64 %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gep, i8 0, i64 32, i1 false)
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1

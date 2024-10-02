@@ -2915,7 +2915,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !20
 
 while.end:                                        ; preds = %while.body, %land.rhs
-  %desc.0.lcssa = phi ptr [ getelementptr inbounds (i8, ptr @pci_class_descriptions, i64 1696), %while.body ], [ %desc.04, %land.rhs ]
+  %desc.0.lcssa = phi ptr [ getelementptr inbounds nuw (i8, ptr @pci_class_descriptions, i64 1696), %while.body ], [ %desc.04, %land.rhs ]
   ret ptr %desc.0.lcssa
 }
 

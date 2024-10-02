@@ -1054,7 +1054,7 @@ define void @_Z11do_fit_ndimiiPfPA3_KfPA3_f(i32 noundef %0, i32 noundef %1, ptr 
 .preheader29:                                     ; preds = %.preheader29.preheader, %20
   %indvar = phi i64 [ 0, %.preheader29.preheader ], [ %indvar.next, %20 ]
   %9 = mul nuw nsw i64 %indvar, 12
-  %scevgep = getelementptr i8, ptr %4, i64 %9
+  %scevgep = getelementptr nuw i8, ptr %4, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %scevgep, i64 12, i1 false)
   br label %10
 
@@ -1107,7 +1107,7 @@ define void @_Z6do_fitiPfPA3_KfPA3_f(i32 noundef %0, ptr nocapture noundef reado
 .preheader29.i:                                   ; preds = %19, %.preheader29.preheader.i
   %indvar.i = phi i64 [ 0, %.preheader29.preheader.i ], [ %indvar.next.i, %19 ]
   %8 = mul nuw nsw i64 %indvar.i, 12
-  %scevgep.i = getelementptr i8, ptr %3, i64 %8
+  %scevgep.i = getelementptr nuw i8, ptr %3, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %scevgep.i, i64 12, i1 false)
   br label %9
 

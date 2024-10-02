@@ -12149,9 +12149,9 @@ define hidden ptr @_m3dstbi_zlib_decode_malloc_guesssize_headerflag(ptr noundef 
   %22 = getelementptr inbounds i8, ptr %10, i64 48
   store i32 1, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) @_m3dstbi__zdefault_length, i8 8, i64 144, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) getelementptr inbounds (i8, ptr @_m3dstbi__zdefault_length, i64 144), i8 9, i64 112, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds (i8, ptr @_m3dstbi__zdefault_length, i64 256), i8 7, i64 24, i1 false)
-  store i64 578721382704613384, ptr getelementptr inbounds (i8, ptr @_m3dstbi__zdefault_length, i64 280), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) getelementptr inbounds nuw (i8, ptr @_m3dstbi__zdefault_length, i64 144), i8 9, i64 112, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_m3dstbi__zdefault_length, i64 256), i8 7, i64 24, i1 false)
+  store i64 578721382704613384, ptr getelementptr inbounds nuw (i8, ptr @_m3dstbi__zdefault_length, i64 280), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) @_m3dstbi__zdefault_distance, i8 5, i64 32, i1 false)
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_m3dstbi__parse_zlib_header.exit.i.i, label %23
@@ -32570,7 +32570,7 @@ LoadIQM.exit:                                     ; preds = %305, %309, %313, %B
   %indvar815.i = phi i64 [ 0, %.preheader662.lr.ph.i ], [ %indvar.next816.i, %.preheader662.i ]
   %1247 = shl i64 %indvar815.i, 3
   %1248 = and i64 %1247, 8589934584
-  %scevgep814.i = getelementptr i8, ptr %1227, i64 %1248
+  %scevgep814.i = getelementptr nuw i8, ptr %1227, i64 %1248
   %1249 = mul i64 %indvar815.i, %1244
   %scevgep817.i = getelementptr i8, ptr %1246, i64 %1249
   %1250 = load i64, ptr %scevgep817.i, align 2, !noalias !20
@@ -32647,7 +32647,7 @@ LoadIQM.exit:                                     ; preds = %305, %309, %313, %B
   %indvar.i = phi i64 [ 0, %.preheader663.lr.ph.i ], [ %indvar.next.i, %.preheader663.i ]
   %1298 = shl i64 %indvar.i, 4
   %1299 = and i64 %1298, 17179869168
-  %scevgep.i = getelementptr i8, ptr %1278, i64 %1299
+  %scevgep.i = getelementptr nuw i8, ptr %1278, i64 %1299
   %1300 = mul i64 %indvar.i, %1295
   %scevgep811.i = getelementptr i8, ptr %1297, i64 %1300
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %scevgep.i, ptr noundef nonnull align 4 dereferenceable(16) %scevgep811.i, i64 16, i1 false), !noalias !20

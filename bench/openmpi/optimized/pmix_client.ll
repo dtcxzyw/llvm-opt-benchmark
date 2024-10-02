@@ -493,7 +493,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %pmix_obj_run_constr
 153:                                              ; preds = %pmix_obj_run_constructors.exit
   %154 = getelementptr inbounds i8, ptr %.091.i, i64 1
   %155 = getelementptr inbounds i8, ptr %.082.i, i64 1
-  %exitcond.not.i = icmp eq ptr %.091.i, getelementptr inbounds (i8, ptr @pmix_globals, i64 258)
+  %exitcond.not.i = icmp eq ptr %.091.i, getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 258)
   br i1 %exitcond.not.i, label %pmix_strncpy.exit, label %pmix_obj_run_constructors.exit, !llvm.loop !8
 
 pmix_strncpy.exit:                                ; preds = %pmix_obj_run_constructors.exit, %153
@@ -597,7 +597,7 @@ pmix_obj_run_constructors.exit306:                ; preds = %pmix_obj_run_constr
 193:                                              ; preds = %pmix_obj_run_constructors.exit306
   %194 = getelementptr inbounds i8, ptr %.091.i308, i64 1
   %195 = getelementptr inbounds i8, ptr %.082.i307, i64 1
-  %exitcond.not.i309 = icmp eq ptr %.091.i308, getelementptr inbounds (i8, ptr @pmix_globals, i64 258)
+  %exitcond.not.i309 = icmp eq ptr %.091.i308, getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 258)
   br i1 %exitcond.not.i309, label %pmix_strncpy.exit311, label %pmix_obj_run_constructors.exit306, !llvm.loop !8
 
 pmix_strncpy.exit311:                             ; preds = %pmix_obj_run_constructors.exit306, %193
@@ -1659,7 +1659,7 @@ pmix_obj_run_destructors.exit381:                 ; preds = %.lr.ph.i378, %._cri
 687:                                              ; preds = %684
   %688 = getelementptr inbounds i8, ptr %.091.i383, i64 1
   %689 = getelementptr inbounds i8, ptr %.082.i382, i64 1
-  %exitcond.not.i384 = icmp eq ptr %.091.i383, getelementptr inbounds (i8, ptr @pmix_globals, i64 258)
+  %exitcond.not.i384 = icmp eq ptr %.091.i383, getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 258)
   br i1 %exitcond.not.i384, label %pmix_strncpy.exit386, label %684, !llvm.loop !8
 
 pmix_strncpy.exit386:                             ; preds = %684, %687

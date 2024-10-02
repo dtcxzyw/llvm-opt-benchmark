@@ -6139,10 +6139,10 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %252 = shl nuw nsw i64 %251, 3
   %253 = or disjoint i64 %252, 24
   %scevgep = getelementptr i8, ptr %231, i64 %253
-  %scevgep51 = getelementptr i8, ptr %8, i64 %252
+  %scevgep51 = getelementptr nuw i8, ptr %8, i64 %252
   %254 = sub nsw i64 %234, %251
   %255 = shl nsw i64 %254, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 64 %scevgep51, i64 %255, i1 false), !tbaa !13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr nonnull align 64 %scevgep51, i64 %255, i1 false), !tbaa !13
   br label %.loopexit48
 
 .loopexit48:                                      ; preds = %.loopexit48.loopexit, %249, %228

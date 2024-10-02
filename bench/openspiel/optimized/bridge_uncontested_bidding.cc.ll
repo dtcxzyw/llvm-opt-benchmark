@@ -3540,7 +3540,7 @@ _ZSt4fillIPjiEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPjiEvT_S1
   %indvar = phi i64 [ 1, %192 ], [ 0, %_ZSt4fillIPjiEvT_S1_RKT0_.exit.preheader ]
   %177 = shl nuw nsw i64 %indvar, 5
   %178 = or disjoint i64 %177, 16
-  %scevgep = getelementptr i8, ptr %2, i64 %178
+  %scevgep = getelementptr nuw i8, ptr %2, i64 %178
   %179 = shl nuw nsw i64 %indvar, 1
   %180 = or disjoint i64 %179, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false)

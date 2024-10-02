@@ -514,7 +514,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30EssentialMinimalSolver5pts
 .preheader591:                                    ; preds = %147, %.preheader591
   %indvar = phi i64 [ 0, %147 ], [ %indvar.next, %.preheader591 ]
   %150 = mul nuw nsw i64 %indvar, 72
-  %scevgep = getelementptr i8, ptr %19, i64 %150
+  %scevgep = getelementptr nuw i8, ptr %19, i64 %150
   %151 = mul nsw i64 %indvar, -72
   %gep692 = getelementptr i8, ptr %invariant.gep691, i64 %151
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %scevgep, ptr noundef nonnull align 8 dereferenceable(72) %gep692, i64 72, i1 false)

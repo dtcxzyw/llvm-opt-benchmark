@@ -34071,9 +34071,9 @@ define linkonce_odr void @_ZN3vcg3tri12UpdateNormalINS_9AlignPair6A2MeshEE15PerV
 .preheader.i:                                     ; preds = %3, %.preheader.i
   %indvar = phi i64 [ 0, %3 ], [ %indvar.next, %.preheader.i ]
   %8 = mul nuw nsw i64 %indvar, 24
-  %scevgep = getelementptr i8, ptr %5, i64 %8
+  %scevgep = getelementptr nuw i8, ptr %5, i64 %8
   %9 = shl nuw nsw i64 %indvar, 5
-  %scevgep39 = getelementptr i8, ptr %1, i64 %9
+  %scevgep39 = getelementptr nuw i8, ptr %1, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, ptr noundef nonnull align 8 dereferenceable(24) %scevgep39, i64 24, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %.not.i = icmp eq i64 %indvar.next, 3
@@ -34275,9 +34275,9 @@ define linkonce_odr void @_ZN3vcg3tri12UpdateNormalINS_9AlignPair6A2MeshEE13PerF
 .preheader.i:                                     ; preds = %3, %.preheader.i
   %indvar = phi i64 [ 0, %3 ], [ %indvar.next, %.preheader.i ]
   %5 = mul nuw nsw i64 %indvar, 24
-  %scevgep = getelementptr i8, ptr %4, i64 %5
+  %scevgep = getelementptr nuw i8, ptr %4, i64 %5
   %6 = shl nuw nsw i64 %indvar, 5
-  %scevgep30 = getelementptr i8, ptr %1, i64 %6
+  %scevgep30 = getelementptr nuw i8, ptr %1, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, ptr noundef nonnull align 8 dereferenceable(24) %scevgep30, i64 24, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %.not.i = icmp eq i64 %indvar.next, 3
@@ -48930,7 +48930,7 @@ define linkonce_odr noundef double @_ZN3vcg18PointMatchingScale25errorRotoTransl
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @_ZN3vcg18PointMatchingScale3fixE, align 8
   %8 = load ptr, ptr %7, align 8
-  %scevgep = getelementptr i8, ptr %1, i64 8
+  %scevgep = getelementptr nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %scevgep, i64 48, i1 false)
   call void @_ZN3vcg15RotoTranslationIdE8toMatrixERNS_8Matrix44IdEE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(128) %4)
   %9 = load ptr, ptr @_ZN3vcg18PointMatchingScale3movE, align 8

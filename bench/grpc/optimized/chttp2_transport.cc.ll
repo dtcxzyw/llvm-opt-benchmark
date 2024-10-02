@@ -3245,7 +3245,7 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit: ; 
   %cond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bitgen, i64 %and.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !29
   %54 = or disjoint i64 %and.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i = getelementptr i8, ptr %bitgen, i64 %54
+  %scevgep.i.i.i.i = getelementptr nuw i8, ptr %bitgen, i64 %54
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !29
   invoke void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %bitgen, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit unwind label %lpad28
@@ -8351,7 +8351,7 @@ if.end.i112:                                      ; preds = %lor.lhs.false2.i109
   %cond.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 %and.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !128
   %40 = or disjoint i64 %and.i.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %ref.tmp.i.i, i64 %40
+  %scevgep.i.i.i.i.i.i = getelementptr nuw i8, ptr %ref.tmp.i.i, i64 %40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !128
   invoke void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i.i)
           to label %.noexc126 unwind label %lpad13.i
@@ -8704,7 +8704,7 @@ if.end.i:                                         ; preds = %lor.lhs.false2.i
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i161, i64 %and.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !134
   %100 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %ref.tmp.i161, i64 %100
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %ref.tmp.i161, i64 %100
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !134
   invoke void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %ref.tmp.i161, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %.noexc163 unwind label %lpad36

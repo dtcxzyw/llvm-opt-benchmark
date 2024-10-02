@@ -1325,7 +1325,7 @@ _ZN14XValueIteratorI17XPerWorkerStorageA5_mE4nextEPPS1_.exit: ; preds = %1, %_ZN
   %10 = shl nuw nsw i64 %indvars.iv, 12
   %11 = add i64 %9, %10
   %12 = inttoptr i64 %11 to ptr
-  %scevgep = getelementptr i8, ptr %12, i64 8
+  %scevgep = getelementptr nuw i8, ptr %12, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep, i8 0, i64 32, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i8, ptr @UseDynamicNumberOfGCThreads, align 1
@@ -1349,7 +1349,7 @@ _ZN14XValueIteratorI17XPerWorkerStorageA5_mE4nextEPPS1_.exit11: ; preds = %._cri
   %24 = shl nuw nsw i64 %indvars.iv48, 12
   %25 = add i64 %23, %24
   %26 = inttoptr i64 %25 to ptr
-  %scevgep44 = getelementptr i8, ptr %26, i64 8
+  %scevgep44 = getelementptr nuw i8, ptr %26, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep44, i8 0, i64 32, i1 false)
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %27 = load i8, ptr @UseDynamicNumberOfGCThreads, align 1
@@ -1373,7 +1373,7 @@ _ZN14XValueIteratorI17XPerWorkerStorageA5_mE4nextEPPS1_.exit12: ; preds = %._cri
   %38 = shl nuw nsw i64 %indvars.iv55, 12
   %39 = add i64 %37, %38
   %40 = inttoptr i64 %39 to ptr
-  %scevgep51 = getelementptr i8, ptr %40, i64 8
+  %scevgep51 = getelementptr nuw i8, ptr %40, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep51, i8 0, i64 32, i1 false)
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %41 = load i8, ptr @UseDynamicNumberOfGCThreads, align 1

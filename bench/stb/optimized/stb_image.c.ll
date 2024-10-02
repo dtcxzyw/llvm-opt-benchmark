@@ -6832,7 +6832,7 @@ cond.end146:                                      ; preds = %cond.false144, %stb
   %spec.store.select = select i1 %cmp148.not, i32 %cond147, i32 0
   %134 = zext nneg i32 %spec.store.select to i64
   %135 = mul nuw nsw i64 %108, %134
-  %scevgep = getelementptr i8, ptr %tga_palette.0, i64 %135
+  %scevgep = getelementptr nuw i8, ptr %tga_palette.0, i64 %135
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %raw_data, ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i64 %umax564, i1 false)
   br label %if.end179
 

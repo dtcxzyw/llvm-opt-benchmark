@@ -1154,7 +1154,7 @@ define dso_local void @make_map_from_rectangle_groups(i1 noundef zeroext %0, i32
 .lr.ph569:                                        ; preds = %.lr.ph569.preheader, %.lr.ph569
   %indvar = phi i64 [ 0, %.lr.ph569.preheader ], [ %indvar.next, %.lr.ph569 ]
   %72 = shl nuw nsw i64 %indvar, 4
-  %scevgep = getelementptr i8, ptr %65, i64 %72
+  %scevgep = getelementptr nuw i8, ptr %65, i64 %72
   %73 = mul i64 %69, %indvar
   %scevgep687 = getelementptr i8, ptr %3, i64 %73
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, ptr noundef nonnull align 8 dereferenceable(16) %scevgep687, i64 16, i1 false)
@@ -2622,7 +2622,7 @@ gv_calloc.exit:                                   ; preds = %279, %._crit_edge63
 .preheader545:                                    ; preds = %.preheader545.preheader, %.preheader545
   %indvar = phi i64 [ 0, %.preheader545.preheader ], [ %indvar.next, %.preheader545 ]
   %319 = shl nuw nsw i64 %indvar, 4
-  %scevgep764 = getelementptr i8, ptr %315, i64 %319
+  %scevgep764 = getelementptr nuw i8, ptr %315, i64 %319
   %320 = mul i64 %318, %indvar
   %scevgep765 = getelementptr i8, ptr %.0433, i64 %320
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep764, ptr noundef nonnull align 8 dereferenceable(16) %scevgep765, i64 16, i1 false)
@@ -2849,7 +2849,7 @@ gv_calloc.exit:                                   ; preds = %279, %._crit_edge63
   %indvars.iv74.i = phi i64 [ %indvars.iv.next75.i, %triangle_center.exit.i ], [ 0, %391 ]
   %.05371.i = phi ptr [ %457, %triangle_center.exit.i ], [ %395, %391 ]
   %398 = shl nuw nsw i64 %indvars.iv74.i, 5
-  %scevgep834 = getelementptr i8, ptr %394, i64 %398
+  %scevgep834 = getelementptr nuw i8, ptr %394, i64 %398
   %399 = mul nuw nsw i64 %indvars.iv74.i, 12
   %scevgep835 = getelementptr i8, ptr %389, i64 %399
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep834, ptr noundef nonnull align 4 dereferenceable(12) %scevgep835, i64 12, i1 false)

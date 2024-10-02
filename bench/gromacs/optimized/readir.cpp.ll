@@ -9746,7 +9746,7 @@ _ZN3gmx19KeyValueTreeBuilderD2Ev.exit:            ; preds = %_ZNSt6vectorIN3gmx2
   %indvar.sroa.phi1359 = phi ptr [ %indvar.sroa.gep1360, %1845 ], [ %indvar.sroa.gep1361, %.preheader1128.preheader ]
   %indvar.sroa.phi1368 = phi ptr [ %.sroa.6, %1845 ], [ %.sroa.0, %.preheader1128.preheader ]
   %indvar = phi i64 [ 48, %1845 ], [ 0, %.preheader1128.preheader ]
-  %scevgep = getelementptr i8, ptr %30, i64 %indvar
+  %scevgep = getelementptr nuw i8, ptr %30, i64 %indvar
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %scevgep, i8 0, i64 48, i1 false)
   %1811 = load i32, ptr %780, align 4
   %.not499 = icmp eq i32 %1811, 0

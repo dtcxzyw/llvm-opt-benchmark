@@ -19412,7 +19412,7 @@ define void @rlDrawRenderBatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond235.not, label %.preheader.preheader, label %376
 
 .preheader.preheader:                             ; preds = %376
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @RLGL, i64 2332), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @RLGL, i64 2332), i8 0, i64 16, i1 false)
   store i32 1, ptr %92, align 8
   %384 = load i32, ptr %91, align 4
   %385 = add nsw i32 %384, 1

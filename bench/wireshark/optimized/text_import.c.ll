@@ -1922,7 +1922,7 @@ define internal fastcc range(i32 0, 2) i32 @start_new_packet(i32 noundef range(i
 15:                                               ; preds = %18
   %16 = getelementptr i8, ptr %.02.i.i, i64 1
   %17 = load i8, ptr %16, align 1
-  %exitcond.i = icmp eq ptr %16, getelementptr inbounds (i8, ptr @.str.30, i64 2)
+  %exitcond.i = icmp eq ptr %16, getelementptr inbounds nuw (i8, ptr @.str.30, i64 2)
   br i1 %exitcond.i, label %.critedge.preheader.i.i, label %18, !llvm.loop !9
 
 18:                                               ; preds = %15, %12
@@ -1941,7 +1941,7 @@ define internal fastcc range(i32 0, 2) i32 @start_new_packet(i32 noundef range(i
 .critedge.i.i:                                    ; preds = %.critedge.preheader.i.i
   %25 = getelementptr i8, ptr %.0184.i.i, i64 1
   %26 = load i8, ptr %25, align 1
-  %exitcond20.i = icmp eq ptr %25, getelementptr inbounds (i8, ptr @.str.31, i64 2)
+  %exitcond20.i = icmp eq ptr %25, getelementptr inbounds nuw (i8, ptr @.str.31, i64 2)
   br i1 %exitcond20.i, label %.critedge._crit_edge.i.i, label %.critedge.preheader.i.i, !llvm.loop !10
 
 .critedge.preheader.i.i:                          ; preds = %15, %.critedge.i.i

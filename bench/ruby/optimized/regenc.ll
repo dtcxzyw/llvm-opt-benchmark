@@ -1414,7 +1414,7 @@ onigenc_strlen.exit:                              ; preds = %onigenc_mbclen.exit
   br label %31
 
 31:                                               ; preds = %onigenc_strlen.exit, %.critedge
-  %indvars.iv = phi ptr [ getelementptr inbounds (i8, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 2), %onigenc_strlen.exit ], [ %scevgep, %.critedge ]
+  %indvars.iv = phi ptr [ getelementptr inbounds nuw (i8, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 2), %onigenc_strlen.exit ], [ %scevgep, %.critedge ]
   %.01325 = phi ptr [ @onigenc_minimum_property_name_to_ctype.PBS, %onigenc_strlen.exit ], [ %83, %.critedge ]
   %32 = load i16, ptr %.01325, align 4
   %33 = sext i16 %32 to i32

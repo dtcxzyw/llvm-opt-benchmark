@@ -10249,7 +10249,7 @@ entry:
   %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bit_gen_.i, i64 %and.i.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !111
   %4 = or disjoint i64 %and.i.i.i.i.i.i.i, 16
-  %scevgep.i.i.i.i.i = getelementptr i8, ptr %bit_gen_.i, i64 %4
+  %scevgep.i.i.i.i.i = getelementptr nuw i8, ptr %bit_gen_.i, i64 %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !111
   invoke void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %bit_gen_.i, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i.i)
           to label %_ZNSt6vectorISt4pairImN9grpc_core13RefCountedPtrINS1_19LoadBalancingPolicy16SubchannelPickerEEEESaIS6_EED2Ev.exit unwind label %lpad2.i

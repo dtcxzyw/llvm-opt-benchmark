@@ -2345,12 +2345,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %3 = load ptr, ptr %2, align 8, !tbaa !50
   %amount = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %amount, align 8, !tbaa !10
-  %scevgep = getelementptr i8, ptr %4, i64 8
+  %scevgep = getelementptr nuw i8, ptr %4, i64 8
   %5 = add i64 %1, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %5, i64 2)
   %6 = shl i64 %umax, 3
   %7 = add i64 %6, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %7, i1 false), !tbaa !52
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %scevgep, i8 0, i64 %7, i1 false), !tbaa !52
   br label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.body.lr.ph, %entry

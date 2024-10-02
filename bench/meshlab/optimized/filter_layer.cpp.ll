@@ -8336,9 +8336,9 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit1170.preheader: ; preds = %_ZN1
 .preheader.i1172:                                 ; preds = %1384, %.preheader.i1172
   %indvar2852 = phi i64 [ 0, %1384 ], [ %indvar.next2853, %.preheader.i1172 ]
   %1393 = mul nuw nsw i64 %indvar2852, 12
-  %scevgep2854 = getelementptr i8, ptr %69, i64 %1393
+  %scevgep2854 = getelementptr nuw i8, ptr %69, i64 %1393
   %1394 = shl nuw nsw i64 %indvar2852, 4
-  %scevgep2855 = getelementptr i8, ptr %70, i64 %1394
+  %scevgep2855 = getelementptr nuw i8, ptr %70, i64 %1394
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep2854, ptr noundef nonnull align 4 dereferenceable(12) %scevgep2855, i64 12, i1 false)
   %indvar.next2853 = add nuw nsw i64 %indvar2852, 1
   %.not.i1171 = icmp eq i64 %indvar.next2853, 3
@@ -13471,9 +13471,9 @@ _ZN3vcg8Matrix44IfEC2EPKf.exit.preheader:         ; preds = %2715
 .preheader.i2064:                                 ; preds = %_ZN3vcg8Matrix44IfEC2EPKf.exit.preheader, %.preheader.i2064
   %indvar = phi i64 [ 0, %_ZN3vcg8Matrix44IfEC2EPKf.exit.preheader ], [ %indvar.next, %.preheader.i2064 ]
   %2730 = mul nuw nsw i64 %indvar, 12
-  %scevgep = getelementptr i8, ptr %201, i64 %2730
+  %scevgep = getelementptr nuw i8, ptr %201, i64 %2730
   %2731 = shl nuw nsw i64 %indvar, 4
-  %scevgep2849 = getelementptr i8, ptr %202, i64 %2731
+  %scevgep2849 = getelementptr nuw i8, ptr %202, i64 %2731
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %scevgep2849, i64 12, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %.not.i2063 = icmp eq i64 %indvar.next, 3
@@ -30354,9 +30354,9 @@ define linkonce_odr void @_ZN3vcg3tri12UpdateNormalI6CMeshOE15PerVertexMatrixERS
 .preheader.i:                                     ; preds = %3, %.preheader.i
   %indvar = phi i64 [ 0, %3 ], [ %indvar.next, %.preheader.i ]
   %8 = mul nuw nsw i64 %indvar, 12
-  %scevgep = getelementptr i8, ptr %5, i64 %8
+  %scevgep = getelementptr nuw i8, ptr %5, i64 %8
   %9 = shl nuw nsw i64 %indvar, 4
-  %scevgep40 = getelementptr i8, ptr %1, i64 %9
+  %scevgep40 = getelementptr nuw i8, ptr %1, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %scevgep40, i64 12, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %.not.i = icmp eq i64 %indvar.next, 3
@@ -30559,9 +30559,9 @@ define linkonce_odr void @_ZN3vcg3tri12UpdateNormalI6CMeshOE13PerFaceMatrixERS2_
 .preheader.i:                                     ; preds = %3, %.preheader.i
   %indvar = phi i64 [ 0, %3 ], [ %indvar.next, %.preheader.i ]
   %5 = mul nuw nsw i64 %indvar, 12
-  %scevgep = getelementptr i8, ptr %4, i64 %5
+  %scevgep = getelementptr nuw i8, ptr %4, i64 %5
   %6 = shl nuw nsw i64 %indvar, 4
-  %scevgep31 = getelementptr i8, ptr %1, i64 %6
+  %scevgep31 = getelementptr nuw i8, ptr %1, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %scevgep31, i64 12, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %.not.i = icmp eq i64 %indvar.next, 3

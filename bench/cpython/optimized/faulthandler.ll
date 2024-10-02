@@ -2527,7 +2527,7 @@ for.body:                                         ; preds = %entry, %for.cond
   br i1 %cmp2.not, label %if.end7, label %for.cond
 
 if.end7:                                          ; preds = %for.cond, %for.body
-  %arrayidx.lcssa = phi ptr [ getelementptr inbounds (i8, ptr @faulthandler_handlers, i64 704), %for.cond ], [ %arrayidx, %for.body ]
+  %arrayidx.lcssa = phi ptr [ getelementptr inbounds nuw (i8, ptr @faulthandler_handlers, i64 704), %for.cond ], [ %arrayidx, %for.body ]
   %enabled.i = getelementptr inbounds i8, ptr %arrayidx.lcssa, i64 4
   %4 = load i32, ptr %enabled.i, align 4
   %tobool.not.i = icmp eq i32 %4, 0

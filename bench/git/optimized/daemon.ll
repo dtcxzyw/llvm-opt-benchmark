@@ -1220,7 +1220,7 @@ land.lhs.true29.i:                                ; preds = %do.body.i.i
   br label %do.body.i22.i
 
 do.body.i22.i:                                    ; preds = %do.cond.i26.i, %land.lhs.true29.i
-  %str.addr.0.i23.i = phi ptr [ getelementptr inbounds (i8, ptr @packet_buffer, i64 4), %land.lhs.true29.i ], [ %incdec.ptr.i27.i, %do.cond.i26.i ]
+  %str.addr.0.i23.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 4), %land.lhs.true29.i ], [ %incdec.ptr.i27.i, %do.cond.i26.i ]
   %prefix.addr.0.i24.i = phi ptr [ %75, %land.lhs.true29.i ], [ %incdec.ptr1.i28.i, %do.cond.i26.i ]
   %76 = load i8, ptr %prefix.addr.0.i24.i, align 1
   %tobool.not.i25.i = icmp eq i8 %76, 0

@@ -1707,7 +1707,7 @@ _ZN14ZValueIteratorI17ZPerWorkerStorageA5_mE4nextEPPS1_.exit: ; preds = %1, %_ZN
   %5 = shl nuw nsw i64 %indvars.iv, 12
   %6 = add i64 %4, %5
   %7 = inttoptr i64 %6 to ptr
-  %scevgep = getelementptr i8, ptr %7, i64 8
+  %scevgep = getelementptr nuw i8, ptr %7, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep, i8 0, i64 32, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr @ConcGCThreads, align 4
@@ -1726,7 +1726,7 @@ _ZN14ZValueIteratorI17ZPerWorkerStorageA5_mE4nextEPPS1_.exit11: ; preds = %._cri
   %14 = shl nuw nsw i64 %indvars.iv48, 12
   %15 = add i64 %13, %14
   %16 = inttoptr i64 %15 to ptr
-  %scevgep44 = getelementptr i8, ptr %16, i64 8
+  %scevgep44 = getelementptr nuw i8, ptr %16, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep44, i8 0, i64 32, i1 false)
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %17 = load i32, ptr @ConcGCThreads, align 4
@@ -1745,7 +1745,7 @@ _ZN14ZValueIteratorI17ZPerWorkerStorageA5_mE4nextEPPS1_.exit12: ; preds = %._cri
   %23 = shl nuw nsw i64 %indvars.iv55, 12
   %24 = add i64 %22, %23
   %25 = inttoptr i64 %24 to ptr
-  %scevgep51 = getelementptr i8, ptr %25, i64 8
+  %scevgep51 = getelementptr nuw i8, ptr %25, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep51, i8 0, i64 32, i1 false)
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %26 = load i32, ptr @ConcGCThreads, align 4

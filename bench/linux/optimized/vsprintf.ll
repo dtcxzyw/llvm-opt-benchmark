@@ -2656,7 +2656,7 @@ widen_string.exit.thread.i:                       ; preds = %102
   %311 = getelementptr i8, ptr %308, i64 1
   %312 = getelementptr i8, ptr %307, i64 1
   %313 = load i8, ptr %307, align 1
-  %exitcond.i = icmp eq ptr %307, getelementptr inbounds (i8, ptr @.str.21, i64 4)
+  %exitcond.i = icmp eq ptr %307, getelementptr inbounds nuw (i8, ptr @.str.21, i64 4)
   br i1 %exitcond.i, label %widen_string.exit26.i, label %.preheader9.i.preheader
 
 .preheader6.i.preheader:                          ; preds = %303, %.preheader6.i
@@ -2674,7 +2674,7 @@ widen_string.exit.thread.i:                       ; preds = %102
   %319 = getelementptr i8, ptr %316, i64 1
   %320 = getelementptr i8, ptr %315, i64 1
   %321 = load i8, ptr %315, align 1
-  %exitcond104.i = icmp eq ptr %315, getelementptr inbounds (i8, ptr @.str.22, i64 4)
+  %exitcond104.i = icmp eq ptr %315, getelementptr inbounds nuw (i8, ptr @.str.22, i64 4)
   br i1 %exitcond104.i, label %widen_string.exit26.thread.i, label %.preheader6.i.preheader
 
 widen_string.exit26.i:                            ; preds = %207, %238, %269, %300, %.preheader9.i, %291, %260, %229, %198

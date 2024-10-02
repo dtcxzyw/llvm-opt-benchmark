@@ -1288,12 +1288,12 @@ for.body.lr.ph:                                   ; preds = %if.then
   %23 = load ptr, ptr %add.ptr.i40, align 8, !tbaa !49
   %amount34 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %24 = load ptr, ptr %amount34, align 8, !tbaa !10
-  %scevgep = getelementptr i8, ptr %24, i64 8
+  %scevgep = getelementptr nuw i8, ptr %24, i64 8
   %25 = add i64 %22, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %25, i64 2)
   %26 = shl i64 %umax, 3
   %27 = add i64 %26, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %27, i1 false), !tbaa !53
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %scevgep, i8 0, i64 %27, i1 false), !tbaa !53
   br label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.body.lr.ph, %if.then
@@ -2760,12 +2760,12 @@ for.body.lr.ph:                                   ; preds = %if.then
   %23 = load ptr, ptr %add.ptr.i25, align 8, !tbaa !49
   %amount34 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %24 = load ptr, ptr %amount34, align 8, !tbaa !10
-  %scevgep = getelementptr i8, ptr %24, i64 8
+  %scevgep = getelementptr nuw i8, ptr %24, i64 8
   %25 = add i64 %22, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %25, i64 2)
   %26 = shl i64 %umax, 3
   %27 = add i64 %26, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %27, i1 false), !tbaa !53
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %scevgep, i8 0, i64 %27, i1 false), !tbaa !53
   br label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.body.lr.ph, %if.then

@@ -610,7 +610,7 @@ match_ver_value_string.exit.thread:               ; preds = %._crit_edge.i, %mat
   br i1 %97, label %98, label %92
 
 98:                                               ; preds = %92, %94
-  %.lcssa = phi ptr [ %95, %94 ], [ getelementptr inbounds (i8, ptr @wimaxasncp_func_to_msg_vals_map, i64 160), %92 ]
+  %.lcssa = phi ptr [ %95, %94 ], [ getelementptr inbounds nuw (i8, ptr @wimaxasncp_func_to_msg_vals_map, i64 160), %92 ]
   %99 = and i32 %88, 31
   %100 = getelementptr inbounds i8, ptr %.lcssa, i64 8
   %101 = load ptr, ptr %100, align 8

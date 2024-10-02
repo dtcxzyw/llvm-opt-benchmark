@@ -16296,7 +16296,7 @@ for.body13.us.us.us.us.i:                         ; preds = %for.body13.us.us.us
   %63 = add i64 %58, %62
   %64 = and i64 %63, 4294967295
   %65 = mul nuw nsw i64 %64, %conv.i
-  %scevgep104 = getelementptr i8, ptr %in, i64 %65
+  %scevgep104 = getelementptr nuw i8, ptr %in, i64 %65
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep103, ptr align 1 %scevgep104, i64 %conv.i, i1 false)
   %indvars.iv.next123.i = add nuw nsw i64 %indvars.iv122.i, 1
   %exitcond126.not.i = icmp eq i64 %indvars.iv.next123.i, %wide.trip.count125.i

@@ -7031,12 +7031,12 @@ define void @Kit_TruthPrintProfile_int(ptr noundef %0, i32 noundef %1) local_unn
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.preheader.us
   %indvar = phi i64 [ 0, %.preheader.us.preheader ], [ %indvar.next, %.preheader.us ]
   %30 = mul nuw nsw i64 %indvar, 80
-  %scevgep582 = getelementptr i8, ptr %7, i64 %30
-  %scevgep581 = getelementptr i8, ptr %8, i64 %30
-  %scevgep = getelementptr i8, ptr %9, i64 %30
-  call void @llvm.memset.p0.i64(ptr align 16 %scevgep, i8 -1, i64 %29, i1 false)
-  call void @llvm.memset.p0.i64(ptr align 16 %scevgep581, i8 -1, i64 %29, i1 false)
-  call void @llvm.memset.p0.i64(ptr align 16 %scevgep582, i8 -1, i64 %29, i1 false)
+  %scevgep582 = getelementptr nuw i8, ptr %7, i64 %30
+  %scevgep581 = getelementptr nuw i8, ptr %8, i64 %30
+  %scevgep = getelementptr nuw i8, ptr %9, i64 %30
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %scevgep, i8 -1, i64 %29, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %scevgep581, i8 -1, i64 %29, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %scevgep582, i8 -1, i64 %29, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond588.not = icmp eq i64 %indvar.next, %28
   br i1 %exitcond588.not, label %._crit_edge497, label %.preheader.us, !llvm.loop !168

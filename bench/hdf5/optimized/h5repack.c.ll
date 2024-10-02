@@ -1374,7 +1374,7 @@ define dso_local i32 @h5repack_init(ptr noundef %0, i32 noundef %1, i1 noundef z
   %indvar = phi i64 [ 0, %3 ], [ %indvar.next, %11 ]
   %12 = mul nuw nsw i64 %indvar, 96
   %13 = or disjoint i64 %12, 24
-  %scevgep = getelementptr i8, ptr %0, i64 %13
+  %scevgep = getelementptr nuw i8, ptr %0, i64 %13
   %14 = getelementptr inbounds [6 x %struct.filter_info_t], ptr %10, i64 0, i64 %indvar
   store i32 -1, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 88
