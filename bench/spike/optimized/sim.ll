@@ -5094,7 +5094,7 @@ define void @_ZN5sim_t4idleEv(ptr noundef nonnull align 8 dereferenceable(2888) 
   br i1 %55, label %.loopexit.i, label %.lr.ph.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %46, %29, %18
-  %56 = add i64 %.sroa.speculated.i, %.020.i
+  %56 = add nuw nsw i64 %.sroa.speculated.i, %.020.i
   %57 = icmp ult i64 %56, 5000
   br i1 %57, label %18, label %_ZN5sim_t4stepEm.exit, !llvm.loop !19
 

@@ -745,9 +745,9 @@ virtio_input_extend_config.exit30:                ; preds = %for.inc.i
   br label %for.body.i33
 
 for.body.i33:                                     ; preds = %for.inc.i48, %virtio_input_extend_config.exit30
-  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %for.inc.i48 ], [ 0, %virtio_input_extend_config.exit30 ]
+  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %for.inc.i48 ], [ 0, %virtio_input_extend_config.exit30 ]
   %bmax.012.i35 = phi i32 [ %bmax.1.i49, %for.inc.i48 ], [ 0, %virtio_input_extend_config.exit30 ]
-  %arrayidx.i37 = getelementptr i16, ptr %abs_bits, i64 %indvars.iv58
+  %arrayidx.i37 = getelementptr i16, ptr %abs_bits, i64 %indvars.iv57
   %5 = load i16, ptr %arrayidx.i37, align 2
   %tobool.not.i38 = icmp eq i16 %5, 0
   br i1 %tobool.not.i38, label %for.inc.i48, label %if.end.i39
@@ -769,9 +769,9 @@ if.end.i39:                                       ; preds = %for.body.i33
 
 for.inc.i48:                                      ; preds = %if.end.i39, %for.body.i33
   %bmax.1.i49 = phi i32 [ %bmax.012.i35, %for.body.i33 ], [ %spec.select.i47, %if.end.i39 ]
-  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %exitcond61.not = icmp eq i64 %indvars.iv.next59, 4
-  br i1 %exitcond61.not, label %virtio_input_extend_config.exit55, label %for.body.i33, !llvm.loop !5
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next58, 4
+  br i1 %exitcond60.not, label %virtio_input_extend_config.exit55, label %for.body.i33, !llvm.loop !5
 
 virtio_input_extend_config.exit55:                ; preds = %for.inc.i48
   %9 = trunc i32 %bmax.1.i49 to i8

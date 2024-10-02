@@ -864,13 +864,13 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %if.end37, %if.then.
   br i1 %cmp.i24.not, label %for.cond39.preheader, label %for.body
 
 for.body40:                                       ; preds = %for.cond39.preheader, %for.inc66
-  %i.0160 = phi i64 [ %inc, %for.inc66 ], [ 0, %for.cond39.preheader ]
+  %cmp52 = phi i1 [ false, %for.inc66 ], [ true, %for.cond39.preheader ]
+  %i.0160 = phi i64 [ 1, %for.inc66 ], [ 0, %for.cond39.preheader ]
   %29 = load ptr, ptr %_M_left.i.i, align 8
   %cmp.i66.not157 = icmp eq ptr %29, %add.ptr.i.i.i
   br i1 %cmp.i66.not157, label %for.inc66, label %for.body47.lr.ph
 
 for.body47.lr.ph:                                 ; preds = %for.body40
-  %cmp52 = icmp eq i64 %i.0160, 0
   br i1 %cmp52, label %for.body47.us, label %for.body47
 
 for.body47.us:                                    ; preds = %for.body47.lr.ph, %for.inc63.us
@@ -962,9 +962,7 @@ invoke.cont51:                                    ; preds = %for.body47
   br i1 %cmp.i66.not, label %for.inc66, label %for.body47
 
 for.inc66:                                        ; preds = %invoke.cont51, %for.inc63.us, %for.body40
-  %inc = add nuw nsw i64 %i.0160, 1
-  %exitcond.not = icmp eq i64 %inc, 2
-  br i1 %exitcond.not, label %for.end67, label %for.body40, !llvm.loop !9
+  br i1 %cmp52, label %for.body40, label %for.end67, !llvm.loop !9
 
 for.end67:                                        ; preds = %for.inc66, %for.cond39.preheader
   %call69 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal3Env10getOptionsEv(ptr noundef nonnull align 8 dereferenceable(576) %env)

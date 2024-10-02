@@ -18752,7 +18752,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
   %.0247441.us = phi i64 [ %197, %._crit_edge440.us ], [ 0, %92 ]
   %187 = add nuw nsw i64 %.0247441.us, %.0246442.us
   %188 = xor i64 %187, -1
-  %189 = add i64 %.0244456, %188
+  %189 = add nsw i64 %.0244456, %188
   %190 = xor i64 %.0247441.us, -1
   %191 = add nsw i64 %.sroa.speculated362.us, %190
   %192 = mul nsw i64 %189, %3

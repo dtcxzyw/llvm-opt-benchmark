@@ -145,7 +145,7 @@ define ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_un
   %.us-phi141 = phi i32 [ %60, %.lr.ph164.preheader.preheader ], [ %60, %.lr.ph180.preheader ], [ %76, %.lr.ph164.preheader ], [ %68, %.lr.ph180 ]
   %49 = and i64 %.us-phi140, 2147483647
   %50 = getelementptr inbounds i8, ptr %.074.ph185, i64 %49
-  %51 = sub i32 %.075.ph183, %.us-phi141
+  %51 = sub nsw i32 %.075.ph183, %.us-phi141
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %.outer95._crit_edge
 
@@ -601,7 +601,7 @@ define i32 @sack_verify(ptr noundef %0) local_unnamed_addr #0 {
   %.us-phi103 = phi i32 [ %63, %.lr.ph126.preheader.preheader ], [ %63, %.lr.ph142.preheader ], [ %79, %.lr.ph126.preheader ], [ %71, %.lr.ph142 ]
   %52 = and i64 %.us-phi102, 2147483647
   %53 = getelementptr inbounds i8, ptr %.0.ph147, i64 %52
-  %54 = sub i32 %.054.ph145, %.us-phi103
+  %54 = sub nsw i32 %.054.ph145, %.us-phi103
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %56, label %.outer._crit_edge
 

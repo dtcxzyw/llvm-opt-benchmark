@@ -1769,7 +1769,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %462, %459
   %.not17.i.i = icmp eq i64 %indvars.iv.i.i, 0
   %.not18.i.i = icmp eq i32 %488, 0
   %or.cond.i.i = select i1 %.not17.i.i, i1 true, i1 %.not18.i.i
-  %.pre.i.i = sub nuw nsw i32 1, %.023.i.i
+  %.pre.i.i = xor i32 %.023.i.i, 1
   br i1 %or.cond.i.i, label %.lr.ph._crit_edge.i.i, label %491
 
 491:                                              ; preds = %.lr.ph.i.i

@@ -447,8 +447,8 @@ get_func_line.exit.thread:                        ; preds = %land.rhs.i154, %for
 
 get_func_line.exit:                               ; preds = %match_func_rec.exit.i, %land.lhs.true.i.i.i167, %switch.early.test.i.i.i173, %switch.early.test.i.i.i173
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %dummy.i149)
-  %cmp36525 = icmp sgt i64 %l.029.i, 0
-  br i1 %cmp36525, label %land.lhs.true, label %while.end46
+  %cmp36525.not = icmp eq i64 %l.029.i, 0
+  br i1 %cmp36525.not, label %while.end46, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %get_func_line.exit, %while.body45
   %fs1.0526 = phi i64 [ %sub38, %while.body45 ], [ %l.029.i, %get_func_line.exit ]

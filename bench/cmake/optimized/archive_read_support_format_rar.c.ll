@@ -1330,8 +1330,8 @@ tailrecurse.i:                                    ; preds = %356
   %.04864.i.i = phi i32 [ %394, %.loopexit.i.i ], [ %375, %.lr.ph66.preheader.i.i ]
   %.04963.i.i = phi i32 [ %392, %.loopexit.i.i ], [ %371, %.lr.ph66.preheader.i.i ]
   %.065..04864.i.i = tail call i32 @llvm.smax.i32(i32 %.065.i.i, i32 %.04864.i.i)
-  %reass.sub.i.i = add i32 %.val.i.i, 1
-  %376 = sub i32 %reass.sub.i.i, %.065..04864.i.i
+  %reass.sub.i.i = sub i32 %.val.i.i, %.065..04864.i.i
+  %376 = add i32 %reass.sub.i.i, 1
   %spec.select61.i.i = tail call i32 @llvm.smin.i32(i32 %.04963.i.i, i32 %376)
   %377 = load ptr, ptr %106, align 8
   %378 = sext i32 %.065.i.i to i64
@@ -1346,7 +1346,7 @@ tailrecurse.i:                                    ; preds = %356
   br i1 %or.cond.i.i, label %387, label %.preheader.i232.i
 
 .preheader.i232.i:                                ; preds = %.lr.ph66.i.i
-  %386 = icmp sgt i32 %spec.select61.i.i, 0
+  %386 = icmp ult i32 %reass.sub.i.i, 2147483647
   br i1 %386, label %.lr.ph.preheader.i.i, label %.loopexit.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.preheader.i232.i
@@ -1407,8 +1407,8 @@ tailrecurse.i:                                    ; preds = %356
   %.04864.i242.i = phi i32 [ %425, %.loopexit.i249.i ], [ %406, %.lr.ph66.preheader.i237.i ]
   %.04963.i243.i = phi i32 [ %423, %.loopexit.i249.i ], [ %402, %.lr.ph66.preheader.i237.i ]
   %.065..04864.i244.i = tail call i32 @llvm.smax.i32(i32 %.065.i241.i, i32 %.04864.i242.i)
-  %reass.sub.i245.i = add i32 %.val.i240.i, 1
-  %407 = sub i32 %reass.sub.i245.i, %.065..04864.i244.i
+  %reass.sub.i245.i = sub i32 %.val.i240.i, %.065..04864.i244.i
+  %407 = add i32 %reass.sub.i245.i, 1
   %spec.select61.i246.i = tail call i32 @llvm.smin.i32(i32 %.04963.i243.i, i32 %407)
   %408 = load ptr, ptr %106, align 8
   %409 = sext i32 %.065.i241.i to i64
@@ -1423,7 +1423,7 @@ tailrecurse.i:                                    ; preds = %356
   br i1 %or.cond.i247.i, label %418, label %.preheader.i248.i
 
 .preheader.i248.i:                                ; preds = %.lr.ph66.i239.i
-  %417 = icmp sgt i32 %spec.select61.i246.i, 0
+  %417 = icmp ult i32 %reass.sub.i245.i, 2147483647
   br i1 %417, label %.lr.ph.preheader.i253.i, label %.loopexit.i249.i
 
 .lr.ph.preheader.i253.i:                          ; preds = %.preheader.i248.i
@@ -5550,8 +5550,8 @@ create_filter.exit.i.i:                           ; preds = %418, %417
   %.04864.i = phi i32 [ %672, %.loopexit.i ], [ %653, %.lr.ph66.preheader.i ]
   %.04963.i = phi i32 [ %670, %.loopexit.i ], [ %.4250, %.lr.ph66.preheader.i ]
   %.065..04864.i = tail call i32 @llvm.smax.i32(i32 %.065.i, i32 %.04864.i)
-  %reass.sub.i = add i32 %.val.i238, 1
-  %654 = sub i32 %reass.sub.i, %.065..04864.i
+  %reass.sub.i = sub i32 %.val.i238, %.065..04864.i
+  %654 = add i32 %reass.sub.i, 1
   %spec.select61.i = tail call i32 @llvm.smin.i32(i32 %.04963.i, i32 %654)
   %655 = load ptr, ptr %17, align 8
   %656 = sext i32 %.065.i to i64
@@ -5566,7 +5566,7 @@ create_filter.exit.i.i:                           ; preds = %418, %417
   br i1 %or.cond.i, label %665, label %.preheader.i239
 
 .preheader.i239:                                  ; preds = %.lr.ph66.i
-  %664 = icmp sgt i32 %spec.select61.i, 0
+  %664 = icmp ult i32 %reass.sub.i, 2147483647
   br i1 %664, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i239

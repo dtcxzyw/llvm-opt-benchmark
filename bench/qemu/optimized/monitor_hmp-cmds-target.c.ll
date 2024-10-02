@@ -354,7 +354,7 @@ cond.end:                                         ; preds = %if.then32, %cond.tr
   %conv = zext nneg i32 %spec.select86 to i64
   %call13.i = call i32 @address_space_read_full(ptr noundef %cond, i64 noundef %addr.addr.094, i32 %bf.clear36, ptr noundef nonnull %buf, i64 noundef %conv) #7
   %cmp63.not = icmp eq i32 %call13.i, 0
-  br i1 %cmp63.not, label %if.end77, label %if.then65
+  br i1 %cmp63.not, label %while.body81.preheader, label %if.then65
 
 if.then65:                                        ; preds = %cond.end
   %call66 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.22) #7
@@ -364,19 +364,18 @@ if.else68:                                        ; preds = %while.body
   %conv70 = zext nneg i32 %spec.select86 to i64
   %call71 = call i32 @cpu_memory_rw_debug(ptr noundef %call.i82, i64 noundef %addr.addr.094, ptr noundef nonnull %buf, i64 noundef %conv70, i1 noundef zeroext false) #7
   %cmp72 = icmp slt i32 %call71, 0
-  br i1 %cmp72, label %if.then74, label %if.end77
+  br i1 %cmp72, label %if.then74, label %while.body81.preheader
 
 if.then74:                                        ; preds = %if.else68
   %call75 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.22) #7
   br label %while.end122
 
-if.end77:                                         ; preds = %if.else68, %cond.end
+while.body81.preheader:                           ; preds = %cond.end, %if.else68
   %.compoundliteral.sroa.0.1 = phi i32 [ %bf.clear36, %cond.end ], [ %.compoundliteral.sroa.0.095, %if.else68 ]
-  %cmp7990 = icmp sgt i32 %len.093, 0
-  br i1 %cmp7990, label %while.body81, label %while.end
+  br label %while.body81
 
-while.body81:                                     ; preds = %if.end77, %sw.epilog116
-  %i.091 = phi i32 [ %add117, %sw.epilog116 ], [ 0, %if.end77 ]
+while.body81:                                     ; preds = %while.body81.preheader, %sw.epilog116
+  %i.091 = phi i32 [ %add117, %sw.epilog116 ], [ 0, %while.body81.preheader ]
   %idx.ext = sext i32 %i.091 to i64
   %add.ptr = getelementptr i8, ptr %buf, i64 %idx.ext
   switch i32 %wsize.addr.0, label %sw.bb83 [
@@ -441,7 +440,7 @@ sw.epilog116:                                     ; preds = %sw.bb114, %sw.bb112
   %cmp79 = icmp slt i32 %add117, %spec.select86
   br i1 %cmp79, label %while.body81, label %while.end, !llvm.loop !12
 
-while.end:                                        ; preds = %sw.epilog116, %if.end77
+while.end:                                        ; preds = %sw.epilog116
   %call118 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.28) #7
   %conv119 = zext nneg i32 %spec.select86 to i64
   %add120 = add i64 %addr.addr.094, %conv119

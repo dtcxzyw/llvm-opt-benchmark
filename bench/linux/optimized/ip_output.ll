@@ -3527,7 +3527,7 @@ define internal fastcc i32 @__ip_append_data(ptr noundef %0, ptr nocapture nound
 
 .thread38.us.us:                                  ; preds = %318, %314
   %323 = add i32 %298, %290
-  %324 = sub i32 %289, %298
+  %324 = sub nsw i32 %289, %298
   %325 = icmp sgt i32 %324, 0
   br i1 %325, label %.split.us.split.us, label %.loopexit49, !llvm.loop !47
 

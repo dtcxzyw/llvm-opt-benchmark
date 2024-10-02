@@ -27850,8 +27850,8 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %conv2.i = zext i8 %2 to i64
   %or.i = or disjoint i64 %shl.i, %conv2.i
   %dec.i = add nsw i32 %dec6.i, -1
-  %cmp.not.i = icmp eq i32 %dec.i, 0
-  br i1 %cmp.not.i, label %read_size_t.exit, label %for.body.i, !llvm.loop !127
+  %cmp.i = icmp ugt i32 %dec6.i, 1
+  br i1 %cmp.i, label %for.body.i, label %read_size_t.exit, !llvm.loop !127
 
 read_size_t.exit:                                 ; preds = %for.body.i
   %add = add i64 %or.i, 24
@@ -27917,8 +27917,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.en
   %conv2.i = zext i8 %3 to i64
   %or.i = or disjoint i64 %shl.i, %conv2.i
   %dec.i = add nsw i32 %dec6.i, -1
-  %cmp.not.i = icmp eq i32 %dec.i, 0
-  br i1 %cmp.not.i, label %read_size_t.exit, label %for.body.i, !llvm.loop !127
+  %cmp.i = icmp ugt i32 %dec6.i, 1
+  br i1 %cmp.i, label %for.body.i, label %read_size_t.exit, !llvm.loop !127
 
 read_size_t.exit:                                 ; preds = %for.body.i
   %add.ptr13 = getelementptr i8, ptr %p, i64 %or.i
@@ -28019,8 +28019,8 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %conv2.i = zext i8 %5 to i64
   %or.i = or disjoint i64 %shl.i, %conv2.i
   %dec.i = add nsw i32 %dec6.i, -1
-  %cmp.not.i = icmp eq i32 %dec.i, 0
-  br i1 %cmp.not.i, label %read_size_t.exit, label %for.body.i, !llvm.loop !127
+  %cmp.i54 = icmp ugt i32 %dec6.i, 1
+  br i1 %cmp.i54, label %for.body.i, label %read_size_t.exit, !llvm.loop !127
 
 read_size_t.exit:                                 ; preds = %for.body.i
   %cmp2 = icmp ugt i64 %nbytes, 9223372036854775783
@@ -28057,21 +28057,21 @@ if.end13:                                         ; preds = %if.else, %if.then7
   %add.ptr.call16 = select i1 %cmp17, ptr %add.ptr, ptr %call16
   %call1.nbytes = select i1 %cmp17, i64 %or.i, i64 %nbytes
   %add.ptr1.i = getelementptr i8, ptr %add.ptr.call16, i64 7
-  br label %for.body.i54
+  br label %for.body.i55
 
-for.body.i54:                                     ; preds = %for.body.i54, %if.end13
-  %dec5.i = phi i32 [ 7, %if.end13 ], [ %dec.i56, %for.body.i54 ]
-  %q.04.i = phi ptr [ %add.ptr1.i, %if.end13 ], [ %incdec.ptr.i, %for.body.i54 ]
-  %n.addr.03.i = phi i64 [ %call1.nbytes, %if.end13 ], [ %shr.i, %for.body.i54 ]
-  %conv.i55 = trunc i64 %n.addr.03.i to i8
-  store i8 %conv.i55, ptr %q.04.i, align 1
+for.body.i55:                                     ; preds = %for.body.i55, %if.end13
+  %dec5.i = phi i32 [ 7, %if.end13 ], [ %dec.i57, %for.body.i55 ]
+  %q.04.i = phi ptr [ %add.ptr1.i, %if.end13 ], [ %incdec.ptr.i, %for.body.i55 ]
+  %n.addr.03.i = phi i64 [ %call1.nbytes, %if.end13 ], [ %shr.i, %for.body.i55 ]
+  %conv.i56 = trunc i64 %n.addr.03.i to i8
+  store i8 %conv.i56, ptr %q.04.i, align 1
   %shr.i = lshr i64 %n.addr.03.i, 8
   %incdec.ptr.i = getelementptr i8, ptr %q.04.i, i64 -1
-  %dec.i56 = add nsw i32 %dec5.i, -1
-  %cmp.not.i57 = icmp eq i32 %dec5.i, 0
-  br i1 %cmp.not.i57, label %write_size_t.exit, label %for.body.i54, !llvm.loop !126
+  %dec.i57 = add nsw i32 %dec5.i, -1
+  %cmp.not.i = icmp eq i32 %dec5.i, 0
+  br i1 %cmp.not.i, label %write_size_t.exit, label %for.body.i55, !llvm.loop !126
 
-write_size_t.exit:                                ; preds = %for.body.i54
+write_size_t.exit:                                ; preds = %for.body.i55
   %add.ptr21 = getelementptr i8, ptr %add.ptr.call16, i64 16
   %8 = load i8, ptr %ctx, align 8
   %arrayidx23 = getelementptr i8, ptr %add.ptr.call16, i64 8
@@ -28276,8 +28276,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %conv2.i.i = zext i8 %2 to i64
   %or.i.i = or disjoint i64 %shl.i.i, %conv2.i.i
   %dec.i.i = add nsw i32 %dec6.i.i, -1
-  %cmp.not.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %cmp.not.i.i, label %read_size_t.exit.i, label %for.body.i.i, !llvm.loop !127
+  %cmp.i.i = icmp ugt i32 %dec6.i.i, 1
+  br i1 %cmp.i.i, label %for.body.i.i, label %read_size_t.exit.i, !llvm.loop !127
 
 read_size_t.exit.i:                               ; preds = %for.body.i.i
   %add.i = add i64 %or.i.i, 24
@@ -31801,8 +31801,8 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %conv2.i = zext i8 %4 to i64
   %or.i = or disjoint i64 %shl.i, %conv2.i
   %dec.i = add nsw i32 %dec6.i, -1
-  %cmp.not.i = icmp eq i32 %dec.i, 0
-  br i1 %cmp.not.i, label %read_size_t.exit, label %for.body.i, !llvm.loop !127
+  %cmp.i = icmp ugt i32 %dec6.i, 1
+  br i1 %cmp.i, label %for.body.i, label %read_size_t.exit, !llvm.loop !127
 
 read_size_t.exit:                                 ; preds = %for.body.i
   %5 = load ptr, ptr @stderr, align 8

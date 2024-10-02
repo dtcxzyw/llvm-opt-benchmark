@@ -520,7 +520,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   %242 = load ptr, ptr %241, align 8
   call void @hb_buffer_append(ptr noundef %137, ptr noundef %242, i32 noundef %221, i32 noundef %.0.lcssa.i)
   store i32 %.0.lcssa.i, ptr %220, align 4
-  %243 = sub nuw nsw i32 1, %.088122.i
+  %243 = xor i32 %.088122.i, 1
   %244 = load i32, ptr %11, align 8
   %245 = load i32, ptr %12, align 4
   %246 = icmp ult i32 %244, %245

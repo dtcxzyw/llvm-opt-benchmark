@@ -3005,78 +3005,82 @@ define void @agnostic_applyQFT(ptr noundef byval(%struct.Qureg) align 8 %0, ptr 
 
 .lr.ph69:                                         ; preds = %3
   %10 = getelementptr inbounds i8, ptr %4, i64 4
-  %11 = zext nneg i32 %2 to i64
-  br label %12
+  %11 = add nsw i32 %2, -1
+  %12 = zext nneg i32 %11 to i64
+  %13 = shl nuw nsw i64 %12, 2
+  %14 = add nuw nsw i64 %13, 4
+  %15 = zext nneg i32 %2 to i64
+  br label %16
 
-12:                                               ; preds = %shiftSubregIndices.exit63, %.lr.ph69
-  %indvars.iv = phi i64 [ %11, %.lr.ph69 ], [ %indvars.iv.next, %shiftSubregIndices.exit63 ]
+16:                                               ; preds = %shiftSubregIndices.exit63, %.lr.ph69
+  %indvars.iv = phi i64 [ %15, %.lr.ph69 ], [ %indvars.iv.next, %shiftSubregIndices.exit63 ]
   %indvar = phi i64 [ 0, %.lr.ph69 ], [ %indvar.next, %shiftSubregIndices.exit63 ]
-  %13 = sub nsw i64 %11, %indvar
-  %14 = shl i64 %13, 2
+  %17 = shl i64 %indvar, 2
+  %18 = sub i64 %14, %17
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %15 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
-  %16 = load i32, ptr %15, align 4
-  call void @statevec_hadamard(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %16) #22
-  %17 = load i32, ptr %0, align 8
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %21, label %18
-
-18:                                               ; preds = %12
-  %19 = load i32, ptr %15, align 4
-  %20 = add nsw i32 %19, %8
+  %19 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
+  %20 = load i32, ptr %19, align 4
   call void @statevec_hadamard(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %20) #22
-  br label %21
+  %21 = load i32, ptr %0, align 8
+  %.not = icmp eq i32 %21, 0
+  br i1 %.not, label %25, label %22
 
-21:                                               ; preds = %18, %12
-  %22 = load i32, ptr %15, align 4
-  call void @qasm_recordGate(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 5, i32 noundef %22) #22
-  %23 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %23, label %._crit_edge70, label %._crit_edge
+22:                                               ; preds = %16
+  %23 = load i32, ptr %19, align 4
+  %24 = add nsw i32 %23, %8
+  call void @statevec_hadamard(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %24) #22
+  br label %25
 
-._crit_edge:                                      ; preds = %21
-  %24 = trunc nuw nsw i64 %indvars.iv.next to i32
-  store i32 %24, ptr %4, align 4
+25:                                               ; preds = %22, %16
+  %26 = load i32, ptr %19, align 4
+  call void @qasm_recordGate(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 5, i32 noundef %26) #22
+  %27 = icmp eq i64 %indvars.iv.next, 0
+  br i1 %27, label %._crit_edge70, label %._crit_edge
+
+._crit_edge:                                      ; preds = %25
+  %28 = trunc nuw nsw i64 %indvars.iv.next to i32
+  store i32 %28, ptr %4, align 4
   store i32 1, ptr %10, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 4 %1, i64 %14, i1 false)
-  %25 = shl nuw i32 1, %24
-  %26 = sitofp i32 %25 to double
-  %27 = fdiv double 0x400921FB54442D18, %26
-  store double %27, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 4 %1, i64 %18, i1 false)
+  %29 = shl nuw i32 1, %28
+  %30 = sitofp i32 %29 to double
+  %31 = fdiv double 0x400921FB54442D18, %30
+  store double %31, ptr %6, align 8
   call void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 2, i32 noundef 0, i32 noundef 6, ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #22
-  %28 = load i32, ptr %0, align 8
-  %.not48 = icmp eq i32 %28, 0
+  %32 = load i32, ptr %0, align 8
+  %.not48 = icmp eq i32 %32, 0
   br i1 %.not48, label %shiftSubregIndices.exit63, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge, %._crit_edge.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %._crit_edge.i ], [ 0, %._crit_edge ]
   %.01013.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %._crit_edge ]
-  %29 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv17.i
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph.preheader.i, label %._crit_edge.i
+  %33 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv17.i
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %32 = sext i32 %.01013.i to i64
+  %36 = sext i32 %.01013.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %32, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.012.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %36, %.lr.ph.i ]
+  %indvars.iv.i = phi i64 [ %36, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %.012.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %40, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %33 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i
-  %34 = load i32, ptr %33, align 4
-  %35 = add nsw i32 %34, %8
-  store i32 %35, ptr %33, align 4
-  %36 = add nuw nsw i32 %.012.i, 1
-  %exitcond.not = icmp eq i32 %36, %30
+  %37 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i
+  %38 = load i32, ptr %37, align 4
+  %39 = add nsw i32 %38, %8
+  store i32 %39, ptr %37, align 4
+  %40 = add nuw nsw i32 %.012.i, 1
+  %exitcond.not = icmp eq i32 %40, %34
   br i1 %exitcond.not, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %37 = trunc nsw i64 %indvars.iv.next.i to i32
+  %41 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
-  %.1.lcssa.i = phi i32 [ %.01013.i, %.preheader.i ], [ %37, %._crit_edge.loopexit.i ]
+  %.1.lcssa.i = phi i32 [ %.01013.i, %.preheader.i ], [ %41, %._crit_edge.loopexit.i ]
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next18.i, 2
   br i1 %exitcond.not.i, label %shiftSubregIndices.exit, label %.preheader.i
@@ -3088,33 +3092,33 @@ shiftSubregIndices.exit:                          ; preds = %._crit_edge.i
 .preheader.i50:                                   ; preds = %._crit_edge.i53, %shiftSubregIndices.exit
   %indvars.iv17.i51 = phi i64 [ 0, %shiftSubregIndices.exit ], [ %indvars.iv.next18.i55, %._crit_edge.i53 ]
   %.01013.i52 = phi i32 [ 0, %shiftSubregIndices.exit ], [ %.1.lcssa.i54, %._crit_edge.i53 ]
-  %38 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv17.i51
-  %39 = load i32, ptr %38, align 4
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph.preheader.i57, label %._crit_edge.i53
+  %42 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv17.i51
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %.lr.ph.preheader.i57, label %._crit_edge.i53
 
 .lr.ph.preheader.i57:                             ; preds = %.preheader.i50
-  %41 = sext i32 %.01013.i52 to i64
+  %45 = sext i32 %.01013.i52 to i64
   br label %.lr.ph.i58
 
 .lr.ph.i58:                                       ; preds = %.lr.ph.i58, %.lr.ph.preheader.i57
-  %indvars.iv.i59 = phi i64 [ %41, %.lr.ph.preheader.i57 ], [ %indvars.iv.next.i61, %.lr.ph.i58 ]
-  %.012.i60 = phi i32 [ 0, %.lr.ph.preheader.i57 ], [ %45, %.lr.ph.i58 ]
+  %indvars.iv.i59 = phi i64 [ %45, %.lr.ph.preheader.i57 ], [ %indvars.iv.next.i61, %.lr.ph.i58 ]
+  %.012.i60 = phi i32 [ 0, %.lr.ph.preheader.i57 ], [ %49, %.lr.ph.i58 ]
   %indvars.iv.next.i61 = add nsw i64 %indvars.iv.i59, 1
-  %42 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i59
-  %43 = load i32, ptr %42, align 4
-  %44 = sub nsw i32 %43, %8
-  store i32 %44, ptr %42, align 4
-  %45 = add nuw nsw i32 %.012.i60, 1
-  %exitcond77.not = icmp eq i32 %45, %39
+  %46 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i59
+  %47 = load i32, ptr %46, align 4
+  %48 = sub nsw i32 %47, %8
+  store i32 %48, ptr %46, align 4
+  %49 = add nuw nsw i32 %.012.i60, 1
+  %exitcond77.not = icmp eq i32 %49, %43
   br i1 %exitcond77.not, label %._crit_edge.loopexit.i62, label %.lr.ph.i58
 
 ._crit_edge.loopexit.i62:                         ; preds = %.lr.ph.i58
-  %46 = trunc nsw i64 %indvars.iv.next.i61 to i32
+  %50 = trunc nsw i64 %indvars.iv.next.i61 to i32
   br label %._crit_edge.i53
 
 ._crit_edge.i53:                                  ; preds = %._crit_edge.loopexit.i62, %.preheader.i50
-  %.1.lcssa.i54 = phi i32 [ %.01013.i52, %.preheader.i50 ], [ %46, %._crit_edge.loopexit.i62 ]
+  %.1.lcssa.i54 = phi i32 [ %.01013.i52, %.preheader.i50 ], [ %50, %._crit_edge.loopexit.i62 ]
   %indvars.iv.next18.i55 = add nuw nsw i64 %indvars.iv17.i51, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next18.i55, 2
   br i1 %exitcond.not.i56, label %shiftSubregIndices.exit63, label %.preheader.i50
@@ -3122,44 +3126,44 @@ shiftSubregIndices.exit:                          ; preds = %._crit_edge.i
 shiftSubregIndices.exit63:                        ; preds = %._crit_edge.i53, %._crit_edge
   call void @qasm_recordNamedPhaseFunc(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 2, i32 noundef 0, i32 noundef 6, ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0) #22
   %indvar.next = add nuw nsw i64 %indvar, 1
-  br label %12
+  br label %16
 
-._crit_edge70:                                    ; preds = %21
+._crit_edge70:                                    ; preds = %25
   %.not83 = icmp eq i32 %2, 1
   br i1 %.not83, label %._crit_edge75, label %.lr.ph74.preheader
 
 .lr.ph74.preheader:                               ; preds = %._crit_edge70
-  %47 = lshr i32 %2, 1
-  %48 = zext nneg i32 %2 to i64
-  %wide.trip.count = zext nneg i32 %47 to i64
-  %49 = getelementptr i32, ptr %1, i64 %48
+  %51 = lshr i32 %2, 1
+  %52 = zext nneg i32 %2 to i64
+  %wide.trip.count = zext nneg i32 %51 to i64
+  %53 = getelementptr i32, ptr %1, i64 %52
   br label %.lr.ph74
 
-.lr.ph74:                                         ; preds = %.lr.ph74.preheader, %59
-  %indvars.iv79 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next80, %59 ]
-  %50 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv79
-  %51 = load i32, ptr %50, align 4
-  %52 = xor i64 %indvars.iv79, -1
-  %53 = getelementptr i32, ptr %49, i64 %52
-  %54 = load i32, ptr %53, align 4
-  call void @statevec_swapQubitAmps(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %51, i32 noundef %54) #22
-  %55 = load i32, ptr %0, align 8
-  %.not49 = icmp eq i32 %55, 0
-  br i1 %.not49, label %59, label %56
+.lr.ph74:                                         ; preds = %.lr.ph74.preheader, %63
+  %indvars.iv79 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next80, %63 ]
+  %54 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv79
+  %55 = load i32, ptr %54, align 4
+  %56 = xor i64 %indvars.iv79, -1
+  %57 = getelementptr i32, ptr %53, i64 %56
+  %58 = load i32, ptr %57, align 4
+  call void @statevec_swapQubitAmps(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %55, i32 noundef %58) #22
+  %59 = load i32, ptr %0, align 8
+  %.not49 = icmp eq i32 %59, 0
+  br i1 %.not49, label %63, label %60
 
-56:                                               ; preds = %.lr.ph74
-  %57 = add nsw i32 %51, %8
-  %58 = add nsw i32 %54, %8
-  call void @statevec_swapQubitAmps(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %57, i32 noundef %58) #22
-  br label %59
+60:                                               ; preds = %.lr.ph74
+  %61 = add nsw i32 %55, %8
+  %62 = add nsw i32 %58, %8
+  call void @statevec_swapQubitAmps(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %61, i32 noundef %62) #22
+  br label %63
 
-59:                                               ; preds = %56, %.lr.ph74
-  call void @qasm_recordControlledGate(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 12, i32 noundef %51, i32 noundef %54) #22
+63:                                               ; preds = %60, %.lr.ph74
+  call void @qasm_recordControlledGate(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 12, i32 noundef %55, i32 noundef %58) #22
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count
   br i1 %exitcond82.not, label %._crit_edge75, label %.lr.ph74
 
-._crit_edge75:                                    ; preds = %59, %3, %._crit_edge70
+._crit_edge75:                                    ; preds = %63, %3, %._crit_edge70
   ret void
 }
 

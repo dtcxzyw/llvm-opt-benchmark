@@ -12677,60 +12677,60 @@ rb_array_const_ptr.exit23:                        ; preds = %25, %27
   %33 = load i64, ptr %.017, align 8
   store i64 %33, ptr %.016, align 8
   %34 = add nsw i64 %.0, -1
-  %.not = icmp eq i64 %34, 0
-  br i1 %.not, label %.loopexit, label %31, !llvm.loop !63
+  %35 = icmp ugt i64 %.0, 1
+  br i1 %35, label %31, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %31, %rb_array_len.exit..loopexit_crit_edge
   %.pre-phi = phi ptr [ %.pre, %rb_array_len.exit..loopexit_crit_edge ], [ %22, %31 ]
-  %35 = load i64, ptr %.pre-phi, align 8
-  %36 = and i64 %35, 8192
-  %.not30 = icmp eq i64 %36, 0
-  %37 = load i64, ptr %2, align 8
-  %38 = and i64 %37, 8192
-  %.not.i27 = icmp eq i64 %38, 0
-  br i1 %.not30, label %49, label %39
+  %36 = load i64, ptr %.pre-phi, align 8
+  %37 = and i64 %36, 8192
+  %.not = icmp eq i64 %37, 0
+  %38 = load i64, ptr %2, align 8
+  %39 = and i64 %38, 8192
+  %.not.i27 = icmp eq i64 %39, 0
+  br i1 %.not, label %50, label %40
 
-39:                                               ; preds = %.loopexit
-  br i1 %.not.i27, label %43, label %40
+40:                                               ; preds = %.loopexit
+  br i1 %.not.i27, label %44, label %41
 
-40:                                               ; preds = %39
-  %41 = lshr i64 %37, 15
-  %42 = and i64 %41, 127
+41:                                               ; preds = %40
+  %42 = lshr i64 %38, 15
+  %43 = and i64 %42, 127
   br label %rb_array_len.exit26
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %2, i64 16
-  %45 = load i64, ptr %44, align 8
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds i8, ptr %2, i64 16
+  %46 = load i64, ptr %45, align 8
   br label %rb_array_len.exit26
 
-rb_array_len.exit26:                              ; preds = %40, %43
-  %.0.i25 = phi i64 [ %42, %40 ], [ %45, %43 ]
-  %46 = and i64 %35, -4161537
-  %47 = shl i64 %.0.i25, 15
-  %48 = or i64 %47, %46
-  store i64 %48, ptr %.pre-phi, align 8
-  br label %57
+rb_array_len.exit26:                              ; preds = %41, %44
+  %.0.i25 = phi i64 [ %43, %41 ], [ %46, %44 ]
+  %47 = and i64 %36, -4161537
+  %48 = shl i64 %.0.i25, 15
+  %49 = or i64 %48, %47
+  store i64 %49, ptr %.pre-phi, align 8
+  br label %58
 
-49:                                               ; preds = %.loopexit
-  br i1 %.not.i27, label %53, label %50
+50:                                               ; preds = %.loopexit
+  br i1 %.not.i27, label %54, label %51
 
-50:                                               ; preds = %49
-  %51 = lshr i64 %37, 15
-  %52 = and i64 %51, 127
+51:                                               ; preds = %50
+  %52 = lshr i64 %38, 15
+  %53 = and i64 %52, 127
   br label %rb_array_len.exit29
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %2, i64 16
-  %55 = load i64, ptr %54, align 8
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds i8, ptr %2, i64 16
+  %56 = load i64, ptr %55, align 8
   br label %rb_array_len.exit29
 
-rb_array_len.exit29:                              ; preds = %50, %53
-  %.0.i28 = phi i64 [ %52, %50 ], [ %55, %53 ]
-  %56 = getelementptr inbounds i8, ptr %.pre-phi, i64 16
-  store i64 %.0.i28, ptr %56, align 8
-  br label %57
+rb_array_len.exit29:                              ; preds = %51, %54
+  %.0.i28 = phi i64 [ %53, %51 ], [ %56, %54 ]
+  %57 = getelementptr inbounds i8, ptr %.pre-phi, i64 16
+  store i64 %.0.i28, ptr %57, align 8
+  br label %58
 
-57:                                               ; preds = %rb_array_len.exit26, %rb_array_len.exit29
+58:                                               ; preds = %rb_array_len.exit26, %rb_array_len.exit29
   ret i64 %12
 }
 

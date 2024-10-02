@@ -6872,7 +6872,7 @@ _ZN14DDBufferAccessIN3gmx11BasicVectorIfEEED2Ev.exit.i: ; preds = %2778
   br label %.lr.ph.i218.i
 
 .preheader13.i.i:                                 ; preds = %.lr.ph.i218.i, %2943
-  %2952 = icmp sgt i64 %indvars.iv72.in.i.i, 1
+  %2952 = icmp ugt i64 %indvars.iv72.in.i.i, 1
   br i1 %2952, label %.lr.ph19.us.i.i, label %.lr.ph26.split.i.i
 
 .lr.ph19.us.i.i:                                  ; preds = %.preheader13.i.i, %._crit_edge23.us.i.i

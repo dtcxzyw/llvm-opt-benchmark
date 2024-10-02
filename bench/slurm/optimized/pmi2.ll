@@ -243,7 +243,7 @@ define i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unnamed_addr #
   %.us-phi99 = phi i32 [ %11, %.lr.ph122.preheader.preheader ], [ %11, %.lr.ph138.preheader ], [ %27, %.lr.ph122.preheader ], [ %19, %.lr.ph138 ]
   %38 = and i64 %.us-phi98, 2147483647
   %39 = getelementptr inbounds i8, ptr %.059.ph142, i64 %38
-  %40 = sub i32 %.060.ph140, %.us-phi99
+  %40 = sub nsw i32 %.060.ph140, %.us-phi99
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %.outer74._crit_edge
 

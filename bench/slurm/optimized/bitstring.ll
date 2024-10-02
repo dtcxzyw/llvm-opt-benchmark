@@ -521,7 +521,7 @@ define void @bit_set_all(ptr nocapture noundef %0) #3 {
 
 .lr.ph27.i:                                       ; preds = %1, %.critedge.i
   %.026.i.in = phi i64 [ %.026.i, %.critedge.i ], [ %3, %1 ]
-  %4 = and i64 %.026.i.in, -9223372036854775801
+  %4 = and i64 %.026.i.in, 7
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.critedge2.i, label %.critedge.i
 
@@ -556,7 +556,7 @@ define void @bit_clear_all(ptr nocapture noundef %0) #3 {
 
 .lr.ph27.i:                                       ; preds = %1, %.critedge.i
   %.026.i.in = phi i64 [ %.026.i, %.critedge.i ], [ %3, %1 ]
-  %4 = and i64 %.026.i.in, -9223372036854775801
+  %4 = and i64 %.026.i.in, 7
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.critedge2.i, label %.critedge.i
 
@@ -1193,7 +1193,7 @@ define noundef ptr @bit_rotate_copy(ptr nocapture noundef readonly %0, i32 nound
 
 .lr.ph27.i:                                       ; preds = %3, %.critedge.i
   %.026.i.in = phi i64 [ %.026.i, %.critedge.i ], [ %2, %3 ]
-  %19 = and i64 %.026.i.in, -9223372036854775801
+  %19 = and i64 %.026.i.in, 7
   %.not41 = icmp eq i64 %19, 0
   br i1 %.not41, label %.critedge2.i, label %.critedge.i
 
@@ -1710,7 +1710,7 @@ define range(i32 -1, 1) i32 @bit_unfmt_hexmask(ptr noundef %0, ptr noundef %1) #
 
 .lr.ph27.i:                                       ; preds = %5, %.critedge.i
   %.026.i.in = phi i64 [ %.026.i, %.critedge.i ], [ %8, %5 ]
-  %12 = and i64 %.026.i.in, -9223372036854775801
+  %12 = and i64 %.026.i.in, 7
   %.not71 = icmp eq i64 %12, 0
   br i1 %.not71, label %.critedge2.i, label %.critedge.i
 
@@ -1914,7 +1914,7 @@ define void @bit_unfmt_binmask(ptr nocapture noundef %0, ptr noundef readonly %1
 
 .lr.ph27.i:                                       ; preds = %2, %.critedge.i
   %.026.i.in = phi i64 [ %.026.i, %.critedge.i ], [ %7, %2 ]
-  %8 = and i64 %.026.i.in, -9223372036854775801
+  %8 = and i64 %.026.i.in, 7
   %.not20 = icmp eq i64 %8, 0
   br i1 %.not20, label %.critedge2.i, label %.critedge.i
 

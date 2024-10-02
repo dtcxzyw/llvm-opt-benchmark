@@ -898,8 +898,8 @@ for.body:                                         ; preds = %if.then50, %for.bod
   %i.0791 = phi i32 [ 0, %if.then50 ], [ %inc53, %for.body ]
   call void @_ZN6Assimp12AC3DImporter17LoadObjectSectionERSt6vectorINS0_6ObjectESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(24) %children)
   %inc53 = add nuw i32 %i.0791, 1
-  %exitcond859.not = icmp eq i32 %inc53, %value.0.lcssa.i
-  br i1 %exitcond859.not, label %return, label %for.body, !llvm.loop !9
+  %exitcond856.not = icmp eq i32 %inc53, %value.0.lcssa.i
+  br i1 %exitcond856.not, label %return, label %for.body, !llvm.loop !9
 
 if.else55:                                        ; preds = %while.body, %land.lhs.true.i76
   %call.i113 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.7, ptr noundef nonnull dereferenceable(1) %23, i64 noundef 4) #24
@@ -1099,7 +1099,8 @@ while.cond.i.i.i13.preheader.i.preheader:         ; preds = %while.cond.i.i.i.i,
   br label %while.cond.i.i.i13.preheader.i
 
 while.cond.i.i.i13.preheader.i:                   ; preds = %while.cond.i.i.i13.preheader.i.preheader, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i ], [ 0, %while.cond.i.i.i13.preheader.i.preheader ]
+  %cmp7.i = phi i1 [ false, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i ], [ true, %while.cond.i.i.i13.preheader.i.preheader ]
+  %indvars.iv = phi i64 [ 1, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i ], [ 0, %while.cond.i.i.i13.preheader.i.preheader ]
   %buffer.addr.125.i = phi ptr [ %call10.i, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i ], [ %in.addr.0.i.i.i.i, %while.cond.i.i.i13.preheader.i.preheader ]
   br label %while.cond.i.i.i13.i
 
@@ -1127,9 +1128,7 @@ if.then.i15.i:                                    ; preds = %while.cond.i.i.i13.
 _ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i:       ; preds = %while.cond.i.i.i13.i, %if.then.i15.i
   %arrayidx9.i = getelementptr inbounds float, ptr %texRepeat, i64 %indvars.iv
   %call10.i = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %in.addr.0.i.i.i14.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx9.i, i1 noundef zeroext true)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond.not, label %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit, label %while.cond.i.i.i13.preheader.i, !llvm.loop !10
+  br i1 %cmp7.i, label %while.cond.i.i.i13.preheader.i, label %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit, !llvm.loop !10
 
 _ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit: ; preds = %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i
   store ptr %call10.i, ptr %buffer, align 8
@@ -1212,7 +1211,8 @@ while.cond.i.i.i13.preheader.i205.preheader:      ; preds = %while.cond.i.i.i.i2
   br label %while.cond.i.i.i13.preheader.i205
 
 while.cond.i.i.i13.preheader.i205:                ; preds = %while.cond.i.i.i13.preheader.i205.preheader, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i213
-  %indvars.iv836 = phi i64 [ %indvars.iv.next837, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i213 ], [ 0, %while.cond.i.i.i13.preheader.i205.preheader ]
+  %cmp7.i218 = phi i1 [ false, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i213 ], [ true, %while.cond.i.i.i13.preheader.i205.preheader ]
+  %indvars.iv836 = phi i64 [ 1, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i213 ], [ 0, %while.cond.i.i.i13.preheader.i205.preheader ]
   %buffer.addr.125.i208 = phi ptr [ %call10.i215, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i213 ], [ %in.addr.0.i.i.i.i201, %while.cond.i.i.i13.preheader.i205.preheader ]
   br label %while.cond.i.i.i13.i209
 
@@ -1240,9 +1240,7 @@ if.then.i15.i211:                                 ; preds = %while.cond.i.i.i13.
 _ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i213:    ; preds = %while.cond.i.i.i13.i209, %if.then.i15.i211
   %arrayidx9.i214 = getelementptr inbounds float, ptr %texOffset, i64 %indvars.iv836
   %call10.i215 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %in.addr.0.i.i.i14.i210, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx9.i214, i1 noundef zeroext true)
-  %indvars.iv.next837 = add nuw nsw i64 %indvars.iv836, 1
-  %exitcond839.not = icmp eq i64 %indvars.iv.next837, 2
-  br i1 %exitcond839.not, label %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit224, label %while.cond.i.i.i13.preheader.i205, !llvm.loop !10
+  br i1 %cmp7.i218, label %while.cond.i.i.i13.preheader.i205, label %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit224, !llvm.loop !10
 
 _ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit224: ; preds = %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i213
   store ptr %call10.i215, ptr %buffer, align 8
@@ -1334,7 +1332,7 @@ while.cond.i.i.i13.preheader.i249.preheader:      ; preds = %while.cond.i.i.i.i2
   br label %while.cond.i.i.i13.preheader.i249
 
 while.cond.i.i.i13.preheader.i249:                ; preds = %while.cond.i.i.i13.preheader.i249.preheader, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i257
-  %indvars.iv840 = phi i64 [ %indvars.iv.next841, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i257 ], [ 0, %while.cond.i.i.i13.preheader.i249.preheader ]
+  %indvars.iv839 = phi i64 [ %indvars.iv.next840, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i257 ], [ 0, %while.cond.i.i.i13.preheader.i249.preheader ]
   %buffer.addr.125.i252 = phi ptr [ %call10.i259, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i257 ], [ %in.addr.0.i.i.i.i245, %while.cond.i.i.i13.preheader.i249.preheader ]
   br label %while.cond.i.i.i13.i253
 
@@ -1360,11 +1358,11 @@ if.then.i15.i255:                                 ; preds = %while.cond.i.i.i13.
   br label %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i257
 
 _ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i257:    ; preds = %while.cond.i.i.i13.i253, %if.then.i15.i255
-  %arrayidx9.i258 = getelementptr inbounds float, ptr %rotation, i64 %indvars.iv840
+  %arrayidx9.i258 = getelementptr inbounds float, ptr %rotation, i64 %indvars.iv839
   %call10.i259 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %in.addr.0.i.i.i14.i254, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx9.i258, i1 noundef zeroext true)
-  %indvars.iv.next841 = add nuw nsw i64 %indvars.iv840, 1
-  %exitcond843.not = icmp eq i64 %indvars.iv.next841, 9
-  br i1 %exitcond843.not, label %_ZN6Assimp24TAcCheckedLoadFloatArrayI12aiMatrix3x3tIfEEEPKcS4_S4_mmPT_.exit, label %while.cond.i.i.i13.preheader.i249, !llvm.loop !11
+  %indvars.iv.next840 = add nuw nsw i64 %indvars.iv839, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next840, 9
+  br i1 %exitcond.not, label %_ZN6Assimp24TAcCheckedLoadFloatArrayI12aiMatrix3x3tIfEEEPKcS4_S4_mmPT_.exit, label %while.cond.i.i.i13.preheader.i249, !llvm.loop !11
 
 _ZN6Assimp24TAcCheckedLoadFloatArrayI12aiMatrix3x3tIfEEEPKcS4_S4_mmPT_.exit: ; preds = %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i257
   store ptr %call10.i259, ptr %buffer, align 8
@@ -1455,7 +1453,7 @@ while.cond.i.i.i13.preheader.i292.preheader:      ; preds = %while.cond.i.i.i.i2
   br label %while.cond.i.i.i13.preheader.i292
 
 while.cond.i.i.i13.preheader.i292:                ; preds = %while.cond.i.i.i13.preheader.i292.preheader, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i300
-  %indvars.iv844 = phi i64 [ %indvars.iv.next845, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i300 ], [ 0, %while.cond.i.i.i13.preheader.i292.preheader ]
+  %indvars.iv842 = phi i64 [ %indvars.iv.next843, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i300 ], [ 0, %while.cond.i.i.i13.preheader.i292.preheader ]
   %buffer.addr.125.i295 = phi ptr [ %call10.i302, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i300 ], [ %in.addr.0.i.i.i.i288, %while.cond.i.i.i13.preheader.i292.preheader ]
   br label %while.cond.i.i.i13.i296
 
@@ -1481,11 +1479,11 @@ if.then.i15.i298:                                 ; preds = %while.cond.i.i.i13.
   br label %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i300
 
 _ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i300:    ; preds = %while.cond.i.i.i13.i296, %if.then.i15.i298
-  %arrayidx9.i301 = getelementptr inbounds float, ptr %translation, i64 %indvars.iv844
+  %arrayidx9.i301 = getelementptr inbounds float, ptr %translation, i64 %indvars.iv842
   %call10.i302 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %in.addr.0.i.i.i14.i297, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx9.i301, i1 noundef zeroext true)
-  %indvars.iv.next845 = add nuw nsw i64 %indvars.iv844, 1
-  %exitcond847.not = icmp eq i64 %indvars.iv.next845, 3
-  br i1 %exitcond847.not, label %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector3tIfEEEPKcS4_S4_mmPT_.exit, label %while.cond.i.i.i13.preheader.i292, !llvm.loop !12
+  %indvars.iv.next843 = add nuw nsw i64 %indvars.iv842, 1
+  %exitcond845.not = icmp eq i64 %indvars.iv.next843, 3
+  br i1 %exitcond845.not, label %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector3tIfEEEPKcS4_S4_mmPT_.exit, label %while.cond.i.i.i13.preheader.i292, !llvm.loop !12
 
 _ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector3tIfEEEPKcS4_S4_mmPT_.exit: ; preds = %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i300
   store ptr %call10.i302, ptr %buffer, align 8
@@ -1689,11 +1687,11 @@ if.end157:                                        ; preds = %_ZN6Assimp9strtoul1
   br i1 %cmp161784.not, label %if.end293, label %for.body162.preheader
 
 for.body162.preheader:                            ; preds = %if.end157
-  %.pre860 = load ptr, ptr %buffer, align 8
+  %.pre857 = load ptr, ptr %buffer, align 8
   br label %for.body162
 
 for.body162:                                      ; preds = %for.body162.preheader, %_ZN6Assimp24TAcCheckedLoadFloatArrayIfEEPKcS2_S2_mmPT_.exit
-  %103 = phi ptr [ %call10.i433, %_ZN6Assimp24TAcCheckedLoadFloatArrayIfEEPKcS2_S2_mmPT_.exit ], [ %.pre860, %for.body162.preheader ]
+  %103 = phi ptr [ %call10.i433, %_ZN6Assimp24TAcCheckedLoadFloatArrayIfEEPKcS2_S2_mmPT_.exit ], [ %.pre857, %for.body162.preheader ]
   %i159.0785 = phi i32 [ %inc183, %_ZN6Assimp24TAcCheckedLoadFloatArrayIfEEPKcS2_S2_mmPT_.exit ], [ 0, %for.body162.preheader ]
   br label %while.cond.i.i.i395
 
@@ -1808,7 +1806,7 @@ while.cond.i.i.i13.preheader.i423.preheader:      ; preds = %while.cond.i.i.i.i4
   br label %while.cond.i.i.i13.preheader.i423
 
 while.cond.i.i.i13.preheader.i423:                ; preds = %while.cond.i.i.i13.preheader.i423.preheader, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i431
-  %indvars.iv848 = phi i64 [ %indvars.iv.next849, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i431 ], [ 0, %while.cond.i.i.i13.preheader.i423.preheader ]
+  %indvars.iv846 = phi i64 [ %indvars.iv.next847, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i431 ], [ 0, %while.cond.i.i.i13.preheader.i423.preheader ]
   %buffer.addr.125.i426 = phi ptr [ %call10.i433, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i431 ], [ %in.addr.0.i.i.i.i419, %while.cond.i.i.i13.preheader.i423.preheader ]
   br label %while.cond.i.i.i13.i427
 
@@ -1834,17 +1832,17 @@ if.then.i15.i429:                                 ; preds = %while.cond.i.i.i13.
   br label %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i431
 
 _ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i431:    ; preds = %while.cond.i.i.i13.i427, %if.then.i15.i429
-  %arrayidx9.i432 = getelementptr inbounds float, ptr %add.ptr.i.i416, i64 %indvars.iv848
+  %arrayidx9.i432 = getelementptr inbounds float, ptr %add.ptr.i.i416, i64 %indvars.iv846
   %call10.i433 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %in.addr.0.i.i.i14.i428, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx9.i432, i1 noundef zeroext true)
-  %indvars.iv.next849 = add nuw nsw i64 %indvars.iv848, 1
-  %exitcond851.not = icmp eq i64 %indvars.iv.next849, 3
-  br i1 %exitcond851.not, label %_ZN6Assimp24TAcCheckedLoadFloatArrayIfEEPKcS2_S2_mmPT_.exit, label %while.cond.i.i.i13.preheader.i423, !llvm.loop !13
+  %indvars.iv.next847 = add nuw nsw i64 %indvars.iv846, 1
+  %exitcond849.not = icmp eq i64 %indvars.iv.next847, 3
+  br i1 %exitcond849.not, label %_ZN6Assimp24TAcCheckedLoadFloatArrayIfEEPKcS2_S2_mmPT_.exit, label %while.cond.i.i.i13.preheader.i423, !llvm.loop !13
 
 _ZN6Assimp24TAcCheckedLoadFloatArrayIfEEPKcS2_S2_mmPT_.exit: ; preds = %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i431
   store ptr %call10.i433, ptr %buffer, align 8
   %inc183 = add nuw nsw i32 %i159.0785, 1
-  %exitcond852.not = icmp eq i32 %inc183, %add.i387
-  br i1 %exitcond852.not, label %if.end293, label %for.body162, !llvm.loop !14
+  %exitcond850.not = icmp eq i32 %inc183, %add.i387
+  br i1 %exitcond850.not, label %if.end293, label %for.body162, !llvm.loop !14
 
 if.else185:                                       ; preds = %if.else143, %land.lhs.true.i365
   %call187 = call noundef zeroext i1 @_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j(ptr noundef nonnull align 8 dereferenceable(8) %buffer, ptr noundef nonnull @.str.20, i32 noundef 7)
@@ -1899,11 +1897,11 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit463:             ; preds = %if.end.i451
   br i1 %cmp198788.not, label %if.end293, label %for.body199.preheader
 
 for.body199.preheader:                            ; preds = %_ZN6Assimp9strtoul10EPKcPS1_.exit463
-  %.pre861 = load ptr, ptr %buffer, align 8
+  %.pre858 = load ptr, ptr %buffer, align 8
   br label %for.body199
 
 for.body199:                                      ; preds = %for.body199.preheader, %for.inc280
-  %121 = phi ptr [ %storemerge, %for.inc280 ], [ %.pre861, %for.body199.preheader ]
+  %121 = phi ptr [ %storemerge, %for.inc280 ], [ %.pre858, %for.body199.preheader ]
   %i196.0790 = phi i32 [ %inc281, %for.inc280 ], [ 0, %for.body199.preheader ]
   %Q3DWorkAround.0789 = phi i8 [ %Q3DWorkAround.1, %for.inc280 ], [ 0, %for.body199.preheader ]
   br label %while.cond.i.i.i465
@@ -1986,11 +1984,11 @@ if.then205:                                       ; preds = %if.then203
   call void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call206, ptr noundef nonnull @.str.22)
   %call207 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call207, ptr noundef nonnull @.str.23)
-  %.pre862 = load ptr, ptr %buffer, align 8
+  %.pre859 = load ptr, ptr %buffer, align 8
   br label %if.end208
 
 if.end208:                                        ; preds = %if.then205, %if.then203
-  %126 = phi ptr [ %.pre862, %if.then205 ], [ %.in.i475, %if.then203 ]
+  %126 = phi ptr [ %.pre859, %if.then205 ], [ %.in.i475, %if.then203 ]
   %incdec.ptr210 = getelementptr inbounds i8, ptr %126, i64 -1
   br label %if.end211
 
@@ -2028,11 +2026,11 @@ if.then.i505:                                     ; preds = %while.end.i.i498
 
 if.else.i509:                                     ; preds = %while.end.i.i498
   call void @_ZNSt6vectorIN6Assimp12AC3DImporter7SurfaceESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %surfaces, ptr %128)
-  %.pre863 = load ptr, ptr %_M_finish.i502, align 8
+  %.pre860 = load ptr, ptr %_M_finish.i502, align 8
   br label %_ZNSt6vectorIN6Assimp12AC3DImporter7SurfaceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
 _ZNSt6vectorIN6Assimp12AC3DImporter7SurfaceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; preds = %if.then.i505, %if.else.i509
-  %131 = phi ptr [ %incdec.ptr.i506, %if.then.i505 ], [ %.pre863, %if.else.i509 ]
+  %131 = phi ptr [ %incdec.ptr.i506, %if.then.i505 ], [ %.pre860, %if.else.i509 ]
   %add.ptr.i.i512 = getelementptr inbounds i8, ptr %131, i64 -32
   %132 = load ptr, ptr %buffer, align 8
   %133 = load i8, ptr %132, align 1
@@ -2421,11 +2419,11 @@ _ZNSt6vectorISt4pairIj10aiVector2tIfEESaIS3_EE7reserveEm.exit: ; preds = %_ZN6As
   br i1 %cmp253786.not, label %if.end279, label %for.body254.preheader
 
 for.body254.preheader:                            ; preds = %_ZNSt6vectorISt4pairIj10aiVector2tIfEESaIS3_EE7reserveEm.exit
-  %.pre864 = load ptr, ptr %buffer, align 8
+  %.pre861 = load ptr, ptr %buffer, align 8
   br label %for.body254
 
 for.body254:                                      ; preds = %for.body254.preheader, %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit706
-  %185 = phi ptr [ %call10.i697, %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit706 ], [ %.pre864, %for.body254.preheader ]
+  %185 = phi ptr [ %call10.i697, %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit706 ], [ %.pre861, %for.body254.preheader ]
   %k.0787 = phi i32 [ %inc273, %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit706 ], [ 0, %for.body254.preheader ]
   br label %while.cond.i.i.i613
 
@@ -2643,7 +2641,8 @@ while.cond.i.i.i13.preheader.i687.preheader:      ; preds = %while.cond.i.i.i.i6
   br label %while.cond.i.i.i13.preheader.i687
 
 while.cond.i.i.i13.preheader.i687:                ; preds = %while.cond.i.i.i13.preheader.i687.preheader, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i695
-  %indvars.iv853 = phi i64 [ %indvars.iv.next854, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i695 ], [ 0, %while.cond.i.i.i13.preheader.i687.preheader ]
+  %cmp7.i700 = phi i1 [ false, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i695 ], [ true, %while.cond.i.i.i13.preheader.i687.preheader ]
+  %indvars.iv851 = phi i64 [ 1, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i695 ], [ 0, %while.cond.i.i.i13.preheader.i687.preheader ]
   %buffer.addr.125.i690 = phi ptr [ %call10.i697, %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i695 ], [ %in.addr.0.i.i.i.i683, %while.cond.i.i.i13.preheader.i687.preheader ]
   br label %while.cond.i.i.i13.i691
 
@@ -2669,17 +2668,15 @@ if.then.i15.i693:                                 ; preds = %while.cond.i.i.i13.
   br label %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i695
 
 _ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i695:    ; preds = %while.cond.i.i.i13.i691, %if.then.i15.i693
-  %arrayidx9.i696 = getelementptr inbounds float, ptr %second, i64 %indvars.iv853
+  %arrayidx9.i696 = getelementptr inbounds float, ptr %second, i64 %indvars.iv851
   %call10.i697 = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %in.addr.0.i.i.i14.i692, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx9.i696, i1 noundef zeroext true)
-  %indvars.iv.next854 = add nuw nsw i64 %indvars.iv853, 1
-  %exitcond856.not = icmp eq i64 %indvars.iv.next854, 2
-  br i1 %exitcond856.not, label %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit706, label %while.cond.i.i.i13.preheader.i687, !llvm.loop !10
+  br i1 %cmp7.i700, label %while.cond.i.i.i13.preheader.i687, label %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit706, !llvm.loop !10
 
 _ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit706: ; preds = %_ZN6Assimp17AcSkipToNextTokenEPKc.exit19.i695
   store ptr %call10.i697, ptr %buffer, align 8
   %inc273 = add nuw i32 %k.0787, 1
-  %exitcond857.not = icmp eq i32 %inc273, %value.0.lcssa.i602
-  br i1 %exitcond857.not, label %if.end279, label %for.body254, !llvm.loop !26
+  %exitcond854.not = icmp eq i32 %inc273, %value.0.lcssa.i602
+  br i1 %exitcond854.not, label %if.end279, label %for.body254, !llvm.loop !26
 
 if.else275:                                       ; preds = %if.else235, %land.lhs.true.i575
   %incdec.ptr277 = getelementptr inbounds i8, ptr %150, i64 -1
@@ -2692,8 +2689,8 @@ for.inc280:                                       ; preds = %if.then242, %if.els
   %storemerge = phi ptr [ %incdec.ptr277, %if.else275 ], [ %add.ptr, %if.then242 ]
   store ptr %storemerge, ptr %buffer, align 8
   %inc281 = add nuw i32 %i196.0790, 1
-  %exitcond858.not = icmp eq i32 %inc281, %add.i457
-  br i1 %exitcond858.not, label %if.end293, label %for.body199, !llvm.loop !28
+  %exitcond855.not = icmp eq i32 %inc281, %add.i457
+  br i1 %exitcond855.not, label %if.end293, label %for.body199, !llvm.loop !28
 
 if.end293:                                        ; preds = %_ZN6Assimp24TAcCheckedLoadFloatArrayIfEEPKcS2_S2_mmPT_.exit, %for.inc280, %_ZN6Assimp9strtoul10EPKcPS1_.exit463.thread, %if.end157.thread, %if.end157, %_ZN6Assimp9strtoul10EPKcPS1_.exit463, %if.end.i132, %if.then66, %while.end.i.i127, %if.then95, %lor.lhs.false, %_ZN6Assimp24TAcCheckedLoadFloatArrayI12aiMatrix3x3tIfEEEPKcS4_S4_mmPT_.exit, %_ZN6Assimp9strtoul10EPKcPS1_.exit342, %if.then169, %if.then164, %if.else185, %while.end.i.i357, %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector3tIfEEEPKcS4_S4_mmPT_.exit, %_ZN6Assimp24TAcCheckedLoadFloatArrayI10aiVector2tIfEEEPKcS4_S4_mmPT_.exit224, %invoke.cont81
   br label %while.cond, !llvm.loop !29

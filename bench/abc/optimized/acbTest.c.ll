@@ -439,13 +439,13 @@ Abc_TtCountOnesVecMask.exit180._crit_edge:        ; preds = %59, %Abc_TtCountOne
   %232 = getelementptr i8, ptr %52, i64 8
   br label %.preheader189
 
-.preheader189:                                    ; preds = %Abc_TtCountOnesVecMask.exit180._crit_edge, %283
-  %indvars.iv217 = phi i64 [ 0, %Abc_TtCountOnesVecMask.exit180._crit_edge ], [ %indvars.iv.next218, %283 ]
+.preheader189:                                    ; preds = %Abc_TtCountOnesVecMask.exit180._crit_edge, %282
+  %indvars.iv217 = phi i64 [ 0, %Abc_TtCountOnesVecMask.exit180._crit_edge ], [ %indvars.iv.next218, %282 ]
   %233 = shl nuw nsw i64 1, %indvars.iv217
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader189, %._crit_edge203
-  %.0109204 = phi i32 [ 0, %.preheader189 ], [ %282, %._crit_edge203 ]
+  %.not = phi i1 [ true, %.preheader189 ], [ false, %._crit_edge203 ]
   %.val120198 = load ptr, ptr %53, align 8
   %234 = getelementptr i8, ptr %.val120198, i64 4
   %.val120.val199 = load i32, ptr %234, align 4
@@ -453,7 +453,6 @@ Abc_TtCountOnesVecMask.exit180._crit_edge:        ; preds = %59, %Abc_TtCountOne
   br i1 %235, label %.lr.ph202, label %._crit_edge203
 
 .lr.ph202:                                        ; preds = %.preheader
-  %.not = icmp eq i32 %.0109204, 0
   br i1 %.not, label %.lr.ph202.split.us, label %.lr.ph202.split
 
 .lr.ph202.split.us:                               ; preds = %.lr.ph202, %254
@@ -525,12 +524,12 @@ Abc_TtCountOnesVecMask.exit180._crit_edge:        ; preds = %59, %Abc_TtCountOne
   %275 = load i64, ptr %274, align 8
   %276 = and i64 %275, %233
   %.not115 = icmp eq i64 %276, 0
-  %.226 = select i1 %.not115, i32 48, i32 49
+  %.225 = select i1 %.not115, i32 48, i32 49
   br label %277
 
 277:                                              ; preds = %269, %.lr.ph202.split
-  %.sink225 = phi i32 [ 120, %.lr.ph202.split ], [ %.226, %269 ]
-  %putchar118 = tail call i32 @putchar(i32 %.sink225)
+  %.sink224 = phi i32 [ 120, %.lr.ph202.split ], [ %.225, %269 ]
+  %putchar118 = tail call i32 @putchar(i32 %.sink224)
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %.val120 = load ptr, ptr %53, align 8
   %278 = getelementptr i8, ptr %.val120, i64 4
@@ -542,36 +541,34 @@ Abc_TtCountOnesVecMask.exit180._crit_edge:        ; preds = %59, %Abc_TtCountOne
 
 ._crit_edge203:                                   ; preds = %277, %254, %.preheader
   %putchar113 = tail call i32 @putchar(i32 10)
-  %282 = add nuw nsw i32 %.0109204, 1
-  %exitcond.not = icmp eq i32 %282, 2
-  br i1 %exitcond.not, label %283, label %.preheader, !llvm.loop !10
+  br i1 %.not, label %.preheader, label %282, !llvm.loop !10
 
-283:                                              ; preds = %._crit_edge203
+282:                                              ; preds = %._crit_edge203
   %putchar112 = tail call i32 @putchar(i32 10)
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
-  %exitcond220.not = icmp eq i64 %indvars.iv.next218, 20
-  br i1 %exitcond220.not, label %284, label %.preheader189, !llvm.loop !11
+  %exitcond.not = icmp eq i64 %indvars.iv.next218, 20
+  br i1 %exitcond.not, label %283, label %.preheader189, !llvm.loop !11
 
-284:                                              ; preds = %283
-  %285 = load ptr, ptr %231, align 8
-  %.not.i181 = icmp eq ptr %285, null
-  br i1 %.not.i181, label %Vec_WrdFree.exit, label %286
+283:                                              ; preds = %282
+  %284 = load ptr, ptr %231, align 8
+  %.not.i181 = icmp eq ptr %284, null
+  br i1 %.not.i181, label %Vec_WrdFree.exit, label %285
 
-286:                                              ; preds = %284
-  tail call void @free(ptr noundef nonnull %285) #18
+285:                                              ; preds = %283
+  tail call void @free(ptr noundef nonnull %284) #18
   br label %Vec_WrdFree.exit
 
-Vec_WrdFree.exit:                                 ; preds = %284, %286
+Vec_WrdFree.exit:                                 ; preds = %283, %285
   tail call void @free(ptr noundef nonnull %51) #18
-  %287 = load ptr, ptr %232, align 8
-  %.not.i182 = icmp eq ptr %287, null
-  br i1 %.not.i182, label %Vec_WrdFree.exit183, label %288
+  %286 = load ptr, ptr %232, align 8
+  %.not.i182 = icmp eq ptr %286, null
+  br i1 %.not.i182, label %Vec_WrdFree.exit183, label %287
 
-288:                                              ; preds = %Vec_WrdFree.exit
-  tail call void @free(ptr noundef nonnull %287) #18
+287:                                              ; preds = %Vec_WrdFree.exit
+  tail call void @free(ptr noundef nonnull %286) #18
   br label %Vec_WrdFree.exit183
 
-Vec_WrdFree.exit183:                              ; preds = %Vec_WrdFree.exit, %288
+Vec_WrdFree.exit183:                              ; preds = %Vec_WrdFree.exit, %287
   tail call void @free(ptr noundef nonnull %52) #18
   %putchar111 = tail call i32 @putchar(i32 10)
   ret void

@@ -40641,8 +40641,8 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit.thread.i:     ; preds = %17, %.lr.ph.i.i.i.i
 
 29:                                               ; preds = %30, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %30 ], [ 8, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread.i ]
-  %.not.i = icmp eq i64 %indvars.iv.i.i, 0
-  br i1 %.not.i, label %_ZNK13hb_bit_page_t7get_maxEv.exit.i, label %30
+  %.not10.i.i = icmp eq i64 %indvars.iv.i.i, 0
+  br i1 %.not10.i.i, label %_ZNK13hb_bit_page_t7get_maxEv.exit.i, label %30
 
 30:                                               ; preds = %29
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
@@ -40737,12 +40737,12 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable
   %74 = load i32, ptr %73, align 4
   %75 = getelementptr inbounds i8, ptr %0, i64 36
   %76 = load i32, ptr %75, align 4
-  %.not.i17 = icmp ult i32 %74, %76
+  %.not.i = icmp ult i32 %74, %76
   %77 = getelementptr inbounds i8, ptr %0, i64 40
   %78 = load ptr, ptr %77, align 8
   %79 = zext i32 %74 to i64
   %80 = getelementptr inbounds %struct.hb_bit_page_t, ptr %78, i64 %79
-  %.0.i18 = select i1 %.not.i17, ptr %80, ptr @_hb_NullPool
+  %.0.i18 = select i1 %.not.i, ptr %80, ptr @_hb_NullPool
   %81 = lshr i32 %70, 6
   %82 = and i32 %69, 63
   %.not.i19 = icmp eq i32 %82, 63
@@ -40826,8 +40826,8 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable
 
 122:                                              ; preds = %123, %116
   %indvars.iv.i23 = phi i64 [ %indvars.iv.next.i24, %123 ], [ 8, %116 ]
-  %.not64 = icmp eq i64 %indvars.iv.i23, 0
-  br i1 %.not64, label %_ZNK13hb_bit_page_t7get_maxEv.exit.thread, label %123
+  %.not10.i = icmp eq i64 %indvars.iv.i23, 0
+  br i1 %.not10.i, label %_ZNK13hb_bit_page_t7get_maxEv.exit.thread, label %123
 
 123:                                              ; preds = %122
   %indvars.iv.next.i24 = add nsw i64 %indvars.iv.i23, -1

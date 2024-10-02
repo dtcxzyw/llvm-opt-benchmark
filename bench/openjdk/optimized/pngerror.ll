@@ -1117,32 +1117,31 @@ define hidden void @png_fixed_error(ptr noalias noundef %0, ptr noundef readonly
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %.preheader
 
-.preheader:                                       ; preds = %2, %7
-  %.1 = phi i32 [ %10, %7 ], [ 0, %2 ]
-  %4 = zext nneg i32 %.1 to i64
-  %5 = getelementptr inbounds i8, ptr %1, i64 %4
-  %6 = load i8, ptr %5, align 1
-  %.not13 = icmp eq i8 %6, 0
-  br i1 %.not13, label %.critedge.loopexit, label %7
+.preheader:                                       ; preds = %2, %6
+  %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %2 ]
+  %4 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %5 = load i8, ptr %4, align 1
+  %.not13 = icmp eq i8 %5, 0
+  br i1 %.not13, label %.critedge.loopexit, label %6
 
-7:                                                ; preds = %.preheader
-  %8 = add nuw nsw i64 %4, 24
-  %9 = getelementptr inbounds [220 x i8], ptr %3, i64 0, i64 %8
-  store i8 %6, ptr %9, align 1
-  %10 = add nuw nsw i32 %.1, 1
-  %exitcond.not = icmp eq i32 %10, 195
+6:                                                ; preds = %.preheader
+  %7 = add nuw nsw i64 %indvars.iv, 24
+  %8 = getelementptr inbounds [220 x i8], ptr %3, i64 0, i64 %7
+  store i8 %5, ptr %8, align 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 195
   br i1 %exitcond.not, label %.critedge.loopexit, label %.preheader
 
-.critedge.loopexit:                               ; preds = %7, %.preheader
-  %.0.ph = phi i32 [ 195, %7 ], [ %.1, %.preheader ]
-  %narrow = add nuw i32 %.0.ph, 24
-  %11 = zext i32 %narrow to i64
+.critedge.loopexit:                               ; preds = %6, %.preheader
+  %.0.ph = phi i64 [ 195, %6 ], [ %indvars.iv, %.preheader ]
+  %9 = and i64 %.0.ph, 4294967295
+  %10 = add nuw nsw i64 %9, 24
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %2
-  %.0 = phi i64 [ 24, %2 ], [ %11, %.critedge.loopexit ]
-  %12 = getelementptr inbounds [220 x i8], ptr %3, i64 0, i64 %.0
-  store i8 0, ptr %12, align 1
+  %.0 = phi i64 [ 24, %2 ], [ %10, %.critedge.loopexit ]
+  %11 = getelementptr inbounds [220 x i8], ptr %3, i64 0, i64 %.0
+  store i8 0, ptr %11, align 1
   call void @png_error(ptr noundef %0, ptr noundef nonnull %3) #21
   unreachable
 }

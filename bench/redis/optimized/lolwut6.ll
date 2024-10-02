@@ -279,8 +279,8 @@ for.body4:                                        ; preds = %for.body4.lr.ph, %f
 for.inc:                                          ; preds = %for.body4, %for.body4.us, %for.body
   %9 = phi i32 [ %2, %for.body ], [ %5, %for.body4.us ], [ %8, %for.body4 ]
   %dec = add nsw i32 %color.028, -1
-  %cmp.not = icmp eq i32 %dec, 0
-  br i1 %cmp.not, label %for.end34, label %for.body, !llvm.loop !10
+  %cmp = icmp ugt i32 %color.028, 1
+  br i1 %cmp, label %for.body, label %for.end34, !llvm.loop !10
 
 for.end34:                                        ; preds = %for.inc
   %10 = icmp sgt i32 %9, -10

@@ -48,26 +48,20 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp630.not.i, label %for.inc47.i, label %while.cond.preheader.us.i
 
 while.cond.preheader.us.i:                        ; preds = %if.end3.i, %for.inc47.us.i
-  %pass.039.us.i = phi i32 [ %inc48.us.i, %for.inc47.us.i ], [ 0, %if.end3.i ]
-  %cmp19.us.i = icmp eq i32 %pass.039.us.i, 0
+  %cmp19.us.i = phi i1 [ false, %for.inc47.us.i ], [ true, %if.end3.i ]
   br i1 %cmp19.us.i, label %for.cond7.preheader.us.us.i, label %for.cond7.preheader.us54.i
 
 if.then42.us.i:                                   ; preds = %while.cond.while.end_crit_edge.us.i
   store i32 %.us-phi.us.i, ptr @order_cnt, align 4
   %conv43.us.i = sext i32 %.us-phi.us.i to i64
   %mul.ov.i.us.i = icmp slt i32 %.us-phi.us.i, 0
-  br i1 %mul.ov.i.us.i, label %if.then.i.i, label %st_mult.exit.us.i
+  br i1 %mul.ov.i.us.i, label %if.then.i.i, label %for.inc47.us.i
 
-st_mult.exit.us.i:                                ; preds = %if.then42.us.i
+for.inc47.us.i:                                   ; preds = %if.then42.us.i
   %mul.i.us.i = shl nuw nsw i64 %conv43.us.i, 3
   %call45.us.i = call ptr @xmalloc(i64 noundef %mul.i.us.i) #11
   store ptr %call45.us.i, ptr @order, align 8
-  br label %for.inc47.us.i
-
-for.inc47.us.i:                                   ; preds = %while.cond.while.end_crit_edge.us.i, %st_mult.exit.us.i
-  %inc48.us.i = add nuw nsw i32 %pass.039.us.i, 1
-  %exitcond.not.i = icmp eq i32 %inc48.us.i, 2
-  br i1 %exitcond.not.i, label %prepare_order.exit, label %while.cond.preheader.us.i, !llvm.loop !5
+  br label %while.cond.preheader.us.i, !llvm.loop !5
 
 land.rhs.us40.i:                                  ; preds = %for.inc.us42.i
   %1 = load i8, ptr %incdec.ptr.us43.i, align 1
@@ -113,10 +107,10 @@ if.end31.us.i:                                    ; preds = %if.then26.us.i, %if
   br label %if.end34.us49.i
 
 if.end34.us49.i:                                  ; preds = %for.cond7.preheader.us54.i, %if.end31.us.i, %for.end.us45.i, %for.end.us45.i
-  %cmp8.lcssa.us4771.i = phi i64 [ %cmp8.lcssa.us47.i, %for.end.us45.i ], [ %cmp8.lcssa.us47.i, %if.end31.us.i ], [ %cmp8.lcssa.us47.i, %for.end.us45.i ], [ 1, %for.cond7.preheader.us54.i ]
-  %ep.0.lcssa.us4670.i = phi ptr [ %incdec.ptr.us43.i, %for.end.us45.i ], [ %incdec.ptr.us43.i, %if.end31.us.i ], [ %incdec.ptr.us43.i, %for.end.us45.i ], [ %cp.031.us56.i, %for.cond7.preheader.us54.i ]
+  %cmp8.lcssa.us4772.i = phi i64 [ %cmp8.lcssa.us47.i, %for.end.us45.i ], [ %cmp8.lcssa.us47.i, %if.end31.us.i ], [ %cmp8.lcssa.us47.i, %for.end.us45.i ], [ 1, %for.cond7.preheader.us54.i ]
+  %ep.0.lcssa.us4671.i = phi ptr [ %incdec.ptr.us43.i, %for.end.us45.i ], [ %incdec.ptr.us43.i, %if.end31.us.i ], [ %incdec.ptr.us43.i, %for.end.us45.i ], [ %cp.031.us56.i, %for.cond7.preheader.us54.i ]
   %cnt.1.us50.i = phi i32 [ %cnt.032.us55.i, %for.end.us45.i ], [ %inc32.us.i, %if.end31.us.i ], [ %cnt.032.us55.i, %for.end.us45.i ], [ %cnt.032.us55.i, %for.cond7.preheader.us54.i ]
-  %spec.select.us52.i = getelementptr inbounds i8, ptr %ep.0.lcssa.us4670.i, i64 %cmp8.lcssa.us4771.i
+  %spec.select.us52.i = getelementptr inbounds i8, ptr %ep.0.lcssa.us4671.i, i64 %cmp8.lcssa.us4772.i
   %cmp6.us53.i = icmp ult ptr %spec.select.us52.i, %add.ptr.i
   br i1 %cmp6.us53.i, label %for.cond7.preheader.us54.i, label %while.cond.while.end_crit_edge.us.i, !llvm.loop !8
 
@@ -129,7 +123,7 @@ for.cond7.preheader.us54.i:                       ; preds = %while.cond.preheade
 
 while.cond.while.end_crit_edge.us.i:              ; preds = %if.end34.us49.i, %if.end34.us.us.i
   %.us-phi.us.i = phi i32 [ %cnt.1.us.us.i, %if.end34.us.us.i ], [ %cnt.1.us50.i, %if.end34.us49.i ]
-  br i1 %cmp19.us.i, label %if.then42.us.i, label %for.inc47.us.i
+  br i1 %cmp19.us.i, label %if.then42.us.i, label %prepare_order.exit
 
 for.cond7.preheader.us.us.i:                      ; preds = %while.cond.preheader.us.i, %if.end34.us.us.i
   %cnt.032.us.us.i = phi i32 [ %cnt.1.us.us.i, %if.end34.us.us.i ], [ 0, %while.cond.preheader.us.i ]
@@ -161,10 +155,10 @@ if.else.us.us.i:                                  ; preds = %for.end.us.us.i
   br label %if.end34.us.us.i
 
 if.end34.us.us.i:                                 ; preds = %if.else.us.us.i, %for.end.us.us.i, %for.end.us.us.i, %for.cond7.preheader.us.us.i
-  %cmp8.lcssa.us.us75.i = phi i64 [ %cmp8.lcssa.us.us.i, %for.end.us.us.i ], [ %cmp8.lcssa.us.us.i, %if.else.us.us.i ], [ %cmp8.lcssa.us.us.i, %for.end.us.us.i ], [ 1, %for.cond7.preheader.us.us.i ]
-  %ep.0.lcssa.us.us74.i = phi ptr [ %incdec.ptr.us.us.i, %for.end.us.us.i ], [ %incdec.ptr.us.us.i, %if.else.us.us.i ], [ %incdec.ptr.us.us.i, %for.end.us.us.i ], [ %cp.031.us.us.i, %for.cond7.preheader.us.us.i ]
+  %cmp8.lcssa.us.us76.i = phi i64 [ %cmp8.lcssa.us.us.i, %for.end.us.us.i ], [ %cmp8.lcssa.us.us.i, %if.else.us.us.i ], [ %cmp8.lcssa.us.us.i, %for.end.us.us.i ], [ 1, %for.cond7.preheader.us.us.i ]
+  %ep.0.lcssa.us.us75.i = phi ptr [ %incdec.ptr.us.us.i, %for.end.us.us.i ], [ %incdec.ptr.us.us.i, %if.else.us.us.i ], [ %incdec.ptr.us.us.i, %for.end.us.us.i ], [ %cp.031.us.us.i, %for.cond7.preheader.us.us.i ]
   %cnt.1.us.us.i = phi i32 [ %cnt.032.us.us.i, %for.end.us.us.i ], [ %inc.us.us.i, %if.else.us.us.i ], [ %cnt.032.us.us.i, %for.end.us.us.i ], [ %cnt.032.us.us.i, %for.cond7.preheader.us.us.i ]
-  %spec.select.us.us.i = getelementptr inbounds i8, ptr %ep.0.lcssa.us.us74.i, i64 %cmp8.lcssa.us.us75.i
+  %spec.select.us.us.i = getelementptr inbounds i8, ptr %ep.0.lcssa.us.us75.i, i64 %cmp8.lcssa.us.us76.i
   %cmp6.us.us.i = icmp ult ptr %spec.select.us.us.i, %add.ptr.i
   br i1 %cmp6.us.us.i, label %for.cond7.preheader.us.us.i, label %while.cond.while.end_crit_edge.us.i, !llvm.loop !8
 
@@ -178,7 +172,7 @@ for.inc47.i:                                      ; preds = %if.end3.i
   store ptr %call45.i, ptr @order, align 8
   br label %prepare_order.exit
 
-prepare_order.exit:                               ; preds = %for.inc47.us.i, %for.inc47.i, %if.end
+prepare_order.exit:                               ; preds = %while.cond.while.end_crit_edge.us.i, %for.inc47.i, %if.end
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
   %cmp19 = icmp sgt i32 %nr, 0
   br i1 %cmp19, label %for.body.preheader, label %if.then.i

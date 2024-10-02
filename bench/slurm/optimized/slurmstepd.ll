@@ -334,7 +334,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi152.i = phi i32 [ %58, %.lr.ph175.preheader.i.preheader ], [ %58, %.lr.ph191.i.preheader ], [ %76, %.lr.ph175.preheader.i ], [ %67, %.lr.ph191.i ]
   %87 = and i64 %.us-phi151.i, 2147483647
   %88 = getelementptr inbounds i8, ptr %.0288.ph193.i, i64 %87
-  %89 = sub i32 %.0285.ph195.i, %.us-phi152.i
+  %89 = sub nsw i32 %.0285.ph195.i, %.us-phi152.i
   %90 = icmp sgt i32 %89, 0
   %91 = tail call i32 @get_log_level() #13
   %92 = icmp sgt i32 %91, 6
@@ -402,7 +402,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi204.i = phi i32 [ %121, %.lr.ph228.preheader.i.preheader ], [ %121, %.lr.ph244.i.preheader ], [ %139, %.lr.ph228.preheader.i ], [ %130, %.lr.ph244.i ]
   %110 = and i64 %.us-phi203.i, 2147483647
   %111 = getelementptr inbounds i8, ptr %.0292.ph247.i, i64 %110
-  %112 = sub i32 %.0289.ph249.i, %.us-phi204.i
+  %112 = sub nsw i32 %.0289.ph249.i, %.us-phi204.i
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %114, label %.lr.ph251.i
 
@@ -517,7 +517,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi258.i = phi i32 [ %161, %.lr.ph282.preheader.i.preheader ], [ %161, %.lr.ph298.i.preheader ], [ %179, %.lr.ph282.preheader.i ], [ %170, %.lr.ph298.i ]
   %150 = and i64 %.us-phi257.i, 2147483647
   %151 = getelementptr inbounds i8, ptr %.0298.ph301.i, i64 %150
-  %152 = sub i32 %.0295.ph303.i, %.us-phi258.i
+  %152 = sub nsw i32 %.0295.ph303.i, %.us-phi258.i
   %153 = icmp sgt i32 %152, 0
   br i1 %153, label %154, label %.lr.ph305.i
 
@@ -632,7 +632,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi312.i = phi i32 [ %201, %.lr.ph336.preheader.i.preheader ], [ %201, %.lr.ph352.i.preheader ], [ %219, %.lr.ph336.preheader.i ], [ %210, %.lr.ph352.i ]
   %190 = and i64 %.us-phi311.i, 2147483647
   %191 = getelementptr inbounds i8, ptr %.0302.ph355.i, i64 %190
-  %192 = sub i32 %.0301.ph357.i, %.us-phi312.i
+  %192 = sub nsw i32 %.0301.ph357.i, %.us-phi312.i
   %193 = icmp sgt i32 %192, 0
   br i1 %193, label %194, label %.lr.ph359.i
 
@@ -747,7 +747,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi366.i = phi i32 [ %241, %.lr.ph390.preheader.i.preheader ], [ %241, %.lr.ph406.i.preheader ], [ %259, %.lr.ph390.preheader.i ], [ %250, %.lr.ph406.i ]
   %230 = and i64 %.us-phi365.i, 2147483647
   %231 = getelementptr inbounds i8, ptr %.0299.ph411.i, i64 %230
-  %232 = sub i32 %.0300.ph409.i, %.us-phi366.i
+  %232 = sub nsw i32 %.0300.ph409.i, %.us-phi366.i
   %233 = icmp sgt i32 %232, 0
   br i1 %233, label %234, label %.lr.ph413.i
 
@@ -862,7 +862,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi420.i = phi i32 [ %281, %.lr.ph444.preheader.i.preheader ], [ %281, %.lr.ph460.i.preheader ], [ %299, %.lr.ph444.preheader.i ], [ %290, %.lr.ph460.i ]
   %270 = and i64 %.us-phi419.i, 2147483647
   %271 = getelementptr inbounds i8, ptr %.0296.ph465.i, i64 %270
-  %272 = sub i32 %.0297.ph463.i, %.us-phi420.i
+  %272 = sub nsw i32 %.0297.ph463.i, %.us-phi420.i
   %273 = icmp sgt i32 %272, 0
   br i1 %273, label %274, label %.lr.ph467.i
 
@@ -977,7 +977,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi475.i = phi i32 [ %321, %.lr.ph499.preheader.i.preheader ], [ %321, %.lr.ph515.i.preheader ], [ %339, %.lr.ph499.preheader.i ], [ %330, %.lr.ph515.i ]
   %310 = and i64 %.us-phi474.i, 2147483647
   %311 = getelementptr inbounds i8, ptr %.0293.ph520.i, i64 %310
-  %312 = sub i32 %.0294.ph518.i, %.us-phi475.i
+  %312 = sub nsw i32 %.0294.ph518.i, %.us-phi475.i
   %313 = icmp sgt i32 %312, 0
   br i1 %313, label %314, label %.outer7._crit_edge.i
 
@@ -1324,7 +1324,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi584.i = phi i32 [ %404, %.lr.ph608.preheader.i.preheader ], [ %404, %.lr.ph624.i.preheader ], [ %422, %.lr.ph608.preheader.i ], [ %413, %.lr.ph624.i ]
   %433 = and i64 %.us-phi583.i, 2147483647
   %434 = getelementptr inbounds i8, ptr %.0286.ph629.i, i64 %433
-  %435 = sub i32 %.0287.ph627.i, %.us-phi584.i
+  %435 = sub nsw i32 %.0287.ph627.i, %.us-phi584.i
   %436 = icmp sgt i32 %435, 0
   br i1 %436, label %437, label %.outer4._crit_edge.i
 
@@ -1586,7 +1586,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi693.i = phi i32 [ %496, %.lr.ph717.preheader.i.preheader ], [ %496, %.lr.ph733.i.preheader ], [ %514, %.lr.ph717.preheader.i ], [ %505, %.lr.ph733.i ]
   %525 = and i64 %.us-phi692.i, 2147483647
   %526 = getelementptr inbounds i8, ptr %.0281.ph738.i, i64 %525
-  %527 = sub i32 %.0282.ph736.i, %.us-phi693.i
+  %527 = sub nsw i32 %.0282.ph736.i, %.us-phi693.i
   %528 = icmp sgt i32 %527, 0
   br i1 %528, label %529, label %.lr.ph740.i
 
@@ -1635,7 +1635,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi748.i = phi i32 [ %553, %.lr.ph772.preheader.i.preheader ], [ %553, %.lr.ph788.i.preheader ], [ %571, %.lr.ph772.preheader.i ], [ %562, %.lr.ph788.i ]
   %542 = and i64 %.us-phi747.i, 2147483647
   %543 = getelementptr inbounds i8, ptr %.0279.ph793.i, i64 %542
-  %544 = sub i32 %.0280.ph791.i, %.us-phi748.i
+  %544 = sub nsw i32 %.0280.ph791.i, %.us-phi748.i
   %545 = icmp sgt i32 %544, 0
   br i1 %545, label %546, label %.outer1._crit_edge.i
 
@@ -2632,7 +2632,7 @@ _send_ok_to_slurmd.exit:                          ; preds = %.split.us.i, %33
   %.us-phi34.i = phi i32 [ %39, %.lr.ph57.preheader.i.preheader ], [ %39, %.lr.ph73.i.preheader ], [ %57, %.lr.ph57.preheader.i ], [ %48, %.lr.ph73.i ]
   %68 = and i64 %.us-phi33.i, 2147483647
   %69 = getelementptr inbounds i8, ptr %.017.ph75.i, i64 %68
-  %70 = sub i32 %.0.ph77.i, %.us-phi34.i
+  %70 = sub nsw i32 %.0.ph77.i, %.us-phi34.i
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %72, label %_got_ack_from_slurmd.exit
 
@@ -3141,7 +3141,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #0 {
   %.us-phi126 = phi i32 [ %13, %.lr.ph149.preheader.preheader ], [ %13, %.lr.ph165.preheader ], [ %29, %.lr.ph149.preheader ], [ %21, %.lr.ph165 ]
   %40 = and i64 %.us-phi125, 2147483647
   %41 = getelementptr inbounds i8, ptr %.072.ph169, i64 %40
-  %42 = sub i32 %.073.ph167, %.us-phi126
+  %42 = sub nsw i32 %.073.ph167, %.us-phi126
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %44, label %.outer102._crit_edge
 
@@ -3267,7 +3267,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #0 {
   %.us-phi179 = phi i32 [ %56, %.lr.ph203.preheader.preheader ], [ %56, %.lr.ph219.preheader ], [ %72, %.lr.ph203.preheader ], [ %64, %.lr.ph219 ]
   %83 = and i64 %.us-phi178, 2147483647
   %84 = getelementptr inbounds i8, ptr %.070.ph224, i64 %83
-  %85 = sub i32 %.071.ph222, %.us-phi179
+  %85 = sub nsw i32 %.071.ph222, %.us-phi179
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %87, label %.outer._crit_edge
 

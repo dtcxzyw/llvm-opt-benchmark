@@ -1257,21 +1257,21 @@ if.else:                                          ; preds = %_ZNK6icu_7513OlsonT
   br i1 %tobool.not, label %for.cond.us, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.else
-  %arrayidx9.i178 = getelementptr inbounds i8, ptr %20, i64 4
+  %arrayidx9.i181 = getelementptr inbounds i8, ptr %20, i64 4
   br label %for.cond
 
 for.cond.us:                                      ; preds = %if.else, %_ZNK6icu_7513OlsonTimeZone23transitionTimeInSecondsEs.exit97.us
-  %indvars.iv171 = phi i64 [ %indvars.iv.next172, %_ZNK6icu_7513OlsonTimeZone23transitionTimeInSecondsEs.exit97.us ], [ %21, %if.else ]
-  %indvars.iv.next172 = add nsw i64 %indvars.iv171, -1
-  %cmp13.us = icmp sgt i64 %indvars.iv171, 0
-  br i1 %cmp13.us, label %for.body.us, label %_ZNK6icu_7513OlsonTimeZone11rawOffsetAtEs.exit
+  %indvars.iv174 = phi i64 [ %indvars.iv.next175, %_ZNK6icu_7513OlsonTimeZone23transitionTimeInSecondsEs.exit97.us ], [ %21, %if.else ]
+  %indvars.iv.next175 = add nsw i64 %indvars.iv174, -1
+  %cmp13.us = icmp sgt i64 %indvars.iv174, 0
+  br i1 %cmp13.us, label %for.body.us, label %_ZNK6icu_7513OlsonTimeZone11rawOffsetAtEs.exit.thread
 
 for.body.us:                                      ; preds = %for.cond.us
-  %cmp.i63.not.us = icmp sgt i64 %indvars.iv171, %22
+  %cmp.i63.not.us = icmp sgt i64 %indvars.iv174, %22
   br i1 %cmp.i63.not.us, label %if.end.i64.us, label %if.then.i88.us
 
 if.then.i88.us:                                   ; preds = %for.body.us
-  %23 = trunc nsw i64 %indvars.iv.next172 to i32
+  %23 = trunc nsw i64 %indvars.iv.next175 to i32
   %shl.i.us = shl nuw nsw i32 %23, 1
   %idxprom.i.us = zext nneg i32 %shl.i.us to i64
   %arrayidx.i90.us = getelementptr inbounds i32, ptr %15, i64 %idxprom.i.us
@@ -1287,7 +1287,7 @@ if.then.i88.us:                                   ; preds = %for.body.us
   br label %_ZNK6icu_7513OlsonTimeZone23transitionTimeInSecondsEs.exit97.us
 
 if.end.i64.us:                                    ; preds = %for.body.us
-  %26 = trunc nsw i64 %indvars.iv.next172 to i16
+  %26 = trunc nsw i64 %indvars.iv.next175 to i16
   %sub.i65.us = sub i16 %26, %.pre
   %cmp18.i67.us = icmp slt i16 %sub.i65.us, %16
   br i1 %cmp18.i67.us, label %if.then19.i83.us, label %if.end23.i68.us
@@ -1326,39 +1326,45 @@ for.cond:                                         ; preds = %for.cond.preheader,
   %indvars.iv = phi i64 [ %21, %for.cond.preheader ], [ %indvars.iv.next, %if.end118 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp13 = icmp sgt i64 %indvars.iv, 0
-  br i1 %cmp13, label %for.body, label %_ZNK6icu_7513OlsonTimeZone11rawOffsetAtEs.exit
+  br i1 %cmp13, label %for.body, label %_ZNK6icu_7513OlsonTimeZone11rawOffsetAtEs.exit.thread
+
+_ZNK6icu_7513OlsonTimeZone11rawOffsetAtEs.exit.thread: ; preds = %for.cond, %for.cond.us
+  %30 = load i32, ptr %20, align 4
+  %mul124163 = mul nsw i32 %30, 1000
+  store i32 %mul124163, ptr %rawoff, align 4
+  br label %_ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit152
 
 for.body:                                         ; preds = %for.cond
   %cmp.i63.not = icmp sgt i64 %indvars.iv, %22
   br i1 %cmp.i63.not, label %if.end.i64, label %if.then.i88
 
 if.then.i88:                                      ; preds = %for.body
-  %30 = trunc nsw i64 %indvars.iv.next to i32
-  %shl.i = shl nuw nsw i32 %30, 1
+  %31 = trunc nsw i64 %indvars.iv.next to i32
+  %shl.i = shl nuw nsw i32 %31, 1
   %idxprom.i = zext nneg i32 %shl.i to i64
   %arrayidx.i90 = getelementptr inbounds i32, ptr %15, i64 %idxprom.i
-  %31 = load i32, ptr %arrayidx.i90, align 4
-  %conv4.i91 = zext i32 %31 to i64
+  %32 = load i32, ptr %arrayidx.i90, align 4
+  %conv4.i91 = zext i32 %32 to i64
   %shl5.i92 = shl nuw i64 %conv4.i91, 32
   %add.i93 = or disjoint i32 %shl.i, 1
   %idxprom9.i = zext nneg i32 %add.i93 to i64
   %arrayidx10.i94 = getelementptr inbounds i32, ptr %15, i64 %idxprom9.i
-  %32 = load i32, ptr %arrayidx10.i94, align 4
-  %conv11.i95 = zext i32 %32 to i64
+  %33 = load i32, ptr %arrayidx10.i94, align 4
+  %conv11.i95 = zext i32 %33 to i64
   %or.i96 = or disjoint i64 %shl5.i92, %conv11.i95
   br label %_ZNK6icu_7513OlsonTimeZone23transitionTimeInSecondsEs.exit97
 
 if.end.i64:                                       ; preds = %for.body
-  %33 = trunc nsw i64 %indvars.iv.next to i16
-  %sub.i65 = sub i16 %33, %.pre
+  %34 = trunc nsw i64 %indvars.iv.next to i16
+  %sub.i65 = sub i16 %34, %.pre
   %cmp18.i67 = icmp slt i16 %sub.i65, %16
   br i1 %cmp18.i67, label %if.then19.i83, label %if.end23.i68
 
 if.then19.i83:                                    ; preds = %if.end.i64
   %idxprom20.i85 = sext i16 %sub.i65 to i64
   %arrayidx21.i86 = getelementptr inbounds i32, ptr %18, i64 %idxprom20.i85
-  %34 = load i32, ptr %arrayidx21.i86, align 4
-  %conv22.i87 = sext i32 %34 to i64
+  %35 = load i32, ptr %arrayidx21.i86, align 4
+  %conv22.i87 = sext i32 %35 to i64
   br label %_ZNK6icu_7513OlsonTimeZone23transitionTimeInSecondsEs.exit97
 
 if.end23.i68:                                     ; preds = %if.end.i64
@@ -1367,14 +1373,14 @@ if.end23.i68:                                     ; preds = %if.end.i64
   %shl30.i72 = shl nsw i32 %conv29.i71, 1
   %idxprom31.i73 = sext i32 %shl30.i72 to i64
   %arrayidx32.i74 = getelementptr inbounds i32, ptr %17, i64 %idxprom31.i73
-  %35 = load i32, ptr %arrayidx32.i74, align 4
-  %conv33.i75 = zext i32 %35 to i64
+  %36 = load i32, ptr %arrayidx32.i74, align 4
+  %conv33.i75 = zext i32 %36 to i64
   %shl34.i76 = shl nuw i64 %conv33.i75, 32
   %add38.i77 = or disjoint i32 %shl30.i72, 1
   %idxprom39.i78 = sext i32 %add38.i77 to i64
   %arrayidx40.i79 = getelementptr inbounds i32, ptr %17, i64 %idxprom39.i78
-  %36 = load i32, ptr %arrayidx40.i79, align 4
-  %conv41.i80 = zext i32 %36 to i64
+  %37 = load i32, ptr %arrayidx40.i79, align 4
+  %conv41.i80 = zext i32 %37 to i64
   %or42.i81 = or disjoint i64 %shl34.i76, %conv41.i80
   br label %_ZNK6icu_7513OlsonTimeZone23transitionTimeInSecondsEs.exit97
 
@@ -1386,76 +1392,76 @@ _ZNK6icu_7513OlsonTimeZone23transitionTimeInSecondsEs.exit97: ; preds = %if.then
   br i1 %cmp19, label %if.end118, label %if.then20
 
 if.then20:                                        ; preds = %_ZNK6icu_7513OlsonTimeZone23transitionTimeInSecondsEs.exit97
-  %37 = icmp eq i64 %indvars.iv, 1
-  br i1 %37, label %_ZNK6icu_7513OlsonTimeZone12zoneOffsetAtEs.exit.thread, label %cond.true.i105
+  %38 = icmp eq i64 %indvars.iv, 1
+  br i1 %38, label %_ZNK6icu_7513OlsonTimeZone12zoneOffsetAtEs.exit.thread, label %cond.true.i105
 
 _ZNK6icu_7513OlsonTimeZone12zoneOffsetAtEs.exit.thread: ; preds = %if.then20
-  %38 = load i32, ptr %20, align 4
-  %39 = load i32, ptr %arrayidx9.i178, align 4
-  %add10.i179 = add nsw i32 %39, %38
+  %39 = load i32, ptr %20, align 4
+  %40 = load i32, ptr %arrayidx9.i181, align 4
+  %add10.i182 = add nsw i32 %40, %39
   br label %_ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit133
 
 cond.true.i105:                                   ; preds = %if.then20
-  %40 = add nsw i64 %indvars.iv, -2
-  %arrayidx.i101 = getelementptr inbounds i8, ptr %19, i64 %40
-  %41 = load i8, ptr %arrayidx.i101, align 1
-  %conv2.i = zext i8 %41 to i16
-  %42 = shl nuw nsw i16 %conv2.i, 1
-  %idxprom4.i = zext nneg i16 %42 to i64
+  %41 = add nsw i64 %indvars.iv, -2
+  %arrayidx.i101 = getelementptr inbounds i8, ptr %19, i64 %41
+  %42 = load i8, ptr %arrayidx.i101, align 1
+  %conv2.i = zext i8 %42 to i16
+  %43 = shl nuw nsw i16 %conv2.i, 1
+  %idxprom4.i = zext nneg i16 %43 to i64
   %arrayidx5.i = getelementptr inbounds i32, ptr %20, i64 %idxprom4.i
-  %43 = load i32, ptr %arrayidx5.i, align 4
-  %44 = or disjoint i16 %42, 1
-  %idxprom8.i = zext nneg i16 %44 to i64
+  %44 = load i32, ptr %arrayidx5.i, align 4
+  %45 = or disjoint i16 %43, 1
+  %idxprom8.i = zext nneg i16 %45 to i64
   %arrayidx9.i = getelementptr inbounds i32, ptr %20, i64 %idxprom8.i
-  %45 = load i32, ptr %arrayidx9.i, align 4
-  %add10.i = add nsw i32 %45, %43
-  %arrayidx.i108 = getelementptr inbounds i8, ptr %19, i64 %40
-  %46 = load i8, ptr %arrayidx.i108, align 1
-  %conv2.i109 = zext i8 %46 to i64
-  %47 = shl nuw nsw i64 %conv2.i109, 1
-  %48 = or disjoint i64 %47, 1
+  %46 = load i32, ptr %arrayidx9.i, align 4
+  %add10.i = add nsw i32 %46, %44
+  %arrayidx.i108 = getelementptr inbounds i8, ptr %19, i64 %41
+  %47 = load i8, ptr %arrayidx.i108, align 1
+  %conv2.i109 = zext i8 %47 to i64
+  %48 = shl nuw nsw i64 %conv2.i109, 1
+  %49 = or disjoint i64 %48, 1
   br label %_ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit133
 
 _ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit133: ; preds = %_ZNK6icu_7513OlsonTimeZone12zoneOffsetAtEs.exit.thread, %cond.true.i105
-  %add10.i180 = phi i32 [ %add10.i, %cond.true.i105 ], [ %add10.i179, %_ZNK6icu_7513OlsonTimeZone12zoneOffsetAtEs.exit.thread ]
-  %cond.i103 = phi i64 [ %48, %cond.true.i105 ], [ 1, %_ZNK6icu_7513OlsonTimeZone12zoneOffsetAtEs.exit.thread ]
+  %add10.i183 = phi i32 [ %add10.i, %cond.true.i105 ], [ %add10.i182, %_ZNK6icu_7513OlsonTimeZone12zoneOffsetAtEs.exit.thread ]
+  %cond.i103 = phi i64 [ %49, %cond.true.i105 ], [ 1, %_ZNK6icu_7513OlsonTimeZone12zoneOffsetAtEs.exit.thread ]
   %arrayidx6.i = getelementptr inbounds i32, ptr %20, i64 %cond.i103
-  %49 = load i32, ptr %arrayidx6.i, align 4
-  %cmp29 = icmp ne i32 %49, 0
+  %50 = load i32, ptr %arrayidx6.i, align 4
+  %cmp29 = icmp ne i32 %50, 0
   %arrayidx.i121 = getelementptr inbounds i8, ptr %19, i64 %indvars.iv.next
-  %50 = load i8, ptr %arrayidx.i121, align 1
-  %conv2.i122 = zext i8 %50 to i16
-  %51 = shl nuw nsw i16 %conv2.i122, 1
-  %idxprom4.i113 = zext nneg i16 %51 to i64
+  %51 = load i8, ptr %arrayidx.i121, align 1
+  %conv2.i122 = zext i8 %51 to i16
+  %52 = shl nuw nsw i16 %conv2.i122, 1
+  %idxprom4.i113 = zext nneg i16 %52 to i64
   %arrayidx5.i114 = getelementptr inbounds i32, ptr %20, i64 %idxprom4.i113
-  %52 = load i32, ptr %arrayidx5.i114, align 4
-  %53 = or disjoint i16 %51, 1
-  %idxprom8.i115 = zext nneg i16 %53 to i64
+  %53 = load i32, ptr %arrayidx5.i114, align 4
+  %54 = or disjoint i16 %52, 1
+  %idxprom8.i115 = zext nneg i16 %54 to i64
   %arrayidx9.i116 = getelementptr inbounds i32, ptr %20, i64 %idxprom8.i115
-  %54 = load i32, ptr %arrayidx9.i116, align 4
-  %add10.i117 = add nsw i32 %54, %52
-  %cmp33 = icmp ne i32 %54, 0
+  %55 = load i32, ptr %arrayidx9.i116, align 4
+  %add10.i117 = add nsw i32 %55, %53
+  %cmp33 = icmp ne i32 %55, 0
   %lnot = xor i1 %cmp33, true
-  %55 = and i1 %cmp29, %lnot
+  %56 = and i1 %cmp29, %lnot
   %not.cmp29 = xor i1 %cmp29, true
-  %56 = and i1 %cmp33, %not.cmp29
-  %cmp44.not = icmp slt i32 %add10.i117, %add10.i180
+  %57 = and i1 %cmp33, %not.cmp29
+  %cmp44.not = icmp slt i32 %add10.i117, %add10.i183
   br i1 %cmp44.not, label %if.else79, label %if.then45
 
 if.then45:                                        ; preds = %_ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit133
-  %or.cond = and i1 %cmp46, %55
-  %or.cond1 = and i1 %cmp50, %56
-  %or.cond163 = select i1 %or.cond, i1 true, i1 %or.cond1
-  br i1 %or.cond163, label %if.then53, label %if.else55
+  %or.cond = and i1 %cmp46, %56
+  %or.cond1 = and i1 %cmp50, %57
+  %or.cond166 = select i1 %or.cond, i1 true, i1 %or.cond1
+  br i1 %or.cond166, label %if.then53, label %if.else55
 
 if.then53:                                        ; preds = %if.then45
-  %conv54 = sext i32 %add10.i180 to i64
+  %conv54 = sext i32 %add10.i183 to i64
   %add = add nsw i64 %retval.0.i82, %conv54
   br label %if.end118
 
 if.else55:                                        ; preds = %if.then45
-  %or.cond2 = and i1 %cmp46, %56
-  %or.cond3 = and i1 %cmp50, %55
+  %or.cond2 = and i1 %cmp46, %57
+  %or.cond3 = and i1 %cmp50, %56
   %or.cond57 = or i1 %or.cond2, %or.cond3
   br i1 %or.cond57, label %if.then65, label %if.else68
 
@@ -1468,7 +1474,7 @@ if.else68:                                        ; preds = %if.else55
   br i1 %cmp70, label %if.then71, label %if.else74
 
 if.then71:                                        ; preds = %if.else68
-  %conv72 = sext i32 %add10.i180 to i64
+  %conv72 = sext i32 %add10.i183 to i64
   %add73 = add nsw i64 %retval.0.i82, %conv72
   br label %if.end118
 
@@ -1478,10 +1484,10 @@ if.else74:                                        ; preds = %if.else68
   br label %if.end118
 
 if.else79:                                        ; preds = %_ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit133
-  %or.cond4 = and i1 %cmp81, %55
-  %or.cond5 = and i1 %cmp86, %56
-  %or.cond164 = select i1 %or.cond4, i1 true, i1 %or.cond5
-  br i1 %or.cond164, label %if.then89, label %if.else92
+  %or.cond4 = and i1 %cmp81, %56
+  %or.cond5 = and i1 %cmp86, %57
+  %or.cond167 = select i1 %or.cond4, i1 true, i1 %or.cond5
+  br i1 %or.cond167, label %if.then89, label %if.else92
 
 if.then89:                                        ; preds = %if.else79
   %conv90 = sext i32 %add10.i117 to i64
@@ -1489,13 +1495,13 @@ if.then89:                                        ; preds = %if.else79
   br label %if.end118
 
 if.else92:                                        ; preds = %if.else79
-  %or.cond6 = and i1 %cmp81, %56
-  %or.cond7 = and i1 %cmp86, %55
+  %or.cond6 = and i1 %cmp81, %57
+  %or.cond7 = and i1 %cmp86, %56
   %or.cond58 = or i1 %or.cond6, %or.cond7
   br i1 %or.cond58, label %if.then102, label %if.else105
 
 if.then102:                                       ; preds = %if.else92
-  %conv103 = sext i32 %add10.i180 to i64
+  %conv103 = sext i32 %add10.i183 to i64
   %add104 = add nsw i64 %retval.0.i82, %conv103
   br label %if.end118
 
@@ -1503,7 +1509,7 @@ if.else105:                                       ; preds = %if.else92
   br i1 %cmp107, label %if.then108, label %if.else111
 
 if.then108:                                       ; preds = %if.else105
-  %conv109 = sext i32 %add10.i180 to i64
+  %conv109 = sext i32 %add10.i183 to i64
   %add110 = add nsw i64 %retval.0.i82, %conv109
   br label %if.end118
 
@@ -1518,23 +1524,17 @@ if.end118:                                        ; preds = %if.then65, %if.else
   %cmp120 = fcmp ult double %call2, %conv119
   br i1 %cmp120, label %for.cond, label %cond.true.i147, !llvm.loop !7
 
-_ZNK6icu_7513OlsonTimeZone11rawOffsetAtEs.exit:   ; preds = %for.cond, %for.cond.us
-  %57 = load i32, ptr %20, align 4
-  %mul124 = mul nsw i32 %57, 1000
-  store i32 %mul124, ptr %rawoff, align 4
-  br label %_ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit152
-
 cond.true.i147:                                   ; preds = %if.end118, %_ZNK6icu_7513OlsonTimeZone23transitionTimeInSecondsEs.exit97.us
-  %.us-phi.in = phi i64 [ %indvars.iv.next172, %_ZNK6icu_7513OlsonTimeZone23transitionTimeInSecondsEs.exit97.us ], [ %indvars.iv.next, %if.end118 ]
+  %.us-phi.in = phi i64 [ %indvars.iv.next175, %_ZNK6icu_7513OlsonTimeZone23transitionTimeInSecondsEs.exit97.us ], [ %indvars.iv.next, %if.end118 ]
   %idxprom.i140 = and i64 %.us-phi.in, 65535
   %arrayidx.i141 = getelementptr inbounds i8, ptr %19, i64 %idxprom.i140
   %58 = load i8, ptr %arrayidx.i141, align 1
   %conv2.i142 = zext i8 %58 to i64
-  %arrayidx5.i137158.idx = shl nuw nsw i64 %conv2.i142, 3
-  %arrayidx5.i137158 = getelementptr inbounds i8, ptr %20, i64 %arrayidx5.i137158.idx
-  %59 = load i32, ptr %arrayidx5.i137158, align 4
-  %mul124159 = mul nsw i32 %59, 1000
-  store i32 %mul124159, ptr %rawoff, align 4
+  %arrayidx5.i137.idx = shl nuw nsw i64 %conv2.i142, 3
+  %arrayidx5.i137 = getelementptr inbounds i8, ptr %20, i64 %arrayidx5.i137.idx
+  %59 = load i32, ptr %arrayidx5.i137, align 4
+  %mul124 = mul nsw i32 %59, 1000
+  store i32 %mul124, ptr %rawoff, align 4
   %60 = load ptr, ptr %typeMapData.i, align 8
   %arrayidx.i150 = getelementptr inbounds i8, ptr %60, i64 %idxprom.i140
   %61 = load i8, ptr %arrayidx.i150, align 1
@@ -1543,8 +1543,8 @@ cond.true.i147:                                   ; preds = %if.end118, %_ZNK6ic
   %63 = or disjoint i64 %62, 1
   br label %_ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit152
 
-_ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit152: ; preds = %_ZNK6icu_7513OlsonTimeZone11rawOffsetAtEs.exit, %cond.true.i147
-  %cond.i144 = phi i64 [ %63, %cond.true.i147 ], [ 1, %_ZNK6icu_7513OlsonTimeZone11rawOffsetAtEs.exit ]
+_ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit152: ; preds = %_ZNK6icu_7513OlsonTimeZone11rawOffsetAtEs.exit.thread, %cond.true.i147
+  %cond.i144 = phi i64 [ %63, %cond.true.i147 ], [ 1, %_ZNK6icu_7513OlsonTimeZone11rawOffsetAtEs.exit.thread ]
   %64 = load ptr, ptr %typeOffsets.i99, align 8
   %arrayidx6.i146 = getelementptr inbounds i32, ptr %64, i64 %cond.i144
   br label %if.end133

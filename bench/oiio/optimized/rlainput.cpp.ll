@@ -4059,7 +4059,7 @@ for.body.i192:                                    ; preds = %for.cond.preheader.
   %out.111.i194 = phi i32 [ %or.i196, %for.body.i192 ], [ 0, %for.cond.preheader.i181 ]
   %shl.i195 = shl i32 %conv262, %shift.012.i193
   %or.i196 = or i32 %shl.i195, %out.111.i194
-  %shift.0.i197 = sub i32 %shift.012.i193, %conv157
+  %shift.0.i197 = sub nsw i32 %shift.012.i193, %conv157
   %cmp.i198 = icmp sgt i32 %shift.0.i197, 0
   br i1 %cmp.i198, label %for.body.i192, label %_ZN18OpenImageIO_v2_6_017bit_range_convertEjjj.exit199, !llvm.loop !43
 
@@ -4124,7 +4124,7 @@ for.body.i213:                                    ; preds = %for.cond.preheader.
   %out.111.i215 = phi i32 [ %or.i217, %for.body.i213 ], [ 0, %for.cond.preheader.i202 ]
   %shl.i216 = shl i32 %120, %shift.012.i214
   %or.i217 = or i32 %shl.i216, %out.111.i215
-  %shift.0.i218 = sub i32 %shift.012.i214, %conv157
+  %shift.0.i218 = sub nsw i32 %shift.012.i214, %conv157
   %cmp.i219 = icmp sgt i32 %shift.0.i218, 0
   br i1 %cmp.i219, label %for.body.i213, label %_ZN18OpenImageIO_v2_6_017bit_range_convertEjjj.exit220, !llvm.loop !43
 

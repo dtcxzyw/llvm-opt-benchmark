@@ -15161,11 +15161,11 @@ rb_num2int_inline.exit:                           ; preds = %14, %16
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %23
-  br i1 %.not291, label %29, label %432
+  br i1 %.not291, label %29, label %434
 
 29:                                               ; preds = %28
   %30 = call i64 @rb_ary_new_capa(i64 noundef 0) #28
-  br label %432
+  br label %434
 
 31:                                               ; preds = %23
   %32 = load i64, ptr @rb_cString, align 8
@@ -15174,11 +15174,11 @@ rb_num2int_inline.exit:                           ; preds = %14, %16
 
 34:                                               ; preds = %31
   %35 = call i64 @rb_yield(i64 noundef %33) #28
-  br label %432
+  br label %434
 
 36:                                               ; preds = %31
   %37 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %33) #28
-  br label %432
+  br label %434
 
 38:                                               ; preds = %._crit_edge433, %20, %3
   %39 = phi i64 [ %.pre434, %3 ], [ %.pre, %._crit_edge433 ], [ 4, %20 ]
@@ -15714,12 +15714,12 @@ default.unreachable:                              ; preds = %RSTRING_END.exit
   %265 = add i64 %259, 1
   br label %266
 
-266:                                              ; preds = %.lr.ph374, %414
-  %.0218372 = phi i32 [ 0, %.lr.ph374 ], [ %.1219, %414 ]
-  %.0221371 = phi i64 [ 0, %.lr.ph374 ], [ %.2, %414 ]
-  %.5370 = phi i64 [ 0, %.lr.ph374 ], [ %.7, %414 ]
-  %.9368 = phi i64 [ %.0233, %.lr.ph374 ], [ %.10, %414 ]
-  %.10252367 = phi i64 [ %spec.select, %.lr.ph374 ], [ %.12, %414 ]
+266:                                              ; preds = %.lr.ph374, %416
+  %.0218372 = phi i32 [ 0, %.lr.ph374 ], [ %.1219, %416 ]
+  %.0221371 = phi i64 [ 0, %.lr.ph374 ], [ %.2, %416 ]
+  %.5370 = phi i64 [ 0, %.lr.ph374 ], [ %.7, %416 ]
+  %.9368 = phi i64 [ %.0233, %.lr.ph374 ], [ %.10, %416 ]
+  %.10252367 = phi i64 [ %spec.select, %.lr.ph374 ], [ %.12, %416 ]
   %267 = call i64 @rb_backref_get() #28
   br i1 %.not294, label %268, label %269
 
@@ -15762,14 +15762,14 @@ default.unreachable:                              ; preds = %RSTRING_END.exit
 
 290:                                              ; preds = %283
   %291 = icmp eq i64 %.0221371, %259
-  br i1 %291, label %412, label %292
+  br i1 %291, label %414, label %292
 
 292:                                              ; preds = %290
   %293 = getelementptr i8, ptr %.sroa.3.0.i, i64 %.0221371
   %294 = call i32 @rb_enc_fast_mbclen(ptr noundef %293, ptr noundef %107, ptr noundef %50) #28
   %295 = sext i32 %294 to i64
   %296 = add i64 %.0221371, %295
-  br label %412
+  br label %414
 
 297:                                              ; preds = %275, %269
   %298 = sub i64 %273, %.5370
@@ -15792,8 +15792,8 @@ default.unreachable:                              ; preds = %RSTRING_END.exit
   br i1 %.not294, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %split_string.exit.us
-  %308 = phi i32 [ %354, %split_string.exit.us ], [ %305, %.lr.ph ]
-  %.0220366.us = phi i64 [ %355, %split_string.exit.us ], [ 1, %.lr.ph ]
+  %308 = phi i32 [ %355, %split_string.exit.us ], [ %305, %.lr.ph ]
+  %.0220366.us = phi i64 [ %356, %split_string.exit.us ], [ 1, %.lr.ph ]
   %.14365.us = phi i64 [ %.15.us, %split_string.exit.us ], [ %.13, %.lr.ph ]
   %309 = load ptr, ptr %271, align 8
   %310 = getelementptr i64, ptr %309, i64 %.0220366.us
@@ -15809,7 +15809,7 @@ default.unreachable:                              ; preds = %RSTRING_END.exit
   %318 = icmp sgt i64 %.14365.us, -1
   %319 = icmp eq i64 %316, %311
   %or.cond.i.us = and i1 %318, %319
-  br i1 %or.cond.i.us, label %352, label %320
+  br i1 %or.cond.i.us, label %353, label %320
 
 320:                                              ; preds = %313
   %321 = icmp sgt i64 %.14365.us, 0
@@ -15880,213 +15880,213 @@ str_new0.exit.us:                                 ; preds = %347, %342
   call void @rb_enc_copy(i64 noundef %.0.i327.us, i64 noundef %2) #28
   %348 = call i64 @rb_yield(i64 noundef %.0.i327.us) #28
   %349 = add nsw i64 %.2.i.us, -1
-  %.not29.i.us = icmp eq i64 %349, 0
-  br i1 %.not29.i.us, label %.loopexit.i.us, label %.preheader.i.us, !llvm.loop !285
+  %350 = icmp ugt i64 %.2.i.us, 1
+  br i1 %350, label %.preheader.i.us, label %.loopexit.i.us, !llvm.loop !285
 
 .loopexit.i.us:                                   ; preds = %str_new0.exit.us, %320
   %.0.i324.us = phi i64 [ %.14365.us, %320 ], [ 0, %str_new0.exit.us ]
-  %350 = call fastcc i64 @str_subseq(i64 noundef %2, i64 noundef %311, i64 noundef %317)
-  call fastcc void @rb_enc_cr_str_copy_for_substr(i64 noundef %350, i64 noundef %2)
-  %351 = call i64 @rb_yield(i64 noundef %350) #28
+  %351 = call fastcc i64 @str_subseq(i64 noundef %2, i64 noundef %311, i64 noundef %317)
+  call fastcc void @rb_enc_cr_str_copy_for_substr(i64 noundef %351, i64 noundef %2)
+  %352 = call i64 @rb_yield(i64 noundef %351) #28
   %.pre440 = load i32, ptr %304, align 4
   br label %split_string.exit.us
 
-352:                                              ; preds = %313
-  %353 = add nuw i64 %.14365.us, 1
+353:                                              ; preds = %313
+  %354 = add nuw i64 %.14365.us, 1
   br label %split_string.exit.us
 
-split_string.exit.us:                             ; preds = %352, %.loopexit.i.us, %.lr.ph.split.us
-  %354 = phi i32 [ %308, %.lr.ph.split.us ], [ %308, %352 ], [ %.pre440, %.loopexit.i.us ]
-  %.15.us = phi i64 [ %.14365.us, %.lr.ph.split.us ], [ %353, %352 ], [ %.0.i324.us, %.loopexit.i.us ]
-  %355 = add nuw nsw i64 %.0220366.us, 1
-  %356 = sext i32 %354 to i64
-  %357 = icmp slt i64 %355, %356
-  br i1 %357, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !286
+split_string.exit.us:                             ; preds = %353, %.loopexit.i.us, %.lr.ph.split.us
+  %355 = phi i32 [ %308, %.lr.ph.split.us ], [ %308, %353 ], [ %.pre440, %.loopexit.i.us ]
+  %.15.us = phi i64 [ %.14365.us, %.lr.ph.split.us ], [ %354, %353 ], [ %.0.i324.us, %.loopexit.i.us ]
+  %356 = add nuw nsw i64 %.0220366.us, 1
+  %357 = sext i32 %355 to i64
+  %358 = icmp slt i64 %356, %357
+  br i1 %358, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !286
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %split_string.exit
-  %358 = phi i32 [ %404, %split_string.exit ], [ %305, %.lr.ph ]
-  %.0220366 = phi i64 [ %405, %split_string.exit ], [ 1, %.lr.ph ]
+  %359 = phi i32 [ %406, %split_string.exit ], [ %305, %.lr.ph ]
+  %.0220366 = phi i64 [ %407, %split_string.exit ], [ 1, %.lr.ph ]
   %.14365 = phi i64 [ %.15, %split_string.exit ], [ %.13, %.lr.ph ]
-  %359 = load ptr, ptr %271, align 8
-  %360 = getelementptr i64, ptr %359, i64 %.0220366
-  %361 = load i64, ptr %360, align 8
-  %362 = icmp eq i64 %361, -1
-  br i1 %362, label %split_string.exit, label %363
+  %360 = load ptr, ptr %271, align 8
+  %361 = getelementptr i64, ptr %360, i64 %.0220366
+  %362 = load i64, ptr %361, align 8
+  %363 = icmp eq i64 %362, -1
+  br i1 %363, label %split_string.exit, label %364
 
-363:                                              ; preds = %.lr.ph.split
-  %364 = load ptr, ptr %307, align 8
-  %365 = getelementptr i64, ptr %364, i64 %.0220366
-  %366 = load i64, ptr %365, align 8
-  %367 = sub i64 %366, %361
-  %368 = icmp sgt i64 %.14365, -1
-  %369 = icmp eq i64 %366, %361
-  %or.cond.i = and i1 %368, %369
-  br i1 %or.cond.i, label %370, label %372
+364:                                              ; preds = %.lr.ph.split
+  %365 = load ptr, ptr %307, align 8
+  %366 = getelementptr i64, ptr %365, i64 %.0220366
+  %367 = load i64, ptr %366, align 8
+  %368 = sub i64 %367, %362
+  %369 = icmp sgt i64 %.14365, -1
+  %370 = icmp eq i64 %367, %362
+  %or.cond.i = and i1 %369, %370
+  br i1 %or.cond.i, label %371, label %373
 
-370:                                              ; preds = %363
-  %371 = add nuw i64 %.14365, 1
+371:                                              ; preds = %364
+  %372 = add nuw i64 %.14365, 1
   br label %split_string.exit
 
-372:                                              ; preds = %363
-  %373 = icmp sgt i64 %.14365, 0
-  br i1 %373, label %.preheader30.i, label %.loopexit.i
+373:                                              ; preds = %364
+  %374 = icmp sgt i64 %.14365, 0
+  br i1 %374, label %.preheader28.i, label %.loopexit.i
 
-.preheader30.i:                                   ; preds = %372, %str_new0.exit336
-  %.1.i = phi i64 [ %401, %str_new0.exit336 ], [ %.14365, %372 ]
-  %374 = load i64, ptr @rb_cString, align 8
+.preheader28.i:                                   ; preds = %373, %str_new0.exit336
+  %.1.i = phi i64 [ %402, %str_new0.exit336 ], [ %.14365, %373 ]
+  %375 = load i64, ptr @rb_cString, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %375 = load i16, ptr @ruby_string__create_semaphore, align 2
-  %.not.i328 = icmp eq i16 %375, 0
-  br i1 %.not.i328, label %379, label %376
+  %376 = load i16, ptr @ruby_string__create_semaphore, align 2
+  %.not.i328 = icmp eq i16 %376, 0
+  br i1 %.not.i328, label %380, label %377
 
-376:                                              ; preds = %.preheader30.i
-  %377 = call ptr @rb_source_location_cstr(ptr noundef nonnull %4) #28
-  %.not32.i329 = icmp eq ptr %377, null
-  %spec.store.select.i330 = select i1 %.not32.i329, ptr @.str.5, ptr %377
+377:                                              ; preds = %.preheader28.i
+  %378 = call ptr @rb_source_location_cstr(ptr noundef nonnull %4) #28
+  %.not32.i329 = icmp eq ptr %378, null
+  %spec.store.select.i330 = select i1 %.not32.i329, ptr @.str.5, ptr %378
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_string__create_semaphore) #28, !srcloc !32
-  %378 = load i32, ptr %4, align 4
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_string__create_semaphore\0A.asciz \22ruby\22\0A.asciz \22string__create\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 0, i32 -2053, ptr nonnull %spec.store.select.i330, i32 1025, i32 %378) #28, !srcloc !33
+  %379 = load i32, ptr %4, align 4
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_string__create_semaphore\0A.asciz \22ruby\22\0A.asciz \22string__create\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 0, i32 -2053, ptr nonnull %spec.store.select.i330, i32 1025, i32 %379) #28, !srcloc !33
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !34
-  br label %379
+  br label %380
 
-379:                                              ; preds = %376, %.preheader30.i
-  %380 = call zeroext i1 @rb_gc_size_allocatable_p(i64 noundef 25) #28
-  %381 = load ptr, ptr %263, align 8
-  br i1 %380, label %382, label %388
+380:                                              ; preds = %377, %.preheader28.i
+  %381 = call zeroext i1 @rb_gc_size_allocatable_p(i64 noundef 25) #28
+  %382 = load ptr, ptr %263, align 8
+  br i1 %381, label %383, label %389
 
-382:                                              ; preds = %379
-  %383 = call i64 @rb_wb_protected_newobj_of(ptr noundef %381, i64 noundef %374, i64 noundef 5, i64 noundef 25) #28
-  %384 = inttoptr i64 %383 to ptr
-  %385 = load i64, ptr %384, align 8
-  %386 = and i64 %385, -3145729
-  %387 = or disjoint i64 %386, 1048576
-  store i64 %387, ptr %384, align 8
-  br label %394
+383:                                              ; preds = %380
+  %384 = call i64 @rb_wb_protected_newobj_of(ptr noundef %382, i64 noundef %375, i64 noundef 5, i64 noundef 25) #28
+  %385 = inttoptr i64 %384 to ptr
+  %386 = load i64, ptr %385, align 8
+  %387 = and i64 %386, -3145729
+  %388 = or disjoint i64 %387, 1048576
+  store i64 %388, ptr %385, align 8
+  br label %395
 
-388:                                              ; preds = %379
-  %389 = call i64 @rb_wb_protected_newobj_of(ptr noundef %381, i64 noundef %374, i64 noundef 8197, i64 noundef 40) #28
-  %390 = inttoptr i64 %389 to ptr
-  %391 = getelementptr inbounds i8, ptr %390, i64 24
-  %392 = getelementptr inbounds i8, ptr %390, i64 32
-  store i64 0, ptr %392, align 8
-  %393 = call noalias ptr @rb_xmalloc_mul_add_mul(i64 noundef 1, i64 noundef 0, i64 noundef 1, i64 noundef 1) #28
-  store ptr %393, ptr %391, align 8
-  %.pre437 = load i64, ptr %390, align 8, !noalias !287
-  br label %394
+389:                                              ; preds = %380
+  %390 = call i64 @rb_wb_protected_newobj_of(ptr noundef %382, i64 noundef %375, i64 noundef 8197, i64 noundef 40) #28
+  %391 = inttoptr i64 %390 to ptr
+  %392 = getelementptr inbounds i8, ptr %391, i64 24
+  %393 = getelementptr inbounds i8, ptr %391, i64 32
+  store i64 0, ptr %393, align 8
+  %394 = call noalias ptr @rb_xmalloc_mul_add_mul(i64 noundef 1, i64 noundef 0, i64 noundef 1, i64 noundef 1) #28
+  store ptr %394, ptr %392, align 8
+  %.pre437 = load i64, ptr %391, align 8, !noalias !287
+  br label %395
 
-394:                                              ; preds = %388, %382
-  %.pre.i332.pre-phi = phi ptr [ %390, %388 ], [ %384, %382 ]
-  %395 = phi i64 [ %.pre437, %388 ], [ %387, %382 ]
-  %.0.i331 = phi i64 [ %389, %388 ], [ %383, %382 ]
-  %396 = getelementptr inbounds i8, ptr %.pre.i332.pre-phi, i64 16
-  store i64 0, ptr %396, align 8
-  %397 = and i64 %395, 8192
-  %.not.i.i34.i333 = icmp eq i64 %397, 0
-  %398 = getelementptr inbounds i8, ptr %.pre.i332.pre-phi, i64 24
-  br i1 %.not.i.i34.i333, label %str_new0.exit336, label %399
+395:                                              ; preds = %389, %383
+  %.pre.i332.pre-phi = phi ptr [ %391, %389 ], [ %385, %383 ]
+  %396 = phi i64 [ %.pre437, %389 ], [ %388, %383 ]
+  %.0.i331 = phi i64 [ %390, %389 ], [ %384, %383 ]
+  %397 = getelementptr inbounds i8, ptr %.pre.i332.pre-phi, i64 16
+  store i64 0, ptr %397, align 8
+  %398 = and i64 %396, 8192
+  %.not.i.i34.i333 = icmp eq i64 %398, 0
+  %399 = getelementptr inbounds i8, ptr %.pre.i332.pre-phi, i64 24
+  br i1 %.not.i.i34.i333, label %str_new0.exit336, label %400
 
-399:                                              ; preds = %394
-  %.sroa.2.0.copyload.i35.i334 = load ptr, ptr %398, align 8
+400:                                              ; preds = %395
+  %.sroa.2.0.copyload.i35.i334 = load ptr, ptr %399, align 8
   br label %str_new0.exit336
 
-str_new0.exit336:                                 ; preds = %394, %399
-  %.sroa.2.0.i36.i335 = phi ptr [ %.sroa.2.0.copyload.i35.i334, %399 ], [ %398, %394 ]
+str_new0.exit336:                                 ; preds = %395, %400
+  %.sroa.2.0.i36.i335 = phi ptr [ %.sroa.2.0.copyload.i35.i334, %400 ], [ %399, %395 ]
   store i8 0, ptr %.sroa.2.0.i36.i335, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @rb_enc_copy(i64 noundef %.0.i331, i64 noundef %2) #28
-  %400 = call i64 @rb_ary_push(i64 noundef %.4263, i64 noundef %.0.i331) #28
-  %401 = add nsw i64 %.1.i, -1
-  %.not28.i = icmp eq i64 %401, 0
-  br i1 %.not28.i, label %.loopexit.i, label %.preheader30.i, !llvm.loop !290
+  %401 = call i64 @rb_ary_push(i64 noundef %.4263, i64 noundef %.0.i331) #28
+  %402 = add nsw i64 %.1.i, -1
+  %403 = icmp ugt i64 %.1.i, 1
+  br i1 %403, label %.preheader28.i, label %.loopexit.i, !llvm.loop !290
 
-.loopexit.i:                                      ; preds = %str_new0.exit336, %372
-  %.0.i324 = phi i64 [ %.14365, %372 ], [ 0, %str_new0.exit336 ]
-  %402 = call fastcc i64 @str_subseq(i64 noundef %2, i64 noundef %361, i64 noundef %367)
-  call fastcc void @rb_enc_cr_str_copy_for_substr(i64 noundef %402, i64 noundef %2)
-  %403 = call i64 @rb_ary_push(i64 noundef %.4263, i64 noundef %402) #28
+.loopexit.i:                                      ; preds = %str_new0.exit336, %373
+  %.0.i324 = phi i64 [ %.14365, %373 ], [ 0, %str_new0.exit336 ]
+  %404 = call fastcc i64 @str_subseq(i64 noundef %2, i64 noundef %362, i64 noundef %368)
+  call fastcc void @rb_enc_cr_str_copy_for_substr(i64 noundef %404, i64 noundef %2)
+  %405 = call i64 @rb_ary_push(i64 noundef %.4263, i64 noundef %404) #28
   %.pre438 = load i32, ptr %304, align 4
   br label %split_string.exit
 
-split_string.exit:                                ; preds = %.loopexit.i, %370, %.lr.ph.split
-  %404 = phi i32 [ %358, %.lr.ph.split ], [ %358, %370 ], [ %.pre438, %.loopexit.i ]
-  %.15 = phi i64 [ %.14365, %.lr.ph.split ], [ %371, %370 ], [ %.0.i324, %.loopexit.i ]
-  %405 = add nuw nsw i64 %.0220366, 1
-  %406 = sext i32 %404 to i64
-  %407 = icmp slt i64 %405, %406
-  br i1 %407, label %.lr.ph.split, label %._crit_edge, !llvm.loop !286
+split_string.exit:                                ; preds = %.loopexit.i, %371, %.lr.ph.split
+  %406 = phi i32 [ %359, %.lr.ph.split ], [ %359, %371 ], [ %.pre438, %.loopexit.i ]
+  %.15 = phi i64 [ %.14365, %.lr.ph.split ], [ %372, %371 ], [ %.0.i324, %.loopexit.i ]
+  %407 = add nuw nsw i64 %.0220366, 1
+  %408 = sext i32 %406 to i64
+  %409 = icmp slt i64 %407, %408
+  br i1 %409, label %.lr.ph.split, label %._crit_edge, !llvm.loop !286
 
 ._crit_edge:                                      ; preds = %split_string.exit, %split_string.exit.us, %303
   %.14.lcssa = phi i64 [ %.13, %303 ], [ %.15.us, %split_string.exit.us ], [ %.15, %split_string.exit ]
-  %408 = load i64, ptr %7, align 8
-  %409 = icmp eq i64 %408, 4
-  br i1 %409, label %412, label %410
+  %410 = load i64, ptr %7, align 8
+  %411 = icmp eq i64 %410, 4
+  br i1 %411, label %414, label %412
 
-410:                                              ; preds = %._crit_edge
-  %411 = add i64 %.9368, 1
-  %.not296 = icmp slt i64 %411, %264
-  br i1 %.not296, label %412, label %.loopexit356
+412:                                              ; preds = %._crit_edge
+  %413 = add i64 %.9368, 1
+  %.not296 = icmp slt i64 %413, %264
+  br i1 %.not296, label %414, label %.loopexit356
 
-412:                                              ; preds = %290, %292, %._crit_edge, %410
-  %.12 = phi i64 [ %.14.lcssa, %._crit_edge ], [ %.14.lcssa, %410 ], [ %.10252367, %292 ], [ %.10252367, %290 ]
-  %.10 = phi i64 [ %.9368, %._crit_edge ], [ %411, %410 ], [ %.9368, %292 ], [ %.9368, %290 ]
-  %.7 = phi i64 [ %.3, %._crit_edge ], [ %.3, %410 ], [ %.5370, %292 ], [ %.5370, %290 ]
-  %.2 = phi i64 [ %.3, %._crit_edge ], [ %.3, %410 ], [ %296, %292 ], [ %265, %290 ]
-  %.1219 = phi i32 [ 0, %._crit_edge ], [ 0, %410 ], [ 1, %292 ], [ 1, %290 ]
+414:                                              ; preds = %290, %292, %._crit_edge, %412
+  %.12 = phi i64 [ %.14.lcssa, %._crit_edge ], [ %.14.lcssa, %412 ], [ %.10252367, %292 ], [ %.10252367, %290 ]
+  %.10 = phi i64 [ %.9368, %._crit_edge ], [ %413, %412 ], [ %.9368, %292 ], [ %.9368, %290 ]
+  %.7 = phi i64 [ %.3, %._crit_edge ], [ %.3, %412 ], [ %.5370, %292 ], [ %.5370, %290 ]
+  %.2 = phi i64 [ %.3, %._crit_edge ], [ %.3, %412 ], [ %296, %292 ], [ %265, %290 ]
+  %.1219 = phi i32 [ 0, %._crit_edge ], [ 0, %412 ], [ 1, %292 ], [ 1, %290 ]
   %.not298 = icmp eq i64 %267, 0
-  br i1 %.not298, label %414, label %413
+  br i1 %.not298, label %416, label %415
 
-413:                                              ; preds = %412
+415:                                              ; preds = %414
   call void @rb_match_unbusy(i64 noundef %267) #28
   call void @rb_backref_set(i64 noundef %267) #28
-  br label %414
+  br label %416
 
-414:                                              ; preds = %412, %413
-  %415 = load i64, ptr %6, align 8
-  %416 = call i64 @rb_reg_search(i64 noundef %415, i64 noundef %2, i64 noundef %.2, i32 noundef 0) #28
-  %417 = icmp sgt i64 %416, -1
-  br i1 %417, label %266, label %.loopexit356, !llvm.loop !291
+416:                                              ; preds = %414, %415
+  %417 = load i64, ptr %6, align 8
+  %418 = call i64 @rb_reg_search(i64 noundef %417, i64 noundef %2, i64 noundef %.2, i32 noundef 0) #28
+  %419 = icmp sgt i64 %418, -1
+  br i1 %419, label %266, label %.loopexit356, !llvm.loop !291
 
-.loopexit356:                                     ; preds = %414, %410, %281
-  %.11 = phi i64 [ %282, %281 ], [ %.12, %414 ], [ %.14.lcssa, %410 ]
-  %.6 = phi i64 [ %.5370, %281 ], [ %.7, %414 ], [ %.3, %410 ]
+.loopexit356:                                     ; preds = %416, %412, %281
+  %.11 = phi i64 [ %282, %281 ], [ %.12, %416 ], [ %.14.lcssa, %412 ]
+  %.6 = phi i64 [ %.5370, %281 ], [ %.7, %416 ], [ %.3, %412 ]
   %.not297 = icmp eq i64 %267, 0
-  br i1 %.not297, label %.loopexit, label %418
+  br i1 %.not297, label %.loopexit, label %420
 
-418:                                              ; preds = %.loopexit356
+420:                                              ; preds = %.loopexit356
   call void @rb_match_unbusy(i64 noundef %267) #28
   br label %.loopexit
 
-.loopexit:                                        ; preds = %189, %172, %162, %147, %258, %.preheader352, %.preheader, %.critedge, %.loopexit356, %418, %.critedge3
-  %.1260 = phi i64 [ %.2261, %.critedge ], [ %.3262, %.critedge3 ], [ %.4263, %418 ], [ %.4263, %.loopexit356 ], [ %.0259, %.preheader ], [ %.0259, %.preheader352 ], [ %.4263, %258 ], [ %.0259, %147 ], [ %.0259, %162 ], [ %.0259, %172 ], [ %.0259, %189 ]
-  %.5247 = phi i64 [ %.7249, %.critedge ], [ %.9251, %.critedge3 ], [ %.11, %418 ], [ %.11, %.loopexit356 ], [ %spec.select, %.preheader ], [ %spec.select, %.preheader352 ], [ %spec.select, %258 ], [ %.2244, %162 ], [ %.1243409, %147 ], [ %.4246, %189 ], [ %.3245397, %172 ]
-  %.4 = phi i64 [ %231, %.critedge ], [ %254, %.critedge3 ], [ %.6, %418 ], [ %.6, %.loopexit356 ], [ 0, %.preheader ], [ 0, %.preheader352 ], [ 0, %258 ], [ %.1226, %162 ], [ %.0225412, %147 ], [ %.3228, %189 ], [ %.2227400, %172 ]
-  %419 = load i64, ptr %.sroa.1.0.in.i, align 8
-  %420 = icmp sgt i64 %419, 0
-  br i1 %420, label %421, label %430
+.loopexit:                                        ; preds = %189, %172, %162, %147, %258, %.preheader352, %.preheader, %.critedge, %.loopexit356, %420, %.critedge3
+  %.1260 = phi i64 [ %.2261, %.critedge ], [ %.3262, %.critedge3 ], [ %.4263, %420 ], [ %.4263, %.loopexit356 ], [ %.0259, %.preheader ], [ %.0259, %.preheader352 ], [ %.4263, %258 ], [ %.0259, %147 ], [ %.0259, %162 ], [ %.0259, %172 ], [ %.0259, %189 ]
+  %.5247 = phi i64 [ %.7249, %.critedge ], [ %.9251, %.critedge3 ], [ %.11, %420 ], [ %.11, %.loopexit356 ], [ %spec.select, %.preheader ], [ %spec.select, %.preheader352 ], [ %spec.select, %258 ], [ %.2244, %162 ], [ %.1243409, %147 ], [ %.4246, %189 ], [ %.3245397, %172 ]
+  %.4 = phi i64 [ %231, %.critedge ], [ %254, %.critedge3 ], [ %.6, %420 ], [ %.6, %.loopexit356 ], [ 0, %.preheader ], [ 0, %.preheader352 ], [ 0, %258 ], [ %.1226, %162 ], [ %.0225412, %147 ], [ %.3228, %189 ], [ %.2227400, %172 ]
+  %421 = load i64, ptr %.sroa.1.0.in.i, align 8
+  %422 = icmp sgt i64 %421, 0
+  br i1 %422, label %423, label %432
 
-421:                                              ; preds = %.loopexit
-  %422 = load i64, ptr %7, align 8
-  %423 = icmp eq i64 %422, 4
-  br i1 %423, label %424, label %427
+423:                                              ; preds = %.loopexit
+  %424 = load i64, ptr %7, align 8
+  %425 = icmp eq i64 %424, 4
+  br i1 %425, label %426, label %429
 
-424:                                              ; preds = %421
-  %425 = icmp sgt i64 %419, %.4
-  %426 = icmp slt i32 %.0254, 0
-  %or.cond5 = or i1 %426, %425
-  br i1 %or.cond5, label %427, label %430
+426:                                              ; preds = %423
+  %427 = icmp sgt i64 %421, %.4
+  %428 = icmp slt i32 %.0254, 0
+  %or.cond5 = or i1 %428, %427
+  br i1 %or.cond5, label %429, label %432
 
-427:                                              ; preds = %424, %421
-  %428 = sub i64 %419, %.4
-  %429 = call fastcc i64 @split_string(i64 noundef %.1260, i64 noundef %2, i64 noundef %.4, i64 noundef %428, i64 noundef %.5247)
-  br label %430
-
-430:                                              ; preds = %424, %427, %.loopexit
-  %.not310 = icmp eq i64 %.1260, 0
-  %431 = select i1 %.not310, i64 %2, i64 %.1260
+429:                                              ; preds = %426, %423
+  %430 = sub i64 %421, %.4
+  %431 = call fastcc i64 @split_string(i64 noundef %.1260, i64 noundef %2, i64 noundef %.4, i64 noundef %430, i64 noundef %.5247)
   br label %432
 
-432:                                              ; preds = %29, %28, %430, %36, %34
-  %.0217 = phi i64 [ %431, %430 ], [ %37, %36 ], [ %2, %34 ], [ %30, %29 ], [ %2, %28 ]
+432:                                              ; preds = %426, %429, %.loopexit
+  %.not310 = icmp eq i64 %.1260, 0
+  %433 = select i1 %.not310, i64 %2, i64 %.1260
+  br label %434
+
+434:                                              ; preds = %29, %28, %432, %36, %34
+  %.0217 = phi i64 [ %433, %432 ], [ %37, %36 ], [ %2, %34 ], [ %30, %29 ], [ %2, %28 ]
   ret i64 %.0217
 }
 
@@ -30741,7 +30741,7 @@ define internal fastcc i64 @split_string(i64 noundef %0, i64 noundef %1, i64 nou
 
 8:                                                ; preds = %5
   %9 = add nuw i64 %4, 1
-  br label %26
+  br label %28
 
 10:                                               ; preds = %5
   %11 = icmp sgt i64 %4, 0
@@ -30749,45 +30749,45 @@ define internal fastcc i64 @split_string(i64 noundef %0, i64 noundef %1, i64 nou
 
 12:                                               ; preds = %10
   %.not = icmp eq i64 %0, 0
-  br i1 %.not, label %.preheader, label %.preheader30
+  br i1 %.not, label %.preheader, label %.preheader28
 
-.preheader30:                                     ; preds = %12, %.preheader30
-  %.1 = phi i64 [ %16, %.preheader30 ], [ %4, %12 ]
+.preheader28:                                     ; preds = %12, %.preheader28
+  %.1 = phi i64 [ %16, %.preheader28 ], [ %4, %12 ]
   %13 = load i64, ptr @rb_cString, align 8
   %14 = tail call fastcc i64 @str_new0(i64 noundef %13, ptr noundef null, i64 noundef 0, i32 noundef 1)
   tail call void @rb_enc_copy(i64 noundef %14, i64 noundef %1) #28
   %15 = tail call i64 @rb_ary_push(i64 noundef %0, i64 noundef %14) #28
   %16 = add nsw i64 %.1, -1
-  %.not28 = icmp eq i64 %16, 0
-  br i1 %.not28, label %.loopexit, label %.preheader30, !llvm.loop !290
+  %17 = icmp ugt i64 %.1, 1
+  br i1 %17, label %.preheader28, label %.loopexit, !llvm.loop !290
 
 .preheader:                                       ; preds = %12, %.preheader
-  %.2 = phi i64 [ %20, %.preheader ], [ %4, %12 ]
-  %17 = load i64, ptr @rb_cString, align 8
-  %18 = tail call fastcc i64 @str_new0(i64 noundef %17, ptr noundef null, i64 noundef 0, i32 noundef 1)
-  tail call void @rb_enc_copy(i64 noundef %18, i64 noundef %1) #28
-  %19 = tail call i64 @rb_yield(i64 noundef %18) #28
-  %20 = add nsw i64 %.2, -1
-  %.not29 = icmp eq i64 %20, 0
-  br i1 %.not29, label %.loopexit, label %.preheader, !llvm.loop !285
+  %.2 = phi i64 [ %21, %.preheader ], [ %4, %12 ]
+  %18 = load i64, ptr @rb_cString, align 8
+  %19 = tail call fastcc i64 @str_new0(i64 noundef %18, ptr noundef null, i64 noundef 0, i32 noundef 1)
+  tail call void @rb_enc_copy(i64 noundef %19, i64 noundef %1) #28
+  %20 = tail call i64 @rb_yield(i64 noundef %19) #28
+  %21 = add nsw i64 %.2, -1
+  %22 = icmp ugt i64 %.2, 1
+  br i1 %22, label %.preheader, label %.loopexit, !llvm.loop !285
 
-.loopexit:                                        ; preds = %.preheader30, %.preheader, %10
-  %.0 = phi i64 [ %4, %10 ], [ 0, %.preheader ], [ 0, %.preheader30 ]
-  %21 = tail call fastcc i64 @str_subseq(i64 noundef %1, i64 noundef %2, i64 noundef %3)
-  tail call fastcc void @rb_enc_cr_str_copy_for_substr(i64 noundef %21, i64 noundef %1)
+.loopexit:                                        ; preds = %.preheader28, %.preheader, %10
+  %.0 = phi i64 [ %4, %10 ], [ 0, %.preheader ], [ 0, %.preheader28 ]
+  %23 = tail call fastcc i64 @str_subseq(i64 noundef %1, i64 noundef %2, i64 noundef %3)
+  tail call fastcc void @rb_enc_cr_str_copy_for_substr(i64 noundef %23, i64 noundef %1)
   %.not27 = icmp eq i64 %0, 0
-  br i1 %.not27, label %24, label %22
-
-22:                                               ; preds = %.loopexit
-  %23 = tail call i64 @rb_ary_push(i64 noundef %0, i64 noundef %21) #28
-  br label %26
+  br i1 %.not27, label %26, label %24
 
 24:                                               ; preds = %.loopexit
-  %25 = tail call i64 @rb_yield(i64 noundef %21) #28
-  br label %26
+  %25 = tail call i64 @rb_ary_push(i64 noundef %0, i64 noundef %23) #28
+  br label %28
 
-26:                                               ; preds = %22, %24, %8
-  %.020 = phi i64 [ %9, %8 ], [ %.0, %24 ], [ %.0, %22 ]
+26:                                               ; preds = %.loopexit
+  %27 = tail call i64 @rb_yield(i64 noundef %23) #28
+  br label %28
+
+28:                                               ; preds = %24, %26, %8
+  %.020 = phi i64 [ %9, %8 ], [ %.0, %26 ], [ %.0, %24 ]
   ret i64 %.020
 }
 

@@ -6123,7 +6123,7 @@ define internal fastcc range(i32 -30, 1) i32 @parse_filter_data(ptr noundef %0, 
 
 read_consume_bits.exit:                           ; preds = %4
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.52) #14
-  br label %64
+  br label %63
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %1, i64 21264
@@ -6153,55 +6153,55 @@ read_consume_bits.exit:                           ; preds = %4
   store i8 %33, ptr %11, align 8
   %34 = lshr i32 %28, 14
   %35 = and i32 %34, 3
-  %36 = and i32 %29, 7
-  %37 = sub nuw nsw i32 8, %36
-  br label %38
+  %narrow = sub nuw nsw i8 8, %33
+  %36 = zext nneg i8 %narrow to i32
+  br label %37
 
-38:                                               ; preds = %10, %41
-  %.035 = phi i32 [ 0, %10 ], [ %60, %41 ]
-  %.01534 = phi i32 [ 0, %10 ], [ %62, %41 ]
-  %39 = phi i32 [ %31, %10 ], [ %61, %41 ]
-  %40 = sext i32 %39 to i64
-  %.not.i = icmp sgt i64 %9, %40
-  br i1 %.not.i, label %41, label %read_bits_16.exit
+37:                                               ; preds = %10, %40
+  %.035 = phi i32 [ 0, %10 ], [ %59, %40 ]
+  %.01534 = phi i32 [ 0, %10 ], [ %61, %40 ]
+  %38 = phi i32 [ %31, %10 ], [ %60, %40 ]
+  %39 = sext i32 %38 to i64
+  %.not.i = icmp sgt i64 %9, %39
+  br i1 %.not.i, label %40, label %read_bits_16.exit
 
-read_bits_16.exit:                                ; preds = %38
+read_bits_16.exit:                                ; preds = %37
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.52) #14
-  br label %64
+  br label %63
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %2, i64 %40
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  %45 = shl nuw nsw i32 %44, 16
-  %46 = getelementptr i8, ptr %42, i64 1
-  %47 = load i8, ptr %46, align 1
-  %48 = zext i8 %47 to i32
-  %49 = shl nuw nsw i32 %48, 8
-  %50 = or disjoint i32 %49, %45
-  %51 = getelementptr i8, ptr %42, i64 2
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i32
-  %54 = or disjoint i32 %50, %53
-  %55 = lshr i32 %54, %37
-  %56 = lshr i32 %55, 8
-  %57 = and i32 %56, 255
-  %58 = shl nsw i32 %.01534, 3
-  %59 = shl i32 %57, %58
-  %60 = add i32 %59, %.035
-  %61 = add nsw i32 %39, 1
-  store i32 %61, ptr %5, align 4
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds i8, ptr %2, i64 %39
+  %42 = load i8, ptr %41, align 1
+  %43 = zext i8 %42 to i32
+  %44 = shl nuw nsw i32 %43, 16
+  %45 = getelementptr i8, ptr %41, i64 1
+  %46 = load i8, ptr %45, align 1
+  %47 = zext i8 %46 to i32
+  %48 = shl nuw nsw i32 %47, 8
+  %49 = or disjoint i32 %48, %44
+  %50 = getelementptr i8, ptr %41, i64 2
+  %51 = load i8, ptr %50, align 1
+  %52 = zext i8 %51 to i32
+  %53 = or disjoint i32 %49, %52
+  %54 = lshr i32 %53, %36
+  %55 = lshr i32 %54, 8
+  %56 = and i32 %55, 255
+  %57 = shl nsw i32 %.01534, 3
+  %58 = shl i32 %56, %57
+  %59 = add i32 %58, %.035
+  %60 = add nsw i32 %38, 1
+  store i32 %60, ptr %5, align 4
   store i8 %33, ptr %11, align 8
-  %62 = add nuw nsw i32 %.01534, 1
+  %61 = add nuw nsw i32 %.01534, 1
   %exitcond.not = icmp eq i32 %.01534, %35
-  br i1 %exitcond.not, label %63, label %38, !llvm.loop !33
+  br i1 %exitcond.not, label %62, label %37, !llvm.loop !33
 
-63:                                               ; preds = %41
-  store i32 %60, ptr %3, align 4
-  br label %64
+62:                                               ; preds = %40
+  store i32 %59, ptr %3, align 4
+  br label %63
 
-64:                                               ; preds = %read_bits_16.exit, %read_consume_bits.exit, %63
-  %.016 = phi i32 [ 0, %63 ], [ -30, %read_consume_bits.exit ], [ -30, %read_bits_16.exit ]
+63:                                               ; preds = %read_bits_16.exit, %read_consume_bits.exit, %62
+  %.016 = phi i32 [ 0, %62 ], [ -30, %read_consume_bits.exit ], [ -30, %read_bits_16.exit ]
   ret i32 %.016
 }
 

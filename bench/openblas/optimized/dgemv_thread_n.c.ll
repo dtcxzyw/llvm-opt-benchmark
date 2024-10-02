@@ -57,7 +57,7 @@ define noundef i32 @dgemv_thread_n(i64 noundef %0, i64 noundef %1, double nounde
   %31 = phi i64 [ %0, %27 ], [ %63, %46 ]
   %32 = phi i64 [ 0, %27 ], [ %54, %46 ]
   %33 = xor i64 %32, -1
-  %34 = add i64 %31, %28
+  %34 = add nuw i64 %31, %28
   %35 = add i64 %34, %33
   %36 = trunc i64 %35 to i32
   %37 = trunc i64 %32 to i32

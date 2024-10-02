@@ -1664,7 +1664,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   ]
 
 671:                                              ; preds = %666, %666
-  %672 = icmp sgt i32 %spec.select1339, 0
+  %672 = icmp sgt i32 %667, 0
   br i1 %672, label %.preheader1452, label %.loopexit1454
 
 .preheader1452:                                   ; preds = %671, %1247
@@ -2901,7 +2901,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 1249:                                             ; preds = %666
   %1250 = add i32 %spec.select1339, %.111103066
-  %1251 = icmp sgt i32 %spec.select1339, 0
+  %1251 = icmp sgt i32 %667, 0
   br i1 %1251, label %.lr.ph2918.preheader, label %.loopexit1454
 
 .lr.ph2918.preheader:                             ; preds = %1249

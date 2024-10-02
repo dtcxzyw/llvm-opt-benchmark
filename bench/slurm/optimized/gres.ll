@@ -25044,7 +25044,7 @@ define i32 @gres_g_recv_stepd(i32 noundef %0, ptr nocapture noundef readonly %1)
   %.us-phi194 = phi i32 [ %29, %.lr.ph218.preheader.preheader ], [ %29, %.lr.ph234.preheader ], [ %45, %.lr.ph218.preheader ], [ %37, %.lr.ph234 ]
   %18 = and i64 %.us-phi193, 2147483647
   %19 = getelementptr inbounds i8, ptr %.0109.ph236, i64 %18
-  %20 = sub i32 %.0106.ph238, %.us-phi194
+  %20 = sub nsw i32 %.0106.ph238, %.us-phi194
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %22, label %.outer150._crit_edge
 
@@ -25236,7 +25236,7 @@ define i32 @gres_g_recv_stepd(i32 noundef %0, ptr nocapture noundef readonly %1)
   %.us-phi248 = phi i32 [ %55, %.lr.ph272.preheader.preheader ], [ %55, %.lr.ph288.preheader ], [ %71, %.lr.ph272.preheader ], [ %63, %.lr.ph288 ]
   %82 = and i64 %.us-phi247, 2147483647
   %83 = getelementptr inbounds i8, ptr %.0107.ph293, i64 %82
-  %84 = sub i32 %.0108.ph291, %.us-phi248
+  %84 = sub nsw i32 %.0108.ph291, %.us-phi248
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %86, label %.outer148._crit_edge
 
@@ -25487,7 +25487,7 @@ _unpack_context_buf.exit:                         ; preds = %.outer148._crit_edg
   %.us-phi303 = phi i32 [ %152, %.lr.ph327.preheader.preheader ], [ %152, %.lr.ph343.preheader ], [ %168, %.lr.ph327.preheader ], [ %160, %.lr.ph343 ]
   %179 = and i64 %.us-phi302, 2147483647
   %180 = getelementptr inbounds i8, ptr %.0102.ph348, i64 %179
-  %181 = sub i32 %.0103.ph346, %.us-phi303
+  %181 = sub nsw i32 %.0103.ph346, %.us-phi303
   %182 = icmp sgt i32 %181, 0
   br i1 %182, label %183, label %.outer147._crit_edge
 
@@ -25613,7 +25613,7 @@ _unpack_context_buf.exit:                         ; preds = %.outer148._crit_edg
   %.us-phi358 = phi i32 [ %195, %.lr.ph382.preheader.preheader ], [ %195, %.lr.ph398.preheader ], [ %211, %.lr.ph382.preheader ], [ %203, %.lr.ph398 ]
   %222 = and i64 %.us-phi357, 2147483647
   %223 = getelementptr inbounds i8, ptr %.099.ph403, i64 %222
-  %224 = sub i32 %.0100.ph401, %.us-phi358
+  %224 = sub nsw i32 %.0100.ph401, %.us-phi358
   %225 = icmp sgt i32 %224, 0
   br i1 %225, label %226, label %.outer._crit_edge
 

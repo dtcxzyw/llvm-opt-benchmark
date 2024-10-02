@@ -295,7 +295,7 @@ define ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.us-phi80.i = phi i32 [ %60, %.lr.ph103.preheader.i.preheader ], [ %60, %.lr.ph119.i.preheader ], [ %80, %.lr.ph103.preheader.i ], [ %70, %.lr.ph119.i ]
   %91 = and i64 %.us-phi79.i, 2147483647
   %92 = getelementptr inbounds i8, ptr %.042.ph123.i, i64 %91
-  %93 = sub i32 %.043.ph121.i, %.us-phi80.i
+  %93 = sub nsw i32 %.043.ph121.i, %.us-phi80.i
   %94 = icmp sgt i32 %93, 0
   br i1 %94, label %95, label %.outer56._crit_edge.i
 

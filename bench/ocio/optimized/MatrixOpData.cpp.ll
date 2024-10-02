@@ -1507,12 +1507,12 @@ for.cond.loopexit:                                ; preds = %for.inc151
   br i1 %exitcond227.not, label %for.body160.preheader, label %for.body23.preheader, !llvm.loop !19
 
 for.body160.preheader:                            ; preds = %for.cond.loopexit
-  %mul163244 = mul i64 %call7, 3
-  %add165245 = add i64 %mul163244, 3
-  %add.ptr.i.i154246 = getelementptr inbounds double, ptr %cond.i.i.i.i.i.i191, i64 %add165245
-  %12 = load double, ptr %add.ptr.i.i154246, align 8
-  %cmp168247 = fcmp oeq double %12, 0.000000e+00
-  br i1 %cmp168247, label %if.then169, label %for.body177.preheader
+  %mul163245 = mul i64 %call7, 3
+  %add165246 = add i64 %mul163245, 3
+  %add.ptr.i.i154247 = getelementptr inbounds double, ptr %cond.i.i.i.i.i.i191, i64 %add165246
+  %12 = load double, ptr %add.ptr.i.i154247, align 8
+  %cmp168248 = fcmp oeq double %12, 0.000000e+00
+  br i1 %cmp168248, label %if.then169, label %for.body177.preheader
 
 for.body23.preheader:                             ; preds = %for.cond.loopexit, %invoke.cont6
   %indvars.iv224 = phi i64 [ 0, %invoke.cont6 ], [ %indvars.iv.next225, %for.cond.loopexit ]
@@ -1647,8 +1647,8 @@ for.inc151:                                       ; preds = %for.body120
 
 for.body177.preheader:                            ; preds = %for.body160.preheader, %for.inc243
   %37 = phi double [ %51, %for.inc243 ], [ %12, %for.body160.preheader ]
-  %mul163249 = phi i64 [ %mul163, %for.inc243 ], [ %mul163244, %for.body160.preheader ]
-  %indvars.iv240248 = phi i64 [ %indvars.iv.next241, %for.inc243 ], [ 3, %for.body160.preheader ]
+  %mul163250 = phi i64 [ %mul163, %for.inc243 ], [ %mul163245, %for.body160.preheader ]
+  %indvars.iv240249 = phi i64 [ %indvars.iv.next241, %for.inc243 ], [ 3, %for.body160.preheader ]
   br label %for.body177
 
 if.then169:                                       ; preds = %for.inc243, %for.body160.preheader
@@ -1671,12 +1671,12 @@ lpad171:                                          ; preds = %if.then169
   br label %ehcleanup
 
 for.cond196.preheader:                            ; preds = %for.body177
-  %cmp197206.not = icmp eq i64 %indvars.iv240248, 0
+  %cmp197206.not = icmp eq i64 %indvars.iv240249, 0
   br i1 %cmp197206.not, label %_ZN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayD2Ev.exit, label %for.body198
 
 for.body177:                                      ; preds = %for.body177.preheader, %for.body177
   %indvars.iv228 = phi i64 [ %indvars.iv.next229, %for.body177 ], [ 0, %for.body177.preheader ]
-  %add181 = add i64 %mul163249, %indvars.iv228
+  %add181 = add i64 %mul163250, %indvars.iv228
   %add.ptr.i.i156 = getelementptr inbounds double, ptr %cond.i.i.i.i.i.i191, i64 %add181
   %40 = load double, ptr %add.ptr.i.i156, align 8
   %div184 = fdiv double %40, %37
@@ -1693,7 +1693,7 @@ for.body177:                                      ; preds = %for.body177.prehead
 for.body198:                                      ; preds = %for.cond196.preheader, %for.inc240
   %indvars.iv236 = phi i64 [ %indvars.iv.next237, %for.inc240 ], [ 0, %for.cond196.preheader ]
   %mul200 = mul i64 %call7, %indvars.iv236
-  %add202 = add i64 %mul200, %indvars.iv240248
+  %add202 = add i64 %mul200, %indvars.iv240249
   %add.ptr.i.i160 = getelementptr inbounds double, ptr %cond.i.i.i.i.i.i191, i64 %add202
   %43 = load double, ptr %add.ptr.i.i160, align 8
   %neg222 = fneg double %43
@@ -1701,7 +1701,7 @@ for.body198:                                      ; preds = %for.cond196.prehead
 
 for.body208:                                      ; preds = %for.body198, %for.body208
   %indvars.iv232 = phi i64 [ 0, %for.body198 ], [ %indvars.iv.next233, %for.body208 ]
-  %add212 = add i64 %mul163249, %indvars.iv232
+  %add212 = add i64 %mul163250, %indvars.iv232
   %add.ptr.i.i162 = getelementptr inbounds double, ptr %cond.i.i.i.i.i.i191, i64 %add212
   %44 = load double, ptr %add.ptr.i.i162, align 8
   %add219 = add i64 %mul200, %indvars.iv232
@@ -1722,11 +1722,11 @@ for.body208:                                      ; preds = %for.body198, %for.b
 
 for.inc240:                                       ; preds = %for.body208
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
-  %exitcond239.not = icmp eq i64 %indvars.iv.next237, %indvars.iv240248
+  %exitcond239.not = icmp eq i64 %indvars.iv.next237, %indvars.iv240249
   br i1 %exitcond239.not, label %for.inc243, label %for.body198, !llvm.loop !26
 
 for.inc243:                                       ; preds = %for.inc240
-  %indvars.iv.next241 = add nsw i64 %indvars.iv240248, -1
+  %indvars.iv.next241 = add nsw i64 %indvars.iv240249, -1
   %mul163 = mul i64 %call7, %indvars.iv.next241
   %add165 = add i64 %mul163, %indvars.iv.next241
   %add.ptr.i.i154 = getelementptr inbounds double, ptr %cond.i.i.i.i.i.i191, i64 %add165

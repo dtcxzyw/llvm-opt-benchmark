@@ -49,7 +49,7 @@ define hidden noundef zeroext i1 @_ZN6google24glog_internal_namespace_22GetSecti
   unreachable
 
 10:                                               ; preds = %23
-  %11 = add i64 %16, %.01931.i.i
+  %11 = add nuw i64 %16, %.01931.i.i
   %12 = icmp ult i64 %11, 64
   br i1 %12, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !4
 
@@ -105,7 +105,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit: ; preds =
   br label %.lr.ph.i.i24
 
 38:                                               ; preds = %52
-  %39 = add i64 %45, %.01931.i.i25
+  %39 = add nuw i64 %45, %.01931.i.i25
   %40 = icmp ult i64 %39, 64
   br i1 %40, label %.lr.ph.i.i24, label %._crit_edge.i.i27, !llvm.loop !4
 
@@ -183,7 +183,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit31: ; preds
   br i1 %70, label %._crit_edge.i.i35.us, label %71
 
 71:                                               ; preds = %69
-  %72 = add i64 %66, %.01931.i.i33.us
+  %72 = add nuw i64 %66, %.01931.i.i33.us
   %73 = icmp ult i64 %72, 64
   br i1 %73, label %.lr.ph.i.i32.us, label %._crit_edge.i.i35.us, !llvm.loop !4
 
@@ -209,7 +209,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit39.us: ; pr
   br label %.lr.ph.i.i32
 
 81:                                               ; preds = %95
-  %82 = add i64 %88, %.01931.i.i33
+  %82 = add nuw i64 %88, %.01931.i.i33
   %83 = icmp ult i64 %82, 64
   br i1 %83, label %.lr.ph.i.i32, label %._crit_edge.i.i35, !llvm.loop !4
 
@@ -496,7 +496,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit.i: ; preds =
   unreachable
 
 67:                                               ; preds = %81
-  %68 = add i64 %74, %.01931.i.i.i.i
+  %68 = add nuw i64 %74, %.01931.i.i.i.i
   %69 = icmp ult i64 %68, 1024
   br i1 %69, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !4
 
@@ -866,7 +866,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   unreachable
 
 187:                                              ; preds = %201
-  %188 = add i64 %194, %.01931.i.i72.i.i
+  %188 = add nuw i64 %194, %.01931.i.i72.i.i
   %189 = icmp ult i64 %188, 64
   br i1 %189, label %.lr.ph.i.i71.i.i, label %._crit_edge.i.i74.i.i, !llvm.loop !4
 
@@ -948,7 +948,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   br label %.lr.ph.i.i79.i.i
 
 218:                                              ; preds = %232
-  %219 = add i64 %225, %.01931.i.i80.i.i
+  %219 = add nuw i64 %225, %.01931.i.i80.i.i
   %220 = icmp ult i64 %219, 56
   br i1 %220, label %.lr.ph.i.i79.i.i, label %._crit_edge.i.i82.i.i, !llvm.loop !4
 
@@ -1258,7 +1258,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit62.i: ; preds
   unreachable
 
 329:                                              ; preds = %342
-  %330 = add i64 %335, %.01931.i.i.i64.i
+  %330 = add nuw i64 %335, %.01931.i.i.i64.i
   %331 = icmp ult i64 %330, 64
   br i1 %331, label %.lr.ph.i.i.i63.i, label %._crit_edge.i.i.i66.i, !llvm.loop !4
 
@@ -1345,7 +1345,7 @@ _ZN6google24glog_internal_namespace_L16SafeAppendStringEPKcPcm.exit62.i: ; preds
   br label %.lr.ph.i.i.i73.i
 
 362:                                              ; preds = %375
-  %363 = add i64 %368, %.01931.i.i.i74.i
+  %363 = add nuw i64 %368, %.01931.i.i.i74.i
   %364 = icmp ult i64 %363, 64
   br i1 %364, label %.lr.ph.i.i.i73.i, label %._crit_edge.i.i.i76.i, !llvm.loop !4
 
@@ -1410,7 +1410,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit.i.i: ; pre
   br label %.lr.ph.i.i16.i.i
 
 391:                                              ; preds = %405
-  %392 = add i64 %398, %.01931.i.i17.i.i
+  %392 = add nuw i64 %398, %.01931.i.i17.i.i
   %393 = icmp ult i64 %392, 64
   br i1 %393, label %.lr.ph.i.i16.i.i, label %._crit_edge.i.i19.i.i, !llvm.loop !4
 
@@ -1481,7 +1481,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit23.i.i: ; p
   br label %.lr.ph.i.i24.i.i
 
 420:                                              ; preds = %434
-  %421 = add i64 %427, %.01931.i.i25.i.i
+  %421 = add nuw i64 %427, %.01931.i.i25.i.i
   %422 = icmp ult i64 %421, 64
   br i1 %422, label %.lr.ph.i.i24.i.i, label %._crit_edge.i.i27.i.i, !llvm.loop !4
 

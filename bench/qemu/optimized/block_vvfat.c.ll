@@ -5483,14 +5483,14 @@ land.rhs42.i:                                     ; preds = %for.inc51.i, %for.c
   %arrayidx45.i = getelementptr [11 x i8], ptr %add.ptr, i64 0, i64 %48
   %49 = load i8, ptr %arrayidx45.i, align 1
   %cmp47.i = icmp eq i8 %49, 32
-  br i1 %cmp47.i, label %for.inc51.i, label %if.then56.i
+  br i1 %cmp47.i, label %for.inc51.i, label %for.body69.lr.ph.i
 
 for.inc51.i:                                      ; preds = %land.rhs42.i
   %indvars.iv.next.i134 = add nsw i64 %indvars.iv.i130, -1
   %cmp40.not.i = icmp eq i64 %indvars.iv.i130, 0
   br i1 %cmp40.not.i, label %if.else103.i, label %land.rhs42.i, !llvm.loop !37
 
-if.then56.i:                                      ; preds = %land.rhs42.i
+for.body69.lr.ph.i:                               ; preds = %land.rhs42.i
   %50 = trunc nuw nsw i64 %indvars.iv.i130 to i32
   %idxprom59.i131 = sext i32 %i.0.lcssa.i129 to i64
   %arrayidx60.i132 = getelementptr [820 x i8], ptr %lfn, i64 0, i64 %idxprom59.i131
@@ -5500,10 +5500,6 @@ if.then56.i:                                      ; preds = %land.rhs42.i
   %idxprom64.i = sext i32 %add63.i to i64
   %arrayidx65.i = getelementptr [820 x i8], ptr %lfn, i64 0, i64 %idxprom64.i
   store i8 0, ptr %arrayidx65.i, align 1
-  %cmp6768.i = icmp sgt i64 %indvars.iv.i130, -1
-  br i1 %cmp6768.i, label %for.body69.lr.ph.i, label %if.end109.i
-
-for.body69.lr.ph.i:                               ; preds = %if.then56.i
   %inc58.i = add i32 %i.0.lcssa.i129, 1
   %51 = sext i32 %inc58.i to i64
   br label %for.body69.i
@@ -5561,7 +5557,7 @@ if.else103.i:                                     ; preds = %for.inc51.i
   store i8 0, ptr %arrayidx108.i, align 1
   br label %if.end109.i
 
-if.end109.i:                                      ; preds = %for.inc100.i, %if.else103.i, %if.then56.i
+if.end109.i:                                      ; preds = %for.inc100.i, %if.else103.i
   %58 = load i8, ptr %lfn, align 4
   %cmp113.i = icmp eq i8 %58, 5
   br i1 %cmp113.i, label %if.then115.i, label %if.end99

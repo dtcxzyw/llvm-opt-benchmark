@@ -14762,7 +14762,7 @@ define linkonce_odr hidden noundef float @_ZN2cv6detail7GCGraphIfE7maxFlowEv(ptr
   %.sroa.10.1430 = phi ptr [ %.sroa.10.0654, %172 ], [ %.sroa.10.4, %256 ]
   %.sroa.0.2429 = phi ptr [ %.sroa.0.0653, %172 ], [ %.sroa.0.6, %256 ]
   %182 = xor i32 %.0164432, %.1172306
-  %.pn225412 = zext i32 %182 to i64
+  %.pn225412 = zext nneg i32 %182 to i64
   %.pn224.in.in413 = getelementptr inbounds %"class.cv::detail::GCGraph<float>::Edge", ptr %27, i64 %.pn225412
   %.pn224.in414 = load i32, ptr %.pn224.in.in413, align 4
   %.pn224415 = sext i32 %.pn224.in414 to i64

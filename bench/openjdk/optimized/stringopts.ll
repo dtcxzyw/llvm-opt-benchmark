@@ -4134,10 +4134,9 @@ _ZN12StringConcat17validate_mem_flowEv.exit:      ; preds = %201, %_ZNK9Node_Lis
   br i1 %264, label %265, label %274
 
 265:                                              ; preds = %_ZN12StringConcat17validate_mem_flowEv.exit
-  %.06.i = shl i64 %indvars.iv, 32
-  %sext191 = add i64 %.06.i, 4294967296
-  %266 = ashr exact i64 %sext191, 32
-  %267 = icmp slt i64 %266, %indvars.iv184
+  %.06.i = add nuw i64 %indvars.iv, 1
+  %266 = and i64 %.06.i, 4294967295
+  %267 = icmp ult i64 %266, %indvars.iv184
   br i1 %267, label %.lr.ph.i41, label %_ZN17GrowableArrayViewIP12StringConcatE9remove_atEi.exit
 
 .lr.ph.i41:                                       ; preds = %265
@@ -4152,7 +4151,7 @@ _ZN12StringConcat17validate_mem_flowEv.exit:      ; preds = %201, %_ZNK9Node_Lis
   %272 = getelementptr inbounds ptr, ptr %.sroa.24.1, i64 %indvars.iv10.i
   store ptr %271, ptr %272, align 8
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
-  %273 = icmp slt i64 %indvars.iv.next.i43, %indvars.iv184
+  %273 = icmp ult i64 %indvars.iv.next.i43, %indvars.iv184
   %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
   br i1 %273, label %269, label %_ZN17GrowableArrayViewIP12StringConcatE9remove_atEi.exit, !llvm.loop !36
 
@@ -4161,10 +4160,9 @@ _ZN17GrowableArrayViewIP12StringConcatE9remove_atEi.exit: ; preds = %269, %265
   br label %283
 
 274:                                              ; preds = %_ZN12StringConcat17validate_mem_flowEv.exit
-  %.06.i44 = shl i64 %indvars.iv173, 32
-  %sext = add i64 %.06.i44, 4294967296
-  %275 = ashr exact i64 %sext, 32
-  %276 = icmp slt i64 %275, %indvars.iv184
+  %.06.i44 = add nuw i64 %indvars.iv173, 1
+  %275 = and i64 %.06.i44, 4294967295
+  %276 = icmp ult i64 %275, %indvars.iv184
   br i1 %276, label %.lr.ph.i47, label %_ZN17GrowableArrayViewIP12StringConcatE9remove_atEi.exit52
 
 .lr.ph.i47:                                       ; preds = %274
@@ -4179,7 +4177,7 @@ _ZN17GrowableArrayViewIP12StringConcatE9remove_atEi.exit: ; preds = %269, %265
   %281 = getelementptr inbounds ptr, ptr %.sroa.24.1, i64 %indvars.iv10.i48
   store ptr %280, ptr %281, align 8
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
-  %282 = icmp slt i64 %indvars.iv.next.i50, %indvars.iv184
+  %282 = icmp ult i64 %indvars.iv.next.i50, %indvars.iv184
   %indvars.iv.next11.i51 = add nuw nsw i64 %indvars.iv10.i48, 1
   br i1 %282, label %278, label %_ZN17GrowableArrayViewIP12StringConcatE9remove_atEi.exit52, !llvm.loop !36
 

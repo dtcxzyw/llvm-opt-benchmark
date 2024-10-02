@@ -237,7 +237,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
 .loopexit152.i:                                   ; preds = %99, %.loopexit152.i.loopexit, %115, %93
   %.0123.i = phi ptr [ null, %115 ], [ %96, %93 ], [ %101, %.loopexit152.i.loopexit ], [ null, %99 ]
   %.0.i = phi i32 [ %117, %115 ], [ 0, %93 ], [ 0, %.loopexit152.i.loopexit ], [ %91, %99 ]
-  %122 = icmp sgt i32 %.in.i, 2
+  %122 = icmp ugt i32 %.in.i, 2
   br i1 %122, label %.lr.ph183.i, label %._crit_edge.i
 
 .lr.ph183.i:                                      ; preds = %.loopexit152.i

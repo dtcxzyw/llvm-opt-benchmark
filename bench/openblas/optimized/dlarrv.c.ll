@@ -366,7 +366,7 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   br i1 %267, label %.loopexit, label %268
 
 268:                                              ; preds = %257
-  %269 = sub nuw nsw i32 1, %260
+  %269 = xor i32 %260, 1
   %270 = icmp eq i32 %260, 1
   %271 = select i1 %270, i32 %70, i32 %76
   %272 = select i1 %270, i32 %76, i32 %70

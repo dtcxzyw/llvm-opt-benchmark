@@ -1394,7 +1394,7 @@ uhci_alloc_qh.exit:                               ; preds = %30, %67
 
 159:                                              ; preds = %.lr.ph
   %160 = call i32 @llvm.smin.i32(i32 %153, i32 %108)
-  %161 = icmp sgt i32 %153, %108
+  %161 = icmp ugt i32 %153, %108
   %162 = and i64 %154, -536870913
   %163 = select i1 %161, i64 %154, i64 %162
   %164 = load i64, ptr %9, align 8

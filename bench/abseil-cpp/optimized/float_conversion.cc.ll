@@ -512,9 +512,9 @@ for.body.i:                                       ; preds = %if.then61.i, %for.b
   %incdec.ptr.i = getelementptr inbounds i8, ptr %50, i64 -1
   store ptr %incdec.ptr.i, ptr %begin.i, align 8
   store i8 48, ptr %50, align 1
-  %inc.i = add nuw i32 %49, 1
-  %exitcond.not.i = icmp eq i32 %inc.i, -1
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
+  %inc.i = add nuw nsw i32 %49, 1
+  %cmp63.not.i = icmp eq i32 %inc.i, -1
+  br i1 %cmp63.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.body.i, %if.then61.i
   %51 = load ptr, ptr %begin.i, align 8
@@ -1469,9 +1469,9 @@ for.body:                                         ; preds = %if.then61, %for.bod
   %incdec.ptr = getelementptr inbounds i8, ptr %51, i64 -1
   store ptr %incdec.ptr, ptr %begin, align 8
   store i8 48, ptr %51, align 1
-  %inc = add nuw i32 %50, 1
-  %exitcond.not = icmp eq i32 %inc, -1
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
+  %inc = add nuw nsw i32 %50, 1
+  %cmp63.not = icmp eq i32 %inc, -1
+  br i1 %cmp63.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %if.then61
   %52 = load ptr, ptr %begin, align 8

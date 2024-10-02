@@ -397,7 +397,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 233:                                              ; preds = %.loopexit55, %.loopexit57
   %234 = phi i1 [ false, %.loopexit57 ], [ true, %.loopexit55 ]
   %235 = phi i32 [ 0, %.loopexit57 ], [ %336, %.loopexit55 ]
-  %236 = add nuw nsw i32 %235, 4
+  %236 = or disjoint i32 %235, 4
   br i1 %232, label %.thread, label %240
 
 .thread:                                          ; preds = %233
@@ -407,12 +407,12 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br label %.loopexit56
 
 240:                                              ; preds = %233
-  %241 = add nuw i32 %235, %230
-  %242 = add nuw nsw i32 %235, %201
+  %241 = or disjoint i32 %235, %230
+  %242 = or disjoint i32 %235, %201
   %243 = sext i32 %242 to i64
   %244 = getelementptr double, ptr %229, i64 %243
   %245 = load double, ptr %244, align 8, !tbaa !7
-  %246 = sext i32 %241 to i64
+  %246 = zext nneg i32 %241 to i64
   %247 = zext nneg i32 %236 to i64
   br label %248
 
@@ -506,7 +506,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 308:                                              ; preds = %302, %298, %287
   %309 = phi double [ %289, %287 ], [ %301, %298 ], [ %307, %302 ]
   %310 = add nuw nsw i64 %275, 4
-  %311 = icmp sgt i64 %310, %246
+  %311 = icmp ugt i64 %310, %246
   br i1 %311, label %.loopexit56, label %274, !llvm.loop !16
 
 .loopexit56:                                      ; preds = %308, %.thread
@@ -542,7 +542,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 
 .loopexit55:                                      ; preds = %326, %.loopexit56
   %335 = phi double [ %319, %.loopexit56 ], [ %332, %326 ]
-  %336 = sub nuw nsw i32 1, %235
+  %336 = xor i32 %235, 1
   br i1 %234, label %337, label %233, !llvm.loop !18
 
 337:                                              ; preds = %.loopexit55

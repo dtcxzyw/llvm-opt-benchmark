@@ -571,7 +571,7 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
   %.us-phi14.i = phi i32 [ %215, %.lr.ph37.preheader.i.preheader ], [ %215, %.lr.ph53.i.preheader ], [ %233, %.lr.ph37.preheader.i ], [ %224, %.lr.ph53.i ]
   %204 = and i64 %.us-phi13.i, 2147483647
   %205 = getelementptr inbounds i8, ptr %.033.ph57.i, i64 %204
-  %206 = sub i32 %.034.ph55.i, %.us-phi14.i
+  %206 = sub nsw i32 %.034.ph55.i, %.us-phi14.i
   %207 = icmp sgt i32 %206, 0
   br i1 %207, label %208, label %.outer._crit_edge.i
 
@@ -832,7 +832,7 @@ _open_ss_info.exit:                               ; preds = %.outer._crit_edge.i
   %.us-phi63.i = phi i32 [ %287, %.lr.ph86.preheader.i.preheader ], [ %275, %.lr.ph102.i.preheader ], [ %296, %.lr.ph86.preheader.i ], [ %284, %.lr.ph102.i ]
   %307 = and i64 %.us-phi62.i, 2147483647
   %308 = getelementptr inbounds i8, ptr %.041.ph106.i, i64 %307
-  %309 = sub i32 %.042.ph104.i, %.us-phi63.i
+  %309 = sub nsw i32 %.042.ph104.i, %.us-phi63.i
   %310 = icmp sgt i32 %309, 0
   br i1 %310, label %311, label %_setup_pals_profiles.exit.thread232
 
@@ -1020,7 +1020,7 @@ _setup_pals_profiles.exit.thread232:              ; preds = %.split61.us.i, %269
   %.us-phi63.i162 = phi i32 [ %361, %.lr.ph86.preheader.i167.preheader ], [ %349, %.lr.ph102.i159.preheader ], [ %370, %.lr.ph86.preheader.i167 ], [ %358, %.lr.ph102.i159 ]
   %381 = and i64 %.us-phi62.i161, 2147483647
   %382 = getelementptr inbounds i8, ptr %.041.ph106.i156, i64 %381
-  %383 = sub i32 %.042.ph104.i157, %.us-phi63.i162
+  %383 = sub nsw i32 %.042.ph104.i157, %.us-phi63.i162
   %384 = icmp sgt i32 %383, 0
   br i1 %384, label %385, label %_setup_pals_nics.exit
 

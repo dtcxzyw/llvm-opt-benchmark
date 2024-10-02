@@ -140,7 +140,7 @@ define noundef i32 @dsbmv_thread_U(i64 noundef %0, i64 noundef %1, double nounde
   %90 = phi i64 [ %0, %84 ], [ %127, %105 ]
   %91 = phi i64 [ 0, %84 ], [ %113, %105 ]
   %92 = xor i64 %91, -1
-  %93 = add i64 %90, %85
+  %93 = add nuw i64 %90, %85
   %94 = add i64 %93, %92
   %95 = trunc i64 %94 to i32
   %96 = trunc i64 %91 to i32

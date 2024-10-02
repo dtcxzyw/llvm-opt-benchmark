@@ -7759,7 +7759,7 @@ _ZNSt6vectorIN3acd23ac_decomposition_resultESaIS1_EE5clearEv.exit: ; preds = %1,
   br i1 %.not.us.i, label %77, label %_ZN5kitty7has_varINS_18static_truth_tableILj10EEEEEbRKT_h.exit.thread
 
 ._crit_edge.us.i:                                 ; preds = %77
-  %indvars.iv.next33.i = add nuw i64 %indvars.iv32.i, %75
+  %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, %75
   %86 = icmp ult i64 %indvars.iv.next33.i, 16
   br i1 %86, label %.preheader.us.i, label %_ZN3acd21ac_decomposition_impl24adjust_truth_table_on_dcERN5kitty18static_truth_tableILj10EEES4_j.exit, !llvm.loop !135
 
@@ -7862,7 +7862,7 @@ _ZN5kitty7has_varINS_18static_truth_tableILj10EEEEEbRKT_h.exit.thread: ; preds =
   br i1 %.not.us.i31, label %107, label %.loopexit
 
 ._crit_edge.us.i34:                               ; preds = %107
-  %indvars.iv.next59.i = add nuw i64 %indvars.iv58.i, %105
+  %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, %105
   %123 = icmp ult i64 %indvars.iv.next59.i, 16
   br i1 %123, label %.preheader47.us.i, label %_ZN5kitty7has_varINS_18static_truth_tableILj10EEEEEbRKT_S5_h.exit, !llvm.loop !138
 
@@ -7922,7 +7922,7 @@ _ZN5kitty7has_varINS_18static_truth_tableILj10EEEEEbRKT_S5_h.exit: ; preds = %._
 
 150:                                              ; preds = %150, %.preheader77.us.i
   %indvars.iv.i38 = phi i64 [ 0, %.preheader77.us.i ], [ %indvars.iv.next.i40, %150 ]
-  %151 = add nuw i64 %indvars.iv.i38, %indvars.iv87.i
+  %151 = add nuw nsw i64 %indvars.iv.i38, %indvars.iv87.i
   %152 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %151
   %153 = load i64, ptr %152, align 8
   %154 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %151
@@ -7947,7 +7947,7 @@ _ZN5kitty7has_varINS_18static_truth_tableILj10EEEEEbRKT_S5_h.exit: ; preds = %._
   br i1 %exitcond.not.i41, label %._crit_edge.us.i42, label %150, !llvm.loop !140
 
 ._crit_edge.us.i42:                               ; preds = %150
-  %indvars.iv.next88.i = add nuw i64 %indvars.iv87.i, %148
+  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, %148
   %166 = icmp ult i64 %indvars.iv.next88.i, 16
   br i1 %166, label %.preheader77.us.i, label %_ZN3acd21ac_decomposition_impl24adjust_truth_table_on_dcERN5kitty18static_truth_tableILj10EEES4_j.exit, !llvm.loop !141
 

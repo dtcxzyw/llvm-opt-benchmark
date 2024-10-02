@@ -2862,7 +2862,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %291
 567:                                              ; preds = %507
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %202)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %202, ptr noundef nonnull align 8 dereferenceable(48) %274, i64 48, i1 false)
-  %568 = add i32 %.0401.lcssa, 1
+  %568 = add nuw i32 %.0401.lcssa, 1
   %569 = icmp sgt i32 %568, -1
   br i1 %569, label %575, label %574
 

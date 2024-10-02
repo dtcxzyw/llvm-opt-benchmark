@@ -2045,7 +2045,8 @@ land.lhs.true.i:                                  ; preds = %if.else31.i
   br i1 %tobool36.i, label %for.body.i41, label %if.end75.i
 
 for.body.i41:                                     ; preds = %land.lhs.true.i, %for.inc.i
-  %tbd_count.1.i = phi i8 [ %inc.i, %for.inc.i ], [ 0, %land.lhs.true.i ]
+  %cmp39.old.i = phi i1 [ false, %for.inc.i ], [ true, %land.lhs.true.i ]
+  %tbd_count.1.i = phi i8 [ 1, %for.inc.i ], [ 0, %land.lhs.true.i ]
   %tbd_address.0.i = phi i32 [ %add54.i, %for.inc.i ], [ %add.i37, %land.lhs.true.i ]
   %size.3.i = phi i16 [ %add68.i, %for.inc.i ], [ %size.0.lcssa.i, %land.lhs.true.i ]
   %conv42.i = zext i32 %tbd_address.0.i to i64
@@ -2084,9 +2085,7 @@ for.body.i41:                                     ; preds = %land.lhs.true.i, %f
 
 for.inc.i:                                        ; preds = %for.body.i41
   %add54.i = add i32 %tbd_address.0.i, 8
-  %inc.i = add nuw nsw i8 %tbd_count.1.i, 1
-  %exitcond.not.i = icmp eq i8 %inc.i, 2
-  br i1 %exitcond.not.i, label %if.end75.i, label %for.body.i41
+  br i1 %cmp39.old.i, label %for.body.i41, label %if.end75.i
 
 if.end75.i:                                       ; preds = %for.inc.i, %for.body.i41, %land.lhs.true.i, %if.else31.i
   %tbd_count.0.i = phi i8 [ 0, %land.lhs.true.i ], [ 0, %if.else31.i ], [ %tbd_count.1.i, %for.body.i41 ], [ 2, %for.inc.i ]

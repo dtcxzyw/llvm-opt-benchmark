@@ -10440,17 +10440,17 @@ _ZN8WarpTestC2E8WarpTypefPN4nori4BSDFENS1_15BSDFQueryRecordEii.exit: ; preds = %
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader52, %109
-  %indvars.iv78 = phi i64 [ 0, %.preheader52 ], [ %indvars.iv.next79, %109 ]
-  %76 = load i32, ptr %35, align 8
-  %77 = icmp sgt i32 %76, 0
-  br i1 %77, label %.lr.ph61, label %._crit_edge62
+  %76 = phi i1 [ true, %.preheader52 ], [ false, %109 ]
+  %indvars.iv78 = phi i64 [ 0, %.preheader52 ], [ 1, %109 ]
+  %77 = load i32, ptr %35, align 8
+  %78 = icmp sgt i32 %77, 0
+  br i1 %78, label %.lr.ph61, label %._crit_edge62
 
 .lr.ph61:                                         ; preds = %.preheader
-  %78 = icmp eq i64 %indvars.iv78, 0
   %79 = load ptr, ptr %32, align 8
   %80 = load ptr, ptr %71, align 8
-  %wide.trip.count76 = zext nneg i32 %76 to i64
-  br i1 %78, label %.lr.ph61.split.us, label %.lr.ph61.split
+  %wide.trip.count76 = zext nneg i32 %77 to i64
+  br i1 %76, label %.lr.ph61.split.us, label %.lr.ph61.split
 
 .lr.ph61.split.us:                                ; preds = %.lr.ph61, %.lr.ph61.split.us
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %.lr.ph61.split.us ], [ 0, %.lr.ph61 ]
@@ -10531,9 +10531,7 @@ _ZN7nanogui3refINS_7TextureEEaSEPS1_.exit:        ; preds = %99, %104
           to label %109 unwind label %93
 
 109:                                              ; preds = %_ZN7nanogui3refINS_7TextureEEaSEPS1_.exit
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %exitcond81.not = icmp eq i64 %indvars.iv.next79, 2
-  br i1 %exitcond81.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, label %.preheader, !llvm.loop !197
+  br i1 %76, label %.preheader, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit, !llvm.loop !197
 
 110:                                              ; preds = %96
   %111 = landingpad { ptr, i32 }

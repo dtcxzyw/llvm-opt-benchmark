@@ -5736,9 +5736,9 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
   br i1 %192, label %.thread37.thread82, label %.preheader
 
 193:                                              ; preds = %200
-  %194 = add i32 %196, 1
+  %194 = add nuw nsw i32 %196, 1
   store i32 %194, ptr %188, align 8
-  %195 = icmp ugt i32 %194, 15
+  %195 = icmp ugt i32 %196, 14
   br i1 %195, label %.thread37.thread82, label %.preheader
 
 .preheader:                                       ; preds = %187, %193
@@ -6058,9 +6058,9 @@ define dso_local ptr @neigh_seq_next(ptr nocapture noundef readonly %0, ptr noun
   br i1 %172, label %.thread, label %.preheader24
 
 173:                                              ; preds = %180
-  %174 = add i32 %176, 1
+  %174 = add nuw nsw i32 %176, 1
   store i32 %174, ptr %168, align 8
-  %175 = icmp ugt i32 %174, 15
+  %175 = icmp ugt i32 %176, 14
   br i1 %175, label %.thread, label %.preheader24
 
 .preheader24:                                     ; preds = %167, %173

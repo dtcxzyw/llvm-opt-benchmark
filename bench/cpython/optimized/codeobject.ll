@@ -8340,7 +8340,7 @@ if.end16.i.i:                                     ; preds = %if.then.if.end6_cri
   store i8 %bdelta.addr.295.i.i, ptr %add.ptr.i48.i.i, align 1
   store i8 -128, ptr %incdec.ptr.i50.i.i, align 1
   %add.i.i = add nuw nsw i32 %ldelta.addr.196.i.i, 128
-  %cmp11.i.i = icmp slt i32 %ldelta.addr.196.i.i, -256
+  %cmp11.i.i = icmp ult i32 %ldelta.addr.196.i.i, -256
   br i1 %cmp11.i.i, label %while.body12.i.i, label %while.end17.i.i, !llvm.loop !41
 
 while.end17.i.i:                                  ; preds = %if.end16.i.i, %if.end7.i.i, %while.cond10.preheader.i.i

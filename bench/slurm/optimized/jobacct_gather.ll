@@ -2461,7 +2461,7 @@ define range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 noundef %1,
   %.us-phi92 = phi i32 [ %22, %.lr.ph115.preheader.preheader ], [ %22, %.lr.ph131.preheader ], [ %40, %.lr.ph115.preheader ], [ %31, %.lr.ph131 ]
   %51 = and i64 %.us-phi91, 2147483647
   %52 = getelementptr inbounds i8, ptr %.056.ph135, i64 %51
-  %53 = sub i32 %.057.ph133, %.us-phi92
+  %53 = sub nsw i32 %.057.ph133, %.us-phi92
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %55, label %.outer68._crit_edge
 

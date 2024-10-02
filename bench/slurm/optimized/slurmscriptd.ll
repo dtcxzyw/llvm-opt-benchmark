@@ -264,7 +264,7 @@ define internal range(i32 -1, 1) i32 @_msg_accept(ptr nocapture noundef readonly
   %.us-phi119 = phi i32 [ %35, %.lr.ph142.preheader.preheader ], [ %35, %.lr.ph158.preheader ], [ %53, %.lr.ph142.preheader ], [ %44, %.lr.ph158 ]
   %23 = and i64 %.us-phi118, 2147483647
   %24 = getelementptr inbounds i8, ptr %.058.ph162, i64 %23
-  %25 = sub i32 %.059.ph160, %.us-phi119
+  %25 = sub nsw i32 %.059.ph160, %.us-phi119
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %27, label %.outer84._crit_edge
 

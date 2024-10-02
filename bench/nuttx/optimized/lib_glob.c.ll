@@ -252,7 +252,7 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef nonnull %0, i64 
   %19 = getelementptr inbounds i8, ptr %.0139266, i64 1
   %20 = getelementptr inbounds i8, ptr %0, i64 %.0135267
   store i8 47, ptr %20, align 1
-  %21 = add nuw nsw i64 %15, 1
+  %21 = add i64 %15, 1
   %exitcond.not = icmp eq i64 %21, 256
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !11
 

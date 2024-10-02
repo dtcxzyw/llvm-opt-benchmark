@@ -347,8 +347,8 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 183:                                              ; preds = %.loopexit575, %._crit_edge616
   %.3536626 = phi i32 [ 1, %.loopexit575 ], [ %259, %._crit_edge616 ]
   %184 = phi i32 [ 0, %.loopexit575 ], [ %258, %._crit_edge616 ]
-  %185 = add nuw nsw i32 %184, 4
-  %186 = add i32 %182, %184
+  %185 = or disjoint i32 %184, 4
+  %186 = or disjoint i32 %182, %184
   br i1 %.not569597, label %._crit_edge602.thread, label %.lr.ph601.preheader
 
 ._crit_edge602.thread:                            ; preds = %183
@@ -358,11 +358,11 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br label %._crit_edge609
 
 .lr.ph601.preheader:                              ; preds = %183
-  %188 = add nuw nsw i32 %184, %158
+  %188 = or disjoint i32 %184, %158
   %189 = sext i32 %188 to i64
   %gep = getelementptr float, ptr %invariant.gep, i64 %189
   %190 = load float, ptr %gep, align 4
-  %191 = sext i32 %186 to i64
+  %191 = zext nneg i32 %186 to i64
   %192 = zext nneg i32 %185 to i64
   br label %.lr.ph601
 
@@ -401,7 +401,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %208 = load float, ptr %gep774, align 4
   %209 = shl nuw nsw i32 %184, 1
   %210 = zext nneg i32 %209 to i64
-  %211 = sext i32 %186 to i64
+  %211 = zext nneg i32 %186 to i64
   br label %212
 
 212:                                              ; preds = %.lr.ph608, %243
@@ -457,7 +457,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 243:                                              ; preds = %233, %237, %223
   %.4 = phi float [ %225, %223 ], [ %236, %233 ], [ %242, %237 ]
   %indvars.iv.next722 = add nuw nsw i64 %indvars.iv721, 4
-  %.not570 = icmp sgt i64 %indvars.iv.next722, %211
+  %.not570 = icmp ugt i64 %indvars.iv.next722, %211
   br i1 %.not570, label %._crit_edge609, label %212, !llvm.loop !10
 
 ._crit_edge609:                                   ; preds = %243, %._crit_edge602.thread
@@ -493,7 +493,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 
 ._crit_edge616:                                   ; preds = %.lr.ph615, %._crit_edge609
   %.lcssa625 = phi float [ %248, %._crit_edge609 ], [ %257, %.lr.ph615 ]
-  %258 = sub nuw nsw i32 1, %184
+  %258 = xor i32 %184, 1
   %259 = add nuw nsw i32 %.3536626, 1
   %exitcond.not = icmp eq i32 %259, 3
   br i1 %exitcond.not, label %260, label %183, !llvm.loop !12

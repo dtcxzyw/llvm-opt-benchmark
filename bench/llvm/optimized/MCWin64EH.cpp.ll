@@ -7360,35 +7360,31 @@ define internal fastcc void @_ZL17ARMEmitUnwindCodeRN4llvm10MCStreamerERKNS_5Win
   %179 = shl i32 255, %178
   %180 = and i32 %6, %179
   %.not = icmp eq i32 %180, 0
-  br i1 %.not, label %181, label %184
+  br i1 %.not, label %181, label %.preheader89
 
 181:                                              ; preds = %177
   %182 = add nsw i32 %.084, -1
   %183 = icmp ugt i32 %.084, 1
-  br i1 %183, label %177, label %.lr.ph.preheader, !llvm.loop !183
+  br i1 %183, label %177, label %.preheader89, !llvm.loop !183
 
-184:                                              ; preds = %177
-  %185 = icmp sgt i32 %.084, -1
-  br i1 %185, label %.lr.ph.preheader, label %.loopexit
+.preheader89:                                     ; preds = %177, %181
+  %.185.ph = phi i32 [ 0, %181 ], [ %.084, %177 ]
+  br label %184
 
-.lr.ph.preheader:                                 ; preds = %181, %184
-  %.185.ph = phi i32 [ %.084, %184 ], [ 0, %181 ]
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.185 = phi i32 [ %194, %.lr.ph ], [ %.185.ph, %.lr.ph.preheader ]
-  %186 = load i32, ptr %5, align 8
-  %187 = shl nsw i32 %.185, 3
-  %188 = lshr i32 %186, %187
-  %189 = and i32 %188, 255
-  %190 = zext nneg i32 %189 to i64
-  %191 = load ptr, ptr %0, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 520
-  %193 = load ptr, ptr %192, align 8
-  tail call void %193(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef %190, i32 noundef 1) #17
-  %194 = add nsw i32 %.185, -1
-  %.not92 = icmp eq i32 %.185, 0
-  br i1 %.not92, label %.loopexit, label %.lr.ph, !llvm.loop !184
+184:                                              ; preds = %.preheader89, %184
+  %.185 = phi i32 [ %193, %184 ], [ %.185.ph, %.preheader89 ]
+  %185 = load i32, ptr %5, align 8
+  %186 = shl nsw i32 %.185, 3
+  %187 = lshr i32 %185, %186
+  %188 = and i32 %187, 255
+  %189 = zext nneg i32 %188 to i64
+  %190 = load ptr, ptr %0, align 8
+  %191 = getelementptr inbounds i8, ptr %190, i64 520
+  %192 = load ptr, ptr %191, align 8
+  tail call void %192(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef %189, i32 noundef 1) #17
+  %193 = add nsw i32 %.185, -1
+  %194 = icmp sgt i32 %.185, 0
+  br i1 %194, label %184, label %.loopexit, !llvm.loop !184
 
 .loopexit.sink.split:                             ; preds = %2, %8, %12, %26, %30, %39, %48, %53, %65, %76, %83, %93, %105, %119, %139, %153, %173, %174, %175, %176
   %.sink.shrunk = phi i32 [ 255, %176 ], [ 254, %175 ], [ 253, %174 ], [ 252, %173 ], [ %172, %153 ], [ %152, %139 ], [ %138, %119 ], [ %118, %105 ], [ %104, %93 ], [ %92, %83 ], [ %82, %76 ], [ %68, %65 ], [ %64, %53 ], [ %52, %48 ], [ %47, %39 ], [ %38, %30 ], [ %29, %26 ], [ %25, %12 ], [ %11, %8 ], [ 251, %2 ]
@@ -7399,7 +7395,7 @@ define internal fastcc void @_ZL17ARMEmitUnwindCodeRN4llvm10MCStreamerERKNS_5Win
   tail call void %197(ptr noundef nonnull align 8 dereferenceable(288) %0, i64 noundef %.sink, i32 noundef 1) #17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %184
+.loopexit:                                        ; preds = %184, %.loopexit.sink.split
   ret void
 }
 

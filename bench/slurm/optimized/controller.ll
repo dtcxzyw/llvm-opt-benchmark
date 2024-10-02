@@ -3859,7 +3859,7 @@ controller_fini_scheduling.exit320:               ; preds = %_slurmctld_backgrou
   %.us-phi79.i = phi i32 [ %1389, %.lr.ph102.preheader.i.preheader ], [ %1389, %.lr.ph118.i.preheader ], [ %1409, %.lr.ph102.preheader.i ], [ %1399, %.lr.ph118.i ]
   %1420 = and i64 %.us-phi78.i, 2147483647
   %1421 = getelementptr inbounds i8, ptr %.041.ph122.i, i64 %1420
-  %1422 = sub i32 %.042.ph120.i, %.us-phi79.i
+  %1422 = sub nsw i32 %.042.ph120.i, %.us-phi79.i
   %1423 = icmp sgt i32 %1422, 0
   %1424 = call i32 @get_log_level() #21
   br i1 %1423, label %1425, label %.outer._crit_edge.i

@@ -2176,7 +2176,7 @@ define internal fastcc i32 @cid_hex_to_binary(ptr noundef %0, i64 noundef %1, i6
   %.sink = phi i8 [ %43, %41 ], [ %40, %39 ]
   %.3 = phi ptr [ %44, %41 ], [ %.158.ph64, %39 ]
   store i8 %.sink, ptr %.158.ph64, align 1
-  %46 = sub nuw nsw i8 1, %.053.ph67
+  %46 = xor i8 %.053.ph67, 1
   %47 = getelementptr inbounds i8, ptr %.1.us, i64 1
   %48 = icmp ult ptr %.3, %8
   %or.cond = select i1 %.not69, i1 %48, i1 false

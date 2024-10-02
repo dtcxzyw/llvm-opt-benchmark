@@ -6425,7 +6425,7 @@ define void @read_conf_recv_stepd(i32 noundef %0) local_unnamed_addr #0 {
   %.us-phi69 = phi i32 [ %6, %.lr.ph92.preheader.preheader ], [ %6, %.lr.ph108.preheader ], [ %22, %.lr.ph92.preheader ], [ %14, %.lr.ph108 ]
   %33 = and i64 %.us-phi68, 2147483647
   %34 = getelementptr inbounds i8, ptr %.035.ph110, i64 %33
-  %35 = sub i32 %.0.ph112, %.us-phi69
+  %35 = sub nsw i32 %.0.ph112, %.us-phi69
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %37, label %.outer45._crit_edge
 
@@ -6552,7 +6552,7 @@ define void @read_conf_recv_stepd(i32 noundef %0) local_unnamed_addr #0 {
   %.us-phi122 = phi i32 [ %49, %.lr.ph146.preheader.preheader ], [ %49, %.lr.ph162.preheader ], [ %65, %.lr.ph146.preheader ], [ %57, %.lr.ph162 ]
   %76 = and i64 %.us-phi121, 2147483647
   %77 = getelementptr inbounds i8, ptr %.033.ph167, i64 %76
-  %78 = sub i32 %.034.ph165, %.us-phi122
+  %78 = sub nsw i32 %.034.ph165, %.us-phi122
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %80, label %.outer._crit_edge
 

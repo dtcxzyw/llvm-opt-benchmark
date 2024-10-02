@@ -1724,7 +1724,7 @@ define range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local_unnamed_a
   %.us-phi161 = phi i32 [ %7, %.lr.ph184.preheader.preheader ], [ %7, %.lr.ph200.preheader ], [ %23, %.lr.ph184.preheader ], [ %15, %.lr.ph200 ]
   %34 = and i64 %.us-phi160, 2147483647
   %35 = getelementptr inbounds i8, ptr %.082.ph202, i64 %34
-  %36 = sub i32 %.079.ph204, %.us-phi161
+  %36 = sub nsw i32 %.079.ph204, %.us-phi161
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %38, label %.outer117._crit_edge
 
@@ -1904,7 +1904,7 @@ define range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local_unnamed_a
   %.us-phi268 = phi i32 [ %106, %.lr.ph292.preheader.preheader ], [ %106, %.lr.ph308.preheader ], [ %122, %.lr.ph292.preheader ], [ %114, %.lr.ph308 ]
   %95 = and i64 %.us-phi267, 2147483647
   %96 = getelementptr inbounds i8, ptr %.083.ph313, i64 %95
-  %97 = sub i32 %.084.ph311, %.us-phi268
+  %97 = sub nsw i32 %.084.ph311, %.us-phi268
   %98 = icmp sgt i32 %97, 0
   br i1 %98, label %99, label %.outer115._crit_edge
 

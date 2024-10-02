@@ -517,7 +517,7 @@ define range(i32 -1, 1) i32 @acct_gather_read_conf(i32 noundef %0) local_unnamed
   %.us-phi73 = phi i32 [ %6, %.lr.ph96.preheader.preheader ], [ %6, %.lr.ph112.preheader ], [ %22, %.lr.ph96.preheader ], [ %14, %.lr.ph112 ]
   %33 = and i64 %.us-phi72, 2147483647
   %34 = getelementptr inbounds i8, ptr %.039.ph114, i64 %33
-  %35 = sub i32 %.038.ph116, %.us-phi73
+  %35 = sub nsw i32 %.038.ph116, %.us-phi73
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %37, label %.outer49._crit_edge
 
@@ -644,7 +644,7 @@ define range(i32 -1, 1) i32 @acct_gather_read_conf(i32 noundef %0) local_unnamed
   %.us-phi126 = phi i32 [ %49, %.lr.ph150.preheader.preheader ], [ %49, %.lr.ph166.preheader ], [ %65, %.lr.ph150.preheader ], [ %57, %.lr.ph166 ]
   %76 = and i64 %.us-phi125, 2147483647
   %77 = getelementptr inbounds i8, ptr %.036.ph171, i64 %76
-  %78 = sub i32 %.037.ph169, %.us-phi126
+  %78 = sub nsw i32 %.037.ph169, %.us-phi126
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %80, label %.outer._crit_edge
 

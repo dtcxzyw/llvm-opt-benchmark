@@ -2335,7 +2335,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   br i1 %.not155, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %._crit_edge, %38
-  %indvars.iv218 = phi i64 [ %indvars.iv.next219, %38 ], [ 0, %._crit_edge ]
+  %indvars.iv222 = phi i64 [ %indvars.iv.next223, %38 ], [ 0, %._crit_edge ]
   %.1146.us = phi i32 [ %19, %38 ], [ %7, %._crit_edge ]
   %.1143.us = phi i8 [ %21, %38 ], [ %15, %._crit_edge ]
   %.0139.us = phi i16 [ %.1.us, %38 ], [ 0, %._crit_edge ]
@@ -2346,7 +2346,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   %19 = add nuw nsw i32 %.1146.us, 1
   %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1146.us) #14
   %21 = and i8 %20, 1
-  %22 = getelementptr %struct.rlc_li, ptr %4, i64 %indvars.iv218
+  %22 = getelementptr %struct.rlc_li, ptr %4, i64 %indvars.iv222
   %23 = getelementptr inbounds i8, ptr %22, i64 4
   store i8 %21, ptr %23, align 4
   %24 = lshr i8 %20, 1
@@ -2385,13 +2385,13 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
 
 38:                                               ; preds = %30, %28, %26
   %.1.us = phi i16 [ %.0139.us, %26 ], [ %.0139.us, %28 ], [ %25, %30 ]
-  %39 = trunc nuw nsw i64 %indvars.iv218 to i8
+  %39 = trunc nuw nsw i64 %indvars.iv222 to i8
   %40 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef nonnull %22, i8 noundef zeroext %39, i32 noundef %7, i32 noundef 0, ptr noundef %1, ptr noundef %3)
   %41 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %40, ptr %41, align 8
-  %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
-  %exitcond221 = icmp eq i64 %indvars.iv.next219, 16
-  br i1 %exitcond221, label %.split196.us, label %.split.us, !llvm.loop !8
+  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
+  %exitcond225 = icmp eq i64 %indvars.iv.next223, 16
+  br i1 %exitcond225, label %.split196.us, label %.split.us, !llvm.loop !8
 
 .split:                                           ; preds = %._crit_edge, %78
   %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %._crit_edge ]
@@ -2455,14 +2455,14 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   br label %.sink.split
 
 .split187.us:                                     ; preds = %26
-  %68 = trunc nuw nsw i64 %indvars.iv218 to i8
+  %68 = trunc nuw nsw i64 %indvars.iv222 to i8
   %69 = tail call fastcc ptr @tree_add_li(i32 noundef 2, ptr noundef nonnull %22, i8 noundef zeroext %68, i32 noundef %7, i32 noundef 0, ptr noundef %1, ptr noundef %3)
   %70 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %69, ptr noundef nonnull @ei_rlc_li_reserved) #14
   br label %86
 
 .split191.us:                                     ; preds = %30
   %71 = getelementptr inbounds i8, ptr %22, i64 2
-  %72 = trunc nuw nsw i64 %indvars.iv218 to i8
+  %72 = trunc nuw nsw i64 %indvars.iv222 to i8
   store i16 0, ptr %71, align 2
   %73 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef nonnull %22, i8 noundef zeroext %72, i32 noundef %7, i32 noundef 0, ptr noundef %1, ptr noundef %3)
   %74 = load i16, ptr %22, align 8
@@ -2494,7 +2494,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   br label %86
 
 .split184.us:                                     ; preds = %.split, %.split.us
-  %.us-phi185.in = phi i64 [ %indvars.iv218, %.split.us ], [ %indvars.iv, %.split ]
+  %.us-phi185.in = phi i64 [ %indvars.iv222, %.split.us ], [ %indvars.iv, %.split ]
   %.us-phi185 = trunc i64 %.us-phi185.in to i16
   %85 = and i16 %.us-phi185, 255
   br label %86

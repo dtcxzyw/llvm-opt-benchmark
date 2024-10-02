@@ -362,7 +362,7 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %249 = phi i64 [ %251, %.preheader18 ], [ %243, %242 ]
   %250 = phi i32 [ %252, %.preheader18 ], [ 2, %242 ]
   %251 = lshr i64 %249, 1
-  %252 = mul nsw i32 %250, %250
+  %252 = mul nuw nsw i32 %250, %250
   %253 = and i64 %249, 2
   %254 = icmp eq i64 %253, 0
   %255 = select i1 %254, i32 1, i32 %252
@@ -404,7 +404,7 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %281 = phi i64 [ %283, %.preheader ], [ %275, %274 ]
   %282 = phi i32 [ %284, %.preheader ], [ 2, %274 ]
   %283 = lshr i64 %281, 1
-  %284 = mul nsw i32 %282, %282
+  %284 = mul nuw nsw i32 %282, %282
   %285 = and i64 %281, 2
   %286 = icmp eq i64 %285, 0
   %287 = select i1 %286, i32 1, i32 %284

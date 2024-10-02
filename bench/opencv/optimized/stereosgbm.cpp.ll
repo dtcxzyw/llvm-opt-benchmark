@@ -6161,7 +6161,7 @@ _ZNK2cv10BufferSGBM9clearSBufEiRKNS_5RangeE.exit.i: ; preds = %_ZNK2cv10BufferSG
 
 .lr.ph954.split.us.preheader.i:                   ; preds = %650
   %651 = zext nneg i8 %.04951076.i to i64
-  %652 = sub nuw nsw i8 1, %.04951076.i
+  %652 = xor i8 %.04951076.i, 1
   %653 = zext nneg i8 %652 to i64
   br label %.lr.ph954.split.us.i
 
@@ -6744,7 +6744,7 @@ _ZNK2cv10BufferSGBM9clearSBufEiRKNS_5RangeE.exit.i: ; preds = %_ZNK2cv10BufferSG
   br i1 %exitcond1219.not.i, label %_ZNK2cv10BufferSGBM7clearLrERKNS_5RangeE.exit.i, label %.lr.ph1019.i, !llvm.loop !99
 
 _ZNK2cv10BufferSGBM7clearLrERKNS_5RangeE.exit.i:  ; preds = %1027, %._crit_edge955.split.us.i
-  %1028 = sub nuw nsw i8 1, %.04951076.i
+  %1028 = xor i8 %.04951076.i, 1
   %indvars.iv.next1221.i = add nsw i64 %indvars.iv1220.i, %466
   %1029 = trunc nsw i64 %indvars.iv.next1221.i to i32
   %.not538.i = icmp eq i32 %.0492.i, %1029
@@ -8306,7 +8306,7 @@ _ZNK2cv10BufferSGBM7getSBufEi.exit9.i:            ; preds = %._crit_edge347
   br label %_ZNK2cv10BufferSGBM9clearSBufEiRKNS_5RangeE.exit
 
 _ZNK2cv10BufferSGBM9clearSBufEiRKNS_5RangeE.exit: ; preds = %_ZNK2cv10BufferSGBM7getSBufEi.exit9.i, %_ZNK2cv10BufferSGBM7getSBufEi.exit.i, %146
-  %.pre459 = sub nuw nsw i8 1, %.0189403
+  %.pre459 = xor i8 %.0189403, 1
   br i1 %.not202360, label %_ZNK2cv10BufferSGBM7clearLrERKNS_5RangeE.exit, label %.lr.ph364.split.us.split.us.preheader
 
 .lr.ph364.split.us.split.us.preheader:            ; preds = %_ZNK2cv10BufferSGBM9clearSBufEiRKNS_5RangeE.exit

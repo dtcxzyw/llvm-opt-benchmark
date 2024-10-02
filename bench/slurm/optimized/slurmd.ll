@@ -3118,7 +3118,7 @@ _wait_on_old_slurmd.exit:                         ; preds = %1302, %1314
   %.us-phi59.i.i = phi i32 [ %1424, %.lr.ph82.preheader.i.preheader.i ], [ %1424, %.lr.ph98.i.preheader.i ], [ %1444, %.lr.ph82.preheader.i.i ], [ %1434, %.lr.ph98.i.i ]
   %1455 = and i64 %.us-phi58.i.i, 2147483647
   %1456 = getelementptr inbounds i8, ptr %.025.ph102.i.i, i64 %1455
-  %1457 = sub i32 %.026.ph100.i.i, %.us-phi59.i.i
+  %1457 = sub nsw i32 %.026.ph100.i.i, %.us-phi59.i.i
   %1458 = icmp sgt i32 %1457, 0
   %1459 = call i32 @get_log_level() #20
   br i1 %1458, label %1460, label %.outer._crit_edge.i.i

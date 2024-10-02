@@ -15816,7 +15816,7 @@ _ZN4core5clone5Clone5clone17hcf8e7ed6089722adE.exit: ; preds = %_ZN4core5array25
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   %132 = getelementptr inbounds ptr, ptr %11, i64 %123
   store ptr %126, ptr %132, align 8, !noalias !2662
-  %133 = add nuw i64 %123, 1
+  %133 = add nuw nsw i64 %123, 1
   store i64 %133, ptr %121, align 8, !noalias !2669
   %134 = icmp ult i64 %123, 2
   br i1 %134, label %.lr.ph, label %_ZN4core5array18try_from_fn_erased17h43fa8b78ac88d9a8E.exit25

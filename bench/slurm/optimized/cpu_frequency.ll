@@ -995,7 +995,7 @@ define void @cpu_freq_recv_info(i32 noundef %0) local_unnamed_addr #0 {
   %.us-phi68 = phi i32 [ %5, %.lr.ph91.preheader.preheader ], [ %5, %.lr.ph107.preheader ], [ %21, %.lr.ph91.preheader ], [ %13, %.lr.ph107 ]
   %32 = and i64 %.us-phi67, 2147483647
   %33 = getelementptr inbounds i8, ptr %.035.ph109, i64 %32
-  %34 = sub i32 %.0.ph111, %.us-phi68
+  %34 = sub nsw i32 %.0.ph111, %.us-phi68
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %36, label %.outer44._crit_edge
 
@@ -2987,7 +2987,7 @@ _fd_lock_retry.exit.i:                            ; preds = %57, %54
   %.us-phi56.i = phi i32 [ %83, %.lr.ph79.preheader.i.preheader ], [ %83, %.lr.ph95.i.preheader ], [ %101, %.lr.ph79.preheader.i ], [ %92, %.lr.ph95.i ]
   %72 = and i64 %.us-phi55.i, 2147483647
   %73 = getelementptr inbounds i8, ptr %.032.ph99.i, i64 %72
-  %74 = sub i32 %.033.ph97.i, %.us-phi56.i
+  %74 = sub nsw i32 %.033.ph97.i, %.us-phi56.i
   %75 = icmp sgt i32 %74, 0
   br i1 %75, label %76, label %.outer._crit_edge.i
 

@@ -16043,49 +16043,57 @@ while.body.i:                                     ; preds = %if.then, %_ZNSt15_D
   %agg.tmp.sroa.4.0 = phi ptr [ %agg.tmp.sroa.4.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i ], [ %5, %if.then ]
   %agg.tmp.sroa.9.0 = phi ptr [ %agg.tmp.sroa.9.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i ], [ %6, %if.then ]
   %agg.tmp.sroa.12.0 = phi ptr [ %agg.tmp.sroa.12.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i ], [ %7, %if.then ]
-  %8 = phi ptr [ %15, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i ], [ %5, %if.then ]
-  %__last.addr.012.i = phi ptr [ %add.ptr8.i, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i ], [ %3, %if.then ]
+  %8 = phi ptr [ %16, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i ], [ %5, %if.then ]
+  %__last.addr.012.i = phi ptr [ %add.ptr8.i292, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i ], [ %3, %if.then ]
   %storemerge11.i = phi i64 [ %sub.i, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i ], [ %sub.ptr.div.i, %if.then ]
   %sub.ptr.lhs.cast1.i = ptrtoint ptr %agg.tmp.sroa.0.0 to i64
-  %sub.ptr.rhs.cast2.i = ptrtoint ptr %8 to i64
-  %sub.ptr.sub3.i = sub i64 %sub.ptr.lhs.cast1.i, %sub.ptr.rhs.cast2.i
-  %sub.ptr.div4.i = ashr exact i64 %sub.ptr.sub3.i, 3
   %tobool.not.i = icmp eq ptr %agg.tmp.sroa.0.0, %8
-  br i1 %tobool.not.i, label %if.then.i, label %if.end.i
+  br i1 %tobool.not.i, label %if.end.i.thread, label %if.end.i
 
-if.then.i:                                        ; preds = %while.body.i
+if.end.i.thread:                                  ; preds = %while.body.i
   %add.ptr.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.12.0, i64 -8
   %9 = load ptr, ptr %add.ptr.i, align 8, !noalias !987
   %add.ptr6.i = getelementptr inbounds i8, ptr %9, i64 512
-  br label %if.end.i
+  %10 = tail call i64 @llvm.umin.i64(i64 %storemerge11.i, i64 64)
+  %idx.neg.i284 = sub nsw i64 0, %10
+  %add.ptr8.i285 = getelementptr inbounds %"class.std::unique_ptr", ptr %__last.addr.012.i, i64 %idx.neg.i284
+  br label %for.body.i.i.i.i.preheader
 
-if.end.i:                                         ; preds = %if.then.i, %while.body.i
-  %__rlen.0.i = phi i64 [ 64, %if.then.i ], [ %sub.ptr.div4.i, %while.body.i ]
-  %__rend.0.i = phi ptr [ %add.ptr6.i, %if.then.i ], [ %agg.tmp.sroa.0.0, %while.body.i ]
-  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %__rlen.0.i, i64 %storemerge11.i)
+if.end.i:                                         ; preds = %while.body.i
+  %sub.ptr.rhs.cast2.i = ptrtoint ptr %8 to i64
+  %sub.ptr.sub3.i = sub i64 %sub.ptr.lhs.cast1.i, %sub.ptr.rhs.cast2.i
+  %sub.ptr.div4.i = ashr exact i64 %sub.ptr.sub3.i, 3
+  %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div4.i, i64 %storemerge11.i)
   %idx.neg.i = sub nsw i64 0, %.sroa.speculated.i
   %add.ptr8.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__last.addr.012.i, i64 %idx.neg.i
-  %cmp4.i.i.i.i = icmp sgt i64 %.sroa.speculated.i, 0
-  br i1 %cmp4.i.i.i.i, label %for.body.i.i.i.i, label %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i
+  %cmp4.i.i.i.i = icmp sgt i64 %sub.ptr.div4.i, 0
+  br i1 %cmp4.i.i.i.i, label %for.body.i.i.i.i.preheader, label %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i
 
-for.body.i.i.i.i:                                 ; preds = %if.end.i, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i
-  %__n.07.i.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i ], [ %.sroa.speculated.i, %if.end.i ]
-  %__result.addr.06.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i ], [ %__rend.0.i, %if.end.i ]
-  %__last.addr.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i ], [ %__last.addr.012.i, %if.end.i ]
+for.body.i.i.i.i.preheader:                       ; preds = %if.end.i.thread, %if.end.i
+  %add.ptr8.i293 = phi ptr [ %add.ptr8.i285, %if.end.i.thread ], [ %add.ptr8.i, %if.end.i ]
+  %idx.neg.i291 = phi i64 [ %idx.neg.i284, %if.end.i.thread ], [ %idx.neg.i, %if.end.i ]
+  %.sroa.speculated.i289 = phi i64 [ %10, %if.end.i.thread ], [ %.sroa.speculated.i, %if.end.i ]
+  %__rend.0.i287 = phi ptr [ %add.ptr6.i, %if.end.i.thread ], [ %agg.tmp.sroa.0.0, %if.end.i ]
+  br label %for.body.i.i.i.i
+
+for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i
+  %__n.07.i.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i ], [ %.sroa.speculated.i289, %for.body.i.i.i.i.preheader ]
+  %__result.addr.06.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i ], [ %__rend.0.i287, %for.body.i.i.i.i.preheader ]
+  %__last.addr.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i ], [ %__last.addr.012.i, %for.body.i.i.i.i.preheader ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i, i64 -8
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i, i64 -8
-  %10 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8, !noalias !987
+  %11 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8, !noalias !987
   store ptr null, ptr %incdec.ptr.i.i.i.i, align 8, !noalias !987
-  %11 = load ptr, ptr %incdec.ptr1.i.i.i.i, align 8, !noalias !987
-  store ptr %10, ptr %incdec.ptr1.i.i.i.i, align 8, !noalias !987
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %incdec.ptr1.i.i.i.i, align 8, !noalias !987
+  store ptr %11, ptr %incdec.ptr1.i.i.i.i, align 8, !noalias !987
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %11, align 8, !noalias !987
+  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %12, align 8, !noalias !987
   %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 8
-  %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8, !noalias !987
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(136) %11) #22, !noalias !987
+  %13 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8, !noalias !987
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(136) %12) #22, !noalias !987
   br label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i
 
 _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
@@ -16100,9 +16108,12 @@ _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_del
   br label %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i
 
 _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i, %if.end.i
+  %add.ptr8.i292 = phi ptr [ %add.ptr8.i293, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i ], [ %add.ptr8.i, %if.end.i ]
+  %idx.neg.i290 = phi i64 [ %idx.neg.i291, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i ], [ %idx.neg.i, %if.end.i ]
+  %.sroa.speculated.i288 = phi i64 [ %.sroa.speculated.i289, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i ], [ %.sroa.speculated.i, %if.end.i ]
   %sub.ptr.div.i.i.pre-phi.i = phi i64 [ %.pre20.i, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i ], [ %sub.ptr.div4.i, %if.end.i ]
-  %13 = phi ptr [ %agg.tmp.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i ], [ %8, %if.end.i ]
-  %add.i.i.i = sub nsw i64 %sub.ptr.div.i.i.pre-phi.i, %.sroa.speculated.i
+  %14 = phi ptr [ %agg.tmp.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i ], [ %8, %if.end.i ]
+  %add.i.i.i = sub nsw i64 %sub.ptr.div.i.i.pre-phi.i, %.sroa.speculated.i288
   %cmp.i.i.i = icmp sgt i64 %add.i.i.i, -1
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %cond.false.i.i.i
 
@@ -16111,7 +16122,7 @@ land.lhs.true.i.i.i:                              ; preds = %_ZSt23__copy_move_b
   br i1 %cmp2.i.i.i, label %if.then.i.i.i, label %cond.true.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %agg.tmp.sroa.0.0, i64 %idx.neg.i
+  %add.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %agg.tmp.sroa.0.0, i64 %idx.neg.i290
   br label %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i
 
 cond.true.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
@@ -16125,96 +16136,104 @@ cond.false.i.i.i:                                 ; preds = %_ZSt23__copy_move_b
 cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %cond.true.i.i.i
   %cond.i.i.i = phi i64 [ %div911.i.i.i, %cond.true.i.i.i ], [ %sub10.i.i.i, %cond.false.i.i.i ]
   %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 %cond.i.i.i
-  %14 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !987
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 512
+  %15 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !987
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 512
   %mul.i.i.i = shl nsw i64 %cond.i.i.i, 6
   %sub14.i.i.i = sub nsw i64 %add.i.i.i, %mul.i.i.i
-  %add.ptr15.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %14, i64 %sub14.i.i.i
+  %add.ptr15.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %15, i64 %sub14.i.i.i
   br label %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i
 
 _ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i: ; preds = %cond.end.i.i.i, %if.then.i.i.i
-  %agg.tmp.sroa.4.1 = phi ptr [ %agg.tmp.sroa.4.0, %if.then.i.i.i ], [ %14, %cond.end.i.i.i ]
+  %agg.tmp.sroa.4.1 = phi ptr [ %agg.tmp.sroa.4.0, %if.then.i.i.i ], [ %15, %cond.end.i.i.i ]
   %agg.tmp.sroa.9.1 = phi ptr [ %agg.tmp.sroa.9.0, %if.then.i.i.i ], [ %add.ptr.i.i.i.i, %cond.end.i.i.i ]
   %agg.tmp.sroa.12.1 = phi ptr [ %agg.tmp.sroa.12.0, %if.then.i.i.i ], [ %add.ptr11.i.i.i, %cond.end.i.i.i ]
-  %15 = phi ptr [ %13, %if.then.i.i.i ], [ %14, %cond.end.i.i.i ]
+  %16 = phi ptr [ %14, %if.then.i.i.i ], [ %15, %cond.end.i.i.i ]
   %storemerge.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr15.i.i.i, %cond.end.i.i.i ]
-  %sub.i = sub nsw i64 %storemerge11.i, %.sroa.speculated.i
+  %sub.i = sub nsw i64 %storemerge11.i, %.sroa.speculated.i288
   %cmp.i = icmp sgt i64 %sub.i, 0
   br i1 %cmp.i, label %while.body.i, label %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit, !llvm.loop !991
 
 _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit: ; preds = %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i, %if.then
   %agg.tmp.sroa.9.2 = phi ptr [ %6, %if.then ], [ %agg.tmp.sroa.9.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i ]
   %agg.tmp.sroa.12.2 = phi ptr [ %7, %if.then ], [ %agg.tmp.sroa.12.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i ]
-  %16 = phi ptr [ %5, %if.then ], [ %15, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i ]
-  %17 = phi ptr [ %4, %if.then ], [ %storemerge.i.i.i, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i ]
-  store ptr %17, ptr %__result, align 8
-  store ptr %16, ptr %_M_first3.i, align 8
+  %17 = phi ptr [ %5, %if.then ], [ %16, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i ]
+  %18 = phi ptr [ %4, %if.then ], [ %storemerge.i.i.i, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i ]
+  store ptr %18, ptr %__result, align 8
+  store ptr %17, ptr %_M_first3.i, align 8
   store ptr %agg.tmp.sroa.9.2, ptr %_M_last4.i, align 8
   store ptr %agg.tmp.sroa.12.2, ptr %_M_node5.i, align 8
-  %18 = load ptr, ptr %_M_node1, align 8
-  %__node.0275 = getelementptr inbounds i8, ptr %18, i64 -8
-  %19 = load ptr, ptr %_M_node, align 8
-  %cmp4.not276 = icmp eq ptr %__node.0275, %19
+  %19 = load ptr, ptr %_M_node1, align 8
+  %__node.0275 = getelementptr inbounds i8, ptr %19, i64 -8
+  %20 = load ptr, ptr %_M_node, align 8
+  %cmp4.not276 = icmp eq ptr %__node.0275, %20
   br i1 %cmp4.not276, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91
-  %20 = phi ptr [ %agg.tmp7.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ], [ %agg.tmp.sroa.12.2, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
-  %21 = phi ptr [ %agg.tmp7.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ], [ %agg.tmp.sroa.9.2, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
-  %22 = phi ptr [ %32, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ], [ %16, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
-  %23 = phi ptr [ %storemerge.i.i.i59, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ], [ %17, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
+  %21 = phi ptr [ %agg.tmp7.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ], [ %agg.tmp.sroa.12.2, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
+  %22 = phi ptr [ %agg.tmp7.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ], [ %agg.tmp.sroa.9.2, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
+  %23 = phi ptr [ %34, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ], [ %17, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
+  %24 = phi ptr [ %storemerge.i.i.i59, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ], [ %18, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
   %__node.0277 = phi ptr [ %__node.0, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ], [ %__node.0275, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ]
-  %24 = load ptr, ptr %__node.0277, align 8
-  %add.ptr6 = getelementptr inbounds i8, ptr %24, i64 512
+  %25 = load ptr, ptr %__node.0277, align 8
+  %add.ptr6 = getelementptr inbounds i8, ptr %25, i64 512
   br label %while.body.i30
 
 while.body.i30:                                   ; preds = %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58, %for.body
-  %agg.tmp7.sroa.11.0 = phi ptr [ %20, %for.body ], [ %agg.tmp7.sroa.11.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58 ]
-  %agg.tmp7.sroa.8.0 = phi ptr [ %21, %for.body ], [ %agg.tmp7.sroa.8.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58 ]
-  %agg.tmp7.sroa.4.0 = phi ptr [ %22, %for.body ], [ %agg.tmp7.sroa.4.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58 ]
-  %agg.tmp7.sroa.0.0 = phi ptr [ %23, %for.body ], [ %storemerge.i.i.i59, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58 ]
-  %25 = phi ptr [ %22, %for.body ], [ %32, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58 ]
-  %__last.addr.012.i31 = phi ptr [ %add.ptr6, %for.body ], [ %add.ptr8.i43, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58 ]
+  %agg.tmp7.sroa.11.0 = phi ptr [ %21, %for.body ], [ %agg.tmp7.sroa.11.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58 ]
+  %agg.tmp7.sroa.8.0 = phi ptr [ %22, %for.body ], [ %agg.tmp7.sroa.8.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58 ]
+  %agg.tmp7.sroa.4.0 = phi ptr [ %23, %for.body ], [ %agg.tmp7.sroa.4.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58 ]
+  %agg.tmp7.sroa.0.0 = phi ptr [ %24, %for.body ], [ %storemerge.i.i.i59, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58 ]
+  %26 = phi ptr [ %23, %for.body ], [ %34, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58 ]
+  %__last.addr.012.i31 = phi ptr [ %add.ptr6, %for.body ], [ %add.ptr8.i43305, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58 ]
   %storemerge11.i32 = phi i64 [ 64, %for.body ], [ %sub.i60, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58 ]
   %sub.ptr.lhs.cast1.i33 = ptrtoint ptr %agg.tmp7.sroa.0.0 to i64
-  %sub.ptr.rhs.cast2.i34 = ptrtoint ptr %25 to i64
+  %tobool.not.i37 = icmp eq ptr %agg.tmp7.sroa.0.0, %26
+  br i1 %tobool.not.i37, label %if.end.i38.thread, label %if.end.i38
+
+if.end.i38.thread:                                ; preds = %while.body.i30
+  %add.ptr.i89 = getelementptr inbounds i8, ptr %agg.tmp7.sroa.11.0, i64 -8
+  %27 = load ptr, ptr %add.ptr.i89, align 8, !noalias !992
+  %add.ptr6.i90 = getelementptr inbounds i8, ptr %27, i64 512
+  %28 = tail call i64 @llvm.umin.i64(i64 %storemerge11.i32, i64 64)
+  %idx.neg.i42297 = sub nsw i64 0, %28
+  %add.ptr8.i43298 = getelementptr inbounds %"class.std::unique_ptr", ptr %__last.addr.012.i31, i64 %idx.neg.i42297
+  br label %for.body.i.i.i.i68.preheader
+
+if.end.i38:                                       ; preds = %while.body.i30
+  %sub.ptr.rhs.cast2.i34 = ptrtoint ptr %26 to i64
   %sub.ptr.sub3.i35 = sub i64 %sub.ptr.lhs.cast1.i33, %sub.ptr.rhs.cast2.i34
   %sub.ptr.div4.i36 = ashr exact i64 %sub.ptr.sub3.i35, 3
-  %tobool.not.i37 = icmp eq ptr %agg.tmp7.sroa.0.0, %25
-  br i1 %tobool.not.i37, label %if.then.i88, label %if.end.i38
-
-if.then.i88:                                      ; preds = %while.body.i30
-  %add.ptr.i89 = getelementptr inbounds i8, ptr %agg.tmp7.sroa.11.0, i64 -8
-  %26 = load ptr, ptr %add.ptr.i89, align 8, !noalias !992
-  %add.ptr6.i90 = getelementptr inbounds i8, ptr %26, i64 512
-  br label %if.end.i38
-
-if.end.i38:                                       ; preds = %if.then.i88, %while.body.i30
-  %__rlen.0.i39 = phi i64 [ 64, %if.then.i88 ], [ %sub.ptr.div4.i36, %while.body.i30 ]
-  %__rend.0.i40 = phi ptr [ %add.ptr6.i90, %if.then.i88 ], [ %agg.tmp7.sroa.0.0, %while.body.i30 ]
-  %.sroa.speculated.i41 = tail call i64 @llvm.smin.i64(i64 %__rlen.0.i39, i64 %storemerge11.i32)
+  %.sroa.speculated.i41 = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div4.i36, i64 %storemerge11.i32)
   %idx.neg.i42 = sub nsw i64 0, %.sroa.speculated.i41
   %add.ptr8.i43 = getelementptr inbounds %"class.std::unique_ptr", ptr %__last.addr.012.i31, i64 %idx.neg.i42
-  %cmp4.i.i.i.i44 = icmp sgt i64 %.sroa.speculated.i41, 0
-  br i1 %cmp4.i.i.i.i44, label %for.body.i.i.i.i68, label %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i45
+  %cmp4.i.i.i.i44 = icmp sgt i64 %sub.ptr.div4.i36, 0
+  br i1 %cmp4.i.i.i.i44, label %for.body.i.i.i.i68.preheader, label %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i45
 
-for.body.i.i.i.i68:                               ; preds = %if.end.i38, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i78
-  %__n.07.i.i.i.i69 = phi i64 [ %dec.i.i.i.i79, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i78 ], [ %.sroa.speculated.i41, %if.end.i38 ]
-  %__result.addr.06.i.i.i.i70 = phi ptr [ %incdec.ptr1.i.i.i.i73, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i78 ], [ %__rend.0.i40, %if.end.i38 ]
-  %__last.addr.05.i.i.i.i71 = phi ptr [ %incdec.ptr.i.i.i.i72, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i78 ], [ %__last.addr.012.i31, %if.end.i38 ]
+for.body.i.i.i.i68.preheader:                     ; preds = %if.end.i38.thread, %if.end.i38
+  %add.ptr8.i43306 = phi ptr [ %add.ptr8.i43298, %if.end.i38.thread ], [ %add.ptr8.i43, %if.end.i38 ]
+  %idx.neg.i42304 = phi i64 [ %idx.neg.i42297, %if.end.i38.thread ], [ %idx.neg.i42, %if.end.i38 ]
+  %.sroa.speculated.i41302 = phi i64 [ %28, %if.end.i38.thread ], [ %.sroa.speculated.i41, %if.end.i38 ]
+  %__rend.0.i40300 = phi ptr [ %add.ptr6.i90, %if.end.i38.thread ], [ %agg.tmp7.sroa.0.0, %if.end.i38 ]
+  br label %for.body.i.i.i.i68
+
+for.body.i.i.i.i68:                               ; preds = %for.body.i.i.i.i68.preheader, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i78
+  %__n.07.i.i.i.i69 = phi i64 [ %dec.i.i.i.i79, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i78 ], [ %.sroa.speculated.i41302, %for.body.i.i.i.i68.preheader ]
+  %__result.addr.06.i.i.i.i70 = phi ptr [ %incdec.ptr1.i.i.i.i73, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i78 ], [ %__rend.0.i40300, %for.body.i.i.i.i68.preheader ]
+  %__last.addr.05.i.i.i.i71 = phi ptr [ %incdec.ptr.i.i.i.i72, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i78 ], [ %__last.addr.012.i31, %for.body.i.i.i.i68.preheader ]
   %incdec.ptr.i.i.i.i72 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i71, i64 -8
   %incdec.ptr1.i.i.i.i73 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i70, i64 -8
-  %27 = load ptr, ptr %incdec.ptr.i.i.i.i72, align 8, !noalias !992
+  %29 = load ptr, ptr %incdec.ptr.i.i.i.i72, align 8, !noalias !992
   store ptr null, ptr %incdec.ptr.i.i.i.i72, align 8, !noalias !992
-  %28 = load ptr, ptr %incdec.ptr1.i.i.i.i73, align 8, !noalias !992
-  store ptr %27, ptr %incdec.ptr1.i.i.i.i73, align 8, !noalias !992
-  %tobool.not.i.i.i.i.i.i.i.i74 = icmp eq ptr %28, null
+  %30 = load ptr, ptr %incdec.ptr1.i.i.i.i73, align 8, !noalias !992
+  store ptr %29, ptr %incdec.ptr1.i.i.i.i73, align 8, !noalias !992
+  %tobool.not.i.i.i.i.i.i.i.i74 = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i74, label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i78, label %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i.i.i.i.i75
 
 _ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i.i.i.i.i75: ; preds = %for.body.i.i.i.i68
-  %vtable.i.i.i.i.i.i.i.i.i76 = load ptr, ptr %28, align 8, !noalias !992
+  %vtable.i.i.i.i.i.i.i.i.i76 = load ptr, ptr %30, align 8, !noalias !992
   %vfn.i.i.i.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i76, i64 8
-  %29 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i77, align 8, !noalias !992
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(136) %28) #22, !noalias !992
+  %31 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i77, align 8, !noalias !992
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(136) %30) #22, !noalias !992
   br label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i78
 
 _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i78: ; preds = %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i.i.i.i.i75, %for.body.i.i.i.i68
@@ -16229,9 +16248,12 @@ _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_del
   br label %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i45
 
 _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i45: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i81, %if.end.i38
+  %add.ptr8.i43305 = phi ptr [ %add.ptr8.i43306, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i81 ], [ %add.ptr8.i43, %if.end.i38 ]
+  %idx.neg.i42303 = phi i64 [ %idx.neg.i42304, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i81 ], [ %idx.neg.i42, %if.end.i38 ]
+  %.sroa.speculated.i41301 = phi i64 [ %.sroa.speculated.i41302, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i81 ], [ %.sroa.speculated.i41, %if.end.i38 ]
   %sub.ptr.div.i.i.pre-phi.i46 = phi i64 [ %.pre20.i87, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i81 ], [ %sub.ptr.div4.i36, %if.end.i38 ]
-  %30 = phi ptr [ %agg.tmp7.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i81 ], [ %25, %if.end.i38 ]
-  %add.i.i.i47 = sub nsw i64 %sub.ptr.div.i.i.pre-phi.i46, %.sroa.speculated.i41
+  %32 = phi ptr [ %agg.tmp7.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i81 ], [ %26, %if.end.i38 ]
+  %add.i.i.i47 = sub nsw i64 %sub.ptr.div.i.i.pre-phi.i46, %.sroa.speculated.i41301
   %cmp.i.i.i48 = icmp sgt i64 %add.i.i.i47, -1
   br i1 %cmp.i.i.i48, label %land.lhs.true.i.i.i62, label %cond.false.i.i.i49
 
@@ -16240,7 +16262,7 @@ land.lhs.true.i.i.i62:                            ; preds = %_ZSt23__copy_move_b
   br i1 %cmp2.i.i.i63, label %if.then.i.i.i66, label %cond.true.i.i.i64
 
 if.then.i.i.i66:                                  ; preds = %land.lhs.true.i.i.i62
-  %add.ptr.i.i.i67 = getelementptr inbounds %"class.std::unique_ptr", ptr %agg.tmp7.sroa.0.0, i64 %idx.neg.i42
+  %add.ptr.i.i.i67 = getelementptr inbounds %"class.std::unique_ptr", ptr %agg.tmp7.sroa.0.0, i64 %idx.neg.i42303
   br label %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58
 
 cond.true.i.i.i64:                                ; preds = %land.lhs.true.i.i.i62
@@ -16254,96 +16276,104 @@ cond.false.i.i.i49:                               ; preds = %_ZSt23__copy_move_b
 cond.end.i.i.i51:                                 ; preds = %cond.false.i.i.i49, %cond.true.i.i.i64
   %cond.i.i.i52 = phi i64 [ %div911.i.i.i65, %cond.true.i.i.i64 ], [ %sub10.i.i.i50, %cond.false.i.i.i49 ]
   %add.ptr11.i.i.i53 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 %cond.i.i.i52
-  %31 = load ptr, ptr %add.ptr11.i.i.i53, align 8, !noalias !992
-  %add.ptr.i.i.i.i54 = getelementptr inbounds i8, ptr %31, i64 512
+  %33 = load ptr, ptr %add.ptr11.i.i.i53, align 8, !noalias !992
+  %add.ptr.i.i.i.i54 = getelementptr inbounds i8, ptr %33, i64 512
   %mul.i.i.i55 = shl nsw i64 %cond.i.i.i52, 6
   %sub14.i.i.i56 = sub nsw i64 %add.i.i.i47, %mul.i.i.i55
-  %add.ptr15.i.i.i57 = getelementptr inbounds %"class.std::unique_ptr", ptr %31, i64 %sub14.i.i.i56
+  %add.ptr15.i.i.i57 = getelementptr inbounds %"class.std::unique_ptr", ptr %33, i64 %sub14.i.i.i56
   br label %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58
 
 _ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58: ; preds = %cond.end.i.i.i51, %if.then.i.i.i66
   %agg.tmp7.sroa.11.1 = phi ptr [ %agg.tmp7.sroa.11.0, %if.then.i.i.i66 ], [ %add.ptr11.i.i.i53, %cond.end.i.i.i51 ]
   %agg.tmp7.sroa.8.1 = phi ptr [ %agg.tmp7.sroa.8.0, %if.then.i.i.i66 ], [ %add.ptr.i.i.i.i54, %cond.end.i.i.i51 ]
-  %agg.tmp7.sroa.4.1 = phi ptr [ %agg.tmp7.sroa.4.0, %if.then.i.i.i66 ], [ %31, %cond.end.i.i.i51 ]
-  %32 = phi ptr [ %30, %if.then.i.i.i66 ], [ %31, %cond.end.i.i.i51 ]
+  %agg.tmp7.sroa.4.1 = phi ptr [ %agg.tmp7.sroa.4.0, %if.then.i.i.i66 ], [ %33, %cond.end.i.i.i51 ]
+  %34 = phi ptr [ %32, %if.then.i.i.i66 ], [ %33, %cond.end.i.i.i51 ]
   %storemerge.i.i.i59 = phi ptr [ %add.ptr.i.i.i67, %if.then.i.i.i66 ], [ %add.ptr15.i.i.i57, %cond.end.i.i.i51 ]
-  %sub.i60 = sub nsw i64 %storemerge11.i32, %.sroa.speculated.i41
+  %sub.i60 = sub nsw i64 %storemerge11.i32, %.sroa.speculated.i41301
   %cmp.i61 = icmp sgt i64 %sub.i60, 0
   br i1 %cmp.i61, label %while.body.i30, label %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91, !llvm.loop !991
 
 _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91: ; preds = %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i58
   store ptr %storemerge.i.i.i59, ptr %__result, align 8
-  store ptr %32, ptr %_M_first3.i, align 8
+  store ptr %34, ptr %_M_first3.i, align 8
   store ptr %agg.tmp7.sroa.8.1, ptr %_M_last4.i, align 8
   store ptr %agg.tmp7.sroa.11.1, ptr %_M_node5.i, align 8
   %__node.0 = getelementptr inbounds i8, ptr %__node.0277, i64 -8
-  %33 = load ptr, ptr %_M_node, align 8
-  %cmp4.not = icmp eq ptr %__node.0, %33
+  %35 = load ptr, ptr %_M_node, align 8
+  %cmp4.not = icmp eq ptr %__node.0, %35
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !995
 
 for.end:                                          ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit
-  %34 = phi ptr [ %agg.tmp.sroa.12.2, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %agg.tmp7.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ]
-  %35 = phi ptr [ %agg.tmp.sroa.9.2, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %agg.tmp7.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ]
-  %36 = phi ptr [ %16, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %32, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ]
-  %37 = phi ptr [ %17, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %storemerge.i.i.i59, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ]
-  %38 = load ptr, ptr %__first, align 8
+  %36 = phi ptr [ %agg.tmp.sroa.12.2, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %agg.tmp7.sroa.11.1, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ]
+  %37 = phi ptr [ %agg.tmp.sroa.9.2, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %agg.tmp7.sroa.8.1, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ]
+  %38 = phi ptr [ %17, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %34, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ]
+  %39 = phi ptr [ %18, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit ], [ %storemerge.i.i.i59, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES5_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSB_PSB_EE6__typeES9_S9_SE_.exit91 ]
+  %40 = load ptr, ptr %__first, align 8
   %_M_last = getelementptr inbounds i8, ptr %__first, i64 16
-  %39 = load ptr, ptr %_M_last, align 8
-  %sub.ptr.lhs.cast.i98 = ptrtoint ptr %39 to i64
-  %sub.ptr.rhs.cast.i99 = ptrtoint ptr %38 to i64
+  %41 = load ptr, ptr %_M_last, align 8
+  %sub.ptr.lhs.cast.i98 = ptrtoint ptr %41 to i64
+  %sub.ptr.rhs.cast.i99 = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i100 = sub i64 %sub.ptr.lhs.cast.i98, %sub.ptr.rhs.cast.i99
   %sub.ptr.div.i101 = ashr exact i64 %sub.ptr.sub.i100, 3
   %cmp10.i102 = icmp sgt i64 %sub.ptr.div.i101, 0
   br i1 %cmp10.i102, label %while.body.i116, label %return
 
 while.body.i116:                                  ; preds = %for.end, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144
-  %agg.tmp9.sroa.12.0 = phi ptr [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ], [ %34, %for.end ]
-  %agg.tmp9.sroa.9.0 = phi ptr [ %agg.tmp9.sroa.9.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ], [ %35, %for.end ]
-  %agg.tmp9.sroa.4.0 = phi ptr [ %agg.tmp9.sroa.4.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ], [ %36, %for.end ]
-  %agg.tmp9.sroa.0.0 = phi ptr [ %storemerge.i.i.i145, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ], [ %37, %for.end ]
-  %40 = phi ptr [ %47, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ], [ %36, %for.end ]
-  %__last.addr.012.i117 = phi ptr [ %add.ptr8.i129, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ], [ %39, %for.end ]
+  %agg.tmp9.sroa.12.0 = phi ptr [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ], [ %36, %for.end ]
+  %agg.tmp9.sroa.9.0 = phi ptr [ %agg.tmp9.sroa.9.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ], [ %37, %for.end ]
+  %agg.tmp9.sroa.4.0 = phi ptr [ %agg.tmp9.sroa.4.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ], [ %38, %for.end ]
+  %agg.tmp9.sroa.0.0 = phi ptr [ %storemerge.i.i.i145, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ], [ %39, %for.end ]
+  %42 = phi ptr [ %50, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ], [ %38, %for.end ]
+  %__last.addr.012.i117 = phi ptr [ %add.ptr8.i129318, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ], [ %41, %for.end ]
   %storemerge11.i118 = phi i64 [ %sub.i146, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ], [ %sub.ptr.div.i101, %for.end ]
   %sub.ptr.lhs.cast1.i119 = ptrtoint ptr %agg.tmp9.sroa.0.0 to i64
-  %sub.ptr.rhs.cast2.i120 = ptrtoint ptr %40 to i64
+  %tobool.not.i123 = icmp eq ptr %agg.tmp9.sroa.0.0, %42
+  br i1 %tobool.not.i123, label %if.end.i124.thread, label %if.end.i124
+
+if.end.i124.thread:                               ; preds = %while.body.i116
+  %add.ptr.i175 = getelementptr inbounds i8, ptr %agg.tmp9.sroa.12.0, i64 -8
+  %43 = load ptr, ptr %add.ptr.i175, align 8, !noalias !996
+  %add.ptr6.i176 = getelementptr inbounds i8, ptr %43, i64 512
+  %44 = tail call i64 @llvm.umin.i64(i64 %storemerge11.i118, i64 64)
+  %idx.neg.i128310 = sub nsw i64 0, %44
+  %add.ptr8.i129311 = getelementptr inbounds %"class.std::unique_ptr", ptr %__last.addr.012.i117, i64 %idx.neg.i128310
+  br label %for.body.i.i.i.i154.preheader
+
+if.end.i124:                                      ; preds = %while.body.i116
+  %sub.ptr.rhs.cast2.i120 = ptrtoint ptr %42 to i64
   %sub.ptr.sub3.i121 = sub i64 %sub.ptr.lhs.cast1.i119, %sub.ptr.rhs.cast2.i120
   %sub.ptr.div4.i122 = ashr exact i64 %sub.ptr.sub3.i121, 3
-  %tobool.not.i123 = icmp eq ptr %agg.tmp9.sroa.0.0, %40
-  br i1 %tobool.not.i123, label %if.then.i174, label %if.end.i124
-
-if.then.i174:                                     ; preds = %while.body.i116
-  %add.ptr.i175 = getelementptr inbounds i8, ptr %agg.tmp9.sroa.12.0, i64 -8
-  %41 = load ptr, ptr %add.ptr.i175, align 8, !noalias !996
-  %add.ptr6.i176 = getelementptr inbounds i8, ptr %41, i64 512
-  br label %if.end.i124
-
-if.end.i124:                                      ; preds = %if.then.i174, %while.body.i116
-  %__rlen.0.i125 = phi i64 [ 64, %if.then.i174 ], [ %sub.ptr.div4.i122, %while.body.i116 ]
-  %__rend.0.i126 = phi ptr [ %add.ptr6.i176, %if.then.i174 ], [ %agg.tmp9.sroa.0.0, %while.body.i116 ]
-  %.sroa.speculated.i127 = tail call i64 @llvm.smin.i64(i64 %__rlen.0.i125, i64 %storemerge11.i118)
+  %.sroa.speculated.i127 = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div4.i122, i64 %storemerge11.i118)
   %idx.neg.i128 = sub nsw i64 0, %.sroa.speculated.i127
   %add.ptr8.i129 = getelementptr inbounds %"class.std::unique_ptr", ptr %__last.addr.012.i117, i64 %idx.neg.i128
-  %cmp4.i.i.i.i130 = icmp sgt i64 %.sroa.speculated.i127, 0
-  br i1 %cmp4.i.i.i.i130, label %for.body.i.i.i.i154, label %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i131
+  %cmp4.i.i.i.i130 = icmp sgt i64 %sub.ptr.div4.i122, 0
+  br i1 %cmp4.i.i.i.i130, label %for.body.i.i.i.i154.preheader, label %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i131
 
-for.body.i.i.i.i154:                              ; preds = %if.end.i124, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i164
-  %__n.07.i.i.i.i155 = phi i64 [ %dec.i.i.i.i165, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i164 ], [ %.sroa.speculated.i127, %if.end.i124 ]
-  %__result.addr.06.i.i.i.i156 = phi ptr [ %incdec.ptr1.i.i.i.i159, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i164 ], [ %__rend.0.i126, %if.end.i124 ]
-  %__last.addr.05.i.i.i.i157 = phi ptr [ %incdec.ptr.i.i.i.i158, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i164 ], [ %__last.addr.012.i117, %if.end.i124 ]
+for.body.i.i.i.i154.preheader:                    ; preds = %if.end.i124.thread, %if.end.i124
+  %add.ptr8.i129319 = phi ptr [ %add.ptr8.i129311, %if.end.i124.thread ], [ %add.ptr8.i129, %if.end.i124 ]
+  %idx.neg.i128317 = phi i64 [ %idx.neg.i128310, %if.end.i124.thread ], [ %idx.neg.i128, %if.end.i124 ]
+  %.sroa.speculated.i127315 = phi i64 [ %44, %if.end.i124.thread ], [ %.sroa.speculated.i127, %if.end.i124 ]
+  %__rend.0.i126313 = phi ptr [ %add.ptr6.i176, %if.end.i124.thread ], [ %agg.tmp9.sroa.0.0, %if.end.i124 ]
+  br label %for.body.i.i.i.i154
+
+for.body.i.i.i.i154:                              ; preds = %for.body.i.i.i.i154.preheader, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i164
+  %__n.07.i.i.i.i155 = phi i64 [ %dec.i.i.i.i165, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i164 ], [ %.sroa.speculated.i127315, %for.body.i.i.i.i154.preheader ]
+  %__result.addr.06.i.i.i.i156 = phi ptr [ %incdec.ptr1.i.i.i.i159, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i164 ], [ %__rend.0.i126313, %for.body.i.i.i.i154.preheader ]
+  %__last.addr.05.i.i.i.i157 = phi ptr [ %incdec.ptr.i.i.i.i158, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i164 ], [ %__last.addr.012.i117, %for.body.i.i.i.i154.preheader ]
   %incdec.ptr.i.i.i.i158 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i157, i64 -8
   %incdec.ptr1.i.i.i.i159 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i156, i64 -8
-  %42 = load ptr, ptr %incdec.ptr.i.i.i.i158, align 8, !noalias !996
+  %45 = load ptr, ptr %incdec.ptr.i.i.i.i158, align 8, !noalias !996
   store ptr null, ptr %incdec.ptr.i.i.i.i158, align 8, !noalias !996
-  %43 = load ptr, ptr %incdec.ptr1.i.i.i.i159, align 8, !noalias !996
-  store ptr %42, ptr %incdec.ptr1.i.i.i.i159, align 8, !noalias !996
-  %tobool.not.i.i.i.i.i.i.i.i160 = icmp eq ptr %43, null
+  %46 = load ptr, ptr %incdec.ptr1.i.i.i.i159, align 8, !noalias !996
+  store ptr %45, ptr %incdec.ptr1.i.i.i.i159, align 8, !noalias !996
+  %tobool.not.i.i.i.i.i.i.i.i160 = icmp eq ptr %46, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i160, label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i164, label %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i.i.i.i.i161
 
 _ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i.i.i.i.i161: ; preds = %for.body.i.i.i.i154
-  %vtable.i.i.i.i.i.i.i.i.i162 = load ptr, ptr %43, align 8, !noalias !996
+  %vtable.i.i.i.i.i.i.i.i.i162 = load ptr, ptr %46, align 8, !noalias !996
   %vfn.i.i.i.i.i.i.i.i.i163 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i162, i64 8
-  %44 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i163, align 8, !noalias !996
-  tail call void %44(ptr noundef nonnull align 8 dereferenceable(136) %43) #22, !noalias !996
+  %47 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i163, align 8, !noalias !996
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(136) %46) #22, !noalias !996
   br label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i164
 
 _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i164: ; preds = %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i.i.i.i.i161, %for.body.i.i.i.i154
@@ -16358,9 +16388,12 @@ _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_del
   br label %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i131
 
 _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i131: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i167, %if.end.i124
+  %add.ptr8.i129318 = phi ptr [ %add.ptr8.i129319, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i167 ], [ %add.ptr8.i129, %if.end.i124 ]
+  %idx.neg.i128316 = phi i64 [ %idx.neg.i128317, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i167 ], [ %idx.neg.i128, %if.end.i124 ]
+  %.sroa.speculated.i127314 = phi i64 [ %.sroa.speculated.i127315, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i167 ], [ %.sroa.speculated.i127, %if.end.i124 ]
   %sub.ptr.div.i.i.pre-phi.i132 = phi i64 [ %.pre20.i173, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i167 ], [ %sub.ptr.div4.i122, %if.end.i124 ]
-  %45 = phi ptr [ %agg.tmp9.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i167 ], [ %40, %if.end.i124 ]
-  %add.i.i.i133 = sub nsw i64 %sub.ptr.div.i.i.pre-phi.i132, %.sroa.speculated.i127
+  %48 = phi ptr [ %agg.tmp9.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i167 ], [ %42, %if.end.i124 ]
+  %add.i.i.i133 = sub nsw i64 %sub.ptr.div.i.i.pre-phi.i132, %.sroa.speculated.i127314
   %cmp.i.i.i134 = icmp sgt i64 %add.i.i.i133, -1
   br i1 %cmp.i.i.i134, label %land.lhs.true.i.i.i148, label %cond.false.i.i.i135
 
@@ -16369,7 +16402,7 @@ land.lhs.true.i.i.i148:                           ; preds = %_ZSt23__copy_move_b
   br i1 %cmp2.i.i.i149, label %if.then.i.i.i152, label %cond.true.i.i.i150
 
 if.then.i.i.i152:                                 ; preds = %land.lhs.true.i.i.i148
-  %add.ptr.i.i.i153 = getelementptr inbounds %"class.std::unique_ptr", ptr %agg.tmp9.sroa.0.0, i64 %idx.neg.i128
+  %add.ptr.i.i.i153 = getelementptr inbounds %"class.std::unique_ptr", ptr %agg.tmp9.sroa.0.0, i64 %idx.neg.i128316
   br label %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144
 
 cond.true.i.i.i150:                               ; preds = %land.lhs.true.i.i.i148
@@ -16383,88 +16416,96 @@ cond.false.i.i.i135:                              ; preds = %_ZSt23__copy_move_b
 cond.end.i.i.i137:                                ; preds = %cond.false.i.i.i135, %cond.true.i.i.i150
   %cond.i.i.i138 = phi i64 [ %div911.i.i.i151, %cond.true.i.i.i150 ], [ %sub10.i.i.i136, %cond.false.i.i.i135 ]
   %add.ptr11.i.i.i139 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i.i138
-  %46 = load ptr, ptr %add.ptr11.i.i.i139, align 8, !noalias !996
-  %add.ptr.i.i.i.i140 = getelementptr inbounds i8, ptr %46, i64 512
+  %49 = load ptr, ptr %add.ptr11.i.i.i139, align 8, !noalias !996
+  %add.ptr.i.i.i.i140 = getelementptr inbounds i8, ptr %49, i64 512
   %mul.i.i.i141 = shl nsw i64 %cond.i.i.i138, 6
   %sub14.i.i.i142 = sub nsw i64 %add.i.i.i133, %mul.i.i.i141
-  %add.ptr15.i.i.i143 = getelementptr inbounds %"class.std::unique_ptr", ptr %46, i64 %sub14.i.i.i142
+  %add.ptr15.i.i.i143 = getelementptr inbounds %"class.std::unique_ptr", ptr %49, i64 %sub14.i.i.i142
   br label %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144
 
 _ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144: ; preds = %cond.end.i.i.i137, %if.then.i.i.i152
   %agg.tmp9.sroa.12.1 = phi ptr [ %agg.tmp9.sroa.12.0, %if.then.i.i.i152 ], [ %add.ptr11.i.i.i139, %cond.end.i.i.i137 ]
   %agg.tmp9.sroa.9.1 = phi ptr [ %agg.tmp9.sroa.9.0, %if.then.i.i.i152 ], [ %add.ptr.i.i.i.i140, %cond.end.i.i.i137 ]
-  %agg.tmp9.sroa.4.1 = phi ptr [ %agg.tmp9.sroa.4.0, %if.then.i.i.i152 ], [ %46, %cond.end.i.i.i137 ]
-  %47 = phi ptr [ %45, %if.then.i.i.i152 ], [ %46, %cond.end.i.i.i137 ]
+  %agg.tmp9.sroa.4.1 = phi ptr [ %agg.tmp9.sroa.4.0, %if.then.i.i.i152 ], [ %49, %cond.end.i.i.i137 ]
+  %50 = phi ptr [ %48, %if.then.i.i.i152 ], [ %49, %cond.end.i.i.i137 ]
   %storemerge.i.i.i145 = phi ptr [ %add.ptr.i.i.i153, %if.then.i.i.i152 ], [ %add.ptr15.i.i.i143, %cond.end.i.i.i137 ]
-  %sub.i146 = sub nsw i64 %storemerge11.i118, %.sroa.speculated.i127
+  %sub.i146 = sub nsw i64 %storemerge11.i118, %.sroa.speculated.i127314
   %cmp.i147 = icmp sgt i64 %sub.i146, 0
   br i1 %cmp.i147, label %while.body.i116, label %return, !llvm.loop !991
 
 if.end:                                           ; preds = %entry
-  %48 = load ptr, ptr %__first, align 8
-  %49 = load ptr, ptr %__last, align 8
-  %50 = load ptr, ptr %__result, align 8
+  %51 = load ptr, ptr %__first, align 8
+  %52 = load ptr, ptr %__last, align 8
+  %53 = load ptr, ptr %__result, align 8
   %_M_first3.i179 = getelementptr inbounds i8, ptr %__result, i64 8
-  %51 = load ptr, ptr %_M_first3.i179, align 8
+  %54 = load ptr, ptr %_M_first3.i179, align 8
   %_M_last4.i181 = getelementptr inbounds i8, ptr %__result, i64 16
-  %52 = load ptr, ptr %_M_last4.i181, align 8
+  %55 = load ptr, ptr %_M_last4.i181, align 8
   %_M_node5.i183 = getelementptr inbounds i8, ptr %__result, i64 24
-  %53 = load ptr, ptr %_M_node5.i183, align 8
-  %sub.ptr.lhs.cast.i184 = ptrtoint ptr %49 to i64
-  %sub.ptr.rhs.cast.i185 = ptrtoint ptr %48 to i64
+  %56 = load ptr, ptr %_M_node5.i183, align 8
+  %sub.ptr.lhs.cast.i184 = ptrtoint ptr %52 to i64
+  %sub.ptr.rhs.cast.i185 = ptrtoint ptr %51 to i64
   %sub.ptr.sub.i186 = sub i64 %sub.ptr.lhs.cast.i184, %sub.ptr.rhs.cast.i185
   %sub.ptr.div.i187 = ashr exact i64 %sub.ptr.sub.i186, 3
   %cmp10.i188 = icmp sgt i64 %sub.ptr.div.i187, 0
   br i1 %cmp10.i188, label %while.body.i202, label %return
 
 while.body.i202:                                  ; preds = %if.end, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230
-  %agg.tmp12.sroa.12.0 = phi ptr [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %53, %if.end ]
-  %agg.tmp12.sroa.9.0 = phi ptr [ %agg.tmp12.sroa.9.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %52, %if.end ]
-  %agg.tmp12.sroa.4.0 = phi ptr [ %agg.tmp12.sroa.4.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %51, %if.end ]
-  %agg.tmp12.sroa.0.0 = phi ptr [ %storemerge.i.i.i231, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %50, %if.end ]
-  %54 = phi ptr [ %61, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %51, %if.end ]
-  %__last.addr.012.i203 = phi ptr [ %add.ptr8.i215, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %49, %if.end ]
+  %agg.tmp12.sroa.12.0 = phi ptr [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %56, %if.end ]
+  %agg.tmp12.sroa.9.0 = phi ptr [ %agg.tmp12.sroa.9.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %55, %if.end ]
+  %agg.tmp12.sroa.4.0 = phi ptr [ %agg.tmp12.sroa.4.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %54, %if.end ]
+  %agg.tmp12.sroa.0.0 = phi ptr [ %storemerge.i.i.i231, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %53, %if.end ]
+  %57 = phi ptr [ %65, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %54, %if.end ]
+  %__last.addr.012.i203 = phi ptr [ %add.ptr8.i215331, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %52, %if.end ]
   %storemerge11.i204 = phi i64 [ %sub.i232, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %sub.ptr.div.i187, %if.end ]
   %sub.ptr.lhs.cast1.i205 = ptrtoint ptr %agg.tmp12.sroa.0.0 to i64
-  %sub.ptr.rhs.cast2.i206 = ptrtoint ptr %54 to i64
+  %tobool.not.i209 = icmp eq ptr %agg.tmp12.sroa.0.0, %57
+  br i1 %tobool.not.i209, label %if.end.i210.thread, label %if.end.i210
+
+if.end.i210.thread:                               ; preds = %while.body.i202
+  %add.ptr.i261 = getelementptr inbounds i8, ptr %agg.tmp12.sroa.12.0, i64 -8
+  %58 = load ptr, ptr %add.ptr.i261, align 8, !noalias !999
+  %add.ptr6.i262 = getelementptr inbounds i8, ptr %58, i64 512
+  %59 = tail call i64 @llvm.umin.i64(i64 %storemerge11.i204, i64 64)
+  %idx.neg.i214323 = sub nsw i64 0, %59
+  %add.ptr8.i215324 = getelementptr inbounds %"class.std::unique_ptr", ptr %__last.addr.012.i203, i64 %idx.neg.i214323
+  br label %for.body.i.i.i.i240.preheader
+
+if.end.i210:                                      ; preds = %while.body.i202
+  %sub.ptr.rhs.cast2.i206 = ptrtoint ptr %57 to i64
   %sub.ptr.sub3.i207 = sub i64 %sub.ptr.lhs.cast1.i205, %sub.ptr.rhs.cast2.i206
   %sub.ptr.div4.i208 = ashr exact i64 %sub.ptr.sub3.i207, 3
-  %tobool.not.i209 = icmp eq ptr %agg.tmp12.sroa.0.0, %54
-  br i1 %tobool.not.i209, label %if.then.i260, label %if.end.i210
-
-if.then.i260:                                     ; preds = %while.body.i202
-  %add.ptr.i261 = getelementptr inbounds i8, ptr %agg.tmp12.sroa.12.0, i64 -8
-  %55 = load ptr, ptr %add.ptr.i261, align 8, !noalias !999
-  %add.ptr6.i262 = getelementptr inbounds i8, ptr %55, i64 512
-  br label %if.end.i210
-
-if.end.i210:                                      ; preds = %if.then.i260, %while.body.i202
-  %__rlen.0.i211 = phi i64 [ 64, %if.then.i260 ], [ %sub.ptr.div4.i208, %while.body.i202 ]
-  %__rend.0.i212 = phi ptr [ %add.ptr6.i262, %if.then.i260 ], [ %agg.tmp12.sroa.0.0, %while.body.i202 ]
-  %.sroa.speculated.i213 = tail call i64 @llvm.smin.i64(i64 %__rlen.0.i211, i64 %storemerge11.i204)
+  %.sroa.speculated.i213 = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div4.i208, i64 %storemerge11.i204)
   %idx.neg.i214 = sub nsw i64 0, %.sroa.speculated.i213
   %add.ptr8.i215 = getelementptr inbounds %"class.std::unique_ptr", ptr %__last.addr.012.i203, i64 %idx.neg.i214
-  %cmp4.i.i.i.i216 = icmp sgt i64 %.sroa.speculated.i213, 0
-  br i1 %cmp4.i.i.i.i216, label %for.body.i.i.i.i240, label %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i217
+  %cmp4.i.i.i.i216 = icmp sgt i64 %sub.ptr.div4.i208, 0
+  br i1 %cmp4.i.i.i.i216, label %for.body.i.i.i.i240.preheader, label %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i217
 
-for.body.i.i.i.i240:                              ; preds = %if.end.i210, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i250
-  %__n.07.i.i.i.i241 = phi i64 [ %dec.i.i.i.i251, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i250 ], [ %.sroa.speculated.i213, %if.end.i210 ]
-  %__result.addr.06.i.i.i.i242 = phi ptr [ %incdec.ptr1.i.i.i.i245, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i250 ], [ %__rend.0.i212, %if.end.i210 ]
-  %__last.addr.05.i.i.i.i243 = phi ptr [ %incdec.ptr.i.i.i.i244, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i250 ], [ %__last.addr.012.i203, %if.end.i210 ]
+for.body.i.i.i.i240.preheader:                    ; preds = %if.end.i210.thread, %if.end.i210
+  %add.ptr8.i215332 = phi ptr [ %add.ptr8.i215324, %if.end.i210.thread ], [ %add.ptr8.i215, %if.end.i210 ]
+  %idx.neg.i214330 = phi i64 [ %idx.neg.i214323, %if.end.i210.thread ], [ %idx.neg.i214, %if.end.i210 ]
+  %.sroa.speculated.i213328 = phi i64 [ %59, %if.end.i210.thread ], [ %.sroa.speculated.i213, %if.end.i210 ]
+  %__rend.0.i212326 = phi ptr [ %add.ptr6.i262, %if.end.i210.thread ], [ %agg.tmp12.sroa.0.0, %if.end.i210 ]
+  br label %for.body.i.i.i.i240
+
+for.body.i.i.i.i240:                              ; preds = %for.body.i.i.i.i240.preheader, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i250
+  %__n.07.i.i.i.i241 = phi i64 [ %dec.i.i.i.i251, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i250 ], [ %.sroa.speculated.i213328, %for.body.i.i.i.i240.preheader ]
+  %__result.addr.06.i.i.i.i242 = phi ptr [ %incdec.ptr1.i.i.i.i245, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i250 ], [ %__rend.0.i212326, %for.body.i.i.i.i240.preheader ]
+  %__last.addr.05.i.i.i.i243 = phi ptr [ %incdec.ptr.i.i.i.i244, %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i250 ], [ %__last.addr.012.i203, %for.body.i.i.i.i240.preheader ]
   %incdec.ptr.i.i.i.i244 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i243, i64 -8
   %incdec.ptr1.i.i.i.i245 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i242, i64 -8
-  %56 = load ptr, ptr %incdec.ptr.i.i.i.i244, align 8, !noalias !999
+  %60 = load ptr, ptr %incdec.ptr.i.i.i.i244, align 8, !noalias !999
   store ptr null, ptr %incdec.ptr.i.i.i.i244, align 8, !noalias !999
-  %57 = load ptr, ptr %incdec.ptr1.i.i.i.i245, align 8, !noalias !999
-  store ptr %56, ptr %incdec.ptr1.i.i.i.i245, align 8, !noalias !999
-  %tobool.not.i.i.i.i.i.i.i.i246 = icmp eq ptr %57, null
+  %61 = load ptr, ptr %incdec.ptr1.i.i.i.i245, align 8, !noalias !999
+  store ptr %60, ptr %incdec.ptr1.i.i.i.i245, align 8, !noalias !999
+  %tobool.not.i.i.i.i.i.i.i.i246 = icmp eq ptr %61, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i246, label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i250, label %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i.i.i.i.i247
 
 _ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i.i.i.i.i247: ; preds = %for.body.i.i.i.i240
-  %vtable.i.i.i.i.i.i.i.i.i248 = load ptr, ptr %57, align 8, !noalias !999
+  %vtable.i.i.i.i.i.i.i.i.i248 = load ptr, ptr %61, align 8, !noalias !999
   %vfn.i.i.i.i.i.i.i.i.i249 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i248, i64 8
-  %58 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i249, align 8, !noalias !999
-  tail call void %58(ptr noundef nonnull align 8 dereferenceable(136) %57) #22, !noalias !999
+  %62 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i249, align 8, !noalias !999
+  tail call void %62(ptr noundef nonnull align 8 dereferenceable(136) %61) #22, !noalias !999
   br label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i250
 
 _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i250: ; preds = %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i.i.i.i.i.i.i247, %for.body.i.i.i.i240
@@ -16479,9 +16520,12 @@ _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_del
   br label %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i217
 
 _ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.i217: ; preds = %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i253, %if.end.i210
+  %add.ptr8.i215331 = phi ptr [ %add.ptr8.i215332, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i253 ], [ %add.ptr8.i215, %if.end.i210 ]
+  %idx.neg.i214329 = phi i64 [ %idx.neg.i214330, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i253 ], [ %idx.neg.i214, %if.end.i210 ]
+  %.sroa.speculated.i213327 = phi i64 [ %.sroa.speculated.i213328, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i253 ], [ %.sroa.speculated.i213, %if.end.i210 ]
   %sub.ptr.div.i.i.pre-phi.i218 = phi i64 [ %.pre20.i259, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i253 ], [ %sub.ptr.div4.i208, %if.end.i210 ]
-  %59 = phi ptr [ %agg.tmp12.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i253 ], [ %54, %if.end.i210 ]
-  %add.i.i.i219 = sub nsw i64 %sub.ptr.div.i.i.pre-phi.i218, %.sroa.speculated.i213
+  %63 = phi ptr [ %agg.tmp12.sroa.4.0, %_ZSt23__copy_move_backward_a1ILb1EPSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EES6_ET1_T0_S8_S7_.exit.loopexit.i253 ], [ %57, %if.end.i210 ]
+  %add.i.i.i219 = sub nsw i64 %sub.ptr.div.i.i.pre-phi.i218, %.sroa.speculated.i213327
   %cmp.i.i.i220 = icmp sgt i64 %add.i.i.i219, -1
   br i1 %cmp.i.i.i220, label %land.lhs.true.i.i.i234, label %cond.false.i.i.i221
 
@@ -16490,7 +16534,7 @@ land.lhs.true.i.i.i234:                           ; preds = %_ZSt23__copy_move_b
   br i1 %cmp2.i.i.i235, label %if.then.i.i.i238, label %cond.true.i.i.i236
 
 if.then.i.i.i238:                                 ; preds = %land.lhs.true.i.i.i234
-  %add.ptr.i.i.i239 = getelementptr inbounds %"class.std::unique_ptr", ptr %agg.tmp12.sroa.0.0, i64 %idx.neg.i214
+  %add.ptr.i.i.i239 = getelementptr inbounds %"class.std::unique_ptr", ptr %agg.tmp12.sroa.0.0, i64 %idx.neg.i214329
   br label %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230
 
 cond.true.i.i.i236:                               ; preds = %land.lhs.true.i.i.i234
@@ -16504,29 +16548,29 @@ cond.false.i.i.i221:                              ; preds = %_ZSt23__copy_move_b
 cond.end.i.i.i223:                                ; preds = %cond.false.i.i.i221, %cond.true.i.i.i236
   %cond.i.i.i224 = phi i64 [ %div911.i.i.i237, %cond.true.i.i.i236 ], [ %sub10.i.i.i222, %cond.false.i.i.i221 ]
   %add.ptr11.i.i.i225 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i.i224
-  %60 = load ptr, ptr %add.ptr11.i.i.i225, align 8, !noalias !999
-  %add.ptr.i.i.i.i226 = getelementptr inbounds i8, ptr %60, i64 512
+  %64 = load ptr, ptr %add.ptr11.i.i.i225, align 8, !noalias !999
+  %add.ptr.i.i.i.i226 = getelementptr inbounds i8, ptr %64, i64 512
   %mul.i.i.i227 = shl nsw i64 %cond.i.i.i224, 6
   %sub14.i.i.i228 = sub nsw i64 %add.i.i.i219, %mul.i.i.i227
-  %add.ptr15.i.i.i229 = getelementptr inbounds %"class.std::unique_ptr", ptr %60, i64 %sub14.i.i.i228
+  %add.ptr15.i.i.i229 = getelementptr inbounds %"class.std::unique_ptr", ptr %64, i64 %sub14.i.i.i228
   br label %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230
 
 _ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230: ; preds = %cond.end.i.i.i223, %if.then.i.i.i238
   %agg.tmp12.sroa.12.1 = phi ptr [ %agg.tmp12.sroa.12.0, %if.then.i.i.i238 ], [ %add.ptr11.i.i.i225, %cond.end.i.i.i223 ]
   %agg.tmp12.sroa.9.1 = phi ptr [ %agg.tmp12.sroa.9.0, %if.then.i.i.i238 ], [ %add.ptr.i.i.i.i226, %cond.end.i.i.i223 ]
-  %agg.tmp12.sroa.4.1 = phi ptr [ %agg.tmp12.sroa.4.0, %if.then.i.i.i238 ], [ %60, %cond.end.i.i.i223 ]
-  %61 = phi ptr [ %59, %if.then.i.i.i238 ], [ %60, %cond.end.i.i.i223 ]
+  %agg.tmp12.sroa.4.1 = phi ptr [ %agg.tmp12.sroa.4.0, %if.then.i.i.i238 ], [ %64, %cond.end.i.i.i223 ]
+  %65 = phi ptr [ %63, %if.then.i.i.i238 ], [ %64, %cond.end.i.i.i223 ]
   %storemerge.i.i.i231 = phi ptr [ %add.ptr.i.i.i239, %if.then.i.i.i238 ], [ %add.ptr15.i.i.i229, %cond.end.i.i.i223 ]
-  %sub.i232 = sub nsw i64 %storemerge11.i204, %.sroa.speculated.i213
+  %sub.i232 = sub nsw i64 %storemerge11.i204, %.sroa.speculated.i213327
   %cmp.i233 = icmp sgt i64 %sub.i232, 0
   br i1 %cmp.i233, label %while.body.i202, label %return, !llvm.loop !991
 
 return:                                           ; preds = %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230, %if.end, %for.end
-  %.sink284 = phi ptr [ %37, %for.end ], [ %50, %if.end ], [ %storemerge.i.i.i231, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %storemerge.i.i.i145, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ]
-  %.sink = phi ptr [ %36, %for.end ], [ %51, %if.end ], [ %61, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %47, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ]
-  %agg.tmp12.sroa.9.2.sink = phi ptr [ %35, %for.end ], [ %52, %if.end ], [ %agg.tmp12.sroa.9.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %agg.tmp9.sroa.9.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ]
-  %agg.tmp12.sroa.12.2.sink = phi ptr [ %34, %for.end ], [ %53, %if.end ], [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ]
-  store ptr %.sink284, ptr %agg.result, align 8
+  %.sink336 = phi ptr [ %39, %for.end ], [ %53, %if.end ], [ %storemerge.i.i.i231, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %storemerge.i.i.i145, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ]
+  %.sink = phi ptr [ %38, %for.end ], [ %54, %if.end ], [ %65, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %50, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ]
+  %agg.tmp12.sroa.9.2.sink = phi ptr [ %37, %for.end ], [ %55, %if.end ], [ %agg.tmp12.sroa.9.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %agg.tmp9.sroa.9.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ]
+  %agg.tmp12.sroa.12.2.sink = phi ptr [ %36, %for.end ], [ %56, %if.end ], [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i230 ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5_PS5_EmIEl.exit.i144 ]
+  store ptr %.sink336, ptr %agg.result, align 8
   %_M_first.i.i193 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %.sink, ptr %_M_first.i.i193, align 8
   %_M_last.i.i194 = getelementptr inbounds i8, ptr %agg.result, i64 16

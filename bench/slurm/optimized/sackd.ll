@@ -682,7 +682,7 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   %.us-phi57.i = phi i32 [ %193, %.lr.ph80.preheader.i.preheader ], [ %193, %.lr.ph96.i.preheader ], [ %213, %.lr.ph80.preheader.i ], [ %203, %.lr.ph96.i ]
   %224 = and i64 %.us-phi56.i, 2147483647
   %225 = getelementptr inbounds i8, ptr %.025.ph100.i, i64 %224
-  %226 = sub i32 %.026.ph98.i, %.us-phi57.i
+  %226 = sub nsw i32 %.026.ph98.i, %.us-phi57.i
   %227 = icmp sgt i32 %226, 0
   %228 = call i32 @get_log_level() #14
   br i1 %227, label %229, label %.outer._crit_edge.i

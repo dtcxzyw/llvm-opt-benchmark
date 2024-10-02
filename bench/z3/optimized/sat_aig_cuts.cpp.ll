@@ -8026,8 +8026,8 @@ if.then3:                                         ; preds = %if.then
   tail call void @_Z12verbose_lockv()
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4, ptr noundef nonnull @.str.26)
-  %.b67 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
-  %0 = select i1 %.b67, i32 -2, i32 0
+  %.b64 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
+  %0 = select i1 %.b64, i32 -2, i32 0
   %cmp.i.i = icmp eq i32 %r.coerce, %0
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
@@ -8054,8 +8054,8 @@ _ZN3satlsERSoNS_7literalE.exit:                   ; preds = %if.then.i, %if.else
 if.else:                                          ; preds = %if.then
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
   %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.26)
-  %.b66 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
-  %2 = select i1 %.b66, i32 -2, i32 0
+  %.b63 = load i1, ptr @_ZN3satL12null_literalE.0, align 4
+  %2 = select i1 %.b63, i32 -2, i32 0
   %cmp.i.i12 = icmp eq i32 %r.coerce, %2
   br i1 %cmp.i.i12, label %if.then.i19, label %if.else.i13
 
@@ -8275,12 +8275,12 @@ if.then.i23:                                      ; preds = %for.body.preheader
   %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 -4
   store i32 0, ptr %arrayidx.i, align 4
   %.pre = load i32, ptr %m_size.i, align 4
-  %.pre65 = load ptr, ptr %m_clause, align 8
+  %.pre62 = load ptr, ptr %m_clause, align 8
   %36 = zext nneg i32 %.pre to i64
   br label %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit
 
 _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit:     ; preds = %for.body.preheader, %if.then.i23
-  %37 = phi ptr [ null, %for.body.preheader ], [ %.pre65, %if.then.i23 ]
+  %37 = phi ptr [ null, %for.body.preheader ], [ %.pre62, %if.then.i23 ]
   %sh_prom.i.i = phi i64 [ 0, %for.body.preheader ], [ %36, %if.then.i23 ]
   %38 = load i64, ptr %m_table.i, align 8
   %39 = load i64, ptr %m_dont_care.i, align 8

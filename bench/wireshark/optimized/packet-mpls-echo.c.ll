@@ -2104,7 +2104,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.1450480 = phi i16 [ %.1450, %.loopexit ], [ %.0449511, %226 ], [ %.0449511, %227 ]
   %435 = sub nuw nsw i32 4, %434
   %436 = add nuw nsw i32 %435, %32
-  %437 = icmp sgt i32 %436, %.0448512
+  %437 = icmp ugt i32 %436, %.0448512
   br i1 %437, label %438, label %442
 
 438:                                              ; preds = %.thread476

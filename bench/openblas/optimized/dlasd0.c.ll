@@ -279,7 +279,7 @@ define void @dlasd0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %185 = phi i64 [ %187, %.preheader ], [ %179, %178 ]
   %186 = phi i32 [ %188, %.preheader ], [ 2, %178 ]
   %187 = lshr i64 %185, 1
-  %188 = mul nsw i32 %186, %186
+  %188 = mul nuw nsw i32 %186, %186
   %189 = and i64 %185, 2
   %190 = icmp eq i64 %189, 0
   %191 = select i1 %190, i32 1, i32 %188

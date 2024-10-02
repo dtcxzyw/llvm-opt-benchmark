@@ -205,7 +205,7 @@ define internal void @BicubicInterp(ptr nocapture noundef %0, i32 noundef %1, i3
 .lr.ph36.i:                                       ; preds = %.lr.ph36.i, %.lr.ph36.preheader.i
   %indvars.iv44.i = phi i64 [ 384, %.lr.ph36.preheader.i ], [ %indvars.iv.next45.i, %.lr.ph36.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %29 = sub nuw nsw i64 511, %indvars.iv44.i
+  %29 = xor i64 %indvars.iv44.i, 511
   %30 = getelementptr inbounds [513 x i32], ptr @bicubic_coeff, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = add nsw i64 %indvars.iv44.i, -255

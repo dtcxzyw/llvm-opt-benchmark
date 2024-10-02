@@ -13942,8 +13942,8 @@ if.then24.i.i:                                    ; preds = %if.end20.i.i
 
 for.cond158.i:                                    ; preds = %while.body.lr.ph.i.i, %if.end20.i.i, %if.then24.i.i, %invoke.cont163.i, %.loopexit.i
   %1103 = phi i64 [ %and.i, %.loopexit.i ], [ %squash_mask.0396.i, %invoke.cont163.i ], [ %squash_mask.0396.i, %if.then24.i.i ], [ %squash_mask.0396.i, %if.end20.i.i ], [ %squash_mask.0396.i, %while.body.lr.ph.i.i ]
-  %inc.i483 = add i32 %i.i.0, 1
-  %cmp159.i = icmp ult i32 %inc.i483, 64
+  %inc.i483 = add nuw nsw i32 %i.i.0, 1
+  %cmp159.i = icmp ult i32 %i.i.0, 63
   br i1 %cmp159.i, label %for.body161.i, label %for.cond.cleanup160.i, !llvm.loop !736
 
 lpad162.i:                                        ; preds = %if.then.i.i487

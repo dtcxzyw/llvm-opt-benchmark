@@ -282,7 +282,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
   %.neg = phi i32 [ -2, %174 ], [ -2, %166 ], [ -2, %141 ], [ -1, %81 ], [ -1, %125 ]
   %187 = phi i32 [ %126, %174 ], [ %126, %166 ], [ %126, %141 ], [ %47, %81 ], [ %126, %125 ]
   %188 = phi i32 [ %84, %174 ], [ %84, %166 ], [ %48, %141 ], [ %48, %81 ], [ %84, %125 ]
-  %189 = add i32 %.neg, %48
+  %189 = add nsw i32 %.neg, %48
   %190 = add nsw i32 %189, 1
   %191 = icmp eq i32 %185, %190
   br i1 %191, label %249, label %192
@@ -500,7 +500,7 @@ define void @dsytf2_rk_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
   %.ph57 = phi i32 [ %47, %80 ], [ %187, %275 ], [ %187, %257 ]
   %.ph58 = phi i32 [ %71, %80 ], [ %186, %275 ], [ %186, %257 ]
   %.ph59 = phi i32 [ %48, %80 ], [ %185, %275 ], [ %185, %257 ]
-  %.pn = zext i32 %48 to i64
+  %.pn = zext nneg i32 %48 to i64
   %.ph55 = getelementptr inbounds double, ptr %15, i64 %.pn
   store double 0.000000e+00, ptr %.ph55, align 8, !tbaa !7
   br label %.thread53

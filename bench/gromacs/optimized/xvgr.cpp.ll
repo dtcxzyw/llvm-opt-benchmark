@@ -1414,7 +1414,7 @@ _ZL9wordcountPc.exit.thread:                      ; preds = %99
   br i1 %brmerge.i, label %114, label %107
 
 107:                                              ; preds = %106
-  %108 = sub nuw nsw i32 1, %.025.i
+  %108 = xor i32 %.025.i, 1
   %109 = zext nneg i32 %108 to i64
   %110 = getelementptr inbounds [2 x i32], ptr %7, i64 0, i64 %109
   %111 = load i32, ptr %110, align 4
@@ -1427,7 +1427,7 @@ _ZL9wordcountPc.exit.thread:                      ; preds = %99
 
 114:                                              ; preds = %112, %107, %106
   %.2.i = phi i32 [ %113, %112 ], [ %.124.i, %107 ], [ %.124.i, %106 ]
-  %115 = sub nuw nsw i32 1, %.025.i
+  %115 = xor i32 %.025.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %116 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv.next.i
   %117 = load i8, ptr %116, align 1
@@ -2153,7 +2153,7 @@ _ZL9wordcountPc.exit.thread:                      ; preds = %31
   br i1 %brmerge.i, label %46, label %39
 
 39:                                               ; preds = %38
-  %40 = sub nuw nsw i32 1, %.025.i
+  %40 = xor i32 %.025.i, 1
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds [2 x i32], ptr %4, i64 0, i64 %41
   %43 = load i32, ptr %42, align 4
@@ -2166,7 +2166,7 @@ _ZL9wordcountPc.exit.thread:                      ; preds = %31
 
 46:                                               ; preds = %44, %39, %38
   %.2.i = phi i32 [ %45, %44 ], [ %.124.i, %39 ], [ %.124.i, %38 ]
-  %47 = sub nuw nsw i32 1, %.025.i
+  %47 = xor i32 %.025.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %48 = getelementptr inbounds i8, ptr %19, i64 %indvars.iv.next.i
   %49 = load i8, ptr %48, align 1

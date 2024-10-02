@@ -725,7 +725,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %183 = load ptr, ptr %6, align 8
   %184 = getelementptr inbounds float, ptr %183, i64 %.062
   store float %182, ptr %184, align 4
-  %185 = sub nuw nsw i32 1, %.03761
+  %185 = xor i32 %.03761, 1
   %186 = add nuw i64 %.062, 1
   %187 = icmp ult i64 %186, %40
   br i1 %187, label %.lr.ph, label %.loopexit, !llvm.loop !13

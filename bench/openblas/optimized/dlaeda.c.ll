@@ -68,7 +68,7 @@ define void @dlaeda_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %51 = phi i64 [ %53, %.preheader25 ], [ %45, %44 ]
   %52 = phi i32 [ %54, %.preheader25 ], [ 2, %44 ]
   %53 = lshr i64 %51, 1
-  %54 = mul nsw i32 %52, %52
+  %54 = mul nuw nsw i32 %52, %52
   %55 = and i64 %51, 2
   %56 = icmp eq i64 %55, 0
   %57 = select i1 %56, i32 1, i32 %54
@@ -95,7 +95,7 @@ define void @dlaeda_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %69 = phi i64 [ %71, %.preheader23 ], [ %63, %62 ]
   %70 = phi i32 [ %72, %.preheader23 ], [ 2, %62 ]
   %71 = lshr i64 %69, 1
-  %72 = mul nsw i32 %70, %70
+  %72 = mul nuw nsw i32 %70, %70
   %73 = and i64 %69, 2
   %74 = icmp eq i64 %73, 0
   %75 = select i1 %74, i32 1, i32 %72
@@ -200,7 +200,7 @@ define void @dlaeda_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %151 = phi i64 [ %153, %.preheader21 ], [ %145, %144 ]
   %152 = phi i32 [ %154, %.preheader21 ], [ 2, %144 ]
   %153 = lshr i64 %151, 1
-  %154 = mul nsw i32 %152, %152
+  %154 = mul nuw nsw i32 %152, %152
   %155 = and i64 %151, 2
   %156 = icmp eq i64 %155, 0
   %157 = select i1 %156, i32 1, i32 %154
@@ -246,7 +246,7 @@ define void @dlaeda_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %185 = phi i64 [ %187, %.preheader18 ], [ %179, %178 ]
   %186 = phi i32 [ %188, %.preheader18 ], [ 2, %178 ]
   %187 = lshr i64 %185, 1
-  %188 = mul nsw i32 %186, %186
+  %188 = mul nuw nsw i32 %186, %186
   %189 = and i64 %185, 2
   %190 = icmp eq i64 %189, 0
   %191 = select i1 %190, i32 1, i32 %188
@@ -276,7 +276,7 @@ define void @dlaeda_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %207 = phi i64 [ %209, %.preheader16 ], [ %201, %200 ]
   %208 = phi i32 [ %210, %.preheader16 ], [ 2, %200 ]
   %209 = lshr i64 %207, 1
-  %210 = mul nsw i32 %208, %208
+  %210 = mul nuw nsw i32 %208, %208
   %211 = and i64 %207, 2
   %212 = icmp eq i64 %211, 0
   %213 = select i1 %212, i32 1, i32 %210
@@ -530,7 +530,7 @@ define void @dlaeda_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %395 = phi i64 [ %397, %.preheader ], [ %389, %388 ]
   %396 = phi i32 [ %398, %.preheader ], [ 2, %388 ]
   %397 = lshr i64 %395, 1
-  %398 = mul nsw i32 %396, %396
+  %398 = mul nuw nsw i32 %396, %396
   %399 = and i64 %395, 2
   %400 = icmp eq i64 %399, 0
   %401 = select i1 %400, i32 1, i32 %398

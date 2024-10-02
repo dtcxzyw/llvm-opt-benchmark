@@ -138,7 +138,7 @@ define noundef i32 @dtbmv_thread_NLN(i64 noundef %0, i64 noundef %1, ptr noundef
   %84 = phi i64 [ %0, %77 ], [ %121, %99 ]
   %85 = phi i64 [ 0, %77 ], [ %107, %99 ]
   %86 = xor i64 %85, -1
-  %87 = add i64 %84, %78
+  %87 = add nuw i64 %84, %78
   %88 = add i64 %87, %86
   %89 = trunc i64 %88 to i32
   %90 = trunc i64 %85 to i32

@@ -4153,7 +4153,7 @@ define linkonce_odr hidden noundef double @_ZN2cv6detail7GCGraphIdE7maxFlowEv(pt
   %.sroa.10.1430 = phi ptr [ %.sroa.10.0654, %173 ], [ %.sroa.10.4, %257 ]
   %.sroa.0.2429 = phi ptr [ %.sroa.0.0653, %173 ], [ %.sroa.0.6, %257 ]
   %183 = xor i32 %.0164432, %.1172306
-  %.pn225412 = zext i32 %183 to i64
+  %.pn225412 = zext nneg i32 %183 to i64
   %.pn224.in.in413 = getelementptr inbounds %"class.cv::detail::GCGraph<double>::Edge", ptr %27, i64 %.pn225412
   %.pn224.in414 = load i32, ptr %.pn224.in.in413, align 8
   %.pn224415 = sext i32 %.pn224.in414 to i64

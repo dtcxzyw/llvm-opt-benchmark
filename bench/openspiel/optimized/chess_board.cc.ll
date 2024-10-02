@@ -6765,8 +6765,8 @@ define void @_ZNK10open_spiel5chess10ChessBoard31GeneratePseudoLegalPawnCaptures
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, i64 %1, i32 %2) local_unnamed_addr #14 align 2 {
   %.sroa.0.sroa.0.0.extract.trunc = trunc i64 %1 to i8
-  %.sroa.0.sroa.4.0.extract.shift103 = lshr i64 %1, 8
-  %.sroa.0.sroa.4.0.extract.trunc = trunc i64 %.sroa.0.sroa.4.0.extract.shift103 to i8
+  %.sroa.0.sroa.4.0.extract.shift104 = lshr i64 %1, 8
+  %.sroa.0.sroa.4.0.extract.trunc = trunc i64 %.sroa.0.sroa.4.0.extract.shift104 to i8
   %.sroa.5.0.extract.shift = lshr i64 %1, 16
   %.sroa.5.0.extract.trunc = trunc i64 %.sroa.5.0.extract.shift to i8
   %.sroa.22.0.extract.shift = lshr i64 %1, 24
@@ -6803,8 +6803,8 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard15IsBreachingMoveEN
   %or.cond = select i1 %20, i1 %22, i1 false
   %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5chess9kPassMoveE, i64 8), align 4
   %24 = icmp eq i32 %2, %23
-  %or.cond85 = select i1 %or.cond, i1 %24, i1 false
-  br i1 %or.cond85, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit", label %_ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread
+  %or.cond86 = select i1 %or.cond, i1 %24, i1 false
+  br i1 %or.cond86, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit", label %_ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread
 
 _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   %25 = icmp ult i8 %.sroa.42.0.extract.trunc, 7
@@ -6816,7 +6816,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   br i1 %switch, label %28, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit"
 
 28:                                               ; preds = %26
-  %29 = trunc i64 %.sroa.0.sroa.4.0.extract.shift103 to i16
+  %29 = trunc i64 %.sroa.0.sroa.4.0.extract.shift104 to i16
   %.sroa.0.sroa.4.0.insert.ext = shl i16 %29, 8
   %30 = trunc i64 %1 to i16
   %.sroa.0.sroa.0.0.insert.ext = and i16 %30, 255
@@ -6830,9 +6830,9 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 .lr.ph.i.i:                                       ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %34 = icmp sgt i16 %.fr100.i, -1
-  br i1 %34, label %.lr.ph.i.split.i.preheader, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i"
+  br i1 %34, label %.lr.ph.i.split.preheader.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i"
 
-.lr.ph.i.split.i.preheader:                       ; preds = %.lr.ph.i.i
+.lr.ph.i.split.preheader.i:                       ; preds = %.lr.ph.i.i
   %.sroa.2.0.extract.shift.i.i = lshr i16 %.fr100.i, 8
   %.sroa.2.0.extract.trunc.i.i = trunc nuw i16 %.sroa.2.0.extract.shift.i.i to i8
   %35 = zext nneg i16 %.sroa.2.0.extract.shift.i.i to i32
@@ -6840,37 +6840,37 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   %37 = icmp ugt i32 %36, %35
   %38 = icmp ne i8 %.sroa.22.0.extract.trunc, %.sroa.2.0.extract.trunc.i.i
   %.fr = freeze i1 %37
-  br i1 %.fr, label %.lr.ph.i.split.i.preheader168, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i"
+  br i1 %.fr, label %.lr.ph.i.split.i.preheader, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i"
 
-.lr.ph.i.split.i.preheader168:                    ; preds = %.lr.ph.i.split.i.preheader
-  %39 = mul nsw i32 %36, %35
-  %40 = zext nneg i8 %.sroa.0.0.extract.trunc.i.i to i32
-  %41 = and i64 %.sroa.5.0.extract.shift, 255
+.lr.ph.i.split.i.preheader:                       ; preds = %.lr.ph.i.split.preheader.i
+  %39 = and i64 %.sroa.5.0.extract.shift, 255
+  %40 = mul nsw i32 %36, %35
+  %41 = zext nneg i8 %.sroa.0.0.extract.trunc.i.i to i32
   %42 = zext nneg i8 %.sroa.0.0.extract.trunc.i.i to i64
-  %43 = zext i32 %39 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %36, i32 %40)
+  %43 = zext i32 %40 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %36, i32 %41)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph.i.split.i
 
-.lr.ph.i.split.i:                                 ; preds = %.lr.ph.i.split.i.preheader168, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i"
-  %indvars.iv198 = phi i64 [ %42, %.lr.ph.i.split.i.preheader168 ], [ %indvars.iv.next199, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i" ]
-  %.12 = phi i1 [ true, %.lr.ph.i.split.i.preheader168 ], [ %spec.select, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i" ]
-  %exitcond.not = icmp eq i64 %indvars.iv198, %wide.trip.count
+.lr.ph.i.split.i:                                 ; preds = %.lr.ph.i.split.i.preheader, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i"
+  %indvars.iv = phi i64 [ %42, %.lr.ph.i.split.i.preheader ], [ %indvars.iv.next, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i" ]
+  %.12 = phi i1 [ true, %.lr.ph.i.split.i.preheader ], [ %spec.select, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i" ]
+  %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
   br i1 %exitcond.not, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i", label %44
 
 44:                                               ; preds = %.lr.ph.i.split.i
-  %45 = add nuw nsw i64 %indvars.iv198, %43
+  %45 = add nuw nsw i64 %indvars.iv, %43
   %46 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %33, i64 0, i64 %45, i32 1
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i", label %52
 
 "_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i": ; preds = %44
-  %49 = icmp ne i64 %indvars.iv198, %41
-  %.not138 = select i1 %49, i1 true, i1 %38
-  %spec.select = select i1 %.not138, i1 %.12, i1 false
-  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
-  %50 = and i64 %indvars.iv.next199, 128
+  %49 = icmp ne i64 %indvars.iv, %39
+  %.not139 = select i1 %49, i1 true, i1 %38
+  %spec.select = select i1 %.not139, i1 %.12, i1 false
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %50 = and i64 %indvars.iv.next, 128
   %51 = icmp eq i64 %50, 0
   br i1 %51, label %.lr.ph.i.split.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i", !llvm.loop !41
 
@@ -6881,14 +6881,14 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   br i1 %.not.i.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i", label %55
 
 55:                                               ; preds = %52
-  %56 = trunc i64 %indvars.iv198 to i8
-  %57 = icmp ne i8 %56, %.sroa.5.0.extract.trunc
-  %.not136 = select i1 %57, i1 true, i1 %38
-  %spec.select86 = select i1 %.not136, i1 %.12, i1 false
+  %56 = trunc i64 %indvars.iv to i8
+  %57 = icmp ne i8 %.sroa.5.0.extract.trunc, %56
+  %.not137 = select i1 %57, i1 true, i1 %38
+  %spec.select87 = select i1 %.not137, i1 %.12, i1 false
   br label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i"
 
-"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i": ; preds = %.lr.ph.i.split.i, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i", %.lr.ph.i.split.i.preheader, %55, %52, %.lr.ph.i.i, %28
-  %.2 = phi i1 [ %.12, %52 ], [ true, %.lr.ph.i.i ], [ true, %28 ], [ %spec.select86, %55 ], [ true, %.lr.ph.i.split.i.preheader ], [ %.12, %.lr.ph.i.split.i ], [ %spec.select, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i" ]
+"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i": ; preds = %.lr.ph.i.split.i, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i", %.lr.ph.i.split.preheader.i, %55, %52, %.lr.ph.i.i, %28
+  %.2 = phi i1 [ %.12, %52 ], [ true, %.lr.ph.i.i ], [ true, %28 ], [ %spec.select87, %55 ], [ true, %.lr.ph.i.split.preheader.i ], [ %.12, %.lr.ph.i.split.i ], [ %spec.select, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i" ]
   %.sroa.0.0.extract.trunc.i26.i = add i8 %31, -1
   %58 = icmp sgt i8 %.sroa.0.0.extract.trunc.i26.i, -1
   br i1 %58, label %.lr.ph.i27.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i"
@@ -6906,11 +6906,11 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   %63 = icmp ugt i32 %62, %61
   %64 = mul nsw i32 %62, %61
   %65 = icmp ne i8 %.sroa.22.0.extract.trunc, %.sroa.2.0.extract.trunc.i29.i
-  %.fr134 = freeze i1 %63
-  br i1 %.fr134, label %.lr.ph.i27.split.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i"
+  %.fr135 = freeze i1 %63
+  br i1 %.fr135, label %.lr.ph.i27.split.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i"
 
 .lr.ph.i27.split.i:                               ; preds = %.lr.ph.i27.split.i.preheader, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i"
-  %.10 = phi i1 [ %spec.select87, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i" ], [ %.2, %.lr.ph.i27.split.i.preheader ]
+  %.10 = phi i1 [ %spec.select88, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i" ], [ %.2, %.lr.ph.i27.split.i.preheader ]
   %.sroa.0.039.i30.i = phi i8 [ %75, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i" ], [ %.sroa.0.0.extract.trunc.i26.i, %.lr.ph.i27.split.i.preheader ]
   %66 = zext nneg i8 %.sroa.0.039.i30.i to i32
   %67 = icmp sgt i32 %62, %66
@@ -6926,8 +6926,8 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 
 "_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i": ; preds = %68
   %74 = icmp ne i8 %.sroa.0.039.i30.i, %.sroa.5.0.extract.trunc
-  %.not142 = select i1 %74, i1 true, i1 %65
-  %spec.select87 = select i1 %.not142, i1 %.10, i1 false
+  %.not143 = select i1 %74, i1 true, i1 %65
+  %spec.select88 = select i1 %.not143, i1 %.10, i1 false
   %75 = add nsw i8 %.sroa.0.039.i30.i, -1
   %76 = icmp sgt i8 %.sroa.0.039.i30.i, 0
   br i1 %76, label %.lr.ph.i27.split.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i", !llvm.loop !41
@@ -6940,12 +6940,12 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 
 80:                                               ; preds = %77
   %81 = icmp ne i8 %.sroa.0.039.i30.i, %.sroa.5.0.extract.trunc
-  %.not140 = select i1 %81, i1 true, i1 %65
-  %spec.select88 = select i1 %.not140, i1 %.10, i1 false
+  %.not141 = select i1 %81, i1 true, i1 %65
+  %spec.select89 = select i1 %.not141, i1 %.10, i1 false
   br label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i"
 
 "_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i": ; preds = %.lr.ph.i27.split.i, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i", %.lr.ph.i27.split.i.preheader, %80, %77, %.lr.ph.i27.i, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i"
-  %.3 = phi i1 [ %.10, %77 ], [ %.2, %.lr.ph.i27.i ], [ %.2, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i" ], [ %spec.select88, %80 ], [ %.2, %.lr.ph.i27.split.i.preheader ], [ %.10, %.lr.ph.i27.split.i ], [ %spec.select87, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i" ]
+  %.3 = phi i1 [ %.10, %77 ], [ %.2, %.lr.ph.i27.i ], [ %.2, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i" ], [ %spec.select89, %80 ], [ %.2, %.lr.ph.i27.split.i.preheader ], [ %.10, %.lr.ph.i27.split.i ], [ %spec.select88, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i" ]
   %82 = icmp sgt i8 %31, -1
   br i1 %82, label %.lr.ph.i46.i, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit"
 
@@ -6972,10 +6972,10 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i"
-  %indvars.iv = phi i32 [ %88, %.lr.ph.i.preheader ], [ %indvars.iv.next, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i" ]
-  %.7 = phi i1 [ %.3, %.lr.ph.i.preheader ], [ %spec.select89, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i" ]
-  %94 = phi i32 [ %85, %.lr.ph.i.preheader ], [ %spec.select90, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i" ]
-  %95 = mul nsw i32 %indvars.iv, %94
+  %indvars.iv198 = phi i32 [ %88, %.lr.ph.i.preheader ], [ %indvars.iv.next199, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i" ]
+  %.7 = phi i1 [ %.3, %.lr.ph.i.preheader ], [ %spec.select90, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i" ]
+  %94 = phi i32 [ %85, %.lr.ph.i.preheader ], [ %spec.select91, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i" ]
+  %95 = mul nsw i32 %indvars.iv198, %94
   %96 = add nuw nsw i32 %95, %84
   %97 = zext nneg i32 %96 to i64
   %98 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %83, i64 0, i64 %97, i32 1
@@ -6984,15 +6984,15 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   br i1 %100, label %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i", label %107
 
 "_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i": ; preds = %.lr.ph.i
-  %101 = icmp ne i32 %indvars.iv, %93
-  %.not146 = or i1 %91, %101
-  %spec.select89 = select i1 %.not146, i1 %.7, i1 false
-  %spec.select90 = select i1 %.not146, i32 %94, i32 %85
-  %indvars.iv.next = add nuw i32 %indvars.iv, 1
-  %102 = icmp sgt i32 %spec.select90, %84
-  %103 = and i32 %indvars.iv.next, 128
+  %101 = icmp ne i32 %indvars.iv198, %93
+  %.not147 = or i1 %91, %101
+  %spec.select90 = select i1 %.not147, i1 %.7, i1 false
+  %spec.select91 = select i1 %.not147, i32 %94, i32 %85
+  %indvars.iv.next199 = add nuw i32 %indvars.iv198, 1
+  %102 = icmp sgt i32 %spec.select91, %84
+  %103 = and i32 %indvars.iv.next199, 128
   %104 = icmp eq i32 %103, 0
-  %105 = icmp ugt i32 %spec.select90, %indvars.iv.next
+  %105 = icmp ugt i32 %spec.select91, %indvars.iv.next199
   %106 = and i1 %104, %105
   %or.cond34.i52.i = select i1 %102, i1 %106, i1 false
   br i1 %or.cond34.i52.i, label %.lr.ph.i, label %.lr.ph.i65.i, !llvm.loop !41
@@ -7004,14 +7004,14 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   br i1 %.not.i53.i, label %.lr.ph.i65.i, label %110
 
 110:                                              ; preds = %107
-  %111 = trunc nuw nsw i32 %indvars.iv to i8
+  %111 = trunc nuw nsw i32 %indvars.iv198 to i8
   %112 = icmp ne i8 %111, %.sroa.22.0.extract.trunc
-  %.not144 = select i1 %91, i1 true, i1 %112
-  %spec.select91 = select i1 %.not144, i1 %.7, i1 false
+  %.not145 = select i1 %91, i1 true, i1 %112
+  %spec.select92 = select i1 %.not145, i1 %.7, i1 false
   br label %.lr.ph.i65.i
 
 .lr.ph.i65.i:                                     ; preds = %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i", %110, %107, %.lr.ph.i46.i
-  %.4 = phi i1 [ %.3, %.lr.ph.i46.i ], [ %.7, %107 ], [ %spec.select91, %110 ], [ %spec.select89, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i" ]
+  %.4 = phi i1 [ %.3, %.lr.ph.i46.i ], [ %.7, %107 ], [ %spec.select92, %110 ], [ %spec.select90, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i" ]
   %.sroa.8.038.i6995.i = add i8 %.sroa.2.0.extract.trunc.i48.i, -1
   %113 = icmp sgt i8 %.sroa.8.038.i6995.i, -1
   %or.cond.i7096.i = select i1 %86, i1 %113, i1 false
@@ -7025,8 +7025,8 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   br label %.lr.ph99.i
 
 .lr.ph99.i:                                       ; preds = %.lr.ph99.i.preheader, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i"
-  %.5 = phi i1 [ %spec.select92, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i" ], [ %.4, %.lr.ph99.i.preheader ]
-  %117 = phi i32 [ %spec.select93, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i" ], [ %85, %.lr.ph99.i.preheader ]
+  %.5 = phi i1 [ %spec.select93, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i" ], [ %.4, %.lr.ph99.i.preheader ]
+  %117 = phi i32 [ %spec.select94, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i" ], [ %85, %.lr.ph99.i.preheader ]
   %118 = phi i32 [ %128, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i" ], [ %114, %.lr.ph99.i.preheader ]
   %.sroa.8.038.i6998.i = phi i8 [ %.sroa.8.038.i69.i, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i" ], [ %.sroa.8.038.i6995.i, %.lr.ph99.i.preheader ]
   %119 = mul nsw i32 %118, %117
@@ -7039,15 +7039,15 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 
 "_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i": ; preds = %.lr.ph99.i
   %125 = icmp ne i8 %.sroa.8.038.i6998.i, %.sroa.22.0.extract.trunc
-  %.not150 = select i1 %116, i1 true, i1 %125
-  %spec.select92 = select i1 %.not150, i1 %.5, i1 false
-  %spec.select93 = select i1 %.not150, i32 %117, i32 %85
+  %.not151 = select i1 %116, i1 true, i1 %125
+  %spec.select93 = select i1 %.not151, i1 %.5, i1 false
+  %spec.select94 = select i1 %.not151, i32 %117, i32 %85
   %.sroa.8.038.i69.i = add nsw i8 %.sroa.8.038.i6998.i, -1
-  %126 = icmp sgt i32 %spec.select93, %84
+  %126 = icmp sgt i32 %spec.select94, %84
   %127 = icmp sgt i8 %.sroa.8.038.i6998.i, 0
   %or.cond.i70.i = select i1 %126, i1 %127, i1 false
   %128 = zext nneg i8 %.sroa.8.038.i69.i to i32
-  %129 = icmp ugt i32 %spec.select93, %128
+  %129 = icmp ugt i32 %spec.select94, %128
   %or.cond34.i71.i = select i1 %or.cond.i70.i, i1 %129, i1 false
   br i1 %or.cond34.i71.i, label %.lr.ph99.i, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit", !llvm.loop !41
 
@@ -7059,12 +7059,12 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 
 133:                                              ; preds = %130
   %134 = icmp ne i8 %.sroa.8.038.i6998.i, %.sroa.22.0.extract.trunc
-  %.not148 = select i1 %116, i1 true, i1 %134
-  %spec.select94 = select i1 %.not148, i1 %.5, i1 false
+  %.not149 = select i1 %116, i1 true, i1 %134
+  %spec.select95 = select i1 %.not149, i1 %.5, i1 false
   br label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit"
 
 "_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit": ; preds = %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i", %133, %130, %.lr.ph.i65.i, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i", %26
-  %.082 = phi i1 [ true, %26 ], [ %.5, %130 ], [ %.4, %.lr.ph.i65.i ], [ %.3, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i" ], [ %spec.select94, %133 ], [ %spec.select92, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i" ]
+  %.083 = phi i1 [ true, %26 ], [ %.5, %130 ], [ %.4, %.lr.ph.i65.i ], [ %.3, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i" ], [ %spec.select95, %133 ], [ %spec.select93, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i" ]
   switch i8 %.sroa.42.0.extract.trunc, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit" [
     i8 4, label %135
     i8 2, label %135
@@ -7077,28 +7077,28 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 
 .lr.ph.i.i58:                                     ; preds = %135
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %138 = load i32, ptr %0, align 8
-  %139 = zext nneg i8 %.sroa.0.0.extract.trunc.i.i18 to i32
+  %138 = zext nneg i8 %.sroa.0.0.extract.trunc.i.i18 to i32
+  %139 = load i32, ptr %0, align 8
   %140 = trunc i64 %.sroa.5.0.extract.shift to i32
   %141 = and i32 %140, 255
   br label %142
 
 142:                                              ; preds = %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i68", %.lr.ph.i.i58
-  %indvars.iv200 = phi i32 [ %indvars.iv.next201, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i68" ], [ %139, %.lr.ph.i.i58 ]
-  %.24 = phi i1 [ %spec.select95, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i68" ], [ %.082, %.lr.ph.i.i58 ]
-  %.sroa.8.038.i.in.i = phi i8 [ %.sroa.8.038.i.i, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i68" ], [ %.sroa.0.sroa.4.0.extract.trunc, %.lr.ph.i.i58 ]
+  %.24 = phi i1 [ %.083, %.lr.ph.i.i58 ], [ %spec.select96, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i68" ]
+  %indvars.iv.i61 = phi i32 [ %138, %.lr.ph.i.i58 ], [ %indvars.iv.next.i69, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i68" ]
+  %.sroa.8.038.i.in.i = phi i8 [ %.sroa.0.sroa.4.0.extract.trunc, %.lr.ph.i.i58 ], [ %.sroa.8.038.i.i, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i68" ]
   %.sroa.8.038.i.i = add i8 %.sroa.8.038.i.in.i, 1
-  %143 = icmp sgt i32 %138, %indvars.iv200
+  %143 = icmp sgt i32 %139, %indvars.iv.i61
   %144 = icmp sgt i8 %.sroa.8.038.i.i, -1
   %or.cond.i.i = select i1 %143, i1 %144, i1 false
   %145 = zext nneg i8 %.sroa.8.038.i.i to i32
-  %146 = icmp ugt i32 %138, %145
+  %146 = icmp ugt i32 %139, %145
   %or.cond34.i.i62 = select i1 %or.cond.i.i, i1 %146, i1 false
   br i1 %or.cond34.i.i62, label %147, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i19"
 
 147:                                              ; preds = %142
-  %148 = mul nsw i32 %138, %145
-  %149 = add nuw nsw i32 %148, %indvars.iv200
+  %148 = mul nsw i32 %139, %145
+  %149 = add nuw nsw i32 %148, %indvars.iv.i61
   %150 = zext nneg i32 %149 to i64
   %151 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %137, i64 0, i64 %150, i32 1
   %152 = load i8, ptr %151, align 1
@@ -7106,12 +7106,12 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   br i1 %153, label %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i68", label %158
 
 "_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i68": ; preds = %147
-  %154 = icmp ne i32 %indvars.iv200, %141
+  %154 = icmp ne i32 %indvars.iv.i61, %141
   %155 = icmp ne i8 %.sroa.8.038.i.i, %.sroa.22.0.extract.trunc
-  %.not154 = select i1 %154, i1 true, i1 %155
-  %spec.select95 = select i1 %.not154, i1 %.24, i1 false
-  %indvars.iv.next201 = add nuw nsw i32 %indvars.iv200, 1
-  %156 = and i32 %indvars.iv.next201, 128
+  %.not155 = select i1 %154, i1 true, i1 %155
+  %spec.select96 = select i1 %.not155, i1 %.24, i1 false
+  %indvars.iv.next.i69 = add nuw nsw i32 %indvars.iv.i61, 1
+  %156 = and i32 %indvars.iv.next.i69, 128
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %142, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i19", !llvm.loop !41
 
@@ -7122,15 +7122,15 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   br i1 %.not.i.i63, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i19", label %161
 
 161:                                              ; preds = %158
-  %162 = trunc nuw nsw i32 %indvars.iv200 to i8
-  %163 = icmp ne i8 %162, %.sroa.5.0.extract.trunc
+  %162 = trunc nuw nsw i32 %indvars.iv.i61 to i8
+  %163 = icmp ne i8 %.sroa.5.0.extract.trunc, %162
   %164 = icmp ne i8 %.sroa.8.038.i.i, %.sroa.22.0.extract.trunc
-  %.not152 = select i1 %163, i1 true, i1 %164
-  %spec.select96 = select i1 %.not152, i1 %.24, i1 false
+  %.not153 = select i1 %163, i1 true, i1 %164
+  %spec.select97 = select i1 %.not153, i1 %.24, i1 false
   br label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i19"
 
 "_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i19": ; preds = %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i68", %142, %161, %158, %135
-  %.15 = phi i1 [ %.24, %158 ], [ %.082, %135 ], [ %spec.select96, %161 ], [ %.24, %142 ], [ %spec.select95, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i68" ]
+  %.15 = phi i1 [ %.24, %158 ], [ %.083, %135 ], [ %spec.select97, %161 ], [ %.24, %142 ], [ %spec.select96, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i.i68" ]
   %.sroa.0.0.extract.trunc.i26.i20 = add i8 %.sroa.0.sroa.0.0.extract.trunc, -1
   %165 = icmp sgt i8 %.sroa.0.0.extract.trunc.i26.i20, -1
   br i1 %165, label %.lr.ph.i27.i47, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i21"
@@ -7141,7 +7141,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   br label %168
 
 168:                                              ; preds = %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i57", %.lr.ph.i27.i47
-  %.22 = phi i1 [ %.15, %.lr.ph.i27.i47 ], [ %spec.select97, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i57" ]
+  %.22 = phi i1 [ %.15, %.lr.ph.i27.i47 ], [ %spec.select98, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i57" ]
   %.sroa.0.039.i30.i50 = phi i8 [ %.sroa.0.0.extract.trunc.i26.i20, %.lr.ph.i27.i47 ], [ %183, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i57" ]
   %.sroa.8.038.i31.in.i = phi i8 [ %.sroa.0.sroa.4.0.extract.trunc, %.lr.ph.i27.i47 ], [ %.sroa.8.038.i31.i, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i57" ]
   %.sroa.8.038.i31.i = add i8 %.sroa.8.038.i31.in.i, 1
@@ -7166,8 +7166,8 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 "_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i57": ; preds = %174
   %181 = icmp ne i8 %.sroa.0.039.i30.i50, %.sroa.5.0.extract.trunc
   %182 = icmp ne i8 %.sroa.8.038.i31.i, %.sroa.22.0.extract.trunc
-  %.not158 = select i1 %181, i1 true, i1 %182
-  %spec.select97 = select i1 %.not158, i1 %.22, i1 false
+  %.not159 = select i1 %181, i1 true, i1 %182
+  %spec.select98 = select i1 %.not159, i1 %.22, i1 false
   %183 = add nsw i8 %.sroa.0.039.i30.i50, -1
   %184 = icmp sgt i8 %.sroa.0.039.i30.i50, 0
   br i1 %184, label %168, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i21", !llvm.loop !41
@@ -7181,120 +7181,124 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 188:                                              ; preds = %185
   %189 = icmp ne i8 %.sroa.0.039.i30.i50, %.sroa.5.0.extract.trunc
   %190 = icmp ne i8 %.sroa.8.038.i31.i, %.sroa.22.0.extract.trunc
-  %.not156 = select i1 %189, i1 true, i1 %190
-  %spec.select98 = select i1 %.not156, i1 %.22, i1 false
+  %.not157 = select i1 %189, i1 true, i1 %190
+  %spec.select99 = select i1 %.not157, i1 %.22, i1 false
   br label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i21"
 
 "_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i21": ; preds = %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i57", %168, %188, %185, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i19"
-  %.16 = phi i1 [ %.22, %185 ], [ %.15, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i19" ], [ %spec.select98, %188 ], [ %.22, %168 ], [ %spec.select97, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i57" ]
+  %.16 = phi i1 [ %.22, %185 ], [ %.15, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i19" ], [ %spec.select99, %188 ], [ %.22, %168 ], [ %spec.select98, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i42.i57" ]
   br i1 %136, label %.lr.ph.i46.i35, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit63.i22"
 
 .lr.ph.i46.i35:                                   ; preds = %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i21"
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %192 = load i32, ptr %0, align 8
-  %193 = zext nneg i8 %.sroa.0.0.extract.trunc.i.i18 to i32
+  %192 = zext nneg i8 %.sroa.0.0.extract.trunc.i.i18 to i32
+  %193 = load i32, ptr %0, align 8
   %194 = trunc i64 %.sroa.5.0.extract.shift to i32
   %195 = and i32 %194, 255
-  br label %196
+  %196 = trunc i64 %.sroa.0.sroa.4.0.extract.shift104 to i32
+  %197 = and i32 %196, 255
+  br label %198
 
-196:                                              ; preds = %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i46", %.lr.ph.i46.i35
-  %indvars.iv202 = phi i32 [ %indvars.iv.next203, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i46" ], [ %193, %.lr.ph.i46.i35 ]
-  %.20 = phi i1 [ %spec.select99, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i46" ], [ %.16, %.lr.ph.i46.i35 ]
-  %.sroa.8.038.i50.in.i = phi i8 [ %.sroa.8.038.i50.i38, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i46" ], [ %.sroa.0.sroa.4.0.extract.trunc, %.lr.ph.i46.i35 ]
-  %.sroa.8.038.i50.i38 = add i8 %.sroa.8.038.i50.in.i, -1
-  %197 = icmp sgt i32 %192, %indvars.iv202
-  %198 = icmp sgt i8 %.sroa.8.038.i50.i38, -1
-  %or.cond.i51.i39 = select i1 %197, i1 %198, i1 false
-  %199 = zext nneg i8 %.sroa.8.038.i50.i38 to i32
-  %200 = icmp ugt i32 %192, %199
-  %or.cond34.i52.i40 = select i1 %or.cond.i51.i39, i1 %200, i1 false
-  br i1 %or.cond34.i52.i40, label %201, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit63.i22"
+198:                                              ; preds = %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i46", %.lr.ph.i46.i35
+  %indvars.iv200 = phi i32 [ %indvars.iv.next201, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i46" ], [ %197, %.lr.ph.i46.i35 ]
+  %.20 = phi i1 [ %spec.select100, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i46" ], [ %.16, %.lr.ph.i46.i35 ]
+  %indvars.iv24.i = phi i32 [ %indvars.iv.next25.i, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i46" ], [ %192, %.lr.ph.i46.i35 ]
+  %199 = trunc nuw i32 %indvars.iv200 to i8
+  %.sroa.8.038.i50.i38 = add i8 %199, -1
+  %200 = icmp sgt i32 %193, %indvars.iv24.i
+  %201 = icmp sgt i8 %.sroa.8.038.i50.i38, -1
+  %or.cond.i51.i39 = select i1 %200, i1 %201, i1 false
+  %202 = zext nneg i8 %.sroa.8.038.i50.i38 to i32
+  %203 = icmp ugt i32 %193, %202
+  %or.cond34.i52.i40 = select i1 %or.cond.i51.i39, i1 %203, i1 false
+  br i1 %or.cond34.i52.i40, label %204, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit63.i22"
 
-201:                                              ; preds = %196
-  %202 = mul nsw i32 %192, %199
-  %203 = add nuw nsw i32 %202, %indvars.iv202
-  %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %191, i64 0, i64 %204, i32 1
-  %206 = load i8, ptr %205, align 1
-  %207 = icmp eq i8 %206, 0
-  br i1 %207, label %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i46", label %212
+204:                                              ; preds = %198
+  %205 = mul nsw i32 %193, %202
+  %206 = add nuw nsw i32 %205, %indvars.iv24.i
+  %207 = zext nneg i32 %206 to i64
+  %208 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %191, i64 0, i64 %207, i32 1
+  %209 = load i8, ptr %208, align 1
+  %210 = icmp eq i8 %209, 0
+  br i1 %210, label %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i46", label %215
 
-"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i46": ; preds = %201
-  %208 = icmp ne i32 %indvars.iv202, %195
-  %209 = icmp ne i8 %.sroa.8.038.i50.i38, %.sroa.22.0.extract.trunc
-  %.not162 = select i1 %208, i1 true, i1 %209
-  %spec.select99 = select i1 %.not162, i1 %.20, i1 false
-  %indvars.iv.next203 = add nuw nsw i32 %indvars.iv202, 1
-  %210 = and i32 %indvars.iv.next203, 128
-  %211 = icmp eq i32 %210, 0
-  br i1 %211, label %196, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit63.i22", !llvm.loop !41
+"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i46": ; preds = %204
+  %211 = icmp ne i32 %indvars.iv24.i, %195
+  %212 = icmp ne i8 %.sroa.8.038.i50.i38, %.sroa.22.0.extract.trunc
+  %.not163 = select i1 %211, i1 true, i1 %212
+  %spec.select100 = select i1 %.not163, i1 %.20, i1 false
+  %indvars.iv.next25.i = add nuw nsw i32 %indvars.iv24.i, 1
+  %213 = and i32 %indvars.iv.next25.i, 128
+  %214 = icmp eq i32 %213, 0
+  %indvars.iv.next201 = add nsw i32 %indvars.iv200, -1
+  br i1 %214, label %198, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit63.i22", !llvm.loop !41
 
-212:                                              ; preds = %201
-  %213 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %191, i64 0, i64 %204
-  %214 = load i8, ptr %213, align 2
-  %.not.i53.i41 = icmp eq i8 %214, %.sroa.39.0.extract.trunc
-  br i1 %.not.i53.i41, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit63.i22", label %215
+215:                                              ; preds = %204
+  %216 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %191, i64 0, i64 %207
+  %217 = load i8, ptr %216, align 2
+  %.not.i53.i41 = icmp eq i8 %217, %.sroa.39.0.extract.trunc
+  br i1 %.not.i53.i41, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit63.i22", label %218
 
-215:                                              ; preds = %212
-  %216 = trunc nuw nsw i32 %indvars.iv202 to i8
-  %217 = icmp ne i8 %216, %.sroa.5.0.extract.trunc
-  %218 = icmp ne i8 %.sroa.8.038.i50.i38, %.sroa.22.0.extract.trunc
-  %.not160 = select i1 %217, i1 true, i1 %218
-  %spec.select100 = select i1 %.not160, i1 %.20, i1 false
+218:                                              ; preds = %215
+  %219 = trunc nuw nsw i32 %indvars.iv24.i to i8
+  %220 = icmp ne i8 %.sroa.5.0.extract.trunc, %219
+  %221 = icmp ne i8 %.sroa.8.038.i50.i38, %.sroa.22.0.extract.trunc
+  %.not161 = select i1 %220, i1 true, i1 %221
+  %spec.select101 = select i1 %.not161, i1 %.20, i1 false
   br label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit63.i22"
 
-"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit63.i22": ; preds = %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i46", %196, %215, %212, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i21"
-  %.17 = phi i1 [ %.20, %212 ], [ %.16, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i21" ], [ %spec.select100, %215 ], [ %.20, %196 ], [ %spec.select99, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i46" ]
+"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit63.i22": ; preds = %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i46", %198, %218, %215, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i21"
+  %.17 = phi i1 [ %.20, %215 ], [ %.16, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i21" ], [ %spec.select101, %218 ], [ %.20, %198 ], [ %spec.select100, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i61.i46" ]
   br i1 %165, label %.lr.ph.i65.i23, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit"
 
 .lr.ph.i65.i23:                                   ; preds = %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit63.i22"
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %220 = load i32, ptr %0, align 8
-  br label %221
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %223 = load i32, ptr %0, align 8
+  br label %224
 
-221:                                              ; preds = %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i34", %.lr.ph.i65.i23
-  %.18 = phi i1 [ %.17, %.lr.ph.i65.i23 ], [ %spec.select101, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i34" ]
-  %.sroa.0.039.i68.i = phi i8 [ %.sroa.0.0.extract.trunc.i26.i20, %.lr.ph.i65.i23 ], [ %236, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i34" ]
+224:                                              ; preds = %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i34", %.lr.ph.i65.i23
+  %.18 = phi i1 [ %.17, %.lr.ph.i65.i23 ], [ %spec.select102, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i34" ]
+  %.sroa.0.039.i68.i = phi i8 [ %.sroa.0.0.extract.trunc.i26.i20, %.lr.ph.i65.i23 ], [ %239, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i34" ]
   %.sroa.8.038.i69.in.i = phi i8 [ %.sroa.0.sroa.4.0.extract.trunc, %.lr.ph.i65.i23 ], [ %.sroa.8.038.i69.i26, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i34" ]
   %.sroa.8.038.i69.i26 = add i8 %.sroa.8.038.i69.in.i, -1
-  %222 = zext nneg i8 %.sroa.0.039.i68.i to i32
-  %223 = icmp sgt i32 %220, %222
-  %224 = icmp sgt i8 %.sroa.8.038.i69.i26, -1
-  %or.cond.i70.i27 = select i1 %223, i1 %224, i1 false
-  %225 = zext nneg i8 %.sroa.8.038.i69.i26 to i32
-  %226 = icmp ugt i32 %220, %225
-  %or.cond34.i71.i28 = select i1 %or.cond.i70.i27, i1 %226, i1 false
-  br i1 %or.cond34.i71.i28, label %227, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit"
+  %225 = zext nneg i8 %.sroa.0.039.i68.i to i32
+  %226 = icmp sgt i32 %223, %225
+  %227 = icmp sgt i8 %.sroa.8.038.i69.i26, -1
+  %or.cond.i70.i27 = select i1 %226, i1 %227, i1 false
+  %228 = zext nneg i8 %.sroa.8.038.i69.i26 to i32
+  %229 = icmp ugt i32 %223, %228
+  %or.cond34.i71.i28 = select i1 %or.cond.i70.i27, i1 %229, i1 false
+  br i1 %or.cond34.i71.i28, label %230, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit"
 
-227:                                              ; preds = %221
-  %228 = mul nsw i32 %220, %225
-  %229 = add nuw nsw i32 %228, %222
-  %230 = zext nneg i32 %229 to i64
-  %231 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %219, i64 0, i64 %230, i32 1
-  %232 = load i8, ptr %231, align 1
-  %233 = icmp eq i8 %232, 0
-  br i1 %233, label %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i34", label %238
+230:                                              ; preds = %224
+  %231 = mul nsw i32 %223, %228
+  %232 = add nuw nsw i32 %231, %225
+  %233 = zext nneg i32 %232 to i64
+  %234 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %222, i64 0, i64 %233, i32 1
+  %235 = load i8, ptr %234, align 1
+  %236 = icmp eq i8 %235, 0
+  br i1 %236, label %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i34", label %241
 
-"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i34": ; preds = %227
-  %234 = icmp ne i8 %.sroa.0.039.i68.i, %.sroa.5.0.extract.trunc
-  %235 = icmp ne i8 %.sroa.8.038.i69.i26, %.sroa.22.0.extract.trunc
-  %.not166 = select i1 %234, i1 true, i1 %235
-  %spec.select101 = select i1 %.not166, i1 %.18, i1 false
-  %236 = add nsw i8 %.sroa.0.039.i68.i, -1
-  %237 = icmp sgt i8 %.sroa.0.039.i68.i, 0
-  br i1 %237, label %221, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit", !llvm.loop !41
+"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i34": ; preds = %230
+  %237 = icmp ne i8 %.sroa.0.039.i68.i, %.sroa.5.0.extract.trunc
+  %238 = icmp ne i8 %.sroa.8.038.i69.i26, %.sroa.22.0.extract.trunc
+  %.not167 = select i1 %237, i1 true, i1 %238
+  %spec.select102 = select i1 %.not167, i1 %.18, i1 false
+  %239 = add nsw i8 %.sroa.0.039.i68.i, -1
+  %240 = icmp sgt i8 %.sroa.0.039.i68.i, 0
+  br i1 %240, label %224, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit", !llvm.loop !41
 
-238:                                              ; preds = %227
-  %239 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %219, i64 0, i64 %230
-  %240 = load i8, ptr %239, align 2
-  %.not.i72.i29 = icmp eq i8 %240, %.sroa.39.0.extract.trunc
-  br i1 %.not.i72.i29, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit", label %241
+241:                                              ; preds = %230
+  %242 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %222, i64 0, i64 %233
+  %243 = load i8, ptr %242, align 2
+  %.not.i72.i29 = icmp eq i8 %243, %.sroa.39.0.extract.trunc
+  br i1 %.not.i72.i29, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit", label %244
 
-241:                                              ; preds = %238
-  %242 = icmp ne i8 %.sroa.0.039.i68.i, %.sroa.5.0.extract.trunc
-  %243 = icmp ne i8 %.sroa.8.038.i69.i26, %.sroa.22.0.extract.trunc
-  %.not164 = select i1 %242, i1 true, i1 %243
-  %spec.select102 = select i1 %.not164, i1 %.18, i1 false
+244:                                              ; preds = %241
+  %245 = icmp ne i8 %.sroa.0.039.i68.i, %.sroa.5.0.extract.trunc
+  %246 = icmp ne i8 %.sroa.8.038.i69.i26, %.sroa.22.0.extract.trunc
+  %.not165 = select i1 %245, i1 true, i1 %246
+  %spec.select103 = select i1 %.not165, i1 %.18, i1 false
   br label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit"
 
 switch.hole_check:                                ; preds = %_ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread
@@ -7302,8 +7306,8 @@ switch.hole_check:                                ; preds = %_ZNK10open_spiel5ch
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit", label %26
 
-"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit": ; preds = %221, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i34", %switch.hole_check, %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit", %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit63.i22", %238, %241, %15
-  %.0 = phi i1 [ false, %15 ], [ %.082, %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit" ], [ %.18, %238 ], [ %.17, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit63.i22" ], [ %spec.select102, %241 ], [ false, %switch.hole_check ], [ %.18, %221 ], [ %spec.select101, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i34" ]
+"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit": ; preds = %224, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i34", %switch.hole_check, %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit", %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit63.i22", %241, %244, %15
+  %.0 = phi i1 [ false, %15 ], [ %.083, %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit" ], [ %.18, %241 ], [ %.17, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit63.i22" ], [ %spec.select103, %244 ], [ false, %switch.hole_check ], [ %.18, %224 ], [ %spec.select102, %"_ZZNK10open_spiel5chess10ChessBoard15IsBreachingMoveENS0_4MoveEENK3$_0clERKNS_12chess_common6SquareE.exit.i80.i34" ]
   ret i1 %.0
 }
 
@@ -9797,7 +9801,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br label %23
 
 23:                                               ; preds = %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_0clES5_.exit.i", %18
-  %.0152 = phi i8 [ 0, %18 ], [ %.1, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_0clES5_.exit.i" ]
+  %.0153 = phi i8 [ 0, %18 ], [ %.1, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_0clES5_.exit.i" ]
   %.0.idx18.i = phi i64 [ 0, %18 ], [ %.0.add.i, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_0clES5_.exit.i" ]
   %.0.ptr.i = getelementptr inbounds i8, ptr @"_ZZNK10open_spiel5chess10ChessBoard25GenerateKingDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_0EEvS4_S7_RKT_E8kOffsets", i64 %.0.idx18.i
   %24 = load i8, ptr %.0.ptr.i, align 1
@@ -9833,11 +9837,11 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %45 = icmp eq i8 %44, 1
   %46 = icmp eq i8 %41, %20
   %47 = and i1 %45, %46
-  %spec.select = select i1 %47, i8 1, i8 %.0152
+  %spec.select = select i1 %47, i8 1, i8 %.0153
   br label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_0clES5_.exit.i"
 
 "_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_0clES5_.exit.i": ; preds = %42, %36, %27, %23
-  %.1 = phi i8 [ %.0152, %36 ], [ %.0152, %27 ], [ %.0152, %23 ], [ %spec.select, %42 ]
+  %.1 = phi i8 [ %.0153, %36 ], [ %.0153, %27 ], [ %.0153, %23 ], [ %spec.select, %42 ]
   %.0.add.i = add nuw nsw i64 %.0.idx18.i, 2
   %.not.i = icmp eq i64 %.0.add.i, 16
   br i1 %.not.i, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateKingDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_0EEvS4_S7_RKT_.exit", label %23
@@ -9851,15 +9855,15 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %50 = icmp sgt i8 %.sroa.0.0.extract.trunc.i.i, -1
   %51 = icmp sgt i16 %.fr94.i, -1
   %or.cond = and i1 %50, %51
-  br i1 %or.cond, label %.lr.ph.i.split.i.preheader, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
+  br i1 %or.cond, label %.lr.ph.i.split.preheader.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
 
-.lr.ph.i.split.i.preheader:                       ; preds = %49
+.lr.ph.i.split.preheader.i:                       ; preds = %49
   %.sroa.2.0.extract.trunc.i.i = zext nneg i16 %11 to i32
   %52 = icmp ugt i32 %22, %.sroa.2.0.extract.trunc.i.i
   %.fr = freeze i1 %52
-  br i1 %.fr, label %.lr.ph.i.split.i.preheader204, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
+  br i1 %.fr, label %.lr.ph.i.split.i.preheader, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
 
-.lr.ph.i.split.i.preheader204:                    ; preds = %.lr.ph.i.split.i.preheader
+.lr.ph.i.split.i.preheader:                       ; preds = %.lr.ph.i.split.preheader.i
   %53 = mul nsw i32 %22, %.sroa.2.0.extract.trunc.i.i
   %54 = zext nneg i8 %.sroa.0.0.extract.trunc.i.i to i32
   %55 = zext nneg i8 %.sroa.0.0.extract.trunc.i.i to i64
@@ -9868,21 +9872,21 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph.i.split.i
 
-.lr.ph.i.split.i:                                 ; preds = %.lr.ph.i.split.i.preheader204, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i.i"
-  %indvars.iv232 = phi i64 [ %55, %.lr.ph.i.split.i.preheader204 ], [ %indvars.iv.next233, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i.i" ]
-  %exitcond.not = icmp eq i64 %indvars.iv232, %wide.trip.count
+.lr.ph.i.split.i:                                 ; preds = %.lr.ph.i.split.i.preheader, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i.i"
+  %indvars.iv = phi i64 [ %55, %.lr.ph.i.split.i.preheader ], [ %indvars.iv.next, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i.i" ]
+  %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
   br i1 %exitcond.not, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i", label %57
 
 57:                                               ; preds = %.lr.ph.i.split.i
-  %58 = add nuw nsw i64 %indvars.iv232, %56
+  %58 = add nuw nsw i64 %indvars.iv, %56
   %59 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %58, i32 1
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 0
   br i1 %61, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i.i", label %64
 
 "_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i.i": ; preds = %57
-  %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
-  %62 = and i64 %indvars.iv.next233, 128
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %62 = and i64 %indvars.iv.next, 128
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %.lr.ph.i.split.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i", !llvm.loop !53
 
@@ -9903,23 +9907,23 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %74 = and i8 %71, -2
   %75 = icmp eq i8 %74, 2
   %or.cond.i16.i.i = select i1 %75, i1 %73, i1 false
-  %spec.select156 = select i1 %or.cond.i16.i.i, i8 1, i8 %.1
+  %spec.select157 = select i1 %or.cond.i16.i.i, i8 1, i8 %.1
   br label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
 
-"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i": ; preds = %.lr.ph.i.split.i, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i.i", %.lr.ph.i.split.i.preheader, %67, %64, %49
-  %.2 = phi i8 [ %.1, %64 ], [ %.1, %49 ], [ %spec.select156, %67 ], [ %.1, %.lr.ph.i.split.i.preheader ], [ %.1, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i.i" ], [ %.1, %.lr.ph.i.split.i ]
+"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i": ; preds = %.lr.ph.i.split.i, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i.i", %.lr.ph.i.split.preheader.i, %67, %64, %49
+  %.2 = phi i8 [ %.1, %64 ], [ %.1, %49 ], [ %spec.select157, %67 ], [ %.1, %.lr.ph.i.split.preheader.i ], [ %.1, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i.i" ], [ %.1, %.lr.ph.i.split.i ]
   %.sroa.0.0.extract.trunc.i26.i = add i8 %9, -1
   %76 = icmp sgt i8 %.sroa.0.0.extract.trunc.i26.i, -1
   %77 = icmp sgt i16 %.fr94.i, -1
-  %or.cond261 = and i1 %76, %77
-  br i1 %or.cond261, label %.lr.ph.i27.split.i.preheader, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i"
+  %or.cond256 = and i1 %76, %77
+  br i1 %or.cond256, label %.lr.ph.i27.split.i.preheader, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i"
 
 .lr.ph.i27.split.i.preheader:                     ; preds = %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
   %.sroa.2.0.extract.trunc.i29.i = zext nneg i16 %11 to i32
   %78 = icmp ugt i32 %22, %.sroa.2.0.extract.trunc.i29.i
   %79 = mul nsw i32 %22, %.sroa.2.0.extract.trunc.i29.i
-  %.fr202 = freeze i1 %78
-  br i1 %.fr202, label %.lr.ph.i27.split.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i"
+  %.fr203 = freeze i1 %78
+  br i1 %.fr203, label %.lr.ph.i27.split.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i"
 
 .lr.ph.i27.split.i:                               ; preds = %.lr.ph.i27.split.i.preheader, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i38.i"
   %.sroa.0.050.i30.i = phi i8 [ %88, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i38.i" ], [ %.sroa.0.0.extract.trunc.i26.i, %.lr.ph.i27.split.i.preheader ]
@@ -9951,11 +9955,11 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %95 = and i8 %86, -2
   %96 = icmp eq i8 %95, 2
   %or.cond.i16.i35.i = and i1 %96, %94
-  %spec.select158 = select i1 %or.cond.i16.i35.i, i8 1, i8 %.2
+  %spec.select159 = select i1 %or.cond.i16.i35.i, i8 1, i8 %.2
   br label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i"
 
 "_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i": ; preds = %.lr.ph.i27.split.i, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i38.i", %.lr.ph.i27.split.i.preheader, %93, %90, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
-  %.3 = phi i8 [ %.2, %90 ], [ %.2, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i" ], [ %spec.select158, %93 ], [ %.2, %.lr.ph.i27.split.i.preheader ], [ %.2, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i38.i" ], [ %.2, %.lr.ph.i27.split.i ]
+  %.3 = phi i8 [ %.2, %90 ], [ %.2, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i" ], [ %spec.select159, %93 ], [ %.2, %.lr.ph.i27.split.i.preheader ], [ %.2, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i38.i" ], [ %.2, %.lr.ph.i27.split.i ]
   %97 = and i16 %.fr94.i, 128
   %98 = icmp eq i16 %97, 0
   br i1 %98, label %.lr.ph.i42.i, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit"
@@ -9973,10 +9977,10 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br i1 %or.cond47.i4887.i, label %.lr.ph.i, label %.lr.ph.i57.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i42.i, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i53.i"
-  %indvars.iv = phi i32 [ %indvars.iv.next, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i53.i" ], [ %102, %.lr.ph.i42.i ]
-  %.7 = phi i8 [ %spec.select159, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i53.i" ], [ %.3, %.lr.ph.i42.i ]
-  %104 = phi i32 [ %spec.select160, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i53.i" ], [ %22, %.lr.ph.i42.i ]
-  %105 = mul nsw i32 %indvars.iv, %104
+  %indvars.iv232 = phi i32 [ %indvars.iv.next233, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i53.i" ], [ %102, %.lr.ph.i42.i ]
+  %.7 = phi i8 [ %spec.select160, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i53.i" ], [ %.3, %.lr.ph.i42.i ]
+  %104 = phi i32 [ %spec.select161, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i53.i" ], [ %22, %.lr.ph.i42.i ]
+  %105 = mul nsw i32 %indvars.iv232, %104
   %106 = add nuw nsw i32 %105, %99
   %107 = zext nneg i32 %106 to i64
   %108 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %107, i32 1
@@ -9985,7 +9989,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br i1 %110, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i53.i", label %126
 
 "_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i53.i": ; preds = %.lr.ph.i
-  %111 = mul nsw i32 %indvars.iv, %22
+  %111 = mul nsw i32 %indvars.iv232, %22
   %112 = add nsw i32 %111, %99
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %113
@@ -9996,13 +10000,13 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %119 = and i8 %116, -2
   %120 = icmp eq i8 %119, 2
   %or.cond.i.i52.i = select i1 %120, i1 %118, i1 false
-  %spec.select159 = select i1 %or.cond.i.i52.i, i8 1, i8 %.7
-  %spec.select160 = select i1 %or.cond.i.i52.i, i32 %22, i32 %104
-  %indvars.iv.next = add nuw i32 %indvars.iv, 1
-  %121 = icmp sgt i32 %spec.select160, %99
-  %122 = and i32 %indvars.iv.next, 128
+  %spec.select160 = select i1 %or.cond.i.i52.i, i8 1, i8 %.7
+  %spec.select161 = select i1 %or.cond.i.i52.i, i32 %22, i32 %104
+  %indvars.iv.next233 = add nuw i32 %indvars.iv232, 1
+  %121 = icmp sgt i32 %spec.select161, %99
+  %122 = and i32 %indvars.iv.next233, 128
   %123 = icmp eq i32 %122, 0
-  %124 = icmp ugt i32 %spec.select160, %indvars.iv.next
+  %124 = icmp ugt i32 %spec.select161, %indvars.iv.next233
   %125 = and i1 %123, %124
   %or.cond47.i48.i = select i1 %121, i1 %125, i1 false
   br i1 %or.cond47.i48.i, label %.lr.ph.i, label %.lr.ph.i57.i, !llvm.loop !53
@@ -10014,7 +10018,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br i1 %.not.i49.i, label %.lr.ph.i57.i, label %129
 
 129:                                              ; preds = %126
-  %130 = mul nsw i32 %indvars.iv, %22
+  %130 = mul nsw i32 %indvars.iv232, %22
   %131 = add nsw i32 %130, %99
   %132 = sext i32 %131 to i64
   %133 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %132
@@ -10025,11 +10029,11 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %138 = and i8 %135, -2
   %139 = icmp eq i8 %138, 2
   %or.cond.i16.i50.i = select i1 %139, i1 %137, i1 false
-  %spec.select161 = select i1 %or.cond.i16.i50.i, i8 1, i8 %.7
+  %spec.select162 = select i1 %or.cond.i16.i50.i, i8 1, i8 %.7
   br label %.lr.ph.i57.i
 
 .lr.ph.i57.i:                                     ; preds = %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i53.i", %129, %126, %.lr.ph.i42.i
-  %.4 = phi i8 [ %.3, %.lr.ph.i42.i ], [ %.7, %126 ], [ %spec.select161, %129 ], [ %spec.select159, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i53.i" ]
+  %.4 = phi i8 [ %.3, %.lr.ph.i42.i ], [ %.7, %126 ], [ %spec.select162, %129 ], [ %spec.select160, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i53.i" ]
   %.sroa.8.049.i6189.i = add i8 %12, -1
   %140 = icmp sgt i8 %.sroa.8.049.i6189.i, -1
   %or.cond.i6290.i = select i1 %100, i1 %140, i1 false
@@ -10039,8 +10043,8 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br i1 %or.cond47.i6391.i, label %.lr.ph93.i, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit"
 
 .lr.ph93.i:                                       ; preds = %.lr.ph.i57.i, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i68.i"
-  %.5 = phi i8 [ %spec.select162, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i68.i" ], [ %.4, %.lr.ph.i57.i ]
-  %143 = phi i32 [ %spec.select163, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i68.i" ], [ %22, %.lr.ph.i57.i ]
+  %.5 = phi i8 [ %spec.select163, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i68.i" ], [ %.4, %.lr.ph.i57.i ]
+  %143 = phi i32 [ %spec.select164, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i68.i" ], [ %22, %.lr.ph.i57.i ]
   %144 = phi i32 [ %163, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i68.i" ], [ %141, %.lr.ph.i57.i ]
   %.sroa.8.049.i6192.i = phi i8 [ %.sroa.8.049.i61.i, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i68.i" ], [ %.sroa.8.049.i6189.i, %.lr.ph.i57.i ]
   %145 = mul nsw i32 %144, %143
@@ -10063,14 +10067,14 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %159 = and i8 %156, -2
   %160 = icmp eq i8 %159, 2
   %or.cond.i.i67.i = select i1 %160, i1 %158, i1 false
-  %spec.select162 = select i1 %or.cond.i.i67.i, i8 1, i8 %.5
-  %spec.select163 = select i1 %or.cond.i.i67.i, i32 %22, i32 %143
+  %spec.select163 = select i1 %or.cond.i.i67.i, i8 1, i8 %.5
+  %spec.select164 = select i1 %or.cond.i.i67.i, i32 %22, i32 %143
   %.sroa.8.049.i61.i = add nsw i8 %.sroa.8.049.i6192.i, -1
-  %161 = icmp sgt i32 %spec.select163, %99
+  %161 = icmp sgt i32 %spec.select164, %99
   %162 = icmp sgt i8 %.sroa.8.049.i6192.i, 0
   %or.cond.i62.i = select i1 %161, i1 %162, i1 false
   %163 = zext nneg i8 %.sroa.8.049.i61.i to i32
-  %164 = icmp ugt i32 %spec.select163, %163
+  %164 = icmp ugt i32 %spec.select164, %163
   %or.cond47.i63.i = select i1 %or.cond.i62.i, i1 %164, i1 false
   br i1 %or.cond47.i63.i, label %.lr.ph93.i, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit", !llvm.loop !53
 
@@ -10095,331 +10099,335 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br i1 %or.cond.i16.i65.i, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit.thread", label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit"
 
 "_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit": ; preds = %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i68.i", %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i", %.lr.ph.i57.i, %165, %168
-  %.14 = phi i8 [ %.5, %165 ], [ %.5, %168 ], [ %.4, %.lr.ph.i57.i ], [ %.3, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i" ], [ %spec.select162, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i68.i" ]
+  %.14 = phi i8 [ %.5, %165 ], [ %.5, %168 ], [ %.4, %.lr.ph.i57.i ], [ %.3, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i" ], [ %spec.select163, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i68.i" ]
   %179 = trunc nuw i8 %.14 to i1
   br i1 %179, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit.thread", label %180
 
 180:                                              ; preds = %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit"
-  br i1 %50, label %.lr.ph.i.i53.preheader, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
+  br i1 %50, label %.lr.ph.i.i53, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
 
-.lr.ph.i.i53.preheader:                           ; preds = %180
+.lr.ph.i.i53:                                     ; preds = %180
   %181 = zext nneg i8 %.sroa.0.0.extract.trunc.i.i to i32
-  br label %.lr.ph.i.i53
+  br label %182
 
-.lr.ph.i.i53:                                     ; preds = %.lr.ph.i.i53.preheader, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i"
-  %indvars.iv236 = phi i32 [ %181, %.lr.ph.i.i53.preheader ], [ %indvars.iv.next237, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i" ]
-  %.sroa.8.049.i.in.i = phi i8 [ %12, %.lr.ph.i.i53.preheader ], [ %.sroa.8.049.i.i, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i" ]
+182:                                              ; preds = %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i", %.lr.ph.i.i53
+  %indvars.iv.i56 = phi i32 [ %181, %.lr.ph.i.i53 ], [ %indvars.iv.next.i62, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i" ]
+  %.sroa.8.049.i.in.i = phi i8 [ %12, %.lr.ph.i.i53 ], [ %.sroa.8.049.i.i, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i" ]
   %.sroa.8.049.i.i = add i8 %.sroa.8.049.i.in.i, 1
-  %182 = icmp sgt i32 %22, %indvars.iv236
-  %183 = icmp sgt i8 %.sroa.8.049.i.i, -1
-  %or.cond.i.i = select i1 %182, i1 %183, i1 false
-  %184 = zext nneg i8 %.sroa.8.049.i.i to i32
-  %185 = icmp ugt i32 %22, %184
-  %or.cond47.i.i57 = select i1 %or.cond.i.i, i1 %185, i1 false
-  br i1 %or.cond47.i.i57, label %186, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
+  %183 = icmp sgt i32 %22, %indvars.iv.i56
+  %184 = icmp sgt i8 %.sroa.8.049.i.i, -1
+  %or.cond.i.i = select i1 %183, i1 %184, i1 false
+  %185 = zext nneg i8 %.sroa.8.049.i.i to i32
+  %186 = icmp ugt i32 %22, %185
+  %or.cond47.i.i57 = select i1 %or.cond.i.i, i1 %186, i1 false
+  br i1 %or.cond47.i.i57, label %187, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
 
-186:                                              ; preds = %.lr.ph.i.i53
-  %187 = mul nsw i32 %22, %184
-  %188 = add nuw nsw i32 %187, %indvars.iv236
-  %189 = zext nneg i32 %188 to i64
-  %190 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %189, i32 1
-  %191 = load i8, ptr %190, align 1
-  %192 = icmp eq i8 %191, 0
-  br i1 %192, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i", label %195
+187:                                              ; preds = %182
+  %188 = mul nsw i32 %22, %185
+  %189 = add nuw nsw i32 %188, %indvars.iv.i56
+  %190 = zext nneg i32 %189 to i64
+  %191 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %190, i32 1
+  %192 = load i8, ptr %191, align 1
+  %193 = icmp eq i8 %192, 0
+  br i1 %193, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i", label %196
 
-"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i": ; preds = %186
-  %indvars.iv.next237 = add nuw nsw i32 %indvars.iv236, 1
-  %193 = and i32 %indvars.iv.next237, 128
-  %194 = icmp eq i32 %193, 0
-  br i1 %194, label %.lr.ph.i.i53, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i", !llvm.loop !54
+"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i": ; preds = %187
+  %indvars.iv.next.i62 = add nuw nsw i32 %indvars.iv.i56, 1
+  %194 = and i32 %indvars.iv.next.i62, 128
+  %195 = icmp eq i32 %194, 0
+  br i1 %195, label %182, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i", !llvm.loop !54
 
-195:                                              ; preds = %186
-  %196 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %189
-  %197 = load i8, ptr %196, align 2
-  %.not.i.i58 = icmp eq i8 %197, %2
-  br i1 %.not.i.i58, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i", label %198
+196:                                              ; preds = %187
+  %197 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %190
+  %198 = load i8, ptr %197, align 2
+  %.not.i.i58 = icmp eq i8 %198, %2
+  br i1 %.not.i.i58, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i", label %199
 
-198:                                              ; preds = %195
-  %199 = icmp eq i8 %191, 4
-  %200 = icmp eq i8 %197, %20
-  %201 = icmp eq i8 %191, 2
-  %202 = or i1 %199, %201
-  %or.cond.i16.i.i59 = and i1 %202, %200
-  %spec.select165 = select i1 %or.cond.i16.i.i59, i8 1, i8 %.14
+199:                                              ; preds = %196
+  %200 = icmp eq i8 %192, 4
+  %201 = icmp eq i8 %198, %20
+  %202 = icmp eq i8 %192, 2
+  %203 = or i1 %200, %202
+  %or.cond.i16.i.i59 = and i1 %203, %201
+  %spec.select166 = select i1 %or.cond.i16.i.i59, i8 1, i8 %.14
   br label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
 
-"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i": ; preds = %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i", %.lr.ph.i.i53, %198, %195, %180
-  %.15 = phi i8 [ %.14, %195 ], [ %.14, %180 ], [ %spec.select165, %198 ], [ %.14, %.lr.ph.i.i53 ], [ %.14, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i" ]
+"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i": ; preds = %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i", %182, %199, %196, %180
+  %.15 = phi i8 [ %.14, %196 ], [ %.14, %180 ], [ %spec.select166, %199 ], [ %.14, %182 ], [ %.14, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i" ]
   br i1 %76, label %.lr.ph.i27.i43, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i"
 
 .lr.ph.i27.i43:                                   ; preds = %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i", %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i38.i"
-  %.sroa.0.050.i30.i46 = phi i8 [ %215, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i38.i" ], [ %.sroa.0.0.extract.trunc.i26.i, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i" ]
+  %.sroa.0.050.i30.i46 = phi i8 [ %216, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i38.i" ], [ %.sroa.0.0.extract.trunc.i26.i, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i" ]
   %.sroa.8.049.i31.in.i = phi i8 [ %.sroa.8.049.i31.i, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i38.i" ], [ %12, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i" ]
   %.sroa.8.049.i31.i = add i8 %.sroa.8.049.i31.in.i, 1
-  %203 = zext nneg i8 %.sroa.0.050.i30.i46 to i32
-  %204 = icmp sgt i32 %22, %203
-  %205 = icmp sgt i8 %.sroa.8.049.i31.i, -1
-  %or.cond.i32.i = select i1 %204, i1 %205, i1 false
-  %206 = zext nneg i8 %.sroa.8.049.i31.i to i32
-  %207 = icmp ugt i32 %22, %206
-  %or.cond47.i33.i47 = select i1 %or.cond.i32.i, i1 %207, i1 false
-  br i1 %or.cond47.i33.i47, label %208, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i"
+  %204 = zext nneg i8 %.sroa.0.050.i30.i46 to i32
+  %205 = icmp sgt i32 %22, %204
+  %206 = icmp sgt i8 %.sroa.8.049.i31.i, -1
+  %or.cond.i32.i = select i1 %205, i1 %206, i1 false
+  %207 = zext nneg i8 %.sroa.8.049.i31.i to i32
+  %208 = icmp ugt i32 %22, %207
+  %or.cond47.i33.i47 = select i1 %or.cond.i32.i, i1 %208, i1 false
+  br i1 %or.cond47.i33.i47, label %209, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i"
 
-208:                                              ; preds = %.lr.ph.i27.i43
-  %209 = mul nsw i32 %22, %206
-  %210 = add nuw nsw i32 %209, %203
-  %211 = zext nneg i32 %210 to i64
-  %212 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %211, i32 1
-  %213 = load i8, ptr %212, align 1
-  %214 = icmp eq i8 %213, 0
-  br i1 %214, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i38.i", label %217
+209:                                              ; preds = %.lr.ph.i27.i43
+  %210 = mul nsw i32 %22, %207
+  %211 = add nuw nsw i32 %210, %204
+  %212 = zext nneg i32 %211 to i64
+  %213 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %212, i32 1
+  %214 = load i8, ptr %213, align 1
+  %215 = icmp eq i8 %214, 0
+  br i1 %215, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i38.i", label %218
 
-"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i38.i": ; preds = %208
-  %215 = add nsw i8 %.sroa.0.050.i30.i46, -1
-  %216 = icmp sgt i8 %.sroa.0.050.i30.i46, 0
-  br i1 %216, label %.lr.ph.i27.i43, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i", !llvm.loop !54
+"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i38.i": ; preds = %209
+  %216 = add nsw i8 %.sroa.0.050.i30.i46, -1
+  %217 = icmp sgt i8 %.sroa.0.050.i30.i46, 0
+  br i1 %217, label %.lr.ph.i27.i43, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i", !llvm.loop !54
 
-217:                                              ; preds = %208
-  %218 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %211
-  %219 = load i8, ptr %218, align 2
-  %.not.i34.i48 = icmp eq i8 %219, %2
-  br i1 %.not.i34.i48, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i", label %220
+218:                                              ; preds = %209
+  %219 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %212
+  %220 = load i8, ptr %219, align 2
+  %.not.i34.i48 = icmp eq i8 %220, %2
+  br i1 %.not.i34.i48, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i", label %221
 
-220:                                              ; preds = %217
-  %221 = icmp eq i8 %213, 4
-  %222 = icmp eq i8 %219, %20
-  %223 = icmp eq i8 %213, 2
-  %224 = or i1 %221, %223
-  %or.cond.i16.i35.i49 = and i1 %224, %222
-  %spec.select167 = select i1 %or.cond.i16.i35.i49, i8 1, i8 %.15
+221:                                              ; preds = %218
+  %222 = icmp eq i8 %214, 4
+  %223 = icmp eq i8 %220, %20
+  %224 = icmp eq i8 %214, 2
+  %225 = or i1 %222, %224
+  %or.cond.i16.i35.i49 = and i1 %225, %223
+  %spec.select168 = select i1 %or.cond.i16.i35.i49, i8 1, i8 %.15
   br label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i"
 
-"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i": ; preds = %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i38.i", %.lr.ph.i27.i43, %220, %217, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
-  %.16 = phi i8 [ %.15, %217 ], [ %.15, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i" ], [ %spec.select167, %220 ], [ %.15, %.lr.ph.i27.i43 ], [ %.15, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i38.i" ]
-  br i1 %50, label %.lr.ph.i42.i32.preheader, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i"
+"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i": ; preds = %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i38.i", %.lr.ph.i27.i43, %221, %218, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
+  %.16 = phi i8 [ %.15, %218 ], [ %.15, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i" ], [ %spec.select168, %221 ], [ %.15, %.lr.ph.i27.i43 ], [ %.15, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i38.i" ]
+  br i1 %50, label %.lr.ph.i42.i32, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i"
 
-.lr.ph.i42.i32.preheader:                         ; preds = %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i"
-  %225 = zext nneg i8 %.sroa.0.0.extract.trunc.i.i to i32
-  br label %.lr.ph.i42.i32
+.lr.ph.i42.i32:                                   ; preds = %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i"
+  %226 = zext nneg i8 %.sroa.0.0.extract.trunc.i.i to i32
+  %227 = lshr i16 %.fr94.i, 8
+  %228 = zext nneg i16 %227 to i32
+  br label %229
 
-.lr.ph.i42.i32:                                   ; preds = %.lr.ph.i42.i32.preheader, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i53.i"
-  %indvars.iv239 = phi i32 [ %225, %.lr.ph.i42.i32.preheader ], [ %indvars.iv.next240, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i53.i" ]
-  %.sroa.8.049.i46.in.i = phi i8 [ %12, %.lr.ph.i42.i32.preheader ], [ %.sroa.8.049.i46.i35, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i53.i" ]
-  %.sroa.8.049.i46.i35 = add i8 %.sroa.8.049.i46.in.i, -1
-  %226 = icmp sgt i32 %22, %indvars.iv239
-  %227 = icmp sgt i8 %.sroa.8.049.i46.i35, -1
-  %or.cond.i47.i36 = select i1 %226, i1 %227, i1 false
-  %228 = zext nneg i8 %.sroa.8.049.i46.i35 to i32
-  %229 = icmp ugt i32 %22, %228
-  %or.cond47.i48.i37 = select i1 %or.cond.i47.i36, i1 %229, i1 false
-  br i1 %or.cond47.i48.i37, label %230, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i"
+229:                                              ; preds = %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i53.i", %.lr.ph.i42.i32
+  %indvars.iv235 = phi i32 [ %indvars.iv.next236, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i53.i" ], [ %228, %.lr.ph.i42.i32 ]
+  %indvars.iv110.i = phi i32 [ %indvars.iv.next111.i, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i53.i" ], [ %226, %.lr.ph.i42.i32 ]
+  %230 = trunc nuw i32 %indvars.iv235 to i8
+  %.sroa.8.049.i46.i35 = add i8 %230, -1
+  %231 = icmp sgt i32 %22, %indvars.iv110.i
+  %232 = icmp sgt i8 %.sroa.8.049.i46.i35, -1
+  %or.cond.i47.i36 = select i1 %231, i1 %232, i1 false
+  %233 = zext nneg i8 %.sroa.8.049.i46.i35 to i32
+  %234 = icmp ugt i32 %22, %233
+  %or.cond47.i48.i37 = select i1 %or.cond.i47.i36, i1 %234, i1 false
+  br i1 %or.cond47.i48.i37, label %235, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i"
 
-230:                                              ; preds = %.lr.ph.i42.i32
-  %231 = mul nsw i32 %22, %228
-  %232 = add nuw nsw i32 %231, %indvars.iv239
-  %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %233, i32 1
-  %235 = load i8, ptr %234, align 1
-  %236 = icmp eq i8 %235, 0
-  br i1 %236, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i53.i", label %239
+235:                                              ; preds = %229
+  %236 = mul nsw i32 %22, %233
+  %237 = add nuw nsw i32 %236, %indvars.iv110.i
+  %238 = zext nneg i32 %237 to i64
+  %239 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %238, i32 1
+  %240 = load i8, ptr %239, align 1
+  %241 = icmp eq i8 %240, 0
+  br i1 %241, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i53.i", label %244
 
-"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i53.i": ; preds = %230
-  %indvars.iv.next240 = add nuw nsw i32 %indvars.iv239, 1
-  %237 = and i32 %indvars.iv.next240, 128
-  %238 = icmp eq i32 %237, 0
-  br i1 %238, label %.lr.ph.i42.i32, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i", !llvm.loop !54
+"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i53.i": ; preds = %235
+  %indvars.iv.next111.i = add nuw nsw i32 %indvars.iv110.i, 1
+  %242 = and i32 %indvars.iv.next111.i, 128
+  %243 = icmp eq i32 %242, 0
+  %indvars.iv.next236 = add nsw i32 %indvars.iv235, -1
+  br i1 %243, label %229, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i", !llvm.loop !54
 
-239:                                              ; preds = %230
-  %240 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %233
-  %241 = load i8, ptr %240, align 2
-  %.not.i49.i38 = icmp eq i8 %241, %2
-  br i1 %.not.i49.i38, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i", label %242
+244:                                              ; preds = %235
+  %245 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %238
+  %246 = load i8, ptr %245, align 2
+  %.not.i49.i38 = icmp eq i8 %246, %2
+  br i1 %.not.i49.i38, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i", label %247
 
-242:                                              ; preds = %239
-  %243 = icmp eq i8 %235, 4
-  %244 = icmp eq i8 %241, %20
-  %245 = icmp eq i8 %235, 2
-  %246 = or i1 %243, %245
-  %or.cond.i16.i50.i39 = and i1 %246, %244
-  %spec.select169 = select i1 %or.cond.i16.i50.i39, i8 1, i8 %.16
+247:                                              ; preds = %244
+  %248 = icmp eq i8 %240, 4
+  %249 = icmp eq i8 %246, %20
+  %250 = icmp eq i8 %240, 2
+  %251 = or i1 %248, %250
+  %or.cond.i16.i50.i39 = and i1 %251, %249
+  %spec.select170 = select i1 %or.cond.i16.i50.i39, i8 1, i8 %.16
   br label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i"
 
-"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i": ; preds = %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i53.i", %.lr.ph.i42.i32, %242, %239, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i"
-  %.17 = phi i8 [ %.16, %239 ], [ %.16, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i" ], [ %spec.select169, %242 ], [ %.16, %.lr.ph.i42.i32 ], [ %.16, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i53.i" ]
+"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i": ; preds = %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i53.i", %229, %247, %244, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i"
+  %.17 = phi i8 [ %.16, %244 ], [ %.16, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i" ], [ %spec.select170, %247 ], [ %.16, %229 ], [ %.16, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i53.i" ]
   br i1 %76, label %.lr.ph.i57.i21, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit"
 
 .lr.ph.i57.i21:                                   ; preds = %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i", %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i68.i"
-  %.sroa.0.050.i60.i = phi i8 [ %259, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i68.i" ], [ %.sroa.0.0.extract.trunc.i26.i, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i" ]
+  %.sroa.0.050.i60.i = phi i8 [ %264, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i68.i" ], [ %.sroa.0.0.extract.trunc.i26.i, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i" ]
   %.sroa.8.049.i61.in.i = phi i8 [ %.sroa.8.049.i61.i24, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i68.i" ], [ %12, %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i" ]
   %.sroa.8.049.i61.i24 = add i8 %.sroa.8.049.i61.in.i, -1
-  %247 = zext nneg i8 %.sroa.0.050.i60.i to i32
-  %248 = icmp sgt i32 %22, %247
-  %249 = icmp sgt i8 %.sroa.8.049.i61.i24, -1
-  %or.cond.i62.i25 = select i1 %248, i1 %249, i1 false
-  %250 = zext nneg i8 %.sroa.8.049.i61.i24 to i32
-  %251 = icmp ugt i32 %22, %250
-  %or.cond47.i63.i26 = select i1 %or.cond.i62.i25, i1 %251, i1 false
-  br i1 %or.cond47.i63.i26, label %252, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit"
+  %252 = zext nneg i8 %.sroa.0.050.i60.i to i32
+  %253 = icmp sgt i32 %22, %252
+  %254 = icmp sgt i8 %.sroa.8.049.i61.i24, -1
+  %or.cond.i62.i25 = select i1 %253, i1 %254, i1 false
+  %255 = zext nneg i8 %.sroa.8.049.i61.i24 to i32
+  %256 = icmp ugt i32 %22, %255
+  %or.cond47.i63.i26 = select i1 %or.cond.i62.i25, i1 %256, i1 false
+  br i1 %or.cond47.i63.i26, label %257, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit"
 
-252:                                              ; preds = %.lr.ph.i57.i21
-  %253 = mul nsw i32 %22, %250
-  %254 = add nuw nsw i32 %253, %247
-  %255 = zext nneg i32 %254 to i64
-  %256 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %255, i32 1
-  %257 = load i8, ptr %256, align 1
-  %258 = icmp eq i8 %257, 0
-  br i1 %258, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i68.i", label %261
+257:                                              ; preds = %.lr.ph.i57.i21
+  %258 = mul nsw i32 %22, %255
+  %259 = add nuw nsw i32 %258, %252
+  %260 = zext nneg i32 %259 to i64
+  %261 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %260, i32 1
+  %262 = load i8, ptr %261, align 1
+  %263 = icmp eq i8 %262, 0
+  br i1 %263, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i68.i", label %266
 
-"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i68.i": ; preds = %252
-  %259 = add nsw i8 %.sroa.0.050.i60.i, -1
-  %260 = icmp sgt i8 %.sroa.0.050.i60.i, 0
-  br i1 %260, label %.lr.ph.i57.i21, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit", !llvm.loop !54
+"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i68.i": ; preds = %257
+  %264 = add nsw i8 %.sroa.0.050.i60.i, -1
+  %265 = icmp sgt i8 %.sroa.0.050.i60.i, 0
+  br i1 %265, label %.lr.ph.i57.i21, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit", !llvm.loop !54
 
-261:                                              ; preds = %252
-  %262 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %255
-  %263 = load i8, ptr %262, align 2
-  %.not.i64.i27 = icmp eq i8 %263, %2
-  br i1 %.not.i64.i27, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit", label %264
+266:                                              ; preds = %257
+  %267 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %260
+  %268 = load i8, ptr %267, align 2
+  %.not.i64.i27 = icmp eq i8 %268, %2
+  br i1 %.not.i64.i27, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit", label %269
 
-264:                                              ; preds = %261
-  %265 = icmp eq i8 %257, 4
-  %266 = icmp eq i8 %263, %20
-  %267 = icmp eq i8 %257, 2
-  %268 = or i1 %265, %267
-  %or.cond.i16.i65.i28 = and i1 %268, %266
+269:                                              ; preds = %266
+  %270 = icmp eq i8 %262, 4
+  %271 = icmp eq i8 %268, %20
+  %272 = icmp eq i8 %262, 2
+  %273 = or i1 %270, %272
+  %or.cond.i16.i65.i28 = and i1 %273, %271
   br i1 %or.cond.i16.i65.i28, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit.thread", label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit"
 
-"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit": ; preds = %.lr.ph.i57.i21, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i68.i", %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i", %261, %264
-  %269 = trunc nuw i8 %.17 to i1
-  br i1 %269, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit.thread", label %.preheader
+"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit": ; preds = %.lr.ph.i57.i21, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i68.i", %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i", %266, %269
+  %274 = trunc nuw i8 %.17 to i1
+  br i1 %274, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit.thread", label %.preheader
 
 .preheader:                                       ; preds = %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit", %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i"
   %.27 = phi i8 [ %.28, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i" ], [ %.17, %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit" ]
-  %.0.idx18.i66 = phi i64 [ %.0.add.i68, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i" ], [ 0, %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit" ]
-  %.0.ptr.i67 = getelementptr inbounds i8, ptr @_ZN10open_spiel5chess14kKnightOffsetsE, i64 %.0.idx18.i66
-  %270 = load i8, ptr %.0.ptr.i67, align 1
-  %271 = add i8 %270, %9
-  %272 = icmp sgt i8 %271, -1
-  br i1 %272, label %273, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i"
+  %.0.idx18.i67 = phi i64 [ %.0.add.i69, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i" ], [ 0, %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit" ]
+  %.0.ptr.i68 = getelementptr inbounds i8, ptr @_ZN10open_spiel5chess14kKnightOffsetsE, i64 %.0.idx18.i67
+  %275 = load i8, ptr %.0.ptr.i68, align 1
+  %276 = add i8 %275, %9
+  %277 = icmp sgt i8 %276, -1
+  br i1 %277, label %278, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i"
 
-273:                                              ; preds = %.preheader
-  %274 = getelementptr inbounds nuw i8, ptr %.0.ptr.i67, i64 1
-  %275 = load i8, ptr %274, align 1
-  %276 = add i8 %275, %12
-  %277 = zext nneg i8 %271 to i32
-  %278 = icmp sgt i32 %22, %277
-  %279 = icmp sgt i8 %276, -1
-  %or.cond.i70 = and i1 %279, %278
-  %280 = zext nneg i8 %276 to i32
-  %281 = icmp ugt i32 %22, %280
-  %or.cond16.i71 = select i1 %or.cond.i70, i1 %281, i1 false
-  br i1 %or.cond16.i71, label %282, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i"
+278:                                              ; preds = %.preheader
+  %279 = getelementptr inbounds nuw i8, ptr %.0.ptr.i68, i64 1
+  %280 = load i8, ptr %279, align 1
+  %281 = add i8 %280, %12
+  %282 = zext nneg i8 %276 to i32
+  %283 = icmp sgt i32 %22, %282
+  %284 = icmp sgt i8 %281, -1
+  %or.cond.i71 = and i1 %284, %283
+  %285 = zext nneg i8 %281 to i32
+  %286 = icmp ugt i32 %22, %285
+  %or.cond16.i72 = select i1 %or.cond.i71, i1 %286, i1 false
+  br i1 %or.cond16.i72, label %287, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i"
 
-282:                                              ; preds = %273
-  %283 = mul nsw i32 %22, %280
-  %284 = add nuw nsw i32 %283, %277
-  %285 = zext nneg i32 %284 to i64
-  %286 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %285
-  %287 = load i8, ptr %286, align 2
-  %.not17.i72 = icmp eq i8 %287, %2
-  br i1 %.not17.i72, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i", label %288
+287:                                              ; preds = %278
+  %288 = mul nsw i32 %22, %285
+  %289 = add nuw nsw i32 %288, %282
+  %290 = zext nneg i32 %289 to i64
+  %291 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %290
+  %292 = load i8, ptr %291, align 2
+  %.not17.i73 = icmp eq i8 %292, %2
+  br i1 %.not17.i73, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i", label %293
 
-288:                                              ; preds = %282
-  %289 = getelementptr inbounds nuw i8, ptr %286, i64 1
-  %290 = load i8, ptr %289, align 1
-  %291 = icmp eq i8 %290, 5
-  %292 = icmp eq i8 %287, %20
-  %293 = and i1 %291, %292
-  %spec.select171 = select i1 %293, i8 1, i8 %.27
+293:                                              ; preds = %287
+  %294 = getelementptr inbounds nuw i8, ptr %291, i64 1
+  %295 = load i8, ptr %294, align 1
+  %296 = icmp eq i8 %295, 5
+  %297 = icmp eq i8 %292, %20
+  %298 = and i1 %296, %297
+  %spec.select172 = select i1 %298, i8 1, i8 %.27
   br label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i"
 
-"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i": ; preds = %288, %282, %273, %.preheader
-  %.28 = phi i8 [ %.27, %282 ], [ %.27, %273 ], [ %.27, %.preheader ], [ %spec.select171, %288 ]
-  %.0.add.i68 = add nuw nsw i64 %.0.idx18.i66, 2
-  %.not.i69 = icmp eq i64 %.0.add.i68, 16
-  br i1 %.not.i69, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateKnightDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_3EEvS4_S7_RKT_.exit", label %.preheader
+"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i": ; preds = %293, %287, %278, %.preheader
+  %.28 = phi i8 [ %.27, %287 ], [ %.27, %278 ], [ %.27, %.preheader ], [ %spec.select172, %293 ]
+  %.0.add.i69 = add nuw nsw i64 %.0.idx18.i67, 2
+  %.not.i70 = icmp eq i64 %.0.add.i69, 16
+  br i1 %.not.i70, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateKnightDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_3EEvS4_S7_RKT_.exit", label %.preheader
 
 "_ZNK10open_spiel5chess10ChessBoard27GenerateKnightDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_3EEvS4_S7_RKT_.exit": ; preds = %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i"
-  %294 = trunc nuw i8 %.28 to i1
-  br i1 %294, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit.thread", label %295
+  %299 = trunc nuw i8 %.28 to i1
+  br i1 %299, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit.thread", label %300
 
-295:                                              ; preds = %"_ZNK10open_spiel5chess10ChessBoard27GenerateKnightDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_3EEvS4_S7_RKT_.exit"
-  %296 = icmp eq i8 %2, 1
-  %297 = select i1 %296, i8 1, i8 -1
-  %298 = add i8 %297, %12
-  br i1 %50, label %299, label %.critedge.i
+300:                                              ; preds = %"_ZNK10open_spiel5chess10ChessBoard27GenerateKnightDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_3EEvS4_S7_RKT_.exit"
+  %301 = icmp eq i8 %2, 1
+  %302 = select i1 %301, i8 1, i8 -1
+  %303 = add i8 %302, %12
+  br i1 %50, label %304, label %.critedge.i
 
-299:                                              ; preds = %295
-  %300 = zext nneg i8 %.sroa.0.0.extract.trunc.i.i to i32
-  %301 = icmp sgt i32 %22, %300
-  %302 = icmp sgt i8 %298, -1
-  %or.cond.i73 = and i1 %302, %301
-  %303 = zext nneg i8 %298 to i32
-  %304 = icmp ugt i32 %22, %303
-  %or.cond95.i = select i1 %or.cond.i73, i1 %304, i1 false
-  br i1 %or.cond95.i, label %305, label %.critedge.i
+304:                                              ; preds = %300
+  %305 = zext nneg i8 %.sroa.0.0.extract.trunc.i.i to i32
+  %306 = icmp sgt i32 %22, %305
+  %307 = icmp sgt i8 %303, -1
+  %or.cond.i74 = and i1 %307, %306
+  %308 = zext nneg i8 %303 to i32
+  %309 = icmp ugt i32 %22, %308
+  %or.cond95.i = select i1 %or.cond.i74, i1 %309, i1 false
+  br i1 %or.cond95.i, label %310, label %.critedge.i
 
-305:                                              ; preds = %299
-  %306 = mul nsw i32 %22, %303
-  %307 = add nuw nsw i32 %306, %300
-  %308 = zext nneg i32 %307 to i64
-  %309 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %308
-  %310 = getelementptr inbounds nuw i8, ptr %309, i64 1
-  %311 = load i8, ptr %310, align 1
-  %.not.i.i74 = icmp ne i8 %311, 0
-  %312 = load i8, ptr %309, align 2
-  %313 = icmp ne i8 %312, %2
-  %314 = select i1 %.not.i.i74, i1 %313, i1 false
-  br i1 %314, label %.critedge2.i, label %.critedge.i
+310:                                              ; preds = %304
+  %311 = mul nsw i32 %22, %308
+  %312 = add nuw nsw i32 %311, %305
+  %313 = zext nneg i32 %312 to i64
+  %314 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %313
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 1
+  %316 = load i8, ptr %315, align 1
+  %.not.i.i75 = icmp ne i8 %316, 0
+  %317 = load i8, ptr %314, align 2
+  %318 = icmp ne i8 %317, %2
+  %319 = select i1 %.not.i.i75, i1 %318, i1 false
+  br i1 %319, label %.critedge2.i, label %.critedge.i
 
-.critedge2.i:                                     ; preds = %305
-  %315 = icmp eq i8 %311, 6
-  %316 = icmp eq i8 %312, %20
-  %317 = select i1 %315, i1 %316, i1 false
-  %spec.select172 = select i1 %317, i8 1, i8 %.28
+.critedge2.i:                                     ; preds = %310
+  %320 = icmp eq i8 %316, 6
+  %321 = icmp eq i8 %317, %20
+  %322 = select i1 %320, i1 %321, i1 false
+  %spec.select173 = select i1 %322, i8 1, i8 %.28
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.critedge2.i, %305, %299, %295
-  %.29 = phi i8 [ %.28, %305 ], [ %.28, %299 ], [ %.28, %295 ], [ %spec.select172, %.critedge2.i ]
-  br i1 %76, label %318, label %"_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_4EEvS4_S7_NS0_23PseudoLegalMoveSettingsEbRKT_.exit"
+.critedge.i:                                      ; preds = %.critedge2.i, %310, %304, %300
+  %.29 = phi i8 [ %.28, %310 ], [ %.28, %304 ], [ %.28, %300 ], [ %spec.select173, %.critedge2.i ]
+  br i1 %76, label %323, label %"_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_4EEvS4_S7_NS0_23PseudoLegalMoveSettingsEbRKT_.exit"
 
-318:                                              ; preds = %.critedge.i
-  %319 = zext nneg i8 %.sroa.0.0.extract.trunc.i26.i to i32
-  %320 = icmp sgt i32 %22, %319
-  %321 = icmp sgt i8 %298, -1
-  %or.cond96.i = and i1 %321, %320
-  %322 = zext nneg i8 %298 to i32
-  %323 = icmp ugt i32 %22, %322
-  %or.cond98.i = select i1 %or.cond96.i, i1 %323, i1 false
-  br i1 %or.cond98.i, label %324, label %"_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_4EEvS4_S7_NS0_23PseudoLegalMoveSettingsEbRKT_.exit"
+323:                                              ; preds = %.critedge.i
+  %324 = zext nneg i8 %.sroa.0.0.extract.trunc.i26.i to i32
+  %325 = icmp sgt i32 %22, %324
+  %326 = icmp sgt i8 %303, -1
+  %or.cond96.i = and i1 %326, %325
+  %327 = zext nneg i8 %303 to i32
+  %328 = icmp ugt i32 %22, %327
+  %or.cond98.i = select i1 %or.cond96.i, i1 %328, i1 false
+  br i1 %or.cond98.i, label %329, label %"_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_4EEvS4_S7_NS0_23PseudoLegalMoveSettingsEbRKT_.exit"
 
-324:                                              ; preds = %318
-  %325 = mul nsw i32 %22, %322
-  %326 = add nuw nsw i32 %325, %319
-  %327 = zext nneg i32 %326 to i64
-  %328 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %327
-  %329 = getelementptr inbounds nuw i8, ptr %328, i64 1
-  %330 = load i8, ptr %329, align 1
-  %.not.i35.i = icmp ne i8 %330, 0
-  %331 = load i8, ptr %328, align 2
-  %332 = icmp ne i8 %331, %2
-  %333 = select i1 %.not.i35.i, i1 %332, i1 false
-  br i1 %333, label %.critedge6.i, label %"_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_4EEvS4_S7_NS0_23PseudoLegalMoveSettingsEbRKT_.exit"
+329:                                              ; preds = %323
+  %330 = mul nsw i32 %22, %327
+  %331 = add nuw nsw i32 %330, %324
+  %332 = zext nneg i32 %331 to i64
+  %333 = getelementptr inbounds [64 x %"struct.open_spiel::chess::Piece"], ptr %21, i64 0, i64 %332
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 1
+  %335 = load i8, ptr %334, align 1
+  %.not.i35.i = icmp ne i8 %335, 0
+  %336 = load i8, ptr %333, align 2
+  %337 = icmp ne i8 %336, %2
+  %338 = select i1 %.not.i35.i, i1 %337, i1 false
+  br i1 %338, label %.critedge6.i, label %"_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_4EEvS4_S7_NS0_23PseudoLegalMoveSettingsEbRKT_.exit"
 
-.critedge6.i:                                     ; preds = %324
-  %334 = icmp eq i8 %330, 6
-  %335 = icmp eq i8 %331, %20
-  %336 = select i1 %334, i1 %335, i1 false
-  %spec.select173 = select i1 %336, i8 1, i8 %.29
+.critedge6.i:                                     ; preds = %329
+  %339 = icmp eq i8 %335, 6
+  %340 = icmp eq i8 %336, %20
+  %341 = select i1 %339, i1 %340, i1 false
+  %spec.select174 = select i1 %341, i8 1, i8 %.29
   br label %"_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_4EEvS4_S7_NS0_23PseudoLegalMoveSettingsEbRKT_.exit"
 
-"_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_4EEvS4_S7_NS0_23PseudoLegalMoveSettingsEbRKT_.exit": ; preds = %.critedge6.i, %.critedge.i, %318, %324
-  %.30 = phi i8 [ %.29, %324 ], [ %.29, %318 ], [ %.29, %.critedge.i ], [ %spec.select173, %.critedge6.i ]
-  %337 = trunc nuw i8 %.30 to i1
+"_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_4EEvS4_S7_NS0_23PseudoLegalMoveSettingsEbRKT_.exit": ; preds = %.critedge6.i, %.critedge.i, %323, %329
+  %.30 = phi i8 [ %.29, %329 ], [ %.29, %323 ], [ %.29, %.critedge.i ], [ %spec.select174, %.critedge6.i ]
+  %342 = trunc nuw i8 %.30 to i1
   br label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit.thread"
 
-"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit.thread": ; preds = %264, %168, %"_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_4EEvS4_S7_NS0_23PseudoLegalMoveSettingsEbRKT_.exit", %"_ZNK10open_spiel5chess10ChessBoard27GenerateKnightDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_3EEvS4_S7_RKT_.exit", %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit", %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit", %"_ZNK10open_spiel5chess10ChessBoard25GenerateKingDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_0EEvS4_S7_RKT_.exit"
-  %.0 = phi i1 [ true, %"_ZNK10open_spiel5chess10ChessBoard25GenerateKingDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_0EEvS4_S7_RKT_.exit" ], [ true, %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit" ], [ true, %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit" ], [ true, %"_ZNK10open_spiel5chess10ChessBoard27GenerateKnightDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_3EEvS4_S7_RKT_.exit" ], [ %337, %"_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_4EEvS4_S7_NS0_23PseudoLegalMoveSettingsEbRKT_.exit" ], [ true, %168 ], [ true, %264 ]
+"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit.thread": ; preds = %269, %168, %"_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_4EEvS4_S7_NS0_23PseudoLegalMoveSettingsEbRKT_.exit", %"_ZNK10open_spiel5chess10ChessBoard27GenerateKnightDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_3EEvS4_S7_RKT_.exit", %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit", %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit", %"_ZNK10open_spiel5chess10ChessBoard25GenerateKingDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_0EEvS4_S7_RKT_.exit"
+  %.0 = phi i1 [ true, %"_ZNK10open_spiel5chess10ChessBoard25GenerateKingDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_0EEvS4_S7_RKT_.exit" ], [ true, %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit" ], [ true, %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit" ], [ true, %"_ZNK10open_spiel5chess10ChessBoard27GenerateKnightDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_3EEvS4_S7_RKT_.exit" ], [ %342, %"_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_4EEvS4_S7_NS0_23PseudoLegalMoveSettingsEbRKT_.exit" ], [ true, %168 ], [ true, %269 ]
   ret i1 %.0
 }
 

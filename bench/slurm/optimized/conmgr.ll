@@ -2194,7 +2194,7 @@ _init_signal_handler.exit:                        ; preds = %_init_signal_handle
   %.us-phi39.i.i = phi i32 [ %152, %.lr.ph62.preheader.i.preheader.i ], [ %152, %.lr.ph78.i.preheader.i ], [ %172, %.lr.ph62.preheader.i.i ], [ %162, %.lr.ph78.i.i ]
   %183 = and i64 %.us-phi38.i.i, 2147483647
   %184 = getelementptr inbounds i8, ptr %.017.ph82.i.i, i64 %183
-  %185 = sub i32 %.018.ph80.i.i, %.us-phi39.i.i
+  %185 = sub nsw i32 %.018.ph80.i.i, %.us-phi39.i.i
   %186 = icmp sgt i32 %185, 0
   br i1 %186, label %187, label %_read_signal.exit.i
 

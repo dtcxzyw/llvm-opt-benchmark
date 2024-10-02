@@ -8111,7 +8111,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19QwpWorker9histogramERKSt6vectorId
 
 2:                                                ; preds = %0
   tail call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.73)
-  br label %50
+  br label %49
 
 3:                                                ; preds = %0
   %4 = load double, ptr %.0.val, align 8
@@ -8138,7 +8138,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19QwpWorker9histogramERKSt6vectorId
 
 14:                                               ; preds = %10
   tail call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.74, double noundef %.sroa.speculated36, double noundef %.sroa.speculated31)
-  br label %50
+  br label %49
 
 .lr.ph.preheader:                                 ; preds = %10
   %15 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #28
@@ -8185,7 +8185,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.loopexit.split-lp.loopexit: ; preds = %.split.us
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit.split-lp.loopexit.split-lp: ; preds = %22, %49
+_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit.split-lp.loopexit.split-lp: ; preds = %22, %48
   %lpad.loopexit.split-lp44 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -8251,18 +8251,18 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.loopexit.split.us:  ; preds = %.preheader.split.us
 
 46:                                               ; preds = %.split.us
   %47 = add nsw i32 %.02654, -1
-  %48 = icmp sgt i32 %.02654, 0
-  br i1 %48, label %.preheader, label %49, !llvm.loop !114
+  %.not62 = icmp eq i32 %.02654, 0
+  br i1 %.not62, label %48, label %.preheader, !llvm.loop !114
 
-49:                                               ; preds = %46
+48:                                               ; preds = %46
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.80, double noundef %.sroa.speculated36, double noundef %.sroa.speculated31)
           to label %_ZNSt6vectorIiSaIiEED2Ev.exit35 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit.split-lp.loopexit.split-lp
 
-_ZNSt6vectorIiSaIiEED2Ev.exit35:                  ; preds = %49
+_ZNSt6vectorIiSaIiEED2Ev.exit35:                  ; preds = %48
   tail call void @_ZdlPv(ptr noundef nonnull %15) #25
-  br label %50
+  br label %49
 
-50:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit35, %14, %2
+49:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit35, %14, %2
   ret void
 }
 

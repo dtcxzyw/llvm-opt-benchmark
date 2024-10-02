@@ -2025,28 +2025,28 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.split:            ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %cmp.i.not.i, label %if.then.i, label %for.end15
 
 if.then.i:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.split
+  %5 = add i32 %m_num_combinations.i.promoted42, 1
   %or.i = or i64 %m_combination.i.i.promoted41, %shl.i.i
   store i64 %or.i, ptr %m_combination.i.i39, align 8
-  %inc.i = add i32 %m_num_combinations.i.promoted42, 1
-  store i32 %inc.i, ptr %m_num_combinations.i40, align 8
+  store i32 %5, ptr %m_num_combinations.i40, align 8
   br label %for.end15
 
 for.end15:                                        ; preds = %_ZN3sat10lut_finder15set_combinationEj.exit.us, %if.then.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split
-  %5 = phi i64 [ %m_combination.i.i.promoted41, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split ], [ %or.i, %if.then.i ], [ %or.i26.us, %_ZN3sat10lut_finder15set_combinationEj.exit.us ]
-  %6 = phi i32 [ %m_num_combinations.i.promoted42, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split ], [ %inc.i, %if.then.i ], [ %inc.i28.us, %_ZN3sat10lut_finder15set_combinationEj.exit.us ]
+  %6 = phi i64 [ %m_combination.i.i.promoted41, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split ], [ %or.i, %if.then.i ], [ %or.i26.us, %_ZN3sat10lut_finder15set_combinationEj.exit.us ]
+  %7 = phi i32 [ %m_num_combinations.i.promoted42, %_ZNK6vectorIjLb0EjE4sizeEv.exit.split ], [ %5, %if.then.i ], [ %inc.i28.us, %_ZN3sat10lut_finder15set_combinationEj.exit.us ]
   %m_vars = getelementptr inbounds i8, ptr %this, i64 56
-  %7 = load ptr, ptr %m_vars, align 8
-  %cmp.i10 = icmp eq ptr %7, null
+  %8 = load ptr, ptr %m_vars, align 8
+  %cmp.i10 = icmp eq ptr %8, null
   br i1 %cmp.i10, label %_ZNK6vectorIjLb0EjE4sizeEv.exit14, label %if.end.i11
 
 if.end.i11:                                       ; preds = %for.end15
-  %arrayidx.i12 = getelementptr inbounds i8, ptr %7, i64 -4
-  %8 = load i32, ptr %arrayidx.i12, align 4
+  %arrayidx.i12 = getelementptr inbounds i8, ptr %8, i64 -4
+  %9 = load i32, ptr %arrayidx.i12, align 4
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit14
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit14:                ; preds = %for.end15, %if.end.i11
-  %retval.0.i13 = phi i32 [ %8, %if.end.i11 ], [ 0, %for.end15 ]
-  %conv.i = zext i32 %6 to i64
+  %retval.0.i13 = phi i32 [ %9, %if.end.i11 ], [ 0, %for.end15 ]
+  %conv.i = zext i32 %7 to i64
   %div4.i = lshr i32 %retval.0.i13, 1
   %sh_prom.i = zext nneg i32 %div4.i to i64
   %conv.highbits.i = lshr i64 %conv.i, %sh_prom.i
@@ -2064,18 +2064,18 @@ for.cond.preheader.i:                             ; preds = %_ZNK6vectorIjLb0EjE
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
-  %indvars.iv.i = phi i64 [ %sh_prom.i.i18, %for.cond.preheader.i ], [ %9, %for.body.i ]
+  %indvars.iv.i = phi i64 [ %sh_prom.i.i18, %for.cond.preheader.i ], [ %10, %for.body.i ]
   %cmp2.not.not.i.not.not = icmp ne i64 %indvars.iv.i, 0
   br i1 %cmp2.not.not.i.not.not, label %for.body.i, label %_ZN3sat10lut_finder14lut_is_definedEj.exit
 
 for.body.i:                                       ; preds = %for.cond.i
-  %9 = add nsw i64 %indvars.iv.i, -1
-  %arrayidx.i.i = getelementptr inbounds [7 x i64], ptr %m_masks.i.i, i64 0, i64 %9
-  %10 = load i64, ptr %arrayidx.i.i, align 8
-  %m.0.i.i = and i64 %10, %and.i.i19
-  %shl.i.i20 = shl nuw i64 1, %9
-  %shr.i.i = lshr i64 %5, %shl.i.i20
-  %or.i.i = or i64 %shr.i.i, %5
+  %10 = add nsw i64 %indvars.iv.i, -1
+  %arrayidx.i.i = getelementptr inbounds [7 x i64], ptr %m_masks.i.i, i64 0, i64 %10
+  %11 = load i64, ptr %arrayidx.i.i, align 8
+  %m.0.i.i = and i64 %11, %and.i.i19
+  %shl.i.i20 = shl nuw i64 1, %10
+  %shr.i.i = lshr i64 %6, %shl.i.i20
+  %or.i.i = or i64 %shr.i.i, %6
   %and5.i.i = and i64 %m.0.i.i, %or.i.i
   %cmp6.i.i = icmp eq i64 %and5.i.i, %m.0.i.i
   br i1 %cmp6.i.i, label %_ZN3sat10lut_finder14lut_is_definedEj.exit, label %for.cond.i, !llvm.loop !20

@@ -1057,7 +1057,7 @@ define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr
   %.us-phi93 = phi i32 [ %28, %.lr.ph116.preheader.preheader ], [ %28, %.lr.ph132.preheader ], [ %44, %.lr.ph116.preheader ], [ %36, %.lr.ph132 ]
   %17 = and i64 %.us-phi92, 2147483647
   %18 = getelementptr inbounds i8, ptr %.051.ph134, i64 %17
-  %19 = sub i32 %.048.ph136, %.us-phi93
+  %19 = sub nsw i32 %.048.ph136, %.us-phi93
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %21, label %.outer69._crit_edge
 
@@ -1249,7 +1249,7 @@ define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr
   %.us-phi146 = phi i32 [ %54, %.lr.ph170.preheader.preheader ], [ %54, %.lr.ph186.preheader ], [ %70, %.lr.ph170.preheader ], [ %62, %.lr.ph186 ]
   %81 = and i64 %.us-phi145, 2147483647
   %82 = getelementptr inbounds i8, ptr %.049.ph191, i64 %81
-  %83 = sub i32 %.050.ph189, %.us-phi146
+  %83 = sub nsw i32 %.050.ph189, %.us-phi146
   %84 = icmp sgt i32 %83, 0
   br i1 %84, label %85, label %.outer._crit_edge
 

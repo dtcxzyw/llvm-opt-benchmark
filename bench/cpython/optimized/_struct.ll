@@ -2756,8 +2756,8 @@ do.body:                                          ; preds = %do.body, %entry
   %conv = zext i8 %0 to i64
   %or = or disjoint i64 %shl, %conv
   %dec = add nsw i64 %i.0, -1
-  %cmp.not = icmp eq i64 %dec, 0
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !17
+  %cmp = icmp ugt i64 %i.0, 1
+  br i1 %cmp, label %do.body, label %do.end, !llvm.loop !17
 
 do.end:                                           ; preds = %do.body
   %xor = xor i64 %or, 32768
@@ -2951,8 +2951,8 @@ do.body:                                          ; preds = %do.body, %entry
   %conv = zext i8 %0 to i64
   %or = or disjoint i64 %shl, %conv
   %dec = add nsw i64 %i.0, -1
-  %cmp.not = icmp eq i64 %dec, 0
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !21
+  %cmp = icmp ugt i64 %i.0, 1
+  br i1 %cmp, label %do.body, label %do.end, !llvm.loop !21
 
 do.end:                                           ; preds = %do.body
   %xor = xor i64 %or, 2147483648
@@ -2976,8 +2976,8 @@ do.body:                                          ; preds = %do.body, %entry
   %conv = zext i8 %0 to i64
   %or = or disjoint i64 %shl, %conv
   %dec = add nsw i64 %i.0, -1
-  %cmp.not = icmp eq i64 %dec, 0
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !22
+  %cmp = icmp ugt i64 %i.0, 1
+  br i1 %cmp, label %do.body, label %do.end, !llvm.loop !22
 
 do.end:                                           ; preds = %do.body
   %call = tail call ptr @PyLong_FromLongLong(i64 noundef %or) #6
@@ -4697,8 +4697,8 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i64
   %or = or disjoint i64 %shl, %conv
-  %cmp.not = icmp eq i64 %dec, 0
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !24
+  %cmp = icmp ugt i64 %i.0, 1
+  br i1 %cmp, label %do.body, label %do.end, !llvm.loop !24
 
 do.end:                                           ; preds = %do.body
   %xor = xor i64 %or, 32768
@@ -4892,8 +4892,8 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i64
   %or = or disjoint i64 %shl, %conv
-  %cmp.not = icmp eq i64 %dec, 0
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !28
+  %cmp = icmp ugt i64 %i.0, 1
+  br i1 %cmp, label %do.body, label %do.end, !llvm.loop !28
 
 do.end:                                           ; preds = %do.body
   %xor = xor i64 %or, 2147483648
@@ -4916,8 +4916,8 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i64
   %or = or disjoint i64 %shl, %conv
-  %cmp.not = icmp eq i64 %dec, 0
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !29
+  %cmp = icmp ugt i64 %i.0, 1
+  br i1 %cmp, label %do.body, label %do.end, !llvm.loop !29
 
 do.end:                                           ; preds = %do.body
   %call = tail call ptr @PyLong_FromLongLong(i64 noundef %or) #6

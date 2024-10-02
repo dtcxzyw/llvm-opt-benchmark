@@ -252,7 +252,7 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %.0447618 = phi i32 [ 0, %.lr.ph622 ], [ %431, %._crit_edge612 ]
   %.0457617 = phi i32 [ 1, %.lr.ph622 ], [ %.1458.lcssa, %._crit_edge612 ]
   %.0472616 = phi i32 [ 0, %.lr.ph622 ], [ %.1473.lcssa, %._crit_edge612 ]
-  %154 = sub nuw nsw i32 1, %.0620
+  %154 = xor i32 %.0620, 1
   %155 = icmp eq i32 %.0620, 1
   %. = select i1 %155, i32 %53, i32 %54
   %.510 = select i1 %155, i32 %54, i32 %53

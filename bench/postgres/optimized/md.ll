@@ -86,7 +86,7 @@ define dso_local void @mdclose(ptr nocapture noundef %0, i32 noundef %1) local_u
   %5 = getelementptr [4 x i32], ptr %3, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.preheader, label %34
+  br i1 %7, label %.preheader, label %38
 
 .preheader:                                       ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 56
@@ -99,55 +99,61 @@ define dso_local void @mdclose(ptr nocapture noundef %0, i32 noundef %1) local_u
   tail call void @FileClose(i32 noundef %14) #14
   %15 = icmp eq i32 %11, 0
   %16 = load i32, ptr %5, align 4
-  br i1 %15, label %._crit_edge, label %.lr.ph
+  br i1 %15, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %17 = zext nneg i32 %6 to i64
+  %18 = add nsw i64 %17, -1
+  br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_fdvec_resize.exit, %.preheader
-  %.lcssa = phi i32 [ %16, %.preheader ], [ %33, %_fdvec_resize.exit ]
-  %17 = icmp sgt i32 %.lcssa, 0
-  br i1 %17, label %18, label %_fdvec_resize.exit.thread
+  %.lcssa = phi i32 [ %16, %.preheader ], [ %37, %_fdvec_resize.exit ]
+  %19 = icmp sgt i32 %.lcssa, 0
+  br i1 %19, label %20, label %_fdvec_resize.exit.thread
 
-18:                                               ; preds = %._crit_edge
-  %19 = load ptr, ptr %9, align 8
-  tail call void @pfree(ptr noundef %19) #14
+20:                                               ; preds = %._crit_edge
+  %21 = load ptr, ptr %9, align 8
+  tail call void @pfree(ptr noundef %21) #14
   store ptr null, ptr %9, align 8
   br label %_fdvec_resize.exit.thread
 
-.lr.ph:                                           ; preds = %.preheader, %_fdvec_resize.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_fdvec_resize.exit ], [ %12, %.preheader ]
-  %20 = phi i32 [ %33, %_fdvec_resize.exit ], [ %16, %.preheader ]
-  %21 = icmp eq i32 %20, 0
-  %22 = shl nuw nsw i64 %indvars.iv, 3
-  br i1 %21, label %23, label %26
-
-23:                                               ; preds = %.lr.ph
-  %24 = load ptr, ptr @MdCxt, align 8
-  %25 = tail call ptr @MemoryContextAlloc(ptr noundef %24, i64 noundef %22) #14
-  br label %_fdvec_resize.exit
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_fdvec_resize.exit
+  %indvars.iv = phi i64 [ %18, %.lr.ph.preheader ], [ %indvars.iv.next, %_fdvec_resize.exit ]
+  %22 = phi i32 [ %16, %.lr.ph.preheader ], [ %37, %_fdvec_resize.exit ]
+  %23 = phi i64 [ %12, %.lr.ph.preheader ], [ %indvars.iv.next, %_fdvec_resize.exit ]
+  %24 = icmp eq i32 %22, 0
+  %25 = shl nsw i64 %23, 3
+  br i1 %24, label %26, label %29
 
 26:                                               ; preds = %.lr.ph
-  %27 = load ptr, ptr %9, align 8
-  %28 = tail call ptr @repalloc(ptr noundef %27, i64 noundef %22) #14
+  %27 = load ptr, ptr @MdCxt, align 8
+  %28 = tail call ptr @MemoryContextAlloc(ptr noundef %27, i64 noundef %25) #14
   br label %_fdvec_resize.exit
 
-_fdvec_resize.exit.thread:                        ; preds = %._crit_edge, %18
-  store i32 0, ptr %5, align 4
-  br label %34
-
-_fdvec_resize.exit:                               ; preds = %23, %26
-  %storemerge = phi ptr [ %28, %26 ], [ %25, %23 ]
-  store ptr %storemerge, ptr %9, align 8
-  %29 = trunc nuw i64 %indvars.iv to i32
-  store i32 %29, ptr %5, align 4
+29:                                               ; preds = %.lr.ph
   %30 = load ptr, ptr %9, align 8
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %31 = getelementptr %struct._MdfdVec, ptr %30, i64 %indvars.iv.next
-  %32 = load i32, ptr %31, align 4
-  tail call void @FileClose(i32 noundef %32) #14
-  %.wide = icmp eq i64 %indvars.iv.next, 0
-  %33 = load i32, ptr %5, align 4
-  br i1 %.wide, label %._crit_edge, label %.lr.ph
+  %31 = tail call ptr @repalloc(ptr noundef %30, i64 noundef %25) #14
+  br label %_fdvec_resize.exit
 
-34:                                               ; preds = %_fdvec_resize.exit.thread, %2
+_fdvec_resize.exit.thread:                        ; preds = %._crit_edge, %20
+  store i32 0, ptr %5, align 4
+  br label %38
+
+_fdvec_resize.exit:                               ; preds = %26, %29
+  %storemerge = phi ptr [ %31, %29 ], [ %28, %26 ]
+  store ptr %storemerge, ptr %9, align 8
+  %32 = trunc nsw i64 %indvars.iv to i32
+  store i32 %32, ptr %5, align 4
+  %33 = load ptr, ptr %9, align 8
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %34 = getelementptr %struct._MdfdVec, ptr %33, i64 %indvars.iv.next
+  %35 = load i32, ptr %34, align 4
+  tail call void @FileClose(i32 noundef %35) #14
+  %36 = icmp eq i64 %indvars.iv.next, 0
+  %37 = load i32, ptr %5, align 4
+  br i1 %36, label %._crit_edge, label %.lr.ph
+
+38:                                               ; preds = %_fdvec_resize.exit.thread, %2
   ret void
 }
 

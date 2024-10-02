@@ -34215,7 +34215,7 @@ _ZN2cv23EigenvalueDecomposition4cdivEdddd.exit:   ; preds = %665, %673
   %695 = load ptr, ptr %694, align 8
   %696 = getelementptr inbounds double, ptr %695, i64 %indvars.iv1124
   store double 1.000000e+00, ptr %696, align 8
-  %697 = icmp sgt i64 %indvars.iv1124.in, 2
+  %697 = icmp ugt i64 %indvars.iv1124.in, 2
   br i1 %697, label %.preheader828.lr.ph, label %.loopexit829
 
 .preheader828.lr.ph:                              ; preds = %686

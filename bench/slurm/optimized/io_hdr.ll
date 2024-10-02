@@ -525,7 +525,7 @@ define range(i32 -1, 1) i32 @io_init_msg_read_from_fd(i32 noundef %0, ptr nounde
   %.us-phi92 = phi i32 [ %38, %.lr.ph115.preheader.preheader ], [ %38, %.lr.ph131.preheader ], [ %54, %.lr.ph115.preheader ], [ %46, %.lr.ph131 ]
   %27 = and i64 %.us-phi91, 2147483647
   %28 = getelementptr inbounds i8, ptr %.048.ph135, i64 %27
-  %29 = sub i32 %.049.ph133, %.us-phi92
+  %29 = sub nsw i32 %.049.ph133, %.us-phi92
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %.outer68._crit_edge
 
@@ -718,7 +718,7 @@ define range(i32 -1, 1) i32 @io_init_msg_read_from_fd(i32 noundef %0, ptr nounde
   %.us-phi145 = phi i32 [ %65, %.lr.ph169.preheader.preheader ], [ %65, %.lr.ph185.preheader ], [ %81, %.lr.ph169.preheader ], [ %73, %.lr.ph185 ]
   %92 = and i64 %.us-phi144, 2147483647
   %93 = getelementptr inbounds i8, ptr %.045.ph190, i64 %92
-  %94 = sub i32 %.046.ph188, %.us-phi145
+  %94 = sub nsw i32 %.046.ph188, %.us-phi145
   %95 = icmp sgt i32 %94, 0
   br i1 %95, label %96, label %.outer._crit_edge
 

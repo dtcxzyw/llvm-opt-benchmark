@@ -338,8 +338,8 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 172:                                              ; preds = %.loopexit582, %._crit_edge623
   %.3536633 = phi i32 [ 1, %.loopexit582 ], [ %248, %._crit_edge623 ]
   %173 = phi i32 [ 0, %.loopexit582 ], [ %247, %._crit_edge623 ]
-  %174 = add nuw nsw i32 %173, 4
-  %175 = add i32 %171, %173
+  %174 = or disjoint i32 %173, 4
+  %175 = or disjoint i32 %171, %173
   br i1 %.not573604, label %._crit_edge609.thread, label %.lr.ph608.preheader
 
 ._crit_edge609.thread:                            ; preds = %172
@@ -349,11 +349,11 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br label %._crit_edge616
 
 .lr.ph608.preheader:                              ; preds = %172
-  %177 = add nuw nsw i32 %173, %148
+  %177 = or disjoint i32 %173, %148
   %178 = sext i32 %177 to i64
   %gep = getelementptr double, ptr %invariant.gep, i64 %178
   %179 = load double, ptr %gep, align 8
-  %180 = sext i32 %175 to i64
+  %180 = zext nneg i32 %175 to i64
   %181 = zext nneg i32 %174 to i64
   br label %.lr.ph608
 
@@ -392,7 +392,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %197 = load double, ptr %gep781, align 8
   %198 = shl nuw nsw i32 %173, 1
   %199 = zext nneg i32 %198 to i64
-  %200 = sext i32 %175 to i64
+  %200 = zext nneg i32 %175 to i64
   br label %201
 
 201:                                              ; preds = %.lr.ph615, %232
@@ -448,7 +448,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 232:                                              ; preds = %222, %226, %212
   %.4 = phi double [ %214, %212 ], [ %225, %222 ], [ %231, %226 ]
   %indvars.iv.next729 = add nuw nsw i64 %indvars.iv728, 4
-  %.not574 = icmp sgt i64 %indvars.iv.next729, %200
+  %.not574 = icmp ugt i64 %indvars.iv.next729, %200
   br i1 %.not574, label %._crit_edge616, label %201, !llvm.loop !10
 
 ._crit_edge616:                                   ; preds = %232, %._crit_edge609.thread
@@ -484,7 +484,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 
 ._crit_edge623:                                   ; preds = %.lr.ph622, %._crit_edge616
   %.lcssa632 = phi double [ %237, %._crit_edge616 ], [ %246, %.lr.ph622 ]
-  %247 = sub nuw nsw i32 1, %173
+  %247 = xor i32 %173, 1
   %248 = add nuw nsw i32 %.3536633, 1
   %exitcond.not = icmp eq i32 %248, 3
   br i1 %exitcond.not, label %249, label %172, !llvm.loop !12

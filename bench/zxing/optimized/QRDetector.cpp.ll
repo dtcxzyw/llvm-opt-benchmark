@@ -2168,7 +2168,7 @@ _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit346.thread: ; preds = %86, %9
 .split.us.us.i:                                   ; preds = %218, %.split46.us.us.i
   %.02849.us.i = phi i32 [ %256, %.split46.us.us.i ], [ 5, %218 ]
   %.03548.us.i = phi i32 [ %.2.us.us.i, %.split46.us.us.i ], [ 0, %218 ]
-  %221 = sitofp i32 %.02849.us.i to double
+  %221 = uitofp nneg i32 %.02849.us.i to double
   %222 = fadd double %221, 5.000000e-01
   br label %223
 
@@ -2237,7 +2237,7 @@ _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread.us.us.i: ; preds = %_
 .split.i:                                         ; preds = %218, %.split46.i
   %.02849.i = phi i32 [ %292, %.split46.i ], [ 5, %218 ]
   %.03548.i = phi i32 [ %.2.i, %.split46.i ], [ 0, %218 ]
-  %257 = sitofp i32 %.02849.i to double
+  %257 = uitofp nneg i32 %.02849.i to double
   %258 = fadd double %257, 5.000000e-01
   br label %259
 

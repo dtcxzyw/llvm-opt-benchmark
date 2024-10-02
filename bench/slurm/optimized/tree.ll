@@ -210,7 +210,7 @@ define i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
   %.us-phi111 = phi i32 [ %11, %.lr.ph134.preheader.preheader ], [ %11, %.lr.ph150.preheader ], [ %27, %.lr.ph134.preheader ], [ %19, %.lr.ph150 ]
   %38 = and i64 %.us-phi110, 2147483647
   %39 = getelementptr inbounds i8, ptr %.063.ph152, i64 %38
-  %40 = sub i32 %.062.ph154, %.us-phi111
+  %40 = sub nsw i32 %.062.ph154, %.us-phi111
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %.outer77._crit_edge
 
@@ -330,7 +330,7 @@ define i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
   %.us-phi164 = phi i32 [ %51, %.lr.ph188.preheader.preheader ], [ %51, %.lr.ph204.preheader ], [ %67, %.lr.ph188.preheader ], [ %59, %.lr.ph204 ]
   %78 = and i64 %.us-phi163, 2147483647
   %79 = getelementptr inbounds i8, ptr %.060.ph209, i64 %78
-  %80 = sub i32 %.061.ph207, %.us-phi164
+  %80 = sub nsw i32 %.061.ph207, %.us-phi164
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %82, label %.outer76._crit_edge
 
@@ -698,7 +698,7 @@ define range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0, ptr noun
   %.us-phi81 = phi i32 [ %17, %.lr.ph104.preheader.preheader ], [ %17, %.lr.ph120.preheader ], [ %33, %.lr.ph104.preheader ], [ %25, %.lr.ph120 ]
   %44 = and i64 %.us-phi80, 2147483647
   %45 = getelementptr inbounds i8, ptr %.046.ph124, i64 %44
-  %46 = sub i32 %.047.ph122, %.us-phi81
+  %46 = sub nsw i32 %.047.ph122, %.us-phi81
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %48, label %.outer57._crit_edge
 

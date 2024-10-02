@@ -3052,7 +3052,7 @@ _ZL13calc_fractionPKfi.exit:                      ; preds = %162, %.loopexit202
   br i1 %brmerge248, label %.loopexit194, label %.preheader185.lr.ph
 
 .preheader185.lr.ph:                              ; preds = %181
-  %183 = sub nuw nsw i32 1, %.0148
+  %183 = xor i32 %.0148, 1
   %184 = zext nneg i32 %183 to i64
   %185 = getelementptr inbounds [2 x ptr], ptr %32, i64 0, i64 %184
   %186 = load ptr, ptr %185, align 8
@@ -3250,7 +3250,7 @@ _ZL13calc_fractionPKfi.exit:                      ; preds = %162, %.loopexit202
 
 280:                                              ; preds = %.loopexit
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
-  %281 = sub nuw nsw i32 1, %.0148
+  %281 = xor i32 %.0148, 1
   br i1 %279, label %65, label %282, !llvm.loop !51
 
 282:                                              ; preds = %280

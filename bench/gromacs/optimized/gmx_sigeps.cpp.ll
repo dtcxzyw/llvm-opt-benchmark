@@ -569,7 +569,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %213, %216
   %264 = fadd double %263, %261
   %265 = fptrunc double %264 to float
   %266 = fneg float %265
-  %267 = sub nuw nsw i32 1, %.082
+  %267 = xor i32 %.082, 1
   %268 = zext nneg i32 %267 to i64
   %269 = getelementptr inbounds [2 x float], ptr %11, i64 0, i64 %268
   store float %266, ptr %269, align 4

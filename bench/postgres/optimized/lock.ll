@@ -4763,7 +4763,7 @@ define dso_local ptr @GetLockStatusData() local_unnamed_addr #0 {
 
 66:                                               ; preds = %62
   %.not124 = icmp slt i32 %.2113, %.2
-  %.pre153 = load ptr, ptr %7, align 8
+  %.pre149 = load ptr, ptr %7, align 8
   br i1 %.not124, label %73, label %67
 
 67:                                               ; preds = %66
@@ -4771,12 +4771,12 @@ define dso_local ptr @GetLockStatusData() local_unnamed_addr #0 {
   %69 = add i32 %68, %.2
   %70 = sext i32 %69 to i64
   %71 = mul nsw i64 %70, 56
-  %72 = tail call ptr @repalloc(ptr noundef %.pre153, i64 noundef %71) #16
+  %72 = tail call ptr @repalloc(ptr noundef %.pre149, i64 noundef %71) #16
   store ptr %72, ptr %7, align 8
   br label %73
 
 73:                                               ; preds = %67, %66
-  %74 = phi ptr [ %72, %67 ], [ %.pre153, %66 ]
+  %74 = phi ptr [ %72, %67 ], [ %.pre149, %66 ]
   %.5 = phi i32 [ %69, %67 ], [ %.2, %66 ]
   %75 = load i32, ptr %20, align 4
   %76 = getelementptr inbounds i8, ptr %14, i64 844
@@ -4923,18 +4923,16 @@ define dso_local ptr @GetLockStatusData() local_unnamed_addr #0 {
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv148 = phi i64 [ %indvars.iv.next149, %.preheader ], [ 16, %.preheader.preheader ]
-  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %.preheader ], [ 15, %.preheader.preheader ]
+  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %.preheader ], [ 16, %.preheader.preheader ]
+  %indvars.iv.next147 = add nsw i64 %indvars.iv146, -1
   %161 = load ptr, ptr @MainLWLockArray, align 8
-  %162 = getelementptr %union.LWLockPadded, ptr %161, i64 %indvars.iv148
+  %162 = getelementptr %union.LWLockPadded, ptr %161, i64 %indvars.iv146
   %163 = getelementptr i8, ptr %162, i64 23040
   call void @LWLockRelease(ptr noundef %163) #16
-  %indvars.iv.next147 = add nsw i64 %indvars.iv146, -1
-  %.not154 = icmp eq i64 %indvars.iv146, 0
-  %indvars.iv.next149 = add nsw i64 %indvars.iv148, -1
-  br i1 %.not154, label %164, label %.preheader, !llvm.loop !52
+  %164 = icmp ugt i64 %indvars.iv146, 1
+  br i1 %164, label %.preheader, label %165, !llvm.loop !52
 
-164:                                              ; preds = %.preheader
+165:                                              ; preds = %.preheader
   ret ptr %2
 }
 
@@ -5006,8 +5004,8 @@ define dso_local ptr @GetBlockerStatusData(i32 noundef %0) local_unnamed_addr #0
   %38 = getelementptr inbounds i8, ptr %33, i64 864
   %39 = load ptr, ptr %38, align 8
   %.not34 = icmp eq ptr %39, null
-  %.not353849 = icmp eq ptr %39, %37
-  %.not3538 = select i1 %.not34, i1 true, i1 %.not353849
+  %.not353845 = icmp eq ptr %39, %37
+  %.not3538 = select i1 %.not34, i1 true, i1 %.not353845
   br i1 %.not3538, label %.loopexit36.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %.lr.ph
@@ -5023,21 +5021,19 @@ define dso_local ptr @GetBlockerStatusData(i32 noundef %0) local_unnamed_addr #0
   br label %.loopexit36
 
 .loopexit36:                                      ; preds = %.loopexit36.preheader, %.loopexit36
-  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.loopexit36 ], [ 16, %.loopexit36.preheader ]
-  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %.loopexit36 ], [ 15, %.loopexit36.preheader ]
+  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %.loopexit36 ], [ 16, %.loopexit36.preheader ]
+  %indvars.iv.next43 = add nsw i64 %indvars.iv42, -1
   %43 = load ptr, ptr @MainLWLockArray, align 8
-  %44 = getelementptr %union.LWLockPadded, ptr %43, i64 %indvars.iv44
+  %44 = getelementptr %union.LWLockPadded, ptr %43, i64 %indvars.iv42
   %45 = getelementptr i8, ptr %44, i64 23040
   tail call void @LWLockRelease(ptr noundef %45) #16
-  %indvars.iv.next43 = add nsw i64 %indvars.iv42, -1
-  %.not50 = icmp eq i64 %indvars.iv42, 0
-  %indvars.iv.next45 = add nsw i64 %indvars.iv44, -1
-  br i1 %.not50, label %.loopexit, label %.loopexit36, !llvm.loop !55
+  %46 = icmp ugt i64 %indvars.iv42, 1
+  br i1 %46, label %.loopexit36, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.loopexit36, %1
-  %46 = load ptr, ptr @MainLWLockArray, align 8
-  %47 = getelementptr i8, ptr %46, i64 512
-  tail call void @LWLockRelease(ptr noundef %47) #16
+  %47 = load ptr, ptr @MainLWLockArray, align 8
+  %48 = getelementptr i8, ptr %47, i64 512
+  tail call void @LWLockRelease(ptr noundef %48) #16
   ret ptr %2
 }
 
@@ -5314,18 +5310,16 @@ define dso_local ptr @GetRunningTransactionLocks(ptr nocapture noundef writeonly
   br label %.outer.outer, !llvm.loop !59
 
 .preheader:                                       ; preds = %15, %.preheader
-  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %.preheader ], [ 16, %15 ]
-  %indvars.iv36 = phi i64 [ %indvars.iv.next37, %.preheader ], [ 15, %15 ]
+  %indvars.iv36 = phi i64 [ %indvars.iv.next37, %.preheader ], [ 16, %15 ]
+  %indvars.iv.next37 = add nsw i64 %indvars.iv36, -1
   %40 = load ptr, ptr @MainLWLockArray, align 8
-  %41 = getelementptr %union.LWLockPadded, ptr %40, i64 %indvars.iv38
+  %41 = getelementptr %union.LWLockPadded, ptr %40, i64 %indvars.iv36
   %42 = getelementptr i8, ptr %41, i64 23040
   call void @LWLockRelease(ptr noundef %42) #16
-  %indvars.iv.next37 = add nsw i64 %indvars.iv36, -1
-  %.not44 = icmp eq i64 %indvars.iv36, 0
-  %indvars.iv.next39 = add nsw i64 %indvars.iv38, -1
-  br i1 %.not44, label %43, label %.preheader, !llvm.loop !60
+  %43 = icmp ugt i64 %indvars.iv36, 1
+  br i1 %43, label %.preheader, label %44, !llvm.loop !60
 
-43:                                               ; preds = %.preheader
+44:                                               ; preds = %.preheader
   store i32 %.024.ph.ph, ptr %0, align 4
   ret ptr %13
 }

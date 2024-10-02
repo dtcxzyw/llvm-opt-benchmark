@@ -3172,11 +3172,11 @@ getsubdfa.exit71:                                 ; preds = %198, %206, %225
   br i1 %400, label %.backedge.loopexit, label %401
 
 401:                                              ; preds = %398
-  %402 = icmp slt i64 %indvars.iv, %345
+  %402 = icmp ult i64 %indvars.iv, %345
   br i1 %402, label %403, label %408
 
 403:                                              ; preds = %401
-  %404 = sub nsw i64 %345, %indvars.iv
+  %404 = sub nuw nsw i64 %345, %indvars.iv
   %405 = ptrtoint ptr %395 to i64
   %406 = sub i64 %327, %405
   %407 = ashr exact i64 %406, 2

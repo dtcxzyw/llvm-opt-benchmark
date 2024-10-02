@@ -1728,7 +1728,7 @@ _ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14GetCellContentEii.e
 
 81:                                               ; preds = %.critedge
   %82 = shl nuw nsw i32 %.0.i61, 2
-  %83 = add nuw nsw i32 %82, %.013.i
+  %83 = or disjoint i32 %82, %.013.i
   %84 = zext nneg i32 %83 to i64
   %85 = getelementptr inbounds %"struct.open_spiel::twenty_forty_eight::Tile", ptr %48, i64 %84
   %86 = trunc i64 %.sroa.0.0.copyload.i.i to i40

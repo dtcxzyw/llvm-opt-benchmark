@@ -21357,7 +21357,7 @@ define linkonce_odr void @_ZSt23__copy_move_backward_a1ILb1EPN32pxrInternal_v0_2
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %.014, i64 %storemerge15)
   %26 = sub nsw i64 0, %.sroa.speculated
   %27 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %.016, i64 %26
-  %28 = icmp sgt i64 %.sroa.speculated, 0
+  %28 = icmp sgt i64 %.014, 0
   br i1 %28, label %.lr.ph.i.i.i, label %_ZSt23__copy_move_backward_a1ILb1EPN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ET1_T0_S4_S3_.exit
 
 .lr.ph.i.i.i:                                     ; preds = %25, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit.i.i.i

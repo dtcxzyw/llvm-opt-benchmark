@@ -1797,7 +1797,7 @@ list_length.exit:                                 ; preds = %10
 
 .preheader85.us:                                  ; preds = %36
   %43 = tail call ptr @lappend(ptr noundef null, ptr noundef null) #10
-  br label %.thread82
+  br label %.thread82, !llvm.loop !15
 
 .preheader85thread-pre-split:                     ; preds = %._crit_edge.split
   %.pr155 = load i32, ptr %41, align 4

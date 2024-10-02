@@ -13989,7 +13989,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTy
 96:                                               ; preds = %.lr.ph100.us, %96
   %indvars.iv125 = phi i64 [ %115, %.lr.ph100.us ], [ %indvars.iv.next126, %96 ]
   %.04699.us = phi i32 [ %94, %.lr.ph100.us ], [ %110, %96 ]
-  %97 = srem i32 %.04699.us, %94
+  %97 = urem i32 %.04699.us, %94
   %98 = add nsw i32 %97, %.048103.us
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds i32, ptr %32, i64 %99

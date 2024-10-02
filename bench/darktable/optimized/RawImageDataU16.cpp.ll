@@ -2303,7 +2303,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1611fixBadPixelEjji(ptr nocapture
   %134 = phi i32 [ %94, %96 ], [ %155, %154 ]
   %135 = icmp ugt i32 %13, %134
   tail call void @llvm.assume(i1 %135)
-  %136 = mul nsw i32 %134, %28
+  %136 = mul nuw nsw i32 %134, %28
   %137 = add nuw nsw i32 %136, %28
   %138 = icmp ule i32 %137, %29
   tail call void @llvm.assume(i1 %138)
@@ -2318,7 +2318,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1611fixBadPixelEjji(ptr nocapture
 145:                                              ; preds = %133
   tail call void @llvm.assume(i1 %104)
   tail call void @llvm.assume(i1 %105)
-  %146 = mul nsw i32 %134, %16
+  %146 = mul nuw nsw i32 %134, %16
   %147 = add nuw nsw i32 %146, %11
   %148 = icmp ule i32 %147, %17
   tail call void @llvm.assume(i1 %148)

@@ -54249,9 +54249,9 @@ entry:
 if.then:                                          ; preds = %entry
   %length.i = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load i32, ptr %length.i, align 4
-  %i.021.i = add i32 %1, -1
-  %cmp22.i = icmp sgt i32 %i.021.i, -1
-  br i1 %cmp22.i, label %for.body.lr.ph.i, label %_ZNK12hb_bit_set_t7get_maxEv.exit
+  %i.022.i = add i32 %1, -1
+  %cmp23.i = icmp sgt i32 %i.022.i, -1
+  br i1 %cmp23.i, label %for.body.lr.ph.i, label %_ZNK12hb_bit_set_t7get_maxEv.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.then
   %length.i.i = getelementptr inbounds i8, ptr %this, i64 20
@@ -54260,7 +54260,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then
   %3 = load ptr, ptr %arrayZ.i.i, align 8
   %arrayZ.i7.i = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load ptr, ptr %arrayZ.i7.i, align 8
-  %5 = zext nneg i32 %i.021.i to i64
+  %5 = zext nneg i32 %i.022.i to i64
   %6 = zext i32 %2 to i64
   br label %for.body.i
 
@@ -54307,8 +54307,8 @@ if.then.i:                                        ; preds = %for.body.i, %for.bo
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 8, %if.then.i ]
-  %cmp.i.not.i = icmp eq i64 %indvars.iv.i.i, 0
-  br i1 %cmp.i.not.i, label %_ZNK13hb_bit_page_t7get_maxEv.exit.i, label %for.body.i.i
+  %cmp.not.i12.i = icmp eq i64 %indvars.iv.i.i, 0
+  br i1 %cmp.not.i12.i, label %_ZNK13hb_bit_page_t7get_maxEv.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
@@ -54327,8 +54327,8 @@ if.then.i14.i:                                    ; preds = %for.body.i.i
   br label %_ZNK13hb_bit_page_t7get_maxEv.exit.i
 
 _ZNK13hb_bit_page_t7get_maxEv.exit.i:             ; preds = %for.cond.i.i, %if.then.i14.i
-  %retval.0.i12.i = phi i32 [ %add.i.i, %if.then.i14.i ], [ 0, %for.cond.i.i ]
-  %add.i = add i32 %retval.0.i12.i, %mul.i
+  %retval.0.i15.i = phi i32 [ %add.i.i, %if.then.i14.i ], [ 0, %for.cond.i.i ]
+  %add.i = add i32 %retval.0.i15.i, %mul.i
   br label %_ZNK12hb_bit_set_t7get_maxEv.exit
 
 _ZNK12hb_bit_set_t7get_maxEv.exit:                ; preds = %for.cond.backedge.i, %if.then, %_ZNK13hb_bit_page_t7get_maxEv.exit.i
@@ -54490,37 +54490,37 @@ for.body:                                         ; preds = %for.cond
   %v.i22 = getelementptr inbounds %struct.hb_bit_page_t, ptr %33, i64 %idxprom35, i32 1
   br label %for.cond.i
 
-for.cond.i:                                       ; preds = %for.body.i26, %for.body
-  %indvars.iv.i23 = phi i64 [ %indvars.iv.next.i27, %for.body.i26 ], [ 8, %for.body ]
-  %cmp.i24.not = icmp eq i64 %indvars.iv.i23, 0
-  br i1 %cmp.i24.not, label %if.then39, label %for.body.i26
+for.cond.i:                                       ; preds = %for.body.i25, %for.body
+  %indvars.iv.i23 = phi i64 [ %indvars.iv.next.i26, %for.body.i25 ], [ 8, %for.body ]
+  %cmp.not.i24 = icmp eq i64 %indvars.iv.i23, 0
+  br i1 %cmp.not.i24, label %if.then39, label %for.body.i25
 
-for.body.i26:                                     ; preds = %for.cond.i
-  %indvars.iv.next.i27 = add nsw i64 %indvars.iv.i23, -1
-  %arrayidx.i.i28 = getelementptr inbounds [8 x i64], ptr %v.i22, i64 0, i64 %indvars.iv.next.i27
-  %36 = load i64, ptr %arrayidx.i.i28, align 8
-  %tobool.not.i29 = icmp eq i64 %36, 0
-  br i1 %tobool.not.i29, label %for.cond.i, label %_ZNK13hb_bit_page_t7get_maxEv.exit, !llvm.loop !404
+for.body.i25:                                     ; preds = %for.cond.i
+  %indvars.iv.next.i26 = add nsw i64 %indvars.iv.i23, -1
+  %arrayidx.i.i27 = getelementptr inbounds [8 x i64], ptr %v.i22, i64 0, i64 %indvars.iv.next.i26
+  %36 = load i64, ptr %arrayidx.i.i27, align 8
+  %tobool.not.i28 = icmp eq i64 %36, 0
+  br i1 %tobool.not.i28, label %for.cond.i, label %_ZNK13hb_bit_page_t7get_maxEv.exit, !llvm.loop !404
 
-_ZNK13hb_bit_page_t7get_maxEv.exit:               ; preds = %for.body.i26
-  %37 = trunc nsw i64 %indvars.iv.next.i27 to i32
-  %mul.i31 = shl i32 %37, 6
+_ZNK13hb_bit_page_t7get_maxEv.exit:               ; preds = %for.body.i25
+  %37 = trunc nsw i64 %indvars.iv.next.i26 to i32
+  %mul.i30 = shl i32 %37, 6
   %38 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %36, i1 true)
   %39 = trunc nuw nsw i64 %38 to i32
-  %40 = or disjoint i32 %mul.i31, %39
+  %40 = or disjoint i32 %mul.i30, %39
   %cmp38.not = icmp eq i32 %40, -64
   br i1 %cmp38.not, label %for.cond, label %if.then39.loopexit43, !llvm.loop !406
 
 if.then39.loopexit43:                             ; preds = %_ZNK13hb_bit_page_t7get_maxEv.exit
-  %add.i32.le = xor i32 %40, 63
+  %add.i31.le = xor i32 %40, 63
   br label %if.then39
 
 if.then39:                                        ; preds = %for.cond.i, %if.then39.loopexit43
-  %retval.0.i2541 = phi i32 [ %add.i32.le, %if.then39.loopexit43 ], [ 0, %for.cond.i ]
+  %retval.0.i3241 = phi i32 [ %add.i31.le, %if.then39.loopexit43 ], [ 0, %for.cond.i ]
   %arrayidx43 = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %32, i64 %idxprom32
   %41 = load i32, ptr %arrayidx43, align 4
   %mul45 = shl i32 %41, 9
-  %add46 = add i32 %mul45, %retval.0.i2541
+  %add46 = add i32 %mul45, %retval.0.i3241
   store i32 %add46, ptr %codepoint, align 4
   br label %return
 

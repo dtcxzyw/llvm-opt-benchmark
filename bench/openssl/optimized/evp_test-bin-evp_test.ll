@@ -3094,8 +3094,8 @@ for.inc81.split:                                  ; preds = %for.inc78.split
 
 for.inc84:                                        ; preds = %for.inc81.split, %for.inc81.split.us.us
   %dec = add nsw i32 %in_place.048, -1
-  %cmp22 = icmp sgt i32 %in_place.048, 0
-  br i1 %cmp22, label %for.body, label %for.end85, !llvm.loop !24
+  %cmp22.not = icmp eq i32 %in_place.048, 0
+  br i1 %cmp22.not, label %for.end85, label %for.body, !llvm.loop !24
 
 for.end85:                                        ; preds = %for.body, %for.inc84
   store ptr null, ptr %aux_err, align 8

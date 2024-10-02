@@ -537,7 +537,7 @@ _step_connect.exit:                               ; preds = %42
   %.us-phi98 = phi i32 [ %148, %.lr.ph121.preheader.preheader ], [ %148, %.lr.ph137.preheader ], [ %164, %.lr.ph121.preheader ], [ %156, %.lr.ph137 ]
   %137 = and i64 %.us-phi97, 2147483647
   %138 = getelementptr inbounds i8, ptr %.043.ph142, i64 %137
-  %139 = sub i32 %.044.ph140, %.us-phi98
+  %139 = sub nsw i32 %.044.ph140, %.us-phi98
   %140 = icmp sgt i32 %139, 0
   br i1 %140, label %141, label %.outer._crit_edge
 
@@ -745,7 +745,7 @@ define i32 @stepd_get_uid(i32 noundef %0, i16 noundef zeroext %1) #0 {
   %.us-phi77 = phi i32 [ %48, %.lr.ph100.preheader.preheader ], [ %48, %.lr.ph116.preheader ], [ %64, %.lr.ph100.preheader ], [ %56, %.lr.ph116 ]
   %37 = and i64 %.us-phi76, 2147483647
   %38 = getelementptr inbounds i8, ptr %.031.ph121, i64 %37
-  %39 = sub i32 %.032.ph119, %.us-phi77
+  %39 = sub nsw i32 %.032.ph119, %.us-phi77
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %.loopexit
 
@@ -990,7 +990,7 @@ define i32 @stepd_add_extern_pid(i32 noundef %0, i16 zeroext %1, i32 noundef %2)
   %.us-phi117 = phi i32 [ %71, %.lr.ph140.preheader.preheader ], [ %71, %.lr.ph156.preheader ], [ %87, %.lr.ph140.preheader ], [ %79, %.lr.ph156 ]
   %60 = and i64 %.us-phi116, 2147483647
   %61 = getelementptr inbounds i8, ptr %.042.ph161, i64 %60
-  %62 = sub i32 %.043.ph159, %.us-phi117
+  %62 = sub nsw i32 %.043.ph159, %.us-phi117
   %63 = icmp sgt i32 %62, 0
   %64 = tail call i32 @get_log_level() #12
   br i1 %63, label %65, label %.outer._crit_edge
@@ -1189,7 +1189,7 @@ define i32 @stepd_get_x11_display(i32 noundef %0, i16 noundef zeroext %1, ptr no
   %.us-phi150 = phi i32 [ %49, %.lr.ph173.preheader.preheader ], [ %49, %.lr.ph189.preheader ], [ %65, %.lr.ph173.preheader ], [ %57, %.lr.ph189 ]
   %38 = and i64 %.us-phi149, 2147483647
   %39 = getelementptr inbounds i8, ptr %.075.ph194, i64 %38
-  %40 = sub i32 %.076.ph192, %.us-phi150
+  %40 = sub nsw i32 %.076.ph192, %.us-phi150
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %.outer94._crit_edge
 
@@ -1374,7 +1374,7 @@ define i32 @stepd_get_x11_display(i32 noundef %0, i16 noundef zeroext %1, ptr no
   %.us-phi204 = phi i32 [ %71, %.lr.ph228.preheader.preheader ], [ %71, %.lr.ph244.preheader ], [ %87, %.lr.ph228.preheader ], [ %79, %.lr.ph244 ]
   %98 = and i64 %.us-phi203, 2147483647
   %99 = getelementptr inbounds i8, ptr %.072.ph249, i64 %98
-  %100 = sub i32 %.073.ph247, %.us-phi204
+  %100 = sub nsw i32 %.073.ph247, %.us-phi204
   %101 = icmp sgt i32 %100, 0
   br i1 %101, label %102, label %.outer92._crit_edge
 
@@ -2005,7 +2005,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi710 = phi i32 [ %153, %.lr.ph733.preheader.preheader ], [ %153, %.lr.ph749.preheader ], [ %169, %.lr.ph733.preheader ], [ %161, %.lr.ph749 ]
   %180 = and i64 %.us-phi709, 2147483647
   %181 = getelementptr inbounds i8, ptr %.0342.ph754, i64 %180
-  %182 = sub i32 %.0343.ph752, %.us-phi710
+  %182 = sub nsw i32 %.0343.ph752, %.us-phi710
   %183 = icmp sgt i32 %182, 0
   br i1 %183, label %184, label %.outer428._crit_edge
 
@@ -2063,7 +2063,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi764 = phi i32 [ %210, %.lr.ph788.preheader.preheader ], [ %210, %.lr.ph804.preheader ], [ %226, %.lr.ph788.preheader ], [ %218, %.lr.ph804 ]
   %199 = and i64 %.us-phi763, 2147483647
   %200 = getelementptr inbounds i8, ptr %.0339.ph809, i64 %199
-  %201 = sub i32 %.0340.ph807, %.us-phi764
+  %201 = sub nsw i32 %.0340.ph807, %.us-phi764
   %202 = icmp sgt i32 %201, 0
   br i1 %202, label %203, label %.outer427._crit_edge
 
@@ -2305,7 +2305,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi873 = phi i32 [ %291, %.lr.ph897.preheader.preheader ], [ %291, %.lr.ph913.preheader ], [ %307, %.lr.ph897.preheader ], [ %299, %.lr.ph913 ]
   %280 = and i64 %.us-phi872, 2147483647
   %281 = getelementptr inbounds i8, ptr %.0333.ph918, i64 %280
-  %282 = sub i32 %.0334.ph916, %.us-phi873
+  %282 = sub nsw i32 %.0334.ph916, %.us-phi873
   %283 = icmp sgt i32 %282, 0
   br i1 %283, label %284, label %.outer424._crit_edge
 
@@ -2617,7 +2617,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi983 = phi i32 [ %358, %.lr.ph1007.preheader.preheader ], [ %358, %.lr.ph1023.preheader ], [ %374, %.lr.ph1007.preheader ], [ %366, %.lr.ph1023 ]
   %385 = and i64 %.us-phi982, 2147483647
   %386 = getelementptr inbounds i8, ptr %.0327.ph1028, i64 %385
-  %387 = sub i32 %.0328.ph1026, %.us-phi983
+  %387 = sub nsw i32 %.0328.ph1026, %.us-phi983
   %388 = icmp sgt i32 %387, 0
   br i1 %388, label %389, label %.outer421._crit_edge
 
@@ -2736,7 +2736,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi1037 = phi i32 [ %397, %.lr.ph1061.preheader.preheader ], [ %397, %.lr.ph1077.preheader ], [ %413, %.lr.ph1061.preheader ], [ %405, %.lr.ph1077 ]
   %424 = and i64 %.us-phi1036, 2147483647
   %425 = getelementptr inbounds i8, ptr %.0324.ph1082, i64 %424
-  %426 = sub i32 %.0325.ph1080, %.us-phi1037
+  %426 = sub nsw i32 %.0325.ph1080, %.us-phi1037
   %427 = icmp sgt i32 %426, 0
   br i1 %427, label %428, label %.lr.ph1084
 
@@ -2785,7 +2785,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi1092 = phi i32 [ %452, %.lr.ph1116.preheader.preheader ], [ %452, %.lr.ph1132.preheader ], [ %468, %.lr.ph1116.preheader ], [ %460, %.lr.ph1132 ]
   %441 = and i64 %.us-phi1091, 2147483647
   %442 = getelementptr inbounds i8, ptr %.0321.ph1137, i64 %441
-  %443 = sub i32 %.0322.ph1135, %.us-phi1092
+  %443 = sub nsw i32 %.0322.ph1135, %.us-phi1092
   %444 = icmp sgt i32 %443, 0
   br i1 %444, label %445, label %.outer419._crit_edge
 
@@ -3028,7 +3028,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi1201 = phi i32 [ %534, %.lr.ph1225.preheader.preheader ], [ %534, %.lr.ph1241.preheader ], [ %550, %.lr.ph1225.preheader ], [ %542, %.lr.ph1241 ]
   %523 = and i64 %.us-phi1200, 2147483647
   %524 = getelementptr inbounds i8, ptr %.0315.ph1246, i64 %523
-  %525 = sub i32 %.0316.ph1244, %.us-phi1201
+  %525 = sub nsw i32 %.0316.ph1244, %.us-phi1201
   %526 = icmp sgt i32 %525, 0
   br i1 %526, label %527, label %.outer416._crit_edge
 
@@ -3271,7 +3271,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi1310 = phi i32 [ %616, %.lr.ph1334.preheader.preheader ], [ %616, %.lr.ph1350.preheader ], [ %632, %.lr.ph1334.preheader ], [ %624, %.lr.ph1350 ]
   %605 = and i64 %.us-phi1309, 2147483647
   %606 = getelementptr inbounds i8, ptr %.0309.ph1355, i64 %605
-  %607 = sub i32 %.0310.ph1353, %.us-phi1310
+  %607 = sub nsw i32 %.0310.ph1353, %.us-phi1310
   %608 = icmp sgt i32 %607, 0
   br i1 %608, label %609, label %.outer413._crit_edge
 
@@ -4011,7 +4011,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi590 = phi i32 [ %150, %.lr.ph613.preheader.preheader ], [ %150, %.lr.ph629.preheader ], [ %166, %.lr.ph613.preheader ], [ %158, %.lr.ph629 ]
   %177 = and i64 %.us-phi589, 2147483647
   %178 = getelementptr inbounds i8, ptr %.0261.ph634, i64 %177
-  %179 = sub i32 %.0262.ph632, %.us-phi590
+  %179 = sub nsw i32 %.0262.ph632, %.us-phi590
   %180 = icmp sgt i32 %179, 0
   br i1 %180, label %181, label %.outer326._crit_edge
 
@@ -4149,7 +4149,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi644 = phi i32 [ %196, %.lr.ph668.preheader.preheader ], [ %196, %.lr.ph684.preheader ], [ %212, %.lr.ph668.preheader ], [ %204, %.lr.ph684 ]
   %223 = and i64 %.us-phi643, 2147483647
   %224 = getelementptr inbounds i8, ptr %.0257.ph689, i64 %223
-  %225 = sub i32 %.0258.ph687, %.us-phi644
+  %225 = sub nsw i32 %.0258.ph687, %.us-phi644
   %226 = icmp sgt i32 %225, 0
   br i1 %226, label %227, label %.outer325._crit_edge
 
@@ -4331,7 +4331,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi763 = phi i32 [ %296, %.lr.ph787.preheader.preheader ], [ %296, %.lr.ph803.preheader ], [ %312, %.lr.ph787.preheader ], [ %304, %.lr.ph803 ]
   %285 = and i64 %.us-phi762, 2147483647
   %286 = getelementptr inbounds i8, ptr %.0251.ph808, i64 %285
-  %287 = sub i32 %.0252.ph806, %.us-phi763
+  %287 = sub nsw i32 %.0252.ph806, %.us-phi763
   %288 = icmp sgt i32 %287, 0
   br i1 %288, label %289, label %.outer323._crit_edge
 
@@ -4649,7 +4649,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi883 = phi i32 [ %364, %.lr.ph907.preheader.preheader ], [ %364, %.lr.ph923.preheader ], [ %380, %.lr.ph907.preheader ], [ %372, %.lr.ph923 ]
   %391 = and i64 %.us-phi882, 2147483647
   %392 = getelementptr inbounds i8, ptr %.0245.ph928, i64 %391
-  %393 = sub i32 %.0246.ph926, %.us-phi883
+  %393 = sub nsw i32 %.0246.ph926, %.us-phi883
   %394 = icmp sgt i32 %393, 0
   br i1 %394, label %395, label %.outer321._crit_edge
 
@@ -4771,7 +4771,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi938 = phi i32 [ %405, %.lr.ph962.preheader.preheader ], [ %405, %.lr.ph978.preheader ], [ %421, %.lr.ph962.preheader ], [ %413, %.lr.ph978 ]
   %432 = and i64 %.us-phi937, 2147483647
   %433 = getelementptr inbounds i8, ptr %.0242.ph983, i64 %432
-  %434 = sub i32 %.0243.ph981, %.us-phi938
+  %434 = sub nsw i32 %.0243.ph981, %.us-phi938
   %435 = icmp sgt i32 %434, 0
   br i1 %435, label %436, label %.outer320._crit_edge
 
@@ -5394,7 +5394,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi548 = phi i32 [ %127, %.lr.ph571.preheader.preheader ], [ %127, %.lr.ph587.preheader ], [ %143, %.lr.ph571.preheader ], [ %135, %.lr.ph587 ]
   %154 = and i64 %.us-phi547, 2147483647
   %155 = getelementptr inbounds i8, ptr %.0265.ph592, i64 %154
-  %156 = sub i32 %.0266.ph590, %.us-phi548
+  %156 = sub nsw i32 %.0266.ph590, %.us-phi548
   %157 = icmp sgt i32 %156, 0
   br i1 %157, label %158, label %.outer329._crit_edge
 
@@ -5518,7 +5518,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi602 = phi i32 [ %168, %.lr.ph626.preheader.preheader ], [ %168, %.lr.ph642.preheader ], [ %184, %.lr.ph626.preheader ], [ %176, %.lr.ph642 ]
   %195 = and i64 %.us-phi601, 2147483647
   %196 = getelementptr inbounds i8, ptr %.0262.ph647, i64 %195
-  %197 = sub i32 %.0263.ph645, %.us-phi602
+  %197 = sub nsw i32 %.0263.ph645, %.us-phi602
   %198 = icmp sgt i32 %197, 0
   br i1 %198, label %199, label %.outer328._crit_edge
 
@@ -5694,7 +5694,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi711 = phi i32 [ %266, %.lr.ph735.preheader.preheader ], [ %266, %.lr.ph751.preheader ], [ %282, %.lr.ph735.preheader ], [ %274, %.lr.ph751 ]
   %255 = and i64 %.us-phi710, 2147483647
   %256 = getelementptr inbounds i8, ptr %.0256.ph756, i64 %255
-  %257 = sub i32 %.0257.ph754, %.us-phi711
+  %257 = sub nsw i32 %.0257.ph754, %.us-phi711
   %258 = icmp sgt i32 %257, 0
   br i1 %258, label %259, label %.outer326._crit_edge
 
@@ -5893,7 +5893,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi766 = phi i32 [ %292, %.lr.ph790.preheader.preheader ], [ %292, %.lr.ph806.preheader ], [ %308, %.lr.ph790.preheader ], [ %300, %.lr.ph806 ]
   %319 = and i64 %.us-phi765, 2147483647
   %320 = getelementptr inbounds i8, ptr %.0252.ph811, i64 %319
-  %321 = sub i32 %.0253.ph809, %.us-phi766
+  %321 = sub nsw i32 %.0253.ph809, %.us-phi766
   %322 = icmp sgt i32 %321, 0
   br i1 %322, label %323, label %.outer324._crit_edge
 
@@ -6149,7 +6149,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi887 = phi i32 [ %379, %.lr.ph911.preheader.preheader ], [ %379, %.lr.ph927.preheader ], [ %395, %.lr.ph911.preheader ], [ %387, %.lr.ph927 ]
   %406 = and i64 %.us-phi886, 2147483647
   %407 = getelementptr inbounds i8, ptr %.0246.ph932, i64 %406
-  %408 = sub i32 %.0247.ph930, %.us-phi887
+  %408 = sub nsw i32 %.0247.ph930, %.us-phi887
   %409 = icmp sgt i32 %408, 0
   br i1 %409, label %410, label %.lr.ph934
 
@@ -6198,7 +6198,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi942 = phi i32 [ %434, %.lr.ph966.preheader.preheader ], [ %434, %.lr.ph982.preheader ], [ %450, %.lr.ph966.preheader ], [ %442, %.lr.ph982 ]
   %423 = and i64 %.us-phi941, 2147483647
   %424 = getelementptr inbounds i8, ptr %.0243.ph987, i64 %423
-  %425 = sub i32 %.0244.ph985, %.us-phi942
+  %425 = sub nsw i32 %.0244.ph985, %.us-phi942
   %426 = icmp sgt i32 %425, 0
   br i1 %426, label %427, label %.outer320._crit_edge
 
@@ -6588,7 +6588,7 @@ define i32 @stepd_get_namespace_fd(i32 noundef %0, i16 zeroext %1) #0 {
   %.us-phi76 = phi i32 [ %50, %.lr.ph99.preheader.preheader ], [ %50, %.lr.ph115.preheader ], [ %66, %.lr.ph99.preheader ], [ %58, %.lr.ph115 ]
   %39 = and i64 %.us-phi75, 2147483647
   %40 = getelementptr inbounds i8, ptr %.031.ph120, i64 %39
-  %41 = sub i32 %.032.ph118, %.us-phi76
+  %41 = sub nsw i32 %.032.ph118, %.us-phi76
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %.outer._crit_edge
 
@@ -6844,7 +6844,7 @@ define i32 @stepd_state(i32 noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   %.us-phi73 = phi i32 [ %47, %.lr.ph96.preheader.preheader ], [ %47, %.lr.ph112.preheader ], [ %63, %.lr.ph96.preheader ], [ %55, %.lr.ph112 ]
   %36 = and i64 %.us-phi72, 2147483647
   %37 = getelementptr inbounds i8, ptr %.029.ph117, i64 %36
-  %38 = sub i32 %.030.ph115, %.us-phi73
+  %38 = sub nsw i32 %.030.ph115, %.us-phi73
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %40, label %.loopexit
 
@@ -7284,7 +7284,7 @@ define i32 @stepd_notify_job(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   %.us-phi208 = phi i32 [ %104, %.lr.ph231.preheader.preheader ], [ %104, %.lr.ph247.preheader ], [ %120, %.lr.ph231.preheader ], [ %112, %.lr.ph247 ]
   %131 = and i64 %.us-phi207, 2147483647
   %132 = getelementptr inbounds i8, ptr %.071.ph252, i64 %131
-  %133 = sub i32 %.072.ph250, %.us-phi208
+  %133 = sub nsw i32 %.072.ph250, %.us-phi208
   %134 = icmp sgt i32 %133, 0
   br i1 %134, label %135, label %.outer._crit_edge
 
@@ -7728,7 +7728,7 @@ define i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext %1, i32 n
   %.us-phi328 = phi i32 [ %176, %.lr.ph351.preheader.preheader ], [ %176, %.lr.ph367.preheader ], [ %192, %.lr.ph351.preheader ], [ %184, %.lr.ph367 ]
   %165 = and i64 %.us-phi327, 2147483647
   %166 = getelementptr inbounds i8, ptr %.0117.ph372, i64 %165
-  %167 = sub i32 %.0118.ph370, %.us-phi328
+  %167 = sub nsw i32 %.0118.ph370, %.us-phi328
   %168 = icmp sgt i32 %167, 0
   br i1 %168, label %169, label %.lr.ph374
 
@@ -7843,7 +7843,7 @@ define i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext %1, i32 n
   %.us-phi382 = phi i32 [ %214, %.lr.ph406.preheader.preheader ], [ %214, %.lr.ph422.preheader ], [ %230, %.lr.ph406.preheader ], [ %222, %.lr.ph422 ]
   %203 = and i64 %.us-phi381, 2147483647
   %204 = getelementptr inbounds i8, ptr %.0114.ph427, i64 %203
-  %205 = sub i32 %.0115.ph425, %.us-phi382
+  %205 = sub nsw i32 %.0115.ph425, %.us-phi382
   %206 = icmp sgt i32 %205, 0
   br i1 %206, label %207, label %.outer._crit_edge
 
@@ -8390,7 +8390,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi520 = phi i32 [ %192, %.lr.ph543.preheader.preheader ], [ %192, %.lr.ph559.preheader ], [ %208, %.lr.ph543.preheader ], [ %200, %.lr.ph559 ]
   %181 = and i64 %.us-phi519, 2147483647
   %182 = getelementptr inbounds i8, ptr %.0219.ph564, i64 %181
-  %183 = sub i32 %.0220.ph562, %.us-phi520
+  %183 = sub nsw i32 %.0220.ph562, %.us-phi520
   %184 = icmp sgt i32 %183, 0
   br i1 %184, label %185, label %.outer281._crit_edge
 
@@ -8576,7 +8576,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi574 = phi i32 [ %215, %.lr.ph598.preheader.preheader ], [ %215, %.lr.ph614.preheader ], [ %231, %.lr.ph598.preheader ], [ %223, %.lr.ph614 ]
   %242 = and i64 %.us-phi573, 2147483647
   %243 = getelementptr inbounds i8, ptr %.0215.ph619, i64 %242
-  %244 = sub i32 %.0216.ph617, %.us-phi574
+  %244 = sub nsw i32 %.0216.ph617, %.us-phi574
   %245 = icmp sgt i32 %244, 0
   br i1 %245, label %246, label %.outer279._crit_edge
 
@@ -8957,7 +8957,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi739 = phi i32 [ %342, %.lr.ph763.preheader.preheader ], [ %342, %.lr.ph779.preheader ], [ %358, %.lr.ph763.preheader ], [ %350, %.lr.ph779 ]
   %369 = and i64 %.us-phi738, 2147483647
   %370 = getelementptr inbounds i8, ptr %.0206.ph784, i64 %369
-  %371 = sub i32 %.0207.ph782, %.us-phi739
+  %371 = sub nsw i32 %.0207.ph782, %.us-phi739
   %372 = icmp sgt i32 %371, 0
   br i1 %372, label %373, label %.outer275._crit_edge
 
@@ -9683,7 +9683,7 @@ define i32 @stepd_daemon_pid(i32 noundef %0, i16 noundef zeroext %1) local_unnam
   %.us-phi75 = phi i32 [ %47, %.lr.ph98.preheader.preheader ], [ %47, %.lr.ph114.preheader ], [ %63, %.lr.ph98.preheader ], [ %55, %.lr.ph114 ]
   %36 = and i64 %.us-phi74, 2147483647
   %37 = getelementptr inbounds i8, ptr %.030.ph119, i64 %36
-  %38 = sub i32 %.031.ph117, %.us-phi75
+  %38 = sub nsw i32 %.031.ph117, %.us-phi75
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %40, label %.outer._crit_edge
 
@@ -9878,7 +9878,7 @@ define i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture 
   %.us-phi367 = phi i32 [ %53, %.lr.ph391.preheader.preheader ], [ %53, %.lr.ph407.preheader ], [ %69, %.lr.ph391.preheader ], [ %61, %.lr.ph407 ]
   %42 = and i64 %.us-phi366, 2147483647
   %43 = getelementptr inbounds i8, ptr %.0126.ph410, i64 %42
-  %44 = sub i32 %.0123.ph412, %.us-phi367
+  %44 = sub nsw i32 %.0123.ph412, %.us-phi367
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %46, label %.lr.ph414
 
@@ -9993,7 +9993,7 @@ define i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture 
   %.us-phi422 = phi i32 [ %91, %.lr.ph446.preheader.preheader ], [ %91, %.lr.ph462.preheader ], [ %107, %.lr.ph446.preheader ], [ %99, %.lr.ph462 ]
   %80 = and i64 %.us-phi421, 2147483647
   %81 = getelementptr inbounds i8, ptr %.0127.ph467, i64 %80
-  %82 = sub i32 %.0128.ph465, %.us-phi422
+  %82 = sub nsw i32 %.0128.ph465, %.us-phi422
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %84, label %.loopexit.sink.split
 
@@ -10228,7 +10228,7 @@ define i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture 
   %.us-phi225 = phi i32 [ %177, %.lr.ph248.preheader.preheader ], [ %177, %.lr.ph264.preheader ], [ %193, %.lr.ph248.preheader ], [ %185, %.lr.ph264 ]
   %166 = and i64 %.us-phi224, 2147483647
   %167 = getelementptr inbounds i8, ptr %.0118.ph268, i64 %166
-  %168 = sub i32 %.0119.ph266, %.us-phi225
+  %168 = sub nsw i32 %.0119.ph266, %.us-phi225
   %169 = icmp sgt i32 %168, 0
   br i1 %169, label %170, label %.lr.ph270
 
@@ -10343,7 +10343,7 @@ define i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture 
   %.us-phi277 = phi i32 [ %215, %.lr.ph301.preheader.preheader ], [ %215, %.lr.ph317.preheader ], [ %231, %.lr.ph301.preheader ], [ %223, %.lr.ph317 ]
   %204 = and i64 %.us-phi276, 2147483647
   %205 = getelementptr inbounds i8, ptr %.0115.ph322, i64 %204
-  %206 = sub i32 %.0116.ph320, %.us-phi277
+  %206 = sub nsw i32 %.0116.ph320, %.us-phi277
   %207 = icmp sgt i32 %206, 0
   br i1 %207, label %208, label %.loopexit.sink.split
 
@@ -10544,7 +10544,7 @@ define i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi367 = phi i32 [ %53, %.lr.ph391.preheader.preheader ], [ %53, %.lr.ph407.preheader ], [ %69, %.lr.ph391.preheader ], [ %61, %.lr.ph407 ]
   %42 = and i64 %.us-phi366, 2147483647
   %43 = getelementptr inbounds i8, ptr %.0126.ph410, i64 %42
-  %44 = sub i32 %.0123.ph412, %.us-phi367
+  %44 = sub nsw i32 %.0123.ph412, %.us-phi367
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %46, label %.lr.ph414
 
@@ -10659,7 +10659,7 @@ define i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi422 = phi i32 [ %91, %.lr.ph446.preheader.preheader ], [ %91, %.lr.ph462.preheader ], [ %107, %.lr.ph446.preheader ], [ %99, %.lr.ph462 ]
   %80 = and i64 %.us-phi421, 2147483647
   %81 = getelementptr inbounds i8, ptr %.0127.ph467, i64 %80
-  %82 = sub i32 %.0128.ph465, %.us-phi422
+  %82 = sub nsw i32 %.0128.ph465, %.us-phi422
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %84, label %.loopexit.sink.split
 
@@ -10894,7 +10894,7 @@ define i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi225 = phi i32 [ %177, %.lr.ph248.preheader.preheader ], [ %177, %.lr.ph264.preheader ], [ %193, %.lr.ph248.preheader ], [ %185, %.lr.ph264 ]
   %166 = and i64 %.us-phi224, 2147483647
   %167 = getelementptr inbounds i8, ptr %.0118.ph268, i64 %166
-  %168 = sub i32 %.0119.ph266, %.us-phi225
+  %168 = sub nsw i32 %.0119.ph266, %.us-phi225
   %169 = icmp sgt i32 %168, 0
   br i1 %169, label %170, label %.lr.ph270
 
@@ -11009,7 +11009,7 @@ define i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi277 = phi i32 [ %215, %.lr.ph301.preheader.preheader ], [ %215, %.lr.ph317.preheader ], [ %231, %.lr.ph301.preheader ], [ %223, %.lr.ph317 ]
   %204 = and i64 %.us-phi276, 2147483647
   %205 = getelementptr inbounds i8, ptr %.0115.ph322, i64 %204
-  %206 = sub i32 %.0116.ph320, %.us-phi277
+  %206 = sub nsw i32 %.0116.ph320, %.us-phi277
   %207 = icmp sgt i32 %206, 0
   br i1 %207, label %208, label %.loopexit.sink.split
 
@@ -11466,7 +11466,7 @@ define i32 @stepd_reconfig(i32 noundef %0, i16 noundef zeroext %1, ptr noundef r
   %.us-phi241 = phi i32 [ %107, %.lr.ph264.preheader.preheader ], [ %107, %.lr.ph280.preheader ], [ %123, %.lr.ph264.preheader ], [ %115, %.lr.ph280 ]
   %134 = and i64 %.us-phi240, 2147483647
   %135 = getelementptr inbounds i8, ptr %.092.ph285, i64 %134
-  %136 = sub i32 %.093.ph283, %.us-phi241
+  %136 = sub nsw i32 %.093.ph283, %.us-phi241
   %137 = icmp sgt i32 %136, 0
   br i1 %137, label %138, label %.lr.ph287
 
@@ -11515,7 +11515,7 @@ define i32 @stepd_reconfig(i32 noundef %0, i16 noundef zeroext %1, ptr noundef r
   %.us-phi295 = phi i32 [ %162, %.lr.ph319.preheader.preheader ], [ %162, %.lr.ph335.preheader ], [ %178, %.lr.ph319.preheader ], [ %170, %.lr.ph335 ]
   %151 = and i64 %.us-phi294, 2147483647
   %152 = getelementptr inbounds i8, ptr %.089.ph340, i64 %151
-  %153 = sub i32 %.090.ph338, %.us-phi295
+  %153 = sub nsw i32 %.090.ph338, %.us-phi295
   %154 = icmp sgt i32 %153, 0
   br i1 %154, label %155, label %.outer._crit_edge
 
@@ -11707,7 +11707,7 @@ define i32 @stepd_terminate(i32 noundef %0, i16 noundef zeroext %1) local_unname
   %.us-phi111 = phi i32 [ %48, %.lr.ph134.preheader.preheader ], [ %48, %.lr.ph150.preheader ], [ %64, %.lr.ph134.preheader ], [ %56, %.lr.ph150 ]
   %37 = and i64 %.us-phi110, 2147483647
   %38 = getelementptr inbounds i8, ptr %.052.ph155, i64 %37
-  %39 = sub i32 %.053.ph153, %.us-phi111
+  %39 = sub nsw i32 %.053.ph153, %.us-phi111
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %.lr.ph157
 
@@ -11822,7 +11822,7 @@ define i32 @stepd_terminate(i32 noundef %0, i16 noundef zeroext %1) local_unname
   %.us-phi164 = phi i32 [ %86, %.lr.ph188.preheader.preheader ], [ %86, %.lr.ph204.preheader ], [ %102, %.lr.ph188.preheader ], [ %94, %.lr.ph204 ]
   %75 = and i64 %.us-phi163, 2147483647
   %76 = getelementptr inbounds i8, ptr %.049.ph209, i64 %75
-  %77 = sub i32 %.050.ph207, %.us-phi164
+  %77 = sub nsw i32 %.050.ph207, %.us-phi164
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %79, label %.outer._crit_edge
 
@@ -12414,7 +12414,7 @@ define i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   %.us-phi344 = phi i32 [ %163, %.lr.ph367.preheader.preheader ], [ %163, %.lr.ph383.preheader ], [ %179, %.lr.ph367.preheader ], [ %171, %.lr.ph383 ]
   %190 = and i64 %.us-phi343, 2147483647
   %191 = getelementptr inbounds i8, ptr %.0129.ph388, i64 %190
-  %192 = sub i32 %.0130.ph386, %.us-phi344
+  %192 = sub nsw i32 %.0130.ph386, %.us-phi344
   %193 = icmp sgt i32 %192, 0
   br i1 %193, label %194, label %.lr.ph390
 
@@ -12463,7 +12463,7 @@ define i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   %.us-phi397 = phi i32 [ %218, %.lr.ph421.preheader.preheader ], [ %218, %.lr.ph437.preheader ], [ %234, %.lr.ph421.preheader ], [ %226, %.lr.ph437 ]
   %207 = and i64 %.us-phi396, 2147483647
   %208 = getelementptr inbounds i8, ptr %.0126.ph442, i64 %207
-  %209 = sub i32 %.0127.ph440, %.us-phi397
+  %209 = sub nsw i32 %.0127.ph440, %.us-phi397
   %210 = icmp sgt i32 %209, 0
   br i1 %210, label %211, label %.loopexit
 
@@ -12773,7 +12773,7 @@ define i32 @stepd_stat_jobacct(i32 noundef %0, i16 noundef zeroext %1, ptr nound
   %.us-phi87 = phi i32 [ %46, %.lr.ph110.preheader.preheader ], [ %46, %.lr.ph126.preheader ], [ %64, %.lr.ph110.preheader ], [ %55, %.lr.ph126 ]
   %75 = and i64 %.us-phi86, 2147483647
   %76 = getelementptr inbounds i8, ptr %.039.ph131, i64 %75
-  %77 = sub i32 %.040.ph129, %.us-phi87
+  %77 = sub nsw i32 %.040.ph129, %.us-phi87
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %79, label %.outer._crit_edge
 
@@ -12914,7 +12914,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
   %.us-phi260 = phi i32 [ %50, %.lr.ph283.preheader.preheader ], [ %50, %.lr.ph299.preheader ], [ %66, %.lr.ph283.preheader ], [ %58, %.lr.ph299 ]
   %39 = and i64 %.us-phi259, 2147483647
   %40 = getelementptr inbounds i8, ptr %.0152.ph302, i64 %39
-  %41 = sub i32 %.0149.ph304, %.us-phi260
+  %41 = sub nsw i32 %.0149.ph304, %.us-phi260
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %.outer179._crit_edge
 
@@ -13108,7 +13108,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
   %.us-phi314 = phi i32 [ %75, %.lr.ph338.preheader.preheader ], [ %75, %.lr.ph354.preheader ], [ %91, %.lr.ph338.preheader ], [ %83, %.lr.ph354 ]
   %102 = and i64 %.us-phi313, 2147483647
   %103 = getelementptr inbounds i8, ptr %.0150.ph359, i64 %102
-  %104 = sub i32 %.0151.ph357, %.us-phi314
+  %104 = sub nsw i32 %.0151.ph357, %.us-phi314
   %105 = icmp sgt i32 %104, 0
   br i1 %105, label %106, label %.outer178._crit_edge
 
@@ -13227,7 +13227,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
   %.us-phi369 = phi i32 [ %114, %.lr.ph393.preheader.preheader ], [ %114, %.lr.ph409.preheader ], [ %130, %.lr.ph393.preheader ], [ %122, %.lr.ph409 ]
   %141 = and i64 %.us-phi368, 2147483647
   %142 = getelementptr inbounds i8, ptr %.0147.ph414, i64 %141
-  %143 = sub i32 %.0148.ph412, %.us-phi369
+  %143 = sub nsw i32 %.0148.ph412, %.us-phi369
   %144 = icmp sgt i32 %143, 0
   br i1 %144, label %145, label %.outer177._crit_edge
 
@@ -13346,7 +13346,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
   %.us-phi424 = phi i32 [ %153, %.lr.ph448.preheader.preheader ], [ %153, %.lr.ph464.preheader ], [ %169, %.lr.ph448.preheader ], [ %161, %.lr.ph464 ]
   %180 = and i64 %.us-phi423, 2147483647
   %181 = getelementptr inbounds i8, ptr %.0144.ph469, i64 %180
-  %182 = sub i32 %.0145.ph467, %.us-phi424
+  %182 = sub nsw i32 %.0145.ph467, %.us-phi424
   %183 = icmp sgt i32 %182, 0
   br i1 %183, label %184, label %.outer176._crit_edge
 
@@ -13509,7 +13509,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
   %.us-phi491 = phi i32 [ %211, %.lr.ph515.preheader.preheader ], [ %211, %.lr.ph531.preheader ], [ %227, %.lr.ph515.preheader ], [ %219, %.lr.ph531 ]
   %238 = and i64 %.us-phi490, 2147483647
   %239 = getelementptr inbounds i8, ptr %.0138.ph536, i64 %238
-  %240 = sub i32 %.0139.ph534, %.us-phi491
+  %240 = sub nsw i32 %.0139.ph534, %.us-phi491
   %241 = icmp sgt i32 %240, 0
   br i1 %241, label %242, label %.outer._crit_edge
 
@@ -13650,7 +13650,7 @@ define range(i32 -1, 1) i32 @stepd_list_pids(i32 noundef %0, i16 noundef zeroext
   %.us-phi119 = phi i32 [ %50, %.lr.ph142.preheader.preheader ], [ %50, %.lr.ph158.preheader ], [ %66, %.lr.ph142.preheader ], [ %58, %.lr.ph158 ]
   %39 = and i64 %.us-phi118, 2147483647
   %40 = getelementptr inbounds i8, ptr %.059.ph163, i64 %39
-  %41 = sub i32 %.060.ph161, %.us-phi119
+  %41 = sub nsw i32 %.060.ph161, %.us-phi119
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %.outer73._crit_edge
 
@@ -13844,7 +13844,7 @@ define range(i32 -1, 1) i32 @stepd_list_pids(i32 noundef %0, i16 noundef zeroext
   %.us-phi173 = phi i32 [ %75, %.lr.ph197.preheader.preheader ], [ %75, %.lr.ph213.preheader ], [ %91, %.lr.ph197.preheader ], [ %83, %.lr.ph213 ]
   %102 = and i64 %.us-phi172, 2147483647
   %103 = getelementptr inbounds i8, ptr %.056.ph218, i64 %102
-  %104 = sub i32 %.057.ph216, %.us-phi173
+  %104 = sub nsw i32 %.057.ph216, %.us-phi173
   %105 = icmp sgt i32 %104, 0
   br i1 %105, label %106, label %.outer._crit_edge
 
@@ -13980,7 +13980,7 @@ define range(i32 -1, 1) i32 @stepd_get_mem_limits(i32 noundef %0, i16 noundef ze
   %.us-phi115 = phi i32 [ %48, %.lr.ph138.preheader.preheader ], [ %48, %.lr.ph154.preheader ], [ %64, %.lr.ph138.preheader ], [ %56, %.lr.ph154 ]
   %37 = and i64 %.us-phi114, 2147483647
   %38 = getelementptr inbounds i8, ptr %.056.ph159, i64 %37
-  %39 = sub i32 %.057.ph157, %.us-phi115
+  %39 = sub nsw i32 %.057.ph157, %.us-phi115
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %.outer68._crit_edge
 
@@ -14165,7 +14165,7 @@ define range(i32 -1, 1) i32 @stepd_get_mem_limits(i32 noundef %0, i16 noundef ze
   %.us-phi168 = phi i32 [ %70, %.lr.ph192.preheader.preheader ], [ %70, %.lr.ph208.preheader ], [ %86, %.lr.ph192.preheader ], [ %78, %.lr.ph208 ]
   %97 = and i64 %.us-phi167, 2147483647
   %98 = getelementptr inbounds i8, ptr %.053.ph213, i64 %97
-  %99 = sub i32 %.054.ph211, %.us-phi168
+  %99 = sub nsw i32 %.054.ph211, %.us-phi168
   %100 = icmp sgt i32 %99, 0
   br i1 %100, label %101, label %.loopexit
 
@@ -14287,7 +14287,7 @@ define i32 @stepd_get_nodeid(i32 noundef %0, i16 noundef zeroext %1) local_unnam
   %.us-phi77 = phi i32 [ %48, %.lr.ph100.preheader.preheader ], [ %48, %.lr.ph116.preheader ], [ %64, %.lr.ph100.preheader ], [ %56, %.lr.ph116 ]
   %37 = and i64 %.us-phi76, 2147483647
   %38 = getelementptr inbounds i8, ptr %.031.ph121, i64 %37
-  %39 = sub i32 %.032.ph119, %.us-phi77
+  %39 = sub nsw i32 %.032.ph119, %.us-phi77
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %.loopexit
 

@@ -4848,13 +4848,13 @@ define void @_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27removeDuplicate
   %15 = zext nneg i32 %6 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %58, %.lr.ph66.preheader
-  %indvars.iv74 = phi i64 [ %15, %.lr.ph66.preheader ], [ %indvars.iv.next75, %58 ]
-  %indvars.iv = phi i64 [ %14, %.lr.ph66.preheader ], [ %indvars.iv.next, %58 ]
-  %.04463 = phi i32 [ 0, %.lr.ph66.preheader ], [ %.145, %58 ]
-  %.04662 = phi i32 [ 0, %.lr.ph66.preheader ], [ %.147, %58 ]
-  %.04960 = phi ptr [ %10, %.lr.ph66.preheader ], [ %20, %58 ]
-  %.05059 = phi ptr [ %12, %.lr.ph66.preheader ], [ %59, %58 ]
+.lr.ph:                                           ; preds = %59, %.lr.ph66.preheader
+  %indvars.iv74 = phi i64 [ %15, %.lr.ph66.preheader ], [ %indvars.iv.next75, %59 ]
+  %indvars.iv = phi i64 [ %14, %.lr.ph66.preheader ], [ %indvars.iv.next, %59 ]
+  %.04463 = phi i32 [ 0, %.lr.ph66.preheader ], [ %.145, %59 ]
+  %.04662 = phi i32 [ 0, %.lr.ph66.preheader ], [ %.147, %59 ]
+  %.04960 = phi ptr [ %10, %.lr.ph66.preheader ], [ %20, %59 ]
+  %.05059 = phi ptr [ %12, %.lr.ph66.preheader ], [ %60, %59 ]
   %indvars.iv.next75 = add nsw i64 %indvars.iv74, -1
   %16 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next75
   %17 = load i32, ptr %16, align 4
@@ -4917,47 +4917,48 @@ define void @_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27removeDuplicate
   br i1 %exitcond.not.i.i.us, label %._crit_edge, label %.lr.ph.i.i.us, !llvm.loop !39
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112doFacesMatchEiPKiS4_.exit.us: ; preds = %33, %.lr.ph.i.i.us, %.lr.ph.split.us
+  %44 = trunc nuw i64 %indvars.iv72 to i32
+  %45 = icmp slt i32 %44, 2
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, -1
-  %44 = icmp slt i64 %indvars.iv72, 2
-  br i1 %44, label %.critedge, label %.lr.ph.split.us, !llvm.loop !40
+  br i1 %45, label %.critedge, label %.lr.ph.split.us, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %42
   %.not = icmp eq i32 %.04463, 0
-  br i1 %.not, label %51, label %45
+  br i1 %.not, label %52, label %46
 
-45:                                               ; preds = %._crit_edge
-  %46 = getelementptr inbounds i8, ptr %.05059, i64 -4
-  %47 = sext i32 %.04463 to i64
-  %48 = shl nsw i64 %47, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %46, ptr align 4 %.05059, i64 %48, i1 false)
-  %49 = sext i32 %.04662 to i64
-  %50 = shl nsw i64 %49, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %20, ptr nonnull align 4 %.04960, i64 %50, i1 false)
-  br label %51
+46:                                               ; preds = %._crit_edge
+  %47 = getelementptr inbounds i8, ptr %.05059, i64 -4
+  %48 = sext i32 %.04463 to i64
+  %49 = shl nsw i64 %48, 2
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %47, ptr align 4 %.05059, i64 %49, i1 false)
+  %50 = sext i32 %.04662 to i64
+  %51 = shl nsw i64 %50, 2
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %20, ptr nonnull align 4 %.04960, i64 %51, i1 false)
+  br label %52
 
-51:                                               ; preds = %45, %._crit_edge
-  %52 = load i32, ptr %3, align 4
-  %53 = add nsw i32 %52, -1
-  store i32 %53, ptr %3, align 4
-  %54 = load i32, ptr %4, align 4
-  %55 = sub nsw i32 %54, %.fr68
-  store i32 %55, ptr %4, align 4
-  br label %58
+52:                                               ; preds = %46, %._crit_edge
+  %53 = load i32, ptr %3, align 4
+  %54 = add nsw i32 %53, -1
+  store i32 %54, ptr %3, align 4
+  %55 = load i32, ptr %4, align 4
+  %56 = sub nsw i32 %55, %.fr68
+  store i32 %56, ptr %4, align 4
+  br label %59
 
 .critedge:                                        ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112doFacesMatchEiPKiS4_.exit.us, %.lr.ph
-  %56 = add nsw i32 %.04463, 1
-  %57 = add nsw i32 %.fr68, %.04662
-  br label %58
+  %57 = add nsw i32 %.04463, 1
+  %58 = add nsw i32 %.fr68, %.04662
+  br label %59
 
-58:                                               ; preds = %.critedge, %51
-  %.147 = phi i32 [ %.04662, %51 ], [ %57, %.critedge ]
-  %.145 = phi i32 [ %.04463, %51 ], [ %56, %.critedge ]
-  %59 = getelementptr inbounds i8, ptr %.05059, i64 -4
-  %60 = icmp sgt i64 %indvars.iv74, 3
+59:                                               ; preds = %.critedge, %52
+  %.147 = phi i32 [ %.04662, %52 ], [ %58, %.critedge ]
+  %.145 = phi i32 [ %.04463, %52 ], [ %57, %.critedge ]
+  %60 = getelementptr inbounds i8, ptr %.05059, i64 -4
+  %61 = icmp sgt i64 %indvars.iv74, 3
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  br i1 %60, label %.lr.ph, label %._crit_edge67, !llvm.loop !41
+  br i1 %61, label %.lr.ph, label %._crit_edge67, !llvm.loop !41
 
-._crit_edge67:                                    ; preds = %58, %5
+._crit_edge67:                                    ; preds = %59, %5
   ret void
 }
 
@@ -5087,7 +5088,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj256ELb1EEC2Ej.exit: ; preds 
   %39 = zext i32 %22 to i64
   %40 = shl nuw nsw i64 %39, 2
   %41 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #19
-          to label %.noexc unwind label %151
+          to label %.noexc unwind label %152
 
 .noexc:                                           ; preds = %38
   store ptr %41, ptr %36, align 8
@@ -5214,14 +5215,14 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit: ; preds =
   %108 = zext nneg i32 %107 to i64
   br label %.lr.ph.i44
 
-.lr.ph.i44:                                       ; preds = %148, %.lr.ph66.preheader.i
-  %.2 = phi i32 [ %11, %.lr.ph66.preheader.i ], [ %.3, %148 ]
-  %indvars.iv74.i = phi i64 [ %105, %.lr.ph66.preheader.i ], [ %indvars.iv.next75.i, %148 ]
-  %indvars.iv.i45 = phi i64 [ %108, %.lr.ph66.preheader.i ], [ %indvars.iv.next.i46, %148 ]
-  %.04463.i = phi i32 [ 0, %.lr.ph66.preheader.i ], [ %.145.i, %148 ]
-  %.04662.i = phi i32 [ 0, %.lr.ph66.preheader.i ], [ %.147.i, %148 ]
-  %.04960.i = phi ptr [ %47, %.lr.ph66.preheader.i ], [ %113, %148 ]
-  %.05059.i = phi ptr [ %106, %.lr.ph66.preheader.i ], [ %149, %148 ]
+.lr.ph.i44:                                       ; preds = %149, %.lr.ph66.preheader.i
+  %.2 = phi i32 [ %11, %.lr.ph66.preheader.i ], [ %.3, %149 ]
+  %indvars.iv74.i = phi i64 [ %105, %.lr.ph66.preheader.i ], [ %indvars.iv.next75.i, %149 ]
+  %indvars.iv.i45 = phi i64 [ %108, %.lr.ph66.preheader.i ], [ %indvars.iv.next.i46, %149 ]
+  %.04463.i = phi i32 [ 0, %.lr.ph66.preheader.i ], [ %.145.i, %149 ]
+  %.04662.i = phi i32 [ 0, %.lr.ph66.preheader.i ], [ %.147.i, %149 ]
+  %.04960.i = phi ptr [ %47, %.lr.ph66.preheader.i ], [ %113, %149 ]
+  %.05059.i = phi ptr [ %106, %.lr.ph66.preheader.i ], [ %150, %149 ]
   %indvars.iv.next75.i = add nsw i64 %indvars.iv74.i, -1
   %109 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv.next75.i
   %110 = load i32, ptr %109, align 4
@@ -5284,260 +5285,261 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit: ; preds =
   br i1 %exitcond.not.i.i.us.i, label %._crit_edge.i, label %.lr.ph.i.i.us.i, !llvm.loop !39
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112doFacesMatchEiPKiS4_.exit.us.i: ; preds = %126, %.lr.ph.i.i.us.i, %.lr.ph.split.us.i
+  %137 = trunc nuw i64 %indvars.iv72.i to i32
+  %138 = icmp slt i32 %137, 2
   %indvars.iv.next73.i = add nsw i64 %indvars.iv72.i, -1
-  %137 = icmp slt i64 %indvars.iv72.i, 2
-  br i1 %137, label %.critedge.i, label %.lr.ph.split.us.i, !llvm.loop !40
+  br i1 %138, label %.critedge.i, label %.lr.ph.split.us.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %135
   %.not.i47 = icmp eq i32 %.04463.i, 0
-  br i1 %.not.i47, label %144, label %138
+  br i1 %.not.i47, label %145, label %139
 
-138:                                              ; preds = %._crit_edge.i
-  %139 = getelementptr inbounds i8, ptr %.05059.i, i64 -4
-  %140 = sext i32 %.04463.i to i64
-  %141 = shl nsw i64 %140, 2
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %139, ptr align 4 %.05059.i, i64 %141, i1 false)
-  %142 = sext i32 %.04662.i to i64
-  %143 = shl nsw i64 %142, 2
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %113, ptr nonnull align 4 %.04960.i, i64 %143, i1 false)
-  br label %144
+139:                                              ; preds = %._crit_edge.i
+  %140 = getelementptr inbounds i8, ptr %.05059.i, i64 -4
+  %141 = sext i32 %.04463.i to i64
+  %142 = shl nsw i64 %141, 2
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %140, ptr align 4 %.05059.i, i64 %142, i1 false)
+  %143 = sext i32 %.04662.i to i64
+  %144 = shl nsw i64 %143, 2
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %113, ptr nonnull align 4 %.04960.i, i64 %144, i1 false)
+  br label %145
 
-144:                                              ; preds = %138, %._crit_edge.i
-  %145 = add nsw i32 %.2, -1
-  br label %148
+145:                                              ; preds = %139, %._crit_edge.i
+  %146 = add nsw i32 %.2, -1
+  br label %149
 
 .critedge.i:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112doFacesMatchEiPKiS4_.exit.us.i, %.lr.ph.i44
-  %146 = add nsw i32 %.04463.i, 1
-  %147 = add nsw i32 %.fr68.i, %.04662.i
-  br label %148
+  %147 = add nsw i32 %.04463.i, 1
+  %148 = add nsw i32 %.fr68.i, %.04662.i
+  br label %149
 
-148:                                              ; preds = %.critedge.i, %144
-  %.3 = phi i32 [ %145, %144 ], [ %.2, %.critedge.i ]
-  %.147.i = phi i32 [ %.04662.i, %144 ], [ %147, %.critedge.i ]
-  %.145.i = phi i32 [ %.04463.i, %144 ], [ %146, %.critedge.i ]
-  %149 = getelementptr inbounds i8, ptr %.05059.i, i64 -4
-  %150 = icmp sgt i64 %indvars.iv74.i, 3
+149:                                              ; preds = %.critedge.i, %145
+  %.3 = phi i32 [ %146, %145 ], [ %.2, %.critedge.i ]
+  %.147.i = phi i32 [ %.04662.i, %145 ], [ %148, %.critedge.i ]
+  %.145.i = phi i32 [ %.04463.i, %145 ], [ %147, %.critedge.i ]
+  %150 = getelementptr inbounds i8, ptr %.05059.i, i64 -4
+  %151 = icmp sgt i64 %indvars.iv74.i, 3
   %indvars.iv.next.i46 = add nsw i64 %indvars.iv.i45, -1
-  br i1 %150, label %.lr.ph.i44, label %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27removeDuplicateControlFacesEPiS3_S3_S3_.exit, !llvm.loop !41
+  br i1 %151, label %.lr.ph.i44, label %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27removeDuplicateControlFacesEPiS3_S3_S3_.exit, !llvm.loop !41
 
-151:                                              ; preds = %38
-  %152 = landingpad { ptr, i32 }
+152:                                              ; preds = %38
+  %153 = landingpad { ptr, i32 }
           cleanup
-  br label %241
+  br label %242
 
-153:                                              ; preds = %211, %205, %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS1_18TopologyDescriptorEE6CreateERKS3_NS4_7OptionsE.exit, %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27sharpenBoundaryControlEdgesEPiPfS3_.exit
-  %154 = landingpad { ptr, i32 }
+154:                                              ; preds = %212, %206, %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS1_18TopologyDescriptorEE6CreateERKS3_NS4_7OptionsE.exit, %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27sharpenBoundaryControlEdgesEPiPfS3_.exit
+  %155 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27removeDuplicateControlFacesEPiS3_S3_S3_.exit: ; preds = %148, %103
-  %.1 = phi i32 [ %11, %103 ], [ %.3, %148 ]
-  %155 = load ptr, ptr %1, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 136
-  %157 = load i16, ptr %156, align 8, !noalias !47
-  %158 = and i16 %157, 1
-  %.not83 = icmp eq i16 %158, 0
-  br i1 %.not83, label %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27sharpenBoundaryControlEdgesEPiPfS3_.exit, label %159
+_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27removeDuplicateControlFacesEPiS3_S3_S3_.exit: ; preds = %149, %103
+  %.1 = phi i32 [ %11, %103 ], [ %.3, %149 ]
+  %156 = load ptr, ptr %1, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 136
+  %158 = load i16, ptr %157, align 8, !noalias !47
+  %159 = and i16 %158, 1
+  %.not83 = icmp eq i16 %159, 0
+  br i1 %.not83, label %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27sharpenBoundaryControlEdgesEPiPfS3_.exit, label %160
 
-159:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27removeDuplicateControlFacesEPiS3_S3_S3_.exit
-  %160 = load ptr, ptr %155, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  %162 = load i32, ptr %161, align 8
-  %163 = icmp sgt i32 %162, 0
-  br i1 %163, label %.lr.ph.i49, label %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27sharpenBoundaryControlEdgesEPiPfS3_.exit
+160:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27removeDuplicateControlFacesEPiS3_S3_S3_.exit
+  %161 = load ptr, ptr %156, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %163 = load i32, ptr %162, align 8
+  %164 = icmp sgt i32 %163, 0
+  br i1 %164, label %.lr.ph.i49, label %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27sharpenBoundaryControlEdgesEPiPfS3_.exit
 
-.lr.ph.i49:                                       ; preds = %159
-  %164 = sext i32 %99 to i64
-  %165 = getelementptr inbounds float, ptr %50, i64 %164
-  %166 = shl nsw i32 %99, 1
-  %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds i32, ptr %49, i64 %167
-  %169 = load float, ptr @_ZN10OpenSubdiv6v3_6_03Sdc6Crease18SHARPNESS_INFINITEE, align 4
-  %170 = zext nneg i32 %162 to i64
-  br label %171
+.lr.ph.i49:                                       ; preds = %160
+  %165 = sext i32 %99 to i64
+  %166 = getelementptr inbounds float, ptr %50, i64 %165
+  %167 = shl nsw i32 %99, 1
+  %168 = sext i32 %167 to i64
+  %169 = getelementptr inbounds i32, ptr %49, i64 %168
+  %170 = load float, ptr @_ZN10OpenSubdiv6v3_6_03Sdc6Crease18SHARPNESS_INFINITEE, align 4
+  %171 = zext nneg i32 %163 to i64
+  br label %172
 
-171:                                              ; preds = %191, %.lr.ph.i49
-  %.178 = phi i32 [ %99, %.lr.ph.i49 ], [ %.279, %191 ]
-  %indvars.iv.i50 = phi i64 [ 0, %.lr.ph.i49 ], [ %indvars.iv.next.i54, %191 ]
-  %.023.i51 = phi ptr [ %168, %.lr.ph.i49 ], [ %.1.i53, %191 ]
-  %.01821.i = phi ptr [ %165, %.lr.ph.i49 ], [ %.119.i, %191 ]
-  %172 = load ptr, ptr %1, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %174, i64 %indvars.iv.i50
-  %176 = load i16, ptr %175, align 4
-  %177 = and i16 %176, 1
-  %.not.i52 = icmp eq i16 %177, 0
-  br i1 %.not.i52, label %191, label %178
+172:                                              ; preds = %192, %.lr.ph.i49
+  %.178 = phi i32 [ %99, %.lr.ph.i49 ], [ %.279, %192 ]
+  %indvars.iv.i50 = phi i64 [ 0, %.lr.ph.i49 ], [ %indvars.iv.next.i54, %192 ]
+  %.023.i51 = phi ptr [ %169, %.lr.ph.i49 ], [ %.1.i53, %192 ]
+  %.01821.i = phi ptr [ %166, %.lr.ph.i49 ], [ %.119.i, %192 ]
+  %173 = load ptr, ptr %1, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
+  %175 = load ptr, ptr %174, align 8
+  %176 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %175, i64 %indvars.iv.i50
+  %177 = load i16, ptr %176, align 4
+  %178 = and i16 %177, 1
+  %.not.i52 = icmp eq i16 %178, 0
+  br i1 %.not.i52, label %192, label %179
 
-178:                                              ; preds = %171
-  %179 = getelementptr inbounds nuw i8, ptr %175, i64 2
-  %180 = load i16, ptr %179, align 2
-  %181 = icmp eq i16 %180, 0
-  br i1 %181, label %182, label %191
+179:                                              ; preds = %172
+  %180 = getelementptr inbounds nuw i8, ptr %176, i64 2
+  %181 = load i16, ptr %180, align 2
+  %182 = icmp eq i16 %181, 0
+  br i1 %182, label %183, label %192
 
-182:                                              ; preds = %178
-  %183 = getelementptr inbounds i8, ptr %.01821.i, i64 4
-  store float %169, ptr %.01821.i, align 4
-  %184 = getelementptr inbounds i8, ptr %.023.i51, i64 4
-  %185 = trunc nuw nsw i64 %indvars.iv.i50 to i32
-  store i32 %185, ptr %.023.i51, align 4
-  %186 = add nuw nsw i64 %indvars.iv.i50, 1
-  %187 = icmp eq i64 %186, %170
-  %188 = trunc nuw nsw i64 %186 to i32
-  %iv.rem.i = select i1 %187, i32 0, i32 %188
-  %189 = getelementptr inbounds i8, ptr %.023.i51, i64 8
-  store i32 %iv.rem.i, ptr %184, align 4
-  %190 = add nsw i32 %.178, 1
-  br label %191
+183:                                              ; preds = %179
+  %184 = getelementptr inbounds i8, ptr %.01821.i, i64 4
+  store float %170, ptr %.01821.i, align 4
+  %185 = getelementptr inbounds i8, ptr %.023.i51, i64 4
+  %186 = trunc nuw nsw i64 %indvars.iv.i50 to i32
+  store i32 %186, ptr %.023.i51, align 4
+  %187 = add nuw nsw i64 %indvars.iv.i50, 1
+  %188 = icmp eq i64 %187, %171
+  %189 = trunc nuw nsw i64 %187 to i32
+  %iv.rem.i = select i1 %188, i32 0, i32 %189
+  %190 = getelementptr inbounds i8, ptr %.023.i51, i64 8
+  store i32 %iv.rem.i, ptr %185, align 4
+  %191 = add nsw i32 %.178, 1
+  br label %192
 
-191:                                              ; preds = %182, %178, %171
-  %.279 = phi i32 [ %.178, %171 ], [ %190, %182 ], [ %.178, %178 ]
-  %.119.i = phi ptr [ %.01821.i, %171 ], [ %183, %182 ], [ %.01821.i, %178 ]
-  %.1.i53 = phi ptr [ %.023.i51, %171 ], [ %189, %182 ], [ %.023.i51, %178 ]
+192:                                              ; preds = %183, %179, %172
+  %.279 = phi i32 [ %.178, %172 ], [ %191, %183 ], [ %.178, %179 ]
+  %.119.i = phi ptr [ %.01821.i, %172 ], [ %184, %183 ], [ %.01821.i, %179 ]
+  %.1.i53 = phi ptr [ %.023.i51, %172 ], [ %190, %183 ], [ %.023.i51, %179 ]
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i50, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i54, %170
-  br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27sharpenBoundaryControlEdgesEPiPfS3_.exit, label %171, !llvm.loop !42
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i54, %171
+  br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27sharpenBoundaryControlEdgesEPiPfS3_.exit, label %172, !llvm.loop !42
 
-_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27sharpenBoundaryControlEdgesEPiPfS3_.exit: ; preds = %191, %159, %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27removeDuplicateControlFacesEPiS3_S3_S3_.exit, %98
-  %.077 = phi i32 [ %99, %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27removeDuplicateControlFacesEPiS3_S3_S3_.exit ], [ %99, %98 ], [ %99, %159 ], [ %.279, %191 ]
-  %.0 = phi i32 [ %.1, %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27removeDuplicateControlFacesEPiS3_S3_S3_.exit ], [ %11, %98 ], [ %.1, %159 ], [ %.1, %191 ]
+_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27sharpenBoundaryControlEdgesEPiPfS3_.exit: ; preds = %192, %160, %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27removeDuplicateControlFacesEPiS3_S3_S3_.exit, %98
+  %.077 = phi i32 [ %99, %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27removeDuplicateControlFacesEPiS3_S3_S3_.exit ], [ %99, %98 ], [ %99, %160 ], [ %.279, %192 ]
+  %.0 = phi i32 [ %.1, %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27removeDuplicateControlFacesEPiS3_S3_S3_.exit ], [ %11, %98 ], [ %.1, %160 ], [ %.1, %192 ]
   invoke void @_ZN10OpenSubdiv6v3_6_03Far18TopologyDescriptorC1Ev(ptr noundef nonnull align 8 dereferenceable(104) %5)
-          to label %192 unwind label %153
+          to label %193 unwind label %154
 
-192:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27sharpenBoundaryControlEdgesEPiPfS3_.exit
+193:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27sharpenBoundaryControlEdgesEPiPfS3_.exit
   store i32 %9, ptr %5, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %.0, ptr %193, align 4
-  %194 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %43, ptr %194, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %45, ptr %195, align 8
+  %194 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 %.0, ptr %194, align 4
+  %195 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %43, ptr %195, align 8
+  %196 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %45, ptr %196, align 8
   %.not = icmp eq i32 %94, 0
-  br i1 %.not, label %200, label %196
+  br i1 %.not, label %201, label %197
 
-196:                                              ; preds = %192
-  %197 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %94, ptr %197, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr %47, ptr %198, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr %42, ptr %199, align 8
-  br label %200
+197:                                              ; preds = %193
+  %198 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i32 %94, ptr %198, align 8
+  %199 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store ptr %47, ptr %199, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store ptr %42, ptr %200, align 8
+  br label %201
 
-200:                                              ; preds = %196, %192
+201:                                              ; preds = %197, %193
   %.not41 = icmp eq i32 %.077, 0
-  br i1 %.not41, label %205, label %201
+  br i1 %.not41, label %206, label %202
 
-201:                                              ; preds = %200
-  %202 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 %.077, ptr %202, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %49, ptr %203, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %50, ptr %204, align 8
-  br label %205
+202:                                              ; preds = %201
+  %203 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i32 %.077, ptr %203, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr %49, ptr %204, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store ptr %50, ptr %205, align 8
+  br label %206
 
-205:                                              ; preds = %201, %200
-  %206 = load ptr, ptr %1, align 8
-  %207 = load ptr, ptr %206, align 8
-  %208 = load i32, ptr %207, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %206, i64 138
-  %.sroa.0.0.copyload.i = load i32, ptr %209, align 2
+206:                                              ; preds = %202, %201
+  %207 = load ptr, ptr %1, align 8
+  %208 = load ptr, ptr %207, align 8
+  %209 = load i32, ptr %208, align 8
+  %210 = getelementptr inbounds nuw i8, ptr %207, i64 138
+  %.sroa.0.0.copyload.i = load i32, ptr %210, align 2
   %.sroa.359.0.insert.ext = zext i32 %.sroa.0.0.copyload.i to i64
   %.sroa.359.0.insert.shift = shl nuw i64 %.sroa.359.0.insert.ext, 32
-  %.sroa.058.0.insert.ext = zext i32 %208 to i64
+  %.sroa.058.0.insert.ext = zext i32 %209 to i64
   %.sroa.058.0.insert.insert = or disjoint i64 %.sroa.359.0.insert.shift, %.sroa.058.0.insert.ext
-  %210 = invoke noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #22
-          to label %.noexc55 unwind label %153
+  %211 = invoke noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #22
+          to label %.noexc55 unwind label %154
 
-.noexc55:                                         ; preds = %205
-  invoke void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefinerC1ENS0_3Sdc10SchemeTypeENS3_7OptionsE(ptr noundef nonnull align 8 dereferenceable(120) %210, i32 noundef %208, i32 %.sroa.0.0.copyload.i)
-          to label %211 unwind label %214
+.noexc55:                                         ; preds = %206
+  invoke void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefinerC1ENS0_3Sdc10SchemeTypeENS3_7OptionsE(ptr noundef nonnull align 8 dereferenceable(120) %211, i32 noundef %209, i32 %.sroa.0.0.copyload.i)
+          to label %212 unwind label %215
 
-211:                                              ; preds = %.noexc55
-  %212 = invoke noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS1_18TopologyDescriptorEE17populateBaseLevelERNS1_15TopologyRefinerERKS3_NS4_7OptionsE(ptr noundef nonnull align 8 dereferenceable(120) %210, ptr noundef nonnull align 8 dereferenceable(104) %5, i64 %.sroa.058.0.insert.insert, i32 0)
-          to label %.noexc56 unwind label %153
+212:                                              ; preds = %.noexc55
+  %213 = invoke noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS1_18TopologyDescriptorEE17populateBaseLevelERNS1_15TopologyRefinerERKS3_NS4_7OptionsE(ptr noundef nonnull align 8 dereferenceable(120) %211, ptr noundef nonnull align 8 dereferenceable(104) %5, i64 %.sroa.058.0.insert.insert, i32 0)
+          to label %.noexc56 unwind label %154
 
-.noexc56:                                         ; preds = %211
-  br i1 %212, label %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS1_18TopologyDescriptorEE6CreateERKS3_NS4_7OptionsE.exit, label %213
+.noexc56:                                         ; preds = %212
+  br i1 %213, label %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS1_18TopologyDescriptorEE6CreateERKS3_NS4_7OptionsE.exit, label %214
 
-213:                                              ; preds = %.noexc56
-  call void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefinerD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %210) #18
-  call void @_ZdlPvm(ptr noundef nonnull %210, i64 noundef 120) #17
+214:                                              ; preds = %.noexc56
+  call void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefinerD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %211) #18
+  call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef 120) #17
   br label %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS1_18TopologyDescriptorEE6CreateERKS3_NS4_7OptionsE.exit
 
-214:                                              ; preds = %.noexc55
-  %215 = landingpad { ptr, i32 }
+215:                                              ; preds = %.noexc55
+  %216 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %210, i64 noundef 120) #17
+  call void @_ZdlPvm(ptr noundef nonnull %211, i64 noundef 120) #17
   br label %.body
 
-_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS1_18TopologyDescriptorEE6CreateERKS3_NS4_7OptionsE.exit: ; preds = %213, %.noexc56
-  %.0.i = phi ptr [ null, %213 ], [ %210, %.noexc56 ]
+_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS1_18TopologyDescriptorEE6CreateERKS3_NS4_7OptionsE.exit: ; preds = %214, %.noexc56
+  %.0.i = phi ptr [ null, %214 ], [ %211, %.noexc56 ]
   store i8 1, ptr %6, align 1
-  %216 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %217 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %218 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  %219 = load i8, ptr %218, align 1
-  %220 = and i8 %219, -4
-  %221 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %222 = load i32, ptr %221, align 8
-  %223 = trunc i32 %222 to i8
-  store i8 %223, ptr %216, align 1
-  %224 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %225 = load i32, ptr %224, align 4
-  %226 = trunc i32 %225 to i8
-  store i8 %226, ptr %217, align 1
-  %227 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %228 = load i8, ptr %227, align 8
-  %229 = shl i8 %228, 1
-  %230 = and i8 %229, 2
-  %231 = or disjoint i8 %230, %220
-  store i8 %231, ptr %218, align 1
+  %217 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %218 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %219 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %220 = load i8, ptr %219, align 1
+  %221 = and i8 %220, -4
+  %222 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %223 = load i32, ptr %222, align 8
+  %224 = trunc i32 %223 to i8
+  store i8 %224, ptr %217, align 1
+  %225 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %226 = load i32, ptr %225, align 4
+  %227 = trunc i32 %226 to i8
+  store i8 %227, ptr %218, align 1
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %229 = load i8, ptr %228, align 8
+  %230 = shl i8 %229, 1
+  %231 = and i8 %230, 2
+  %232 = or disjoint i8 %231, %221
+  store i8 %232, ptr %219, align 1
   invoke void @_ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilderC1ERNS0_3Far15TopologyRefinerERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(120) %.0.i, ptr noundef nonnull align 1 dereferenceable(4) %6)
-          to label %232 unwind label %153
+          to label %233 unwind label %154
 
-232:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS1_18TopologyDescriptorEE6CreateERKS3_NS4_7OptionsE.exit
-  %233 = invoke noundef ptr @_ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder5BuildEv(ptr noundef nonnull align 8 dereferenceable(80) %7)
-          to label %234 unwind label %238
+233:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS1_18TopologyDescriptorEE6CreateERKS3_NS4_7OptionsE.exit
+  %234 = invoke noundef ptr @_ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder5BuildEv(ptr noundef nonnull align 8 dereferenceable(80) %7)
+          to label %235 unwind label %239
 
-234:                                              ; preds = %232
+235:                                              ; preds = %233
   call void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefinerD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %.0.i) #18
   call void @_ZdlPvm(ptr noundef %.0.i, i64 noundef 120) #17
-  store ptr %233, ptr %0, align 8
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEET_(ptr noundef nonnull align 8 dereferenceable(8) %235, ptr noundef %233)
-          to label %_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEC2IS4_vEEPT_.exit unwind label %238
+  store ptr %234, ptr %0, align 8
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEET_(ptr noundef nonnull align 8 dereferenceable(8) %236, ptr noundef %234)
+          to label %_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEC2IS4_vEEPT_.exit unwind label %239
 
-_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEC2IS4_vEEPT_.exit: ; preds = %234
+_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEC2IS4_vEEPT_.exit: ; preds = %235
   call void @_ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #18
-  %236 = load ptr, ptr %36, align 8
-  call void @_ZdlPv(ptr noundef %236) #18
+  %237 = load ptr, ptr %36, align 8
+  call void @_ZdlPv(ptr noundef %237) #18
   store ptr %33, ptr %4, align 8
   store i32 64, ptr %35, align 4
-  %237 = load ptr, ptr %26, align 8
-  call void @_ZdlPv(ptr noundef %237) #18
+  %238 = load ptr, ptr %26, align 8
+  call void @_ZdlPv(ptr noundef %238) #18
   ret void
 
-238:                                              ; preds = %234, %232
-  %239 = landingpad { ptr, i32 }
+239:                                              ; preds = %235, %233
+  %240 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %7) #18
   br label %.body
 
-.body:                                            ; preds = %153, %214, %238
-  %.pn = phi { ptr, i32 } [ %239, %238 ], [ %154, %153 ], [ %215, %214 ]
-  %240 = load ptr, ptr %36, align 8
-  call void @_ZdlPv(ptr noundef %240) #18
+.body:                                            ; preds = %154, %215, %239
+  %.pn = phi { ptr, i32 } [ %240, %239 ], [ %155, %154 ], [ %216, %215 ]
+  %241 = load ptr, ptr %36, align 8
+  call void @_ZdlPv(ptr noundef %241) #18
   store ptr %33, ptr %4, align 8
   store i32 64, ptr %35, align 4
-  br label %241
+  br label %242
 
-241:                                              ; preds = %.body, %151
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %152, %151 ]
-  %242 = load ptr, ptr %26, align 8
-  call void @_ZdlPv(ptr noundef %242) #18
+242:                                              ; preds = %.body, %152
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %153, %152 ]
+  %243 = load ptr, ptr %26, align 8
+  call void @_ZdlPv(ptr noundef %243) #18
   resume { ptr, i32 } %.pn.pn
 }
 

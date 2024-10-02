@@ -616,7 +616,7 @@ define internal noundef i32 @_tree_listen_read(ptr nocapture noundef readonly %0
   %.us-phi38.i = phi i32 [ %39, %.lr.ph61.preheader.i.preheader ], [ %39, %.lr.ph77.i.preheader ], [ %57, %.lr.ph61.preheader.i ], [ %48, %.lr.ph77.i ]
   %68 = and i64 %.us-phi37.i, 2147483647
   %69 = getelementptr inbounds i8, ptr %.020.ph81.i, i64 %68
-  %70 = sub i32 %.021.ph79.i, %.us-phi38.i
+  %70 = sub nsw i32 %.021.ph79.i, %.us-phi38.i
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %72, label %.outer._crit_edge.i
 

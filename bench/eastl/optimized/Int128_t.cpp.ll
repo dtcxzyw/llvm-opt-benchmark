@@ -3808,8 +3808,8 @@ for.inc125:                                       ; preds = %for.body112.us77, %
   %.us-phi = phi i1 [ %spec.select47.us, %for.inc123.us ], [ %spec.select47.us.us, %for.body112.us.us ], [ %spec.select47, %for.inc123 ], [ %spec.select47.us87, %for.body112.us77 ]
   %.us-phi76 = phi ptr [ %pValue.addr.12.us, %for.inc123.us ], [ %incdec.ptr121.us.us, %for.body112.us.us ], [ %pValue.addr.12, %for.inc123 ], [ %incdec.ptr121.us90, %for.body112.us77 ]
   %dec126 = add nsw i32 %i100.0102, -1
-  %cmp102 = icmp sgt i32 %i100.0102, 0
-  br i1 %cmp102, label %for.body103, label %if.end132, !llvm.loop !37
+  %cmp102.not = icmp eq i32 %i100.0102, 0
+  br i1 %cmp102.not, label %if.end132, label %for.body103, !llvm.loop !37
 
 if.end132:                                        ; preds = %for.inc125, %while.body64, %for.body39, %for.inc29, %for.body90.preheader, %for.body.preheader, %while.end, %entry, %if.else95, %if.else
   %pValue.addr.4 = phi ptr [ %incdec.ptr12, %if.else ], [ %incdec.ptr96, %if.else95 ], [ %pValue, %entry ], [ %incdec.ptr57, %while.end ], [ %scevgep132, %for.body.preheader ], [ %scevgep, %for.body90.preheader ], [ %pValue.addr.3, %for.inc29 ], [ %incdec.ptr42, %for.body39 ], [ %incdec.ptr57, %while.body64 ], [ %.us-phi76, %for.inc125 ]
@@ -6584,8 +6584,8 @@ for.inc103:                                       ; preds = %for.body90.us92, %f
   %.us-phi = phi i1 [ %spec.select39.us, %for.inc101.us ], [ %spec.select39.us.us, %for.body90.us.us ], [ %spec.select39, %for.inc101 ], [ %spec.select39.us102, %for.body90.us92 ]
   %.us-phi91 = phi ptr [ %pValue.addr.10.us, %for.inc101.us ], [ %incdec.ptr99.us.us, %for.body90.us.us ], [ %pValue.addr.10, %for.inc101 ], [ %incdec.ptr99.us105, %for.body90.us92 ]
   %dec104 = add nsw i32 %i79.0117, -1
-  %cmp81 = icmp sgt i32 %i79.0117, 0
-  br i1 %cmp81, label %for.body82, label %if.end110, !llvm.loop !60
+  %cmp81.not = icmp eq i32 %i79.0117, 0
+  br i1 %cmp81.not, label %if.end110, label %for.body82, !llvm.loop !60
 
 if.end110:                                        ; preds = %for.inc103, %while.body44, %for.inc29, %while.end.thread, %for.body69.preheader, %for.body.preheader, %while.end, %entry, %if.else74, %if.else
   %pValue.addr.4 = phi ptr [ %incdec.ptr12, %if.else ], [ %incdec.ptr75, %if.else74 ], [ %pValue, %entry ], [ %incdec.ptr41, %while.end ], [ %scevgep149, %for.body.preheader ], [ %scevgep, %for.body69.preheader ], [ %incdec.ptr41154, %while.end.thread ], [ %pValue.addr.3, %for.inc29 ], [ %incdec.ptr41, %while.body44 ], [ %.us-phi91, %for.inc103 ]

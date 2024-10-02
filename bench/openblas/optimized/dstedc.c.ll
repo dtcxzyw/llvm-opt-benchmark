@@ -125,7 +125,7 @@ define void @dstedc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %75 = phi i64 [ %77, %.preheader37 ], [ %69, %68 ]
   %76 = phi i32 [ %78, %.preheader37 ], [ 2, %68 ]
   %77 = lshr i64 %75, 1
-  %78 = mul nsw i32 %76, %76
+  %78 = mul nuw nsw i32 %76, %76
   %79 = and i64 %75, 2
   %80 = icmp eq i64 %79, 0
   %81 = select i1 %80, i32 1, i32 %78
@@ -157,7 +157,7 @@ define void @dstedc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %99 = phi i64 [ %101, %.preheader ], [ %93, %92 ]
   %100 = phi i32 [ %102, %.preheader ], [ 2, %92 ]
   %101 = lshr i64 %99, 1
-  %102 = mul nsw i32 %100, %100
+  %102 = mul nuw nsw i32 %100, %100
   %103 = and i64 %99, 2
   %104 = icmp eq i64 %103, 0
   %105 = select i1 %104, i32 1, i32 %102

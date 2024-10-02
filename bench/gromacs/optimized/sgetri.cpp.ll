@@ -265,7 +265,7 @@ define void @sgetri_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 
 109:                                              ; preds = %._crit_edge._crit_edge, %101
   %.pre-phi242 = phi i64 [ %.pre241, %._crit_edge._crit_edge ], [ %108, %101 ]
-  %110 = sext i32 %.1189 to i64
+  %110 = zext nneg i32 %.1189 to i64
   %111 = getelementptr inbounds float, ptr %19, i64 %110
   %gep188 = getelementptr float, ptr %invariant.gep, i64 %.pre-phi242
   call void @strsm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %14, ptr noundef nonnull %111, ptr noundef nonnull %11, ptr noundef %gep188, ptr noundef nonnull %2)

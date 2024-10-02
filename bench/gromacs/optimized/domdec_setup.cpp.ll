@@ -2412,9 +2412,9 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   br label %.preheader90
 
 .preheader90:                                     ; preds = %._crit_edge106, %.preheader90.lr.ph
-  %.084107 = phi i32 [ %27, %.preheader90.lr.ph ], [ %77, %._crit_edge106 ]
-  %.not = icmp eq i32 %.084107, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+  %.084107 = phi i32 [ %27, %.preheader90.lr.ph ], [ %78, %._crit_edge106 ]
+  %.not115 = icmp eq i32 %.084107, 0
+  br i1 %.not115, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader90
   %.pre = load i32, ptr %11, align 4
@@ -2436,20 +2436,20 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   %40 = icmp sgt i32 %39, -1
   br i1 %40, label %.preheader88, label %.preheader89
 
-.preheader89:                                     ; preds = %.preheader, %._crit_edge
-  br i1 %.not, label %.loopexit, label %.lr.ph105.preheader
+.preheader89:                                     ; preds = %.preheader, %._crit_edge102, %._crit_edge
+  br i1 %.not115, label %.loopexit, label %.lr.ph105.preheader
 
 .lr.ph105.preheader:                              ; preds = %.preheader89
-  %.pre113 = load i32, ptr %11, align 4
+  %.pre114 = load i32, ptr %11, align 4
   br label %.lr.ph105
 
 .preheader88:                                     ; preds = %._crit_edge, %._crit_edge102
   %.082103 = phi i32 [ %72, %._crit_edge102 ], [ %39, %._crit_edge ]
-  %.not114 = icmp eq i32 %.082103, 0
-  br i1 %.not114, label %.preheader87, label %.lr.ph93.preheader
+  %.not = icmp eq i32 %.082103, 0
+  br i1 %.not, label %.preheader87, label %.lr.ph93.preheader
 
 .lr.ph93.preheader:                               ; preds = %.preheader88
-  %.pre109 = load i32, ptr %29, align 4
+  %.pre110 = load i32, ptr %29, align 4
   br label %.lr.ph93
 
 .preheader87:                                     ; preds = %.lr.ph93, %.preheader88
@@ -2460,21 +2460,21 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   br i1 %44, label %.lr.ph95.preheader, label %._crit_edge96
 
 .lr.ph95.preheader:                               ; preds = %.preheader87
-  %.pre110 = load i32, ptr %30, align 4
+  %.pre111 = load i32, ptr %30, align 4
   br label %.lr.ph95
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
-  %45 = phi i32 [ %47, %.lr.ph93 ], [ %.pre109, %.lr.ph93.preheader ]
+  %45 = phi i32 [ %47, %.lr.ph93 ], [ %.pre110, %.lr.ph93.preheader ]
   %.08192 = phi i32 [ %48, %.lr.ph93 ], [ 0, %.lr.ph93.preheader ]
   %46 = load i32, ptr %9, align 4
   %47 = mul nsw i32 %45, %46
   store i32 %47, ptr %29, align 4
   %48 = add nuw nsw i32 %.08192, 1
-  %49 = icmp slt i32 %48, %.082103
+  %49 = icmp ult i32 %48, %.082103
   br i1 %49, label %.lr.ph93, label %.preheader87, !llvm.loop !19
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
-  %50 = phi i32 [ %52, %.lr.ph95 ], [ %.pre110, %.lr.ph95.preheader ]
+  %50 = phi i32 [ %52, %.lr.ph95 ], [ %.pre111, %.lr.ph95.preheader ]
   %.08094 = phi i32 [ %53, %.lr.ph95 ], [ 0, %.lr.ph95.preheader ]
   %51 = load i32, ptr %9, align 4
   %52 = mul nsw i32 %50, %51
@@ -2493,18 +2493,18 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   br i1 %59, label %.lr.ph99.preheader, label %.preheader
 
 .lr.ph99.preheader:                               ; preds = %._crit_edge96
-  %.pre111 = load i32, ptr %30, align 4
+  %.pre112 = load i32, ptr %30, align 4
   br label %.lr.ph99
 
 .preheader:                                       ; preds = %.lr.ph99, %._crit_edge96
-  br i1 %.not114, label %.preheader89, label %.lr.ph101.preheader
+  br i1 %.not, label %.preheader89, label %.lr.ph101.preheader
 
 .lr.ph101.preheader:                              ; preds = %.preheader
-  %.pre112 = load i32, ptr %29, align 4
+  %.pre113 = load i32, ptr %29, align 4
   br label %.lr.ph101
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %.lr.ph99
-  %60 = phi i32 [ %62, %.lr.ph99 ], [ %.pre111, %.lr.ph99.preheader ]
+  %60 = phi i32 [ %62, %.lr.ph99 ], [ %.pre112, %.lr.ph99.preheader ]
   %.07997 = phi i32 [ %63, %.lr.ph99 ], [ 0, %.lr.ph99.preheader ]
   %61 = load i32, ptr %9, align 4
   %62 = sdiv i32 %60, %61
@@ -2516,31 +2516,32 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   br i1 %66, label %.lr.ph99, label %.preheader, !llvm.loop !21
 
 .lr.ph101:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101
-  %67 = phi i32 [ %69, %.lr.ph101 ], [ %.pre112, %.lr.ph101.preheader ]
+  %67 = phi i32 [ %69, %.lr.ph101 ], [ %.pre113, %.lr.ph101.preheader ]
   %.078100 = phi i32 [ %70, %.lr.ph101 ], [ 0, %.lr.ph101.preheader ]
   %68 = load i32, ptr %9, align 4
   %69 = sdiv i32 %67, %68
   store i32 %69, ptr %29, align 4
   %70 = add nuw nsw i32 %.078100, 1
-  %71 = icmp slt i32 %70, %.082103
+  %71 = icmp ult i32 %70, %.082103
   br i1 %71, label %.lr.ph101, label %._crit_edge102, !llvm.loop !22
 
 ._crit_edge102:                                   ; preds = %.lr.ph101
   %72 = add nsw i32 %.082103, -1
-  br label %.preheader88, !llvm.loop !23
+  %73 = icmp sgt i32 %.082103, 0
+  br i1 %73, label %.preheader88, label %.preheader89, !llvm.loop !23
 
 .lr.ph105:                                        ; preds = %.lr.ph105.preheader, %.lr.ph105
-  %73 = phi i32 [ %75, %.lr.ph105 ], [ %.pre113, %.lr.ph105.preheader ]
-  %.0104 = phi i32 [ %76, %.lr.ph105 ], [ 0, %.lr.ph105.preheader ]
-  %74 = load i32, ptr %9, align 4
-  %75 = sdiv i32 %73, %74
-  store i32 %75, ptr %11, align 4
-  %76 = add nuw nsw i32 %.0104, 1
-  %exitcond108.not = icmp eq i32 %76, %.084107
-  br i1 %exitcond108.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !24
+  %74 = phi i32 [ %76, %.lr.ph105 ], [ %.pre114, %.lr.ph105.preheader ]
+  %.0104 = phi i32 [ %77, %.lr.ph105 ], [ 0, %.lr.ph105.preheader ]
+  %75 = load i32, ptr %9, align 4
+  %76 = sdiv i32 %74, %75
+  store i32 %76, ptr %11, align 4
+  %77 = add nuw nsw i32 %.0104, 1
+  %exitcond109.not = icmp eq i32 %77, %.084107
+  br i1 %exitcond109.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !24
 
 ._crit_edge106:                                   ; preds = %.lr.ph105
-  %77 = add nsw i32 %.084107, -1
+  %78 = add nsw i32 %.084107, -1
   br label %.preheader90, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader89, %26, %15, %22, %25

@@ -1507,12 +1507,12 @@ if.end4:                                          ; preds = %entry.if.end4_crit_
   %sfp.val48 = phi ptr [ %sfp.val48.pre, %entry.if.end4_crit_edge ], [ %sfp.val50, %if.then ]
   %sfp.promoted = phi ptr [ %0, %entry.if.end4_crit_edge ], [ %incdec.ptr, %if.then ]
   %sign.0 = phi i64 [ 1, %entry.if.end4_crit_edge ], [ -1, %if.then ]
-  %sfp.val4893 = ptrtoint ptr %sfp.val48 to i64
+  %sfp.val4892 = ptrtoint ptr %sfp.val48 to i64
   %cmp.i51.not = icmp eq ptr %sfp.promoted, %sfp.val48
   br i1 %cmp.i51.not, label %if.else, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end4
-  %sfp.promoted94 = ptrtoint ptr %sfp.promoted to i64
+  %sfp.promoted93 = ptrtoint ptr %sfp.promoted to i64
   br label %for.body
 
 if.else:                                          ; preds = %if.end4
@@ -1541,22 +1541,18 @@ if.end16:                                         ; preds = %sw.bb
   %incdec.ptr21 = getelementptr inbounds i8, ptr %sfp.val457072, i64 1
   store ptr %incdec.ptr21, ptr %sfp, align 8
   %cmp.i53.not = icmp eq ptr %incdec.ptr21, %sfp.val48
-  br i1 %cmp.i53.not, label %for.end.thread, label %for.body, !llvm.loop !12
+  br i1 %cmp.i53.not, label %if.then32, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body
   %cmp22 = icmp eq i64 %len.074, 0
   br i1 %cmp22, label %return, label %lor.lhs.false
 
-for.end.thread:                                   ; preds = %if.end16
-  %cmp2259 = icmp eq ptr %sfp.val48, %sfp.promoted
-  br i1 %cmp2259, label %return, label %if.then32
-
 lor.lhs.false:                                    ; preds = %for.end
   %cmp30.not = icmp eq i8 %3, 46
   br i1 %cmp30.not, label %if.end38, label %if.then32
 
-if.then32:                                        ; preds = %for.end.thread, %lor.lhs.false
-  %value.069 = phi i64 [ %add, %for.end.thread ], [ %value.073, %lor.lhs.false ]
+if.then32:                                        ; preds = %if.end16, %lor.lhs.false
+  %value.069 = phi i64 [ %value.073, %lor.lhs.false ], [ %add, %if.end16 ]
   %tobool33.not = icmp eq ptr %dest, null
   br i1 %tobool33.not, label %return, label %if.then34
 
@@ -1578,8 +1574,8 @@ for.cond45.preheader:                             ; preds = %if.end38
   br i1 %cmp.i57.not77, label %for.end68, label %for.body49.preheader
 
 for.body49.preheader:                             ; preds = %for.cond45.preheader
-  %4 = xor i64 %sfp.promoted94, -1
-  %5 = add i64 %4, %sfp.val4893
+  %4 = xor i64 %sfp.promoted93, -1
+  %5 = add i64 %4, %sfp.val4892
   br label %for.body49
 
 for.body49:                                       ; preds = %for.body49.preheader, %if.end57
@@ -1592,8 +1588,8 @@ for.body49:                                       ; preds = %for.body49.preheade
   br i1 %switch41, label %sw.bb52, label %for.end68
 
 sw.bb52:                                          ; preds = %for.body49
-  %exitcond95 = icmp eq i64 %len.179, 15
-  br i1 %exitcond95, label %return, label %if.end57
+  %exitcond94 = icmp eq i64 %len.179, 15
+  br i1 %exitcond94, label %return, label %if.end57
 
 if.end57:                                         ; preds = %sw.bb52
   %inc53 = add nuw nsw i64 %len.179, 1
@@ -1638,14 +1634,14 @@ switch.lookup:                                    ; preds = %if.then78
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %switch.lookup, %if.then34
-  %.sink107 = phi i64 [ 8, %if.then34 ], [ 16, %switch.lookup ]
+  %.sink106 = phi i64 [ 8, %if.then34 ], [ 16, %switch.lookup ]
   %.sink = phi i64 [ %mul36, %if.then34 ], [ %switch.load, %switch.lookup ]
-  %denom88 = getelementptr inbounds i8, ptr %dest, i64 %.sink107
+  %denom88 = getelementptr inbounds i8, ptr %dest, i64 %.sink106
   store i64 %.sink, ptr %denom88, align 8
   br label %return
 
-return:                                           ; preds = %sw.bb, %sw.bb52, %if.then78, %return.sink.split, %for.end.thread, %if.end76, %for.end68, %lor.lhs.false71, %if.end38, %if.then32, %for.end, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %for.end ], [ 0, %if.then32 ], [ -1, %if.end38 ], [ -1, %lor.lhs.false71 ], [ -1, %for.end68 ], [ 0, %if.then78 ], [ 0, %if.end76 ], [ -1, %for.end.thread ], [ 0, %return.sink.split ], [ -1, %sw.bb52 ], [ -1, %sw.bb ]
+return:                                           ; preds = %sw.bb, %sw.bb52, %if.then78, %return.sink.split, %if.end76, %for.end68, %lor.lhs.false71, %if.end38, %if.then32, %for.end, %if.then
+  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %for.end ], [ 0, %if.then32 ], [ -1, %if.end38 ], [ -1, %lor.lhs.false71 ], [ -1, %for.end68 ], [ 0, %if.then78 ], [ 0, %if.end76 ], [ 0, %return.sink.split ], [ -1, %sw.bb52 ], [ -1, %sw.bb ]
   ret i32 %retval.0
 }
 

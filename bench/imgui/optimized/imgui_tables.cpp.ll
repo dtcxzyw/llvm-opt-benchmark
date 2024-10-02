@@ -11905,13 +11905,13 @@ for.cond87.preheader:                             ; preds = %if.end85, %for.inc1
   %67 = phi i32 [ %137, %for.inc193 ], [ %64, %if.end85 ]
   %68 = phi i32 [ %138, %for.inc193 ], [ %64, %if.end85 ]
   %max_x.0223 = phi float [ %max_x.1.lcssa, %for.inc193 ], [ 0.000000e+00, %if.end85 ]
-  %pass.0222 = phi i32 [ %inc194, %for.inc193 ], [ 0, %if.end85 ]
+  %cmp86 = phi i1 [ false, %for.inc193 ], [ true, %if.end85 ]
+  %pass.0222 = phi i1 [ true, %for.inc193 ], [ false, %if.end85 ]
   %cmp88217 = icmp sgt i32 %68, 0
   br i1 %cmp88217, label %for.body89.lr.ph, label %for.inc193
 
 for.body89.lr.ph:                                 ; preds = %for.cond87.preheader
-  %trunc = trunc i32 %pass.0222 to i1
-  br i1 %trunc, label %for.body89, label %for.body89.us
+  br i1 %pass.0222, label %for.body89, label %for.body89.us
 
 for.body89.us:                                    ; preds = %for.body89.lr.ph, %for.inc.us
   %69 = phi i32 [ %105, %for.inc.us ], [ %66, %for.body89.lr.ph ]
@@ -12215,9 +12215,7 @@ for.inc193:                                       ; preds = %for.inc.us, %for.in
   %137 = phi i32 [ %67, %for.cond87.preheader ], [ %134, %for.inc ], [ %106, %for.inc.us ]
   %138 = phi i32 [ %68, %for.cond87.preheader ], [ %134, %for.inc ], [ %106, %for.inc.us ]
   %max_x.1.lcssa = phi float [ %max_x.0223, %for.cond87.preheader ], [ %max_x.0223, %for.inc ], [ %max_x.2.us, %for.inc.us ]
-  %inc194 = add nuw nsw i32 %pass.0222, 1
-  %exitcond.not = icmp eq i32 %inc194, 2
-  br i1 %exitcond.not, label %for.end195, label %for.cond87.preheader, !llvm.loop !55
+  br i1 %cmp86, label %for.cond87.preheader, label %for.end195, !llvm.loop !55
 
 for.end195:                                       ; preds = %for.inc193, %if.end85
   %.us-phi224 = phi float [ 0.000000e+00, %if.end85 ], [ %max_x.1.lcssa, %for.inc193 ]

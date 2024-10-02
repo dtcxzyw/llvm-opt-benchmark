@@ -112,7 +112,7 @@ define void @dlaed7_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %86 = phi i64 [ %88, %.preheader11 ], [ %80, %79 ]
   %87 = phi i32 [ %89, %.preheader11 ], [ 2, %79 ]
   %88 = lshr i64 %86, 1
-  %89 = mul nsw i32 %87, %87
+  %89 = mul nuw nsw i32 %87, %87
   %90 = and i64 %86, 2
   %91 = icmp eq i64 %90, 0
   %92 = select i1 %91, i32 1, i32 %89
@@ -155,7 +155,7 @@ define void @dlaed7_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %117 = phi i64 [ %119, %.preheader ], [ %106, %110 ]
   %118 = phi i32 [ %120, %.preheader ], [ 2, %110 ]
   %119 = lshr i64 %117, 1
-  %120 = mul nsw i32 %118, %118
+  %120 = mul nuw nsw i32 %118, %118
   %121 = and i64 %117, 2
   %122 = icmp eq i64 %121, 0
   %123 = select i1 %122, i32 1, i32 %120
